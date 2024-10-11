@@ -47,9 +47,33 @@
 %%
 \documentclass[sigconf]{acmart}
 
+\usepackage{algorithm}
+\usepackage{algorithmic}
+ 
+
+ 
 \usepackage{subcaption}
 \usepackage{listings}
+\lstset{literate=%
+    {Ö}{{\"O}}1
+    {Ä}{{\"A}}1
+    {Ü}{{\"U}}1
+    {ß}{{\ss}}1
+    {ü}{{\"u}}1
+    {ä}{{\"a}}1
+    {ö}{{\"o}}1
+    {~}{{\textasciitilde}}1
+}
 
+\lstset{
+    numbers=left, % Zeilennummern links anzeigen
+    numberstyle=\small, % Schriftgröße der Zeilennummern
+    stepnumber=1, % Jede Zeile nummerieren
+    basicstyle=\ttfamily, % Monospace-Schriftart verwenden
+    frame=single, % Rahmen um den Code
+    breaklines=true, % Automatische Zeilenumbrüche
+    breakatwhitespace=true, % Zeilen an Leerzeichen umbrechen
+}
 
 %%
 %% \BibTeX command to typeset BibTeX logo in the docs
@@ -120,8 +144,9 @@
 %% 
 %% The "title" command has an optional parameter,
 %% allowing the author to define a "short title" to be used in page headers.
-\title{We Slashed the File Size of the German Statistical Office (Destatis) Excel Sheets by 99.9\% – Introducing 'Excel Shrink'}
-
+\title{Excel Shrink: Reducing File Bloat in Destatis Excel Spreadsheets by Up to 99.99\%}
+ 
+       
 %%
 %% The "author" command and its associated commands are used to define
 %% the authors and their affiliations.
@@ -204,12 +229,15 @@
 %% information and the body of the document, and typically spans the
 %% page.
 \begin{teaserfigure}
-  \includegraphics[width=\textwidth]{images/excel_shrink/cols/col_scrollbar_arrow.png}
-  \caption{Seattle Mariners at Spring Training, 2010.}
+  \includegraphics[width=\textwidth]{images/charts/distribution_of_size_reduction.pdf}
+  \caption{Distribution of Size Reduction Percentages for Excel Sheets}
   \Description{Enjoying the baseball game from the third-base
   seats. Ichiro Suzuki preparing to bat.}
   \label{fig:teaser}
 \end{teaserfigure}
+
+
+ 
 
 \received{20 February 2007}
 \received[revised]{12 March 2009}
@@ -222,229 +250,51 @@
 
 \section{Introduction}
 
-\section{Related Work}
-\subsection{Inquire}
-\subsection{NXPowerLite Desktop}
+Excel Dateien werden viel als Datenaustauschformat eingesetzt.
+Andere Datenformate wie etwa csv Dateien machen offensichtlich,
+was in der Datei gespeichert ist. Das was der Nutzer sieht, ist gleichzeitig der Inhalt der Datei.
 
+Excel dagegen speichert die Daten in in einer Menge von .xml Dateien ab,
+welche sich ein üblicher nutzer nicht ansieht.
+Diese xml Dateien nutzen einige Mechanismen, um die Dateigröße zu verringer.
+Beispielsweise werden wiederkehrende Texte zentral in einer Datei abgelegt
+ abgelegt und über eine id referenzierbar gemacht und die Zellen,
+ die diesen Text enhalten sollen speichern lediglich den numerischen Index
+des texts Ab.
 
-%\section{Methodology}
+Das gleiche gilt für Formate wie die angewandte schriftart, die schriftgröße,
+vordergrund und hintergrundfarben, sowie border und weiteres.
 
-\section{Getting the Data}
-\subsection{Scraping the Excel Files from Destatis}
-\subsection{Zwischenspeichern}
+Beim Öffnen der Excel Datei werden alle diese verknüpfungen zu den wiederkehrenden Texten
+und Formaten aufgelöst sodass der Nutzer die sein Arbeitsblatt wie gewohnt angezeigt bekommt
+ohne dass der Benutzer etwas von der speichereffizienten Ablegung dieser Daten etwas bemerkt. 
 
+Weiterhin werden alle diese .xml Datei zu einer archivdatei gebündelt und mit dem zip kompressionsalgoritmus 
+komprimiert. Somit können die Dateien nochmal deutlich an Dateigröße einsparen, denn der kompressionsalgorithmus funktiniert besonders gut bei text-Dateien, welche viele wiederkehrende muster aufweisen.
+So enthalten die xml dateien xml tags wie <row> und <c> für eine Zelle die sich sehr häufig wiederholen, jedoch nehmen diese xml tags in einer text-datei wie xml so viel platz ein, wie die einzelnen buchstaben an 
+dateispeicher benötigen. Der Zip kompressionsalgoritmus erkennt diese wiederkehrenden muster und legt besonders
+häufig auftauchende unter einem besonders kurzen schlüssel ab. Auf diese Weise kann die Dateigröße aller xml Dateien
+dieser excel Datei nocheinmal erheblich in der Dateigröße verringert werden.
 
-\section{Löschen von leeren Spalten}
+Doch diese mechanismen, die representation der Datei vom tatsächlich gespeicherten Dateiinhalt zu trennen hat seine Nachteile. So führt der Umstand, dass Benutzer von Excel rein optisch nicht unterscheiden können,
+ob eine leere Zelle ein Format hat oder nicht, dass eine Datei viel Dateispeicher beanspruchen für
+Zellen der der Nutzer kein Interesse hat, sie zu behalten. Übliche Praktiken, die ein benutzer von Excel verwendet
+um ein arbeitsblatt zu gestalten, können zu erheblichen Dateigröße erhöhung führen.
+so wählt man als benutzer nicht selten eine Spanne von Zellen um ihnen eine spezielle Schriftart festzulegen.
+Dabei markiert man eventuell bereits eine ganze menge mehr Zellen,
+und füllt die Daten ein, weil man sich denkt,
+dass man das überschüssige Format später wieder löschen kann.
 
-\subsection{xml Struktur von Excel Dateien}
+Nicht selten duplizieren nutzer auch Excel Arbeitsblätter, weil sie bereits das richtige Layout haben und dann füllen sie andere werte ein. Das neue Arbeitsblatt kann aber auch weniger Daten enthalten, als das vorherige-
+Manch ein benutzer fühlt sich vielleicht sicher,
+dass er die überschüssigen Formate entfernt hat,
+da er die  zuviel übertragenen zellen  markiert und die entfernen taste drückt.
+Das entfernen von den ursprünglihen Inhalten könnte ihm das gefühl
+geben dass in der Tat die Zellen gelöscht wurden.
+Auch wenn die Zellen zuvor keine Werte enthielten, geschiet optisch für den Benutzer beim drücken der entfernen taste
+gar nichts und er ist vielleicht einfach nur in dem Glauben, dass die Formate gelöscht wurden.
 
-\subsection{Worksheet Dateien}
-
-\subsection{Wie Spaten in xml definiert sind}
-
-
-\section{Löschen leerer Zeilen}
-\subsection{Wie Zeilen in xml definiert sind}
-
-\subsection{Wie Zellen in xml definiert sind}
-
-Wir können Zellen aber nicht enach löschen,
-wenn sie einfach nur keine Werte enthalten.
-Für mache Zellen ist ein Border definiert.
-Werden diese Zellen gelöscht,
-verschwinden beispielsweise die Umrandungen von
-Tabellenheadern. Dies ist in Abbildungen XXX und 
-YYY zu sehen. In Abbildung XXX sind alle Umrandungen
-um die Zellen er Tabellen-Header. In Abbildung YYY
-sind nur die Umrandngen sichtbar,
-die an an Zellen mit Inhalt grenzen.
-So fehlt beispielsweise der Border zwischen den  Zellen A2, A3.
-
-
-Die Zelle A2 sieht im XML aus,
-wie in Listng \ref{lst:sheet-xml-a2} zu sehen.
-Um die Borders zu erhalten,
-muss man sich bei den einzelnen Zellen das argument "s"
-ansehen. Er definiert den für die Zelle zugrundeliegende
-Zellformatierung, welche wiederum die id für die border-definition enthält. Die Ziffer definiert den index der
-Formatierung. In unserem Beispiel ist für die Zelle A2
- der definierte Style mit dem Index 28 gesetzt.
- 
-
-
- Den Style findet man in der styles.xml Datei.
- Dort befindet sich der Knoten cellXfs und darin die einzelnen styles als
- xf Knoten. Die Knoten haben keine explizierte id,
- stattdessen wird id anhand der reihenfolge der Liste definiert.
- der erste xf Knoten hat die implizite id 0, der zweite Knoten die id 1
- und so weiter. Um den xf Knoten mit der id 28 zu finde,
- muss also der 29. xf Knoten gefunden werden. Dieser ist in Listing
- \ref{lst:style-xml-xf-29} zu sehen. 
-
- Dieser xf knoten hat für das Attribut borderId den Index 4 gesetzt.
- Genau so wie auch schon für die Zell Styles bedeutet dieser Index,
- dass der 5. border Knoten in dem Knoten borders inderselben
- styles Datei gemeint ist. Listing \ref{lst:style-xml-borders} zeigt den knoten borders sowie
- den ersten border knoten der wiederum die implizite id 0 erhält.
- Jeder border knoten hat die unterknoten left, right, top, bottom und diagonal. Wenn diese Knoten keine Atribute bzw keine unterknoten haben, dann bedeutet dies, das die Zelle keine Border hat.
- Listing \ref{lst:style-xml-border-5} zeigt den 5. border Knoten
- mit der impliziten id 4.
- Dort hat der Knoten bottom
-  das attribut style mit dem wert "thin".
- weiterhin hat der  knoten  den unterknoten
-  color mit dem attribut indexed und dem wert "64".
-  Das bedeutet, dass die zugeordnete Zelle eine dünne Linie  unten
-  mit der gleichen Farbe hat,
-  welcher der Index 64 zugeordnet ist.
-   In diesem Fall ist das die Farbe schwarz.
-   Zellen, für die über diesen  Weg herrausgefunden wird, dass sie ein border haben, dürfen nicht gelöscht werden.
-   Nur wenn eine Zelle sowohl keine Inhalt hat, als auch einen border knoten zugewiesen hat, dessen Knoten alle keine attribute haben, um anzuzeigen, dass sie kein Border haben, dürfen gelöscht werden.
-
-
- \lstset{ 
-  numbers=left, 
-  numberstyle=\small, 
-  stepnumber=1, 
-  numbersep=-7pt, 
-  basicstyle=\ttfamily, 
-  breaklines=true, 
-  breakatwhitespace=true,
-}
-
-\begin{lstlisting}[caption={Zell-Styles in der style.xml}, firstnumber=280]
-<cellXfs count="48">
-  <xf numFmtId="0" fontId="0" fillId="0" borderId="0" xfId="0" />
-  <!-- ... -->
-\end{lstlisting}
-
-\begin{lstlisting}[caption={Style der id 30 in der style.xml}, label={lst:style-xml-xf-29}, firstnumber=378]
-<xf numFmtId="0" fontId="4" fillId="2" borderId="4" xfId="0" applyFont="1" applyFill="1"
-  applyBorder="1" applyAlignment="1" />
-\end{lstlisting}
-
-\lstset{
-  numbers=left, % Zeilennummern links anzeigen
-  numberstyle=\small, % Schriftgröße der Zeilennummern
-  stepnumber=1, % Jede Zeile nummerieren
-  numbersep=-7pt, % Abstand der Zeilennummern vom Code
-  basicstyle=\ttfamily, % Monospace-Schriftart verwenden
-  % frame=single, % Rahmen um den Code
-  breaklines=true, % Automatische Zeilenumbrüche
-  breakatwhitespace=true, % Zeilen an Leerzeichen umbrechen
-}
-\begin{lstlisting}[caption={Die Zelle A2 in der sheetXXXXXXX.xml}, label={lst:sheet-xml-a2}, firstnumber=48]
-  <c r="A2" s="28" />
-\end{lstlisting}
-
-
-
-Ähnliches Gilt für die Zeilen.
-Wenn eine Zeile keine definierte Zellen hat,
-kann es immernoc sein,
-dass die Zeile eine definierte Höhe hat.
-Wir die Zeile gelöscht,
-passiert das, was in Abbildung YYY zu sehen ist.
-Der Abstand zwischen der Überschrift und der taelle schrumpt,
-da die zweile Zeile,
-die als Abstand zwischen Überschrift
-und Tabelle diente gelöscht ist
-und für diese Zeile die Standardhöhe für Zeilen
-in diesem Arbeitsblattes  angewendet wird,
-welche kleiner ist,
-als die benutzerdefinierte Höhe der Zeile.
-
-
-\begin{figure}[ht]
-  \centering
-  \includegraphics[width=0.5\textwidth]{images/excel_shrink/borders/borders_original.png}
-  \caption[Originale Version mit korrekten Zell-Borders und Zeilenabständen]{Originale Version mit korrekten Zell-Borders und Zeilenabständen, Source: verkehrsunfaelle-zeitreihen-xlsx-5462403 Sheet: 2\_(1)}
-  \label{fig:cell_borders_row_height_original}
-\end{figure}%
-
- 
-\lstset{
-  numbers=left, % Zeilennummern links anzeigen
-  numberstyle=\small, % Schriftgröße der Zeilennummern
-  stepnumber=1, % Jede Zeile nummerieren
-  numbersep=-7pt, % Abstand der Zeilennummern vom Code
-  basicstyle=\ttfamily, % Monospace-Schriftart verwenden
-  % frame=single, % Rahmen um den Code
-  breaklines=true, % Automatische Zeilenumbrüche
-  breakatwhitespace=true, % Zeilen an Leerzeichen umbrechen
-}
-\begin{lstlisting}[caption={}]
-  <row r="2" spans="1:12" ht="8.25" customHeight="1">
-\label{fig:custom_height}
-\end{lstlisting}
-
-
-
-
-
-\lstset{
-  numbers=left, % Zeilennummern links anzeigen
-  numberstyle=\small, % Schriftgröße der Zeilennummern
-  stepnumber=1, % Jede Zeile nummerieren
-  numbersep=-7pt, % Abstand der Zeilennummern vom Code
-  basicstyle=\ttfamily, % Monospace-Schriftart verwenden
-  % frame=single, % Rahmen um den Code
-  breaklines=true, % Automatische Zeilenumbrüche
-  breakatwhitespace=true, % Zeilen an Leerzeichen umbrechen
-}
-\begin{lstlisting}[caption={Der borders Knoten in der style.xml Datei}, label={lst:style-xml-borders}, firstnumber=134]
-<borders count="12">
-  <border>
-      <left />
-      <right />
-      <top />
-      <bottom />
-      <diagonal />
-  </border>
-\end{lstlisting}
-
-\begin{lstlisting}[caption={Der border Knoten mit der impliziten id 4 in der style.xml Datei}, label={lst:style-xml-border-5}, firstnumber=171]
-  <border>
-  <left />
-  <right />
-  <top />
-  <bottom style="thin">
-      <color indexed="64" />
-  </bottom>
-  <diagonal />
-</border>
-  \end{lstlisting}
-
-
-
-
-
-\begin{figure}[ht]
-  \centering
-  \includegraphics[width=0.5\textwidth]{images/excel_shrink/borders/borders_fail.png}
-  \caption[Fehlerhafte Entfernung von Zellen mit Zell-Borders und Klschung von Zeilen mit benutzerdefinierter Höhe]{Fehlerhafte Entfernung von Zellen mit Zell-Borders und Klschung von Zeilen mit benutzerdefinierter Höhe, Source: verkehrsunfaelle-zeitreihen-xlsx-5462403 Sheet: 2\_(1)}
-  \label{fig:cell_borders_row_height_fail}
-\end{figure}%
-
-\subsubsection{Wie wiederkehrende Inhalte abgeegt sind (Shared Strings)}
-\subsubsection{Wie Formatierungen abgelegt sindf (Styles Datei)}
-
-\section{Löschen von White Spaces}
-
-\section{Evaluation}
-
-\subsection{Datei-Größe}
-
-\subsection{Dauer die Datei zu öffnen}
-
-\section{Flutter Frontend für Ease of Use}
-
-\section{Conclusion}
-
-
-
- 
-
-\section{Scraping Destatis}
+Diese Praktik reicht gdoch leider nicht aus. Mit der entfernen taste werden nur Zellinhalte, aber keine Formate gelöscht. Die überigen Zellen nehmen weiterhin platz ein.
 
 Während unserer Arbeit mit Dateien von dem deutschen statistischen Amt Destatis,
 bemerkten wir dass die Dateien sehr lange in Excel bzw beim programmatischen öffnen
@@ -461,9 +311,30 @@ für die großen Dateien verantwort waren.
 Nachdem wir diese Informationen aus den großen Excel Dateien entfernten,
 war in manchen Fällen die Dateigröße gerade mal noch 0,1\% der ursprünglichen Dateigröße.
 
-Der Umstand, dass Benutzer von Excel rein optisch nicht unterscheiden können,
-ob eine leere Zelle ein Format hat oder nicht, erschwert dem benutzer,
-dass ihm auffällt, dass diese Zellen speicherplatz beanspruchen.
+
+Wir entschieden daher zu analysieren, wie viele Dateien noch betroffen sind,
+in welcher Art und weise Inhalte in den Dateien vorkommen, die zwar SPeicherplatz beanspruchen,
+aber keinen Zweck für den Benutzer erfüllen, weil er weder Daten enthält, noch das Arbeitsblatt optisch
+verändert.
+
+Dabei bemerkten wir die üblichen Fälle, durch die eine Excel-Datei eine immense Größe annehmen kann,
+weil der benutzer vermutlich übliche strategien angewendet hat wie das kopieren von arbeitsblättern oder das großzügige markieren von Bereichen zum festlegen von Formaten.
+
+Doch wir machten auch entdeckungen welche die Dateien immens vergrößterten für dessen Ursprung keine Erklärung haben.  So gab es beispielsweise definitionen von ungenutzen Spalten und ungenutzen zeilen,
+welche sich in die unendlichkeit zu erstrecken schienen und das vielleicht sogar getan hätten,
+wären sie nicht von einer durch excel festgelegten limitierten anzahl von maximal möglichen spalten und zeilen defnintionen begrenz wären.
+
+Um eine erschöpfende Menge an Strategien für das verringern von der Dateigröße von Excel Dateien zu
+erarbeiten, entschieden wird alle Excel Dateien von Destatis herunter zu laden und diese Dateien zu analysieren.
+
+Wir vergliechen eine Reihe an komerziellen Werkzeugen bzw. Add-Ins oder neue Funktionen von Excel, die sich in speziellen Versionen von Excel aktivieren lassen, um zu testen, ob sie einerseits die überflüssigen Datei-Inhalte löschen. Da keines der  Werkzeuge alle überflüssigen Inhalte rkannte und löschte oder aber sogar zu viele Zellen löschte, die das optische Bild der Arbeitsblätter veränderten und da darüber hinaus keines der Tool in der Lage war
+unseren von Destatis heruntergeladenen Satz an 1182 Dateien auf einmal sondernnur jede  Datei einzeln oder maximal 25 Dateien auf einmal, und da die werkzeuge entweder kostenpflichtig waren oder sich nur in sehr neuen versionen 
+oder nur in speziellen Enterprise Versionen von Excel nutzen ließen, entschieden wir unser eigenes
+Open-Source Werkzeug zu implementieren und kontributieren: excel-shrink.
+
+
+
+\section{Scraping Destatis}
 
 Die Destatis Seite verfügt über keine API um die Beiträge zu durchsuche.
 Die einzige möglichkeit besteht darin die Webseite zu verwenden,
@@ -475,12 +346,12 @@ Daher konnten wir die Suchergebnisse stark eingrenzen indem wir den GET Paramete
 ?documentType\_=publicationgesetzt haben. 
 
 Wir hatten die Annahme mit dem Suchbegriff „xlsx“ alle Beiträge identifizieren zu können,
-welche eine Excel-Datei als Anhang enthalten. Doch die eine Sucanfrage mit dem Suchbegriff „xlsx“liefert
-gerade einmal 1xx Suchergebnisse. Es existieren jedoch eine ganze menge mehr Excel Dateien
-auf der Destatiswebseite. Es ist ebenfalls nicht möglich eine Auflistung aller Beiträge zu erhalten,
+welche eine Excel-Datei als Anhang enthalten. Doch die eine Sucanfrage mit dem Suchbegriff „xlsx“ liefert
+gerade einmal 100 Suchergebnisse. Es existieren jedoch eine ganze menge mehr Excel Dateien
+auf der Destatis webseite. Es ist ebenfalls nicht möglich eine Auflistung aller Beiträge zu erhalten,
 welche jemals erstellt wurden. Unsere nächste Annahme war, ds wir alle Einträge darüber erhalten würden,
 indem wir nach den Veröffentlichungsjahren Suchen. Ein Beitrag sollte in den Suchergebnissen auftauchen,
-wenn nach seinem Veröffentlichungsjahr gesucht wird. Dabei werden gewiss ach zahlreiche Ergebnisse auftauchen,
+wenn nach seinem Veröffentlichungsjahr gesucht wird. Dabei werden gewiss auch zahlreiche Ergebnisse auftauchen,
 derren Veröffentlicungsjahr ein anderes ist, aber das Veröffentlicungsjahr taucht im fließtext
 oder in einem Dateianhang auf. Diese damit die Excel-Dateianhänge von diesen redundanten suchergebnissen
 nicht mehrfach heruntergeladen werden, werden die gefundenen links zu den Dateianhängen gecached
@@ -502,29 +373,85 @@ Der Link für die nächste Seite ist ein a Element welches über die css Klasse 
 Über die xPath expression //a[@class='forward button']/@href wird die url für die nächste Seite extrahiert.
 
 
-    \lstset{
-      numbers=left, % Zeilennummern links anzeigen
-      numberstyle=\small, % Schriftgröße der Zeilennummern
-      stepnumber=1, % Jede Zeile nummerieren
-      numbersep=-7pt, % Abstand der Zeilennummern vom Code
-      basicstyle=\ttfamily, % Monospace-Schriftart verwenden
-      % frame=single, % Rahmen um den Code
-      breaklines=true, % Automatische Zeilenumbrüche
-      breakatwhitespace=true, % Zeilen an Leerzeichen umbrechen
-  }
+
   
-\begin{lstlisting}[caption={Sitemap: https://www.destatis.de/Sitemap\_Index.xml}]
+\begin{lstlisting}[caption={Funktion zum abrufen des links zur nächsten Seite}, label={lst:sheet_title_from_workbook}]
 def get_next_page_url(html: str) -> str:
+  xpath = "//a[@class='forward button']/@href"
+
   tree = etree.HTML(html)
-  next_page = tree.xpath("//a[@class='forward button']/@href")
+  next_page = tree.xpath(xpath)
   if next_page:
       return next_page[0]
   return ""
   \label{fig:first_cols}
 \end{lstlisting}
 
+
+ 
+
+\begin{algorithm}
+  \caption{Web Scraping and Downloading Excel Files with Caching}
+  \begin{algorithmic}
+  
+      \STATE \textbf{Input:} Base URL $B$, form URL $F$, download folder $D$, CSV cache file $C$, crawl delay (30 seconds)
+      \STATE \textbf{Initialize:} Cached URLs set $U$, and load file records from CSV $C$
+      \STATE Create folder $D$ if it does not exist
+      
+      \STATE \COMMENT{--- Scraping Process ---}
+      \FOR{each year in years}
+          \STATE Construct the search URL using year and base parameters
+          \WHILE{there are more pages to fetch}
+              \STATE Send HTTP GET request to search URL
+              \STATE Parse HTML to extract `.xlsx` links
+              \STATE Filter links that are not already in the cache $U$
+              \FOR{each new link}
+                  \STATE Extract file name from link
+                  \STATE Add new link and file name to file records
+                  \STATE Append new records to cache $C$
+              \ENDFOR
+              \STATE Save the updated file records back to CSV $C$
+              \STATE Check for the next page button
+              \IF{next page exists}
+                  \STATE Update URL to the next page
+                  \STATE Wait for CRAWL\_DELAY seconds
+              \ELSE
+                  \STATE Exit the loop
+              \ENDIF
+          \ENDWHILE
+      \ENDFOR
+  
+      \STATE \COMMENT{--- Checking for Duplicate Filenames ---}
+      \STATE Combine cached and new file records
+      \STATE Check if there are duplicate filenames
+      \IF{duplicates exist}
+          \STATE Print warning and exit
+      \ENDIF
+  
+      \STATE \COMMENT{--- Download Process ---}
+      \FOR{each new file record}
+          \STATE Download file from the URL
+          \STATE Save it in the download folder $D$
+          \STATE Wait for CRAWL\_DELAY seconds
+      \ENDFOR
+  \end{algorithmic}
+\end{algorithm}
+
+ 
+
+  
+
+
+
+
 Einge url einer solchen Folgeseite sieht dann so aus:
-/SiteGlobals/Forms/Suche/Expertensuche\_Formular.html?templateQueryString=2000\&gtp=474\_list\%253D2\&documentType\_=publication\&resultsPerPage=100
+
+\url{%
+/SiteGlobals/Forms/Suche/Expertensuche
+\_Formular.html?templateQueryString=2000
+\&gtp=474\_list\%253D2\&documentType\_=publication\&resultsPerPage=100}
+
+
 Die Url und die Queryparameter sind im Vergleich zur vorherigen anfrage gleich,
 doch ein query parameter ist hinzugekommen:
 gtp=474\_list\%253D2:
@@ -551,219 +478,152 @@ Bei unserer Überprüfung kam es jedoch zu keinen duplikaten.
 Deshalb können die Dateien über denselben Dateinamen gespeichert werden,
 wenn sie im nächsten Schritt heruntergeladen werden.
 
-\lstset{
-  numbers=left, % Zeilennummern links anzeigen
-  numberstyle=\small, % Schriftgröße der Zeilennummern
-  stepnumber=1, % Jede Zeile nummerieren
-  numbersep=-7pt, % Abstand der Zeilennummern vom Code
-  basicstyle=\ttfamily, % Monospace-Schriftart verwenden
-  % frame=single, % Rahmen um den Code
-  breaklines=true, % Automatische Zeilenumbrüche
-  breakatwhitespace=true, % Zeilen an Leerzeichen umbrechen
-}
 
-\begin{lstlisting}[caption={}]
-def check_for_duplicate_filenames(file_records: List[FileRecord]) -> bool:
-  filenames = set()
-  duplicates = set()
 
-  for record in file_records:
-      if record.file_name in filenames:
-          duplicates.add(record.file_name)
-      else:
-          filenames.add(record.file_name)
-
-  if duplicates:
-      print(f"Duplicate filenames found: {duplicates}")
-      return True
-  return False
-\label{fig:first_cols}
-\end{lstlisting}
+%\begin{lstlisting}[caption={}]
+%def check_for_duplicate_filenames(file_records: List[FileRecord]) -> bool:
+%  filenames = set()
+%  duplicates = set()
+%
+%  for record in file_records:
+%      if record.file_name in filenames:
+%          duplicates.add(record.file_name)
+%      else:
+%          filenames.add(record.file_name)
+%
+%  if duplicates:
+%      print(f"Duplicate filenames found: {duplicates}")
+%      return True
+%  return False
+%\label{fig:first_cols}
+%\end{lstlisting}
 
 Um die Auslastung der DeStatis webseite gering zu halten,
 halten wir uns an die empfehlungen die Destatis in der robots.txt Datei angibt,
 nämlich eine pause von 30 sekunden zwischen jeder anfrage: Crawl-delay: 30
 
+%\begin{lstlisting}[caption={Sitemap: https://www.destatis.de/Sitemap\_Index.xml}]
+%User-agent: *
+%Disallow: /SiteGlobals/
+%Disallow: /GPStatistik/servlets/MCRSearchServlet
+%Allow: /SiteGlobals/Frontend/JavaScript/
+%Allow: /SiteGlobals/Modules/
+%Allow: /SiteGlobals/StyleBundles/
+%Allow: /SiteGlobals/Frontend/
+%Allow: /SiteGlobals/Forms/Suche/*_Formular.*
+%Allow: /SiteGlobals/Functions/RSSFeed/DE/
+%Crawl-delay: 30
+%    \label{fig:first_cols}
+%\end{lstlisting}
 
 
-\lstset{
-    numbers=left, % Zeilennummern links anzeigen
-    numberstyle=\small, % Schriftgröße der Zeilennummern
-    stepnumber=1, % Jede Zeile nummerieren
-    numbersep=-7pt, % Abstand der Zeilennummern vom Code
-    basicstyle=\ttfamily, % Monospace-Schriftart verwenden
-    % frame=single, % Rahmen um den Code
-    breaklines=true, % Automatische Zeilenumbrüche
-    breakatwhitespace=true, % Zeilen an Leerzeichen umbrechen
-}
+\section{Related Work}
+\subsection{Inquire}
+\subsection{NXPowerLite Desktop}
 
-\begin{lstlisting}[caption={Sitemap: https://www.destatis.de/Sitemap\_Index.xml}]
-User-agent: *
-Disallow: /SiteGlobals/
-Disallow: /GPStatistik/servlets/MCRSearchServlet
-Allow: /SiteGlobals/Frontend/JavaScript/
-Allow: /SiteGlobals/Modules/
-Allow: /SiteGlobals/StyleBundles/
-Allow: /SiteGlobals/Frontend/
-Allow: /SiteGlobals/Forms/Suche/*_Formular.*
-Allow: /SiteGlobals/Functions/RSSFeed/DE/
-Crawl-delay: 30
-    \label{fig:first_cols}
+
+%\section{Methodology}
+
+\section{Löschen von White Spaces}
+
+
+Der Benutzer von Excel hat keine einfache Möglichkeit herrauszufinden, welche Zellen im Arbeitsblatt nur whitespaces enthalten. Um die Whitespaces zu kennzeichnen haben wir im diesem Arbeitsblatt mit 4121 Whitespaces in Abbildung \label{fig:whitespaces}
+die Zellen mit ausschließlich whitespaces rot gekennzeichnet. \cite{destatis2023Konsumausgaben5811109}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=\linewidth]{images/excel_shrink/whitespaces/whitespaces.png}
+  \caption[]{}
+  \label{fig:whitespaces}
+\end{figure}%
+
+
+\begin{lstlisting}[caption={Die Zelle D844 in sheet28.xml}, label={lst:whitespaces_d844}, firstnumber=48]
+  <row r="844" spans="1:16" ht="14.1" customHeight="1">
+    <c r="D844" s="428" t="s">
+        <v>102</v>
+    </c>
+  \end{lstlisting}
+Um diese Whitespaces zu erkennen reichts es nicht, die Zelle selbst zu untersuchen denn selbst ein einzelnes
+leerzeichen wird von Excel in der Datei für wiederkehrende Texte abgelegt, selbst wenn der Text nur genau einmal in der gesamten Excel-Datei vorkommt. Die Zelle D844 sieht im xml folgendermaßen so aus wie in
+Listing \ref{lst:whitespaces_d844}.
+
+Die Zeile ist durch das \texttt{<row>}-Tag gekennzeichnet und hat das Attribut \texttt{r="844"}, was bedeutet, dass es sich um die 844. Innerhalb der Zeile befindet sich das \texttt{<c>}-Tag, das eine Zelle darstellt. Hier wird die Zelle durch das Attribut \texttt{r="D844"} identifiziert. Das Attribut \texttt{t="s"} gibt den Typ der Zelle an; in diesem Fall steht \texttt{s} für "String", was bedeutet, dass der Inhalt der Zelle als Zeichenkette interpretiert wird.\cite{openxml}
+
+Der Wert der Zelle wird im \texttt{<v>}-Tag gespeichert, wobei der Wert \texttt{102} angegeben ist. Dieser Wert wird als Index in einer String-Tabelle interpretiert, was bedeutet, dass er auf einen bestimmten Text in einer separaten Liste verweist, die in der Excel-Datei definiert ist, nämlich in der sharedStrings.xml Datei.
+Um den Wert zu finden müssen wir in der sharedStrings.xml Datei nach dem Knoten sst suchen,
+welcher in Listing \ref{lst:sharedStringsSst} zu sehen ist.
+
+Der gegebene XML-Ausschnitt zeigt einen Teil der Shared String Table (SST) in einer Excel-Datei. Die Abkürzung \texttt{sst} steht für \textit{Shared String Table}. Die Shared String Table ist eine Struktur, die es ermöglicht, gemeinsame Zeichenfolgen in einer Excel-Arbeitsmappe zu speichern und zu verwalten. Anstatt jede Zeichenfolge in jeder Zelle separat zu speichern, wird jede eindeutige Zeichenfolge in der Shared String Table einmal abgelegt. Dies führt zu einer Einsparung von Speicherplatz, da die Zellen dann auf diese Zeichenfolgen über Indizes verweisen. Jeder Eintrag in dieser Tabelle hat eine aufsteigende Indexnummer, beginnend mit 0 für die erste Zeichenfolge, 1 für die zweite und so weiter. In diesem Beispiel steht das Element \texttt{<sst>} für die gesamte Tabelle, die in diesem Fall \texttt{count="17962"} und \texttt{uniqueCount="732"} Attribute aufweist. 
+
+\begin{lstlisting}[caption={Die Zelle D844 in sheet28.xml}, label={lst:sharedStringsSst}, firstnumber=48]
+  <sst count="17962" uniqueCount="732">
+    <si>
+        <t>062</t>
+    </si>
+    \end{lstlisting}
+
+Das Attribut \texttt{count} gibt die Gesamtanzahl der Strings in der Tabelle an, während \texttt{uniqueCount} die Anzahl der eindeutigen Strings repräsentiert. In diesem Fall gibt es 17,962 Strings insgesamt, von denen 732 einzigartig sind. Dies bedeutet, dass viele Strings in der Tabelle mehrfach verwendet werden.
+
+Innerhalb der SST gibt es Elemente vom Typ \texttt{<si>} (Shared Item), die jeweils einen String enthalten. In diesem Beispiel zeigt das Element \texttt{<t>} den tatsächlichen Text des Strings an, der in der Tabelle gespeichert ist. Hier wird die Zeichenfolge \texttt{062} dargestellt, die durch den Index in einer Zelle referenziert werden kann.
+
+Um den 102. Index zu finden muss hier nach dem 103. Eintrag gesucht werden. Dieser ist in Listing \ref{lst:whitespacesSi} zu sehen.
+
+\begin{lstlisting}[caption={Die Zelle D844 in sheet28.xml}, label={lst:whitespacesSi}, firstnumber=48]
+<si>
+  <t xml:space="preserve"></t>
+</si>
 \end{lstlisting}
 
-\newpage
-
-
-\newpage
-
-
-\section{Introduction}
-The Office Open XML (OOXML) format used by Microsoft Excel is a structured approach to representing spreadsheet data. When an `.xlsx` file is unpacked, each worksheet is represented by a distinct XML file located in the `xl/worksheets/` directory, typically named `sheet1.xml`, `sheet2.xml`, etc. These files encapsulate the actual data and formatting of the spreadsheet, serving as the core of the workbook.
-
-\section{Structure of \texttt{sheetX.xml}}
-The `sheetX.xml` files follow a specific structure that facilitates the organisation of the worksheet's data. 
-
-\subsection{Root Element}
-Each `sheetX.xml` file begins with the root element `<worksheet>`, which contains several namespaces essential for defining the sheet’s structure. 
-
-\subsection{Sheet Data}
-The primary content of the worksheet is contained within the `<sheetData>` element, which includes individual rows and cells:
-
-\begin{itemize}
-    \item \textbf{Row Element:} Each row is represented by a `<row>` element, identified by the row number attribute.
-    \item \textbf{Cell Element:} Each cell is denoted by a `<c>` element. Attributes such as `r` (cell reference) and `t` (data type) specify the cell's location and content type.
-    \item \textbf{Cell Values:} The `<v>` element holds the actual value of the cell, whether it is a number or a reference to a shared string.
-\end{itemize}
-
-\subsection{Formulas}
-Cells that contain formulas include a `<f>` element, which specifies the formula to be calculated. For example:
-\begin{quote}
-    \texttt{<c r="C1"><f>SUM(A1:B1)</f><v>246</v></c>}
-\end{quote}
-This represents a cell that sums values from cells `A1` and `B1`.
-
-\subsection{Styles and Formatting}
-The `<c>` element may also include a `s` attribute, referencing styles defined in the `styles.xml` file. This allows for consistent formatting across the worksheet.
-
-\subsection{Merges and Layout}
-The `<mergeCells>` element defines merged cell ranges, while the `<cols>` element specifies column widths. The overall dimensions of the sheet are indicated by the `<dimension>` element.
-
-\section{Conclusion}
-The `xl/worksheets/sheetX.xml` files are integral to the OOXML format, offering a modular and detailed representation of Excel worksheets. Each XML element and attribute contributes to the data's precise structure, enabling a flexible and efficient way to manage spreadsheet content.
+ Innerhalb von \texttt{<si>} befindet sich ein \texttt{<t>} Element, welches den tatsächlichen Text des Strings enthält. In diesem speziellen Fall ist der Inhalt des \texttt{<t>} Elements leer, was bedeutet, dass kein Text gespeichert ist. Das Attribut \texttt{xml:space="preserve"} deutet darauf hin, dass es sich um ein  Leerzeichen handelt. Somit können alle Zellen, welche die 102 als Index für den wiederverwendbaren
+ string angeben gelöscht werden, da das Leerzeichen nicht sichtbar ist.
 
  
 
-\newpage
 
-\section{Introduction}
-Excel files in the .xlsx format utilize the Open XML standard, which allows for a structured representation of data in a compressed format. When unpacked, an Excel file reveals several XML files and directories that define its content and layout.
-
-\section{Key Components of Unpacked Excel Files}
-
-\subsection{Content Types}
-The \texttt{[Content\_Types].xml} file describes the types of content contained within the Excel file. It provides essential metadata about the various file types included in the package.
-
-\subsection{Relationships}
-The \texttt{\_rels/} directory contains relationship files, such as \texttt{workbook.xml.rels}, which define the relationships between the main document and other components, including worksheets and embedded objects.
-
-\subsection{Worksheets and Main Data}
-The \texttt{xl/} directory includes:
-\begin{itemize}
-    \item \texttt{workbook.xml}: Contains information about the structure of the workbook, including the number and names of worksheets.
-    \item \texttt{worksheets/}: A folder that contains individual XML files for each worksheet (e.g., \texttt{sheet1.xml}), which hold the data and formatting for those sheets.
-    \item \texttt{styles.xml}: This file holds formatting information for cells, such as fonts, colors, and sizes.
-    \item \texttt{sharedStrings.xml}: A file that contains a list of unique string values used in the workbook to optimize storage.
-\end{itemize}
-
-\subsection{Themes and Custom XML}
-The \texttt{theme/} directory contains files that define the design and color schemes of the workbook. The \texttt{customXml/} directory may hold custom XML data added by applications for specific information management.
-
-\section{Conclusion}
-Understanding the XML structure within Excel files provides valuable insights into how data is organized and stored in a standard format, facilitating data manipulation and analysis.
-
-
-\newpage
-
-\section{Introduction}
-Excel worksheets in the .xlsx format are stored as XML files, which define the layout, data, and formatting of the cells within the sheet. Each worksheet is represented by a separate XML file, typically named \texttt{sheet1.xml}, \texttt{sheet2.xml}, etc., located in the \texttt{xl/worksheets/} directory of the unpacked Excel file.
-
-\section{Key Components of Worksheet XML Files}
-
-\subsection{File Structure}
-The structure of a typical worksheet XML file is as follows:
-\begin{itemize}
-    \item \texttt{<worksheet>}: The root element that encompasses all data in the worksheet.
-    \item \texttt{<dimension>}: Specifies the size of the worksheet, defining the range of used cells (e.g., \texttt{ref="A1:C10"}).
-    \item \texttt{<cols>}: Defines the properties of the columns in the worksheet, such as width.
-    \item \texttt{<sheetData>}: Contains the actual cell data organized in rows and columns.
-\end{itemize}
-
-\subsection{Column Definition}
-
+\section{Löschen von leeren Spalten}
 
 Das erste Anzeichen für zu viele Spaltendefinition kann im horizontalen scrollbalken beobachtet werden,
-wenn mann das arbeitsblat öffnet wie in abbildung \ref{fig:col_s_arrow} zu sehen. Wenn der gesamte  bereich mit den Daten bereits im sichtbaren bereich ist
+wenn mann das arbeitsblat öffnet wie in abbildung \ref{fig:col_scrollbar_arrow} zu sehen.\cite{destatis2023Foerderprogramme} Wenn der gesamte  bereich mit den Daten bereits im sichtbaren bereich ist
 und trotzdem der anfasser im Scrollbalken sehr schmal und im vergleich zum scrollbaren bereich sehr klein ist
  was bedeutet, dass noch eine ganze menge nach rechts gescrollt werden kann, ist das ein Anzeichen dafür,
  dass eine große Menge an Spaltendefinition das Arbeitsblatt deutlich breiter macht,
- als es durch den Bereich mit den Daten ist.
+ als es durch den Bereich mit den Daten eigentlich groß ist.
  
-\begin{figure}[ht]
-  \centering
-  \includegraphics[width=0.5\textwidth]{images/excel_shrink/cols/col_s_arrow.png}
-  \caption[Custom Column Width for a Column outside the Data Section]{Custom Column Width for a Column outside the Data Section, Source: foerderprogramme-5411206209005 Sheet: 0902\_T\_NW}
-  \label{fig:col_s_arrow}
+ \begin{figure}[ht]
+  \centering 
+  \includegraphics[width=\linewidth]{images/excel_shrink/cols/col_scrollbar_arrow.png}
+  \caption{Sehr breiter Scrollbereicht und sehr schmaler scrollbalken}
+  \label{fig:col_scrollbar_arrow}
 \end{figure}%
 
 Scrollt man in diesen Bereich, fällt dem benutzer auf,
 dass zwischen Spalten mit einer einheitlichen breite immer mal wieder spalten auftauchen
-die eine davon abweichende Breite haben wie in Abbildung   \ref{fig:col_scrollbar_arrow} zu sehen.
-
-
+können die eine davon abweichende Breite haben wie in Abbildung \ref{fig:col_s_arrow} zu sehen.
 
 \begin{figure}[ht]
-  \centering 
-  \includegraphics[width=0.5\textwidth]{images/excel_shrink/cols/col_scrollbar_arrow.png}
-  \caption[Custom Column Width for a Column outside the Data Section]{Custom Column Width for a Column outside the Data Section, Source: foerderprogramme-5411206209005 Sheet: 0902\_T\_NW}
-  \label{fig:col_scrollbar_arrow}
-\end{figure}%
-
-Während unserer Untersuchungen konnten wir nicht herrausfinden, wie es zu diesen Spaltendefinitionen kommen.
-Überraschend ist, dass diese Spaltendefinitionen sich bis in die Unendlichkeit forsetzen würdem wie es scheint,
-nur dass sie an dem von Excel definierten maximalen Limit von XXX Spalten enden.
-
-\begin{figure}[ht]
-
   \centering
-  \includegraphics[width=0.5\textwidth]{images/excel_shrink/cols/col_w.png}
-  \caption[Custom Column Width for a Column outside the Data Section]{Custom Column Width for a Column outside the Data Section, Source: foerderprogramme-5411206209005 Sheet: 0902\_T\_NW}
-  \label{fig:col_w}
+  \includegraphics[width=\linewidth]{images/excel_shrink/cols/col_s_arrow.png}
+  \caption[Custom Column Width for a Column outside the Data Section]{Custom Column Width for a Column outside the Data Section}
+  \label{fig:col_s_arrow}
 \end{figure}%
+ 
 
-In Excel werden die Spaltendefinitionen als Teil der sheetX.xml Datei im Knoten cols definiert.
-Within the \texttt{<cols>} element, multiple \texttt{<col>} elements can be defined to specify the width and other properties of individual columns. For example:
-\begin{itemize}
-    \item \texttt{min}: The minimum column index.
-    \item \texttt{max}: The maximum column index.
-    \item \texttt{width}: The width of the column.
-    \item \texttt{customWidth}: Indicates if the column width is customized.
-\end{itemize}
 
-In unserem Beispiel sieht die definition der ersten Spalten so aus wie in Listing \ref{fig:first_cols} zu sehen.
+Diese Spaltendefinitionen werden in excel in der sheetX.xml in dem Knoten cols definiert.
+definiert.
+In unserem Beispiel sieht die definition der ersten Spalten so aus wie in Listing
+\ref{lst:columsFoerderprogrammeStart} zu sehen.
+In diesem XML-Auszug repräsentiert das \texttt{<cols>} Element die Definition von mehreren Spalten in einem Excel-Arbeitsblatt. Jede \texttt{<col>} Deklaration enthält spezifische Informationen zu einer oder mehreren Spalten.
+Das Attribut \texttt{min} und \texttt{max} gibt den Bereich der Spalten an, den dieses \texttt{<col>} Element umfasst. Zum Beispiel betrifft \texttt{min="1" max="1"} nur Spalte 1, während \texttt{min="5" max="9"} die Spalten 5 bis 9 beschreibt.
+Das \texttt{width}-Attribut spezifiziert die Breite der Spalten in Excel-Einheiten. 
+%Das Attribut \texttt{style} verweist auf einen Formatstil, der auf die entsprechende Spalte angewendet wird. 
+%Im Beispiel wird Stil \texttt{39} auf die meisten Spalten angewendet, während Spalten 10 bis 18 den Stil \texttt{54} nutzen.
+Das Attribut \texttt{customWidth="1"} gibt an, dass die Breite der Spalte benutzerdefiniert ist, also vom Benutzer manuell angepasst wurde, anstatt den Standardwert zu verwenden.
+Die ersten fünf \texttt{<col>} Definitionen beziehen sich auf den Bereich der Daten.
+Die letzte Definition, \texttt{min="10" max="18"}, bezieht sich jedoch bereits auf einen überflüssigen Bereich. Dieser Abschnitt definiert Spalten, die außerhalb des Bereichs der eigentlichen Daten im Arbeitsblatt liegen, also die Spalten ab der Spalte J, und stellt somit eine unnötige oder ungenutzte Definition dar.
 
-\lstset{
-    numbers=left, % Zeilennummern links anzeigen
-    numberstyle=\small, % Schriftgröße der Zeilennummern
-    stepnumber=1, % Jede Zeile nummerieren
-    numbersep=-7pt, % Abstand der Zeilennummern vom Code
-    firstnumber=13, % Startzeilennummer bei 5
-    basicstyle=\ttfamily, % Monospace-Schriftart verwenden
-    % frame=single, % Rahmen um den Code
-    breaklines=true, % Automatische Zeilenumbrüche
-    breakatwhitespace=true, % Zeilen an Leerzeichen umbrechen
-}
-
-\begin{lstlisting}[caption={foerderprogramme-5411206209005\\xl\\worksheets\\sheet32.xml}]
+\begin{lstlisting}[caption={Die ersten Spaltendefinitionen}, label={lst:columsFoerderprogrammeStart}, firstnumber={13}, numbersep={-7pt}]
   <cols>
     <col min="1" max="1" width="5.21875" style="39" customWidth="1" />
     <col min="2" max="2" width="1.77734375" style="39" customWidth="1" />
@@ -771,191 +631,342 @@ In unserem Beispiel sieht die definition der ersten Spalten so aus wie in Listin
     <col min="4" max="4" width="11.5546875" style="39" customWidth="1" />
     <col min="5" max="9" width="10.5546875" style="39" customWidth="1" />
     <col min="10" max="18" width="11.5546875" style="54" customWidth="1" />
-    \label{fig:first_cols}
 \end{lstlisting}
 
 
 
-\lstset{
-    numbers=left, % Zeilennummern links anzeigen
-    numberstyle=\small, % Schriftgröße der Zeilennummern
-    stepnumber=1, % Jede Zeile nummerieren
-    numbersep=-15pt, % Abstand der Zeilennummern vom Code
-    firstnumber=2414, % Startzeilennummer bei 5
-    basicstyle=\ttfamily, % Monospace-Schriftart verwenden
-    % frame=single, % Rahmen um den Code
-    breaklines=true, % Automatische Zeilenumbrüche
-    breakatwhitespace=true, % Zeilen an Leerzeichen umbrechen
-}
-
-\begin{lstlisting}[caption={foerderprogramme-5411206209005\\xl\\worksheets\\sheet32.xml}]
-      <col min="16146" max="16146" width="2.21875" style="39" customWidth="1" />
-      <col min="16147" max="16147" width="5.21875" style="39" customWidth="1" />
-      <col min="16148" max="16384" width="8.77734375" style="39" customWidth="1" />
-    </cols>
-\end{lstlisting}
-
-\subsection{Cell Data}
-Within the \texttt{<sheetData>} element, cell data is stored in \texttt{<row>} elements, which contain \texttt{<c>} (cell) elements. Each cell element includes attributes to define the cell's address and data type:
-\begin{itemize}
-    \item \texttt{r}: The cell reference (e.g., \texttt{A1}).
-    \item \texttt{t}: The type of data contained (e.g., \texttt{s} for shared string, \texttt{n} for number).
-    \item \texttt{v}: The value of the cell, which can reference a shared string or be a direct numeric value.
-\end{itemize}
-
-\subsection{Cell Formatting}
-Cell formatting information can be specified using the \texttt{<cellXfs>} element, which allows for the application of styles defined in the \texttt{styles.xml} file. This includes font styles, colors, and borders.
-
-\section{Example of Worksheet XML}
-An example of a simple worksheet XML file structure is shown below:
-
-\begin{verbatim}
-<worksheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main">
-    <dimension ref="A1:B2"/>
-    <cols>
-        <col min="1" max="1" width="15.00" customWidth="1"/>
-        <col min="2" max="2" width="20.00" customWidth="1"/>
-    </cols>
-    <sheetData>
-        <row r="1">
-            <c r="A1" t="s"><v>0</v></c>
-            <c r="B1" t="n"><v>123.45</v></c>
-        </row>
-        <row r="2">
-            <c r="A2" t="s"><v>1</v></c>
-            <c r="B2" t="n"><v>678.90</v></c>
-        </row>
-    </sheetData>
-</worksheet>
-\end{verbatim}
-
-\section{Conclusion}
-Understanding the XML structure of Excel worksheets enhances the ability to manipulate and analyze spreadsheet data programmatically, allowing for greater flexibility and efficiency in data handling.
 
 
-\newpage
+Während unserer Untersuchungen konnten wir nicht die Frage klären, wie es zu diesen Spaltendefinitionen kommen konnte.
+Unsere Vermutung ist, dass das Arbeitsblatt dupliziert wurde und das original arbeitsblatt enthielt diese menge an spalten mit den entsprechenden spaltenbreiten.
+Dieser Hypothese steht aber der fakt gegenüber, dass die spaltenbreiten für individuelle spalten  in den von uns untersuchten Dateien bis knapp an die maximale anzahl von 16384 Spalten herranreichen, aber eben auch nur knapp. In Abbildung \ref{fig:col_w} ist dieser solcher Fall zu sehen. In diesem Arbeitsblatt befinden sich 2403 Spaltendefinitionen und abzüglich 5 tatsächlich genutzten Spaltendefinitionen, bleiben also 2398 überflüssige Definitionen übrig. 
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=\linewidth]{images/excel_shrink/cols/col_w.png}
+  \caption[Custom Column Width for a Column outside the Data Section]{Custom Column Width for a Column outside the Data Section, Source: foerderprogramme-5411206209005 Sheet: 0902\_T\_NW}
+  \label{fig:col_w}
+\end{figure}%
+
+Es ist die Spalte WWA zu sehen und rechts davon noch angeschnitten die Spalte WWB,
+was der 16147. und	16148. Spalte entspricht. Es erscheint unwahrscheinlich dass ein ursprüngliches
+Arbeitsblatt tatsächlich einmal so viele Spalten verwendet hatte.
+Er erfordert weitere Forschung herrauszufinden, wie solche muster in Excel Dateien entstehen können.
 
 
-\section{Introduction}
-In the Open XML format used by Excel, the `<cols>` and `<col>` elements play a critical role in defining the properties of the columns within a worksheet. These elements allow for customization of column widths and other characteristics, which are essential for effective data presentation.
+Die letzten in der Abbildung sichtbaren Spalten sind in Listing \ref{lst:columsFoerderprogrammeEnd} zu sehen.
 
-\section{Structure of `<cols>` and `<col>` Elements}
-
-\subsection{The `<cols>` Element}
-The `<cols>` element serves as a container for one or more `<col>` elements. It is used to define the properties of the columns in a worksheet. The presence of this element allows users to customize the appearance of columns without affecting the underlying data.
-
-\subsection{The `<col>` Element}
-Each `<col>` element represents an individual column in the worksheet and contains several attributes that determine its properties:
-\begin{itemize}
-    \item \texttt{min}: The minimum column index to which the formatting applies. This attribute defines the starting column for the specific formatting.
-    \item \texttt{max}: The maximum column index to which the formatting applies. This attribute defines the ending column for the specific formatting.
-    \item \texttt{width}: Specifies the width of the column in characters. This value determines how much space the column will occupy in the worksheet.
-    \item \texttt{customWidth}: A Boolean attribute that indicates whether the column width has been customized. If set to \texttt{1}, it indicates that the width has been explicitly defined, allowing Excel to render the column according to the specified width.
-\end{itemize}
-
-\section{Example of `<cols>` and `<col>` Elements}
-An example illustrating the use of `<cols>` and `<col>` elements in an Excel worksheet XML file is shown below:
-
-\begin{verbatim}
-<cols>
-    <col min="1" max="1" width="15.00" customWidth="1"/>
-    <col min="2" max="2" width="20.00" customWidth="1"/>
+\begin{lstlisting}[caption={Die letzten Spaltendefinitionen im Arbeitsblatt}, label={lst:columsFoerderprogrammeEnd}, firstnumber={2414}, numbersep={-15pt}]
+  <col min="16146" max="16146" width="2.21875" style="39" customWidth="1" />
+  <col min="16147" max="16147" width="5.21875" style="39" customWidth="1" />
+  <col min="16148" max="16384" width="8.77734375" style="39" customWidth="1" />
 </cols>
-\end{verbatim}
+\end{lstlisting}
+ 
+Die erste Spalte \texttt{min="16146" max="16146"} hat eine festgelegte Breite von 2,21875 und bezieht sich auf Spalte WVZ, welche auch in der Abbildung \ref{fig:col_w} als die Spalte links neben WWA zu sehen ist jedoch zu schmal ist,
+um mehr als das "W" zu erkennen.
+Die zweite Spalte \texttt{min="16147" max="16147"} definiert Spalte WWA mit einer Breite von 5,21875.
+Die letzte Definition \texttt{min="16148" max="16384"} deckt einen größeren Bereich von Spalte 16148 bis 16384 ab, also der Spalten WWB bis XFD und weist für diese Spalten eine Breite von 8,77734375 zu.
+Das erklärt, warum man bei der Spalte WWB landet, wenn man den Scrollbalken nutzt um ganz nach rechts
+zu scrollen. Die vorletzte Definition definiert, wo der datenbereich endet und damit auch der Scrollbereich  endet und die letzte Definition weist lediglich allen übrigen Spalten eine Standardbreite zu.
+ Überraschend ist, dass diese Spaltendefinitionen sich bis in die Unendlichkeit forsetzen würdem wie es scheint, nur dass sie an dem von Excel definierten maximalen Limit von 16384 Spalten enden.
+Wir haben keine erklärung dafür, wieso kurz vor dem maximalen Limit der maximal zulässigen spalten
+diese benutzerdefinierten Spaltenbreiten auftauchen.
 
-In this example, the first column (A) is assigned a width of 15 characters, while the second column (B) is set to a width of 20 characters. Both columns have their widths customized.
+Um diese Spalten zu löschen müssen folgende schritte unternommen werden.
+Das tatsächliche rechte Ende des bereichts der Daten und Cellformate muss identifiziert werden.
+Damit steht die erste überflüssige Spaltendefinition fest. Dessen Wert "min" für den index der ersten Spalte
+in diesem Bereich von spalten muss gespeichert werden.
+Nun können alle Überflüssigen Spaltendefinitionen bis auf die letzte gelöscht werden.
+Der letzten Spaltendefinition wird nun der wert min überschrieben und zwar mit dem gespeicherten wert der ersten überflüssigen spaltendefinition. Die EInhaltung dieser schritte ist wichtig. Wir haben damit experimentiert lediglich die überschüssigen spalten zu löschen und nicht dafür zu sorgen dass die letzte spaltendefinition eine range bis zur letzen möglichen spalte 16384 hat. Doch das führte dazu dass Excel diese Arbeitsblätter offenbar als korrupt einstufte und gewisse reparaturen am arbeitsblatt vornahm. teil dieser änderungen war das ändern der standard zeilenhöhe. Das führte dazu dass manche arbeitsblätter sich leicht optisch änderten. Das ist in Abbildung sichtbar. Auf der Linken Seite ist das Original, auf der rechten Seite die von Excel reparierte Version. Einige Zeilen wie etwa die Zeile 6 hat sich durch die reparatur in der höhe geändert wordurch es zu sichtbaren verschiebungen im arbeitsblatt kommt.
+Durch das korrekte löschen von Spaltendefinitionen mit einer letzten SPaltendefinition die bis zum limit der Spalten bis Spalte  16384 geht geschiet dieser Fehler nicht.
+ 
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=\linewidth]{images/excel_shrink/changed_default_row_height/changed_default_row_height.png}
+  \caption{Originale Version mit korrekten Zell-Borders und Zeilenabständen, Source: Sheet: 2\_(1)}
+  \label{fig:changed_default_row_height}
+\end{figure}%
 
-\section{Importance of Column Formatting}
-Proper column formatting enhances the readability and usability of spreadsheet data. By defining specific widths, users can ensure that data is displayed clearly, which is crucial for data analysis and presentation. Additionally, the ability to customize widths allows for better organization of information, especially in complex worksheets.
+\section{Löschen leerer Zellen}
+
+Einige von unseren untersuchten Arbeitsblättern enthielten riesige Mengen von Zellen ganz ohne Inhalt.
+Der extremste Fall war ein Arbeitsblatt 8,141 Zellen mit Wert und 5237075 Zellen ohne Wert, dementsprechend 
+hatten nur 0.15 \% der gespeicherten Zellen Tatsächlich einen Wert.	
+\cite{destatis2023Rechnungsergebnisse}[Sheet "csv-71717-25"]
+
+ zeigt die letzte Zeile dieses Arbeitsblattes.
+
+In dem Listing \ref{lst:cellsCsv7171725End} sehen wir eine Darstellung eines Zeilen-Elements in diesem Excel-Arbeitsblatt,
+das speziell die letzte mögliche Zeile in Excel anzeigt, nämlich die Zeile 1.048.576.
+Das \texttt{<row>}-Element enthält mehrere Attribute: 
+Das Attribut \texttt{r} gibt die Zeilennummer an. Hier zeigt \texttt{r="1048576"}, dass es sich um die maximale Zeilenanzahl in Excel handelt. Das Attribut \texttt{spans} spezifiziert den Bereich der Spalten, den die Zeile abdeckt. In diesem Fall bedeutet \texttt{spans="3:7"}, dass die Zeile die Spalten C bis G überspannt. Das trifft auch für die 1,047,407 darüber bis zur Zeile 1169 zu. Innerhalb des \texttt{<row>}-Elements gibt es mehrere \texttt{<c>}-Elemente (Zellen). Jedes \texttt{<c>}-Element hat eigene Attribute: Das Attribut \texttt{r} gibt den Zellbezug an. Zum Beispiel bezieht sich \texttt{r="C1048576"} auf die Zelle in Spalte C der Zeile 1.048.576.
 
 
-\newpage
+\begin{lstlisting}[caption={Die letzte Zeile im Arbeitsblatt csv-71717-25}, label={lst:cellsCsv7171725End}]
+  <row r="1048576" spans="3:7" ht="12.75" customHeight="1">
+    <c r="C1048576" s="538"/>
+    <c r="D1048576" s="537"/>
+    <c r="E1048576" s="537"/>
+    <c r="F1048576" s="537"/>
+    <c r="G1048576" s="541"/>
+  </row>
+</sheetData>
+\end{lstlisting}
+
+Anders als noch bei den Whitespaces enthalten diese Zellen nun gar keinen Wert und müssen daher auch nicht mit der sharedString datei abgeglichen werden.
+Allerdings kann es sein dass solche leeren Zellen ohne jedlichen Inhalt immerhin eine Hintergrundfarbe zugewiesen wurde, wie es bei einigen Deckblättern zum gestalten der Seite der Fall ist oder für das hervorheben von Tabellenköpfen.
+Anderer seits können diesen zellen auch border hinterlegt sein.
+
+Um das herrauszufinden muss man sich das Attribut \texttt{s} ansehen, denn es steht für den Stilindex, der auf die Zelle angewendet wird.
+Die Werte \texttt{s="538"}, \texttt{s="537"} und \texttt{s="541"} stehen dabei für einen Index für eine lookuptable in der alle Zell-Styles abgelegt sind.
+Die zu den Stilindex passenden Styles findet man in der xl/styles.xml Datei. Die entsprechenden Ausschnitte sind in Listing \ref{lst:cellXfsCsv7171725} zu sehen.
+
+\begin{lstlisting}[caption={Die letzte Zeile im Arbeitsblatt csv-71717-25}, label={lst:cellXfsCsv7171725}]
+<cellXfs count="778">
+  <!--538-->
+  <xf numFmtId="0" fontId="0" fillId="0" borderId="0" xfId="0"/>
+  <!--539-->
+  <xf numFmtId="0" fontId="4" fillId="0" borderId="0" xfId="3" applyNumberFormat="1" applyFont="1"/>
+  <!--542-->
+  <xf numFmtId="0" fontId="1" fillId="0" borderId="0" xfId="1" applyNumberFormat="1" applyFont="1" applyAlignment="1">
+    <alignment horizontal="right"/>
+  </xf>
+\end{lstlisting}
+
+Die XML-Struktur innerhalb von \texttt{<cellXfs>} enthält Formatierungseigenschaften, die für Zellen in einer Excel-Datei definiert sind. Jedes \texttt{<xf>}-Element stellt eine Formatierungsregel dar. Genau wie bei der Shared Strings datei werden die Formatierungsregeln über ihre Reihenfolge in der Liste indeziert, beginnend mit der ersten bei 0 und dem zweiten bei 1, und so weiter. Für die ids \texttt{s="538"}, \texttt{s="537"} und \texttt{s="541"} muss also nach dem 538., dem 539. sowie dem 542 Element in der Liste gesucht werden.  Die Attribute steuern das Erscheinungsbild der Zelle. Das Attribut \texttt{numFmtId} gibt das Zahlenformat an, das für die Zelle verwendet wird, während \texttt{fontId} die ID der Schriftart beschreibt. \texttt{fillId} bezieht sich auf die Füllfarbe, und \texttt{borderId} definiert die Randeigenschaften. \texttt{xfId} verweist auf eine Formatvorlage, von der die Zelle Eigenschaften erbt. Die Attribute \texttt{applyNumberFormat}, \texttt{applyFont} und \texttt{applyAlignment} legen fest, ob das entsprechende Zahlenformat, die Schriftart und die Textausrichtung auf die Zelle angewendet werden. Falls das Element \texttt{alignment} vorhanden ist, spezifiziert es die Ausrichtung des Textes innerhalb der Zelle, wie z.B. eine rechtsbündige Ausrichtung. Diese Struktur gibt die Formatierungsregeln an, die für die Darstellung und das Layout der Zelleninhalte verwendet werden.
+
+An diesen Styles lässt sich überprüfen, dass diese Zellen lediglich styles anwenden, die bei einer leeren Zelle nicht sichtbar sind. Sie verwenden unterschiedliche Schriftarten, Zelle G1048576 ist zudem rechtsbündig formatiert. Alle diese Zellen sind demnach überflüssig und können dementsprechend gelöscht werden.
+
+ 
+%\begin{figure}[ht]
+%  \centering
+%  \includegraphics[width=\linewidth]{images/excel_shrink/borders/borders_original.png}
+%  \caption{Originale Version mit korrekten Zell-Borders und Zeilenabständen, Source: Sheet: 2\_(1)}
+%  \label{fig:cell_borders_row_height_original}
+%\end{figure}%
+%
+%
+%\begin{figure}[ht]
+%  \centering
+%  \includegraphics[width=\linewidth]{images/excel_shrink/borders/borders_fail.png}
+%  \caption[Fehlerhafte Entfernung von Zellen mit Zell-Borders und Löschung von Zeilen mit benutzerdefinierter Höhe]{Fehlerhafte Entfernung von Zellen mit %Zell-Borders und Klschung von Zeilen mit benutzerdefinierter Höhe, Source: verkehrsunfaelle-zeitreihen-xlsx-5462403 Sheet: 2\_(1)}
+%  \label{fig:cell_borders_row_height_fail}
+%\end{figure}%
 
 
 
-\section{Introduction}
-In the Open XML format used by Excel, the `sharedStrings.xml` file plays a critical role in managing string values used within a workbook. By storing unique string values in a centralized manner, this file optimizes storage and enhances performance when handling large datasets.
+Ein anderer Fall ist es, wenn die Formatregeln borders enthalten. Werden diesen Zellen einfach so gelöscht passiert,
+was uns in früheren Versionen des Scriptes passiert ist. 
+Dies ist in Abbildungen \ref{fig:cell_borders_row_height_original} und 
+\ref{fig:cell_borders_row_height_fail} zu sehen. 
+\cite{destatis2022Verkehrsunfaelle}[Sheet: 2\_(1)] In Abbildung \ref{fig:cell_borders_row_height_original}
+ sind alle Umrandungen
+um die Zellen er Tabellen-Header. In Abbildung \ref{fig:cell_borders_row_height_fail}
+sind nur die Umrandngen sichtbar,
+die an an Zellen mit Inhalt grenzen.
+So fehlt beispielsweise der Border zwischen den  Zellen A2, A3.
 
-\section{Structure of `sharedStrings.xml`}
-The `sharedStrings.xml` file is structured in a straightforward manner, allowing for efficient storage and retrieval of string values. The primary components of this file include:
 
-\subsection{Root Element}
-The root element of the `sharedStrings.xml` file is `<sst>` (Shared String Table), which encompasses all string entries. The attributes of this element include:
-\begin{itemize}
-    \item \texttt{count}: Indicates the total number of unique strings in the table.
-    \item \texttt{uniqueCount}: Specifies the number of unique strings, which may differ from the total count if some strings are repeated across the workbook.
-\end{itemize}
+\begin{figure}[ht]
+  \centering
+  \begin{subfigure}[b]{\linewidth}
+    \centering
+    \includegraphics[width=\linewidth]{images/excel_shrink/borders/borders_fail.png}
+    \caption{Originale Version mit korrekten Zell-Borders und Abständen}
+    \label{fig:cell_borders_row_height_fail}
+  \end{subfigure}
+  
+  \vspace{0.05cm} % Optional: Abstand zwischen den Bildern
+  
+  \begin{subfigure}[b]{\linewidth}
+    \centering
+    \includegraphics[width=\linewidth]{images/excel_shrink/borders/borders_original.png}
+    \caption{Korupte Version entfernten Borders und Abständen}
+    \label{fig:cell_borders_row_height_original}
+  \end{subfigure}
+  
+  \caption{Fehlerhafte Entfernung von Zellen mit Zell-Borders und Löschung von Zeilen mit benutzerdefinierter Höhe}
+  \label{fig:cell_borders_row_height}
+\end{figure}
 
-\subsection{String Entries}
-Each string entry is represented by the `<si>` (String Item) element, which can contain one or more child elements to define the string content:
-\begin{itemize}
-    \item \texttt{<t>}: This element contains the actual text of the string.
-    \item \texttt{<r>}: This element allows for rich text formatting within a single string, enabling different styles for portions of the text.
-\end{itemize}
 
-\subsection{Example of `sharedStrings.xml`}
-An example of the structure of a `sharedStrings.xml` file is shown below:
+Die Zelle A2 sieht im XML aus,
+wie in Listng \ref{lst:sheet-xml-a2} zu sehen.
 
-\begin{verbatim}
-<sst xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main" count="3" uniqueCount="3">
-    <si>
-        <t>Hello</t>
-    </si>
-    <si>
-        <t>World</t>
-    </si>
-    <si>
-        <t>Excel</t>
-    </si>
-</sst>
-\end{verbatim}
+\begin{lstlisting}[caption={Die Zelle A2 in der sheet7.xml}, label={lst:sheet-xml-a2}, firstnumber=48, numbersep={-7pt}]
+<c r="A2" s="577"/>
+\end{lstlisting}
 
-In this example, the `sharedStrings.xml` file contains three unique strings: "Hello", "World", and "Excel".
+Hier ist die style id s="577". Er definiert den für die Zelle zugrundeliegende
+Zellformatierung, welche wiederum die id für die border-definition enthält. 
+ 
+ In der styles.xml Datei unter dem Knoten cellXfs suchen wir also den xf Knoten mit der id 577,
+  also den 578. xf Knoten. Dieser ist in Listing
+ \ref{lst:style-xml-xf-577} zu sehen. 
 
-\section{Significance of `sharedStrings.xml`}
-The `sharedStrings.xml` file significantly reduces the size of the workbook by storing each unique string only once. When a string is used multiple times across different cells, Excel references the corresponding index in the `sharedStrings.xml` file instead of duplicating the string data. This optimization is particularly beneficial for large datasets, enhancing both performance and memory efficiency.
+ \begin{lstlisting}[caption={Style mit der impliziten id  577 in der style.xml}, label={lst:style-xml-xf-577}, firstnumber=378]
+  <xf numFmtId="0" fontId="8" fillId="2" borderId="5" xfId="0" applyFont="1" applyFill="1" applyBorder="1" applyAlignment="1"/>
+  \end{lstlisting}
+
+ Dieser xf knoten hat für das Attribut borderId den Index 5 gesetzt.
+ Genau so wie auch schon für die Zell Styles bedeutet dieser Index,
+ dass der 6. border Knoten in dem Knoten borders inderselben
+ styles Datei gemeint ist.
+
+ Listing \ref{lst:style-xml-border-5} zeigt den 6. border Knoten
+ mit der impliziten id 5.
+
+ \begin{lstlisting}[caption={Der border Knoten mit der impliziten id 5 in der style.xml Datei}, label={lst:style-xml-border-5}, firstnumber=171]
+  <borders count="12">
+    <!-- ... -->
+    <border>
+      <left/>
+      <right/>
+      <top/>
+      <bottom style="thin">
+        <color indexed="64"/>
+      </bottom>
+      <diagonal/>
+    </border>
+  \end{lstlisting}
+  
+
+ Jeder border knoten hat die unterknoten left, right, top, bottom und diagonal. Wenn diese Knoten keine Atribute bzw keine unterknoten haben, dann bedeutet dies, das die Zelle keine Border hat.
+ Dort hat der Knoten bottom
+  das attribut style mit dem wert "thin".
+ weiterhin hat der  knoten  den unterknoten
+  color mit dem attribut indexed und dem wert "64".
+  Das bedeutet, dass die zugeordnete Zelle eine dünne Linie  unten
+  mit der gleichen Farbe hat,
+  welcher der Index 64 zugeordnet ist.
+   In diesem Fall ist das die Farbe schwarz.
+   Zellen, für die über diesen  Weg herrausgefunden wird, dass sie ein border haben, dürfen nicht gelöscht werden.
+   Nur wenn eine Zelle sowohl keine Inhalt hat, als auch einen border knoten zugewiesen hat, dessen Knoten alle keine attribute haben, um anzuzeigen, dass sie kein Border haben, dürfen gelöscht werden.
+
+
+
+
+\section{Löschen leerer Zeilen}
+
+
+Ähnliches wie für die Zellen gilt auch für die Zeilen.
+Wenn eine Zeile keine definierte Zellen hat,
+kann es immernoc sein,
+dass die Zeile eine definierte Höhe hat.
+Wir die Zeile gelöscht,
+passiert das, was in Abbildung \ref{fig:cell_borders_row_height_fail} im Vergeich 
+zum Original \ref{fig:cell_borders_row_height_original} zu sehen ist.
+Der Abstand zwischen der Überschrift und der taelle schrumpt,
+da die zweile Zeile,
+die als Abstand zwischen Überschrift
+und Tabelle diente gelöscht ist
+und für diese Zeile die Standardhöhe für Zeilen
+in diesem Arbeitsblattes  angewendet wird,
+welche kleiner ist,
+als die benutzerdefinierte Höhe der Zeile.
+
+Um sicherzugehen, dass wir beim löschen von leeren Zeilen die optische representation des arbeitsblattes nicht ändern, wählen wir eine ähnliche strategie wie auch schon bei dem entfernen der Columns.
+Wir finde zuvor raus in welcher range tatsächlich Werte in den Zellen oder Hintergrundfarben oder borders definiert sind.
+Danach gehen wir durch alle leere Zeilen und löschen sie nur in dem Fall, dass sie aßerhalb dieses bereiches sind.
+Auf diese weise können wir die Dateigröße mancher Arbeitsblätter erheblich verringern
+ohne die Inhalte oder die darstellung der arbeitsblätter zu verändern.
+ 
+ 
+\begin{lstlisting}[caption={}, numbersep={-7pt}, label={lst:}]
+  <row r="2" spans="1:12" ht="8.25" customHeight="1">
+\label{fig:custom_height}
+\end{lstlisting}
+
+ 
+
+
+ 
+
+
+
+
+
+\section{Herrausfinden des Sheet Namens}
+
+Um eine auflisting der verringerten Dateigrößen ausgeben zu können, müssen die die Arbeitsblatttitel herrauszufinden.
+Durch die Arbeitsblattdateien wissen wir allerdings nur eine id, welche im Dateinamen steht, wie etwa sheet1.xml, sheet2.xml und so weiter.
+Welche sheetnummer zu welchem Arbeitsblattitel gehört,
+können wir leider den Titel nicht aus der Sheet Datei ermitteln, denn der Titel wird nur in der xl/workbook.xml 
+den einzelnen sheets zugeordnet. Diese Zuordnung ist in Listing \label{fig:sheet_title_from_workbook} zu
+sehen. \cite{destatis2023Foerderprogramme} Das Attribut sheetId ist dabei zu ignorieren, die id, welche den Sheet Titel zu der entsprechenden
+sheetX.xml zuordnet ist das Attribut r:id. Da am Anfang von jedem Wert in diesem 
+Attribut ein rId vorkommt, muss die id extrahiert werden, indem die zeichen beginnend mit dem 4. buchstaben beginnend extrahiert deren.
+Über die Ids gibt es dann eine eindeutige Zuordnung zu den Arbeitsblatttiteln, die für die ausgabe genutzt werden können. 
+
+ 
+\begin{lstlisting}[caption={workbook.xml mit der zuordnung der id zu den Arbeitsblattiteln}, label={lst:sheet_title_from_workbook}]
+     <sheets>
+      <sheet name="Titelseite" sheetId="10" r:id="rId1"/>
+      <sheet name="Inhalt" sheetId="11" r:id="rId2"/>
+      <sheet name="Erläuterungen" sheetId="3" r:id="rId3"/>
+      <sheet name="Allgemeines" sheetId="4" r:id="rId4"/>
+      <sheet name="0901_T_D" sheetId="12" r:id="rId5"/>
+      <sheet name="0901_T_BW" sheetId="13" r:id="rId6"/>
+ \end{lstlisting}
+
+
+ 
+
+\section{Evaluation}
+
+Wir haben unser Excel Schrink Programm auf alle mit dem web scraper heruntergeladenen Excel Dateien von Destatis angewendet. Die Abbildung
+\ref{fig:size-reduction-chart} zeigt die Verteilung 
+der reduktionsrate in prozent für die einzelnen 
+Arbeitsblätter an. 
+Das Diagramm erweckt den Eindruck, dass einige Arbeitsblätter, 
+knapp 100 \% in ihrer Dateigröße verringert wurden.
+Das ist korrekt, denn bei 17 Arbeitsblättern war die Reduktion in Prozent über 99,9 \%
+und bei 95 Arbeitsblättern war die Reduktion in Prozent über 99 \% und bei 453  Arbeitsblättern
+ war die Reduktion in Prozent über 98 \%.
+
+ \begin{table}[htbp]
+  \caption{Top Size Reduction Results}
+  \label{tab:top_size_reduction}
+  \centering 
+  \begin{tabular}{llrrr}
+    \toprule
+    \midrule
+    verkehrsunfaelle-zeitreihen-xlsx-5462403.xlsx & Technisch\_bedingte\_Leerseit & 52367813 & 1903 & 100.00  \\
+    verkehrsunfaelle-zeitreihen-xlsx-5462403.xlsx & 3.1\_(7) & 77556124 & 30204 & 99.96  \\
+    verkehrsunfaelle-zeitreihen-xlsx-5462403 (NXPowerLite Copy).xlsx & 3.1\_(1) & 77565282 & 39581 & 99.95  \\
+    verkehrsunfaelle-zeitreihen-xlsx-5462403.xlsx & 3.1\_(1) & 77565282 & 39581 & 99.95  \\
+    verkehrsunfaelle-zeitreihen-xlsx-5462403.xlsx & 4.6\_(3) & 81761696 & 42658 & 99.95  \\
+    verkehrsunfaelle-zeitreihen-xlsx-5462403.xlsx & 5.1.4\_(2) & 53442319 & 29964 & 99.94  \\
+    verkehrsunfaelle-zeitreihen-xlsx-5462403 (NXPowerLite Copy).xlsx & 5.1.4\_(2) & 53442319 & 29964 & 99.94  \\
+    verkehrsunfaelle-zeitreihen-xlsx-5462403.xlsx & 10.1 & 53441289 & 30427 & 99.94  \\
+    verkehrsunfaelle-zeitreihen-xlsx-5462403.xlsx & 10.3 & 53441530 & 30730 & 99.94  \\
+    statistischer-bericht-kostenstruktur-med-bereich-2020161227005.xlsx & 52571-10 & 30630528 & 21494 & 99.93  \\
+    \bottomrule
+    \end{tabular}
+
+\end{table}
+
+\begin{figure*}
+  \centering
+  \includegraphics[width=\textwidth]{images/charts/distribution_of_size_reduction.pdf}
+  \caption{Distribution of Size Reduction Percentages for Excel Sheets}
+  \label{fig:size-reduction-chart}
+\end{figure*}
+
+\subsection{Datei-Größe}
+
+\subsection{Dauer die Datei zu öffnen}
+
+\section{Flutter Frontend für Ease of Use}
 
 \section{Conclusion}
-The `sharedStrings.xml` file is a vital component of the Open XML structure in Excel files, providing an efficient mechanism for storing and managing string values. Understanding its role and structure allows for better manipulation and analysis of data in Excel workbooks.
 
+
+
+ 
 
 \newpage
-
-
-\section{Introduction}
-The `sharedStrings.xml` file in Excel workbooks is a crucial component for optimizing string storage. This file allows for the centralized management of unique string values, which are then referenced throughout the worksheet files. Understanding how these entries are utilized is essential for efficient data handling and manipulation in Excel.
-
-\section{Referencing Mechanism}
-In Excel worksheet files, cell entries can reference strings stored in the `sharedStrings.xml` file through specific cell attributes. The referencing mechanism works as follows:
-
-\subsection{Cell Elements}
-Each cell in the worksheet is represented by a `<c>` (cell) element within the `<sheetData>` section. For string values, the cell element includes the following attributes:
-\begin{itemize}
-    \item \texttt{t}: This attribute indicates the type of data in the cell. For shared strings, this is set to \texttt{s}.
-    \item \texttt{v}: This attribute contains the index of the string in the `sharedStrings.xml` file, allowing the cell to reference the appropriate string value.
-\end{itemize}
-
-\subsection{Example of Cell Referencing}
-An example of how a cell references a string from `sharedStrings.xml` is shown below:
-
-\begin{verbatim}
-<row r="1">
-    <c r="A1" t="s"><v>0</v></c>
-</row>
-\end{verbatim}
-
-In this example, the cell `A1` references the first entry (index `0`) in the `sharedStrings.xml` file, which might correspond to the string "Hello".
-
-\section{Significance of Using `sharedStrings.xml` Entries}
-The use of `sharedStrings.xml` entries provides several advantages:
-\begin{itemize}
-    \item \textbf{Memory Efficiency}: By storing unique strings centrally, Excel reduces redundancy and saves memory space, particularly in large datasets where the same string might be used multiple times.
-    \item \textbf{Performance Improvement}: The referencing mechanism allows for quicker access to string data, enhancing the overall performance of the application when dealing with large workbooks.
-    \item \textbf{Consistency}: Changes to a string value can be made in one location (the `sharedStrings.xml` file), and all references to that string will automatically reflect the change, ensuring data consistency throughout the workbook.
-\end{itemize}
-
-\section{Conclusion}
-The integration of `sharedStrings.xml` entries into Excel worksheet files plays a significant role in managing string data efficiently. Understanding how these entries are referenced not only enhances the manipulation of data but also contributes to improved performance and memory management in Excel applications.
 
 
 \newpage
@@ -1015,7 +1026,7 @@ und klickt anschließend auf "Go ...".
 
 \begin{figure}[ht]
   \centering
-  \includegraphics[width=0.5\textwidth]{images/excel_shrink/related_work/inquire/manage_go.png}
+  \includegraphics{images/excel_shrink/related_work/inquire/manage_go.png}
   \caption[bla]{bla bla}
   \label{fig:manage_go}
 \end{figure}%
@@ -1028,7 +1039,7 @@ wird.
 
 \begin{figure}[ht]
   \centering
-  \includegraphics[width=0.5\textwidth]{images/excel_shrink/related_work/inquire/enable_inquire.png}
+  \includegraphics[width=\linewidth]{images/excel_shrink/related_work/inquire/enable_inquire.png}
   \caption[bla]{bla bla}
   \label{fig:enable_inquire}
 \end{figure}%
@@ -1065,7 +1076,7 @@ in einem Arbeitsblatt welches  als Deckblatt verwendet wurde
 
 \begin{figure}[ht]
   \centering
-  \includegraphics[width=0.5\textwidth]{images/excel_shrink/related_work/inquire/hidden.png}
+  \includegraphics[width=\linewidth]{images/excel_shrink/related_work/inquire/hidden.png}
   \caption[bla]{bla bla}
   \label{fig:hidden}
 \end{figure}%
@@ -1074,17 +1085,8 @@ in einem Arbeitsblatt welches  als Deckblatt verwendet wurde
 Im xml waren aber die Zeilen 78 bis 65533 jeweils
 mit den Zellen A bis F definiert wie in Listing \ref{lst:row-65533} zu sehen.
 
-\lstset{
-  numbers=left, % Zeilennummern links anzeigen
-  numberstyle=\small, % Schriftgröße der Zeilennummern
-  stepnumber=1, % Jede Zeile nummerieren
-  numbersep=-27pt, % Abstand der Zeilennummern vom Code
-  basicstyle=\ttfamily, % Monospace-Schriftart verwenden
-  % frame=single, % Rahmen um den Code
-  breaklines=true, % Automatische Zeilenumbrüche
-  breakatwhitespace=true, % Zeilen an Leerzeichen umbrechen
-}
-\begin{lstlisting}[caption={Die Zeile 65533 in im sheet170.xml in der Datei verkehrsunfaelle-zeitreihen-xlsx-5462403}, label={lst:row-65533}, firstnumber=590500]
+
+\begin{lstlisting}[caption={Die Zeile 65533 in im sheet170.xml in der Datei verkehrsunfaelle-zeitreihen-xlsx-5462403}, label={lst:row-65533}, firstnumber=590500, numbersep={-27pt}]
       <row r="65533" spans="1:7" ht="0" hidden="1" customHeight="1">
       <c r="A65533" s="68" />
       <c r="B65533" s="68" />
@@ -1104,7 +1106,7 @@ wurde für jedes einzelne Arbeitsblatt
 
 \begin{figure}[ht]
   \centering
-  \includegraphics[width=0.5\textwidth]{images/excel_shrink/related_work/inquire/inquire_default_row_heght_0.png}
+  \includegraphics[width=\linewidth]{images/excel_shrink/related_work/inquire/inquire_default_row_heght_0.png}
   \caption[bla]{bla bla}
   \label{fig:results_related_tools}
 \end{figure}%
@@ -1116,6 +1118,74 @@ wurde für jedes einzelne Arbeitsblatt
 
 verkehrsunfaelle-zeitreihen-xlsx-5462403.xlsx
 
+
+\subsection{Excel Performance Tab}
+
+Seit 2022 gibt es für Excel for Web und seit 2023 für Excel für Windows gibt es eine neue Funktion namens Check Performance, welcher im Ribbon Menü über den "Review"
+Reiter aufgerufen werden kann. Diese Funktion hatte in unserem Vergleich zu den alternativen die größte verringerung der Datei Größe erreicht,
+schaffte es aber nicht überflüssige column definitions zu entfernen.
+
+Weiterhin wurden von dieser Funktion auch Zellen entfernen,
+welche das optische erscheinungsbild
+von Arbeitsblättern verändert.
+So wurde beispielsweise das Deckblatt welches in
+Abbildung \ref{fig:performance_before} verändert,
+sodass die Zelen die für Weißraum im Deckblatt sorgen entfernen wie
+in Abbidung \ref{fig:performance_after}.\cite{destatis2022Verkehrsunfaelle}
+
+ 
+
+\begin{figure}[ht]
+  \centering
+  \begin{subfigure}[b]{0.48\linewidth}
+    \centering
+    \includegraphics[width=\textwidth]{images/excel_shrink/related_work/performance/verkehrsunfaelle-performance.png}
+    \caption{bla bla}
+    \label{fig:performance_before}
+  \end{subfigure}
+  \hspace{0.01\linewidth} % Abstand zwischen den Bildern 
+  \begin{subfigure}[b]{0.48\linewidth}
+    \centering
+    \includegraphics[width=\textwidth]{images/excel_shrink/related_work/performance/verkehrsunfaelle-performance_after.png}
+    \caption{bla bla bla}
+    \label{fig:performance_after}
+  \end{subfigure}
+  \caption{Gesamtbeschreibung für beide Bilder}
+  \label{fig:performance}
+\end{figure}
+
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=\linewidth]{images/excel_shrink/related_work/inquire/inquire_default_row_heght_0.png}
+  \caption[bla]{bla bla}
+  \label{fig:results_related_tools}
+\end{figure}%
+
+Für ein Deckblatt mag das okey sein, aber für Formulare
+wie das in Abbildung \ref{fig:table},
+welche aus mehreren Zeilen ohne Inhalt bestehen,
+da diese ausgedruckt werden sollen um dann ausgefüllt zu werden,
+ist das ein Problem. \cite{destatis2023Rechnungsergebnisse}
+ 
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=\linewidth]{images/excel_shrink/related_work/performance/table.png}
+  \caption[bla]{statistischer-bericht-rechnungsergebnis-kernhaushalt-gemeinden-2140331217005 Sheet: GENESIS-Online}
+  \label{fig:table}
+\end{figure}%
+ 
+
+Denn die Check Performance Funktion von Excel entfernt all diese Border, da sie außerhalb von dem durch die Werte aufgespannten rechteckes sind., wie in Abbildung    \ref{fig:no_table} zu sehen.
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=\linewidth]{images/excel_shrink/related_work/performance/no_table.png}
+  \caption[bla]{statistischer-bericht-rechnungsergebnis-kernhaushalt-gemeinden-2140331217005 Sheet: GENESIS-Online}
+  \label{fig:no_table}
+\end{figure}%
+
 \subsection{Ergebnisse}
 
 Für die größten Dateien haben
@@ -1125,43 +1195,52 @@ wir die Ergebnisse von XXX und YYY
  
 \begin{figure}[ht]
   \centering
-  \includegraphics[width=0.5\textwidth]{images/excel_shrink/cols/col_s_arrow.png}
+  \includegraphics[width=\linewidth]{images/excel_shrink/cols/col_s_arrow.png}
   \caption[bla]{bla bla}
   \label{fig:results_related_tools}
 \end{figure}%
  
 
 
+\section{Conclusion}
+\label{sec:conclusion}
+
+We have presented \textit{Excel Shrink}, an open-source tool that significantly reduces the file sizes of Excel sheets from Destatis by eliminating unnecessary content. Our analysis identified common practices that lead to bloated Excel files and demonstrated how targeted removal of redundant data can achieve reductions of up to 99.9\% without altering the spreadsheets' appearance.
+
+
+Our tool outperforms existing solutions in both file size reduction and preservation of formatting. By making \textit{Excel Shrink} available to the community, we hope to facilitate more efficient data processing and analysis of large-scale Excel datasets.
 
 
 
 
-CORRECT:
-The amount of unsued cells is likely
-to be higher,
-because our script does 
-not check for cells that seem 
-like they contain contentbecause 
-they reference a shared structuring
-but in reality those shared strings 
-are just whitespaces that got 
-into the cells by accident.
-Those cells are not filter our by 
-our script because of the performance.
-Our script filters out the cells 
-that don't have childdren with a xpath
- query
-which is very fast in comparison 
-to iterating
-over every node and checking 
-if the referenced shared string 
-consists of only white spaces.
-
-https://ecma-international.org/publications-and-standards/standards/ecma-376/
-
-Dataset: \cite{vos2024calculations}
 
 
+% CORRECT:
+% The amount of unsued cells is likely
+% to be higher,
+% because our script does 
+% not check for cells that seem 
+% like they contain contentbecause 
+% they reference a shared structuring
+% but in reality those shared strings 
+% are just whitespaces that got 
+% into the cells by accident.
+% Those cells are not filter our by 
+% our script because of the performance.
+% Our script filters out the cells 
+% that don't have childdren with a xpath
+%  query
+% which is very fast in comparison 
+% to iterating
+% over every node and checking 
+% if the referenced shared string 
+% consists of only white spaces.
+% 
+% https://ecma-international.org/publications-and-standards/standards/ecma-376/
+% 
+% Dataset: \cite{vos2024calculations}
+
+ 
 
 %%
 %% The acknowledgments section is defined using the "acks" environment
@@ -1169,7 +1248,7 @@ Dataset: \cite{vos2024calculations}
 %% identification of the section in the article metadata, and the
 %% consistent spelling of the heading.
 \begin{acks}
-To Robert, for the bagels and explaining CMYK and color spaces.
+We would like to thank the German Federal Statistical Office (Destatis) for allowing us to analyze their data, investigate redundant file contents, and publish our findings.
 \end{acks}
 
 %%
@@ -1180,13 +1259,98 @@ To Robert, for the bagels and explaining CMYK and color spaces.
 
 %%
 %% If your work has an appendix, this is the place to put it.
+\newpage
 \appendix
+
+\newpage
 
 \section{Appendix 1}
 
-\subsection{Part One} 
+ 
 
-Lorem ipsum dolor sit amet
+%\section{Introduction}
+%Excel files in the .xlsx format utilize the Open XML standard, which allows for a structured representation of data in a compressed format. When unpacked, an Excel %file reveals several XML files and directories that define its content and layout.
+%
+%\section{Key Components of Unpacked Excel Files}
+%
+%\subsection{Content Types}
+%The \texttt{[Content\_Types].xml} file describes the types of content contained within the Excel file. It provides essential metadata about the various file types %included in the package.
+%
+%\subsection{Relationships}
+%The \texttt{\_rels/} directory contains relationship files, such as \texttt{workbook.xml.rels}, which define the relationships between the main document and other %components, including worksheets and embedded objects.
+%
+%\subsection{Worksheets and Main Data}
+%The \texttt{xl/} directory includes:
+%\begin{itemize}
+%    \item \texttt{workbook.xml}: Contains information about the structure of the workbook, including the number and names of worksheets.
+%    \item \texttt{worksheets/}: A folder that contains individual XML files for each worksheet (e.g., \texttt{sheet1.xml}), which hold the data and formatting for %those sheets.
+%    \item \texttt{styles.xml}: This file holds formatting information for cells, such as fonts, colors, and sizes.
+%    \item \texttt{sharedStrings.xml}: A file that contains a list of unique string values used in the workbook to optimize storage.
+%\end{itemize}
+%
+%\subsection{Themes and Custom XML}
+%The \texttt{theme/} directory contains files that define the design and color schemes of the workbook. The \texttt{customXml/} directory may hold custom XML data %added by applications for specific information management.
+%
+%\section{Conclusion}
+%Understanding the XML structure within Excel files provides valuable insights into how data is organized and stored in a standard format, facilitating data %manipulation and analysis.
+%
+%
+%\newpage
+%
+%\section{Introduction}
+%Excel worksheets in the .xlsx format are stored as XML files, which define the layout, data, and formatting of the cells within the sheet. Each worksheet is %represented by a separate XML file, typically named \texttt{sheet1.xml}, \texttt{sheet2.xml}, etc., located in the \texttt{xl/worksheets/} directory of the unpacked %Excel file.
+%
+%\section{Key Components of Worksheet XML Files}
+%
+%\subsection{File Structure}
+%The structure of a typical worksheet XML file is as follows:
+%\begin{itemize}
+%    \item \texttt{<worksheet>}: The root element that encompasses all data in the worksheet.
+%    \item \texttt{<dimension>}: Specifies the size of the worksheet, defining the range of used cells (e.g., \texttt{ref="A1:C10"}).
+%    \item \texttt{<cols>}: Defines the properties of the columns in the worksheet, such as width.
+%    \item \texttt{<sheetData>}: Contains the actual cell data organized in rows and columns.
+%\end{itemize}
+
+
+
+
+
+
+
+
+ 
+ 
+
+
+
+% kostenstruktur-aerzte-2020161199005
+% <si>
+% <r>
+%     <t>Tabellenteil</t>
+% </r>
+% <r>
+%     <rPr>
+%         <b/>
+%         <vertAlign val="superscript"/>
+%         <sz val="14"/>
+%         <rFont val="MetaNormalLF-Roman"/>
+%         <family val="2"/>
+%     </rPr>
+%     <t>1</t>
+% </r>
+% </si>
+% 
+% 
+% custom height 
+% default height 12 15
+% 
+% kostenstruktur ärzte
+% 
+% sheet wo finde ich was
+
+
+
+
 \end{document}
 \endinput
 %%
