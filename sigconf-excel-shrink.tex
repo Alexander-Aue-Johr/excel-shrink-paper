@@ -325,11 +325,36 @@ The web scraping and downloading process is outlined in Algorithm \ref{alg:web_s
   \end{algorithmic}
 \end{algorithm}
 
-The URL for a subsequent page in the search results looks like this:
+\begin{itemize}
+  \item \url{/SiteGlobals/Forms/Suche/Expertensuche\_Formular.html}:
+  
+  This is the base path of the URL, which points to the expert search form on the Destatis website. It serves as the primary endpoint where the search query is submitted.
 
-\url{/SiteGlobals/Forms/Suche/Expertensuche\_Formular.html?templateQueryString=2000\&gtp=474\_list\%253D2\&documentType\_=publication\&resultsPerPage=100}
+  \item \url{templateQueryString=2000}:
+  
+  This query parameter specifies the search year. In this case, the search is focused on publications from the year 2000. By adjusting this value, different years can be searched.
 
-Although the URL and query parameters remain largely the same across requests, one query parameter stands out: \texttt{gtp=474\_list\%253D2}. The \texttt{gtp=474\_list} portion is consistent, but its meaning is unclear—possibly "get page." The \texttt{\%253D} is a doubly encoded sequence, where \texttt{\%253D} is the URL-encoded form of \texttt{\%3D}, which itself encodes the equal sign (\texttt{=}). After decoding, the query parameter becomes \texttt{gtp=474\_list=2}. The number after the second equal sign corresponds to the current page index in the pagination of the search results.
+  \item \url{gtp=474\_list\%253D2}:
+  
+  This parameter handles pagination. It points to a specific page of search results. The value \texttt{\%253D} is
+  is a doubly encoded sequence, where \texttt{\%253D} is the URL-encoded form of \texttt{\%3D}, which itself encodes the equal sign (\texttt{=}).
+  After decoding, the query parameter becomes \texttt{gtp=474\_list=2}. The number after the second equal sign corresponds to the current page index in the pagination of the search results.
+  \item \url{documentType\_=publication}:
+  
+  This parameter filters the results by the type of document. By setting this to \texttt{publication}, the search is limited to publications, where Excel files are usually attached.
+
+  \item \url{resultsPerPage=100}:
+  
+  This parameter determines how many results should be displayed per page. In this case, it is set to 100, which is the maximum number of results that can be retrieved in a single page request.
+\end{itemize}
+
+
+ 
+
+
+ 
+
+
 
 Once we have queried each publication year from 2000 to 2024, and the file attachments have been extracted from the result pages until no further "next page" button is available, the scraping process for the Excel files is complete.
 
@@ -356,18 +381,9 @@ def check_for_duplicate_filenames(file_records: List[FileRecord]) -> bool:
 
 \subsection{Respecting Crawl Delay}
 
-To minimize the load on the Destatis website, we adhered to the crawl-delay directive specified in the site's \texttt{robots.txt} file, pausing for 30 seconds between requests. This delay ensures that our scraper operates within the guidelines provided by Destatis: \texttt{Crawl-delay: 30}.
-
-
-\section{Related Work}
-\subsection{Inquire}
-\subsection{NXPowerLite Desktop}
-
-
-%\section{Methodology}
+To minimize the load on the Destatis website, we adhered to the crawl-delay directive specified in the site's \texttt{robots.txt} file, pausing for 30 seconds between requests. This delay ensures that our scraper operates within the guidelines provided by Destatis.
 
 \section{Löschen von White Spaces}
-
 
 Der Benutzer von Excel hat keine einfache Möglichkeit herrauszufinden, welche Zellen im Arbeitsblatt nur whitespaces enthalten. Um die Whitespaces zu kennzeichnen haben wir im diesem Arbeitsblatt mit 4121 Whitespaces in Abbildung \label{fig:whitespaces}
 die Zellen mit ausschließlich whitespaces rot gekennzeichnet. \cite{destatis2023Konsumausgaben5811109}
@@ -563,7 +579,7 @@ Anderer seits können diesen zellen auch border hinterlegt sein.
 Um das herrauszufinden muss man sich das Attribut \texttt{s} ansehen, denn es steht für den Stilindex, der auf die Zelle angewendet wird.
 Die Werte \texttt{s="538"}, \texttt{s="537"} und \texttt{s="541"} stehen dabei für einen Index für eine lookuptable in der alle Zell-Styles abgelegt sind.
 Die zu den Stilindex passenden Styles findet man in der xl/styles.xml Datei. Die entsprechenden Ausschnitte sind in Listing \ref{lst:cellXfsCsv7171725} zu sehen.
-
+ 
 \begin{lstlisting}[caption={Die letzte Zeile im Arbeitsblatt csv-71717-25}, label={lst:cellXfsCsv7171725}]
 <cellXfs count="778">
   <!--538-->
@@ -579,24 +595,6 @@ Die zu den Stilindex passenden Styles findet man in der xl/styles.xml Datei. Die
 Die XML-Struktur innerhalb von \texttt{<cellXfs>} enthält Formatierungseigenschaften, die für Zellen in einer Excel-Datei definiert sind. Jedes \texttt{<xf>}-Element stellt eine Formatierungsregel dar. Genau wie bei der Shared Strings datei werden die Formatierungsregeln über ihre Reihenfolge in der Liste indeziert, beginnend mit der ersten bei 0 und dem zweiten bei 1, und so weiter. Für die ids \texttt{s="538"}, \texttt{s="537"} und \texttt{s="541"} muss also nach dem 538., dem 539. sowie dem 542 Element in der Liste gesucht werden.  Die Attribute steuern das Erscheinungsbild der Zelle. Das Attribut \texttt{numFmtId} gibt das Zahlenformat an, das für die Zelle verwendet wird, während \texttt{fontId} die ID der Schriftart beschreibt. \texttt{fillId} bezieht sich auf die Füllfarbe, und \texttt{borderId} definiert die Randeigenschaften. \texttt{xfId} verweist auf eine Formatvorlage, von der die Zelle Eigenschaften erbt. Die Attribute \texttt{applyNumberFormat}, \texttt{applyFont} und \texttt{applyAlignment} legen fest, ob das entsprechende Zahlenformat, die Schriftart und die Textausrichtung auf die Zelle angewendet werden. Falls das Element \texttt{alignment} vorhanden ist, spezifiziert es die Ausrichtung des Textes innerhalb der Zelle, wie z.B. eine rechtsbündige Ausrichtung. Diese Struktur gibt die Formatierungsregeln an, die für die Darstellung und das Layout der Zelleninhalte verwendet werden.
 
 An diesen Styles lässt sich überprüfen, dass diese Zellen lediglich styles anwenden, die bei einer leeren Zelle nicht sichtbar sind. Sie verwenden unterschiedliche Schriftarten, Zelle G1048576 ist zudem rechtsbündig formatiert. Alle diese Zellen sind demnach überflüssig und können dementsprechend gelöscht werden.
-
- 
-%\begin{figure}[ht]
-%  \centering
-%  \includegraphics[width=\linewidth]{images/excel_shrink/borders/borders_original.png}
-%  \caption{Originale Version mit korrekten Zell-Borders und Zeilenabständen, Source: Sheet: 2\_(1)}
-%  \label{fig:cell_borders_row_height_original}
-%\end{figure}%
-%
-%
-%\begin{figure}[ht]
-%  \centering
-%  \includegraphics[width=\linewidth]{images/excel_shrink/borders/borders_fail.png}
-%  \caption[Fehlerhafte Entfernung von Zellen mit Zell-Borders und Löschung von Zeilen mit benutzerdefinierter Höhe]{Fehlerhafte Entfernung von Zellen mit %Zell-Borders und Klschung von Zeilen mit benutzerdefinierter Höhe, Source: verkehrsunfaelle-zeitreihen-xlsx-5462403 Sheet: 2\_(1)}
-%  \label{fig:cell_borders_row_height_fail}
-%\end{figure}%
-
-
 
 Ein anderer Fall ist es, wenn die Formatregeln borders enthalten. Werden diesen Zellen einfach so gelöscht passiert,
 was uns in früheren Versionen des Scriptes passiert ist. 
