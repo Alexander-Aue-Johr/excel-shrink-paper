@@ -45,7 +45,11 @@
 %% for your publication.
 %%
 %%
-\documentclass[sigconf]{acmart}
+\documentclass[sigconf,anonymous]{acmart}
+%\documentclass[sigconf]{acmart}
+
+%\documentclass[manuscript, screen, review, anonymous]{acmart}
+
 
 \usepackage{algorithm}
 \usepackage{algorithmic}
@@ -66,84 +70,34 @@
 }
 
 \lstset{
-    numbers=left, % Zeilennummern links anzeigen
-    numberstyle=\small, % Schriftgröße der Zeilennummern
-    stepnumber=1, % Jede Zeile nummerieren
+    %numbers=left, % Zeilennummern links anzeigen
+    %numberstyle=\small, % Schriftgröße der Zeilennummern
+    %stepnumber=1, % Jede Zeile nummerieren
     basicstyle=\ttfamily, % Monospace-Schriftart verwenden
     frame=single, % Rahmen um den Code
     breaklines=true, % Automatische Zeilenumbrüche
     breakatwhitespace=true, % Zeilen an Leerzeichen umbrechen
 }
 
-%%
-%% \BibTeX command to typeset BibTeX logo in the docs
 \AtBeginDocument{%
   \providecommand\BibTeX{{%
     Bib\TeX}}}
 
-%% Rights management information.  This information is sent to you
-%% when you complete the rights form.  These commands have SAMPLE
-%% values in them; it is your responsibility as an author to replace
-%% the commands and values with those provided to you when you
-%% complete the rights form.
 \setcopyright{acmlicensed}
-\copyrightyear{2018}
-\acmYear{2018}
-\acmDOI{XXXXXXX.XXXXXXX}
-
-%% These commands are for a PROCEEDINGS abstract or paper.
-\acmConference[Conference acronym 'XX]{Make sure to enter the correct
-  conference title from your rights confirmation emai}{June 03--05,
-  2018}{Woodstock, NY}
-%%
-%%  Uncomment \acmBooktitle if the title of the proceedings is different
-%%  from ``Proceedings of ...''!
-%%
-%%\acmBooktitle{Woodstock '18: ACM Symposium on Neural Gaze Detection,
-%%  June 03--05, 2018, Woodstock, NY}
-\acmISBN{978-1-4503-XXXX-X/18/06}
+\copyrightyear{2025}
+\acmYear{2025}
+\acmDOI{10.1145/XXXXXXX.XXXXXXX}
 
 
-%%
-%% Submission ID.
-%% Use this when submitting an article to a sponsored event. You'll
-%% receive a unique submission ID from the organizers
-%% of the event, and this ID should be used as the parameter to this command.
-%%\acmSubmissionID{123-A56-BU3}
-
-%%
-%% For managing citations, it is recommended to use bibliography
-%% files in BibTeX format.
-%%
-%% You can then either use BibTeX with the ACM-Reference-Format style,
-%% or BibLaTeX with the acmnumeric or acmauthoryear sytles, that include
-%% support for advanced citation of software artefact from the
-%% biblatex-software package, also separately available on CTAN.
-%%
-%% Look at the sample-*-biblatex.tex files for templates showcasing
-%% the biblatex styles.
-%%
-
-%%
-%% The majority of ACM publications use numbered citations and
-%% references.  The command \citestyle{authoryear} switches to the
-%% "author year" style.
-%%
-%% If you are preparing content for an event
-%% sponsored by ACM SIGGRAPH, you must use the "author year" style of
-%% citations and references.
-%% Uncommenting
-%% the next command will enable that style.
-%%\citestyle{acmauthoryear}
+\acmConference[SIGMOD '25]{2025 International Conference on Management of Data}{June 22--27, 2025}{Berlin, Germany}
 
 
-%%
-%% end of the preamble, start of the body of the document source.
+\acmISBN{978-1-4503-XXXX-X/25/06}
+
+\acmSubmissionID{1503}
+
 \begin{document}
 
-%% 
-%% The "title" command has an optional parameter,
-%% allowing the author to define a "short title" to be used in page headers.
 \title{Excel Shrink: Reducing File Bloat in Destatis Excel Spreadsheets by Up to 99.99\%}
  
        
@@ -158,12 +112,20 @@
 \email{alexander.aue@thuenen.de}
 \orcid{0009-0001-8683-3630}
 \affiliation{%
-  \institution{Institute of Rural Studies of the Johann Heinrich von Thünen-Institute}
+  \institution{Thünen Institute for Rural Areas}
   \city{Brunswick}
   \country{Germany}
 }
 
-
+\author{Hardy Pundt}
+%\authornote{Both authors contributed equally to this research.}
+\email{hpundt@hs-harz.de}
+\orcid{https://orcid.org/0000-0001-6985-5929}
+\affiliation{%
+  \institution{Harz University of Applied Sciences}
+  \city{Wernigerode}
+  \country{Germany}
+}
  
 %%
 %% By default, the full list of authors will be used in the page
@@ -171,63 +133,55 @@
 %% other information printed in the page headers. This command allows
 %% the author to define a more concise list
 %% of authors' names for this purpose.
-\renewcommand{\shortauthors}{Trovato et al.}
+%\renewcommand{\shortauthors}{Trovato et al.}
 
-%%
-%% The abstract is a short summary of the work to be presented in the
-%% article.
 \begin{abstract}
-  A clear and well-documented \LaTeX\ document is presented as an
-  article formatted for publication by ACM in a conference proceedings
-  or journal publication. Based on the ``acmart'' document class, this
-  article presents and explains many of the common variations, as well
-  as many of the formatting elements an author may use in the
-  preparation of the documentation of their work.
-
-  \end{abstract}
+  The German Federal Statistical Office (Destatis) publishes a multitude of Excel sheets containing statistical data. However, these files are often significantly larger than necessary due to unused cell formats, empty cells, and other inefficiencies, leading to increased storage requirements and slower data processing. In this paper, we introduce \textit{Excel Shrink}, an open-source tool that reduces the file size of these Excel sheets by up to 99.9\%. We analyze the root causes of the excessive file sizes, describe our method for identifying and eliminating redundant content, and compare our tool with existing solutions. Our evaluation on a comprehensive dataset of Destatis Excel files demonstrates substantial improvements in file size reduction without altering the visual appearance of the spreadsheets.
+\end{abstract}
 
 %%
 %% The code below is generated by the tool at http://dl.acm.org/ccs.cfm.
 %% Please copy and paste the code instead of the example below.
 %%
 \begin{CCSXML}
-<ccs2012>
- <concept>
-  <concept_id>00000000.0000000.0000000</concept_id>
-  <concept_desc>Do Not Use This Code, Generate the Correct Terms for Your Paper</concept_desc>
-  <concept_significance>500</concept_significance>
- </concept>
- <concept>
-  <concept_id>00000000.00000000.00000000</concept_id>
-  <concept_desc>Do Not Use This Code, Generate the Correct Terms for Your Paper</concept_desc>
-  <concept_significance>300</concept_significance>
- </concept>
- <concept>
-  <concept_id>00000000.00000000.00000000</concept_id>
-  <concept_desc>Do Not Use This Code, Generate the Correct Terms for Your Paper</concept_desc>
-  <concept_significance>100</concept_significance>
- </concept>
- <concept>
-  <concept_id>00000000.00000000.00000000</concept_id>
-  <concept_desc>Do Not Use This Code, Generate the Correct Terms for Your Paper</concept_desc>
-  <concept_significance>100</concept_significance>
- </concept>
+  <ccs2012>
+  <concept>
+      <concept_id>10010405.10010476.10011187.10011189</concept_id>
+      <concept_desc>Applied computing~Spreadsheets</concept_desc>
+      <concept_significance>500</concept_significance>
+      </concept>
+  <concept>
+      <concept_id>10002951.10002952.10003219.10003218</concept_id>
+      <concept_desc>Information systems~Data cleaning</concept_desc>
+      <concept_significance>500</concept_significance>
+      </concept>
+      <concept>
+      <concept_id>10011007.10011006.10011050.10010512.10003310</concept_id>
+      <concept_desc>Software and its engineering~Extensible Markup Language (XML)</concept_desc>
+      <concept_significance>500</concept_significance>
+      </concept>
+      <concept>
+      <concept_id>10003120.10003121.10003124.10010865</concept_id>
+      <concept_desc>Human-centered computing~Graphical user interfaces</concept_desc>
+      <concept_significance>300</concept_significance>
+      </concept>
+      <concept>
+          <concept_id>10003752.10003809.10010031.10002975</concept_id>
+          <concept_desc>Theory of computation~Data compression</concept_desc>
+          <concept_significance>100</concept_significance>
+          </concept>
 </ccs2012>
 \end{CCSXML}
 
-\ccsdesc[500]{Do Not Use This Code~Generate the Correct Terms for Your Paper}
-\ccsdesc[300]{Do Not Use This Code~Generate the Correct Terms for Your Paper}
-\ccsdesc{Do Not Use This Code~Generate the Correct Terms for Your Paper}
-\ccsdesc[100]{Do Not Use This Code~Generate the Correct Terms for Your Paper}
+\ccsdesc[500]{Applied computing~Spreadsheets}
+\ccsdesc[500]{Information systems~Data cleaning}
+\ccsdesc[500]{Software and its engineering~Extensible Markup Language (XML)}
+\ccsdesc[300]{Human-centered computing~Graphical user interfaces}
+\ccsdesc[100]{Theory of computation~Data compression}
 
-%%
-%% Keywords. The author(s) should pick words that accurately describe
-%% the work being presented. Separate the keywords with commas.
-\keywords{Do, Not, Us, This, Code, Put, the, Correct, Terms, for,
-  Your, Paper}
-%% A "teaser" image appears between the author and affiliation
-%% information and the body of the document, and typically spans the
-%% page.
+\keywords{Excel File Optimization, XML Processing, Data Compression, Web Scraping, File Size Reduction, XLSX Format, Data Cleaning, Data Preprocessing, Open Data, Spreadsheet Efficiency, Data Management, Destatis}
+
+
 \begin{teaserfigure}
   \includegraphics[width=\textwidth]{images/charts/distribution_of_size_reduction.pdf}
   \caption{Distribution of Size Reduction Percentages for Excel Sheets}
@@ -236,17 +190,71 @@
   \label{fig:teaser}
 \end{teaserfigure}
 
-
- 
-
-\received{20 February 2007}
-\received[revised]{12 March 2009}
-\received[accepted]{5 June 2009}
+\received{17 October 2024}
+\received[revised]{}%{12 March 2009}
+\received[accepted]{}%{5 June 2009}
 
 %%
 %% This command processes the author and affiliation and title
 %% information and builds the first part of the formatted document.
 \maketitle
+\section{Introduction}
+
+Excel files are widely utilized as a format for data exchange across various domains, including finance, statistics, business, and research \cite{spreadsheet_usage_study}. Their versatility lies in Excel's capability to store tabular data, perform complex calculations, automate workflows using macros, and visually represent data through charts and graphs. This flexibility makes Excel indispensable in many organizations. However, as spreadsheets grow in complexity, significant challenges arise regarding file size and performance management \cite{spreadsheet_scalability}.
+
+Unlike simpler formats such as CSV, which transparently display stored data, Excel files use a more complex structure. Excel employs the Office Open XML format, introduced in Excel 2007, where workbook contents are stored as a collection of XML files within a compressed ZIP archive \cite{office_open_xml}. This XML-based architecture enables advanced functionality, such as separating data from its presentation layer. For instance, Excel centralizes repeated strings in a shared string table, thus reducing redundancy by storing each text entry once and referencing it elsewhere in the workbook \cite{excel_internal_format}. Furthermore, formatting details—such as fonts, cell styles, and colours—are stored separately from the data itself in dedicated XML files, allowing Excel to reconstruct the sheet's visual appearance when it is opened \cite{xml_formatting_excel}.
+
+\subsection{Excel’s Internal Storage Mechanisms}
+
+To minimize file size, Excel makes extensive use of compression techniques. Once the workbook's data, styles, and structure are defined in XML, these files are bundled into a ZIP archive. The ZIP compression algorithm is particularly effective in this context due to the repetitive nature of XML tags and structures \cite{xml_compression_excel}. For example, in a large spreadsheet, tags like `<row>` and `<c>` (for cells) can appear hundreds of thousands of times. The compression algorithm identifies these repetitive patterns and encodes them with shorter representations, reducing the overall file size \cite{compression_algorithms}. Without compression, the verbosity of XML would result in substantially larger files.
+
+Despite achieving considerable space savings, this approach introduces significant inefficiencies. The separation between the visible content seen by the user and the underlying storage structure can lead to scenarios where redundant or unused data continues to occupy considerable amounts of space in the file. These inefficiencies are not immediately apparent to users but can drastically increase file sizes, reducing the overall performance of both Excel and the systems that interact with it.
+
+One common issue arises when users apply formatting to large ranges of cells that contain no actual data. For example, a user might highlight an entire row or column to change its font style or background colour, but only a subset of the cells are populated with data. The formatting persists across all selected cells, including those that remain empty, creating unnecessary XML records that Excel must store in its underlying files. As Excel stores formatting separately in its XML structure, each formatted but empty cell is treated as a separate entity, adding to the size of the workbook \cite{spreadsheet_practices}. This problem is exacerbated when users apply conditional formatting or intricate styles over vast areas, further bloating the file without any visible effect.
+
+Similarly, duplicating entire sheets within a workbook can carry over both data and formatting, even when only a portion of the original sheet is needed. Users often duplicate sheets to retain formulas, styles, or layouts, but this also transfers unnecessary metadata and formatting definitions from the original sheet, including empty cells, unused rows, and hidden columns. These redundancies are copied wholesale, and in many cases, users do not realize that they are preserving and propagating unused content. Over time, as sheets are copied and modified, the workbook's file size balloons, with Excel continuing to store and manage a growing list of redundant elements that serve no practical purpose.
+ 
+A less obvious but equally impactful inefficiency arises from Excel's approach to managing rows and columns. Excel maintains definitions for rows and columns even if they are not populated with data. For instance, if a user inadvertently applies formatting to an entire column but only uses a few cells, the column definition persists in the underlying XML. In some cases, we have observed Excel files where the maximum allowable number of rows and columns were defined, significantly inflating the file size without contributing any value. Although these rows and columns were not fully utilized with data, their definitions were still present in the file, unnecessarily consuming space. These excessive definitions often remain hidden from the user’s view, making them difficult to detect and remove manually.
+
+
+
+These inefficiencies not only increase storage requirements but also degrade Excel’s performance. Larger files take longer to open, save, and modify. In enterprise environments, this can lead to significant delays when handling shared workbooks or automating data processing tasks through scripts and applications that interface with Excel. The excessive size of the files puts a strain on memory and processing resources, leading to a slower user experience and increased frustration in collaborative settings where files are frequently shared or integrated with other systems. These inefficiencies, therefore, represent a considerable challenge for users working with large datasets or managing multiple Excel files.
+
+By addressing these issues—removing redundant formatting, eliminating unused rows and columns, and optimizing the internal XML structure—significant reductions in file size and performance improvements can be achieved. This is the key focus of our open-source tool, \texttt{excel-shrink}, which identifies and eliminates these inefficiencies while preserving the visual and functional integrity of the spreadsheet.
+
+\subsection{Impact of File Bloat on Performance}
+
+Excel file bloat—characterized by excessive file size without a corresponding increase in useful content—can severely impact performance \cite{excel_performance_issues}. Large files take longer to open, save, and process, whether accessed by human users or automated scripts. In enterprise environments, where Excel files are frequently shared, modified, and stored, these performance bottlenecks can disrupt workflows and reduce operational efficiency \cite{spreadsheet_workflow_disruptions}.
+Our work with datasets from the German Federal Statistical Office (Destatis) exemplifies these performance challenges. The Excel files we analyzed contained substantial redundant content, including unused rows, columns, and formatting definitions, which contributed to their excessive size and slow processing times \cite{excel_storage_issues}. Some of these files exceeded several hundreds of megabytes in their uncompressed form, taking an unusually long time to open and save, both in Excel and through automated means.
+
+\subsection{Analyzing Redundant Content in Excel Files}
+
+Redundant content in Excel files manifests in various forms, each contributing to file bloat in different ways. The most prevalent types of redundancy include:
+
+\begin{itemize}
+    \item \textbf{Empty but formatted cells:} When users apply formatting (such as fonts, colours, or borders) to large ranges of cells, the formatting persists even in cells that contain no data \cite{spreadsheet_practices}. This results in thousands of empty cells consuming unnecessary space without any visible effect on the sheet's content.
+    \item \textbf{Unused rows and columns:} Entire rows or columns may be defined within the workbook's XML structure despite containing no data. These unnecessary definitions contribute to bloating the file size \cite{spreadsheet_design_errors}.
+    \item \textbf{Duplicated sheets:} Users often copy entire sheets for convenience, inadvertently duplicating redundant structures such as empty cells with formatting or hidden rows and columns \cite{spreadsheet_duplication}.
+\end{itemize}
+
+To quantify the impact of these redundancies, we performed a detailed analysis of Excel files from Destatis. Our investigation revealed that many files contained vast amounts of poorly structured or unused content that provided no functional benefit. In extreme cases, we discovered that worksheets contained definitions for rows and columns extending to Excel's maximum limits, despite containing no data. By removing these excess elements, we were able to reduce file sizes by as much as 99.99\% in some instances.
+
+\subsection{Related Work on Excel File Optimization}
+
+Several tools and techniques have been developed to mitigate Excel file bloat \cite{excel_optimization_tools}. These include commercial software, Excel add-ins, and built-in Excel features designed to remove redundant content and reduce file sizes. However, most existing tools have notable limitations. Many are restricted to processing a limited number of files or are constrained to specific Excel versions or enterprise environments \cite{excel_tools_comparison}. Furthermore, these tools either fail to remove all redundant content or inadvertently alter the sheet's visual appearance, making them unsuitable for users who need to preserve the layout of their workbooks \cite{excel_cleanup_tools}.
+
+These limitations underscored the need for a more robust, scalable solution. To address this gap, we developed our open-source tool, \texttt{excel-shrink}, capable of processing large batches of Excel files while maintaining the integrity of the spreadsheet layout.
+
+\subsection{Our Contribution: excel-shrink}
+
+To combat the issues posed by file bloat in Excel, we introduce \texttt{excel-shrink}, an open-source tool designed to efficiently reduce the size of Excel files by removing redundant content \cite{excel_shrink_tool}. The tool conducts an in-depth analysis of the workbook's XML structure to identify and eliminate unnecessary elements, including empty but formatted cells, unused rows, and columns.
+
+Unlike existing tools, \texttt{excel-shrink} is capable of processing unlimited numbers of Excel files, making it suitable for handling large datasets, such as the 1,182 files we analyzed from Destatis. The tool ensures that the visual layout of the spreadsheet is preserved, preventing the loss of important formatting. By automating the cleanup of redundant content, \texttt{excel-shrink} significantly reduces the time and effort required to optimize Excel files, making it an ideal solution for organizations dealing with large-scale spreadsheets.
+
+In this paper, we present the technical foundations of \texttt{excel-shrink}, outline the methodology used to analyze Excel file bloat, and evaluate the tool's performance across various datasets. Our results demonstrate that \texttt{excel-shrink} can reduce file sizes by up to 99.99\% without compromising the usability or appearance of the Excel files.
+
+
+
 
 \section{Introduction}
 
