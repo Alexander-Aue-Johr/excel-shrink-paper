@@ -255,274 +255,108 @@ In this paper, we present the technical foundations of \texttt{excel-shrink}, ou
 
 
 
-
-\section{Introduction}
-
-Excel Dateien werden viel als Datenaustauschformat eingesetzt.
-Andere Datenformate wie etwa csv Dateien machen offensichtlich,
-was in der Datei gespeichert ist. Das was der Nutzer sieht, ist gleichzeitig der Inhalt der Datei.
-
-Excel dagegen speichert die Daten in in einer Menge von .xml Dateien ab,
-welche sich ein üblicher nutzer nicht ansieht.
-Diese xml Dateien nutzen einige Mechanismen, um die Dateigröße zu verringer.
-Beispielsweise werden wiederkehrende Texte zentral in einer Datei abgelegt
- abgelegt und über eine id referenzierbar gemacht und die Zellen,
- die diesen Text enhalten sollen speichern lediglich den numerischen Index
-des texts Ab.
-
-Das gleiche gilt für Formate wie die angewandte schriftart, die schriftgröße,
-vordergrund und hintergrundfarben, sowie border und weiteres.
-
-Beim Öffnen der Excel Datei werden alle diese verknüpfungen zu den wiederkehrenden Texten
-und Formaten aufgelöst sodass der Nutzer die sein Arbeitsblatt wie gewohnt angezeigt bekommt
-ohne dass der Benutzer etwas von der speichereffizienten Ablegung dieser Daten etwas bemerkt. 
-
-Weiterhin werden alle diese .xml Datei zu einer archivdatei gebündelt und mit dem zip kompressionsalgoritmus 
-komprimiert. Somit können die Dateien nochmal deutlich an Dateigröße einsparen, denn der kompressionsalgorithmus funktiniert besonders gut bei text-Dateien, welche viele wiederkehrende muster aufweisen.
-So enthalten die xml dateien xml tags wie <row> und <c> für eine Zelle die sich sehr häufig wiederholen, jedoch nehmen diese xml tags in einer text-datei wie xml so viel platz ein, wie die einzelnen buchstaben an 
-dateispeicher benötigen. Der Zip kompressionsalgoritmus erkennt diese wiederkehrenden muster und legt besonders
-häufig auftauchende unter einem besonders kurzen schlüssel ab. Auf diese Weise kann die Dateigröße aller xml Dateien
-dieser excel Datei nocheinmal erheblich in der Dateigröße verringert werden.
-
-Doch diese mechanismen, die representation der Datei vom tatsächlich gespeicherten Dateiinhalt zu trennen hat seine Nachteile. So führt der Umstand, dass Benutzer von Excel rein optisch nicht unterscheiden können,
-ob eine leere Zelle ein Format hat oder nicht, dass eine Datei viel Dateispeicher beanspruchen für
-Zellen der der Nutzer kein Interesse hat, sie zu behalten. Übliche Praktiken, die ein benutzer von Excel verwendet
-um ein arbeitsblatt zu gestalten, können zu erheblichen Dateigröße erhöhung führen.
-so wählt man als benutzer nicht selten eine Spanne von Zellen um ihnen eine spezielle Schriftart festzulegen.
-Dabei markiert man eventuell bereits eine ganze menge mehr Zellen,
-und füllt die Daten ein, weil man sich denkt,
-dass man das überschüssige Format später wieder löschen kann.
-
-Nicht selten duplizieren nutzer auch Excel Arbeitsblätter, weil sie bereits das richtige Layout haben und dann füllen sie andere werte ein. Das neue Arbeitsblatt kann aber auch weniger Daten enthalten, als das vorherige-
-Manch ein benutzer fühlt sich vielleicht sicher,
-dass er die überschüssigen Formate entfernt hat,
-da er die  zuviel übertragenen zellen  markiert und die entfernen taste drückt.
-Das entfernen von den ursprünglihen Inhalten könnte ihm das gefühl
-geben dass in der Tat die Zellen gelöscht wurden.
-Auch wenn die Zellen zuvor keine Werte enthielten, geschiet optisch für den Benutzer beim drücken der entfernen taste
-gar nichts und er ist vielleicht einfach nur in dem Glauben, dass die Formate gelöscht wurden.
-
-Diese Praktik reicht gdoch leider nicht aus. Mit der entfernen taste werden nur Zellinhalte, aber keine Formate gelöscht. Die überigen Zellen nehmen weiterhin platz ein.
-
-Während unserer Arbeit mit Dateien von dem deutschen statistischen Amt Destatis,
-bemerkten wir dass die Dateien sehr lange in Excel bzw beim programmatischen öffnen
-der Datei in Scripten ser lange zum öffnen benötigten.
-Wir versuchten herauszufinden, ob der Grund dafür einfach ist,
-das die Menge der abgelegten Daten entsprechend groß ist. Doch dabei stellten wir fest,
-das die tatsächliche Datemenge gar nicht so ausergewöhnlich groß war. Wir untersuchten daher,
-die von excel intern als xml abgelegten dateien um herauszufinden,
-was genau für die imense Dateigröße verantwortlich war.
-Wir vermuteteten dass eingebette Datei-Anhänge oder schlecht komprimierte Bilder
-für die Datei verantwortlich sein könnten.Doch wir machten die überraschende erkenntnis,
-dass stattdessen die definition von Spalten, Zeilen und Zeilen welche gar keinen Inhalt hatten
-für die großen Dateien verantwort waren.
-Nachdem wir diese Informationen aus den großen Excel Dateien entfernten,
-war in manchen Fällen die Dateigröße gerade mal noch 0,1\% der ursprünglichen Dateigröße.
-
-
-Wir entschieden daher zu analysieren, wie viele Dateien noch betroffen sind,
-in welcher Art und weise Inhalte in den Dateien vorkommen, die zwar SPeicherplatz beanspruchen,
-aber keinen Zweck für den Benutzer erfüllen, weil er weder Daten enthält, noch das Arbeitsblatt optisch
-verändert.
-
-Dabei bemerkten wir die üblichen Fälle, durch die eine Excel-Datei eine immense Größe annehmen kann,
-weil der benutzer vermutlich übliche strategien angewendet hat wie das kopieren von arbeitsblättern oder das großzügige markieren von Bereichen zum festlegen von Formaten.
-
-Doch wir machten auch entdeckungen welche die Dateien immens vergrößterten für dessen Ursprung keine Erklärung haben.  So gab es beispielsweise definitionen von ungenutzen Spalten und ungenutzen zeilen,
-welche sich in die unendlichkeit zu erstrecken schienen und das vielleicht sogar getan hätten,
-wären sie nicht von einer durch excel festgelegten limitierten anzahl von maximal möglichen spalten und zeilen defnintionen begrenz wären.
-
-Um eine erschöpfende Menge an Strategien für das verringern von der Dateigröße von Excel Dateien zu
-erarbeiten, entschieden wird alle Excel Dateien von Destatis herunter zu laden und diese Dateien zu analysieren.
-
-Wir vergliechen eine Reihe an komerziellen Werkzeugen bzw. Add-Ins oder neue Funktionen von Excel, die sich in speziellen Versionen von Excel aktivieren lassen, um zu testen, ob sie einerseits die überflüssigen Datei-Inhalte löschen. Da keines der  Werkzeuge alle überflüssigen Inhalte rkannte und löschte oder aber sogar zu viele Zellen löschte, die das optische Bild der Arbeitsblätter veränderten und da darüber hinaus keines der Tool in der Lage war
-unseren von Destatis heruntergeladenen Satz an 1182 Dateien auf einmal sondernnur jede  Datei einzeln oder maximal 25 Dateien auf einmal, und da die werkzeuge entweder kostenpflichtig waren oder sich nur in sehr neuen versionen 
-oder nur in speziellen Enterprise Versionen von Excel nutzen ließen, entschieden wir unser eigenes
-Open-Source Werkzeug zu implementieren und kontributieren: excel-shrink.
-
-
-
 \section{Scraping Destatis}
 
-Die Destatis Seite verfügt über keine API um die Beiträge zu durchsuche.
-Die einzige möglichkeit besteht darin die Webseite zu verwenden,
-weshalb wir einen webscraper geschrieben haben, welcher die Beiträge automatisch durchsucht.
-Dabei haben wir versucht die Anzahl der Anfragen gering zu halten.
-So haben wir durch überprüfen zahlreicher Ergebnisse herrausgefunden,
-dass Excel Dateien ausschießlich für den Beitrag-Typ Publikation vorkommen.
-Daher konnten wir die Suchergebnisse stark eingrenzen indem wir den GET Parameter
-?documentType\_=publicationgesetzt haben. 
+The Destatis website does not provide an API for searching publications, making it necessary to interact with the website directly. To automate this process, we developed a web scraper that searches for relevant publications while minimizing the number of requests to the server. Through extensive testing, we discovered that Excel files are exclusively found in the "Publication" document type. By using the GET parameter \texttt{documentType\_=publication}, we were able to significantly narrow down our search results.
 
-Wir hatten die Annahme mit dem Suchbegriff „xlsx“ alle Beiträge identifizieren zu können,
-welche eine Excel-Datei als Anhang enthalten. Doch die eine Sucanfrage mit dem Suchbegriff „xlsx“ liefert
-gerade einmal 100 Suchergebnisse. Es existieren jedoch eine ganze menge mehr Excel Dateien
-auf der Destatis webseite. Es ist ebenfalls nicht möglich eine Auflistung aller Beiträge zu erhalten,
-welche jemals erstellt wurden. Unsere nächste Annahme war, ds wir alle Einträge darüber erhalten würden,
-indem wir nach den Veröffentlichungsjahren Suchen. Ein Beitrag sollte in den Suchergebnissen auftauchen,
-wenn nach seinem Veröffentlichungsjahr gesucht wird. Dabei werden gewiss auch zahlreiche Ergebnisse auftauchen,
-derren Veröffentlicungsjahr ein anderes ist, aber das Veröffentlicungsjahr taucht im fließtext
-oder in einem Dateianhang auf. Diese damit die Excel-Dateianhänge von diesen redundanten suchergebnissen
-nicht mehrfach heruntergeladen werden, werden die gefundenen links zu den Dateianhängen gecached
-und nur einmal heruntergeladen.
+Initially, we assumed that searching for the term \texttt{xlsx} would identify all publications containing Excel file attachments. However, this search only returned about 100 results, far fewer than the actual number of Excel files available on the Destatis website. Furthermore, there is no option to retrieve a complete list of all publications ever created. To overcome this, we refined our strategy by searching based on publication years. A publication should appear in the search results when queried by its publication year. Although this approach returns some irrelevant results—where the publication year might appear in the text or a file attachment—the number of requests is greatly reduced by caching and reusing links to the Excel file attachments. This ensures that the same files are not downloaded multiple times.
 
-Die Suchergebnisse auf der Destatiswebseite werden wie bei vielen anderen Seiten auch paginiert
-und destatis bietet in der Oberfläche an 10, 12 oder 30 Einträge pro Seite anzzzeigen.
-Bei veränderung der anzahl der Seiten wird der Get Parameter gesetzt: resultsPerPage=30.
-Obwohl keine schaltfläche für das Anzeigen von mehr als 30 Enträgen angeboten wird,
-lässt sich über den Get Parameter resultsPerPage die Anzahl auch über 30 erhöhen.
-Duch manuelle test konnten wir allerdings keine Einträge mehr als 100 erhalten.
-Da 100 Ergebnisse offenbar das maximum ist,
-haben wir den get Parameter entsprechend gesetzt um die Anzal der anfragen weiter zu verringern.
+The search results on the Destatis website, like many others, are paginated, with the interface offering the ability to display 10, 12, or 30 entries per page. The number of results per page can be adjusted using the GET parameter \texttt{resultsPerPage=30}. While the interface does not provide an option for more than 30 results per page, we found that manually setting this parameter allowed us to request up to 100 results per page. Through testing, we confirmed that 100 is the maximum number of results that can be returned at once. We set the \texttt{resultsPerPage} parameter accordingly to reduce the number of requests further.
 
-Nachdem die Ergenisse der Seite von unserem webscraper ausgelesen wurden simulieren wir den klick
-auf den Link zum laden der nächsten Seite von suchergebnissen.
-Die Hilfsfunktion get\_next\_page\_url übernimmt diesen Schritt.
-Der Link für die nächste Seite ist ein a Element welches über die css Klasse 'forward button' dekoriert.
-Über die xPath expression //a[@class='forward button']/@href wird die url für die nächste Seite extrahiert.
+Once the results for a page are fetched by the web scraper, we simulate clicking the "next page" link to load subsequent results. The helper function \texttt{get\_next\_page\_url} handles this step, using the CSS class \texttt{forward button} to identify the link. The URL for the next page is extracted via the XPath expression \texttt{//a[@class='forward button']/@href}.
 
-
-
-  
-\begin{lstlisting}[caption={Funktion zum abrufen des links zur nächsten Seite}, label={lst:sheet_title_from_workbook}]
+\begin{lstlisting}[caption={Function to retrieve the link to the next page}, label={lst:get_next_page_url}]
 def get_next_page_url(html: str) -> str:
-  xpath = "//a[@class='forward button']/@href"
-
-  tree = etree.HTML(html)
-  next_page = tree.xpath(xpath)
-  if next_page:
-      return next_page[0]
-  return ""
-  \label{fig:first_cols}
+    xpath = "//a[@class='forward button']/@href"
+    tree = etree.HTML(html)
+    next_page = tree.xpath(xpath)
+    if next_page:
+        return next_page[0]
+    return ""
 \end{lstlisting}
 
-
- 
+The web scraping and downloading process is outlined in Algorithm \ref{alg:web_scraping_caching}.
 
 \begin{algorithm}
   \caption{Web Scraping and Downloading Excel Files with Caching}
+  \label{alg:web_scraping_caching}
   \begin{algorithmic}
-  
-      \STATE \textbf{Input:} Base URL $B$, form URL $F$, download folder $D$, CSV cache file $C$, crawl delay (30 seconds)
-      \STATE \textbf{Initialize:} Cached URLs set $U$, and load file records from CSV $C$
-      \STATE Create folder $D$ if it does not exist
-      
+
+      \STATE \textbf{Input:} Base URL \texttt{B}, form URL \texttt{F}, download folder \texttt{D}, CSV cache file \texttt{C}, crawl delay (30 seconds)
+      \STATE \textbf{Initialize:} Cached URLs set \texttt{U}, and load file records from CSV \texttt{C}
+      \STATE Create folder \texttt{D} if it does not exist
+
       \STATE \COMMENT{--- Scraping Process ---}
       \FOR{each year in years}
           \STATE Construct the search URL using year and base parameters
           \WHILE{there are more pages to fetch}
               \STATE Send HTTP GET request to search URL
-              \STATE Parse HTML to extract `.xlsx` links
-              \STATE Filter links that are not already in the cache $U$
+              \STATE Parse HTML to extract \texttt{.xlsx} links
+              \STATE Filter links that are not already in the cache \texttt{U}
               \FOR{each new link}
                   \STATE Extract file name from link
                   \STATE Add new link and file name to file records
-                  \STATE Append new records to cache $C$
+                  \STATE Append new records to cache \texttt{C}
               \ENDFOR
-              \STATE Save the updated file records back to CSV $C$
+              \STATE Save the updated file records back to CSV \texttt{C}
               \STATE Check for the next page button
               \IF{next page exists}
                   \STATE Update URL to the next page
-                  \STATE Wait for CRAWL\_DELAY seconds
+                  \STATE Wait for \texttt{CRAWL\_DELAY} seconds
               \ELSE
                   \STATE Exit the loop
               \ENDIF
           \ENDWHILE
       \ENDFOR
-  
+
       \STATE \COMMENT{--- Checking for Duplicate Filenames ---}
       \STATE Combine cached and new file records
       \STATE Check if there are duplicate filenames
       \IF{duplicates exist}
           \STATE Print warning and exit
       \ENDIF
-  
+
       \STATE \COMMENT{--- Download Process ---}
       \FOR{each new file record}
           \STATE Download file from the URL
-          \STATE Save it in the download folder $D$
-          \STATE Wait for CRAWL\_DELAY seconds
+          \STATE Save it in the download folder \texttt{D}
+          \STATE Wait for \texttt{CRAWL\_DELAY} seconds
       \ENDFOR
   \end{algorithmic}
 \end{algorithm}
 
- 
+The URL for a subsequent page in the search results looks like this:
 
-  
+\url{/SiteGlobals/Forms/Suche/Expertensuche\_Formular.html?templateQueryString=2000\&gtp=474\_list\%253D2\&documentType\_=publication\&resultsPerPage=100}
 
+Although the URL and query parameters remain largely the same across requests, one query parameter stands out: \texttt{gtp=474\_list\%253D2}. The \texttt{gtp=474\_list} portion is consistent, but its meaning is unclear—possibly "get page." The \texttt{\%253D} is a doubly encoded sequence, where \texttt{\%253D} is the URL-encoded form of \texttt{\%3D}, which itself encodes the equal sign (\texttt{=}). After decoding, the query parameter becomes \texttt{gtp=474\_list=2}. The number after the second equal sign corresponds to the current page index in the pagination of the search results.
 
+Once we have queried each publication year from 2000 to 2024, and the file attachments have been extracted from the result pages until no further "next page" button is available, the scraping process for the Excel files is complete.
 
+\subsection{Handling Duplicate Filenames}
 
-Einge url einer solchen Folgeseite sieht dann so aus:
+Initially, we assumed that the URLs for the Excel files would be unique, but that the filenames of the downloadable files might not be. Therefore, we added a helper function, \texttt{check\_for\_duplicate\_filenames}, to ensure that each file is unique before downloading. Upon running this check, we found no duplicate filenames. Thus, the files can be saved using their original filenames during the download process.
 
-\url{%
-/SiteGlobals/Forms/Suche/Expertensuche
-\_Formular.html?templateQueryString=2000
-\&gtp=474\_list\%253D2\&documentType\_=publication\&resultsPerPage=100}
+\begin{lstlisting}[caption={Function to check for duplicate filenames}, label={lst:check_for_duplicates}]
+def check_for_duplicate_filenames(file_records: List[FileRecord]) -> bool:
+    filenames = set()
+    duplicates = set()
 
+    for record in file_records:
+        if record.file_name in filenames:
+            duplicates.add(record.file_name)
+        else:
+            filenames.add(record.file_name)
 
-Die Url und die Queryparameter sind im Vergleich zur vorherigen anfrage gleich,
-doch ein query parameter ist hinzugekommen:
-gtp=474\_list\%253D2:
-Der Anteil gtp=474\_list ist in diesem ausdruck immer gleich.
-Unklar ist, wofür gtp steht, es könnte für „get page“ stehen.
-Auch unklar ist, wofür 474\_list steht.
-Doch bei \%253D handelt es sich um eine doppelt kodierte Zeichenfolge.
-Das Zeichen \%253D ist die URL-kodierte Form von \%3D, was wiederum die URL-kodierte Form
-von dem Gleichheitszeichen = entspricht. Wenn diese Kodierung entschlüsselt wird,
-ergibt der Query Parameter gtp=474\_list=2.
-Die Ziffer nach dem zweiten Gleichheitszeichen entspricht immer dem aktuellen Seitenindex
-in der Paganierung der Suchergebnisse. 
-Sobald alle Jahre von 2000 bis 2024 
-als Suchbegriffe angefragt wurden und die Dateianhänge
-von den Ergebnislisten extrahiert wurden,
-bis es keine schaltfläche mehr verfügbar war um auf die nächste seite der suchergebnisse zu gelangen,
-ist das abrufen der Excel Dateien abgeschlossen.
+    if duplicates:
+        print(f"Duplicate filenames found: {duplicates}")
+        return True
+    return False
+\end{lstlisting}
 
-Unsere Annahme war, dass die urls zu den Excel Dateien einzigartig sein müssen,
-doch die dateinamen von den zu herunterladbaren exceldateien potenziell mehrfach vorkommen könnten.
-Deshalb haben wir eine hilfsfunktion hinzugefügt, welche  überprüft,
-dass wirklich jede Datei einzigartig ist: check\_for\_duplicate\_filenames.
-Bei unserer Überprüfung kam es jedoch zu keinen duplikaten.
-Deshalb können die Dateien über denselben Dateinamen gespeichert werden,
-wenn sie im nächsten Schritt heruntergeladen werden.
+\subsection{Respecting Crawl Delay}
 
-
-
-%\begin{lstlisting}[caption={}]
-%def check_for_duplicate_filenames(file_records: List[FileRecord]) -> bool:
-%  filenames = set()
-%  duplicates = set()
-%
-%  for record in file_records:
-%      if record.file_name in filenames:
-%          duplicates.add(record.file_name)
-%      else:
-%          filenames.add(record.file_name)
-%
-%  if duplicates:
-%      print(f"Duplicate filenames found: {duplicates}")
-%      return True
-%  return False
-%\label{fig:first_cols}
-%\end{lstlisting}
-
-Um die Auslastung der DeStatis webseite gering zu halten,
-halten wir uns an die empfehlungen die Destatis in der robots.txt Datei angibt,
-nämlich eine pause von 30 sekunden zwischen jeder anfrage: Crawl-delay: 30
-
-%\begin{lstlisting}[caption={Sitemap: https://www.destatis.de/Sitemap\_Index.xml}]
-%User-agent: *
-%Disallow: /SiteGlobals/
-%Disallow: /GPStatistik/servlets/MCRSearchServlet
-%Allow: /SiteGlobals/Frontend/JavaScript/
-%Allow: /SiteGlobals/Modules/
-%Allow: /SiteGlobals/StyleBundles/
-%Allow: /SiteGlobals/Frontend/
-%Allow: /SiteGlobals/Forms/Suche/*_Formular.*
-%Allow: /SiteGlobals/Functions/RSSFeed/DE/
-%Crawl-delay: 30
-%    \label{fig:first_cols}
-%\end{lstlisting}
+To minimize the load on the Destatis website, we adhered to the crawl-delay directive specified in the site's \texttt{robots.txt} file, pausing for 30 seconds between requests. This delay ensures that our scraper operates within the guidelines provided by Destatis: \texttt{Crawl-delay: 30}.
 
 
 \section{Related Work}
