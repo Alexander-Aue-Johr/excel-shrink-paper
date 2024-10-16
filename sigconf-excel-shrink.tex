@@ -334,11 +334,11 @@ Scrolling into this area, the user may notice that among columns with uniform wi
   \label{fig:col_s_arrow}
 \end{figure}%
 
-These column definitions are specified in Excel within the sheetX.xml file under the \texttt{cols} node. In our example, the definition of the initial columns is shown in Listing \ref{lst:columsFoerderprogrammeStart}.
+These column definitions are specified in Excel within the \texttt{sheetX.xml} file under the \texttt{cols} node. In our example, the definition of the initial columns is shown in Listing \ref{lst:columsFoerderprogrammeStart}.
 
-In this XML excerpt, the \texttt{<cols>} element represents the definition of multiple columns in an Excel worksheet. Each \texttt{<col>} declaration contains specific information about one or more columns. The \texttt{min} and \texttt{max} attributes specify the range of columns that the \texttt{<col>} element covers. For example, \texttt{min="1" max="1"} pertains only to column 1, while \texttt{min="5" max="9"} describes columns 5 through 9. The \texttt{width} attribute specifies the width of the columns in Excel units. The \texttt{customWidth="1"} attribute indicates that the column width is user-defined, meaning it has been manually adjusted rather than using the default value.
+In this XML excerpt, the \texttt{<cols>} element represents the definition of multiple columns in an Excel worksheet. Each \texttt{<col>} declaration contains specific information about one or more columns. The \texttt{min} and \texttt{max} attributes specify the range of columns that the \texttt{<col>} element covers. For example, \texttt{min="1" max="1"} pertains only to column \texttt{1}, while \texttt{min="5" max="9"} describes columns \texttt{5} through \texttt{9}. The \texttt{width} attribute specifies the width of the columns in Excel units. The \texttt{customWidth="1"} attribute indicates that the column width is user-defined, meaning it has been manually adjusted rather than using the default value.
 
-The first five \texttt{<col>} definitions relate to the data range. However, the last definition, \texttt{min="10" max="18"}, pertains to a redundant range. This section defines columns that lie outside the actual data range in the worksheet, specifically columns starting from column J, thereby representing unnecessary or unused definitions.
+The first five \texttt{<col>} definitions relate to the data range. However, the last definition, \texttt{min="10" max="18"}, pertains to a redundant range. This section defines columns that lie outside the actual data range in the worksheet, specifically columns starting from column \texttt{J}, thereby representing unnecessary or unused definitions.
 
 \begin{lstlisting}[caption={Initial column definitions}, label={lst:columsFoerderprogrammeStart}, firstnumber={13}, numbersep={-7pt}]
 <cols>
@@ -355,22 +355,22 @@ During our investigations, we could not determine how these column definitions o
 \begin{figure}[ht]
   \centering
   \includegraphics[width=\linewidth]{images/excel_shrink/cols/col_w.png}
-  \caption{Excessive Column Definitions in a WorksheetExcessive Column Definitions in a Worksheet}
+  \caption{Excessive Column Definitions in a Worksheet}
   \label{fig:col_w}
 \end{figure}%
 
-Column WWA and the partially visible column WWB to its right correspond to the 16,147th and 16,148th columns, respectively. It seems unlikely that an original worksheet would actually utilize so many columns at once. Further research is required to determine how such patterns emerge in Excel files.
+Column \texttt{WWA} and the partially visible column \texttt{WWB} to its right correspond to the 16,147th and 16,148th columns, respectively. It seems unlikely that an original worksheet would actually utilize so many columns at once. Further research is required to determine how such patterns emerge in Excel files.
 
 The last visible columns in the figure are shown in Listing \ref{lst:columsFoerderprogrammeEnd}.
-
-
-The first column \texttt{min="16146" max="16146"} has a fixed width of 2.21875 and refers to column WVZ, which is visible in Figure \ref{fig:col_w} as the column immediately to the left of WWA but is too narrow to display more than the letter "W." The second column \texttt{min="16147" max="16147"} defines column WWA with a width of 5.21875. The final definition \texttt{min="16148" max="16384"} covers a larger range from column 16,148 to 16,384, corresponding to columns WWB through XFD, assigning a width of 8.77734375 to these columns. This explains why scrolling all the way to the right via the scrollbar lands on column WWB. The penultimate definition specifies where the data range ends, thereby also defining where the scrollable range ends, and the final definition simply assigns a default width to all remaining columns. Surprisingly, these column definitions appear to extend indefinitely, seemingly only terminating at Excel's defined maximum limit of 16,384 columns. We have no explanation for why these user-defined column widths appear just before the maximum allowable column limit, but not exactly at it.
+The first column \texttt{ min="16146" max="16146"} has a fixed width of \texttt{2.21875} and refers to column \texttt{WVZ}, which is visible in Figure \ref{fig:col_w} as the column immediately to the left of \texttt{WWA} but is too narrow to display more than the letter "\texttt{W}." The second column \texttt{min="16147" max="16147"} defines column \texttt{WWA} with a width of \texttt{5.21875}. The final definition \texttt{min="16148" max="16384"} covers a larger range from column \texttt{16148} to \texttt{16384}, corresponding to columns \texttt{WWB} through \texttt{XFD}, assigning a width of \texttt{8.77734375} to these columns. This explains why scrolling all the way to the right via the scrollbar lands on column \texttt{WWB}. The penultimate definition specifies where the data range ends, thereby also defining where the scrollable range ends, and the final definition simply assigns a default width to all remaining columns. Surprisingly, these column definitions appear to extend indefinitely, seemingly only terminating at Excel's defined maximum limit of 16,384 columns. We have no explanation for why these user-defined column widths appear just before the maximum allowable column limit, but not exactly at it.
 
 To delete these columns, the following steps must be taken:
-1. Identify the actual right boundary of the data range and cell formats.
-2. Determine the first redundant column definition and save the "min" value to use it later.
-3. Delete all redundant column definitions except for the last one.
-4. Overwrite the "min" value of the last column definition with the saved value of the first redundant column definition.
+\begin{enumerate}
+  \item Identify the actual right boundary of the data range and cell formats.
+  \item Determine the first redundant column definition and save the \texttt{min} value to use it later.
+  \item Delete all redundant column definitions except for the last one.
+  \item Overwrite the \texttt{min} value of the last column definition with the saved value of the first redundant column definition.
+\end{enumerate}
 
 \begin{lstlisting}[caption={Final column definitions in the worksheet}, label={lst:columsFoerderprogrammeEnd}, firstnumber={2414}, numbersep={-15pt}]
   <col min="16146" max="16146" width="2.21875" style="39" customWidth="1" />
@@ -379,7 +379,7 @@ To delete these columns, the following steps must be taken:
 </cols>
 \end{lstlisting}
 
-Following these steps is crucial. We experimented with merely deleting the excess columns without ensuring that the last column definition extended to the final possible column (16,384), but this caused Excel to mark these worksheets as corrupted and perform certain repairs. Part of these changes included altering the default row height, resulting in some worksheets appearing visually altered, as shown in Figures \ref{fig:hidden_columns_before} and \ref{fig:hidden_columns_after}. On the left is the original, and on the right is the repaired version by Excel. For instance, row 6 has changed in height due to the repair, causing visible shifts in the worksheet. Correctly deleting column definitions while ensuring the last column definition extends to the column limit of 16,384 prevents this error.
+Following these steps is crucial. We experimented with merely deleting the excess columns without ensuring that the last column definition extended to the final possible column (16,384), but this caused Excel to mark these worksheets as corrupted and perform certain repairs. Part of these changes included altering the default row height, resulting in some worksheets appearing visually altered, as shown in Figures \ref{fig:hidden_columns_before} and \ref{fig:hidden_columns_after}. On the left is the original, and on the right is the repaired version by Excel. For instance, row \texttt{6} has changed in height due to the repair, causing visible shifts in the worksheet. Correctly deleting column definitions while ensuring the last column definition extends to the column limit of 16,384 prevents this error.
 
 \begin{figure}[ht]
   \centering
@@ -402,7 +402,7 @@ Following these steps is crucial. We experimented with merely deleting the exces
 
 \subsubsection{Hidden Columns}
 
-Removing columns is not recommended if there are hidden columns. In spreadsheets like Excel, cells define only where text begins. If the text is longer than the cell, it typically extends over adjacent cells unless those cells also contain text. Some worksheets operate under this assumption, causing the range of actually used cells to span multiple columns. In such cases, it is important that columns outside the range of cells with values are not deleted, as this would cause cells that are meant to be hidden to start in the next column, where the text from the previous cell might overflow. This is depicted in Figures \ref{fig:hidden_columns_before} and \ref{fig:hidden_columns_after}. Since the texts are only defined in columns A and B, all cells from column C onwards are outside the range of cells with values and thus the columns are deleted. Column C is already hidden, causing the texts to be cut off.
+Removing columns is not recommended if there are hidden columns. In spreadsheets like Excel, cells define only where text begins. If the text is longer than the cell, it typically extends over adjacent cells unless those cells also contain text. Some worksheets operate under this assumption, causing the range of actually used cells to span multiple columns. In such cases, it is important that columns outside the range of cells with values are not deleted, as this would cause cells that are meant to be hidden to start in the next column, where the text from the previous cell might overflow. This is depicted in Figures \ref{fig:hidden_columns_before} and \ref{fig:hidden_columns_after}. Since the texts are only defined in columns \texttt{A} and \texttt{B}, all cells from column \texttt{C} onwards are outside the range of cells with values and thus the columns are deleted. Column \texttt{C} is already hidden, causing the texts to be cut off.
 
 When Excel Shrink finds columns that are hidden, it skips removing any columns to ensure that the worksheet's visual representation is not altered.
 
