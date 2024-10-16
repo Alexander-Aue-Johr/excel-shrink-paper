@@ -129,7 +129,7 @@ A less obvious but equally impactful inefficiency arises from \textit{Excel}'s a
 
 These inefficiencies not only increase storage requirements but also degrade \textit{Excel}'s performance. Larger files take longer to open, save, and modify. In enterprise environments, this can lead to significant delays when handling shared workbooks or automating data processing tasks through scripts and applications that interface with \textit{Excel}. The excessive size of the files puts a strain on memory and processing resources, leading to a slower user experience and increased frustration in collaborative settings where files are frequently shared or integrated with other systems. These inefficiencies, therefore, represent a considerable challenge for users working with large datasets or managing multiple \textit{Excel} files.
 
-By addressing these issues—removing redundant formatting, eliminating unused rows and columns, and optimizing the internal XML structure—significant reductions in file size and performance improvements can be achieved. This is the key focus of our open-source tool, \texttt{excel-shrink}, which identifies and eliminates these inefficiencies while preserving the visual and functional integrity of the spreadsheet.
+By addressing these issues—removing redundant formatting, eliminating unused rows and columns, and optimizing the internal XML structure—significant reductions in file size and performance improvements can be achieved. This is the key focus of our open-source tool, \textit{Excel Shrink}, which identifies and eliminates these inefficiencies while preserving the visual and functional integrity of the spreadsheet.
 
 \subsection{Impact of File Bloat on Performance}
 
@@ -153,7 +153,7 @@ To quantify the impact of these redundancies, we performed a detailed analysis o
 
 Several tools and techniques have been developed to mitigate \textit{Excel} file bloat. These include commercial software, \textit{Excel} Add-ins, and built-in \textit{Excel} features designed to remove redundant content and reduce file sizes. However, most existing tools have notable limitations. All are restricted to processing a limited number of files or are constrained to specific \textit{Excel} versions or enterprise environments. Furthermore, these tools either fail to remove all redundant content or inadvertently alter the sheet's visual appearance, making them unsuitable for users who need to preserve the layout of their workbooks. See Section \ref{sec:comparison}.
 
-These limitations underscored the need for a more robust, scalable solution. To address this gap, we developed our open-source tool, \texttt{excel-shrink}, capable of processing large batches of \textit{Excel} files while maintaining the integrity of the spreadsheet layout.
+These limitations underscored the need for a more robust, scalable solution. To address this gap, we developed our open-source tool, \textit{Excel Shrink}, capable of processing large batches of \textit{Excel} files while maintaining the integrity of the spreadsheet layout.
 
 \subsection{Our Contribution: Excel Shrink}
 
