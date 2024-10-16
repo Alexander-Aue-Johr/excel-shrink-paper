@@ -831,14 +831,14 @@ However, in the XML file, rows 78 to 65533 were defined along with cells from co
     </sheetData>
 \end{lstlisting}
 
-When applying the Inquire Add-in, to such worksheets they were not cleaned, and a dialog informed that this is because the default row height is 0 which is why the sheet will be skipped, as shown in Figure \ref{fig:results_related_tools}.
+When applying the Inquire Add-in, to such worksheets they were not cleaned, and a dialog informed that this is because the default row height is 0 which is why it is impossible to clean the sheet and hence the sheet will be skipped.
 
-\begin{figure}[ht]
-  \centering
-  \includegraphics[width=\linewidth]{images/excel_shrink/related_work/inquire/inquire_default_row_heght_0.png}
-  \caption{Default Row Height Adjustment by Inquire Add-in}
-  \label{fig:results_related_tools}
-\end{figure}%
+%\begin{figure}[ht]
+%  \centering
+%  \includegraphics[width=\linewidth]{images/excel_shrink/related_work/inquire/inquire_default_row_heght_0.png}
+%  \caption{Default Row Height Adjustment by Inquire Add-in}
+%  \label{fig:results_related_tools}
+%\end{figure}%
 
 Additionally, Inquire lacks batch processing capabilities. As a result, multiple files cannot be processed simultaneously. Instead, each file must be opened individually. Given that large files, which are typically the ones requiring size reduction, take at least one minute to open, this process becomes quite time-consuming. Opening several large files and subsequently using the Inquire add-in to reduce their size involves a significant amount of time.
 
@@ -850,85 +850,64 @@ Additionally, Inquire lacks batch processing capabilities. As a result, multiple
 
 \subsection{Excel Performance Tab}
 
-Seit 2022 gibt es für Excel for Web und seit 2023 für Excel für Windows gibt es eine neue Funktion namens Check Performance, welcher im Ribbon Menü über den "Review"
-Reiter aufgerufen werden kann. Diese Funktion hatte in unserem Vergleich zu den alternativen die größte verringerung der Datei Größe erreicht,
-schaffte es aber nicht überflüssige column definitions zu entfernen.
+Since 2022, Excel for Web has included a new feature named \textit{Check Performance}, and since 2023, this feature has also been available in Excel for Windows. It can be accessed through the "Review" tab in the Ribbon menu. In our comparison with alternative tools, this function achieved the largest reduction in file size; however, it failed to remove unneeded column definitions and Cells with Whitespaces.
 
-Weiterhin wurden von dieser Funktion auch Zellen entfernen,
-welche das optische erscheinungsbild
-von Arbeitsblättern verändert.
-So wurde beispielsweise das Deckblatt welches in
-Abbildung \ref{fig:performance_before} verändert,
-sodass die Zelen die für Weißraum im Deckblatt sorgen entfernen wie
-in Abbidung \ref{fig:performance_after}.\cite{destatis2022Verkehrsunfaelle}
+However, Check Performance was also capable of outperforming Excel Shrink in specific cases without altering the worksheet’s appearance. Nevertheless, it modified the worksheet in a manner that required users to perform multiple steps to revert the changes made by Check Performance. This issue arose when a worksheet contained an actual value in a hidden row, and between this row and the next visible row, there were hundreds of thousands of additional hidden rows without any values. Zum beispiel hatten wir eine Arbeitsblatt, dessen Bereich mit sichtbaren Zeilen ging bis Zeile 94 und nachdem wir die unsichtbaren Zeilen sichtbar machten um zu verifizieren was wir bereits beim untersuchen der xml datei des sheets bemerkt hatten: In der Zeile 65536 in Spalte A war die Zahl "3" gespeichert, die vermutlich durch ein versehen dort hingeraten ist.\cite{destatis2022Wanderungen}[Sheet: "Tabelle 2.1.1"].
 
- 
+In such scenarios, Excel Shrink is unable to remove the hidden rows because our strategy involves removing only content outside the range of actual values and visible formatting. Since the last row within the user-designated area contains an actual value, all intervening rows must be preserved. In contrast, Check Performance removes all these hidden rows. This action alone would typically result in the previously hidden and now deleted rows becoming visible again. To prevent this, Check Performance employs a workaround by setting the row height to zero for the entire worksheet. This creates the illusion that the rows are deleted, when in fact they are merely not visible due to having no height.
+
+However, this approach presents a significant drawback for users. Once users select all rows and attempt to make them visible again, the deleted rows remain invisible. To actually make all rows visible, users must select all rows in the worksheet and assign a new height. This method is disadvantageous because it also alters the height of rows that users may have previously customized. To preserve these custom height settings, users must follow a specific procedure: first, select all rows using the Select All button, then hold down the Control key and deselect all visible rows except the last one. Consequently, only the last visible row and all hidden rows remain selected. Users can then adjust the height of all previously invisible rows using the resize handle of the last visible row, thereby making them visible again.
+
+Given that users may be surprised when attempting to make the rows visible in the usual manner but find that the rows remain hidden, and considering that the steps required to actually make these rows visible involve a learning curve and can be time-consuming—especially when the worksheet already contains several visible cells requiring multiple scrolls to deselect the hidden rows—we decided not to adopt the same strategy as Check Performance. Instead, we opted to retain these rows to avoid imposing additional complexity and inconvenience on the user.
+
+Additionally, Check Performance removed cells and rows that did alter the visual appearance of worksheets. For example, the cover sheet shown in Figure \ref{fig:performance_before} was modified such that the cells responsible for whitespace on the cover sheet were removed, as illustrated in Figure \ref{fig:performance_after}.\cite{destatis2022Verkehrsunfaelle}
 
 \begin{figure}[ht]
   \centering
   \begin{subfigure}[b]{0.48\linewidth}
     \centering
     \includegraphics[width=\textwidth]{images/excel_shrink/related_work/performance/verkehrsunfaelle-performance.png}
-    \caption{bla bla}
+    \caption{Before Applying Check Performance}
     \label{fig:performance_before}
   \end{subfigure}
-  \hspace{0.01\linewidth} % Abstand zwischen den Bildern 
+  \hspace{0.01\linewidth} % Space between images
   \begin{subfigure}[b]{0.48\linewidth}
     \centering
     \includegraphics[width=\textwidth]{images/excel_shrink/related_work/performance/verkehrsunfaelle-performance_after.png}
-    \caption{bla bla bla}
+    \caption{After Applying Check Performance}
     \label{fig:performance_after}
   \end{subfigure}
-  \caption{Gesamtbeschreibung für beide Bilder}
+  \caption{Comparison of Cover Sheet Before and After Applying Check Performance}
   \label{fig:performance}
 \end{figure}
 
+ 
+While this may be acceptable for a cover sheet, it poses a problem for forms such as those shown in Figure \ref{fig:table}, which consist of several empty cells intended to be printed and subsequently filled out.\cite{destatis2023Rechnungsergebnisse}
+The \textit{Check Performance} function in Excel removes all these borders because they are outside the rectangle spanned by the values, as shown in Figure \ref{fig:no_table}.
+
+
+
+
 
 \begin{figure}[ht]
   \centering
-  \includegraphics[width=\linewidth]{images/excel_shrink/related_work/inquire/inquire_default_row_heght_0.png}
-  \caption[bla]{bla bla}
-  \label{fig:results_related_tools}
-\end{figure}%
+  \begin{subfigure}[b]{0.48\linewidth}
+    \centering
+    \includegraphics[width=\textwidth]{images/excel_shrink/related_work/performance/table.png}
+    \caption{Before Applying Check Performance}
+    \label{fig:table}
+  \end{subfigure}
+  \hspace{0.01\linewidth} % Space between images
+  \begin{subfigure}[b]{0.48\linewidth}
+    \centering
+    \includegraphics[width=\textwidth]{images/excel_shrink/related_work/performance/no_table.png}
+    \caption{After Applying Check Performance}
+    \label{fig:no_table}
+  \end{subfigure}
+  \caption{Löschung von Border die eine leere Tabelle formen}
+  \label{fig:table_no_table}
+\end{figure}
 
-Für ein Deckblatt mag das okey sein, aber für Formulare
-wie das in Abbildung \ref{fig:table},
-welche aus mehreren Zeilen ohne Inhalt bestehen,
-da diese ausgedruckt werden sollen um dann ausgefüllt zu werden,
-ist das ein Problem. \cite{destatis2023Rechnungsergebnisse}
- 
-
-\begin{figure}[ht]
-  \centering
-  \includegraphics[width=\linewidth]{images/excel_shrink/related_work/performance/table.png}
-  \caption[bla]{statistischer-bericht-rechnungsergebnis-kernhaushalt-gemeinden-2140331217005 Sheet: GENESIS-Online}
-  \label{fig:table}
-\end{figure}%
- 
-
-Denn die Check Performance Funktion von Excel entfernt all diese Border, da sie außerhalb von dem durch die Werte aufgespannten rechteckes sind., wie in Abbildung    \ref{fig:no_table} zu sehen.
-
-\begin{figure}[ht]
-  \centering
-  \includegraphics[width=\linewidth]{images/excel_shrink/related_work/performance/no_table.png}
-  \caption[bla]{statistischer-bericht-rechnungsergebnis-kernhaushalt-gemeinden-2140331217005 Sheet: GENESIS-Online}
-  \label{fig:no_table}
-\end{figure}%
-
-\subsection{Ergebnisse}
-
-Für die größten Dateien haben
-wir die Ergebnisse von XXX und YYY
- mit unserem excel shrink verglichen.
-  Siehe Abbildung \ref{fig:results_related_tools}.
- 
-\begin{figure}[ht]
-  \centering
-  \includegraphics[width=\linewidth]{images/excel_shrink/cols/col_s_arrow.png}
-  \caption[bla]{bla bla}
-  \label{fig:results_related_tools}
-\end{figure}%
- 
 
 
 \section{Conclusion}
@@ -988,12 +967,9 @@ We would like to thank the German Federal Statistical Office (Destatis) for allo
 
 %%
 %% If your work has an appendix, this is the place to put it.
-\newpage
-\appendix
 
-\newpage
 
-\section{Appendix 1}
+
 
  
 
