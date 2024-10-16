@@ -644,8 +644,6 @@ However, this approach presents a significant drawback for users. Once users sel
 
 Given that users may be surprised when attempting to make the rows visible in the usual manner but find that the rows remain hidden, and considering that the steps required to actually make these rows visible involve a learning curve and can be time-consuming—especially when the worksheet already contains several visible cells requiring multiple scrolls to deselect the hidden rows—we decided not to adopt the same strategy as Check Performance. Instead, we opted to retain these rows to avoid imposing additional complexity and inconvenience on the user.
 
-Additionally, Check Performance removed cells and rows that did alter the visual appearance of worksheets. For example, the cover sheet shown in Figure \ref{fig:performance_before} was modified such that the cells responsible for whitespace on the cover sheet were removed, as illustrated in Figure \ref{fig:performance_after} \cite{destatis2022Verkehrsunfaelle}.
-
 \begin{figure}[ht]
   \centering
   \begin{subfigure}[b]{0.48\linewidth}
@@ -664,6 +662,9 @@ Additionally, Check Performance removed cells and rows that did alter the visual
   \caption{Comparison of Cover Sheet Before and After Applying Check Performance}
   \label{fig:performance}
 \end{figure}
+
+Additionally, Check Performance removed cells and rows that did alter the visual appearance of worksheets. For example, the cover sheet shown in Figure \ref{fig:performance_before} was modified such that the cells responsible for whitespace on the cover sheet were removed, as illustrated in Figure \ref{fig:performance_after} \cite{destatis2022Verkehrsunfaelle}.
+
 
 While this may be acceptable for a cover sheet, it poses a problem for forms such as those shown in Figure \ref{fig:table}, which consist of several empty cells forming a table that might be prepared to be filled out later \cite{destatis2023Rechnungsergebnisse}.
 The \textit{Check Performance} function in Excel removes all these borders because they are outside the rectangle spanned by the values, as shown in Figure \ref{fig:no_table}.
