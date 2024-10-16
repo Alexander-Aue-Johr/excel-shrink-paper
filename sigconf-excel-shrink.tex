@@ -806,13 +806,7 @@ In the subsequently opened dialog, the Inquire Add-in can be activated, as shown
   \label{fig:enable_inquire}
 \end{figure}%
 
-Compared to our program, Inquire leaves the following redundant columns and cells unprocessed:
-
-Additionally, Inquire lacks batch processing capabilities. As a result, multiple files cannot be processed simultaneously. Instead, each file must be opened individually. Given that large files, which are typically the ones requiring size reduction, take at least one minute to open, this process becomes quite time-consuming. Opening several large files and subsequently using the Inquire add-in to reduce their size involves a significant amount of time.
-
-We compared the results of Inquire with those from Excel Shrink using particularly large Excel files.
-
-Inquire already provided very good results. However, in certain cases, extremely large worksheets were not cleaned. For instance, in a worksheet used as a cover sheet, only 77 rows were utilized, and all rows from row 78 onwards were hidden, as shown in Figure \ref{fig:hidden}.
+Compared to our solution, Inquire ignores whitespace cells but successfully deletes empty cell, column, and row definitions; however, in certain instances, a substantial number of these elements remain undeleted. Furthermore, whitespace cells are entirely ignored. For instance, in a worksheet used as a cover sheet, only 77 rows were utilized, and all rows from row 78 onwards were hidden, as shown in Figure \ref{fig:hidden}.
 
 \begin{figure}[ht]
   \centering
@@ -846,7 +840,7 @@ When applying the Inquire Add-in, to such worksheets they were not cleaned, and 
   \label{fig:results_related_tools}
 \end{figure}%
 
-
+Additionally, Inquire lacks batch processing capabilities. As a result, multiple files cannot be processed simultaneously. Instead, each file must be opened individually. Given that large files, which are typically the ones requiring size reduction, take at least one minute to open, this process becomes quite time-consuming. Opening several large files and subsequently using the Inquire add-in to reduce their size involves a significant amount of time.
 
 
 
