@@ -592,22 +592,6 @@ To provide a listing of reduced file sizes, it is necessary to determine the wor
   <sheet name="0901_T_BW" sheetId="13" r:id="rId6"/>
 \end{lstlisting}
 
-\section{Evaluation}
-
-We applied our Excel Shrink program to all Excel files downloaded from Destatis using the web scraper. Figure \ref{fig:size-reduction-chart} shows the distribution of the reduction rate in percentage for individual worksheets. The chart gives the impression that some worksheets were reduced by nearly 100\% in file size. This is accurate, as 17 worksheets experienced a reduction rate of over 99.9\%, 95 worksheets had a reduction rate exceeding 99\%, and 453 worksheets saw a reduction rate above 98\%.
-
-\begin{figure*}
-  \centering
-  \includegraphics[width=\textwidth]{images/charts/distribution_of_size_reduction.pdf}
-  \caption{Distribution of Size Reduction Percentages for Excel Sheets}
-  \label{fig:size-reduction-chart}
-\end{figure*}
-
-\section{Experimental Setup}
-\label{sec:experimental-setup}
-
-To evaluate the behavior of Excel regarding how the files are interpreted and saved, as well as to test the behavior of the Add-ins and new Features, we tested with Excel of two distinct versions of Microsoft Office: Microsoft Office LTSC Professional Plus 2021 and Microsoft® Excel® for Microsoft 365 MSO (Version 2409 Build 16.0.18025.20030) 64-bit.
-
 \section{Related Work}
 
 We have identified three tools that also reduce the size of Excel files. One of these tools is a commercial program with a trial version available, named NXPowerLite Desktop \cite{nxpowerlite_desktop}.
@@ -700,6 +684,27 @@ The \textit{Check Performance} function in Excel removes all these borders becau
   \caption{Deletion of Borders Forming an Empty Table}
   \label{fig:table_no_table}
 \end{figure}
+
+
+
+\section{Evaluation}
+
+We applied our Excel Shrink program to all Excel files downloaded from Destatis using the web scraper. Figure \ref{fig:size-reduction-chart} shows the distribution of the reduction rate in percentage for individual worksheets. The chart gives the impression that some worksheets were reduced by nearly 100\% in file size. This is accurate, as 17 worksheets experienced a reduction rate of over 99.9\%, 95 worksheets had a reduction rate exceeding 99\%, and 453 worksheets saw a reduction rate above 98\%.
+
+\begin{figure*}
+  \centering
+  \includegraphics[width=\textwidth]{images/charts/distribution_of_size_reduction.pdf}
+  \caption{Distribution of Size Reduction Percentages for Excel Sheets}
+  \label{fig:size-reduction-chart}
+\end{figure*}
+
+\section{Experimental Setup}
+\label{sec:experimental-setup}
+
+To evaluate the behavior of Excel regarding how the files are interpreted and saved, as well as to test the behavior of the Add-ins and new Features, we tested with Excel of two distinct versions of Microsoft Office: Microsoft Office LTSC Professional Plus 2021 and Microsoft® Excel® for Microsoft 365 MSO (Version 2409 Build 16.0.18025.20030) 64-bit.
+
+Our test machine was an Intel(R) Core(TM) i7-4790K CPU @ 4.00GHz quad-core
+desktop machine running at 4.00GHz with 16GB of RAM.
 
 \section{Conclusion}
 \label{sec:conclusion}
