@@ -370,12 +370,6 @@ Column WWA and the partially visible column WWB to its right correspond to the 1
 
 The last visible columns in the figure are shown in Listing \ref{lst:columsFoerderprogrammeEnd}.
 
-\begin{lstlisting}[caption={Final column definitions in the worksheet}, label={lst:columsFoerderprogrammeEnd}, firstnumber={2414}, numbersep={-15pt}]
-  <col min="16146" max="16146" width="2.21875" style="39" customWidth="1" />
-  <col min="16147" max="16147" width="5.21875" style="39" customWidth="1" />
-  <col min="16148" max="16384" width="8.77734375" style="39" customWidth="1" />
-</cols>
-\end{lstlisting}
 
 The first column \texttt{min="16146" max="16146"} has a fixed width of 2.21875 and refers to column WVZ, which is visible in Figure \ref{fig:col_w} as the column immediately to the left of WWA but is too narrow to display more than the letter "W." The second column \texttt{min="16147" max="16147"} defines column WWA with a width of 5.21875. The final definition \texttt{min="16148" max="16384"} covers a larger range from column 16,148 to 16,384, corresponding to columns WWB through XFD, assigning a width of 8.77734375 to these columns. This explains why scrolling all the way to the right via the scrollbar lands on column WWB. The penultimate definition specifies where the data range ends, thereby also defining where the scrollable range ends, and the final definition simply assigns a default width to all remaining columns. Surprisingly, these column definitions appear to extend indefinitely, seemingly only terminating at Excel's defined maximum limit of 16,384 columns. We have no explanation for why these user-defined column widths appear just before the maximum allowable column limit, but not exactly at it.
 
@@ -384,6 +378,13 @@ To delete these columns, the following steps must be taken:
 2. Determine the first redundant column definition and save the "min" value to use it later.
 3. Delete all redundant column definitions except for the last one.
 4. Overwrite the "min" value of the last column definition with the saved value of the first redundant column definition.
+
+\begin{lstlisting}[caption={Final column definitions in the worksheet}, label={lst:columsFoerderprogrammeEnd}, firstnumber={2414}, numbersep={-15pt}]
+  <col min="16146" max="16146" width="2.21875" style="39" customWidth="1" />
+  <col min="16147" max="16147" width="5.21875" style="39" customWidth="1" />
+  <col min="16148" max="16384" width="8.77734375" style="39" customWidth="1" />
+</cols>
+\end{lstlisting}
 
 Following these steps is crucial. We experimented with merely deleting the excess columns without ensuring that the last column definition extended to the final possible column (16,384), but this caused Excel to mark these worksheets as corrupted and perform certain repairs. Part of these changes included altering the default row height, resulting in some worksheets appearing visually altered, as shown in Figures \ref{fig:hidden_columns_before} and \ref{fig:hidden_columns_after}. On the left is the original, and on the right is the repaired version by Excel. For instance, row 6 has changed in height due to the repair, causing visible shifts in the worksheet. Correctly deleting column definitions while ensuring the last column definition extends to the column limit of 16,384 prevents this error.
 
