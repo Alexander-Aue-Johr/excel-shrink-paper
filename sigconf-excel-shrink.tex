@@ -117,13 +117,13 @@ Unlike simpler formats such as CSV, which transparently display stored data, Exc
 
 \subsection{Excel’s Internal Storage Mechanisms}
 
-To minimize file size, Excel makes extensive use of compression techniques. Once the workbook's data, styles, and structure are defined in XML, these files are bundled into a ZIP archive. The ZIP compression algorithm is particularly effective in this context due to the repetitive nature of XML tags and structures. For example, in a large spreadsheet, tags like `<row>` and `<c>` (for cells) can appear hundreds of thousands of times. The compression algorithm identifies these repetitive patterns and encodes them with shorter representations, reducing the overall file size. Without compression, the verbosity of XML would result in substantially larger files.
+To minimize file size, Excel makes extensive use of compression techniques. Once the workbook's data, styles, and structure are defined in XML, these files are bundled into a ZIP archive. The ZIP compression algorithm is particularly effective in this context due to the repetitive nature of XML tags and structures. For example, in a large spreadsheet, tags like \texttt{<row>} and \texttt{<c>} (for cells) can appear hundreds of thousands of times. The compression algorithm identifies these repetitive patterns and encodes them with shorter representations, reducing the overall file size. Without compression, the verbosity of XML would result in substantially larger files.
 
 Despite achieving considerable space savings, this approach introduces significant inefficiencies. The separation between the visible content seen by the user and the underlying storage structure can lead to scenarios where redundant or unused data continues to occupy considerable amounts of space in the file. These inefficiencies are not immediately apparent to users but can drastically increase file sizes, reducing the overall performance of both Excel and the systems that interact with it.
 
 One common issue arises when users apply formatting to large ranges of cells that contain no actual data. For example, a user might highlight an entire row or column to change its font style or background colour, but only a subset of the cells are populated with data. The formatting persists across all selected cells, including those that remain empty, creating unnecessary XML records that Excel must store in its underlying files. This problem is exacerbated when users apply conditional formatting or intricate styles over vast areas, further bloating the file without any visible effect.
 
-Similarly, duplicating entire sheets within a workbook can carry over both data and formatting, even when only a portion of the original sheet is needed. Users often duplicate sheets to retain formulas, styles, or layouts, but this also transfers unnecessary metadata and formatting definitions from the original sheet, including empty cells, unused rows, and hidden columns. These redundancies are copied wholesale, and in many cases, users do not realize that they are preserving and propagating unused content. Over time, as sheets are copied and modified, the workbook's file size balloons, with Excel continuing to store and manage a growing list of redundant elements that serve no practical purpose.
+Similarly, duplicating entire sheets within a workbook can carry over both data and formatting, even when only a portion of the original sheet is needed. Users often duplicate sheets to retain formulas, styles, or layouts, but this also transfers unnecessary metadata and formatting definitions from the original sheet, including empty cells, unused \texttt{rows}, and hidden \texttt{columns}. These redundancies are copied wholesale, and in many cases, users do not realize that they are preserving and propagating unused content. Over time, as sheets are copied and modified, the workbook's file size balloons, with Excel continuing to store and manage a growing list of redundant elements that serve no practical purpose.
 
 A less obvious but equally impactful inefficiency arises from Excel's approach to managing rows and columns. Excel maintains definitions for rows and columns even if they are not populated with data. For instance, if a user inadvertently applies formatting to an entire column but only uses a few cells, the column definition persists in the underlying XML. In some cases, we have observed Excel files where the maximum allowable number of rows and columns were defined, significantly inflating the file size without contributing any value. Although these rows and columns were not fully utilized with data, their definitions were still present in the file, unnecessarily consuming space. These excessive definitions often remain hidden from the user’s view, making them difficult to detect and remove manually.
 
@@ -254,10 +254,10 @@ The web scraping and downloading process is outlined in Algorithm \ref{alg:web_s
 
   \item \url{resultsPerPage=100}:
   
-  This parameter determines how many results should be displayed per page. In this case, it is set to 100, which is the maximum number of results that can be retrieved in a single page request.
+  This parameter determines how many results should be displayed per page. In this case, it is set to \texttt{100}, which is the maximum number of results that can be retrieved in a single page request.
 \end{itemize}
 
-Once we have queried each publication year from 2000 to 2024, and the file attachments have been extracted from the result pages until no further "next page" button is available, the scraping process for the Excel files is complete.
+Once we have queried each publication year from \texttt{2000} to \texttt{2024}, and the file attachments have been extracted from the result pages until no further "next page" button is available, the scraping process for the Excel files is complete.
 
 \subsection{Respecting Crawl Delay}
 
@@ -284,12 +284,12 @@ Excel users lack a straightforward method to identify which cells in a worksheet
         <v>102</v>
     </c>
 \end{lstlisting}
-To detect these whitespaces, it is insufficient to examine the cell itself, as even a single space is stored by Excel in the file for recurring texts, even if the text appears only once in the entire Excel file. Cell D844 appears in the XML as shown in Listing \ref{lst:whitespaces_d844}.
+To detect these whitespaces, it is insufficient to examine the cell itself, as even a single space is stored by Excel in the file for recurring texts, even if the text appears only once in the entire Excel file. Cell \texttt{D844} appears in the XML as shown in Listing \ref{lst:whitespaces_d844}.
 
 The row is marked by the \texttt{<row>} tag and has the attribute \texttt{r="844"}, indicating that it is the 844th row. Within the row, the \texttt{<c>} tag represents a cell, identified by the attribute \texttt{r="D844"}. The attribute \texttt{t="s"} specifies the cell type; in this case, \texttt{s} stands for "String," meaning the cell's content is interpreted as a string \cite{openxml}.
 
-The cell's value is stored within the \texttt{<v>} tag, where the value \texttt{102} is specified. This value is interpreted as an index in a string table, referencing a specific text in a separate list defined in the Excel file, namely the sharedStrings.xml file.
-To locate the value, we must search for the \texttt{sst} node in the sharedStrings.xml file, as shown in Listing \ref{lst:sharedStringsSst}.
+The cell's value is stored within the \texttt{<v>} tag, where the value \texttt{102} is specified. This value is interpreted as an index in a string table, referencing a specific text in a separate list defined in the Excel file, namely the \texttt{sharedStrings.xml} file.
+To locate the value, we must search for the \texttt{sst} node in the \texttt{sharedStrings.xml} file, as shown in Listing \ref{lst:sharedStringsSst}.
 
 \begin{lstlisting}[caption={Shared String Table (sst) in sharedStrings.xml}, label={lst:sharedStringsSst}, firstnumber=48]
   <sst count="17962" uniqueCount="732">
@@ -298,15 +298,8 @@ To locate the value, we must search for the \texttt{sst} node in the sharedStrin
     </si>
 \end{lstlisting}
 
-The provided XML excerpt displays a portion of the Shared String Table (SST) in an Excel file. The abbreviation \texttt{sst} stands for \textit{Shared String Table}. The Shared String Table is a structure that allows for the storage and management of shared strings within an Excel workbook. Instead of storing each string separately in every cell, each unique string is stored once in the Shared String Table. This approach saves storage space, as cells then reference these strings via indices. Each entry in this table has an ascending index number, starting at 0 for the first string, 1 for the second, and so forth. In this example, the \texttt{<sst>} element represents the entire table, which in this case has attributes \texttt{count="17962"} and \texttt{uniqueCount="732"}.
+The provided XML excerpt displays a portion of the Shared String Table (SST) in an Excel file. The abbreviation \texttt{sst} stands for \textit{Shared String Table}. The Shared String Table is a structure that allows for the storage and management of shared strings within an Excel workbook. Instead of storing each string separately in every cell, each unique string is stored once in the Shared String Table. This approach saves storage space, as cells then reference these strings via indices. Each entry in this table has an ascending index number, starting at \texttt{0} for the first string, \texttt{1} for the second, and so forth. The \texttt{count} attribute indicates the total number of strings in the table, while \texttt{uniqueCount} represents the number of unique strings. In this case, there are \texttt{17,962} strings in total, of which \texttt{732} are unique. This means that many strings in the table are used multiple times.
 
-\begin{lstlisting}[caption={Shared String Item (si) in sst}, label={lst:whitespacesSi}, firstnumber=48]
-<si>
-  <t xml:space="preserve"></t>
-</si>
-\end{lstlisting}
-
-The \texttt{count} attribute indicates the total number of strings in the table, while \texttt{uniqueCount} represents the number of unique strings. In this case, there are 17,962 strings in total, of which 732 are unique. This means that many strings in the table are used multiple times.
 
 Within the SST, there are elements of type \texttt{<si>} (Shared Item), each containing a string. In this example, the \texttt{<t>} element displays the actual text of the string stored in the table. Here, the string \texttt{062} is represented, which can be referenced by an index in a cell.
 
@@ -318,7 +311,7 @@ To find the 102nd index, we must look for the 103rd entry, which is shown in Lis
 </si>
 \end{lstlisting}
 
-Within the \texttt{<si>} element is a \texttt{<t>} element containing the actual text of the string. In this specific case, the content of the \texttt{<t>} element is empty, indicating that no text is stored. The attribute \texttt{xml:space="preserve"} suggests that this represents a whitespace character. Therefore, all cells referencing index 102 for the reusable string can be deleted, as the whitespace is not visible.
+Within the \texttt{<si>} element is a \texttt{<t>} element containing the actual text of the string. In this specific case, the content of the \texttt{<t>} element is empty, indicating that no text is stored. The attribute \texttt{xml:space="preserve"} suggests that this represents a whitespace character. Therefore, all cells referencing index \texttt{102} for the reusable string can be deleted, as the whitespace is not visible.
 
 \subsection{Deletion of Empty Columns}
 
@@ -450,7 +443,7 @@ Listing \ref{lst:cellsCsv7171725End} shows the last row of this worksheet.
 
 Unlike the whitespaces, these cells now contain no value and therefore do not need to be cross-referenced with the sharedStrings file. However, it is possible that such empty cells may have a background color assigned, as is the case with some cover sheets used for page design or for highlighting table headers. Additionally, these cells might have borders applied.
 
-To determine this, one must examine the \texttt{s} attribute, which stands for the style index applied to the cell. The values \texttt{s="538"}, \texttt{s="537"}, and \texttt{s="541"} correspond to indices in a lookup table where all cell styles are stored. The styles matching these style indices can be found in the xl/styles.xml file. The relevant excerpts are shown in Listing \ref{lst:cellXfsCsv7171725}.
+To determine this, one must examine the \texttt{s} attribute, which stands for the style index applied to the cell. The values \texttt{s="538"}, \texttt{s="537"}, and \texttt{s="541"} correspond to indices in a lookup table where all cell styles are stored. The styles matching these style indices can be found in the \texttt{xl/styles.xml} file. The relevant excerpts are shown in Listing \ref{lst:cellXfsCsv7171725}.
 
 \begin{lstlisting}[caption={Cell styles in styles.xml for csv-71717-25}, label={lst:cellXfsCsv7171725}]
 <cellXfs count="778">
@@ -466,9 +459,9 @@ To determine this, one must examine the \texttt{s} attribute, which stands for t
 
 The XML structure within \texttt{<cellXfs>} contains formatting properties defined for cells in an Excel file. Each \texttt{<xf>} element represents a formatting rule. Similar to the Shared Strings file, formatting rules are indexed based on their order in the list, starting with the first at 0, the second at 1, and so on. For the IDs \texttt{s="538"}, \texttt{s="537"}, and \texttt{s="541"}, one must look for the 538th, 539th, and 542nd elements in the list, respectively. The attributes control the cell's appearance. The \texttt{numFmtId} attribute specifies the number format used for the cell, while \texttt{fontId} describes the font ID. \texttt{fillId} refers to the fill color, and \texttt{borderId} defines the border properties. \texttt{xfId} references a format template from which the cell inherits properties. The attributes \texttt{applyNumberFormat}, \texttt{applyFont}, and \texttt{applyAlignment} indicate whether the corresponding number format, font, and text alignment are applied to the cell. If the \texttt{alignment} element is present, it specifies the text alignment within the cell, such as right alignment. This structure defines the formatting rules used for the display and layout of the cell contents.
 
-Inspection of these styles reveals that these cells only apply styles that are not visible for empty cells. They use different fonts, and cell G1048576 is additionally right-aligned. Therefore, all these cells are redundant and can be deleted accordingly.
+Inspection of these styles reveals that these cells only apply styles that are not visible for empty cells. They use different fonts, and cell \texttt{G1048576} is additionally right-aligned. Therefore, all these cells are redundant and can be deleted accordingly.
 
-Another case arises when the formatting rules include borders. If such cells are simply deleted, as occurred in previous versions of our script, the following issues arise, as seen in Figures \ref{fig:cell_borders_row_height_original} and \ref{fig:cell_borders_row_height_fail} \cite{destatis2022Verkehrsunfaelle}[Sheet: 2\_(1)]. In Figure \ref{fig:cell_borders_row_height_original}, all borders around the cells in the table header are visible. In Figure \ref{fig:cell_borders_row_height_fail}, only the borders adjacent to cells with content remain visible. For example, the border between cells A2 and A3 is missing.
+Another case arises when the formatting rules include borders. If such cells are simply deleted, as occurred in previous versions of our script, the following issues arise, as seen in Figures \ref{fig:cell_borders_row_height_original} and \ref{fig:cell_borders_row_height_fail} \cite{destatis2022Verkehrsunfaelle}[Sheet: 2\_(1)]. In Figure \ref{fig:cell_borders_row_height_original}, all borders around the cells in the table header are visible. In Figure \ref{fig:cell_borders_row_height_fail}, only the borders adjacent to cells with content remain visible. For example, the border between cells \texttt{A2} and \texttt{A3} is missing.
 
 \begin{figure}[ht]
   \centering
@@ -500,13 +493,13 @@ Cell A2 appears in the XML as shown in Listing \ref{lst:sheet-xml-a2}.
 
 Here, the style ID is \texttt{s="577"}. It defines the underlying cell formatting, which in turn includes the ID for the border definition.
 
-In the styles.xml file under the \texttt{<cellXfs>} node, we search for the \texttt{<xf>} node with ID 577, which corresponds to the 578th \texttt{<xf>} node. This is shown in Listing \ref{lst:style-xml-xf-577}.
+In the \texttt{styles.xml} file under the \texttt{<cellXfs>} node, we search for the \texttt{<xf>} node with ID \texttt{577}, which corresponds to the 578th \texttt{<xf>} node. This is shown in Listing \ref{lst:style-xml-xf-577}.
 
 \begin{lstlisting}[caption={Style with implicit ID 577 in styles.xml}, label={lst:style-xml-xf-577}, firstnumber=378]
 <xf numFmtId="0" fontId="8" fillId="2" borderId="5" xfId="0" applyFont="1" applyFill="1" applyBorder="1" applyAlignment="1"/>
 \end{lstlisting}
 
-This \texttt{<xf>} node has the \texttt{borderId} attribute set to index 5. Similar to cell styles, this index indicates that the 6th \texttt{<border>} node within the same styles.xml file is referenced.
+This \texttt{<xf>} node has the \texttt{borderId} attribute set to index \texttt{5}. Similar to cell styles, this index indicates that the 6th \texttt{<border>} node within the same \texttt{styles.xml} file is referenced.
 
 Listing \ref{lst:style-xml-border-5} shows the 6th \texttt{<border>} node with implicit ID 5.
 
@@ -542,7 +535,7 @@ Similar to cells without content but with visible formatting, rows can also cont
   <row r="2" spans="1:12" ht="8.25" customHeight="1">
 \end{lstlisting}
 
-The attribute \texttt{customHeight} means that this row has been assigned a user-defined height, specified by the \texttt{ht} attribute: 8.25. Therefore, this row must not be deleted. However, during our examination of the worksheets, we found many that contained an immense number of empty rows, which had defined heights.
+The attribute \texttt{customHeight} means that this row has been assigned a user-defined height, specified by the \texttt{ht} attribute: \texttt{8.25}. Therefore, this row must not be deleted. However, during our examination of the worksheets, we found many that contained an immense number of empty rows, which had defined heights.
 
 In the most extreme case in our analysis, a worksheet contained 1,048,576 defined rows, of which 1,048,480 rows had a defined height but were outside the data range \cite{destatis2022Wanderungen}[Sheet "Tabelle 1.2.1"].
 Only 94 rows had content, which corresponds to 0.00009\%. The last row is shown in Listing \ref{lst:lastRow}.
@@ -559,7 +552,7 @@ To ensure that deleting empty rows does not alter the worksheet's visual represe
 
 \subsection{Deletion of Redundant Print Areas and Print Titles}
 
-Excel allows defining the area of a worksheet that should be printed on paper. This area can be manually defined or automatically set by Excel. In both cases, this area is stored in the workbook.xml file under the \texttt{<definedNames>} node. Typically, this area is labeled as \_xlnm.Print\_Area and \_xlnm.Print\_Titles. However, these areas and titles are often also stored under the names Print\_Area and Print\_Titles. When Excel opens the file, it renames the entries Print\_Area and Print\_Titles to \_xlnm.Print\_Area and \_xlnm.Print\_Titles, respectively. However, there is a problem when there is already a Defined Name for the same worksheet with both Print\_Area and \_xlnm.Print\_Area, as seen in Listing \ref{lst:PrintAreaRedundancy}\cite{destatis2022Wanderungen}[xl/workbook.xml].
+Excel allows defining the area of a worksheet that should be printed on paper. This area can be manually defined or automatically set by Excel. In both cases, this area is stored in the \texttt{workbook.xml} file under the \texttt{<definedNames>} node. Typically, this area is labeled as \texttt{\_xlnm.Print\_Area} and \texttt{\_xlnm.Print\_Titles}. However, these areas and titles are often also stored under the names \texttt{Print\_Area} and \texttt{Print\_Titles}. When Excel opens the file, it renames the entries \texttt{Print\_Area} and \texttt{Print\_Titles} to \texttt{\_xlnm.Print\_Area} and \texttt{\_xlnm.Print\_Titles}, respectively. However, there is a problem when there is already a Defined Name for the same worksheet with both \texttt{Print\_Area} and \texttt{\_xlnm.Print\_Area}, as seen in Listing \ref{lst:PrintAreaRedundancy}\cite{destatis2022Wanderungen}[xl/workbook.xml].
 
 \begin{lstlisting}[caption={Redundant Print Area entries}, label={lst:PrintAreaRedundancy}, firstnumber=171]
 <definedName name="_xlnm.Print_Area" localSheetId="12">'Tabelle 2.1.1'!$A$1:$N$64748</definedName>
@@ -567,11 +560,11 @@ Excel allows defining the area of a worksheet that should be printed on paper. T
 <definedName name="Print_Area" localSheetId="12">'Tabelle 2.1.1'!$A$1:$N$93</definedName>
 \end{lstlisting}
 
-The same applies to Print\_Titles and \_xlnm.Print\_Titles. In this case, the entries cannot be renamed because it would lead to redundant entries. Instead, Excel presents a dialog to the user upon opening the file, asking the user to select a new name for the Defined Name.
+The same applies to \texttt{Print\_Titles} and \texttt{\_xlnm.Print\_Titles}. In this case, the entries cannot be renamed because it would lead to redundant entries. Instead, Excel presents a dialog to the user upon opening the file, asking the user to select a new name for the Defined Name.
 
-If the first entry is renamed and the user clicks OK, the dialog reappears for the next entry. This process repeats until all redundant entries for both Print\_Area and Print\_Titles are renamed. However, the user cannot simply enter the same name repeatedly to shorten this process, as Excel will prevent entering the same name twice for different Defined Names on the same worksheet.
+If the first entry is renamed and the user clicks OK, the dialog reappears for the next entry. This process repeats until all redundant entries for both \texttt{Print\_Area} and \texttt{Print\_Titles} are renamed. However, the user cannot simply enter the same name repeatedly to shorten this process, as Excel will prevent entering the same name twice for different Defined Names on the same worksheet.
 
-In the files we examined, there were up to 9,999 redundant Print\_Area and 9,999 Print\_Titles entries. Renaming these entries offers no advantage to the user, as these entries are only stored in the Defined Names accessible via Excel's \texttt{Formulas} -> \texttt{Name Manager}. The entries are not repaired by user inputs because they are already in the correct form.
+In the files we examined, there were up to 60 redundant \texttt{Print\_Area} and 55 \texttt{Print\_Titles} entries. Renaming these entries offers no advantage to the user, as these entries are only stored in the Defined Names accessible via Excel's \texttt{Formulas} -> \texttt{Name Manager}. The entries are not repaired by user inputs because they are already in the correct form.
 
 In earlier versions of our script, we did not remove redundant entries from the files. This led to the problem that we could not perform our analysis on how long the Excel files took to open before and after reduction. The Visual Basic for Applications (VBA) script we used to open and close the files stopped when encountering files with redundant entries. To simplify the analysis and spare users the need to manually rename redundant entries, Excel Shrink was extended to automatically remove redundant entries.
 
@@ -581,7 +574,7 @@ To provide a breakdown of how many bytes were saved by deleting whitespaces, emp
 
 \subsubsection{Determining the Sheet Name}
 
-To provide a listing of reduced file sizes, it is necessary to determine the worksheet titles. To provide the user with a breakdown of the reduction per worksheet, we must determine the title of the worksheet. However, through the worksheet files, we only know an ID indicated in the filename, such as sheet1.xml, sheet2.xml, and so forth. Unfortunately, we cannot determine the sheet title directly from the sheet file because the title is only associated with the individual sheets in the xl/workbook.xml file. This association is shown in Listing \ref{lst:sheet_title_from_workbook} \cite{destatis2023Foerderprogramme}. The \texttt{sheetId} attribute should be ignored; the ID that maps the sheet title to the corresponding sheetX.xml is the \texttt{r:id} attribute. Since each value in this attribute starts with "rId," the ID must be extracted by removing the first three characters. These IDs then provide a unique mapping to the worksheet titles, which can be used for output.
+To provide a listing of reduced file sizes, it is necessary to determine the worksheet titles. To provide the user with a breakdown of the reduction per worksheet, we must determine the title of the worksheet. However, through the worksheet files, we only know an ID indicated in the filename, such as \texttt{sheet1.xml}, \texttt{sheet2.xml}, and so forth. Unfortunately, we cannot determine the sheet title directly from the sheet file because the title is only associated with the individual sheets in the \texttt{xl/workbook.xml} file. This association is shown in Listing \ref{lst:sheet_title_from_workbook} \cite{destatis2023Foerderprogramme}. The \texttt{sheetId} attribute should be ignored; the ID that maps the sheet title to the corresponding \texttt{sheetX.xml} is the \texttt{r:id} attribute. Since each value in this attribute starts with "\texttt{rId}", the ID must be extracted by removing the first three characters. These IDs then provide a unique mapping to the worksheet titles, which can be used for output.
 
 \begin{lstlisting}[caption={workbook.xml mapping IDs to worksheet titles}, label={lst:sheet_title_from_workbook}]
 <sheets>
@@ -610,11 +603,11 @@ The program has limited batch functionality, allowing the selection and reductio
 
 Inquire is an add-in for Excel, available exclusively for Excel versions within Office Professional Plus and Microsoft 365 Apps for Enterprise. Other versions, such as Office Home, Microsoft 365 Family or Single, and Microsoft 365 Business, do not support this add-in.
 
-To activate the add-in, the following steps must be taken. Navigate to the File menu and select Options. This opens a dialog, where one clicks on Add-ins.
-In the "Manage" dropdown, select "COM Add-ins", and then click on "Go...".
+To activate the Add-in, the following steps must be taken. Navigate to the \texttt{File} menu and select \texttt{Options}. This opens a dialog, where one clicks on \texttt{Add-ins}.
+In the "Manage" dropdown, select "\texttt{COM Add-ins}", and then click on "\texttt{Go...}".
 In the subsequently opened dialog, the Inquire Add-in can be activated. If the Inquire Add-in does not appear in the dialog, it is due to the use of an incorrect version of Excel.
 
-Compared to our solution, Inquire ignores whitespace cells but successfully deletes empty cell, column, and row definitions; however, in certain instances, a substantial number of these elements remain undeleted. For instance, in a worksheet used as a cover sheet, only 77 rows were utilized, and all rows from row 78 onwards were hidden. However, in the XML file, rows 78 to 65533 were defined along with cells from columns A to F, as demonstrated in Listing \ref{lst:row-65533}.
+Compared to our solution, Inquire ignores whitespace cells but successfully deletes empty cell, column, and row definitions; however, in certain instances, a substantial number of these elements remain undeleted. For instance, in a worksheet used as a cover sheet, only 77 rows were utilized, and all rows from row \texttt{78} onwards were hidden. However, in the XML file, rows \texttt{78} to \texttt{65533} were defined along with cells from columns \texttt{A} to \texttt{F}, as demonstrated in Listing \ref{lst:row-65533}.
 
 \begin{lstlisting}[caption={Row 65533 in sheetX.xml}, label={lst:row-65533}, firstnumber=590500, numbersep={-27pt}]
   <row r="65533" spans="1:7" ht="0" hidden="1" customHeight="1">
@@ -629,14 +622,14 @@ Compared to our solution, Inquire ignores whitespace cells but successfully dele
 </sheetData>
 \end{lstlisting}
 
-When applying the Inquire Add-in to such worksheets, they were not cleaned, and a dialog informed that this is because the default row height is 0, making it impossible to clean the sheet, and hence the sheet will be skipped.
+When applying the Inquire Add-in to such worksheets, they were not cleaned, and a dialog informed that this is because the default row height is \texttt{0}, making it impossible to clean the sheet, and hence the sheet will be skipped.
 Additionally, Inquire lacks batch processing capabilities. As a result, multiple files cannot be processed simultaneously. Instead, each file must be opened individually. Given that large files, which are typically the ones requiring size reduction, take at least one minute to open, this process becomes quite time-consuming. Opening several large files and subsequently using the Inquire Add-in to reduce their size involves a significant amount of time.
 
 \subsection{Excel Performance Tab}
 
-Since 2022, Excel for Web has included a new feature named \textit{Check Performance}, and since 2023, this feature has also been available in Excel for Windows. It can be accessed through the "Review" tab in the Ribbon menu. In our comparison with alternative tools, this function achieved the largest reduction in file size; however, it failed to remove unneeded column definitions and cells with whitespaces.
+Since 2022, Excel for Web has included a new feature named \textit{Check Performance}, and since 2023, this feature has also been available in Excel for Windows. It can be accessed through the \texttt{Review} tab in the Ribbon menu. In our comparison with alternative tools, this function achieved the largest reduction in file size; however, it failed to remove unneeded column definitions and cells with whitespaces.
 
-However, Check Performance was also capable of outperforming Excel Shrink in specific cases without altering the worksheet’s appearance. Nevertheless, it modified the worksheet in a manner that required users to perform multiple steps to revert the changes made by Check Performance. This issue arose when a worksheet contained an actual value in a hidden row, and between this row and the next visible row, there were thousands of additional hidden rows without any values. For example, we had a worksheet whose visible ranged only to row 94 but after making the invisible rows visible to verify our observations from the XML file of the sheet we found that in row 65,536 in column A, the number "3" was stored, presumably by accident \cite{destatis2022Wanderungen}[Sheet: "Tabelle 2.1.1"].
+However, Check Performance was also capable of outperforming Excel Shrink in specific cases without altering the worksheet’s appearance. Nevertheless, it modified the worksheet in a manner that required users to perform multiple steps to revert the changes made by Check Performance. This issue arose when a worksheet contained an actual value in a hidden row, and between this row and the next visible row, there were thousands of additional hidden rows without any values. For example, we had a worksheet whose visible ranged only to row \texttt{94} but after making the invisible rows visible to verify our observations from the XML file of the sheet we found that in row  \texttt{65536} in column \texttt{A}, the number "3" was stored, presumably by accident \cite{destatis2022Wanderungen}[Sheet: "Tabelle 2.1.1"].
 
 In such scenarios, Excel Shrink is unable to remove the hidden rows because our strategy involves removing only content outside the range of actual values and visible formatting. Since the last row within the user-designated area contains an actual value, all intervening rows must be preserved. In contrast, Check Performance removes all these hidden rows. This action alone would typically result in the previously hidden and now deleted rows becoming visible again. To prevent this, Check Performance employs a workaround by setting the row height to zero for the entire worksheet. This creates the illusion that the rows are deleted, when in fact they are merely not visible due to having no height.
 
