@@ -785,15 +785,9 @@ The program has limited batch functionality, allowing the selection and reductio
 
 \subsection{Inquire Add-in}
 
-Inquire is an Add-in for Excel.
-This add-in is only available for Excel in the following versions:
-Office Professional Plus
-and Microsoft 365 Apps for Enterprise.
-Office Home, Microsoft 365 Family or Single, as well as
-Microsoft 365 Business editions are excluded.
+Inquire is an add-in for Excel, available exclusively for Excel versions within Office Professional Plus and Microsoft 365 Apps for Enterprise. Other versions, such as Office Home, Microsoft 365 Family or Single, and Microsoft 365 Business, do not support this add-in.
 
-The add-in can be activated by performing the following steps. Navigate to the "File" menu and then select "Options." Subsequently, a dialog will open in which you click on "Add-ins."
-
+To activate the add-in, the following steps must be taken. Navigate to the File menu and select Options. This opens a dialog, where one clicks on Add-ins.
 In the "Manage" dropdown, select "COM Add-ins" as depicted in Figure \ref{fig:manage_go}, and then click on "Go...".
 
 \begin{figure}[ht]
@@ -812,11 +806,11 @@ In the subsequently opened dialog, the Inquire Add-in can be activated, as shown
   \label{fig:enable_inquire}
 \end{figure}%
 
-Compared to our program, the software has left the following redundant columns and cells:
+Compared to our program, Inquire leaves the following redundant columns and cells unprocessed:
 
-The program lacks batch functionality, thereby preventing the simultaneous processing of multiple files. Consequently, each individual file must be opened separately, which, given that especially large files intended for reduction in size require a considerable amount of time—at least one minute—to open, results in a non-negligible time investment when opening multiple large files and using the Inquire add-in to reduce file size post-loading.
+Additionally, Inquire lacks batch processing capabilities. As a result, multiple files cannot be processed simultaneously. Instead, each file must be opened individually. Given that large files, which are typically the ones requiring size reduction, take at least one minute to open, this process becomes quite time-consuming. Opening several large files and subsequently using the Inquire add-in to reduce their size involves a significant amount of time.
 
-We compared the results of Inquire with those of Excel Shrink using particularly large Excel files.
+We compared the results of Inquire with those from Excel Shrink using particularly large Excel files.
 
 Inquire already provided very good results. However, in certain cases, extremely large worksheets were not cleaned. For instance, in a worksheet used as a cover sheet, only 77 rows were utilized, and all rows from row 78 onwards were hidden, as shown in Figure \ref{fig:hidden}.
 
@@ -827,7 +821,8 @@ Inquire already provided very good results. However, in certain cases, extremely
   \label{fig:hidden}
 \end{figure}%
 
-However, in the XML, rows 78 through 65533 were each defined with cells A through F, as shown in Listing \ref{lst:row-65533}.
+However, in the XML file, rows 78 to 65533 were defined along with cells from columns A to F, as demonstrated in Listing \ref{lst
+}.
 
 \begin{lstlisting}[caption={Row 65533 in sheet170.xml in the file verkehrsunfaelle-zeitreihen-xlsx-5462403}, label={lst:row-65533}, firstnumber=590500, numbersep={-27pt}]
       <row r="65533" spans="1:7" ht="0" hidden="1" customHeight="1">
