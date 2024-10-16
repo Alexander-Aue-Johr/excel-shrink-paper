@@ -777,7 +777,7 @@ To evaluate the behaviour of Excel regarding how how the files are interpreted a
 We have identified three tools that also reduce the size of Excel files. One of these tools is a commercial program with a trial version available, named NXPowerLite Desktop \cite{nxpowerlite_desktop}.
 Another tool is a Add-in for Excel called Excel Inquire.
 Additionally, with the 2022 version for Excel for Web and the 2023 version for Excel for Windows, Excel introduced the Check Performance feature, which allows for the reduction of Excel file sizes.
-We have tested both programs and compared sample results with our tool.
+We have tested the programs and compared sample results with our tool.
 
 \subsection{NXPowerLite Desktop}
 The program NXPowerLite Desktop is a commercial software \cite{nxpowerlite_desktop}. A 14-day trial version is available. Although the primary purpose of the program is to reduce the file size of Excel files by compressing embedded images, it also removes some, but not all, empty cells. However, it ignores all cells containing only whitespaces, redundant column definitions, and unnecessary rows.
@@ -785,87 +785,51 @@ The program has limited batch functionality, allowing the selection and reductio
 
 \subsection{Inquire Add-in}
 
-
-Inquire ist ein
-Add in für Excel.
-Das Add-In ist nur für Excel in den Versionen
+Inquire is an Add-in for Excel.
+This add-in is only available for Excel in the following versions:
 Office Professional Plus
-und Microsoft 365 Apps for Enterprise verfügbar.
-Office Home, Microsoft 365 Family bzw. Single sowie
-Microsoft 365 Business sind davon ausgenommen.
+and Microsoft 365 Apps for Enterprise.
+Office Home, Microsoft 365 Family or Single, as well as
+Microsoft 365 Business editions are excluded.
 
-Das Addin kann aktiviert werden,
-indem man folgende Schritte ausführt.
-Man geht über den Menüpunkt File und wählt dann Options.
-Daraufhin öffnet sich ein Dialog, in welchem man auf 
-auf Add-ins klickt.
+The add-in can be activated by performing the following steps. Navigate to the "File" menu and then select "Options." Subsequently, a dialog will open in which you click on "Add-ins."
 
-Im Dropdown Manage wählt man COM Add-ins wie in Abbildung \ref{fig:manage_go} zu sehen.
-und klickt anschließend auf "Go ...".
+In the "Manage" dropdown, select "COM Add-ins" as depicted in Figure \ref{fig:manage_go}, and then click on "Go...".
 
 \begin{figure}[ht]
   \centering
   \includegraphics{images/excel_shrink/related_work/inquire/manage_go.png}
-  \caption[bla]{bla bla}
+  \caption{Managing COM Add-ins in Excel}
   \label{fig:manage_go}
 \end{figure}%
 
-Im Daraufhin sich öffnenden Dialog kann das Add-in Inquire aktiviert werden,
-wie in Abbidung \ref{fig:enable_inquire} zu sehen ist.
-Taucht in dem Dialog das Inquire Add-in nicht auf,
-dann liegt das daran, ass die falsche Version von Excel verwendet
-wird.
+In the subsequently opened dialog, the Inquire Add-in can be activated, as shown in Figure \ref{fig:enable_inquire}. If the Inquire Add-in does not appear in the dialog, it is due to the use of an incorrect version of Excel.
 
 \begin{figure}[ht]
   \centering
   \includegraphics[width=\linewidth]{images/excel_shrink/related_work/inquire/enable_inquire.png}
-  \caption[bla]{bla bla}
+  \caption{Enabling the Inquire Add-in}
   \label{fig:enable_inquire}
 \end{figure}%
 
-Das Programm hat im vergleich
-zu unserem Programm folgende
-überflüssige Spalten und Zellen
-übrig gelassen:
+Compared to our program, the software has left the following redundant columns and cells:
 
+The program lacks batch functionality, thereby preventing the simultaneous processing of multiple files. Consequently, each individual file must be opened separately, which, given that especially large files intended for reduction in size require a considerable amount of time—at least one minute—to open, results in a non-negligible time investment when opening multiple large files and using the Inquire add-in to reduce file size post-loading.
 
-Das Programm hat keine batchfunktion.
-Es können also nicht mehrere Dateien auf einmal 
-bearbeitetwerden. Stattdessen muss jede einzelne Datei einzeln
-geöffnet werden, was vor dem Hintergrund,
-dass besonders die sehr großen Dateien, die man ja gerne
-verkleinern möchte, eine lange zeit von wenigstens einer Minute
-zum öffnen benötigen. Mehrere Dateien zu öffnen,
-die besonders groß sind und nach dem laden das inquire Add-in
- zu benutzen um die datei zu verkleinern ist damit
-  ein nicht zu unterschätzender zeitaufwand.
+We compared the results of Inquire with those of Excel Shrink using particularly large Excel files.
 
-Wir haben die ergebnisse von Inquire 
-mit unseren ergebnissen von Excel Shrink anhand
- von besonders großen excel dateien verglichen.
-
-Inquire lieferte bereits sehr gute ergenisse.
-In manchen Fällen jedoch wurden immens große arbetsblätter
-nicht bereinigt.
-in einem Arbeitsblatt welches  als Deckblatt verwendet wurde
-
- waren beispielsweise nur 77 Zeilen genutzt und alle Zeilen ab 78
- waren versteckte Zeilen, wie in Abbildung   \ref{fig:hidden} zu sehen.
-
+Inquire already provided very good results. However, in certain cases, extremely large worksheets were not cleaned. For instance, in a worksheet used as a cover sheet, only 77 rows were utilized, and all rows from row 78 onwards were hidden, as shown in Figure \ref{fig:hidden}.
 
 \begin{figure}[ht]
   \centering
   \includegraphics[width=\linewidth]{images/excel_shrink/related_work/inquire/hidden.png}
-  \caption[bla]{bla bla}
+  \caption{Example of Hidden Rows in a Worksheet}
   \label{fig:hidden}
 \end{figure}%
 
+However, in the XML, rows 78 through 65533 were each defined with cells A through F, as shown in Listing \ref{lst:row-65533}.
 
-Im xml waren aber die Zeilen 78 bis 65533 jeweils
-mit den Zellen A bis F definiert wie in Listing \ref{lst:row-65533} zu sehen.
-
-
-\begin{lstlisting}[caption={Die Zeile 65533 in im sheet170.xml in der Datei verkehrsunfaelle-zeitreihen-xlsx-5462403}, label={lst:row-65533}, firstnumber=590500, numbersep={-27pt}]
+\begin{lstlisting}[caption={Row 65533 in sheet170.xml in the file verkehrsunfaelle-zeitreihen-xlsx-5462403}, label={lst:row-65533}, firstnumber=590500, numbersep={-27pt}]
       <row r="65533" spans="1:7" ht="0" hidden="1" customHeight="1">
       <c r="A65533" s="68" />
       <c r="B65533" s="68" />
@@ -878,15 +842,12 @@ mit den Zellen A bis F definiert wie in Listing \ref{lst:row-65533} zu sehen.
     </sheetData>
 \end{lstlisting}
 
- Bei Anwenden des Inquire Add-in wurden die Z
-
-wurde für jedes einzelne Arbeitsblatt
-
+When applying the Inquire Add-in, to such worksheets they were not cleaned, and a dialog informed that this is because the default row height is 0 which is why the sheet will be skipped, as shown in Figure \ref{fig:results_related_tools}.
 
 \begin{figure}[ht]
   \centering
   \includegraphics[width=\linewidth]{images/excel_shrink/related_work/inquire/inquire_default_row_heght_0.png}
-  \caption[bla]{bla bla}
+  \caption{Default Row Height Adjustment by Inquire Add-in}
   \label{fig:results_related_tools}
 \end{figure}%
 
@@ -895,8 +856,8 @@ wurde für jedes einzelne Arbeitsblatt
 
 
 
-verkehrsunfaelle-zeitreihen-xlsx-5462403.xlsx
 
+ 
 
 \subsection{Excel Performance Tab}
 
