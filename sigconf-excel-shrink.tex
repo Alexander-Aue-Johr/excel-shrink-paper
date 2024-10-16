@@ -151,7 +151,7 @@ To quantify the impact of these redundancies, we performed a detailed analysis o
 
 \subsection{Related Work on Excel File Optimization}
 
-Several tools and techniques have been developed to mitigate Excel file bloat \cite{excel_optimization_tools}. These include commercial software, Excel add-ins, and built-in Excel features designed to remove redundant content and reduce file sizes. However, most existing tools have notable limitations. Many are restricted to processing a limited number of files or are constrained to specific Excel versions or enterprise environments \cite{excel_tools_comparison}. Furthermore, these tools either fail to remove all redundant content or inadvertently alter the sheet's visual appearance, making them unsuitable for users who need to preserve the layout of their workbooks \cite{excel_cleanup_tools}.
+Several tools and techniques have been developed to mitigate Excel file bloat. These include commercial software, Excel Add-ins, and built-in Excel features designed to remove redundant content and reduce file sizes. However, most existing tools have notable limitations. All are restricted to processing a limited number of files or are constrained to specific Excel versions or enterprise environments. Furthermore, these tools either fail to remove all redundant content or inadvertently alter the sheet's visual appearance, making them unsuitable for users who need to preserve the layout of their workbooks.
 
 These limitations underscored the need for a more robust, scalable solution. To address this gap, we developed our open-source tool, \texttt{excel-shrink}, capable of processing large batches of Excel files while maintaining the integrity of the spreadsheet layout.
 
