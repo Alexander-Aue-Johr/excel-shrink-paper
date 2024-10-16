@@ -247,12 +247,13 @@ These limitations underscored the need for a more robust, scalable solution. To 
 
 \subsection{Our Contribution: excel-shrink}
 
-To combat the issues posed by file bloat in Excel, we introduce \texttt{excel-shrink}, an open-source tool designed to efficiently reduce the size of Excel files by removing redundant content \cite{excel_shrink_tool}. The tool conducts an in-depth analysis of the workbook's XML structure to identify and eliminate unnecessary elements, including empty but formatted cells, unused rows, and columns.
+To combat the issues posed by file bloat in Excel, we introduce \texttt{excel-shrink}, an open-source tool written in Python designed to efficiently reduce the size of Excel files by removing redundant content \cite{excel_shrink_tool}. The tool conducts an in-depth analysis of the workbook's XML structure to identify and eliminate unnecessary elements, including empty but formatted cells, unused rows, and columns.
+
+For users who prefer a user-friendly interface without the need to install Python or use command-line tools, we developed Excel Shrink UI. Built using Flutter for Windows and integrating the compiled Python script via Nuitka, this version enables users to optimize their Excel files through a simple and intuitive interface.
 
 Unlike existing tools, \texttt{excel-shrink} is capable of processing unlimited numbers of Excel files, making it suitable for handling large datasets, such as the 1,182 files we analyzed from Destatis. The tool ensures that the visual layout of the spreadsheet is preserved, preventing the loss of important formatting. By automating the cleanup of redundant content, \texttt{excel-shrink} significantly reduces the time and effort required to optimize Excel files, making it an ideal solution for organizations dealing with large-scale spreadsheets.
 
-In this paper, we present the technical foundations of \texttt{excel-shrink}, outline the methodology used to analyze Excel file bloat, and evaluate the tool's performance across various datasets. Our results demonstrate that \texttt{excel-shrink} can reduce file sizes by up to 99.99\% without compromising the usability or appearance of the Excel files.
-
+In this paper, we present the technical foundations of \texttt{excel-shrink}, outline the methodology used to analyze Excel file bloat, and evaluate the tool's performance across the Destatis dataset. Our results demonstrate that \texttt{excel-shrink} can reduce file sizes by up to 99.99\% without compromising the usability or appearance of the Excel files.
 
 
 \section{Scraping Destatis}
@@ -358,31 +359,37 @@ The web scraping and downloading process is outlined in Algorithm \ref{alg:web_s
 
 Once we have queried each publication year from 2000 to 2024, and the file attachments have been extracted from the result pages until no further "next page" button is available, the scraping process for the Excel files is complete.
 
-\subsection{Handling Duplicate Filenames}
-
-Initially, we assumed that the URLs for the Excel files would be unique, but that the filenames of the downloadable files might not be. Therefore, we added a helper function, \texttt{check\_for\_duplicate\_filenames}, to ensure that each file is unique before downloading. Upon running this check, we found no duplicate filenames. Thus, the files can be saved using their original filenames during the download process.
-
-\begin{lstlisting}[caption={Function to check for duplicate filenames}, label={lst:check_for_duplicates}]
-def check_for_duplicate_filenames(file_records: List[FileRecord]) -> bool:
-    filenames = set()
-    duplicates = set()
-
-    for record in file_records:
-        if record.file_name in filenames:
-            duplicates.add(record.file_name)
-        else:
-            filenames.add(record.file_name)
-
-    if duplicates:
-        print(f"Duplicate filenames found: {duplicates}")
-        return True
-    return False
-\end{lstlisting}
+% \subsection{Handling Duplicate Filenames}
+% 
+% Initially, we assumed that the URLs for the Excel files would be unique, but that the filenames of the downloadable files might not be. Therefore, we % added a helper function, \texttt{check\_for\_duplicate\_filenames}, to ensure that each file is unique before downloading. Upon running this check, we % found no duplicate filenames. Thus, the files can be saved using their original filenames during the download process.
+% 
+% \begin{lstlisting}[caption={Function to check for duplicate filenames}, label={lst:check_for_duplicates}]
+% def check_for_duplicate_filenames(file_records: List[FileRecord]) -> bool:
+%     filenames = set()
+%     duplicates = set()
+% 
+%     for record in file_records:
+%         if record.file_name in filenames:
+%             duplicates.add(record.file_name)
+%         else:
+%             filenames.add(record.file_name)
+% 
+%     if duplicates:
+%         print(f"Duplicate filenames found: {duplicates}")
+%         return True
+%     return False
+% \end{lstlisting}
 
 \subsection{Respecting Crawl Delay}
 
 To minimize the load on the Destatis website, we adhered to the crawl-delay directive specified in the site's \texttt{robots.txt} file, pausing for 30 seconds between requests. This delay ensures that our scraper operates within the guidelines provided by Destatis.
-\section{Deletion of White Spaces}
+
+
+\section{Excel Shrink}
+
+Die Aufgabe von Excel Shrink ist es die Größe von Excel-Dateien zu reduzieren, indem es Inhalte entfernt, die für den Nutzer unsichtbar und daher vermutlich nicht absichtlich ihren Weg in die Datei gefunden haben. Dazu zählen unter anderem leere Zellen, Zellen mit Whitespaces, oder Zellen mit einem Format, welches für den benutzer nicht sichtbar ist, sowie ungenutzte Zeilen und Spalten.
+
+\subsection{Deletion of White Spaces}
 
 Excel users lack a straightforward method to identify which cells in a worksheet contain only whitespace characters. To highlight these whitespaces, we have marked cells containing exclusively whitespaces in red within this worksheet, which includes 4,121 whitespace instances, as shown in Figure \ref{fig:whitespaces} \cite{destatis2023Konsumausgaben5811109}.
 
@@ -435,9 +442,10 @@ To find the 102nd index, we must look for the 103rd entry, which is shown in Lis
 
 Within the \texttt{<si>} element is a \texttt{<t>} element containing the actual text of the string. In this specific case, the content of the \texttt{<t>} element is empty, indicating that no text is stored. The attribute \texttt{xml:space="preserve"} suggests that this represents a whitespace character. Therefore, all cells referencing index 102 for the reusable string can be deleted, as the whitespace is not visible.
 
-\section{Deletion of Empty Columns}
+\subsection{Deletion of Empty Columns}
 
-The first indication of excessive column definitions can be observed in the horizontal scrollbar when opening the worksheet, as shown in Figure \ref{fig:col_scrollbar_arrow} \cite{destatis2023Foerderprogramme}. If the entire data range is already within the visible area and yet the scrollbar thumb is very narrow and small compared to the scrollable area, it indicates that a large number of column definitions are making the worksheet significantly wider than the actual data range.
+The first indication of excessive column definitions can be observed in the horizontal scrollbar when opening the worksheet, as shown in Figure \ref{fig:col_scrollbar_arrow} \cite{destatis2023Foerderprogramme}[Sheet: "0902\_T\_NW"].
+If the entire data range is already within the visible area and yet the scrollbar thumb is very narrow and small compared to the scrollable area, it indicates that a large number of column definitions are making the worksheet significantly wider than the actual data range.
 
 \begin{figure}[ht]
   \centering 
@@ -462,13 +470,13 @@ In this XML excerpt, the \texttt{<cols>} element represents the definition of mu
 The first five \texttt{<col>} definitions relate to the data range. However, the last definition, \texttt{min="10" max="18"}, pertains to a redundant range. This section defines columns that lie outside the actual data range in the worksheet, specifically columns starting from column J, thereby representing unnecessary or unused definitions.
 
 \begin{lstlisting}[caption={Initial column definitions}, label={lst:columsFoerderprogrammeStart}, firstnumber={13}, numbersep={-7pt}]
-  <cols>
-    <col min="1" max="1" width="5.21875" style="39" customWidth="1" />
-    <col min="2" max="2" width="1.77734375" style="39" customWidth="1" />
-    <col min="3" max="3" width="20" style="39" customWidth="1" />
-    <col min="4" max="4" width="11.5546875" style="39" customWidth="1" />
-    <col min="5" max="9" width="10.5546875" style="39" customWidth="1" />
-    <col min="10" max="18" width="11.5546875" style="54" customWidth="1" />
+<cols>
+  <col min="1" max="1" width="5.21875" style="39" customWidth="1" />
+  <col min="2" max="2" width="1.77734375" style="39" customWidth="1" />
+  <col min="3" max="3" width="20" style="39" customWidth="1" />
+  <col min="4" max="4" width="11.5546875" style="39" customWidth="1" />
+  <col min="5" max="9" width="10.5546875" style="39" customWidth="1" />
+  <col min="10" max="18" width="11.5546875" style="54" customWidth="1" />
 \end{lstlisting}
 
 During our investigations, we could not determine how these column definitions originated. We hypothesize that the worksheet was duplicated, and the original worksheet contained this number of columns with the corresponding widths. However, this hypothesis is contradicted by the fact that the column widths for individual columns in the files we examined extend nearly to the maximum number of 16,384 columns. Figure \ref{fig:col_w} illustrates such a case. This worksheet contains 2,403 column definitions, and after excluding the five actually used column definitions, 2,398 redundant definitions remain.
@@ -499,17 +507,28 @@ To delete these columns, the following steps must be taken:
 3. Delete all redundant column definitions except for the last one.
 4. Overwrite the "min" value of the last column definition with the stored value of the first redundant column definition.
 
-Following these steps is crucial. We experimented with merely deleting the excess columns without ensuring that the last column definition extended to the final possible column (16,384), but this caused Excel to mark these worksheets as corrupted and perform certain repairs. Part of these changes included altering the default row height, resulting in some worksheets appearing visually altered, as shown in Figure \ref{fig:changed_default_row_height}. On the left is the original, and on the right is the repaired version by Excel. For instance, row 6 has changed in height due to the repair, causing visible shifts in the worksheet. Correctly deleting column definitions while ensuring the last column definition extends to the column limit of 16,384 prevents this error.
+Following these steps is crucial. We experimented with merely deleting the excess columns without ensuring that the last column definition extended to the final possible column (16,384), but this caused Excel to mark these worksheets as corrupted and perform certain repairs. Part of these changes included altering the default row height, resulting in some worksheets appearing visually altered, as shown in Figures \ref{fig:hidden_columns_before} and \ref{fig:hidden_columns_after}. On the left is the original, and on the right is the repaired version by Excel. For instance, row 6 has changed in height due to the repair, causing visible shifts in the worksheet. Correctly deleting column definitions while ensuring the last column definition extends to the column limit of 16,384 prevents this error.
 
 \begin{figure}[ht]
   \centering
-  \includegraphics[width=\linewidth]{images/excel_shrink/changed_default_row_height/changed_default_row_height.png}
-  \caption{Original version with correct cell borders and row spacing, Source: Sheet: 2\_(1)}
-  \label{fig:changed_default_row_height}
-\end{figure}%
+  \begin{subfigure}[b]{0.48\linewidth}
+    \centering
+    \includegraphics[width=\textwidth]{images/excel_shrink/changed_default_row_height/changed_default_row_height_before.png}
+    \caption{}
+    \label{fig:hidden_columns_before}
+  \end{subfigure}
+  \hspace{0.01\linewidth} % Abstand zwischen den Bildern 
+  \begin{subfigure}[b]{0.48\linewidth}
+    \centering
+    \includegraphics[width=\textwidth]{images/excel_shrink/changed_default_row_height/changed_default_row_height_after.png}
+    \caption{}
+    \label{fig:hidden_columns_after}
+  \end{subfigure}
+  \caption{}
+  \label{fig:hidden_columns}
+\end{figure}
 
-
-\subsection{Hidden Columns}
+\subsubsection{Hidden Columns}
 
 Das Entfernen von Columns ist jedoch nicht empfehlenswert, wenn es hidden columns gibt. In Spreadsheets wie in Excel definieren Zellen nur, wo ein Text beginnt, wenn dieser Text jedoch länger ist als der Zelle wird der Text für gewöhnlich über die Zelle hinweg erweitert, es sei denn in den angrenzenden Zellen ist ebenfalls Text.
 Manche Arbeitsblätter arbeiten mit dieser vorraussetung und so kann sich der Bereich der tatsächlich genutzten Zellen über mehrere Spalten erstrecken. In diesem Fall ist es wichtig, dass die columns außerhalb des bereichs der Zellen mit Werten nicht gelöscht werden, da dadurch die Zellen die versteckt werden direkt als in der nächsten Spalte beginnen, in die jedoch der Text aus der vorherigen Zelle hineinragt. Diies ist in Abbidung \ref{fig:hidden_columns} dargestellt. Abbidung \ref{fig:hidden_columns_before} zeigt das Arbeitsblatt bevor die columns gelöscht wurden und Abbidung \ref{fig:hidden_columns_after} zeigt das Arbeitsblatt nachdem die columns gelöscht wurden. Da die Texte nur in den Spalten A und B definiert wurden, sind alle Zellen ab der Spalte C außerhalb des Bereichs der Zellen mit Werten und daher sind die Spalten gelöscht und die Spalte C ist bereits versteckt wodurch die Texte abgeschnitten werden.
@@ -537,9 +556,9 @@ Wenn Excel Shrink Columns findet, welche versteckt sind, wird das entfernen jedl
 
  
 
-\section{Deletion of Empty Cells}
+\subsection{Deletion of Empty Cells}
 
-Some of the worksheets we examined contained vast numbers of cells without any content. The most extreme case was a worksheet with 8,141 cells containing values and 5,237,075 cells without values, meaning that only 0.15\% of the stored cells actually had a value \cite{destatis2023Rechnungsergebnisse}[Sheet "csv-71717-25].
+Some of the worksheets we examined contained vast numbers of cells without any content. The most extreme case was a worksheet with 8,141 cells containing values and 5,237,075 cells without values, meaning that only 0.15\% of the stored cells actually had a value \cite{destatis2023Rechnungsergebnisse}[Sheet "csv-71717-25"].
 Listing \ref{lst:cellsCsv7171725End} shows the last row of this worksheet.
 
 \begin{lstlisting}[caption={The last row in the worksheet csv-71717-25}, label={lst:cellsCsv7171725End}]
@@ -634,7 +653,11 @@ Each \texttt{<border>} node contains the child nodes \texttt{left}, \texttt{righ
 \subsection{inverted fill}
 
 During the development of Excel Shrink we made an interesting discovery. We discovered cells that had no content, no border, but a fill definition that defined that no fill should be applied. Thats why we deleted those cell definitions. But after the deletion the cells turned red. We discovered that that the row of the cell had the color red applied and each cell inside got the definition, that no fill should be applied to override the red fill color. As a user one does not have any means to identify that by looking at the sheet. All the visible cells had the overriden fill color. and the rest of the cells were hidden behind hidden columns. Only after unhiding those columns the error becomes evident. Errors like that make preserving the visual apaerance especially diffuciult.
-We can't just decide to delete all cells that have  a style applied that tells the cell to aplly no fill. because such a scenaria might be usfull in some sutuations. For exaple if the whole row or column is intedet to have a certain style and only some cells should apply no style as an exception to the rule. At the ssame time in some scenarius that might not be intedet and the file is exceptionally large, because some rows got accadentially a style applied and all cells in those rows up until the limit of possible columns in that row define, that this style should be overridden by no style. Wir haben eshalb entschieden, dass wir einen Bereich definieren, in dem sich sichtbare Zellen. Dieser bereich wird durch Zellen aufgespannt die entweder Werte haben, eine HIntergrundfarbe oder einen border definieren. Zellen die einen Style damit überschreiben, keinen style anzuwenden, zählen wir nicht zu diesem bereich. Anschließend werden alle Zellen außerhalb dieses bereiches gelöscht.  
+
+We can't just decide to delete all cells that have  a style applied that tells the cell to aplly no fill. because such a scenario might be usfull in some sutuations. For exaple if the whole row or column is intedet to have a certain style and only some cells should apply no style as an exception to the rule. At the ssame time in some scenarius that might not be intedet and the file is exceptionally large, because some rows got accadentially a style applied and all cells in those rows up until the limit of possible columns in that row define, that this style should be overridden by no style.
+
+Um die Dateigröße trotzdem zu verringern und solche änderungen an der darstellung zu verhindern gehen wir folgendermaßen vor. Wir ermitteln zunächst den Style der Spalte und der Zeile in der sich die Zelle befindet. Hat entweder die Spalte oder Zeile eine Hintergrundfarbe definiert, so überprüfen wir ob die Zelle dieselbe Hintergrundfarbe definiert. In diesem Fall löschen wir die Zelle. Weicht die Information zur Hintergrundfarbe von der Spalte bzw. Zeile ab, behalten wir die Zelle. Das gilt Analog für die Border. Hat die Spalte oder Zeile eine Border definiert, so überprüfen wir ob die Zelle dieselbe Border definiert. In diesem Fall löschen wir die Zelle. Weicht die Information zur Border von der Spalte bzw. Zeile ab, behalten wir die Zelle.
+
 \section{Deletion of Empty Rows}
 
 Similar to cells ohne Inhalt aber mit sichtbarem Format, rows can also contain no defined cells aber dürfen trotzdem nicht gelöscht werden, weil sie beispielsweise eine definierte Höhe haben. If a row is deleted, the following issue, depicted in Figure \ref{fig:cell_borders_row_height_fail} compared to the original Figure \ref{fig:cell_borders_row_height_original}, occurs. The spacing between the header and the table shrinks because the intermediate row, which served as spacing between the header and the table, is deleted, and the default row height for the worksheet is applied, which is smaller than the custom height of the row. Diese Zeile sehen wir in Listing \ref{lst:rowWithCustomHeight}.
@@ -652,7 +675,7 @@ Die 1048480 Zeilen über dieser Zeile sind identisch mit außnahme der \texttt{r
 Wir können uns nicht darauf verlassen, dass eine Zeile einfach nur keine definierte Höhe haben muss, damit wir sie löschen können. Trotzdem können wir nicht einfach Zeilen löschen, die eine benutzerdefinierte Höhe haben, da sie möglicherweise für das Layout des Arbeitsblatts wichtig sind. Daher müssen wir eine andere Methode finden, um leere Zeilen zu identifizieren, die gelöscht werden können.
 To ensure that deleting empty rows does not alter the worksheet's visual representation, we adopt a strategy similar to that used for removing columns. First, we determine the actual range where values, background colors, or borders are defined. Then, we iterate through all empty rows and delete them only if they lie outside this range. This approach allows us to significantly reduce the file size of some worksheets without altering their content or appearance.
 
-\section{Löschen von redunanten Druck Bereichen und Druck Titeln}
+\subsection{Löschen von redunanten Druck Bereichen und Druck Titeln}
 Excel erlaubt es für Arbeitsblätter den Bereich zu definieren,
  der beim Drucken auf Papier gedruckt werden soll.
  Dieser Bereich kann entweder manuell definiert werden oder automatisch durch Excel festgelegt werden. In beiden Fällen wird dieser Bereich in der workbook.xml Datei unter dem \texttt{<definedNames>} node gespeichert. In der Regel wird dieser Bereich als \_xlnm.Print\_Area und \_xlnm.Print\_Titles bezeichnet. Häufig werden diese Bereiche und Titel aber auch unter dem Namen Print\_Area und Print\_Titles gespeichert. Wenn Excel die Datei öffnet,
@@ -666,19 +689,21 @@ Excel erlaubt es für Arbeitsblätter den Bereich zu definieren,
  Gleiches gilt für Print\_Titles und \_xlnm.Print\_Titles. In diesem Fall können die Einträge nicht umbenannt werden,
  denn es würde zu einem redundaten Eintrag führen. Stattdessen presentiert Excel dem Nutzer beim Öffnen der Datei einen Dialog,
  in dem Excel Darum bittet,
- dass der Nutzer einen neuen Namen für den Defined Name auswählt. Dieser Dialog ist in Abbildung \ref{fig:excelRenamePrintArea} dargestellt.
- \begin{figure}[ht]
-  \centering
-  \includegraphics[width=\linewidth]{images/excel_shrink/print_areas/dialog.png}
-  \caption{Original version with correct cell borders and row spacing, Source: Sheet: 2\_(1)}
-  \label{fig:excelRenamePrintArea}
-\end{figure}%
+ dass der Nutzer einen neuen Namen für den Defined Name auswählt.
+ 
+ %Dieser Dialog ist in Abbildung \ref{fig:excelRenamePrintArea} dargestellt.
+% \begin{figure}[ht]
+%  \centering
+%  \includegraphics[width=\linewidth]{images/excel_shrink/print_areas/dialog.png}
+%  \caption{Original version with correct cell borders and row spacing, Source: Sheet: 2\_(1)}
+%  \label{fig:excelRenamePrintArea}
+%\end{figure}%
  Ist der erste eintrag umbennant und der Nutzer klickt ok,
  öffnet sich der Dialog erneut für den nächsten Eintrag. Dieser Prozess wiederholt sich solange,
  bis alle redundaten Einträge sowohl für Print\_Area als auch für Print\_Titles umbenannt wurden. Allerdings kann der nutzer zur abkürzung dieses Prozesses nicht einfach immer wieder denselben namen eingeben, denn dadurch kann es geschehen dass für ein Arbeitsblatt zwei mal derselbe name für unterschiedliche defined names gewählt wird.
  Wenn beispielsweise Print\_Area auf diesem arbeitsblatt bereits durch den nutzer umbenannt  wurde, und er nun für denselben sheet auch Print\_Area in denselben namen umbenennt, dann weigert sich Excel die Eingabe entgegenzunehmen und verlangt einen eindeutigen Namen.
  Dieser Prozess ist sehr zeitaufwändig und kann bei Dateien mit vielen redundaten Einträgen sehr lange dauern.
- In den von uns untersuchten Dateien waren es bis zu XXX redundante Print\_Area und XXX Print\_Titles.
+ In den von uns untersuchten Dateien waren es bis zu 9999 redundante Print\_Area und 9999 Print\_Titles.
  Für den Nutzer ergibt sich durch das umbennenen der Einträge kein Vorteil, denn diese Einträge werden umbenannt lediglich in den Defined Names gespeichert die der Nutzer in Excel über \texttt{Formulars} -> \texttt{Name Manager} aufrufen kann.
  Die Einträge werden durch die Nutzereingaben nicht repariert, denn sie liegen ja bereits in der korrekten Version.  
  
@@ -693,23 +718,23 @@ Excel erlaubt es für Arbeitsblätter den Bereich zu definieren,
 
 
 
-\section{Ausgabe der Reduktionsergebnisse}
+\subsection{Ausgabe der Reduktionsergebnisse}
 
 Um eine aufschlüsselung zu haben, wie viele Bytes durch das Löschen von Whitespaces, leeren Zellen, Spalten und Zeilen eingespart wurden, müssen wir die Dateigröße vor und nach jeder Reduzierung vergleichen. Zu diesem zweck berechnen wir die Größe des Arbeitsblattes, indem wir die xml Struktur in einen String umwandeln, wie wir ihn auch in der Datei speichern würden und berechnen die länge dieses String. Anschließend führen wir einen Reduktionsschritt durch und berechnen dann wieder die Länge des neuen Strings. und berechnen daraus die differenz, die durch die Reduktion entstanden ist. Schließlich berechnen wir noch den Prozentualen Anteil der Reduktion an der ursprünglichen Größe. Diese Diese ergebnisse werden zum Schluss in einer csv Tabelle gespeichert.
 
-\subsection{Determining the Sheet Name}
+\subsubsection{Determining the Sheet Name}
 
 To provide a listing of reduced file sizes, it is necessary to determine the worksheet titles.
 Um dem Benutzer auch eine Aufschlüsselung der Reduktion pro Arbeitsblatt liefern zu können, müssen wir den Titel des Arbeitsblattes bestimmen. However, through the worksheet files, we only know an ID indicated in the filename, such as sheet1.xml, sheet2.xml, and so forth. Unfortunately, we cannot determine the sheet title directly from the sheet file because the title is only associated with the individual sheets in the xl/workbook.xml file. This association is shown in Listing \ref{lst:sheet_title_from_workbook} \cite{destatis2023Foerderprogramme}. The \texttt{sheetId} attribute should be ignored; the ID that maps the sheet title to the corresponding sheetX.xml is the \texttt{r:id} attribute. Since each value in this attribute starts with "rId," the ID must be extracted by removing the first three characters. These IDs then provide a unique mapping to the worksheet titles, which can be used for output.
 
 \begin{lstlisting}[caption={workbook.xml mapping IDs to worksheet titles}, label={lst:sheet_title_from_workbook}]
-   <sheets>
-    <sheet name="Titelseite" sheetId="10" r:id="rId1"/>
-    <sheet name="Inhalt" sheetId="11" r:id="rId2"/>
-    <sheet name="Erläuterungen" sheetId="3" r:id="rId3"/>
-    <sheet name="Allgemeines" sheetId="4" r:id="rId4"/>
-    <sheet name="0901_T_D" sheetId="12" r:id="rId5"/>
-    <sheet name="0901_T_BW" sheetId="13" r:id="rId6"/>
+<sheets>
+  <sheet name="Titelseite" sheetId="10" r:id="rId1"/>
+  <sheet name="Inhalt" sheetId="11" r:id="rId2"/>
+  <sheet name="Erläuterungen" sheetId="3" r:id="rId3"/>
+  <sheet name="Allgemeines" sheetId="4" r:id="rId4"/>
+  <sheet name="0901_T_D" sheetId="12" r:id="rId5"/>
+  <sheet name="0901_T_BW" sheetId="13" r:id="rId6"/>
 \end{lstlisting}
 
 \section{Evaluation}
@@ -788,51 +813,53 @@ The program has limited batch functionality, allowing the selection and reductio
 Inquire is an add-in for Excel, available exclusively for Excel versions within Office Professional Plus and Microsoft 365 Apps for Enterprise. Other versions, such as Office Home, Microsoft 365 Family or Single, and Microsoft 365 Business, do not support this add-in.
 
 To activate the add-in, the following steps must be taken. Navigate to the File menu and select Options. This opens a dialog, where one clicks on Add-ins.
-In the "Manage" dropdown, select "COM Add-ins" as depicted in Figure \ref{fig:manage_go}, and then click on "Go...".
+In the "Manage" dropdown, select "COM Add-ins", and then click on "Go...".
+In the subsequently opened dialog, the Inquire Add-in can be activated. If the Inquire Add-in does not appear in the dialog, it is due to the use of an incorrect version of Excel.
+% as depicted in Figure \ref{fig:manage_go}
+%\begin{figure}[ht]
+%  \centering
+%  \includegraphics{images/excel_shrink/related_work/inquire/manage_go.png}
+%  \caption{Managing COM Add-ins in Excel}
+%  \label{fig:manage_go}
+%\end{figure}%
 
-\begin{figure}[ht]
-  \centering
-  \includegraphics{images/excel_shrink/related_work/inquire/manage_go.png}
-  \caption{Managing COM Add-ins in Excel}
-  \label{fig:manage_go}
-\end{figure}%
 
-In the subsequently opened dialog, the Inquire Add-in can be activated, as shown in Figure \ref{fig:enable_inquire}. If the Inquire Add-in does not appear in the dialog, it is due to the use of an incorrect version of Excel.
 
-\begin{figure}[ht]
-  \centering
-  \includegraphics[width=\linewidth]{images/excel_shrink/related_work/inquire/enable_inquire.png}
-  \caption{Enabling the Inquire Add-in}
-  \label{fig:enable_inquire}
-\end{figure}%
+% , as shown in Figure \ref{fig:enable_inquire}
+%\begin{figure}[ht]
+%  \centering
+%  \includegraphics[width=\linewidth]{images/excel_shrink/related_work/inquire/enable_inquire.png}
+%  \caption{Enabling the Inquire Add-in}
+%  \label{fig:enable_inquire}
+%\end{figure}%
 
-Compared to our solution, Inquire ignores whitespace cells but successfully deletes empty cell, column, and row definitions; however, in certain instances, a substantial number of these elements remain undeleted. Furthermore, whitespace cells are entirely ignored. For instance, in a worksheet used as a cover sheet, only 77 rows were utilized, and all rows from row 78 onwards were hidden, as shown in Figure \ref{fig:hidden}.
+Compared to our solution, Inquire ignores whitespace cells but successfully deletes empty cell, column, and row definitions; however, in certain instances, a substantial number of these elements remain undeleted. Furthermore, whitespace cells are entirely ignored. For instance, in a worksheet used as a cover sheet, only 77 rows were utilized, and all rows from row 78 onwards were hidden. However, in the XML file, rows 78 to 65533 were defined along with cells from columns A to F, as demonstrated in Listing \ref{lst:row-65533}.
 
-\begin{figure}[ht]
-  \centering
-  \includegraphics[width=\linewidth]{images/excel_shrink/related_work/inquire/hidden.png}
-  \caption{Example of Hidden Rows in a Worksheet}
-  \label{fig:hidden}
-\end{figure}%
 
-However, in the XML file, rows 78 to 65533 were defined along with cells from columns A to F, as demonstrated in Listing \ref{lst
-}.
+%, as shown in Figure \ref{fig:hidden}.
+%\begin{figure}[ht]
+%  \centering
+%  \includegraphics[width=\linewidth]{images/excel_shrink/related_work/inquire/hidden.png}
+%  \caption{Example of Hidden Rows in a Worksheet}
+%  \label{fig:hidden}
+%\end{figure}%
 
-\begin{lstlisting}[caption={Row 65533 in sheet170.xml in the file verkehrsunfaelle-zeitreihen-xlsx-5462403}, label={lst:row-65533}, firstnumber=590500, numbersep={-27pt}]
-      <row r="65533" spans="1:7" ht="0" hidden="1" customHeight="1">
-      <c r="A65533" s="68" />
-      <c r="B65533" s="68" />
-      <c r="C65533" s="68" />
-      <c r="D65533" s="68" />
-      <c r="E65533" s="68" />
-      <c r="F65533" s="68" />
-      <c r="G65533" s="68" />
-      </row>
-    </sheetData>
+
+\begin{lstlisting}[caption={}, label={lst:row-65533}, firstnumber=590500, numbersep={-27pt}]
+  <row r="65533" spans="1:7" ht="0" hidden="1" customHeight="1">
+    <c r="A65533" s="68" />
+    <c r="B65533" s="68" />
+    <c r="C65533" s="68" />
+    <c r="D65533" s="68" />
+    <c r="E65533" s="68" />
+    <c r="F65533" s="68" />
+    <c r="G65533" s="68" />
+  </row>
+</sheetData>
 \end{lstlisting}
 
 When applying the Inquire Add-in, to such worksheets they were not cleaned, and a dialog informed that this is because the default row height is 0 which is why it is impossible to clean the sheet and hence the sheet will be skipped.
-
+Additionally, Inquire lacks batch processing capabilities. As a result, multiple files cannot be processed simultaneously. Instead, each file must be opened individually. Given that large files, which are typically the ones requiring size reduction, take at least one minute to open, this process becomes quite time-consuming. Opening several large files and subsequently using the Inquire add-in to reduce their size involves a significant amount of time.
 %\begin{figure}[ht]
 %  \centering
 %  \includegraphics[width=\linewidth]{images/excel_shrink/related_work/inquire/inquire_default_row_heght_0.png}
@@ -840,7 +867,7 @@ When applying the Inquire Add-in, to such worksheets they were not cleaned, and 
 %  \label{fig:results_related_tools}
 %\end{figure}%
 
-Additionally, Inquire lacks batch processing capabilities. As a result, multiple files cannot be processed simultaneously. Instead, each file must be opened individually. Given that large files, which are typically the ones requiring size reduction, take at least one minute to open, this process becomes quite time-consuming. Opening several large files and subsequently using the Inquire add-in to reduce their size involves a significant amount of time.
+
 
 
 
@@ -882,7 +909,7 @@ Additionally, Check Performance removed cells and rows that did alter the visual
 \end{figure}
 
  
-While this may be acceptable for a cover sheet, it poses a problem for forms such as those shown in Figure \ref{fig:table}, which consist of several empty cells intended to be printed and subsequently filled out.\cite{destatis2023Rechnungsergebnisse}
+While this may be acceptable for a cover sheet, it poses a problem for forms such as those shown in Figure \ref{fig:table}, which consist of several empty cells forming a table which might be prepared to be filled out later.\cite{destatis2023Rechnungsergebnisse}
 The \textit{Check Performance} function in Excel removes all these borders because they are outside the rectangle spanned by the values, as shown in Figure \ref{fig:no_table}.
 
 
