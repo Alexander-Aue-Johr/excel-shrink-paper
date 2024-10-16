@@ -135,7 +135,7 @@ By addressing these issues—removing redundant formatting, eliminating unused r
 
 Excel file bloat—characterized by excessive file size without a corresponding increase in useful content—can severely impact performance. Large files take longer to open, save, and process, whether accessed by human users or automated scripts. In enterprise environments, where \textit{Excel} files are frequently shared, modified, and stored, these performance bottlenecks can disrupt workflows and reduce operational efficiency.
 
-Our work with datasets from the German Federal Statistical Office (\textit{Destatis}) exemplifies these performance challenges. The \textit{Excel} files we analyzed contained substantial redundant content, including unused rows, columns, and formatting definitions, which contributed to their excessive size and slow processing times \cite{excel_storage_issues}. Some of these files exceeded several hundreds of megabytes in their uncompressed form, taking an unusually long time to open and save, both in \textit{Excel} and through automated means.
+Our work with datasets from the German Federal Statistical Office (\textit{Destatis}) exemplifies these performance challenges. The \textit{Excel} files we analyzed contained substantial redundant content, including unused rows, columns, and formatting definitions, which contributed to their excessive size and slow processing times. Some of these files exceeded several hundreds of megabytes in their uncompressed form, taking an unusually long time to open and save, both in \textit{Excel} and through automated means.
 
 \subsection{Analyzing Redundant Content in Excel Files}
 
@@ -157,11 +157,11 @@ These limitations underscored the need for a more robust, scalable solution. To 
 
 \subsection{Our Contribution: Excel Shrink}
 
-To combat the issues posed by file bloat in \textit{Excel}, we introduce \texttt{Excel Shrink}, an open-source tool written in Python designed to efficiently reduce the size of \textit{Excel} files by removing redundant content \cite{excel_shrink_tool}. The tool conducts an in-depth analysis of the workbook's XML structure to identify and eliminate unnecessary elements, including empty but formatted cells, unused rows, and columns.
+To combat the issues posed by file bloat in \textit{Excel}, we introduce \textit{Excel Shrink}, an open-source tool written in Python designed to efficiently reduce the size of \textit{Excel} files by removing redundant content. The tool conducts an in-depth analysis of the workbook's XML structure to identify and eliminate unnecessary elements, including empty but formatted cells, unused rows, and columns.
 
 For users who prefer a user-friendly interface without the need to install Python or use command-line tools, we developed \textit{Excel Shrink UI}. Built using \textit{Flutter} for \textit{Windows} and integrating the compiled Python script via Nuitka, this version enables users to optimize their \textit{Excel} files through a simple and intuitive interface.
 
-Unlike existing tools, \textit{Excel Shrink} is capable of processing unlimited numbers of \textit{Excel} files, making it suitable for handling large datasets, such as the 1,182 files we analyzed from \textit{Destatis}. The tool ensures that the visual layout of the spreadsheet is preserved, preventing the loss of important formatting. By automating the cleanup of redundant content, \texttt{Excel Shrink} significantly reduces the time and effort required to optimize \textit{Excel} files, making it an ideal solution for organizations dealing with large-scale spreadsheets.
+Unlike existing tools, \textit{Excel Shrink} is capable of processing unlimited numbers of \textit{Excel} files, making it suitable for handling large datasets, such as the 1,182 files we analyzed from \textit{Destatis}. The tool ensures that the visual layout of the spreadsheet is preserved, preventing the loss of important formatting. By automating the cleanup of redundant content, \textit{Excel Shrink} significantly reduces the time and effort required to optimize \textit{Excel} files, making it an ideal solution for organizations dealing with large-scale spreadsheets.
 
 In this paper, we present the technical foundations of \textit{Excel Shrink}, outline the methodology used to analyze \textit{Excel} file bloat, and evaluate the tool's performance across the \textit{Destatis} dataset. Our results demonstrate that \textit{Excel Shrink} can reduce file sizes by up to 99.99\% without compromising the usability or appearance of the \textit{Excel} files.
 
@@ -278,7 +278,7 @@ Excel users lack a straightforward method to identify which cells in a worksheet
   \label{fig:whitespaces}
 \end{figure}%
 
-\begin{lstlisting}[caption={Cell D844 in sheet28.xml}, label={lst:whitespaces_d844}, firstnumber=48]
+\begin{lstlisting}[caption={Cell \texttt{D844} in \texttt{sheet28.xml}}, label={lst:whitespaces_d844}, firstnumber=48]
   <row r="844" spans="1:16" ht="14.1" customHeight="1">
     <c r="D844" s="428" t="s">
         <v>102</v>
@@ -291,7 +291,7 @@ The row is marked by the \texttt{<row>} tag and has the attribute \texttt{r="844
 The cell's value is stored within the \texttt{<v>} tag, where the value \texttt{102} is specified. This value is interpreted as an index in a string table, referencing a specific text in a separate list defined in the \textit{Excel} file, namely the \texttt{sharedStrings.xml} file.
 To locate the value, we must search for the \texttt{sst} node in the \texttt{sharedStrings.xml} file, as shown in Listing \ref{lst:sharedStringsSst}.
 
-\begin{lstlisting}[caption={Shared String Table (sst) in sharedStrings.xml}, label={lst:sharedStringsSst}, firstnumber=48]
+\begin{lstlisting}[caption={Shared String Table (\texttt{sst}) in \texttt{sharedStrings.xml}}, label={lst:sharedStringsSst}, firstnumber=48]
   <sst count="17962" uniqueCount="732">
     <si>
         <t>062</t>
@@ -305,7 +305,7 @@ Within the SST, there are elements of type \texttt{<si>} (Shared Item), each con
 
 To find the 102nd index, we must look for the 103rd entry, which is shown in Listing \ref{lst:whitespacesSi}.
 
-\begin{lstlisting}[caption={Empty string at index 102 in sst}, label={lst:whitespacesSi}, firstnumber=48]
+\begin{lstlisting}[caption={Empty string at index 102 in \texttt{sst}}, label={lst:whitespacesSi}, firstnumber=48]
 <si>
   <t xml:space="preserve"></t>
 </si>
@@ -429,6 +429,7 @@ When \textit{Excel Shrink} finds columns that are hidden, it skips removing any 
 
 Some of the worksheets we examined contained vast numbers of cells without any content. The most extreme case was a worksheet with 8,141 cells containing values and 5,237,075 cells without values, meaning that only 0.15\% of the stored cells actually had a value \cite{destatis2023Rechnungsergebnisse}[Sheet "csv-71717-25"].
 Listing \ref{lst:cellsCsv7171725End} shows the last row of this worksheet.
+
 
 \begin{lstlisting}[caption={The last row in the worksheet csv-71717-25}, label={lst:cellsCsv7171725End}]
   <row r="1048576" spans="3:7" ht="12.75" customHeight="1">
