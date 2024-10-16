@@ -357,12 +357,12 @@ The first five \texttt{<col>} definitions relate to the data range. However, the
   <col min="10" max="18" width="11.5546875" style="54" customWidth="1" />
 \end{lstlisting}
 
-During our investigations, we could not determine how these column definitions originated. We hypothesize that the worksheet was duplicated, and the original worksheet contained this number of columns with the corresponding widths. However, this hypothesis is contradicted by the fact that the column widths for individual columns in the files we examined extend nearly to the maximum number of 16,384 columns. Figure \ref{fig:col_w} illustrates such a case. This worksheet contains 2,403 column definitions, and after excluding the five actually used column definitions, 2,398 redundant definitions remain.
+During our investigations, we could not determine how these column definitions originated. We hypothesize that the worksheet was duplicated, and the original worksheet contained this number of columns with the corresponding widths. However, this hypothesis is contradicted by the fact that the column widths for individual columns in the files we examined extend nearly to the maximum number of 16,384 columns. Figure \ref{fig:col_w} illustrates such a case.\cite{destatis2023Foerderprogramme}[Sheet: "0902\_T\_NW"] This worksheet contains 2,403 column definitions, and after excluding the five actually used column definitions, 2,398 redundant definitions remain.
 
 \begin{figure}[ht]
   \centering
   \includegraphics[width=\linewidth]{images/excel_shrink/cols/col_w.png}
-  \caption[Excessive Column Definitions in a Worksheet]{Excessive Column Definitions in a Worksheet, Source: foerderprogramme-5411206209005 Sheet: 0902\_T\_NW}
+  \caption{Excessive Column Definitions in a WorksheetExcessive Column Definitions in a Worksheet}
   \label{fig:col_w}
 \end{figure}%
 
