@@ -350,7 +350,7 @@ Column \texttt{WWA} and the partially visible column \texttt{WWB} to its right c
 
 
 
-The last visible columns in Figure \ref{fig:col_w} are shown in Listing \ref{lst:columsFoerderprogrammeEnd}.
+The last visible columns in Figure \ref{fig:col_w} are shown in Listing \ref{lst:columnsFoerderprogrammeEnd}.
 The first column \texttt{ min="16146" max="16146"} has a fixed width of \texttt{2.21875} and refers to column \texttt{WVZ}, which is visible as the column immediately to the left of \texttt{WWA} but is too narrow to display more than the letter \texttt{W}. The second column \texttt{min="16147" max="16147"} defines column \texttt{WWA} with a width of \texttt{5.21875}. The final definition \texttt{min="16148" max="16384"} covers a larger range from column \texttt{16148} to \texttt{16384}, corresponding to columns \texttt{WWB} through \texttt{XFD} (the last column in Excel). This explains why scrolling all the way to the right via the scrollbar lands on column \texttt{WWB}. The penultimate definition specifies where the data range ends, thereby also defining where the scrollable range ends, and the final definition simply assigns a default width to all remaining columns. Surprisingly, these column definitions appear to extend indefinitely, seemingly only terminating at \textit{Excel}'s defined maximum limit of 16,384 columns. We have no explanation for why these user-defined column widths appear just before the maximum allowable column limit, but not exactly at it.
 
 To delete these columns, the following steps must be taken:
@@ -361,7 +361,7 @@ To delete these columns, the following steps must be taken:
   \item Overwrite the \texttt{min} value of the last column definition with the saved value of the first redundant column definition.
 \end{enumerate}
 
-\begin{lstlisting}[caption={Final column definitions in the worksheet}, label={lst:columsFoerderprogrammeEnd}, firstnumber={2414}, numbersep={-15pt}]
+\begin{lstlisting}[caption={Final column definitions in the worksheet}, label={lst:columnsFoerderprogrammeEnd}, firstnumber={2414}, numbersep={-15pt}]
   <col min="16146" max="16146" width="2.21875" style="39" customWidth="1" />
   <col min="16147" max="16147" width="5.21875" style="39" customWidth="1" />
   <col min="16148" max="16384" width="8.77734375" style="39" customWidth="1" />
