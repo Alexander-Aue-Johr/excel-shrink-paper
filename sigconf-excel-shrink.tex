@@ -735,44 +735,32 @@ The \textit{Check Performance} function in \textit{Excel} removes all these bord
   
   
   
-  
-  
-
   \section{Evaluation}
 
+In this section, we evaluate the effectiveness of the data reduction techniques applied to all Excel files downloaded from \textit{Destatis} using a web scraper. The primary goal of this evaluation is to determine the extent of data reduction achieved through different techniques, including overall reduction, empty cell reduction, whitespace cell reduction, rows outside of value range removal, and column removal. Figure \ref{fig:size-reduction-chart} illustrates the distribution of reduction rates (in percentage) for individual worksheets across all categories, broken down by Empty Cells, Whitespace Cells, Rows Outside of Value Range, and Removed Columns. The chart indicates that some worksheets experienced reductions of nearly 100\% in file size. Specifically, one worksheet had a reduction rate of over 99.99\%, 16 worksheets exceeded 99.9\%, and 210 worksheets achieved reductions above 99\%.
 
-  In this section, we evaluate the effectiveness of the data reduction techniques applied to a set of diverse Excel files. The primary goal of this evaluation is to determine the extent of data reduction achieved through different techniques, including overall reduction, empty cell reduction, whitespace cell reduction, rows outside of value range removal, and column removal.
-  
+Most reductions were accomplished by removing rows outside of the value range. The evaluation results focus on the top five files for each reduction factor, as shown in Table \ref{tab:combined_top_factors}.
 
-  We applied our \textit{Excel Shrink} program to all \textit{Excel} files downloaded from \textit{Destatis} using the web scraper. Figure \ref{fig:size-reduction-chart} shows the distribution of the reduction rate in percentage for individual worksheets für alle  kategorien zusammen und aufgeschlüsselt nach Empty Cells, Whitespace cells, Rows Outside of Value Range and removed Removed Columns. The chart gives the impression that some worksheets were reduced by nearly 100\% in file size. This is accurate, as 1 worksheet
-  hatte eine reduction rate of over 99.99\%, 16 worksheets had a reduction rate exceeding 99.9\%, and 210 worksheets saw a reduction rate above 99\%.
+\textbf{1. Overall Reduction Ratio}\
+The top five sheets with the highest overall reduction ratios are all from the same file, with reduction ratios ranging between 99.95\% and 99.99\%. This indicates that almost all data in these sheets was file bloat  which was successfully eliminated. The repetition of this file in the subsequent table suggests that the high reduction is primarily attributable to a specific reduction category.
 
-  Die meisten Redution gescha durch das entfernen von leeren Zellen
- 
-  
-  The evaluation results are based on the top five files in terms of the reduction achieved for each reduction factor wie sie in Tabelle   \ref{tab:combined_top_factors} zu sehen sind.
-  
-  \textbf{1. Overall Reduction Ratio}\
-  The top five sheets with the highest overall reduction ratio are all from the same file. The reduction ratio for these sheets ranges between 99.95\% and 99.99\%, indicating that almost all data was bloat that was successfully reduced. In der nächsten Tabelle taucht dieselbe Datei erneut auf, was darauf hindeutet, dass die hohe reduktion vor allem auf eine Kategorie zurückzuführen war.
-  
-  \textbf{4. Rows Outside of Value Range Reduction Ratio}\
-  Die meisten der unnötigen Daten fiel auf die Rows Outside of Value Range an und zwar wie hier zu sehen mit  reduction ratios between 99.94\% and 99.99\% in den ersten 5 Dateien. Dies deutet auch darauf hin, dass die Dateien mit dem größten Anteil an unnötigen Daten  allem von einer Kategorie von von unnötigen Daten betroffen waren, anstatt von einer kombination unterschidlicher kategorien. 
-  
-  \textbf{2. Empty Cell Reduction Ratio}\
-  Auch die reduktion der leeren Zellen mit unsichtbaren Formatierungen brachte eine deutloche reduktion mit 99.90\% to 99.91\% in den ersten 5 Dateien. Hier waren immerhin in den ersten 5 Dateien 3 unterschiedliche Dateien betroffen, allerings hat das Arbeitsblatt immer den Gleichen Namen ,was darauf hindeuten könnte, dass diese Erklärungsblätter dupliziert wurden und deshalb die ähnlich große Anzahl an leeren Zellen enthalten.
-  
-  \textbf{5. Removed Columns Reduction Ratio}\
-  Auch die nicht benötigten Spaltendefinitionen hatten reduction ratios ranging from 92.43\% to 94.38\% in den ersten 5 Dateien. Hier ist wiederum auffällig dass sich die Arbeitsblattnamen ähnel, was darauf deuten könnte, dass die Arbeitsblättter dupliziert wurden und damit der größte Anteil der Dateigröße, nämlich die die auf die nicht verwendeten Spaltendefinitionen anfielen wurden dabei mitkopiert.
-  
-  \textbf{3. Whitespace Cell Reduction Ratio}\
-  Die Kategorie die am deutlich geringsten für den file bloat verantwortlich waren, waren die Cellen mit außschließlich whitespaces. Die erste der Top 5 hat immerhin noch beachtliche 79.71\% der Dateigröße, die auf die Whitespaces entfielen, doch bereits der zweite EIntrag sinkt mit 44.68\% unter die Hälfte und die letzten drei EInträge der Top 5 erreichen noch knapp ein DrittelMit Ausnahme der letzten beiden Dateien sind diese Top 5 Dateien alle unterschiedlich, doch auch bei den letzten beiden Dateien ähnelt sich der Arbeitsblattname sowie die Anzeil der der Größe der Whitespaces im Vergleich zum restlichen Inhalt, was erneut darauf hindeutet, dass die überflüssigen Dateiinhalte hier durch duplizieren in ein weiteres  Arbeitsblatt getragen wurden.  
-  
-  \subsection{Summary of Findings}
-  
-  The evaluation results demonstrate that the data reduction techniques were highly effective in eliminating redundant, empty, or irrelevant data across different Excel sheets. The highest reductions were consistently seen in sheets with a high proportion of empty cells, redundant whitespace, or irrelevant columns and rows. This indicates the robustness of the reduction methods in handling diverse data formats and structures.
-  
-  The results also highlight the importance of analyzing different reduction factors separately, as the effectiveness varies depending on the type of data being processed. For example, while some sheets benefited most from empty cell removal, others showed significant improvement through column or row reduction und am wenigsten konnte die Dateigröße durch das entfernen von Whitespaces verringert  werden.
 
+
+
+\textbf{2. Rows Outside of Value Range Reduction Ratio}\
+The majority of unnecessary data consisted of rows outside the value range, with reduction ratios between 99.94\% and 99.99\% in the top five files. This suggests that the largest portions of redundant data were predominantly from a single category rather than a combination of different categories.
+\textbf{3. Empty Cell Reduction Ratio}\
+Empty cell removal achieved significant reductions, with ratios between 99.90\% and 99.91\% in the top five files. Notably, three different files were affected, although the worksheets shared the same name. This suggests that these explanatory worksheets might be duplicated from one Excel file into the other or the whole file was duplicated, leading to a similar number of empty cells across them.
+
+\textbf{4. Removed Columns Reduction Ratio}\
+Removing unnecessary column definitions resulted in reduction ratios ranging from 92.43\% to 94.38\% in the top five files. Similar worksheet names were again noticeable, implying that duplicated worksheets carried over most of the file size which was file bloat by unused column definitions.
+\textbf{5. Whitespace Cell Reduction Ratio}\
+Whitespace cell removal was the least effective in reducing file size. The top sheet still had a notable 79.71\% of the file size attributed to whitespaces, while the second entry dropped to 44.68\%, and the last three entries were around one-third. Except for the last two files, the top five files were distinct. However, similar worksheet names and the proportion of whitespace sizes relative to the total content indicate that redundant file contents might have carried over to the other worksheet by duplicating the worksheet.
+\subsection{Summary of Findings}
+
+The evaluation results demonstrate that the data reduction techniques implemented in \textit{Excel Shrink} are highly effective in eliminating redundant, empty, or irrelevant data across various Excel sheets. The most significant reductions were observed in sheets with a high proportion of empty cells, redundant whitespace, or irrelevant columns and rows, achieving reduction ratios exceeding 99\% in several cases. This indicates the robustness of our reduction methods in handling diverse data formats and structures.
+
+Additionally, the analysis underscores the importance of addressing different reduction factors separately, as their effectiveness can varie. For instance, while empty cell removal provided substantial reductions in some sheets, others benefited more from column or row reductions. Notably, whitespace removal had a comparatively smaller impact on overall file size. This highlights which areas are good for potential further optimization.
 
 
 \section{Experimental Setup}
