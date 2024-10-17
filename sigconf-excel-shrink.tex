@@ -19,7 +19,7 @@
 
 \lstset{
     basicstyle=\ttfamily,
-    frame=single,
+    %frame=single,
     breaklines=true,
     breakatwhitespace=true,
 }
@@ -168,7 +168,7 @@ In this paper, we present the technical foundations of \textit{Excel Shrink}, ou
 
 \section{Scraping Destatis}
 
-The \textit{Destatis} website does not provide an API for searching publications, making it necessary to interact with the website directly. To automate this process, we developed a web scraper that searches for relevant publications while minimizing the number of requests to the server. The url structure of the \textit{Destatis} website is as follows:
+The \textit{Destatis} website does not provide an API for searching publications, making it necessary to interact with the website directly. To automate this process, we developed a web scraper that searches for relevant publications while minimizing the number of requests to the server. The web scraping and downloading process is outlined in Algorithm \ref{alg:web_scraping_caching}. The url structure of the \textit{Destatis} website is as follows:
 
 \begin{itemize}
   \item \url{/SiteGlobals/Forms/Suche/Expertensuche\_Formular.html}:
@@ -198,9 +198,8 @@ Initially, we assumed that searching for the term \texttt{xlsx} would identify a
 
 The search results on the \textit{Destatis} website, like many others, are paginated, with the interface offering the ability to display 10, 20, or 30 entries per page. The number of results per page can be adjusted using the GET parameter \texttt{resultsPerPage=30}. While the interface does not provide an option for more than 30 results per page, we found that manually setting this parameter allowed us to request up to 100 results per page. Through testing, we confirmed that 100 is the maximum number of results that can be returned at once. We set the \texttt{resultsPerPage} parameter accordingly to reduce the number of requests further.
 
-Once the results for a page are fetched by the web scraper, we simulate clicking the "next page" link to load subsequent results. The helper function \texttt{get\_next\_page\_url} handles this step, using the CSS class \texttt{forward button} to identify the link. The URL for the next page is extracted via the XPath expression \texttt{//a[@class='forward button']/@href}.
+Once the results for a page are fetched by the web scraper, we simulate clicking the "next page" link to load subsequent results. The XPath expression \texttt{//a[@class='forward button']/@href} is used to identify the link using the CSS class \texttt{forward button}.
 
-The web scraping and downloading process is outlined in Algorithm \ref{alg:web_scraping_caching}.
 
 \begin{algorithm}
   \caption{Web Scraping and Downloading Excel Files with Caching}
@@ -267,14 +266,14 @@ Excel users lack a straightforward method to identify which cells in a worksheet
 \end{figure}%
 
 \begin{lstlisting}[caption={Cell \texttt{D844} in \texttt{sheet28.xml}}, label={lst:whitespaces_d844}, firstnumber=48]
-  <row r="844" spans="1:16" ht="14.1" customHeight="1">
-    <c r="D844" s="428" t="s">
-        <v>102</v>
-    </c>
+<row r="844" spans="1:16" ht="14.1" customHeight="1">
+  <c r="D844" s="428" t="s">
+      <v>102</v>
+  </c>
 \end{lstlisting}
 To detect these whitespaces, it is insufficient to examine the cell itself, as even a single space is stored by \textit{Excel} in the file for recurring texts, even if the text appears only once in the entire \textit{Excel} file. Cell \texttt{D844} appears in the XML as shown in Listing \ref{lst:whitespaces_d844}.
 
-The row is marked by the \texttt{<row>} tag and has the attribute \texttt{r="844"}, indicating that it is the 844th row. Within the row, the \texttt{<c>} tag represents a cell, identified by the attribute \texttt{r="D844"}. The attribute \texttt{t="s"} specifies the cell type; in this case, \texttt{s} stands for "String," meaning the cell's content is interpreted as a string \cite{openxml}.
+The row is marked by the \texttt{<row>} tag with the attribute \texttt{r="844"}, indicating that it is the 844th row. Within the row, the \texttt{<c>} tag represents a cell, identified by the attribute \texttt{r="D844"}. The attribute \texttt{t="s"} specifies the cell type; in this case, \texttt{s} stands for "String," meaning the cell's content is interpreted as a string \cite{openxml}.
 
 The cell's value is stored within the \texttt{<v>} tag, where the value \texttt{102} is specified. This value is interpreted as an index in a string table, referencing a specific text in a separate list defined in the \textit{Excel} file, namely the \texttt{sharedStrings.xml} file.
 To locate the value, we must search for the \texttt{sst} node in the \texttt{sharedStrings.xml} file, as shown in Listing \ref{lst:sharedStringsSst}.
@@ -322,7 +321,7 @@ Scrolling into this area, the user may notice that among columns with uniform wi
   \label{fig:col_s_arrow}
 \end{figure}%
 
-These column definitions are specified in \textit{Excel} within the \texttt{sheetX.xml} file under the \texttt{cols} node. In our example, the definition of the initial columns is shown in Listing \ref{lst:columsFoerderprogrammeStart}.
+These column definitions are specified in \textit{Excel} within the file \texttt{sheetX.xml} under the \texttt{cols} node. In our example, the definition of the initial columns is shown in Listing \ref{lst:columsFoerderprogrammeStart}.
 
 In this XML excerpt, the \texttt{<cols>} element represents the definition of multiple columns in an \textit{Excel} worksheet. Each \texttt{<col>} declaration contains specific information about one or more columns. The \texttt{min} and \texttt{max} attributes specify the range of columns that the \texttt{<col>} element covers. For example, \texttt{min="1" max="1"} pertains only to column \texttt{1}, while \texttt{min="5" max="9"} describes columns \texttt{5} through \texttt{9}. The \texttt{width} attribute specifies the width of the columns in \textit{Excel} units. The \texttt{customWidth="1"} attribute indicates that the column width is user-defined, meaning it has been manually adjusted rather than using the default value.
 
@@ -349,8 +348,10 @@ During our investigations, we could not determine how these column definitions o
 
 Column \texttt{WWA} and the partially visible column \texttt{WWB} to its right correspond to the 16,147th and 16,148th columns, respectively. It seems unlikely that an original worksheet would actually utilize so many columns at once. Further research is required to determine how such patterns emerge in \textit{Excel} files.
 
-The last visible columns in the figure are shown in Listing \ref{lst:columsFoerderprogrammeEnd}.
-The first column \texttt{ min="16146" max="16146"} has a fixed width of \texttt{2.21875} and refers to column \texttt{WVZ}, which is visible in Figure \ref{fig:col_w} as the column immediately to the left of \texttt{WWA} but is too narrow to display more than the letter "\texttt{W}." The second column \texttt{min="16147" max="16147"} defines column \texttt{WWA} with a width of \texttt{5.21875}. The final definition \texttt{min="16148" max="16384"} covers a larger range from column \texttt{16148} to \texttt{16384}, corresponding to columns \texttt{WWB} through \texttt{XFD}, assigning a width of \texttt{8.77734375} to these columns. This explains why scrolling all the way to the right via the scrollbar lands on column \texttt{WWB}. The penultimate definition specifies where the data range ends, thereby also defining where the scrollable range ends, and the final definition simply assigns a default width to all remaining columns. Surprisingly, these column definitions appear to extend indefinitely, seemingly only terminating at \textit{Excel}'s defined maximum limit of 16,384 columns. We have no explanation for why these user-defined column widths appear just before the maximum allowable column limit, but not exactly at it.
+
+
+The last visible columns in Figure \ref{fig:col_w} are shown in Listing \ref{lst:columsFoerderprogrammeEnd}.
+The first column \texttt{ min="16146" max="16146"} has a fixed width of \texttt{2.21875} and refers to column \texttt{WVZ}, which is visible as the column immediately to the left of \texttt{WWA} but is too narrow to display more than the letter \texttt{W}. The second column \texttt{min="16147" max="16147"} defines column \texttt{WWA} with a width of \texttt{5.21875}. The final definition \texttt{min="16148" max="16384"} covers a larger range from column \texttt{16148} to \texttt{16384}, corresponding to columns \texttt{WWB} through \texttt{XFD} (the last column in Excel). This explains why scrolling all the way to the right via the scrollbar lands on column \texttt{WWB}. The penultimate definition specifies where the data range ends, thereby also defining where the scrollable range ends, and the final definition simply assigns a default width to all remaining columns. Surprisingly, these column definitions appear to extend indefinitely, seemingly only terminating at \textit{Excel}'s defined maximum limit of 16,384 columns. We have no explanation for why these user-defined column widths appear just before the maximum allowable column limit, but not exactly at it.
 
 To delete these columns, the following steps must be taken:
 \begin{enumerate}
@@ -367,7 +368,7 @@ To delete these columns, the following steps must be taken:
 </cols>
 \end{lstlisting}
 
-Following these steps is crucial. We experimented with merely deleting the excess columns without ensuring that the last column definition extended to the final possible column (16,384), but this caused \textit{Excel} to mark these worksheets as corrupted and perform certain repairs. Part of these changes included altering the default row height, resulting in some worksheets appearing visually altered, as shown in Figures \ref{fig:hidden_columns_before} and \ref{fig:hidden_columns_after}. On the left is the original, and on the right is the repaired version by \textit{Excel}. For instance, row \texttt{6} has changed in height due to the repair, causing visible shifts in the worksheet. Correctly deleting column definitions while ensuring the last column definition extends to the column limit of 16,384 prevents this error.
+Following these steps is crucial. We experimented with merely deleting the excess columns without ensuring that the last column definition extended to the final possible column (16,384), but this caused \textit{Excel} to mark these worksheets as corrupted and perform certain repairs. Part of these changes included altering the default row height, resulting in some worksheets appearing visually altered, as shown in Figures \ref{fig:changed_default_row_height_before} and \ref{fig:changed_default_row_height_after}. On the left is the original, and on the right is the repaired version by \textit{Excel}. For instance, row \texttt{6} has changed in height due to the repair, causing visible shifts in the worksheet. Correctly deleting column definitions while ensuring the last column definition extends to the column limit of 16,384 prevents this error.
 
 \begin{figure}[ht]
   \centering
@@ -375,17 +376,17 @@ Following these steps is crucial. We experimented with merely deleting the exces
     \centering
     \includegraphics[width=\textwidth]{images/excel_shrink/changed_default_row_height/changed_default_row_height_before.png}
     \caption{}
-    \label{fig:hidden_columns_before}
+    \label{fig:changed_default_row_height_before}
   \end{subfigure}
   \hspace{0.01\linewidth} % Space between images 
   \begin{subfigure}[b]{0.48\linewidth}
     \centering
     \includegraphics[width=\textwidth]{images/excel_shrink/changed_default_row_height/changed_default_row_height_after.png}
     \caption{}
-    \label{fig:hidden_columns_after}
+    \label{fig:changed_default_row_height_after}
   \end{subfigure}
   \caption{}
-  \label{fig:hidden_columns}
+  \label{fig:changed_default_row_height}
 \end{figure}
 
 \subsubsection{Hidden Columns}
@@ -758,9 +759,9 @@ Removing unnecessary column definitions resulted in reduction ratios ranging fro
 Whitespace cell removal was the least effective in reducing file size. The top sheet still had a notable 79.71\% of the file size attributed to whitespaces, while the second entry dropped to 44.68\%, and the last three entries were around one-third. Except for the last two files, the top five files were distinct. However, similar worksheet names and the proportion of whitespace sizes relative to the total content indicate that redundant file contents might have carried over to the other worksheet by duplicating the worksheet.
 \subsection{Summary of Findings}
 
-The evaluation results demonstrate that the data reduction techniques implemented in \textit{Excel Shrink} are highly effective in eliminating redundant, empty, or irrelevant data across various \textit{Excel} sheets. The most significant reductions were observed in sheets with a high proportion of empty cells, redundant whitespace, or irrelevant columns and rows, achieving reduction ratios exceeding 99\% in several cases. This indicates the robustness of our reduction methods in handling diverse data formats and structures.
+The evaluation demonstrates that the data reduction techniques employed by \textit{Excel Shrink} are highly effective in eliminating redundant, empty, or irrelevant data across a variety of \textit{Excel} sheets. Significant reductions—exceeding 99\% in several cases—were achieved in sheets containing a high proportion of empty cells, whitespace, or irrelevant rows and columns. These results highlight the robustness of our reduction methods in processing diverse data formats and structures.
 
-Additionally, the analysis underscores the importance of addressing different reduction factors separately, as their effectiveness can varie. For instance, while empty cell removal provided substantial reductions in some sheets, others benefited more from column or row reductions. Notably, whitespace removal had a comparatively smaller impact on overall file size. This highlights which areas are good for potential further optimization.
+Moreover, the analysis underscores the importance of addressing different reduction factors independently, as their impact on file size varied. While empty cell removal provided substantial reductions in certain sheets, others benefited more from the removal of rows or columns. Notably, whitespace removal had a smaller overall impact, suggesting areas for potential future optimization.
 
 
 \section{Experimental Setup}
