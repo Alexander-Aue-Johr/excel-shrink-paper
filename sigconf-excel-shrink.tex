@@ -1,4 +1,5 @@
 \documentclass[sigconf,anonymous]{acmart}
+\usepackage{booktabs}
 
 \usepackage{algorithm}
 \usepackage{algorithmic}
@@ -111,31 +112,31 @@
 \maketitle
 \section{Introduction}
 
-Excel files are widely utilized as a format for data exchange across various domains, including finance, statistics, business, and research. Their versatility lies in \textit{Excel}'s capability to store tabular data, perform complex calculations, automate workflows using macros, and visually represent data through charts and graphs. This flexibility makes \textit{Excel} indispensable in many organizations. However, as spreadsheets grow in complexity, significant challenges arise regarding file size and performance management.
+Excel files are widely utilized as a format for data exchange across various domains, including finance, statistics, business, and research \cite{panko1998we}. Their versatility lies in \textit{Excel}'s capability to store tabular data, perform complex calculations, automate workflows using macros, and visually represent data through charts and graphs. This flexibility makes \textit{Excel} indispensable in many organizations. However, as spreadsheets grow in complexity, significant challenges arise regarding file size and performance management \cite{swidan2016improving}.
 
-Unlike simpler formats such as CSV, which transparently display stored data, \textit{Excel} files use a more complex structure. \textit{Excel} employs the \textit{Office Open XML} format, introduced in \textit{Excel 2007}, where workbook contents are stored as a collection of XML files within a compressed ZIP archive. This XML-based architecture enables advanced functionality, such as separating data from its presentation layer. For instance, \textit{Excel} centralizes repeated strings in a shared string table, thus reducing redundancy by storing each text entry once and referencing it elsewhere in the workbook. Furthermore, formatting details—such as fonts, cell styles, and colours—are stored separately from the data itself in dedicated XML files, allowing \textit{Excel} to reconstruct the sheet's visual appearance when it is opened.
+Unlike simpler formats such as CSV, which transparently display stored data, \textit{Excel} files use a more complex structure. \textit{Excel} employs the \textit{Office Open XML} format, introduced in \textit{Excel 2007}, where workbook contents are stored as a collection of XML files within a compressed ZIP archive \cite{ecma376-5th2021}. This XML-based architecture enables advanced functionality, such as separating data from its presentation layer. For instance, \textit{Excel} centralizes repeated strings in a Shared String Table\cite{microsoft2024sharedstring}, thus reducing redundancy by storing each text entry once and referencing it elsewhere in the workbook. Furthermore, formatting details—such as fonts, cell styles, and colours—are stored separately from the data itself in dedicated XML files, allowing \textit{Excel} to reconstruct the sheet's visual appearance when it is opened.
 
 \subsection{Excel’s Internal Storage Mechanisms}
 
-To minimize file size, \textit{Excel} makes extensive use of compression techniques. Once the workbook's data, styles, and structure are defined in XML, these files are bundled into a ZIP archive. The ZIP compression algorithm is particularly effective in this context due to the repetitive nature of XML tags and structures. For example, in a large spreadsheet, tags like \texttt{<row>} and \texttt{<c>} (for cells) can appear hundreds of thousands of times. The compression algorithm identifies these repetitive patterns and encodes them with shorter representations, reducing the overall file size. Without compression, the verbosity of XML would result in substantially larger files.
+To minimize file size, \textit{Excel} makes extensive use of compression techniques. Once the workbook's data, styles, and structure are defined in XML, these files are bundled into a ZIP archive. The ZIP compression algorithm is particularly effective in this context due to the repetitive nature of XML tags and structures. For example, in a large spreadsheet, tags like \texttt{<row>} and \texttt{<c>} (for cells) can appear hundreds of thousands of times. The compression algorithm identifies these repetitive patterns and encodes them with shorter representations, reducing the overall file size \cite{deutsch1996deflate}. Without compression, the verbosity of XML would result in substantially larger files.
 
-Despite achieving considerable space savings, this approach introduces significant inefficiencies. The separation between the visible content seen by the user and the underlying storage structure can lead to scenarios where redundant or unused data continues to occupy considerable amounts of space in the file. These inefficiencies are not immediately apparent to users but can drastically increase file sizes, reducing the overall performance of both \textit{Excel} and the systems that interact with it.
+Despite achieving considerable space savings, this approach introduces significant inefficiencies. The separation between the visible content seen by the user and the underlying storage structure can lead to scenarios where redundant or unused data continues to occupy considerable amounts of space in the file. These inefficiencies are not immediately apparent to users but can drastically increase file sizes, reducing the overall performance of both \textit{Excel} and the systems that interact with it \cite{swidan2016improving}.
 
-One common issue arises when users apply formatting to large ranges of cells that contain no actual data. For example, a user might highlight an entire row or column to change its font style or background colour, but only a subset of the cells are populated with data. The formatting persists across all selected cells, including those that remain empty, creating unnecessary XML records that \textit{Excel} must store in its underlying files. This problem is exacerbated when users apply conditional formatting or intricate styles over vast areas, further bloating the file without any visible effect.
+One common issue arises when users apply formatting to large ranges of cells that contain no actual data. For example, a user might highlight an entire row or column to change its font style or background colour, but only a subset of the cells are populated with data. The formatting persists across all selected cells, including those that remain empty, creating unnecessary XML records that \textit{Excel} must store in its underlying files \cite{cunha2012smellsheet, abreu2014faultysheet}. This problem is exacerbated when users apply conditional formatting or intricate styles over vast areas, further bloating the file without any visible effect.
 
-Similarly, duplicating entire sheets within a workbook can carry over both data and formatting, even when only a portion of the original sheet is needed. Users often duplicate sheets to retain formulas, styles, or layouts, but this also transfers unnecessary metadata and formatting definitions from the original sheet, including empty cells, unused \texttt{rows}, and hidden \texttt{columns}. These redundancies are copied wholesale, and in many cases, users do not realize that they are preserving and propagating unused content. Over time, as sheets are copied and modified, the workbook's file size balloons, with \textit{Excel} continuing to store and manage a growing list of redundant elements that serve no practical purpose.
+Similarly, duplicating entire sheets within a workbook can carry over both data and formatting, even when only a portion of the original sheet is needed. Users often duplicate sheets to retain formulas, styles, or layouts, but this also transfers unnecessary metadata and formatting definitions from the original sheet, including empty cells, unused \texttt{rows}, and hidden \texttt{columns}. These redundancies are copied wholesale, and in many cases, users do not realize that they are preserving and propagating unused content. Over time, as sheets are copied and modified, the workbook's file size balloons, with \textit{Excel} continuing to store and manage a growing list of redundant elements that serve no practical purpose \cite{mack2018characterizing}.
 
-A less obvious but equally impactful inefficiency arises from \textit{Excel}'s approach to managing rows and columns. \textit{Excel} maintains definitions for rows and columns even if they are not populated with data. For instance, if a user inadvertently applies formatting to an entire column but only uses a few cells, the column definition persists in the underlying XML. In some cases, we have observed \textit{Excel} files where the maximum allowable number of rows and columns were defined, significantly inflating the file size without contributing any value. Although these rows and columns were not fully utilized with data, their definitions were still present in the file, unnecessarily consuming space. These excessive definitions often remain hidden from the user’s view, making them difficult to detect and remove manually.
+A less obvious but equally impactful inefficiency arises from \textit{Excel}'s approach to managing rows and columns. \textit{Excel} maintains definitions for rows and columns even if they are not populated with data. For instance, if a user inadvertently applies formatting to an entire column but only uses a few cells, the column definition persists in the underlying XML. In some cases, we have observed \textit{Excel} files where the maximum allowable number of rows and columns were defined, significantly inflating the file size without contributing any value. Although these rows and columns were not fully utilized with data, their definitions were still present in the file, unnecessarily consuming space. These excessive definitions often remain hidden from the user's view, making them difficult to detect and remove manually.
 
-These inefficiencies not only increase storage requirements but also degrade \textit{Excel}'s performance. Larger files take longer to open, save, and modify. In enterprise environments, this can lead to significant delays when handling shared workbooks or automating data processing tasks through scripts and applications that interface with \textit{Excel}. The excessive size of the files puts a strain on memory and processing resources, leading to a slower user experience and increased frustration in collaborative settings where files are frequently shared or integrated with other systems. These inefficiencies, therefore, represent a considerable challenge for users working with large datasets or managing multiple \textit{Excel} files.
+These inefficiencies not only increase storage requirements but also degrade \textit{Excel}'s performance. Larger files take longer to open, save, and modify \cite{mack2018characterizing}. In enterprise environments, this can lead to significant delays when handling shared workbooks or automating data processing tasks through scripts and applications that interface with \textit{Excel}. The excessive size of the files puts a strain on memory and processing resources, leading to a slower user experience and increased frustration in collaborative settings where files are frequently shared or integrated with other systems. These inefficiencies, therefore, represent a considerable challenge for users working with large datasets or managing multiple \textit{Excel} files.
 
 By addressing these issues—removing redundant formatting, eliminating unused rows and columns, and optimizing the internal XML structure—significant reductions in file size and performance improvements can be achieved. This is the key focus of our open-source tool, \textit{Excel Shrink}, which identifies and eliminates these inefficiencies while preserving the visual and functional integrity of the spreadsheet.
 
 \subsection{Impact of File Bloat on Performance}
 
-Excel file bloat—characterized by excessive file size without a corresponding increase in useful content—can severely impact performance. Large files take longer to open, save, and process, whether accessed by human users or automated scripts. In enterprise environments, where \textit{Excel} files are frequently shared, modified, and stored, these performance bottlenecks can disrupt workflows and reduce operational efficiency.
+\textit{Excel} file bloat—characterized by excessive file size without a corresponding increase in useful content—can severely impact performance. Large files take longer to open, save, and process, whether accessed by human users or automated scripts. In enterprise environments, where \textit{Excel} files are frequently shared, modified, and stored, these performance bottlenecks can disrupt workflows and reduce operational efficiency.
 
-Our work with datasets from the German Federal Statistical Office (\textit{Destatis}) exemplifies these performance challenges. The \textit{Excel} files we analyzed contained substantial redundant content, including unused rows, columns, and formatting definitions, which contributed to their excessive size and slow processing times. Some of these files exceeded several hundreds of megabytes in their uncompressed form, taking an unusually long time to open and save, both in \textit{Excel} and through automated means.
+Our work with datasets from the German Federal Statistical Office (\textit{Destatis})\cite{destatis} exemplifies these performance challenges. The \textit{Excel} files we analyzed contained substantial redundant content, including unused rows, columns, and formatting definitions, which contributed to their excessive size and slow processing times. Some of these files exceeded several hundreds of megabytes in their uncompressed form, taking an unusually long time to open and save, both in \textit{Excel} and through automated means.
 
 \subsection{Analyzing Redundant Content in Excel Files}
 
@@ -157,9 +158,9 @@ These limitations underscored the need for a more robust, scalable solution. To 
 
 \subsection{Our Contribution: Excel Shrink}
 
-To combat the issues posed by file bloat in \textit{Excel}, we introduce \textit{Excel Shrink}, an open-source tool written in Python designed to efficiently reduce the size of \textit{Excel} files by removing redundant content. The tool conducts an in-depth analysis of the workbook's XML structure to identify and eliminate unnecessary elements, including empty but formatted cells, unused rows, and columns.
+To combat the issues posed by file bloat in \textit{Excel}, we introduce \textit{Excel Shrink}, an open-source tool written in \textit{Python}\cite{python2024} designed to efficiently reduce the size of \textit{Excel} files by removing redundant content. The tool conducts an in-depth analysis of the workbook's XML structure to identify and eliminate unnecessary elements, including empty but formatted cells, unused rows, and columns.
 
-For users who prefer a user-friendly interface without the need to install Python or use command-line tools, we developed \textit{Excel Shrink UI}. Built using \textit{Flutter} for \textit{Windows} and integrating the compiled Python script via Nuitka, this version enables users to optimize their \textit{Excel} files through a simple and intuitive interface.
+For users who prefer a user-friendly interface without the need to install \textit{Python} or use command-line tools, we developed \textit{Excel Shrink UI}. Built using \textit{Flutter}\cite{flutter2024} for \textit{Windows} and integrating the compiled \textit{Python} script via \textit{Nuitka}\cite{nuitka2024}, this version enables users to optimize their \textit{Excel} files through a simple and intuitive interface.
 
 Unlike existing tools, \textit{Excel Shrink} is capable of processing unlimited numbers of \textit{Excel} files, making it suitable for handling large datasets, such as the 1,182 files we analyzed from \textit{Destatis}. The tool ensures that the visual layout of the spreadsheet is preserved, preventing the loss of important formatting. By automating the cleanup of redundant content, \textit{Excel Shrink} significantly reduces the time and effort required to optimize \textit{Excel} files, making it an ideal solution for organizations dealing with large-scale spreadsheets.
 
@@ -167,23 +168,37 @@ In this paper, we present the technical foundations of \textit{Excel Shrink}, ou
 
 \section{Scraping Destatis}
 
-The \textit{Destatis} website does not provide an API for searching publications, making it necessary to interact with the website directly. To automate this process, we developed a web scraper that searches for relevant publications while minimizing the number of requests to the server. Through extensive testing, we discovered that \textit{Excel} files are exclusively found in the "Publication" document type. By using the GET parameter \texttt{documentType\_=publication}, we were able to significantly narrow down our search results.
+The \textit{Destatis} website does not provide an API for searching publications, making it necessary to interact with the website directly. To automate this process, we developed a web scraper that searches for relevant publications while minimizing the number of requests to the server. The url structure of the \textit{Destatis} website is as follows:
+
+\begin{itemize}
+  \item \url{/SiteGlobals/Forms/Suche/Expertensuche\_Formular.html}:
+  
+  This is the base path of the URL, which points to the expert search form on the \textit{Destatis} website. It serves as the primary endpoint where the search query is submitted.
+
+  \item \url{templateQueryString=2000}:
+  
+  This query parameter specifies the search year. In this case, the search is focused on publications from the year 2000. By adjusting this value, different years can be searched.
+
+  \item \url{gtp=474\_list\%253D2}:
+  
+  This parameter handles pagination. It points to a specific page of search results. The value \texttt{\%253D} is a doubly encoded sequence, where \texttt{\%253D} is the URL-encoded form of \texttt{\%3D}, which itself encodes the equal sign (\texttt{=}).
+  After decoding, the query parameter becomes \texttt{gtp=474\_list=2}. The number after the second equal sign corresponds to the current page index in the pagination of the search results.
+  \item \url{documentType\_=publication}:
+  
+  This parameter filters the results by the type of document. By setting this to \texttt{publication}, the search is limited to publications, where \textit{Excel} files are usually attached.
+
+  \item \url{resultsPerPage=100}:
+  
+  This parameter determines how many results should be displayed per page. In this case, it is set to \texttt{100}, which is the maximum number of results that can be retrieved in a single page request.
+\end{itemize}
+
+Through extensive testing, we discovered that \textit{Excel} files are exclusively found in the "Publication" document type. By using the GET parameter \texttt{documentType\_=publication}, we were able to significantly narrow down our search results.
 
 Initially, we assumed that searching for the term \texttt{xlsx} would identify all publications containing \textit{Excel} file attachments. However, this search only returned about 100 results, far fewer than the actual number of \textit{Excel} files available on the \textit{Destatis} website. Furthermore, there is no option to retrieve a complete list of all publications ever created. To overcome this, we refined our strategy by searching based on publication years. A publication should appear in the search results when queried by its publication year. Although this approach returns some irrelevant results—where the publication year might appear in the text or a file attachment—the number of requests is greatly reduced by caching and reusing links to the \textit{Excel} file attachments. This ensures that the same files are not downloaded multiple times.
 
-The search results on the \textit{Destatis} website, like many others, are paginated, with the interface offering the ability to display 10, 12, or 30 entries per page. The number of results per page can be adjusted using the GET parameter \texttt{resultsPerPage=30}. While the interface does not provide an option for more than 30 results per page, we found that manually setting this parameter allowed us to request up to 100 results per page. Through testing, we confirmed that 100 is the maximum number of results that can be returned at once. We set the \texttt{resultsPerPage} parameter accordingly to reduce the number of requests further.
+The search results on the \textit{Destatis} website, like many others, are paginated, with the interface offering the ability to display 10, 20, or 30 entries per page. The number of results per page can be adjusted using the GET parameter \texttt{resultsPerPage=30}. While the interface does not provide an option for more than 30 results per page, we found that manually setting this parameter allowed us to request up to 100 results per page. Through testing, we confirmed that 100 is the maximum number of results that can be returned at once. We set the \texttt{resultsPerPage} parameter accordingly to reduce the number of requests further.
 
 Once the results for a page are fetched by the web scraper, we simulate clicking the "next page" link to load subsequent results. The helper function \texttt{get\_next\_page\_url} handles this step, using the CSS class \texttt{forward button} to identify the link. The URL for the next page is extracted via the XPath expression \texttt{//a[@class='forward button']/@href}.
-
-\begin{lstlisting}[caption={Function to retrieve the link to the next page}, label={lst:get_next_page_url}]
-def get_next_page_url(html: str) -> str:
-    xpath = "//a[@class='forward button']/@href"
-    tree = etree.HTML(html)
-    next_page = tree.xpath(xpath)
-    if next_page:
-        return next_page[0]
-    return ""
-\end{lstlisting}
 
 The web scraping and downloading process is outlined in Algorithm \ref{alg:web_scraping_caching}.
 
@@ -219,13 +234,6 @@ The web scraping and downloading process is outlined in Algorithm \ref{alg:web_s
           \ENDWHILE
       \ENDFOR
 
-      \STATE \COMMENT{--- Checking for Duplicate Filenames ---}
-      \STATE Combine cached and new file records
-      \STATE Check if there are duplicate filenames
-      \IF{duplicates exist}
-          \STATE Print warning and exit
-      \ENDIF
-
       \STATE \COMMENT{--- Download Process ---}
       \FOR{each new file record}
           \STATE Download file from the URL
@@ -235,33 +243,13 @@ The web scraping and downloading process is outlined in Algorithm \ref{alg:web_s
   \end{algorithmic}
 \end{algorithm}
 
-\begin{itemize}
-  \item \url{/SiteGlobals/Forms/Suche/Expertensuche\_Formular.html}:
-  
-  This is the base path of the URL, which points to the expert search form on the \textit{Destatis} website. It serves as the primary endpoint where the search query is submitted.
 
-  \item \url{templateQueryString=2000}:
-  
-  This query parameter specifies the search year. In this case, the search is focused on publications from the year 2000. By adjusting this value, different years can be searched.
-
-  \item \url{gtp=474\_list\%253D2}:
-  
-  This parameter handles pagination. It points to a specific page of search results. The value \texttt{\%253D} is a doubly encoded sequence, where \texttt{\%253D} is the URL-encoded form of \texttt{\%3D}, which itself encodes the equal sign (\texttt{=}).
-  After decoding, the query parameter becomes \texttt{gtp=474\_list=2}. The number after the second equal sign corresponds to the current page index in the pagination of the search results.
-  \item \url{documentType\_=publication}:
-  
-  This parameter filters the results by the type of document. By setting this to \texttt{publication}, the search is limited to publications, where \textit{Excel} files are usually attached.
-
-  \item \url{resultsPerPage=100}:
-  
-  This parameter determines how many results should be displayed per page. In this case, it is set to \texttt{100}, which is the maximum number of results that can be retrieved in a single page request.
-\end{itemize}
 
 Once we have queried each publication year from \texttt{2000} to \texttt{2024}, and the file attachments have been extracted from the result pages until no further "next page" button is available, the scraping process for the \textit{Excel} files is complete.
 
 \subsection{Respecting Crawl Delay}
 
-To minimize the load on the \textit{Destatis} website, we adhered to the crawl-delay directive specified in the site's \texttt{robots.txt} file, pausing for 30 seconds between requests. This delay ensures that our scraper operates within the guidelines provided by \textit{Destatis}.
+To minimize the load on the \textit{Destatis} website, we adhered to the crawl-delay directive specified in the site's \texttt{robots.txt} file\cite{destatis2024robots}, pausing for 30 seconds between requests. This delay ensures that our scraper operates within the guidelines provided by \textit{Destatis}.
 
 \section{Excel Shrink}
 
@@ -298,7 +286,7 @@ To locate the value, we must search for the \texttt{sst} node in the \texttt{sha
     </si>
 \end{lstlisting}
 
-The provided XML excerpt displays a portion of the Shared String Table (SST) in an \textit{Excel} file. The abbreviation \texttt{sst} stands for \textit{Shared String Table}. The Shared String Table is a structure that allows for the storage and management of shared strings within an \textit{Excel} workbook. Instead of storing each string separately in every cell, each unique string is stored once in the Shared String Table. This approach saves storage space, as cells then reference these strings via indices. Each entry in this table has an ascending index number, starting at \texttt{0} for the first string, \texttt{1} for the second, and so forth. The \texttt{count} attribute indicates the total number of strings in the table, while \texttt{uniqueCount} represents the number of unique strings. In this case, there are \texttt{17,962} strings in total, of which \texttt{732} are unique. This means that many strings in the table are used multiple times.
+The provided XML excerpt displays a portion of the Shared String Table (SST) in an \textit{Excel} file \cite{microsoft2024sharedstring}. The Shared String Table is a structure that allows for the storage and management of shared strings within an \textit{Excel} workbook. Instead of storing each string separately in every cell, each unique string is stored once in the Shared String Table. This approach saves storage space, as cells then reference these strings via indices. Each entry in this table has an ascending index number, starting at \texttt{0} for the first string, \texttt{1} for the second, and so forth. The \texttt{count} attribute indicates the total number of strings in the table, while \texttt{uniqueCount} represents the number of unique strings. In this case, there are \texttt{17,962} strings in total, of which \texttt{732} are unique. This means that many strings in the table are used multiple times.
 
 
 Within the SST, there are elements of type \texttt{<si>} (Shared Item), each containing a string. In this example, the \texttt{<t>} element displays the actual text of the string stored in the table. Here, the string \texttt{062} is represented, which can be referenced by an index in a cell.
@@ -552,8 +540,8 @@ We cannot rely on a row simply not having a defined height to decide whether it 
 To ensure that deleting empty rows does not alter the worksheet's visual representation, we adopt a strategy similar to that used for removing columns. First, we determine the actual range where values, background colors, or borders are defined. Then, we iterate through all empty rows and delete them only if they lie outside this range. This approach allows us to significantly reduce the file size of some worksheets without altering their content or appearance.
 
 \subsection{Deletion of Redundant Print Areas and Print Titles}
-
-Excel allows defining the area of a worksheet that should be printed on paper. This area can be manually defined or automatically set by \textit{Excel}. In both cases, this area is stored in the \texttt{workbook.xml} file under the \texttt{<definedNames>} node. Typically, this area is labeled as \texttt{\_xlnm.Print\_Area} and \texttt{\_xlnm.Print\_Titles}. However, these areas and titles are often also stored under the names \texttt{Print\_Area} and \texttt{Print\_Titles}. When \textit{Excel} opens the file, it renames the entries \texttt{Print\_Area} and \texttt{Print\_Titles} to \texttt{\_xlnm.Print\_Area} and \texttt{\_xlnm.Print\_Titles}, respectively. However, there is a problem when there is already a Defined Name for the same worksheet with both \texttt{Print\_Area} and \texttt{\_xlnm.Print\_Area}, as seen in Listing \ref{lst:PrintAreaRedundancy}\cite{destatis2022Wanderungen}[xl/workbook.xml].
+ 
+Excel allows defining the area of a worksheet that should be printed on paper. This area can be manually defined or automatically set by \textit{Excel}. In both cases, this area is stored in the \texttt{workbook.xml} file under the \texttt{<definedNames>} node \cite{microsoft2024workbook}. Typically, this area is labeled as \texttt{\_xlnm.Print\_Area} and \texttt{\_xlnm.Print\_Titles}. However, these areas and titles are often also stored under the names \texttt{Print\_Area} and \texttt{Print\_Titles}. When \textit{Excel} opens the file, it renames the entries \texttt{Print\_Area} and \texttt{Print\_Titles} to \texttt{\_xlnm.Print\_Area} and \texttt{\_xlnm.Print\_Titles}, respectively. However, there is a problem when there is already a Defined Name for the same worksheet with both \texttt{Print\_Area} and \texttt{\_xlnm.Print\_Area}, as seen in Listing \ref{lst:PrintAreaRedundancy}\cite{destatis2022Wanderungen}[xl/workbook.xml].
 
 \begin{lstlisting}[caption={Redundant Print Area entries}, label={lst:PrintAreaRedundancy}, firstnumber=171]
 <definedName name="_xlnm.Print_Area" localSheetId="12">'Tabelle 2.1.1'!$A$1:$N$64748</definedName>
@@ -602,7 +590,7 @@ The program has limited batch functionality, allowing the selection and reductio
 
 \subsection{Inquire Add-in}
 
-\textit{Inquire} is an Add-in for \textit{Excel}, available exclusively for \textit{Excel} versions within \textit{Office Professional Plus} and \textit{Microsoft 365 Apps for Enterprise}. Other versions, such as \textit{Office Home}, \textit{Microsoft 365 Family} or \textit{Single}, and \textit{Microsoft 365 Business}, do not support this Add-in.
+\textit{Inquire} is an Add-in for \textit{Excel}\cite{o2014excel}, available exclusively for \textit{Excel} versions within \textit{Office Professional Plus} and \textit{Microsoft 365 Apps for Enterprise}. Other versions, such as \textit{Office Home}, \textit{Microsoft 365 Family} or \textit{Single}, and \textit{Microsoft 365 Business}, do not support this Add-in.
 
 To activate the Add-in, the following steps must be taken. Navigate to the \texttt{File} menu and select \texttt{Options}. This opens a dialog, where one clicks on \texttt{Add-ins}.
 In the "Manage" dropdown, select "\texttt{COM Add-ins}", and then click on "\texttt{Go...}".
@@ -684,16 +672,108 @@ The \textit{Check Performance} function in \textit{Excel} removes all these bord
 
 
 
-\section{Evaluation}
 
-We applied our \textit{Excel Shrink} program to all \textit{Excel} files downloaded from \textit{Destatis} using the web scraper. Figure \ref{fig:size-reduction-chart} shows the distribution of the reduction rate in percentage for individual worksheets. The chart gives the impression that some worksheets were reduced by nearly 100\% in file size. This is accurate, as 17 worksheets experienced a reduction rate of over 99.9\%, 95 worksheets had a reduction rate exceeding 99\%, and 453 worksheets saw a reduction rate above 98\%.
 
 \begin{figure*}
   \centering
-  \includegraphics[width=\textwidth]{images/charts/distribution_of_size_reduction.pdf}
+  \includegraphics[width=\textwidth]{images/charts/combined_chart_distribution_of_size_reduction.pdf}
   \caption{Distribution of Size Reduction Percentages for Excel Sheets}
   \label{fig:size-reduction-chart}
 \end{figure*}
+
+\begin{table*}[t]
+  \centering
+  \caption{Top Sheets by Each Reduction Factor}
+  \label{tab:combined_top_factors}
+  \begin{tabular}{p{0.45\textwidth} l r}
+  \toprule
+  File & Sheet / Workbook & Reduction Factor Value (\%) \\
+  \midrule
+  \multicolumn{3}{l}{\textbf{Top 5 rows for Reduction Ratio}} \\
+  \midrule
+  verkehrsunfaelle-zeitreihen-xlsx-5462403.xlsx & Technisch\_bedingte\_Leerseit & 99.99 \\
+  verkehrsunfaelle-zeitreihen-xlsx-5462403.xlsx & 4.6\_(3) & 99.96 \\
+  verkehrsunfaelle-zeitreihen-xlsx-5462403.xlsx & 3.1\_(7) & 99.96 \\
+  verkehrsunfaelle-zeitreihen-xlsx-5462403.xlsx & 5.1.4\_(2) & 99.95 \\
+  verkehrsunfaelle-zeitreihen-xlsx-5462403.xlsx & 3.1\_(1) & 99.95 \\
+  \addlinespace
+  \multicolumn{3}{l}{\textbf{Top 5 rows for Rows Outside of Value Range Reduction Ratio}} \\
+  \midrule
+  verkehrsunfaelle-zeitreihen-xlsx-5462403.xlsx & Technisch\_bedingte\_Leerseit & 99.99 \\
+  verkehrsunfaelle-zeitreihen-xlsx-5462403.xlsx & 3.1\_(7) & 99.96 \\
+  verkehrsunfaelle-zeitreihen-xlsx-5462403.xlsx & 4.6\_(3) & 99.95 \\
+  verkehrsunfaelle-zeitreihen-xlsx-5462403.xlsx & 3.1\_(1) & 99.95 \\
+  verkehrsunfaelle-zeitreihen-xlsx-5462403.xlsx & 10.1 & 99.94 \\
+  \addlinespace
+  \multicolumn{3}{l}{\textbf{Top 5 rows for Empty Cell Reduction Ratio}} \\
+  \midrule
+  statistischer-bericht-mikrozensus-h...-2010300217005.xlsx & Erl\"auterung zu CSV-Tabellen & 99.91 \\
+  statistischer-bericht-mikrozensus-h...erstergebnisse.xlsx & Erl\"auterung zu CSV-Tabellen & 99.91 \\
+  statistischer-bericht-mikrozensus-h...-endergebnisse.xlsx & Erl\"auterung zu CSV-Tabellen & 99.91 \\
+  statistischer-bericht-migrationshin...-2010220227005.xlsx & Erl\"auterung zu CSV-Tabellen & 99.90 \\
+  statistischer-bericht-migrationshin...-2010220227005.xlsx & Erl\"auterung zu CSV-Tabellen & 99.90 \\
+  \addlinespace
+  \multicolumn{3}{l}{\textbf{Top 5 rows for Removed Columns Reduction Ratio}} \\
+  \midrule
+  strauchbeerenanbau-2030319227005.xlsx & DE3\_2 (4) & 94.38 \\
+  strauchbeerenanbau-2030319227005.xlsx & DE3\_2 (3) & 93.41 \\
+  strauchbeerenanbau-2030319227005.xlsx & DE3\_2 & 93.37 \\
+  strauchbeerenanbau-2030319227005.xlsx & DE3\_2 (2) & 92.43 \\
+  fallpauschalen-krankenhaus-2120640167005.xlsx & Erl\"auterungen Fehlerkorrektur & 91.11 \\
+  \addlinespace
+  \multicolumn{3}{l}{\textbf{Top 5 rows for Whitespace Cell Reduction Ratio}} \\
+  \midrule
+  statistischer-bericht-berufliche-sc...-5211004227005.xlsx & 21121-17 & 79.71 \\
+  statistischer-bericht-verkehr-2080110231075.xlsx & csv-46251-28 & 44.68 \\
+  ueberschuldung-2150500217005.xlsx & 5.1 & 29.97 \\
+  rohholz-holzhalbwaren-9030001207005.xlsx & Seite\_5 & 27.91 \\
+  rohholz-holzhalbwaren-9030001207005.xlsx & Seite\_4 & 27.61 \\
+  \addlinespace
+  \bottomrule
+  \end{tabular}
+  \end{table*}
+  
+  
+  
+  
+  
+
+  \section{Evaluation}
+
+
+  In this section, we evaluate the effectiveness of the data reduction techniques applied to a set of diverse Excel files. The primary goal of this evaluation is to determine the extent of data reduction achieved through different techniques, including overall reduction, empty cell reduction, whitespace cell reduction, rows outside of value range removal, and column removal.
+  
+
+  We applied our \textit{Excel Shrink} program to all \textit{Excel} files downloaded from \textit{Destatis} using the web scraper. Figure \ref{fig:size-reduction-chart} shows the distribution of the reduction rate in percentage for individual worksheets für alle  kategorien zusammen und aufgeschlüsselt nach Empty Cells, Whitespace cells, Rows Outside of Value Range and removed Removed Columns. The chart gives the impression that some worksheets were reduced by nearly 100\% in file size. This is accurate, as 1 worksheet
+  hatte eine reduction rate of over 99.99\%, 16 worksheets had a reduction rate exceeding 99.9\%, and 210 worksheets saw a reduction rate above 99\%.
+
+  Die meisten Redution gescha durch das entfernen von leeren Zellen
+ 
+  
+  The evaluation results are based on the top five files in terms of the reduction achieved for each reduction factor wie sie in Tabelle   \ref{tab:combined_top_factors} zu sehen sind.
+  
+  \textbf{1. Overall Reduction Ratio}\
+  The top five sheets with the highest overall reduction ratio are all from the same file. The reduction ratio for these sheets ranges between 99.95\% and 99.99\%, indicating that almost all data was bloat that was successfully reduced. In der nächsten Tabelle taucht dieselbe Datei erneut auf, was darauf hindeutet, dass die hohe reduktion vor allem auf eine Kategorie zurückzuführen war.
+  
+  \textbf{4. Rows Outside of Value Range Reduction Ratio}\
+  Die meisten der unnötigen Daten fiel auf die Rows Outside of Value Range an und zwar wie hier zu sehen mit  reduction ratios between 99.94\% and 99.99\% in den ersten 5 Dateien. Dies deutet auch darauf hin, dass die Dateien mit dem größten Anteil an unnötigen Daten  allem von einer Kategorie von von unnötigen Daten betroffen waren, anstatt von einer kombination unterschidlicher kategorien. 
+  
+  \textbf{2. Empty Cell Reduction Ratio}\
+  Auch die reduktion der leeren Zellen mit unsichtbaren Formatierungen brachte eine deutloche reduktion mit 99.90\% to 99.91\% in den ersten 5 Dateien. Hier waren immerhin in den ersten 5 Dateien 3 unterschiedliche Dateien betroffen, allerings hat das Arbeitsblatt immer den Gleichen Namen ,was darauf hindeuten könnte, dass diese Erklärungsblätter dupliziert wurden und deshalb die ähnlich große Anzahl an leeren Zellen enthalten.
+  
+  \textbf{5. Removed Columns Reduction Ratio}\
+  Auch die nicht benötigten Spaltendefinitionen hatten reduction ratios ranging from 92.43\% to 94.38\% in den ersten 5 Dateien. Hier ist wiederum auffällig dass sich die Arbeitsblattnamen ähnel, was darauf deuten könnte, dass die Arbeitsblättter dupliziert wurden und damit der größte Anteil der Dateigröße, nämlich die die auf die nicht verwendeten Spaltendefinitionen anfielen wurden dabei mitkopiert.
+  
+  \textbf{3. Whitespace Cell Reduction Ratio}\
+  Die Kategorie die am deutlich geringsten für den file bloat verantwortlich waren, waren die Cellen mit außschließlich whitespaces. Die erste der Top 5 hat immerhin noch beachtliche 79.71\% der Dateigröße, die auf die Whitespaces entfielen, doch bereits der zweite EIntrag sinkt mit 44.68\% unter die Hälfte und die letzten drei EInträge der Top 5 erreichen noch knapp ein DrittelMit Ausnahme der letzten beiden Dateien sind diese Top 5 Dateien alle unterschiedlich, doch auch bei den letzten beiden Dateien ähnelt sich der Arbeitsblattname sowie die Anzeil der der Größe der Whitespaces im Vergleich zum restlichen Inhalt, was erneut darauf hindeutet, dass die überflüssigen Dateiinhalte hier durch duplizieren in ein weiteres  Arbeitsblatt getragen wurden.  
+  
+  \subsection{Summary of Findings}
+  
+  The evaluation results demonstrate that the data reduction techniques were highly effective in eliminating redundant, empty, or irrelevant data across different Excel sheets. The highest reductions were consistently seen in sheets with a high proportion of empty cells, redundant whitespace, or irrelevant columns and rows. This indicates the robustness of the reduction methods in handling diverse data formats and structures.
+  
+  The results also highlight the importance of analyzing different reduction factors separately, as the effectiveness varies depending on the type of data being processed. For example, while some sheets benefited most from empty cell removal, others showed significant improvement through column or row reduction und am wenigsten konnte die Dateigröße durch das entfernen von Whitespaces verringert  werden.
+
+
 
 \section{Experimental Setup}
 \label{sec:experimental-setup}
@@ -713,6 +793,7 @@ Our tool outperforms existing solutions in both file size reduction and preserva
 \begin{acks}
 We would like to thank the German Federal Statistical Office (\textit{Destatis}) for allowing us to analyze their data, investigate redundant file contents, and publish our findings.
 \end{acks}
+ 
 
 \bibliographystyle{ACM-Reference-Format}
 \bibliography{sigconf-excel-shrink}
