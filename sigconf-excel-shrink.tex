@@ -152,7 +152,7 @@ To quantify the impact of these redundancies, we performed a detailed analysis o
 
 \subsection{Related Work on Excel File Optimization}
 
-Several tools and techniques have been developed to mitigate \textit{Excel} file bloat. These include commercial software, \textit{Excel} Add-ins, and built-in \textit{Excel} features designed to remove redundant content and reduce file sizes. However, most existing tools have notable limitations. All are restricted to processing a limited number of files or are constrained to specific \textit{Excel} versions or enterprise environments. Furthermore, these tools either fail to remove all redundant content or inadvertently alter the sheet's visual appearance, making them unsuitable for users who need to preserve the layout of their workbooks. See Section \ref{sec:comparison}.
+Several tools and techniques have been developed to mitigate \textit{Excel} file bloat. These include commercial software, an \textit{Excel} \textit{Add-in}, and a built-in \textit{Excel} feature designed to remove redundant content and reduce file sizes. However, most existing tools have notable limitations. All are restricted to processing only one or a limited number of files or are constrained to specific \textit{Excel} versions or enterprise environments. Furthermore, these tools either fail to remove all redundant content or inadvertently alter the sheet's visual appearance, making them unsuitable for users who need to preserve the layout of their workbooks. See Section \ref{sec:comparison}.
 
 These limitations underscored the need for a more robust, scalable solution. To address this gap, we developed our open-source tool, \textit{Excel Shrink}, capable of processing large batches of \textit{Excel} files while maintaining the integrity of the spreadsheet layout.
 
@@ -558,14 +558,13 @@ If the first entry is renamed and the user clicks OK, the dialog reappears for t
 In the files we examined, there were up to 60 redundant \texttt{Print\_Area} and 55 \texttt{Print\_Titles} entries. Renaming these entries offers no advantage to the user, as these entries are only stored in the Defined Names accessible via \textit{Excel}'s \texttt{Formulas} -> \texttt{Name Manager}. The entries are not repaired by user inputs because they are already in the correct form.
 
 In earlier versions of our script, we did not remove redundant entries from the files. This led to the problem that we could not perform our analysis on how long the \textit{Excel} files took to open before and after reduction. The \textit{Visual Basic for Applications (VBA)} script we used to open and close the files stopped when encountering files with redundant entries. To simplify the analysis and spare users the need to manually rename redundant entries, \textit{Excel Shrink} was extended to automatically remove redundant entries.
-
 \subsection{Reporting Reduction Results}
 
 To provide a breakdown of how many bytes were saved by deleting whitespaces, empty cells, columns, and rows, we compare the file size before and after each reduction step. For this purpose, we calculate the size of the worksheet by converting the XML structure into a string, as it would be stored in the file, and compute the length of this string. We then perform a reduction step and again calculate the length of the new string to determine the difference caused by the reduction. Finally, we calculate the percentage reduction relative to the original size. These results are saved in a CSV table.
 
 \subsubsection{Determining the Sheet Name}
 
-To provide a listing of reduced file sizes, it is necessary to determine the worksheet titles. To provide the user with a breakdown of the reduction per worksheet, we must determine the title of the worksheet. However, through the worksheet files, we only know an ID indicated in the filename, such as \texttt{sheet1.xml}, \texttt{sheet2.xml}, and so forth. Unfortunately, we cannot determine the sheet title directly from the sheet file because the title is only associated with the individual sheets in the \texttt{xl/workbook.xml} file. This association is shown in Listing \ref{lst:sheet_title_from_workbook} \cite{destatis2023Foerderprogramme}. The \texttt{sheetId} attribute should be ignored; the ID that maps the sheet title to the corresponding \texttt{sheetX.xml} is the \texttt{r:id} attribute. Since each value in this attribute starts with "\texttt{rId}", the ID must be extracted by removing the first three characters. These IDs then provide a unique mapping to the worksheet titles, which can be used for output.
+To provide the user with a breakdown of the reduction per worksheet, it is necessary to determine the worksheet titles. However, through the worksheet files, we only know an ID indicated in the filename, such as \texttt{sheet1.xml}, \texttt{sheet2.xml}, and so forth. Unfortunately, we cannot determine the sheet title directly from the sheet file because the title is only associated with the individual sheets in the \texttt{xl/workbook.xml} file. This association is shown in Listing~\ref{lst:sheet_title_from_workbook}~\cite{destatis2023Foerderprogramme}. The \texttt{sheetId} attribute should be ignored; the ID that maps the sheet title to the corresponding \texttt{sheetX.xml} is the \texttt{r:id} attribute. Since each value in this attribute starts with \texttt{rId}, the ID must be extracted by removing the first three characters. These IDs then provide a unique mapping to the worksheet titles, which can be used for output.
 
 \begin{lstlisting}[caption={workbook.xml mapping IDs to worksheet titles}, label={lst:sheet_title_from_workbook}]
 <sheets>
@@ -580,27 +579,22 @@ To provide a listing of reduced file sizes, it is necessary to determine the wor
 \section{Comparison of Existing Tools}
 \label{sec:comparison}
 
-We have identified three tools that also reduce the size of \textit{Excel} files. One of these tools is a commercial program with a trial version available, named \textit{NXPowerLite Desktop} \cite{nxpowerlite_desktop}.
-Another tool is an Add-in for \textit{Excel} called \textit{Excel} \textit{Inquire}.
-Additionally, with the 2022 version for \textit{Excel} for Web and the 2023 version for \textit{Excel} for \textit{Windows}, \textit{Excel} introduced the \textit{Check Performance} feature, which allows for the reduction of \textit{Excel} file sizes.
-We have tested these programs and compared sample results with our tool.
+We have identified three tools that also reduce the size of \textit{Excel} files. One of these tools is a commercial program with a trial version available, named \textit{NXPowerLite Desktop}~\cite{nxpowerlite_desktop}. Another tool is an \textit{Add-in} for \textit{Excel}, called \textit{Excel Inquire}. Additionally, in the 2022 version of \textit{Excel} for Web~\cite{shirolkar2022check} and the 2024 version of \textit{Excel} for \textit{Windows}~\cite{shirolkar2024make}, \textit{Microsoft} introduced the \textit{Check Performance} feature, which allows for the reduction of \textit{Excel} file sizes. We have tested these programs and compared sample results with our tool.
 
 \subsection{NXPowerLite Desktop}
 
-The program \textit{NXPowerLite Desktop} is commercial software \cite{nxpowerlite_desktop}. A 14-day trial version is available. Although the primary purpose of the program is to reduce the file size of \textit{Excel} files by compressing embedded images, it also removes some, but not all, empty cells. However, it ignores all cells containing only whitespaces, redundant column definitions, and unnecessary rows.
-The program has limited batch functionality, allowing the selection and reduction of multiple files simultaneously, but this is restricted to a maximum of 20 files.
+The program \textit{NXPowerLite Desktop} is commercial software~\cite{nxpowerlite_desktop}. A 14-day trial version is available. Although the primary purpose of the program is to reduce the file size of \textit{Excel} files by compressing embedded images, it also removes some, but not all, empty cells. However, it ignores all cells containing only whitespaces, redundant column definitions, and unnecessary rows. The program has limited batch functionality, allowing the selection and reduction of multiple files simultaneously. However, this is restricted to a maximum of 20 files.
+
 
 \subsection{Inquire Add-in}
 
-\textit{Inquire} is an Add-in for \textit{Excel}\cite{o2014excel}, available exclusively for \textit{Excel} versions within \textit{Office Professional Plus} and \textit{Microsoft 365 Apps for Enterprise}. Other versions, such as \textit{Office Home}, \textit{Microsoft 365 Family} or \textit{Single}, and \textit{Microsoft 365 Business}, do not support this Add-in.
+\textit{Inquire} is an \textit{Add-in} for \textit{Excel}~\cite{o2014excel}, available exclusively for \textit{Excel} versions within \textit{Office Professional Plus} and \textit{Microsoft 365 Apps for Enterprise}. Other versions, such as \textit{Office Home}, \textit{Microsoft 365 Family} or \textit{Single}, and \textit{Microsoft 365 Business}, do not support this \textit{Add-in}.
 
-To activate the Add-in, the following steps must be taken. Navigate to the \texttt{File} menu and select \texttt{Options}. This opens a dialog, where one clicks on \texttt{Add-ins}.
-In the "Manage" dropdown, select "\texttt{COM Add-ins}", and then click on "\texttt{Go...}".
-In the subsequently opened dialog, the \textit{Inquire} Add-in can be activated. If the \textit{Inquire} Add-in does not appear in the dialog, it is due to the use of an incorrect version of \textit{Excel}.
+To activate the \textit{Add-in}, the following steps must be taken. Navigate to the \texttt{File} menu and select \texttt{Options}. This opens a dialog where one clicks on \texttt{Add-ins}. In the \texttt{COM Manage} dropdown, select \texttt{COM Add-ins}, and then click on \texttt{Go...}. In the subsequently opened dialog, the \textit{Inquire} \textit{Add-in} can be activated. If the \textit{Inquire} \textit{Add-in} does not appear in the dialog, it is due to the use of an unsupported version of \textit{Excel}.
 
-Compared to our solution, \textit{Inquire} ignores whitespace cells but successfully deletes empty cell, column, and row definitions; however, in certain instances, a substantial number of these elements remain undeleted. For instance, in a worksheet used as a cover sheet, only 77 rows were utilized, and all rows from row \texttt{78} onwards were hidden. However, in the XML file, rows \texttt{78} to \texttt{65533} were defined along with cells from columns \texttt{A} to \texttt{F}, as demonstrated in Listing \ref{lst:row-65533}.
+Compared to our solution, \textit{Inquire} ignores whitespace cells but successfully deletes empty cell, column, and row definitions. However, in certain instances, a substantial number of these elements remain undeleted. For instance, in a worksheet used as a cover sheet, only 77 rows were utilized, and all rows from row \texttt{78} onwards were hidden. However, in the XML file, rows \texttt{78} to \texttt{65533} were defined along with cells from columns \texttt{A} to \texttt{F}, as demonstrated in Listing~\ref{lst:row-65533}.
 
-\begin{lstlisting}[caption={Row 65533 in sheetX.xml}, label={lst:row-65533}, firstnumber=590500, numbersep={-27pt}]
+\begin{lstlisting}[caption={Row 65533 in sheetX.xml}, label={lst:row-65533}]
   <row r="65533" spans="1:7" ht="0" hidden="1" customHeight="1">
     <c r="A65533" s="68" />
     <c r="B65533" s="68" />
@@ -613,20 +607,21 @@ Compared to our solution, \textit{Inquire} ignores whitespace cells but successf
 </sheetData>
 \end{lstlisting}
 
-When applying the \textit{Inquire} Add-in to such worksheets, they were not cleaned, and a dialog informed that this is because the default row height is \texttt{0}, making it impossible to clean the sheet, and hence the sheet will be skipped.
-Additionally, \textit{Inquire} lacks batch processing capabilities. As a result, multiple files cannot be processed simultaneously. Instead, each file must be opened individually. Given that large files, which are typically the ones requiring size reduction, take at least one minute to open, this process becomes quite time-consuming. Opening several large files and subsequently using the \textit{Inquire} Add-in to reduce their size involves a significant amount of time.
+When applying the \textit{Inquire} \textit{Add-in} to such worksheets, they were not cleaned. A dialog indicated that because the default row height is \texttt{0}, it is impossible to clean the sheet, and hence the sheet will be skipped.
 
-\subsection{Excel Performance Tab}
+Additionally, \textit{Inquire} lacks batch processing capabilities. As a result, multiple files cannot be processed simultaneously. Instead, each file must be opened individually. Given that large files, which are typically the ones requiring size reduction, take at least one minute to open, this process becomes quite time-consuming. Opening several large files and subsequently using the \textit{Inquire} \textit{Add-in} to reduce their size involves a significant amount of time.
+
+\subsection{Excel Check Performance}
 
 Since 2022, \textit{Excel} for Web has included a new feature named \textit{Check Performance}, and since 2023, this feature has also been available in \textit{Excel} for \textit{Windows}. It can be accessed through the \texttt{Review} tab in the Ribbon menu. In our comparison with alternative tools, this function achieved the largest reduction in file size; however, it failed to remove unneeded column definitions and cells with whitespaces.
 
-However, \textit{Check Performance} was also capable of outperforming \textit{Excel Shrink} in specific cases without altering the worksheet’s appearance. Nevertheless, it modified the worksheet in a manner that required users to perform multiple steps to revert the changes made by \textit{Check Performance}. This issue arose when a worksheet contained an actual value in a hidden row, and between this row and the next visible row, there were thousands of additional hidden rows without any values. For example, we had a worksheet whose visible ranged only to row \texttt{94} but after making the invisible rows visible to verify our observations from the XML file of the sheet we found that in row  \texttt{65536} in column \texttt{A}, the number "3" was stored, presumably by accident \cite[Sheet: \texttt{Tabelle 2.1.1}]{destatis2022Wanderungen}.
+\textit{Check Performance} was capable of outperforming \textit{Excel Shrink} in specific cases without altering the worksheet’s appearance. Nevertheless, it modified the worksheet in a manner that required users to perform multiple steps to revert the changes made by \textit{Check Performance}. This issue arose when a worksheet contained an actual value in a hidden row, and between this row and the next visible row, there were thousands of additional hidden rows without any values. For example, we had a worksheet whose visible content extended only to row \texttt{94}. After making the invisible rows visible to verify our observations from the XML file of the sheet, we found that in row \texttt{65536}, column \texttt{A}, the number \texttt{3} was stored, presumably by accident \cite[Sheet: \texttt{Tabelle 2.1.1}]{destatis2022Wanderungen}.
 
-In such scenarios, \textit{Excel Shrink} is unable to remove the hidden rows because our strategy involves removing only content outside the range of actual values and visible formatting. Since the last row within the user-designated area contains an actual value, all intervening rows must be preserved. In contrast, \textit{Check Performance} removes all these hidden rows. This action alone would typically result in the previously hidden and now deleted rows becoming visible again. To prevent this, \textit{Check Performance} employs a workaround by setting the row height to zero for the entire worksheet. This creates the illusion that the rows are deleted, when in fact they are merely not visible due to having no height.
+In such scenarios, \textit{Excel Shrink} is unable to remove the hidden rows because our strategy involves removing only content outside the range of actual values and visible formatting. Since the last row within the user-designated area contains an actual value, all intervening rows must be preserved. In contrast, \textit{Check Performance} removes all these hidden rows. This action alone would typically result in the previously hidden and now deleted rows becoming visible again. To prevent this, \textit{Check Performance} employs a workaround by setting the row height to zero for the entire worksheet. This creates the illusion that the rows are deleted when, in fact, they are merely not visible due to having no height.
 
-However, this approach presents a significant drawback for users. Once users select all rows and attempt to make them visible again, the deleted rows remain invisible. To actually make all rows visible, users must select all rows in the worksheet and assign a new height. This method is disadvantageous because it also alters the height of rows that users may have previously customized. To preserve these custom height settings, users must follow a specific procedure: first, select all rows using the Select All button, then hold down the Control key and deselect all visible rows except the last one. Consequently, only the last visible row and all hidden rows remain selected. Users can then adjust the height of all previously invisible rows using the resize handle of the last visible row, thereby making them visible again.
+However, this approach presents a significant drawback for users. Once users select all rows and attempt to make them visible again, the previously hidden rows remain invisible. To actually make all rows visible, users must select all rows in the worksheet and assign a new height. This method is disadvantageous because it also alters the height of rows that users may have previously customized. To preserve these custom height settings, users must follow a specific procedure: first, select all rows using the \textit{Select All} button, then hold down the \textit{Control} key and deselect all visible rows except the last one. Consequently, only the last visible row and all hidden rows remain selected. Users can then adjust the height of all previously invisible rows using the resize handle of the last visible row, thereby making them visible again.
 
-Given that users may be surprised when attempting to make the rows visible in the usual manner but find that the rows remain hidden, and considering that the steps required to actually make these rows visible involve a learning curve and can be time-consuming—especially when the worksheet already contains several visible cells requiring multiple scrolls to deselect the hidden rows—we decided not to adopt the same strategy as \textit{Check Performance}. Instead, we opted to retain these rows to avoid imposing additional complexity and inconvenience on the user.
+Given that users may be surprised when attempting to make the rows visible in the usual manner but find that the rows remain hidden, we decided not to adopt the same strategy as \textit{Check Performance}. Considering that the steps required to actually make these rows visible involve a learning curve and can be time-consuming—especially when the worksheet already contains several visible cells requiring multiple scrolls to deselect the hidden rows—we opted to retain these rows to avoid imposing additional complexity and inconvenience on the user.
 
 \begin{figure}[ht]
   \centering
@@ -647,11 +642,9 @@ Given that users may be surprised when attempting to make the rows visible in th
   \label{fig:performance}
 \end{figure}
 
-Additionally, \textit{Check Performance} removed cells and rows that did alter the visual appearance of worksheets. For example, the cover sheet shown in Figure \ref{fig:performance_before} was modified such that the cells responsible for whitespace on the cover sheet were removed, as illustrated in Figure \ref{fig:performance_after} \cite{destatis2022Verkehrsunfaelle}.
+Additionally, \textit{Check Performance} removed cells and rows that did alter the visual appearance of worksheets. For example, the cover sheet shown in Figure~\ref{fig:performance_before} was modified such that the cells responsible for whitespace on the cover sheet were removed, as illustrated in Figure~\ref{fig:performance_after} \cite{destatis2022Verkehrsunfaelle}.
 
-
-While this may be acceptable for a cover sheet, it poses a problem for forms such as those shown in Figure \ref{fig:table}, which consist of several empty cells forming a table that might be prepared to be filled out later \cite{destatis2023Rechnungsergebnisse}.
-The \textit{Check Performance} function in \textit{Excel} removes all these borders because they are outside the rectangle spanned by the values, as shown in Figure \ref{fig:no_table}.
+While this may be acceptable for a cover sheet, it poses a problem for forms such as those shown in Figure~\ref{fig:table}, which consist of several empty cells forming a table that might be prepared to be filled out later \cite{destatis2023Rechnungsergebnisse}. The \textit{Check Performance} function in \textit{Excel} removes all these borders because they are outside the rectangle spanned by the values, as shown in Figure~\ref{fig:no_table}.
 
 \begin{figure}[ht]
   \centering
@@ -676,6 +669,7 @@ The \textit{Check Performance} function in \textit{Excel} removes all these bord
 
 
 
+
 \begin{figure*}
   \centering
   \includegraphics[width=\textwidth]{images/charts/combined_chart_distribution_of_size_reduction.pdf}
@@ -689,7 +683,7 @@ The \textit{Check Performance} function in \textit{Excel} removes all these bord
   \label{tab:combined_top_factors}
   \begin{tabular}{p{0.45\textwidth} l r}
   \toprule
-  File & Sheet / Workbook & Reduction Factor Value (\%) \\
+  File & Sheet & Reduction Factor Value (\%) \\
   \midrule
   \multicolumn{3}{l}{\textbf{Top 5 rows for Reduction Ratio}} \\
   \midrule
@@ -739,7 +733,8 @@ The \textit{Check Performance} function in \textit{Excel} removes all these bord
   
   \section{Evaluation}
 
-In this section, we evaluate the effectiveness of the data reduction techniques applied to all \textit{Excel} files downloaded from \textit{Destatis} using a web scraper. The primary goal of this evaluation is to determine the extent of data reduction achieved through different techniques, including overall reduction, empty cell reduction, whitespace cell reduction, rows outside of value range removal, and column removal. Figure \ref{fig:size-reduction-chart} illustrates the distribution of reduction rates (in percentage) for individual worksheets across all categories, broken down by Empty Cells, Whitespace Cells, Rows Outside of Value Range, and Removed Columns. The chart indicates that some worksheets experienced reductions of nearly 100\% in file size. Specifically, one worksheet had a reduction rate of over 99.99\%, 16 worksheets exceeded 99.9\%, and 210 worksheets achieved reductions above 99\%.
+In this section, we evaluate the effectiveness of the data reduction techniques applied to all \textit{Excel} files downloaded from \textit{Destatis} using a web scraper. The primary goal of this evaluation is to determine the extent of data reduction achieved through different techniques, including overall reduction, empty cell reduction, whitespace cell reduction, rows outside of value range removal, and column removal. Figure~\ref{fig:size-reduction-chart} illustrates the distribution of reduction rates (in percentage) for individual worksheets across all categories, broken down by Empty Cells, Whitespace Cells, Rows Outside of Value Range, and Removed Columns. The chart indicates that some worksheets experienced reductions of nearly 100\% in file size. Specifically, one worksheet had a reduction rate of over 99.99\%; 16 worksheets exceeded 99.9\%; and 210 worksheets achieved reductions above 99\%. The average reduction rate across all worksheets was 25\%.
+
 
 Most reductions were accomplished by removing rows outside of the value range. The evaluation results focus on the top five files for each reduction factor, as shown in Table \ref{tab:combined_top_factors}.
 
