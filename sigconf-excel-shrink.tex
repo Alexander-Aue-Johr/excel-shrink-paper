@@ -414,12 +414,9 @@ When \textit{Excel Shrink} finds columns that are hidden, it skips removing any 
   \caption{}
   \label{fig:hidden_columns}
 \end{figure}
-
 \subsection{Deletion of Empty Cells}
 
-Some of the worksheets we examined contained vast numbers of cells without any content. The most extreme case was a worksheet with 8,141 cells containing values and 5,237,075 cells without values, meaning that only 0.15\% of the stored cells actually had a value \cite[Sheet: \texttt{csv-71717-25}]{destatis2023Rechnungsergebnisse}.
-Listing \ref{lst:cellsCsv7171725End} shows the last row of this worksheet.
-
+Some of the worksheets we examined contained vast numbers of cells without any content. The most extreme case was a worksheet with 8,141 cells containing values and 5,237,075 cells without values, meaning that only 0.15\% of the stored cells actually had a value~\cite[Sheet: \texttt{csv-71717-25}]{destatis2023Rechnungsergebnisse}. Listing~\ref{lst:cellsCsv7171725End} shows the last row of this worksheet.
 
 \begin{lstlisting}[caption={The last row in the worksheet csv-71717-25}, label={lst:cellsCsv7171725End}]
   <row r="1048576" spans="3:7" ht="12.75" customHeight="1">
@@ -434,7 +431,7 @@ Listing \ref{lst:cellsCsv7171725End} shows the last row of this worksheet.
 
 Unlike the whitespaces, these cells now contain no value and therefore do not need to be cross-referenced with the sharedStrings file. However, it is possible that such empty cells may have a background color assigned, as is the case with some cover sheets used for page design or for highlighting table headers. Additionally, these cells might have borders applied.
 
-To determine this, one must examine the \texttt{s} attribute, which stands for the style index applied to the cell. The values \texttt{s="538"}, \texttt{s="537"}, and \texttt{s="541"} correspond to indices in a lookup table where all cell styles are stored. The styles matching these style indices can be found in the \texttt{xl/styles.xml} file. The relevant excerpts are shown in Listing \ref{lst:cellXfsCsv7171725}.
+To determine this, one must examine the \texttt{s} attribute, which stands for the style index applied to the cell. The values \texttt{s="538"}, \texttt{s="537"}, and \texttt{s="541"} correspond to indices in a lookup table where all cell styles are stored. The styles matching these style indices can be found in the \texttt{xl/styles.xml} file. The relevant excerpts are shown in Listing~\ref{lst:cellXfsCsv7171725}.
 
 \begin{lstlisting}[caption={Cell styles in styles.xml for csv-71717-25}, label={lst:cellXfsCsv7171725}]
 <cellXfs count="778">
@@ -448,14 +445,22 @@ To determine this, one must examine the \texttt{s} attribute, which stands for t
   </xf>
 \end{lstlisting}
 
-The XML structure within \texttt{<cellXfs>} contains formatting properties defined for cells in an \textit{Excel} file. Each \texttt{<xf>} element represents a formatting rule. Similar to the Shared Strings file, formatting rules are indexed based on their order in the list, starting with the first at 0, the second at 1, and so on. For the IDs \texttt{s="538"}, \texttt{s="537"}, and \texttt{s="541"}, one must look for the 538th, 539th, and 542nd elements in the list, respectively. The attributes control the cell's appearance. The \texttt{numFmtId} attribute specifies the number format used for the cell, while \texttt{fontId} describes the font ID. \texttt{fillId} refers to the fill color, and \texttt{borderId} defines the border properties. \texttt{xfId} references a format template from which the cell inherits properties. The attributes \texttt{applyNumberFormat}, \texttt{applyFont}, and \texttt{applyAlignment} indicate whether the corresponding number format, font, and text alignment are applied to the cell. If the \texttt{alignment} element is present, it specifies the text alignment within the cell, such as right alignment. This structure defines the formatting rules used for the display and layout of the cell contents.
+The XML structure within \texttt{<cellXfs>} contains formatting properties defined for cells in an \textit{Excel} file. Each \texttt{<xf>} element represents a formatting rule. Similar to the Shared Strings file, formatting rules are indexed based on their order in the list, starting with the first at 0, the second at 1, and so on. For the IDs \texttt{s="538"}, \texttt{s="537"}, and \texttt{s="541"}, one must look for the 539th, 538th, and 542nd elements in the list, respectively. The attributes control the cell's appearance. The \texttt{numFmtId} attribute specifies the number format used for the cell, while \texttt{fontId} describes the font ID. \texttt{fillId} refers to the fill color, and \texttt{borderId} defines the border properties. The \texttt{xfId} references a format template from which the cell inherits properties. The attributes \texttt{applyNumberFormat}, \texttt{applyFont}, and \texttt{applyAlignment} indicate whether the corresponding number format, font, and text alignment are applied to the cell. If the \texttt{alignment} element is present, it specifies the text alignment within the cell, such as right alignment. This structure defines the formatting rules used for the display and layout of the cell contents.
 
 Inspection of these styles reveals that these cells only apply styles that are not visible for empty cells. They use different fonts, and cell \texttt{G1048576} is additionally right-aligned. Therefore, all these cells are redundant and can be deleted accordingly.
 
-Another case arises when the formatting rules include borders. If such cells are simply deleted, as occurred in previous versions of our script, the following issues arise, as seen in Figures \ref{fig:cell_borders_row_height_original} and \ref{fig:cell_borders_row_height_fail} \cite[Sheet: \texttt{2\_(1)}]{destatis2022Verkehrsunfaelle}. In Figure \ref{fig:cell_borders_row_height_original}, all borders around the cells in the table header are visible. In Figure \ref{fig:cell_borders_row_height_fail}, only the borders adjacent to cells with content remain visible. For example, the border between cells \texttt{A2} and \texttt{A3} is missing.
+Another case arises when the formatting rules include borders. If such cells are simply deleted, as occurred in previous versions of our script, issues arise, as seen in Figure~\ref{fig:cell_borders_row_height}~\cite[Sheet: \texttt{2\_(1)}]{destatis2022Verkehrsunfaelle}. In Figure~\ref{fig:cell_borders_row_height_original}, all borders around the cells in the table header are visible. In Figure~\ref{fig:cell_borders_row_height_fail}, only the borders adjacent to cells with content remain visible. For example, the border between cells \texttt{A2} and \texttt{A3} is missing.
 
 \begin{figure}[ht]
   \centering
+  \begin{subfigure}[b]{\linewidth}
+    \centering
+    \includegraphics[width=\linewidth]{images/excel_shrink/borders/borders_original.png}
+    \caption{Original version with correct cell borders and spacing}
+    \label{fig:cell_borders_row_height_original}
+  \end{subfigure}
+  \vspace{0.05cm} % Optional: Space between images
+  
   \begin{subfigure}[b]{\linewidth}
     \centering
     \includegraphics[width=\linewidth]{images/excel_shrink/borders/borders_fail.png}
@@ -463,20 +468,12 @@ Another case arises when the formatting rules include borders. If such cells are
     \label{fig:cell_borders_row_height_fail}
   \end{subfigure}
   
-  \vspace{0.05cm} % Optional: Space between images
-  
-  \begin{subfigure}[b]{\linewidth}
-    \centering
-    \includegraphics[width=\linewidth]{images/excel_shrink/borders/borders_original.png}
-    \caption{Original version with correct cell borders and spacing}
-    \label{fig:cell_borders_row_height_original}
-  \end{subfigure}
   
   \caption{Erroneous removal of cells with borders and deletion of rows with custom heights}
   \label{fig:cell_borders_row_height}
 \end{figure}
 
-Cell A2 appears in the XML as shown in Listing \ref{lst:sheet-xml-a2}.
+Cell \texttt{A2} appears in the XML as shown in Listing~\ref{lst:sheet-xml-a2}.
 
 \begin{lstlisting}[caption={Cell A2 in sheet7.xml}, label={lst:sheet-xml-a2}, firstnumber=48, numbersep={-7pt}]
 <c r="A2" s="577"/>
@@ -484,7 +481,7 @@ Cell A2 appears in the XML as shown in Listing \ref{lst:sheet-xml-a2}.
 
 Here, the style ID is \texttt{s="577"}. It defines the underlying cell formatting, which in turn includes the ID for the border definition.
 
-In the \texttt{styles.xml} file under the \texttt{<cellXfs>} node, we search for the \texttt{<xf>} node with ID \texttt{577}, which corresponds to the 578th \texttt{<xf>} node. This is shown in Listing \ref{lst:style-xml-xf-577}.
+In the \texttt{styles.xml} file under the \texttt{<cellXfs>} node, we search for the \texttt{<xf>} node with ID \texttt{577}, which corresponds to the 578th \texttt{<xf>} node. This is shown in Listing~\ref{lst:style-xml-xf-577}.
 
 \begin{lstlisting}[caption={Style with implicit ID 577 in styles.xml}, label={lst:style-xml-xf-577}, firstnumber=378]
 <xf numFmtId="0" fontId="8" fillId="2" borderId="5" xfId="0" applyFont="1" applyFill="1" applyBorder="1" applyAlignment="1"/>
@@ -492,7 +489,7 @@ In the \texttt{styles.xml} file under the \texttt{<cellXfs>} node, we search for
 
 This \texttt{<xf>} node has the \texttt{borderId} attribute set to index \texttt{5}. Similar to cell styles, this index indicates that the 6th \texttt{<border>} node within the same \texttt{styles.xml} file is referenced.
 
-Listing \ref{lst:style-xml-border-5} shows the 6th \texttt{<border>} node with implicit ID 5.
+Listing~\ref{lst:style-xml-border-5} shows the 6th \texttt{<border>} node with implicit ID 5.
 
 \begin{lstlisting}[caption={Border node with implicit ID 5 in styles.xml}, label={lst:style-xml-border-5}, firstnumber=171]
 <borders count="12">
@@ -512,24 +509,23 @@ Each \texttt{<border>} node contains the child nodes \texttt{left}, \texttt{righ
 
 \subsection{Inverted Fill}
 
-During the development of \textit{Excel Shrink}, we made an interesting discovery. We found cells that had no content, no border, but a fill definition that specified no fill should be applied. As a result, these cell definitions were deleted, and the cells turned red. We discovered that the row of the cell had the color red applied, and each cell inside got the definition that no fill should be applied to override the red fill color. As a user, one does not have any means to identify this by looking at the sheet. All the visible cells had the overridden fill color, and the rest of the cells were hidden behind hidden columns. Only after unhiding those columns did the error become evident. Errors like these make preserving the visual appearance especially difficult.
+During the development of \textit{Excel Shrink}, we made an interesting discovery. We found cells that had no content and no border but a fill definition that specified no fill should be applied. As a result, these cell definitions were deleted, and the cells turned red. We discovered that the row of the cell had the color red applied, and each cell inside had a definition that no fill should be applied to override the red fill color. As a user, one does not have any means to identify this by looking at the sheet. All the visible cells had the overridden fill color, and the rest of the cells were hidden behind hidden columns. Only after unhiding those columns did the issue become evident. Situations like these make preserving the visual appearance especially difficult.
 
-We can't just decide to delete all cells that have a style applied that tells the cell to apply no fill because such a scenario might be useful in some situations. For example, if the whole row or column is intended to have a certain style and only some cells should apply no style as an exception to the rule. At the same time, in some scenarios, this might not be intended, and the file becomes exceptionally large because some rows inadvertently have a style applied, and all cells in those rows up until the limit of possible columns define that this style should be overridden by no style.
+We cannot just decide to delete all cells that have a style applied that tells the cell to apply no fill because such a scenario might be useful in some situations. For example, if the whole row or column is intended to have a certain style and only some cells should apply no style as an exception to the rule. At the same time, in some scenarios, this might not be intended. The file becomes exceptionally large because some rows inadvertently have a style applied, and all cells in those rows up to the limit of possible columns define that this style should be overridden by no style.
 
 To reduce the file size while preventing such changes to the display, we proceed as follows. First, we determine the style of the column and the row in which the cell is located. If either the column or row has a background color defined, we check whether the cell defines the same background color. In this case, we delete the cell. If the background color information of the cell differs from that of the column or row, we retain the cell. The same applies analogously to borders. If the column or row defines a border, we check whether the cell defines the same border. In this case, we delete the cell. If the border information of the cell differs from that of the column or row, we retain the cell.
 
 \section{Deletion of Empty Rows}
 
-Similar to cells without content but with visible formatting, rows can also contain no defined cells but must not be deleted because they may have a defined height. If a row is deleted, the following issue, depicted in Figure \ref{fig:cell_borders_row_height_fail} compared to the original Figure \ref{fig:cell_borders_row_height_original}, occurs. The spacing between the header and the table shrinks because the intermediate row, which served as spacing between the header and the table, is deleted, and the default row height for the worksheet is applied, which is smaller than the custom height of the row. This row is shown in Listing \ref{lst:rowWithCustomHeight}.
+Similar to cells without content but with visible formatting, rows may contain no defined cells but still have a defined height. Such rows must not be deleted because their height can affect the worksheet's layout. If such a row is deleted, an issue occurs as depicted in Figure~\ref{fig:cell_borders_row_height_fail} compared to the original in Figure~\ref{fig:cell_borders_row_height_original}. The spacing between the header and the table shrinks because the intermediate row, which served as spacing between the header and the table, is deleted, and the default row height for the worksheet is applied, which is smaller than the custom height of the row. This row is shown in Listing~\ref{lst:rowWithCustomHeight}.
 
 \begin{lstlisting}[caption={Row with custom height}, numbersep={-7pt}, label={lst:rowWithCustomHeight}]
   <row r="2" spans="1:12" ht="8.25" customHeight="1">
 \end{lstlisting}
 
-The attribute \texttt{customHeight} means that this row has been assigned a user-defined height, specified by the \texttt{ht} attribute: \texttt{8.25}. Therefore, this row must not be deleted. However, during our examination of the worksheets, we found many that contained an immense number of empty rows, which had defined heights.
+The attribute \texttt{customHeight} means that this row has been assigned a user-defined height, specified by the \texttt{ht} attribute: \texttt{8.25}. Therefore, this row must not be deleted. However, during our examination of the worksheets, we found many that contained an immense number of empty rows which had defined heights.
 
-In the most extreme case in our analysis, a worksheet contained 1,048,576 defined rows, of which 1,048,480 rows had a defined height but were outside the data range \cite[Sheet: \texttt{Tabelle 1.2.1}]{destatis2022Wanderungen}.
-Only 94 rows had content, which corresponds to 0.00009\%. The last row is shown in Listing \ref{lst:lastRow}.
+In the most extreme case in our analysis, a worksheet contained 1,048,576 defined rows, of which 1,048,480 rows had a defined height but were outside the data range~\cite[Sheet: \texttt{Tabelle 1.2.1}]{destatis2022Wanderungen}. Only 94 rows had content, which corresponds to approximately 0.00896\%. The last row is shown in Listing~\ref{lst:lastRow}.
 
 \begin{lstlisting}[caption={The last row in the worksheet}, label={lst:lastRow}]
 <row r="1048576" ht="12.75" hidden="1" customHeight="1"/>
@@ -540,6 +536,7 @@ The 1,048,480 rows above this row are identical except for the \texttt{r} attrib
 We cannot rely on a row simply not having a defined height to decide whether it can be deleted. However, we also cannot simply delete rows that have a user-defined height, as they may be important for the worksheet's layout. Therefore, we must find another method to identify empty rows that can be safely deleted.
 
 To ensure that deleting empty rows does not alter the worksheet's visual representation, we adopt a strategy similar to that used for removing columns. First, we determine the actual range where values, background colors, or borders are defined. Then, we iterate through all empty rows and delete them only if they lie outside this range. This approach allows us to significantly reduce the file size of some worksheets without altering their content or appearance.
+
 \subsection{Deletion of Redundant Print Areas and Print Titles}
  
 Excel allows users to define the area of a worksheet that should be printed on paper. This area can be manually defined or automatically set by \textit{Excel}. In both cases, this area is stored in the \texttt{workbook.xml} file under the \texttt{<definedNames>} node~\cite{microsoft2024workbook}. Typically, this area is labeled as \texttt{\_xlnm.Print\_Area} and \texttt{\_xlnm.Print\_Titles}. However, these areas and titles are often also stored under the names \texttt{Print\_Area} and \texttt{Print\_Titles}. When \textit{Excel} opens the file, it renames the entries \texttt{Print\_Area} and \texttt{Print\_Titles} to \texttt{\_xlnm.Print\_Area} and \texttt{\_xlnm.Print\_Titles}, respectively. This process creates a problem when there is already a \textit{Defined Name} for the same worksheet with both \texttt{Print\_Area} and \texttt{\_xlnm.Print\_Area}, as seen in Listing~\ref{lst:PrintAreaRedundancy}\cite[\texttt{xl/workbook.xml}]{destatis2022Wanderungen}.
@@ -734,7 +731,7 @@ While this may be acceptable for a cover sheet, it poses a problem for forms suc
   
   \section{Evaluation}
 
-In this section, we evaluate the effectiveness of the data reduction techniques applied to all \textit{Excel} files downloaded from \textit{Destatis} using a web scraper. The primary goal of this evaluation is to determine the extent of data reduction achieved through different techniques, including overall reduction, empty cell reduction, whitespace cell reduction, rows outside of value range removal, and column removal. Figure~\ref{fig:size-reduction-chart} illustrates the distribution of reduction rates (in percentage) for individual worksheets across all categories, broken down by Empty Cells, Whitespace Cells, Rows Outside of Value Range, and Removed Columns. The chart indicates that some worksheets experienced reductions of nearly 100\% in file size. Specifically, one worksheet had a reduction rate of over 99.99\%; 16 worksheets exceeded 99.9\%; and 210 worksheets achieved reductions above 99\%. The average reduction rate across all worksheets was 25\%.
+  In this section, we evaluate the effectiveness of the data reduction techniques applied to all \textit{Excel} files downloaded from \textit{Destatis} using a web scraper. The primary goal of this evaluation is to determine the extent of data reduction achieved through different techniques, including overall reduction, empty cell reduction, whitespace cell reduction, rows outside of value range removal, and column removal. Figure~\ref{fig:size-reduction-chart} illustrates the distribution of reduction rates (in percentage) for individual worksheets across all categories, broken down by Empty Cells, Whitespace Cells, Rows Outside of Value Range, and Removed Columns. The chart indicates that some worksheets experienced reductions of nearly 100\% in file size. Specifically, one worksheet had a reduction rate of over 99.99\%; 16 worksheets exceeded 99.9\%; and 210 worksheets achieved reductions above 99\%. The average reduction rate across all worksheets was 25\%.
 
 
 Most reductions were accomplished by removing rows outside of the value range. The evaluation results focus on the top five files for each reduction factor, as shown in Table \ref{tab:combined_top_factors}.
@@ -764,7 +761,7 @@ Moreover, the analysis underscores the importance of addressing different reduct
 \section{Experimental Setup}
 \label{sec:experimental-setup}
 
-To evaluate the behavior of \textit{Excel} regarding how the files are interpreted and saved, as well as to test the behavior of the Add-ins and new features, we tested with two distinct versions of \textit{Excel} from \textit{Microsoft Office}: \textit{Microsoft Office LTSC Professional Plus 2021} and \textit{Microsoft Excel for Microsoft 365 MSO (Version 2409 Build 16.0.18025.20030) 64-bit}. These versions were selected to evaluate compatibility and performance across different Excel environments.
+To evaluate the behavior of \textit{Excel} regarding how the files are interpreted and saved, as well as to test the behavior of the \textit{Add-in} and the new \textit{Check Performance} feature, we tested with two distinct versions of \textit{Excel} from \textit{Microsoft Office}: \textit{Microsoft Office LTSC Professional Plus 2021} and \textit{Microsoft Excel for Microsoft 365 MSO (Version 2409 Build 16.0.18025.20030) 64-bit}. These versions were selected to evaluate compatibility and performance across different Excel environments.
 
 Our test machine was an \textit{Intel Core i7-4790K} quad-core CPU desktop machine running at 4.00~GHz with 16~GB of RAM. The hardware specifications were chosen to reflect a typical desktop setup for data processing tasks.
 
