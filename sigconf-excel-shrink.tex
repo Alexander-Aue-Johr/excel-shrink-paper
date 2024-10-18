@@ -548,8 +548,11 @@ To ensure that deleting empty rows does not alter the worksheet's visual represe
 
 \subsection{Deletion of Redundant Print Areas and Print Titles}
  
-\textit{Excel} allows users to define the area of a worksheet that should be printed on paper. This area can be manually defined or automatically set by \textit{Excel}. In both cases, this area is stored in the \texttt{workbook.xml} file under the \texttt{<definedNames>} node~\cite{microsoft2024workbook}. Typically, this area is labeled as \texttt{\_xlnm.Print\_Area}. Furthermore \textit{Excel} allows users to define an area that should be always on top of the printed page, like a page header. Those are stored as \texttt{\_xlnm.Print\_Titles}. However, these areas and titles are often also stored under the names \texttt{Print\_Area} and \texttt{Print\_Titles}.
-When \textit{Excel} opens the file, it renames all those entries to \texttt{\_xlnm.Print\_Area} and \texttt{\_xlnm.Print\_Titles}, respectively. This process creates a problem when there is already a \textit{Defined Name} for the same worksheet for both \texttt{Print\_Area} or \texttt{\_xlnm.Print\_Area}, as seen in Listing~\ref{lst:PrintAreaRedundancy}\cite[\texttt{xl/workbook.xml}]{destatis2022Wanderungen}. The same applies to \texttt{Print\_Titles} and \texttt{\_xlnm.Print\_Titles}. In this case, the entries cannot be automatically renamed because it would lead to redundant entries. Instead, \textit{Excel} presents a dialog to the user upon opening the file, asking the user to select a new name for the \textit{Defined Name}.
+\textit{Excel} allows users to define the area of a worksheet that should be printed on paper. This area can be manually defined or automatically set by \textit{Excel}. In both cases, this area is stored in the \texttt{workbook.xml} file under the \texttt{<definedNames>} node~\cite{microsoft2024workbook}. Typically, this area is labeled as \texttt{\_xlnm.Print\_Area}.
+\textit{Excel} also allows users to define an area that should always appear at the top of the printed page, like table headers. These are stored as \texttt{\_xlnm.Print\_Titles}. However, these areas and titles are sometimes also stored under the names \texttt{Print\_Area} and \texttt{Print\_Titles}. When \textit{Excel} opens the file, it automatically renames any \texttt{Print\_Area} and \texttt{Print\_Titles} entries to \texttt{\_xlnm.Print\_Area} and \texttt{\_xlnm.Print\_Titles}, respectively.
+
+This process creates a problem when both variants are already present workbook as seen in Listing~\ref{lst:PrintAreaRedundancy}~\cite[\texttt{xl/workbook.xml}]{destatis2022Wanderungen}. Then, renaming the variant without the leading \texttt{\_xlnm.} to the one with this prefix would result in two definitions of the same name for one worksheeet. In this case, \textit{Excel} does not automatically rename those definitions but rather, presents a dialog to the user upon opening the file, asking the user to select a new name for the \textit{Defined Name}.
+
 
 \begin{lstlisting}[caption={Redundant Print Area entries}, label={lst:PrintAreaRedundancy}, firstnumber=171]
 <definedName name="_xlnm.Print_Area" localSheetId="12">'Tabelle 2.1.1'!$A$1:$N$64748</definedName>
@@ -559,9 +562,9 @@ When \textit{Excel} opens the file, it renames all those entries to \texttt{\_xl
 
 If the first entry is renamed and the user clicks OK, the dialog reappears for the next entry. This process repeats until all redundant entries for both \texttt{Print\_Area} and \texttt{Print\_Titles} are renamed. However, the user cannot simply enter the same name repeatedly to shorten this process, as \textit{Excel} will prevent the same name from being used twice for different \textit{Defined Names} on the same worksheet.
 
-In the files we examined, there were up to 60 redundant \texttt{Print\_Area} and 55 \texttt{Print\_Titles} entries. Renaming these entries offers no advantage to the user, as these entries are only stored in the \textit{Defined Names} accessible via \textit{Excel}'s \texttt{Formulas}~$\rightarrow$~\texttt{Name Manager}. Users might think that they are repairing the \textit{Print Areas} or \texttt{Print Titles} by entering those new names, but this is not the case because those \textit{Print Areas} and \texttt{Print Titles} are already migrated correctly. In reality, the user only renames redundant \textit{Defined Names}.
+In the files we examined, there were up to 60 redundant entries for \texttt{Print\_Area} and 55 for \texttt{Print\_Titles}. Renaming these entries offers no advantage to the user, as these entries are only stored in the \textit{Defined Names} accessible via \textit{Excel}'s \texttt{Formulas}~$\rightarrow$~\texttt{Name Manager}. Users might think that they are repairing the \textit{Print Areas} or \texttt{Print Titles} by entering those new names, but this is not the case because those \textit{Print Areas} and \texttt{Print Titles} are already migrated correctly. In reality, the user only renames redundant \textit{Defined Names}.
 
-In earlier versions of our script, we did not remove redundant entries from the files. This led to the problem that we could not perform our analysis on how long the \textit{Excel} files took to open before and after reduction. The \textit{Visual Basic for Applications (VBA)} script we used to open and close the files stopped when encountering files with redundant entries. To simplify the analysis and spare users the need to manually rename redundant entries, \textit{Excel Shrink} was extended to automatically remove redundant entries.
+To spare users the need to manually rename redundant entries, \textit{Excel Shrink} was extended to automatically remove redundant entries.
 
 
 \subsection{Reporting Reduction Results}
@@ -585,7 +588,7 @@ To provide the user with a breakdown of the reduction per worksheet, it is neces
 \section{Comparison of Existing Tools}
 \label{sec:comparison}
 
-We have identified three tools that also reduce the size of \textit{Excel} files. One of these tools is a commercial program with a trial version available, named \textit{NXPowerLite Desktop}~\cite{nxpowerlite_desktop}. Another tool is an \textit{Add-in} for \textit{Excel}, called \textit{Excel Inquire}. Additionally, in the 2022 version of \textit{Excel} for Web~\cite{shirolkar2022check} and the 2024 version of \textit{Excel} for \textit{Windows}~\cite{shirolkar2024make}, \textit{Microsoft} introduced the \textit{Check Performance} feature, which allows for the reduction of \textit{Excel} file sizes. We have tested these programs and compared sample results with our tool.
+We have identified three tools that also reduce the size of \textit{Excel} files. One of these tools is a commercial program with a trial version available, named \textit{NXPowerLite Desktop}~\cite{neuxpower2024nxpowerlite}. Another tool is an \textit{Add-in} for \textit{Excel}, called \textit{Excel Inquire}. Additionally, in the 2022 version of \textit{Excel} for Web~\cite{shirolkar2022check} and the 2024 version of \textit{Excel} for \textit{Windows}~\cite{shirolkar2024make}, \textit{Microsoft} introduced the \textit{Check Performance} feature, which allows for the reduction of \textit{Excel} file sizes. We have tested these programs and compared sample results with our tool.
 
 \subsection{NXPowerLite Desktop}
 
@@ -768,7 +771,7 @@ The evaluation demonstrates that the data reduction techniques employed by \text
 
 Moreover, the analysis underscores the importance of addressing different reduction factors independently, as their impact on file size varied. While empty cell removal provided substantial reductions in certain worksheets, others benefited more from the removal of rows or columns. Notably, whitespace removal had a smaller overall impact.
 
-\section{Experimental Setup}
+\subsection{Experimental Setup}
 \label{sec:experimental-setup}
 
 To evaluate the behavior of \textit{Excel} regarding how the files are interpreted and saved, as well as to test the behavior of the \textit{Add-in} and the new \textit{Check Performance} feature, we tested with two distinct versions of \textit{Excel} from \textit{Microsoft Office}: \textit{Microsoft Office LTSC Professional Plus 2021} and \textit{Microsoft Excel for Microsoft 365 MSO (Version 2409 Build 16.0.18025.20030) 64-bit}. These versions were selected to evaluate compatibility and performance across different Excel environments.
