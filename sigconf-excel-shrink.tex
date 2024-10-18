@@ -526,11 +526,13 @@ The attribute \texttt{customHeight} means that this row has been assigned a user
 
 In the most extreme case in our analysis, a worksheet contained 1,048,576 defined rows. Of these, only 94 rows had content, which corresponds to approximately 0.00896\% of the total rows~\cite[Sheet: \texttt{Tabelle 1.2.1}]{destatis2022Wanderungen}. The remaining 1,048,482 rows had a defined height but were outside the data range.
 
+
+
 \begin{lstlisting}[caption={The last row in the worksheet}, label={lst:lastRow}]
 <row r="1048576" ht="12.75" hidden="1" customHeight="1"/>
 \end{lstlisting}
-
-After the 96th row with is the last one with content lie 1,048,480 rows that are are identical with the last row last row shown in Listing~\ref{lst:lastRow} except for the \texttt{r} attribute. They all have the same height and are hidden, as indicated by the \texttt{hidden="1"} attribute. Although they are not displayed to the user, they have a user-defined height of 12.75 units, which is why they are still stored in the file. Row 1,048,576 corresponds to the last row, which is the maximum number of rows allowed in \textit{Excel}. If \textit{Excel} allowed a higher number of rows, the wasted file storage would be significantly greater.
+After the 96th row, which is the last one with content, lie 1,048,482 rows that are identical to the last row shown in Listing~\ref{lst:lastRow}, except for the \texttt{r} attribute.
+They all have the same height and are hidden, as indicated by the \texttt{hidden="1"} attribute. Although they are not displayed to the user, they have a user-defined height of 12.75 units, which is why they are still stored in the file. Row 1,048,576 corresponds to the last row, which is the maximum number of rows allowed in \textit{Excel}. If \textit{Excel} allowed a higher number of rows, the wasted file storage would be significantly greater.
 
 We cannot rely on a row simply not having a defined height to decide whether it can be deleted. However, we also cannot simply delete rows that have a user-defined height, as they may be important for the worksheet's layout. Therefore, we must find another method to identify empty rows that can be safely deleted.
 
