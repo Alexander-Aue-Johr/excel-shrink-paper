@@ -514,7 +514,6 @@ During the development of \textit{Excel Shrink}, we made an interesting discover
 We cannot just decide to delete all cells that have a style applied that tells the cell to apply no fill because such a scenario might be useful in some situations. For example, if the whole row or column is intended to have a certain style and only some cells should apply no style as an exception to the rule. At the same time, in some scenarios, this might not be intended. The file becomes exceptionally large because some rows inadvertently have a style applied, and all cells in those rows up to the limit of possible columns define that this style should be overridden by no style.
 
 To reduce the file size while preventing such changes to the display, we proceed as follows. First, we determine the style of the column and the row in which the cell is located. If either the column or row has a background color defined, we check whether the cell defines the same background color. In this case, we delete the cell. If the background color information of the cell differs from that of the column or row, we retain the cell. The same applies analogously to borders. If the column or row defines a border, we check whether the cell defines the same border. In this case, we delete the cell. If the border information of the cell differs from that of the column or row, we retain the cell.
-
 \section{Deletion of Empty Rows}
 
 Similar to cells without content but with visible formatting, rows may contain no defined cells but still have a defined height. Such rows must not be deleted because their height can affect the worksheet's layout. If such a row is deleted, an issue occurs as depicted in Figure~\ref{fig:cell_borders_row_height_fail} compared to the original in Figure~\ref{fig:cell_borders_row_height_original}. The spacing between the header and the table shrinks because the intermediate row, which served as spacing between the header and the table, is deleted, and the default row height for the worksheet is applied, which is smaller than the custom height of the row. This row is shown in Listing~\ref{lst:rowWithCustomHeight}.
@@ -523,15 +522,15 @@ Similar to cells without content but with visible formatting, rows may contain n
   <row r="2" spans="1:12" ht="8.25" customHeight="1">
 \end{lstlisting}
 
-The attribute \texttt{customHeight} means that this row has been assigned a user-defined height, specified by the \texttt{ht} attribute: \texttt{8.25}. Therefore, this row must not be deleted. However, during our examination of the worksheets, we found many that contained an immense number of empty rows which had defined heights.
+The attribute \texttt{customHeight} means that this row has been assigned a user-defined height, specified by the \texttt{ht} attribute: \texttt{8.25}. Therefore, this row must not be deleted. However, during our examination of the worksheets, we found many that contained an immense number of empty rows, which had defined heights.
 
-In the most extreme case in our analysis, a worksheet contained 1,048,576 defined rows, of which 1,048,480 rows had a defined height but were outside the data range~\cite[Sheet: \texttt{Tabelle 1.2.1}]{destatis2022Wanderungen}. Only 94 rows had content, which corresponds to approximately 0.00896\%. The last row is shown in Listing~\ref{lst:lastRow}.
+In the most extreme case in our analysis, a worksheet contained 1,048,576 defined rows. Of these, only 94 rows had content, which corresponds to approximately 0.00896\% of the total rows~\cite[Sheet: \texttt{Tabelle 1.2.1}]{destatis2022Wanderungen}. The remaining 1,048,482 rows had a defined height but were outside the data range.
 
 \begin{lstlisting}[caption={The last row in the worksheet}, label={lst:lastRow}]
 <row r="1048576" ht="12.75" hidden="1" customHeight="1"/>
 \end{lstlisting}
 
-The 1,048,480 rows above this row are identical except for the \texttt{r} attribute. They all have the same height and are hidden, as indicated by the \texttt{hidden="1"} attribute. Although they are not displayed to the user, they have a user-defined height of 12.75 units, which is why they are still stored in the file. Row 1,048,576 also corresponds to the last row, which is the maximum number of rows allowed in \textit{Excel}. If \textit{Excel} allowed a higher number of rows, the wasted file storage would be significantly greater.
+After the 96th row with is the last one with content lie 1,048,480 rows that are are identical with the last row last row shown in Listing~\ref{lst:lastRow} except for the \texttt{r} attribute. They all have the same height and are hidden, as indicated by the \texttt{hidden="1"} attribute. Although they are not displayed to the user, they have a user-defined height of 12.75 units, which is why they are still stored in the file. Row 1,048,576 corresponds to the last row, which is the maximum number of rows allowed in \textit{Excel}. If \textit{Excel} allowed a higher number of rows, the wasted file storage would be significantly greater.
 
 We cannot rely on a row simply not having a defined height to decide whether it can be deleted. However, we also cannot simply delete rows that have a user-defined height, as they may be important for the worksheet's layout. Therefore, we must find another method to identify empty rows that can be safely deleted.
 
