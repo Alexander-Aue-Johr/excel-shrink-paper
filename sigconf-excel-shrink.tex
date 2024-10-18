@@ -64,8 +64,9 @@
 }
 
 \begin{abstract}
-  The German Federal Statistical Office (\textit{Destatis}) publishes a multitude of \textit{Excel} sheets containing statistical data. However, these files are often significantly larger than necessary due to unused cell formats, empty cells, and other inefficiencies, leading to increased storage requirements and slower data processing. In this paper, we introduce \textit{Excel Shrink}, an open-source tool that reduces the file size of these \textit{Excel} sheets by up to 99.99\%. We analyze the root causes of the excessive file sizes, describe our method for identifying and eliminating redundant content, and compare our tool with existing solutions. Our evaluation on a comprehensive dataset of \textit{Destatis} \textit{Excel} files demonstrates substantial improvements in file size reduction without altering the visual appearance of the spreadsheets.
+  The German Federal Statistical Office (\textit{Destatis}) publishes a multitude of \textit{Excel} sheets containing statistical data. However, these files are often significantly larger than necessary due to unused cell formats, empty cells, and other inefficiencies, leading to increased storage requirements and slower data processing. In this paper, we introduce \textit{Excel Shrink}, an open-source tool that reduces the file size of these \textit{Excel} sheets by up to~99.99\%. We analyze the root causes of the excessive file sizes, describe our method for identifying and eliminating redundant content, and compare our tool with existing solutions. Our evaluation on a comprehensive dataset of \textit{Destatis} \textit{Excel} files demonstrates substantial reductions in file size without altering the visual appearance of the spreadsheets.
 \end{abstract}
+
 
 \begin{CCSXML}
   <ccs2012>
@@ -112,9 +113,12 @@
 \maketitle
 \section{Introduction}
 
-Excel files are widely utilized as a format for data exchange across various domains, including finance, statistics, business, and research \cite{panko1998we}. Their versatility lies in \textit{Excel}'s capability to store tabular data, perform complex calculations, automate workflows using macros, and visually represent data through charts and graphs. This flexibility makes \textit{Excel} indispensable in many organizations. However, as spreadsheets grow in complexity, significant challenges arise regarding file size and performance management \cite{swidan2016improving}.
+Excel files are widely utilized as a format for data exchange across various domains, including finance, statistics, business, and research~\cite{panko1998we}. Their versatility lies in \textit{Excel}'s capability to store tabular data, perform complex calculations, automate workflows using macros, and visually represent data through charts and graphs. This flexibility makes \textit{Excel} indispensable in many organizations. However, as spreadsheets grow in complexity, significant challenges arise regarding file size and performance management~\cite{swidan2016improving}.
 
-Unlike simpler formats such as CSV, which transparently display stored data, \textit{Excel} files use a more complex structure. \textit{Excel} employs the \textit{Office Open XML} format, introduced in \textit{Excel 2007}, where workbook contents are stored as a collection of XML files within a compressed ZIP archive \cite{ecma376-5th2021}. This XML-based architecture enables advanced functionality, such as separating data from its presentation layer. For instance, \textit{Excel} centralizes repeated strings in a Shared String Table\cite{microsoft2024sharedstring}, thus reducing redundancy by storing each text entry once and referencing it elsewhere in the workbook. Furthermore, formatting details---such as fonts, cell styles, and colours---are stored separately from the data itself in dedicated XML files, allowing \textit{Excel} to reconstruct the sheet's visual appearance when it is opened.
+
+
+Unlike simpler formats such as CSV, which transparently display stored data, \textit{Excel} files use a more complex structure. \textit{Excel} employs the \textit{Office Open XML} format, introduced in \textit{Excel 2007}, where workbook contents are stored as a collection of XML files within a compressed ZIP archive~\cite{ecma376-5th2021}. This XML-based architecture enables advanced functionality, such as separating data from its presentation layer. For instance, \textit{Excel} centralizes repeated strings in a Shared String Table~\cite{microsoft2024sharedstring}, thus reducing redundancy by storing each text entry once and referencing it elsewhere in the workbook. Furthermore, formatting details---such as fonts, cell styles, and colors---are stored separately from the data itself in dedicated XML files, allowing \textit{Excel} to reconstruct the sheet's visual appearance when it is opened.
+
 
 \subsection{Excel’s Internal Storage Mechanisms}
 
@@ -128,9 +132,10 @@ Similarly, duplicating entire sheets within a workbook can carry over both data 
 
 A less obvious but equally impactful inefficiency arises from \textit{Excel}'s approach to managing rows and columns. \textit{Excel} maintains definitions for rows and columns even if they are not populated with data. For instance, if a user inadvertently applies formatting to an entire column but only uses a few cells, the column definition persists in the underlying XML. In some cases, we have observed \textit{Excel} files where the maximum allowable number of rows and columns were defined, significantly inflating the file size without contributing any value. Although these rows and columns were not fully utilized with data, their definitions were still present in the file, unnecessarily consuming space. These excessive definitions often remain hidden from the user's view, making them difficult to detect and remove manually.
 
-These inefficiencies not only increase storage requirements but also degrade \textit{Excel}'s performance. Larger files take longer to open, save, and modify~\cite{mack2018characterizing}. In enterprise environments, this can lead to significant delays when handling shared workbooks or automating data processing tasks through scripts and applications that interface with \textit{Excel}. The excessive size of the files puts a strain on memory and processing resources, leading to a slower user experience and increased frustration in collaborative settings where files are frequently shared or integrated with other systems. These inefficiencies, therefore, represent a considerable challenge for users working with large datasets or managing multiple \textit{Excel} files.
+These inefficiencies not only increase storage requirements, but also degrade \textit{Excel}'s performance. Larger files take longer to open, save, and modify~\cite{mack2018characterizing}. In enterprise environments, this can lead to significant delays when handling shared workbooks or automating data processing tasks through scripts and applications that interface with \textit{Excel}. The excessive size of the files puts a strain on memory and processing resources, leading to a slower user experience and increased frustration in collaborative settings where files are frequently shared or integrated with other systems. These inefficiencies, therefore, represent a considerable challenge for users working with large datasets or managing multiple \textit{Excel} files.
 
 By addressing these issues---removing redundant formatting, eliminating unused rows and columns, and optimizing the internal XML structure---significant reductions in file size and performance improvements can be achieved. This is the key focus of our open-source tool, \textit{Excel Shrink}, which identifies and eliminates these inefficiencies while preserving the visual and functional integrity of the spreadsheet.
+
 
 
 \subsection{Impact of File Bloat on Performance}
@@ -205,10 +210,6 @@ Through extensive testing, we discovered that \textit{Excel} files are exclusive
 
 Initially, we assumed that searching for the term \texttt{xlsx} would identify all publications containing \textit{Excel} file attachments. However, this search only returned about 100 results, far fewer than the actual number of \textit{Excel} files available on the \textit{Destatis} website. Furthermore, there is no option to retrieve a complete list of all publications ever created. To overcome this, we refined our strategy by searching based on publication years. A publication should appear in the search results when queried by its publication year. Although this approach returns some irrelevant results---where the publication year might appear in the text or a file attachment---the number of requests is greatly reduced by caching and reusing links to the \textit{Excel} file attachments. This ensures that the same files are not downloaded multiple times.
 
-The search results on the \textit{Destatis} website, like many others, are paginated, with the interface offering the ability to display 10, 20, or 30 entries per page. The number of results per page can be adjusted using the GET parameter \texttt{resultsPerPage=30}. While the interface does not provide an option for more than 30 results per page, we found that manually setting this parameter allowed us to request up to 100 results per page. Through testing, we confirmed that 100 is the maximum number of results that can be returned at once. We set the \texttt{resultsPerPage} parameter accordingly to reduce the number of requests further.
-
-Once the results for a page are fetched by the web scraper, we simulate clicking the ``next page'' link to load subsequent results. The XPath expression \texttt{//a[@class='forward button']/@href} is used to identify the link using the CSS class \texttt{forward button}.
-
 \begin{algorithm}
   \caption{Web Scraping and Downloading Excel Files with Caching}
   \label{alg:web_scraping_caching}
@@ -250,6 +251,10 @@ Once the results for a page are fetched by the web scraper, we simulate clicking
   \end{algorithmic}
 \end{algorithm}
 
+The search results on the \textit{Destatis} website, like many others, are paginated, with the interface offering the ability to display 10, 20, or 30 entries per page. The number of results per page can be adjusted using the GET parameter \texttt{resultsPerPage=30}. While the interface does not provide an option for more than 30 results per page, we found that manually setting this parameter allowed us to request up to 100 results per page. Through testing, we confirmed that 100 is the maximum number of results that can be returned at once. We set the \texttt{resultsPerPage} parameter accordingly to reduce the number of requests further.
+
+Once the results for a page are fetched by the web scraper, we simulate clicking the ``next page'' link to load subsequent results. The XPath expression \texttt{//a[@class='forward button']/@href} is used to identify the link using the CSS class \texttt{forward button}.
+
 Once we have queried each publication year from \texttt{2000} to \texttt{2024}, and the file attachments have been extracted from the result pages until no further ``next page'' button is available, the scraping process for the \textit{Excel} files is complete.
 
 \subsection{Respecting Crawl Delay}
@@ -272,17 +277,19 @@ Excel users lack a straightforward method to identify which cells in a worksheet
   \label{fig:whitespaces}
 \end{figure}%
 
+To detect these whitespaces, it is insufficient to examine the cell itself, as even a single space is stored by \textit{Excel} in the file for recurring texts, even if the text appears only once in the entire \textit{Excel} file. Cell \texttt{D844} appears in the XML as shown in Listing~\ref{lst:whitespaces_d844}.
+
+The row is marked by the \texttt{<row>} tag with the attribute \texttt{r="844"}, indicating that it is the 844th row. Within the row, the \texttt{<c>} tag represents a cell, identified by the attribute \texttt{r="D844"}. The attribute \texttt{t="s"} specifies the cell type; in this case, \texttt{s} stands for \textit{String}~\cite{openxml}.
+
+
+The cell's value is stored within the \texttt{<v>} tag, where the value \texttt{102} is specified. This value is interpreted as an index in a string table, referencing a specific text in a separate list defined in the \textit{Excel} file, namely the \texttt{sharedStrings.xml} file.
+
 \begin{lstlisting}[caption={Cell \texttt{D844} in \texttt{sheet28.xml}}, label={lst:whitespaces_d844}, firstnumber=48]
 <row r="844" spans="1:16" ht="14.1" customHeight="1">
   <c r="D844" s="428" t="s">
       <v>102</v>
   </c>
 \end{lstlisting}
-To detect these whitespaces, it is insufficient to examine the cell itself, as even a single space is stored by \textit{Excel} in the file for recurring texts, even if the text appears only once in the entire \textit{Excel} file. Cell \texttt{D844} appears in the XML as shown in Listing~\ref{lst:whitespaces_d844}.
-
-The row is marked by the \texttt{<row>} tag with the attribute \texttt{r="844"}, indicating that it is the 844th row. Within the row, the \texttt{<c>} tag represents a cell, identified by the attribute \texttt{r="D844"}. The attribute \texttt{t="s"} specifies the cell type; in this case, \texttt{s} stands for \textit{String}~\cite{openxml}.
-
-The cell's value is stored within the \texttt{<v>} tag, where the value \texttt{102} is specified. This value is interpreted as an index in a string table, referencing a specific text in a separate list defined in the \textit{Excel} file, namely the \texttt{sharedStrings.xml} file.
 
 Since \textit{Excel} stores even single spaces in the Shared String Table, merely inspecting the cell's content is insufficient to detect whitespaces. By examining the shared strings, we can identify entries that contain only whitespace characters or are empty, allowing us to determine which cells can be safely deleted.
 To locate the value, we must search for the \texttt{<sst>} node in the \texttt{sharedStrings.xml} file, as shown in Listing~\ref{lst:sharedStringsSst}.
@@ -321,6 +328,7 @@ The first indication of excessive column definitions can be observed in the hori
 \end{figure}%
 
 Scrolling into this area, the user may notice that among columns with uniform widths, some columns occasionally have differing widths, as shown in Figure~\ref{fig:col_s_arrow}.
+These column definitions are specified in \textit{Excel} within the file \texttt{sheetX.xml} under the \texttt{cols} node.
 
 \begin{figure}[ht]
   \centering
@@ -329,8 +337,7 @@ Scrolling into this area, the user may notice that among columns with uniform wi
   \label{fig:col_s_arrow}
 \end{figure}%
 
-These column definitions are specified in \textit{Excel} within the file \texttt{sheetX.xml} under the \texttt{cols} node. In our example, the definition of the initial columns is shown in Listing~\ref{lst:columnsFoerderprogrammeStart}.
-
+In our example, the definition of the initial columns is shown in Listing~\ref{lst:columnsFoerderprogrammeStart}.
 In this XML excerpt, the \texttt{<cols>} element represents the definition of multiple columns in an \textit{Excel} worksheet. Each \texttt{<col>} declaration contains specific information about one or more columns. The \texttt{min} and \texttt{max} attributes specify the range of columns that the \texttt{<col>} element covers. For example, \texttt{min="1" max="1"} pertains only to column \texttt{1}, while \texttt{min="5" max="9"} describes columns \texttt{5} through \texttt{9}. The \texttt{width} attribute specifies the width of the columns in \textit{Excel} units. The \texttt{customWidth="1"} attribute indicates that the column width is user-defined, meaning it has been manually adjusted rather than using the default value.
 
 The first five \texttt{<col>} definitions relate to the data range. However, the last definition, \texttt{min="10" max="18"}, pertains to a redundant range. This section defines columns that lie outside the actual data range in the worksheet, specifically columns starting from column \texttt{J}, thereby representing unnecessary or unused definitions.
@@ -491,7 +498,7 @@ In the \texttt{styles.xml} file under the \texttt{<cellXfs>} node, we search for
 <xf numFmtId="0" fontId="8" fillId="2" borderId="5" xfId="0" applyFont="1" applyFill="1" applyBorder="1" applyAlignment="1"/>
 \end{lstlisting}
 
-This \texttt{<xf>} node has the \texttt{borderId} attribute set to index \texttt{5}. Similar to cell styles, this index indicates that the 6th \texttt{<border>} node within the same \texttt{styles.xml} file is referenced.
+This \texttt{<xf>} node has the \texttt{borderId} attribute set to index \texttt{5}. Similar to cell styles, since indexing starts from zero, this index indicates that the 6th \texttt{<border>} node within the same \texttt{styles.xml} file is referenced. Listing~\ref{lst:style-xml-border-5} shows the 6th \texttt{<border>} node, which implicitly has an ID of 5 due to its position in the list.
 
 Listing~\ref{lst:style-xml-border-5} shows the 6th \texttt{<border>} node with implicit ID 5.
 
