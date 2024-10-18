@@ -554,9 +554,10 @@ The same applies to \texttt{Print\_Titles} and \texttt{\_xlnm.Print\_Titles}. In
 
 If the first entry is renamed and the user clicks OK, the dialog reappears for the next entry. This process repeats until all redundant entries for both \texttt{Print\_Area} and \texttt{Print\_Titles} are renamed. However, the user cannot simply enter the same name repeatedly to shorten this process, as \textit{Excel} will prevent the same name from being used twice for different \textit{Defined Names} on the same worksheet.
 
-In the files we examined, there were up to 60 redundant \texttt{Print\_Area} and 55 \texttt{Print\_Titles} entries. Renaming these entries offers no advantage to the user, as these entries are only stored in the \textit{Defined Names} accessible via \textit{Excel}'s \texttt{Formulas}~$\rightarrow$~\texttt{Name Manager}. The user might get the idea that he is repairing the \textit{Print Areas} or  \texttt{Print Titles} by entering those new names, but this is not the case because those \textit{Print Areas} and  \texttt{Print Titles} are already migrated correctly, in reality the user only renames redundant \textit{Defined Names}.
+In the files we examined, there were up to 60 redundant \texttt{Print\_Area} and 55 \texttt{Print\_Titles} entries. Renaming these entries offers no advantage to the user, as these entries are only stored in the \textit{Defined Names} accessible via \textit{Excel}'s \texttt{Formulas}~$\rightarrow$~\texttt{Name Manager}. Users might think that they are repairing the \textit{Print Areas} or \texttt{Print Titles} by entering those new names, but this is not the case because those \textit{Print Areas} and \texttt{Print Titles} are already migrated correctly. In reality, the user only renames redundant \textit{Defined Names}.
 
 In earlier versions of our script, we did not remove redundant entries from the files. This led to the problem that we could not perform our analysis on how long the \textit{Excel} files took to open before and after reduction. The \textit{Visual Basic for Applications (VBA)} script we used to open and close the files stopped when encountering files with redundant entries. To simplify the analysis and spare users the need to manually rename redundant entries, \textit{Excel Shrink} was extended to automatically remove redundant entries.
+
 
 \subsection{Reporting Reduction Results}
 
