@@ -468,7 +468,6 @@ Another case arises when the formatting rules include borders. If such cells are
     \label{fig:cell_borders_row_height_fail}
   \end{subfigure}
   
-  
   \caption{Erroneous removal of cells with borders and deletion of rows with custom heights}
   \label{fig:cell_borders_row_height}
 \end{figure}
@@ -505,7 +504,7 @@ Listing~\ref{lst:style-xml-border-5} shows the 6th \texttt{<border>} node with i
   </border>
 \end{lstlisting}
 
-Each \texttt{<border>} node contains the child nodes \texttt{left}, \texttt{right}, \texttt{top}, \texttt{bottom}, and \texttt{diagonal}. If these nodes lack attributes or child nodes, it means that the cell has no border. In this case, the \texttt{bottom} node has the attribute \texttt{style} set to "thin" and includes the \texttt{color} node with the attribute \texttt{indexed="64"}, indicating that the cell has a thin black line at the bottom. Cells identified through this method as having borders must not be deleted. Only cells that have neither content nor a border (i.e., their border nodes lack attributes indicating border presence) may be safely deleted.
+Each \texttt{<border>} node contains the child nodes \texttt{left}, \texttt{right}, \texttt{top}, \texttt{bottom}, and \texttt{diagonal}. If these nodes lack attributes or child nodes, it means that the cell has no border. In this case, the \texttt{bottom} node has the attribute \texttt{style} set to "thin" and includes the \texttt{color} node with the attribute \texttt{indexed="64"}, indicating that the cell has a thin black line at the bottom. Cells identified as having borders must not be deleted. Only cells that have neither content nor borders (i.e., their border nodes lack attributes indicating border presence) may be safely deleted.
 
 \subsection{Inverted Fill}
 
