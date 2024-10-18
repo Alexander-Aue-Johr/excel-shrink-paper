@@ -744,31 +744,33 @@ In this section, we evaluate the effectiveness of the data reduction techniques 
 Most reductions were accomplished by removing rows outside of the value range. The evaluation results focus on the top five files for each reduction factor, as shown in Table \ref{tab:combined_top_factors}.
 
 \subsection{Overall Reduction Ratio}
-The top five sheets with the highest overall reduction ratios are all from the same file, with reduction ratios ranging between 99.95\% and 99.99\%. This indicates that almost all data in these sheets was file bloat  which was successfully eliminated. The repetition of this file in the subsequent table suggests that the high reduction is primarily attributable to a specific reduction category.
+The top five worksheets with the highest overall reduction ratios are all from the same file, with reduction ratios ranging between 99.95\% and 99.99\%. This indicates that almost all data in these sheets consisted of file bloat that was successfully eliminated. The repetition of this file in the subsequent table suggests that the high reduction is primarily attributable to a specific reduction category.
  
 \subsection{Rows Outside of Value Range Reduction Ratio}
 
 The majority of unnecessary data consisted of rows outside the value range, with reduction ratios between 99.94\% and 99.99\% in the top five files. This suggests that the largest portions of redundant data were predominantly from a single category rather than a combination of different categories.
 
 \subsection{Empty Cell Reduction Ratio}
-Empty cell removal achieved significant reductions, with ratios between 99.90\% and 99.91\% in the top five files. Notably, three different files were affected, although the worksheets shared the same name. This suggests that these explanatory worksheets might be duplicated from one \textit{Excel} file into the other or the whole file was duplicated, leading to a similar number of empty cells across them.
+Empty cell removal achieved significant reductions, with ratios between 99.90\% and 99.91\% in the top five files. Notably, three different files were affected, although the worksheets shared the same name. This suggests that these explanatory worksheets might have been duplicated from one \textit{Excel} file to another, or the entire file was duplicated, leading to a similar number of empty cells across them.
 
 \subsection{Removed Columns Reduction Ratio}
-Removing unnecessary column definitions resulted in reduction ratios ranging from 92.43\% to 94.38\% in the top five files. Similar worksheet names were again noticeable, implying that duplicated worksheets carried over most of the file size which was file bloat by unused column definitions.
+Removing unnecessary column definitions resulted in reduction ratios ranging from 92.43\% to 94.38\% in the top five worksheets. Similar worksheet names were again noticeable, implying that duplicated worksheets carried over a significant amount of file bloat due to unused column definitions.
 
 \subsection{Whitespace Cell Reduction Ratio}
-Whitespace cell removal was the least effective in reducing file size. The top sheet still had a notable 79.71\% of the file size attributed to whitespaces, while the second entry dropped to 44.68\%, and the last three entries were around one-third. Except for the last two files, the top five files were distinct. However, similar worksheet names and the proportion of whitespace sizes relative to the total content indicate that redundant file contents might have carried over to the other worksheet by duplicating the worksheet.
+Whitespace cell removal was the least effective in reducing file size. The top sheet still had a notable 79.71\% of the file size attributed to whitespaces, while the second entry dropped to 44.68\%, and the last three entries were around one-third. With the exception of the last two files, the top five were distinct. However, the similar worksheet names and high proportion of whitespace suggest that redundant content might have been carried over to other worksheets through duplication.
+
 \subsection{Summary of Findings}
 
-The evaluation demonstrates that the data reduction techniques employed by \textit{Excel Shrink} are highly effective in eliminating redundant, empty, or irrelevant data across a variety of \textit{Excel} sheets. Significant reductions—exceeding 99\% in several cases—were achieved in sheets containing a high proportion of empty cells, whitespace, or irrelevant rows and columns. These results highlight the robustness of our reduction methods in processing diverse data formats and structures.
+The evaluation demonstrates that the data reduction techniques employed by \textit{Excel Shrink} are highly effective in eliminating redundant, empty, or irrelevant data across a variety of \textit{Excel} worksheets. Significant reductions—exceeding 90\% in several cases—were achieved in sheets containing a high proportion of empty cells, or irrelevant rows and columns. These results highlight the robustness of our reduction methods in processing diverse data formats and structures.
 
-Moreover, the analysis underscores the importance of addressing different reduction factors independently, as their impact on file size varied. While empty cell removal provided substantial reductions in certain sheets, others benefited more from the removal of rows or columns. Notably, whitespace removal had a smaller overall impact, suggesting areas for potential future optimization.
-
+Moreover, the analysis underscores the importance of addressing different reduction factors independently, as their impact on file size varied. While empty cell removal provided substantial reductions in certain worksheets, others benefited more from the removal of rows or columns. Notably, whitespace removal had a smaller overall impact.
 
 \section{Experimental Setup}
 \label{sec:experimental-setup}
 
-To evaluate the behavior of \textit{Excel} regarding how the files are interpreted and saved, as well as to test the behavior of the Add-ins and new Features, we tested with \textit{Excel} of two distinct versions of \textit{Microsoft Office: Microsoft Office LTSC Professional Plus 2021} and \textit{Microsoft® Excel® for Microsoft 365 MSO (Version 2409 Build 16.0.18025.20030) 64-bit}.
+To evaluate the behavior of \textit{Excel} regarding how the files are interpreted and saved, as well as to test the behavior of the Add-ins and new features, we tested with two distinct versions of \textit{Excel} from \textit{Microsoft Office}: \textit{Microsoft Office LTSC Professional Plus 2021} and \textit{Microsoft Excel for Microsoft 365 MSO (Version 2409 Build 16.0.18025.20030) 64-bit}. These versions were selected to evaluate compatibility and performance across different Excel environments.
+
+Our test machine was an \textit{Intel Core i7-4790K} quad-core CPU desktop machine running at 4.00~GHz with 16~GB of RAM. The hardware specifications were chosen to reflect a typical desktop setup for data processing tasks.
 
 Our test machine was an \textit{Intel(R) Core(TM) i7-4790K} quad-core CPU
 desktop machine running at 4.00GHz with 16GB of RAM.
