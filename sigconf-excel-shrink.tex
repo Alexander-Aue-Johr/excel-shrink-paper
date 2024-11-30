@@ -1,4 +1,4 @@
-\documentclass[sigconf,anonymous]{acmart}
+\documentclass[acmsmall,review,anonymous]{acmart}
 \usepackage{booktabs}
 
 \usepackage{algorithm}
@@ -417,7 +417,7 @@ When \textit{Excel Shrink} detects hidden columns, it avoids removing them to en
 \subsection{Deletion of Empty Cells}
 
 Some of the worksheets we examined contained vast numbers of cells without any content. The most extreme case was a worksheet with 8,141 cells containing values and 5,237,075 cells without values, meaning that only 0.15\% of the stored cells actually had a value~\cite[Sheet: \texttt{csv-71717-25}]{destatis2023Rechnungsergebnisse}. Listing~\ref{lst:cellsCsv7171725End} shows the last row of this worksheet.
-
+ 
 \begin{lstlisting}[caption={The last row in the worksheet csv-71717-25}, label={lst:cellsCsv7171725End}]
   <row r="1048576" spans="3:7" ht="12.75" customHeight="1">
     <c r="C1048576" s="538"/>
