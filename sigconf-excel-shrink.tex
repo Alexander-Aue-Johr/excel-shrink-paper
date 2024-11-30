@@ -64,8 +64,13 @@
 }
 
 \begin{abstract}
-  The German Federal Statistical Office (\textit{Destatis}) publishes a multitude of \textit{Excel} sheets containing statistical data. However, these files are often significantly larger than necessary due to unused cell formats, empty cells, and other inefficiencies, leading to increased storage requirements and slower data processing. In this paper, we introduce \textit{Excel Shrink}, an open-source tool that reduces the file size of these \textit{Excel} sheets by up to 99.99\%. We analyze the root causes of the excessive file sizes, describe our method for identifying and eliminating redundant content, and compare our tool with existing solutions. Our evaluation on a comprehensive dataset of \textit{Destatis} \textit{Excel} files demonstrates substantial improvements in file size reduction without altering the visual appearance of the spreadsheets.
-\end{abstract}
+  Excel files are widely utilized as a format for data exchange across various domains. However, as spreadsheets grow in complexity, significant challenges arise regarding file size and performance management \cite{swidan2016improving, mack2018characterizing}.
+  Wir untersuchten excel dateien unter anderem von dem German Federal Statistical Office (\textit{Destatis}) und beobachteten sehr lange ladezeiten sowohl in microsoft excel als auch in softeare packages zum auslesen von excel dateien, bis hin zu programmabstützen bedingt durch out of memory exceptions während des ladens dieser dateien. Wir haben den quellcode dieser Dateien untersucht. Die dateien enthielten formatdefinitionen die für den nutzer unsichtbar sind. Diese Formatdefinitionen namen orders of magnitude mehr speicherplatz ein, als die eigentlichen daten.
+  While some proprietary tools attempt to address this issue, they are closed-source and do not disclose the underlying causes of file bloat. Moreover, these tools often fail to fully resolve the problem or introduce new issues, such as altering the visual apearance of spreadsheets.
+  In this paper, we present a comprehensive analysis of the root causes of Excel file bloat, documenting issues, die von proprietary tools bereits behoben werden aber undokumentiert blieben, aber außerdem uncovering issues die previously nicht von proprietary tools behoben wurden. Wir analisierten auch, aus welchem grund proprietary tools die visuelle Integrität der Dateien beeinträchtigen haben.
+  We developed an open-source tool, Excel Shrink, welches effektiv die gleichen root causes of Excel file bloat behebt als auch die root causes of Excel file bloat behebt, die bisher kein proprietary tools entfernt hat.
+  Um unser Tool zu testen haben wir alle Excel Dateien vom German Federal Statistical Office (\textit{Destatis}) heruntergeladen und mit unserem Tool optimiert. Wir haben die Dateigrößen vor und nach der Optimierung verglichen und festgestellt, dass unser Tool die Dateigrößen um bis zu 99.99\% reduzieren kann, ohne die visuelle Integrität der Dateien zu beeinträchtigen.
+  \end{abstract}
 
 \begin{CCSXML}
   <ccs2012>
@@ -111,10 +116,37 @@
 
 \maketitle
 \section{Introduction}
+  
+Excel files are widely utilized as a format for data exchange across various domains, including finance, statistics, business, and research \cite{panko1998we}. Their versatility lies in \textit{Excel}'s capability to store tabular data, perform complex calculations, automate workflows using macros, and visually represent data through charts and graphs. This flexibility makes \textit{Excel} indispensable in many organizations. However, as spreadsheets grow in complexity, significant challenges arise regarding file size and performance management \cite{swidan2016improving, mack2018characterizing}.
 
-Excel files are widely utilized as a format for data exchange across various domains, including finance, statistics, business, and research \cite{panko1998we}. Their versatility lies in \textit{Excel}'s capability to store tabular data, perform complex calculations, automate workflows using macros, and visually represent data through charts and graphs. This flexibility makes \textit{Excel} indispensable in many organizations. However, as spreadsheets grow in complexity, significant challenges arise regarding file size and performance management \cite{swidan2016improving}.
+The German Federal Statistical Office (\textit{Destatis}) publishes a multitude of \textit{Excel} sheets containing statistical data~\cite{destatis}. Users of these datasets have reported that many of these files are excessively large, taking several seconds to open and causing performance issues in both manual and automated data processing tasks. In extreme cases, applications attempting to read these files may crash due to memory overload. Understanding the underlying causes of this file bloat is non-trivial due to the complex and opaque internal structure of \textit{Excel} files.  
+Existing tools and features, such as the \textit{Excel Performance} tab, \textit{NXPowerLite Desktop}, and the \textit{Inquire} Add-in, aim to reduce \textit{Excel} file sizes. However, these tools have notable limitations:
 
-Unlike simpler formats such as CSV, which transparently display stored data, \textit{Excel} files use a more complex structure. \textit{Excel} employs the \textit{Office Open XML} format, introduced in \textit{Excel 2007}, where workbook contents are stored as a collection of XML files within a compressed ZIP archive \cite{ecma376-5th2021}. This XML-based architecture enables advanced functionality, such as separating data from its presentation layer. For instance, \textit{Excel} centralizes repeated strings in a Shared String Table\cite{microsoft2024sharedstring}, thus reducing redundancy by storing each text entry once and referencing it elsewhere in the workbook. Furthermore, formatting details—such as fonts, cell styles, and colours—are stored separately from the data itself in dedicated XML files, allowing \textit{Excel} to reconstruct the sheet's visual appearance when it is opened.
+\begin{itemize}
+    \item \textbf{Closed Source and Lack of Transparency:} All existing tools are proprietary and do not disclose the underlying methods they use to address file bloat. This opacity prevents users and researchers from understanding the root causes of the problem and limits the potential for further optimization.
+    \item \textbf{Incomplete Solutions:} These tools often fail to fully resolve the issue, neglecting certain types of redundant content such as unnecessary column definitions. This means that significant portions of file bloat remain unaddressed.
+    \item \textbf{Alteration of Visual Appearance:} In some cases, particularly with the \textit{Excel Performance} tab, these tools significantly alter the visual appearance of spreadsheets. For users who need to preserve the original formatting, such changes are unacceptable.
+    \item \textbf{???} Die Tools können nicht automatisiert alle Dateien auf einmal optimieren. Excel Funktionen bzw. Plugins wie Inquire und der Performance Tab erfordern jede Datei einzeln zu öffnen. Ein automatisiertes anwenden der Funktionen bzw. Plugins mittels VBA Scribt funktioniert nicht, da manche redundanzen in Excel Dateien dafür sorgen, dass Excel beim öffnen der Datei den Nutzer mit dialogen auffordert, die redundanzen manuell zu beheben und somit die Automatisierung stoppt. NXPowerLite Desktop limitiert dagegen die Anzahl der zu optimierten Dateien künstlich auf 20 Dateien.
+\end{itemize}
+
+Our research was motivated by the need to understand and address these shortcomings. We set out to identify the specific causes of file bloat in \textit{Destatis} \textit{Excel} files and to develop a solution that overcomes the limitations of existing tools. This involved:
+\begin{itemize}
+  \item \textbf{Analyzing the Root Causes of File Bloat:} We performed a systematic investigation into why \textit{Excel} files become excessively large, focusing on hidden inefficiencies such as redundant column definitions and unused cell formats that have not been previously documented in the scientific literature.
+  \item \textbf{Reverse Engineering Existing Tools:} Without access to the source code of existing proprietary tools, we had to reverse-engineer their behavior by analyzing the differences in XML structures before and after processing. This helped us understand their limitations and unintended consequences, such as altering the visual appearance of spreadsheets.
+  \item \textbf{Developing a Superior Solution:} We created \textit{Excel Shrink}, an open-source tool that effectively reduces file sizes by addressing all identified causes of file bloat without altering the spreadsheets' appearance.
+\end{itemize}
+
+Our contributions can be summarized as follows:
+
+\begin{itemize}
+    \item We provide the first comprehensive analysis of the root causes of file bloat in \textit{Destatis} \textit{Excel} files, uncovering previously undocumented issues such as unnecessary row, column and cell definitions, whitespace cells and Print Areas and Print Titles.
+    \item We reveal the limitations of existing proprietary tools, explaining why they fail to fully address file bloat and how they can unintentionally alter the visual appearance of spreadsheets.
+    \item We develop \textit{Excel Shrink}, an open-source tool that surpasses existing solutions by effectively reducing file sizes while preserving the visual formatting of \textit{Excel} files.
+    \item Wir integrieren \textit{Excel Shrink} in eine Grafische Nutzeroberfläche \textit{Excel Shrink UI}, die es jedem Nutzer ermöglicht, ohne die Notwendigkeit von \textit{Python} oder Kommandozeilenwerkzeugen, seine \textit{Excel} Dateien zu optimieren.
+    \item We evaluate \textit{Excel Shrink} on a comprehensive dataset of \textit{Destatis} \textit{Excel} files, demonstrating substantial improvements in file size reduction.
+\end{itemize}
+
+By addressing the previously unexplored problem of hidden redundancies in \textit{Excel} files and providing a transparent, open-source solution, our work fills a significant gap in the field of spreadsheet optimization.
 
 \subsection{Excel’s Internal Storage Mechanisms}
 
@@ -138,28 +170,42 @@ By addressing these issues—removing redundant formatting, eliminating unused r
 
 Our work with datasets from the German Federal Statistical Office (\textit{Destatis})\cite{destatis} exemplifies these performance challenges. The \textit{Excel} files we analyzed contained substantial redundant content, including unused rows, columns, and formatting definitions, which contributed to their excessive size and slow processing times. Some of these files exceeded several hundreds of megabytes in their uncompressed form, taking an unusually long time to open and save, both in \textit{Excel} and through automated means.
 
-\subsection{Analyzing Redundant Content in Excel Files}
+\section{Analyzing Redundant Content in Excel Files}
+\label{sec:analysis}
 
 Redundant content in \textit{Excel} files manifests in various forms, each contributing to file bloat in different ways. The most prevalent types of redundancy include:
 
 \begin{itemize}
     \item \textbf{Empty but formatted cells:} When users apply formatting (such as fonts, colours, or borders) to large ranges of cells, the formatting persists even in cells that contain no data. This results in thousands of empty cells consuming unnecessary space without any visible effect on the sheet's content.
     \item \textbf{Unused rows and columns:} Entire rows or columns may be defined within the workbook's XML structure despite containing no data. These unnecessary definitions contribute to bloating the file size.
-    \item \textbf{Duplicated sheets:} Users often copy entire sheets for convenience, inadvertently duplicating redundant structures such as empty cells with formatting or hidden rows and columns.
+    \item \textbf{Print Areas and Print Titles:} Some Print Areas and Print Titles may be defined via names that were used by older versions of \textit{Excel} but were not migrated to the current version. These definitions remain in the file, consuming space without serving any purpose and forcing the user to manually rename them upon opening the file because they cause name conflicts, which makes batch processing these files with VBA impossible because each dialog halts the automation.
 \end{itemize}
 
 To quantify the impact of these redundancies, we performed a detailed analysis of \textit{Excel} files from \textit{Destatis}. Our investigation revealed that many files contained vast amounts of poorly structured or unused content that provided no functional benefit. In extreme cases, we discovered that worksheets contained definitions for rows and columns extending to \textit{Excel}'s maximum limits, despite containing no data. By removing these excess elements, we were able to reduce file sizes by as much as 99.99\% in some instances.
 
-\subsection{Related Work on Excel File Optimization}
+\section{Related Work}
+\label{sec:related-work}
 
-Several tools and techniques have been developed to mitigate \textit{Excel} file bloat. These include commercial software, an \textit{Excel} \textit{Add-in}, and a built-in \textit{Excel} feature designed to remove redundant content and reduce file sizes. However, most existing tools have notable limitations. All are restricted to processing only one or a limited number of files, or are constrained to specific \textit{Excel} versions or enterprise environments. Furthermore, these tools either fail to remove all redundant content or inadvertently alter the sheet's visual appearance, making them unsuitable for users who need to preserve the layout of their workbooks. See Section~\ref{sec:comparison}.
+Several tools and techniques have been developed to mitigate \textit{Excel} file bloat, including proprietary software like \textit{NXPowerLite Desktop}, the \textit{Excel Inquire} Add-in, and the built-in \textit{Check Performance} feature in recent versions of \textit{Excel}. However, these tools have notable limitations.
+
+\subsection{NXPowerLite Desktop}
+
+\textit{NXPowerLite Desktop} is a commercial program primarily designed to compress embedded images in \textit{Excel} files~\cite{nxpowerlite_desktop}. While it can remove some empty cells, it ignores other sources of file bloat such as cells containing only whitespaces and redundant column definitions, Print Areas and Print Titles. Moreover, being closed-source, erlaubt es uns nicht das beheben übrigen file bloat ursachen zu contributen oder die künstliche limitierung auf maximal 20 Dateien zu umgehen.
+
+\subsection{Excel Inquire Add-in}
+
+The \textit{Excel Inquire} Add-in, available only for certain enterprise versions of \textit{Excel}, can remove some redundant content~\cite{o2014excel}. However, it lacks batch processing capabilities, making it impractical for large datasets. Additionally, it fails to identify and remove many redundant rows and columns, particularly those with custom properties like hidden rows or custom heights. Außerdem ignoriert es whitespace cells und  Print Areas and Print Titles.
+
+\subsection{Excel Check Performance}
+
+The \textit{Check Performance} feature introduced in \textit{Excel} for Web and recent desktop versions can achieve significant file size reductions~\cite{shirolkar2022check,shirolkar2024make}. However, it often alters the visual appearance of spreadsheets by removing cells and rows that impact formatting and layout. This side effect is unacceptable in contexts where preserving the visual integrity of the spreadsheet is crucial. Furthermore, it does not address certain types of redundancies, such as unnecessary column definitions, which we have identified as significant contributors to file size.
+
+\subsection{Limitations of Existing Tools}
+
+None of these existing tools address all types of redundant content. By identifying these gaps, we recognized the need for a solution that not only reduces file sizes more effectively but also preserves the visual integrity of the spreadsheets. Our work fills this gap by providing a detailed analysis of the root causes of \textit{Excel} file bloat and an open-source tool that effectively addresses these issues without compromising the visual layout of spreadsheets.
 
 
-
-These limitations underscore the need for a more robust, scalable solution. To address this gap, we developed our open-source tool, \textit{Excel Shrink}, capable of processing large batches of \textit{Excel} files while maintaining the integrity of the spreadsheet layout.
-
-
-\subsection{Our Contribution: Excel Shrink}
+\section{Excel Shrink}
 
 To combat the issues posed by file bloat in \textit{Excel} files, we introduce \textit{Excel Shrink}~\cite{excel-shrink}, an open-source tool written in \textit{Python}~\cite{python2024} designed to efficiently reduce the size of \textit{Excel} files by removing redundant content. The tool conducts an in-depth analysis of the workbook's XML structure to identify and eliminate unnecessary elements, including empty but formatted cells, unused rows, and columns.
 
@@ -587,8 +633,6 @@ The program \textit{NXPowerLite Desktop} is commercial software~\cite{nxpowerlit
 \subsection{Inquire Add-in}
 
 \textit{Inquire} is an \textit{Add-in} for \textit{Excel}~\cite{o2014excel}, available exclusively for \textit{Excel} versions within \textit{Office Professional Plus} and \textit{Microsoft 365 Apps for Enterprise}. Other versions, such as \textit{Office Home}, \textit{Microsoft 365 Family} or \textit{Single}, and \textit{Microsoft 365 Business}, do not support this \textit{Add-in}.
-
-To activate the \textit{Add-in}, the following steps must be taken. Navigate to the \texttt{File} menu and select \texttt{Options}. This opens a dialog where one clicks on \texttt{Add-ins}. In the \texttt{COM Manage} dropdown, select \texttt{COM Add-ins}, and then click on \texttt{Go...}. In the subsequently opened dialog, the \textit{Inquire} \textit{Add-in} can be activated. If the \textit{Inquire} \textit{Add-in} does not appear in the dialog, it is due to the use of an unsupported version of \textit{Excel}.
 
 Compared to our solution, \textit{Inquire} ignores whitespace cells but successfully deletes empty cell, column, and row definitions. However, in certain instances, a substantial number of these elements remain undeleted. For instance, in a worksheet used as a cover sheet, only 77 rows were utilized, and all rows from row \texttt{78} onwards were hidden. However, in the XML file, rows \texttt{78} to \texttt{65533} were defined along with cells from columns \texttt{A} to \texttt{F}, as demonstrated in Listing~\ref{lst:row-65533}.
 
