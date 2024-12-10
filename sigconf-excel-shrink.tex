@@ -159,7 +159,7 @@ Several tools and techniques have been developed to reduce \textit{Excel} file b
 
 \subsection{NXPowerLite Desktop}
 
-\textit{NXPowerLite Desktop} is a commercial application primarily focused on compressing embedded images in \textit{Excel} files~\cite{nxpowerlite_desktop}. Although it can remove some empty cells, it disregards other sources of file bloat such as cells containing only whitespace and redundant column definitions.
+\textit{NXPowerLite Desktop} is a commercial application primarily focused on compressing embedded images in \textit{Excel} files~\cite{neuxpower2024nxpowerlite}. Although it can remove some empty cells, it disregards other sources of file bloat such as cells containing only whitespace and redundant column definitions.
 
 The tool offers limited batch functionality, allowing users to select and process multiple files simultaneously, but only up to a maximum of 20 files at once. Being closed-source, it does not provide a means to adjust this artificial limit, further motivating the need for a more flexible, open-source solution.
 
@@ -284,11 +284,9 @@ Within the \texttt{<si>} element is a \texttt{<t>} element containing the actual
 
 \subsection{Deletion of Empty Columns}
 
-The first indication of excessive column definitions can be observed in the horizontal scrollbar when opening the worksheet, as shown in Figure~\ref{fig:col_scrollbar_arrow}~\cite[Sheet: \texttt{0902\_T\_NW}]{destatis2023Foerderprogramme}. If the entire data range is already within the visible area and yet the scrollbar thumb is very narrow and small compared to the scrollable area, it indicates that a large number of column definitions are making the worksheet significantly wider than the actual data range.
-Scrolling into this area, the user may notice that among columns with uniform widths, some columns occasionally have differing widths, as shown in Figure~\ref{fig:col_s_arrow}.
+An initial sign of excessive column definitions becomes apparent when observing the horizontal scrollbar. As illustrated in Figure~\ref{fig:col_scrollbar_arrow}~\cite[Sheet: \texttt{0902\_T\_NW}]{destatis2023Foerderprogramme}, if the complete data range is visible yet the scrollbar thumb remains extremely narrow relative to the scrollable area, it suggests that numerous redundant column definitions extend well beyond the actual data range.
+By scrolling into these regions, users may notice that among columns with uniform widths, some columns occasionally have differing widths, as shown in Figure~\ref{fig:col_s_arrow}. Such anomalies further indicate the presence of unnecessary columns contributing to file bloat.
 
-
-  
 \begin{figure}[ht]
   \centering
   \begin{subfigure}[b]{0.48\linewidth}
@@ -297,17 +295,16 @@ Scrolling into this area, the user may notice that among columns with uniform wi
     \caption{Very wide scrollable area and very narrow scrollbar thumb}
     \label{fig:col_scrollbar_arrow}
   \end{subfigure}
-  \hspace{0.01\linewidth} % Space between images
+  \hspace{0.01\linewidth}
   \begin{subfigure}[b]{0.48\linewidth}
     \centering
     \includegraphics[width=\textwidth]{images/excel_shrink/cols/col_s_arrow.png}
-    \caption{Custom Column Width for a Column Outside the Data Range}
+    \caption{Custom column width for a column outside the data range}
     \label{fig:col_s_arrow}
   \end{subfigure}
-  \caption{}
+  \caption{Indicators of unnecessary column definitions extending beyond the actual data range.}
   \label{fig:col_scrollbar_and_col_s}
 \end{figure}
-
 
 
 
@@ -332,7 +329,7 @@ During our investigations, we could not determine how these column definitions o
 \begin{figure}[ht]
   \centering
   \includegraphics[width=\linewidth]{images/excel_shrink/cols/col_w2.png}
-  \caption{Excessive Column Definitions in a Worksheet}
+  \caption{Excessive column definitions in a worksheet}
   \label{fig:col_w}
 \end{figure}%
 
@@ -559,7 +556,7 @@ To provide a breakdown of how many bytes were saved by deleting whitespaces, emp
 \begin{figure*}
   \centering
   \includegraphics[width=\textwidth]{images/charts/combined_chart_distribution_of_size_reduction.pdf}
-  \caption{Distribution of Size Reduction Percentages for Excel Sheets}
+  \caption{Distribution of size reduction percentages for Excel sheets}
   \label{fig:size-reduction-chart}
 \end{figure*}
 
