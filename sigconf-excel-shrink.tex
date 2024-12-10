@@ -304,7 +304,7 @@ By scrolling into these regions, users may notice that among columns with unifor
   \end{subfigure}
   \caption{Indicators of unnecessary column definitions extending beyond the actual data range.}
   \label{fig:col_scrollbar_and_col_s}
-\end{figure}
+\end{figure} 
 
 
 
@@ -519,9 +519,8 @@ These rows all have the same height and are hidden, as indicated by the \texttt{
 We cannot rely on a row simply not having a defined height to decide whether it can be deleted. However, we also cannot simply delete rows that have a user-defined height, as they may be important for the worksheet's layout. Therefore, we must find another method to identify empty rows that can be safely deleted.
 
 To ensure that deleting empty rows does not alter the worksheet's visual representation, we adopt a strategy similar to that used for removing columns. First, we determine the actual range where values, background colors, or borders are defined. Then, we iterate through all empty rows and delete them only if they lie outside this range. This approach allows us to significantly reduce the file size of some worksheets without altering their content or appearance.
-
 \subsection{Deletion of Redundant Print Areas and Print Titles}
- 
+
 Excel allows users to define the area of a worksheet that should be printed on paper. This area can be manually defined or automatically set by \textit{Excel}. In both cases, this area is stored in the \texttt{workbook.xml} file under the \texttt{<definedNames>} node~\cite{microsoft2024workbook}. Typically, this area is labeled as \texttt{\_xlnm.Print\_Area} and \texttt{\_xlnm.Print\_Titles}. However, these areas and titles are often also stored under the names \texttt{Print\_Area} and \texttt{Print\_Titles}. When \textit{Excel} opens the file, it renames the entries \texttt{Print\_Area} and \texttt{Print\_Titles} to \texttt{\_xlnm.Print\_Area} and \texttt{\_xlnm.Print\_Titles}, respectively. This process creates a problem when there is already a \textit{Defined Name} for the same worksheet with both \texttt{Print\_Area} and \texttt{\_xlnm.Print\_Area}, as seen in Listing~\ref{lst:PrintAreaRedundancy}\cite[\texttt{xl/workbook.xml}]{destatis2022Wanderungen}.
 
 \begin{lstlisting}[caption={Redundant Print Area entries}, label={lst:PrintAreaRedundancy}, firstnumber=171]
@@ -530,28 +529,15 @@ Excel allows users to define the area of a worksheet that should be printed on p
 <definedName name="Print_Area" localSheetId="12">'Tabelle 2.1.1'!$A$1:$N$93</definedName>
 \end{lstlisting}
 
-The same applies to \texttt{Print\_Titles} and \texttt{\_xlnm.Print\_Titles}. In this case, the entries cannot be renamed because it would lead to redundant entries. Instead, \textit{Excel} presents a dialog to the user upon opening the file, asking the user to select a new name for the \textit{Defined Name}.
+A similar issue occurs with \texttt{Print\_Titles} and \texttt{\_xlnm.Print\_Titles}. In these cases, \textit{Excel} cannot simply rename the entries without causing duplicates. Instead, it displays a dialog box prompting the user to select a new name for each redundant \textit{Defined Name} upon file opening.
 
-If the first entry is renamed and the user clicks OK, the dialog reappears for the next entry. This process repeats until all redundant entries for both \texttt{Print\_Area} and \texttt{Print\_Titles} are renamed. However, the user cannot simply enter the same name repeatedly to shorten this process, as \textit{Excel} will prevent the same name from being used twice for different \textit{Defined Names} on the same worksheet. Dieser Dialog verhinder auch, die Dateien mit VBA automatisiert zu öffnen um mittels des Plugins Inquire oder dem Excel Performance Tab die Dateigröße zu verringer, da beim öffnen jeder Datei über VBA dieser Dialog auftaucht und die automatisierung anhält.  
+If the user renames the first entry and clicks \emph{OK}, the dialog reappears for each subsequent redundant entry. This process repeats until all duplicates are resolved. The user cannot reuse the same name for different \textit{Defined Names} on the same worksheet, which further complicates the process. Moreover, this dialog prevents automated file opening via VBA to leverage tools like the \textit{Inquire} Add-in or the \textit{Excel Performance} tab for batch file size reduction, since the dialog interrupts any automation.
 
-In the files we examined, there were up to 60 redundant \texttt{Print\_Area} and 55 \texttt{Print\_Titles} entries. Renaming these entries offers no advantage to the user, as these entries are only stored in the \textit{Defined Names} accessible via \textit{Excel}'s \texttt{Formulas}~$\rightarrow$~\texttt{Name Manager}. Users might think that they are repairing the \textit{Print Areas} or \texttt{Print Titles} by entering those new names, but this is not the case because those \textit{Print Areas} and \texttt{Print Titles} are already migrated correctly. In reality, the user only renames redundant \textit{Defined Names}. To simplify the analysis and spare users the need to manually rename redundant entries, \textit{Excel Shrink} was extended to automatically remove redundant entries.
-
+In the examined files, we observed up to 60 redundant \texttt{Print\_Area} and 55 redundant \texttt{Print\_Titles} entries. Renaming these entries confers no actual benefit, as the relevant print areas and titles are already correctly migrated. Users may believe they are repairing \textit{Print Areas} or \texttt{Print Titles}, but in reality, they are only renaming redundant \textit{Defined Names}. To mitigate this issue and spare users from manually renaming entries, \textit{Excel Shrink} automatically removes these redundant definitions.
 
 \subsection{Reporting Reduction Results}
 
-To provide a breakdown of how many bytes were saved by deleting whitespaces, empty cells, columns, and rows, we compare the file size before and after each reduction step. For this purpose, we calculate the size of the worksheet by converting the XML structure into a string, as it would be stored in the file, and compute the length of this string. We then perform a reduction step and again calculate the length of the new string to determine the difference caused by the reduction. Finally, we calculate the percentage reduction relative to the original size. These results are saved in a CSV table.~\cite{excel_shrink_results_csv}
-
-
-
- 
-
-
-
- 
-
-
-
-
+To quantify the impact of each reduction step—such as removing whitespace, empty cells, columns, and rows—we compare file sizes before and after each optimization. Specifically, we convert the worksheet’s XML structure into a string representation and record its length. After performing a reduction step, we measure the string length again and calculate the difference. The resulting percentage indicates how much size reduction that particular step achieved. These results are recorded in a CSV file for further analysis~\cite{excel_shrink_results_csv}.
 
 \begin{figure*}
   \centering
@@ -560,27 +546,43 @@ To provide a breakdown of how many bytes were saved by deleting whitespaces, emp
   \label{fig:size-reduction-chart}
 \end{figure*}
 
-  
+
+
+
 \section{Evaluation}
 
-In this evaluation, we processed all \textit{Excel} files obtained from the German Federal Statistical Office (\textit{Destatis})~\cite{original_destatis_xlsx_files,shrinked_destatis_xlsx_files}. The complete details of how these files were acquired through a custom web scraping approach can be found in Appendix~\ref{sec:scraping_destatis}.
+In this evaluation, we processed all \textit{Excel} files obtained from the German Federal Statistical Office (\textit{Destatis})~\cite{original_destatis_xlsx_files,shrinked_destatis_xlsx_files}. Detailed information on how these files were acquired via a custom web scraping approach can be found in Appendix~\ref{sec:scraping_destatis}.
 
-Our primary goal was to quantify the extent of data reduction achieved by \textit{Excel Shrink}, focusing on metrics such as overall size reduction, removal of empty cells, elimination of whitespace cells, deletion of rows outside the value range, and the removal of unnecessary columns. Figure~\ref{fig:size-reduction-chart} presents the distribution of reduction rates (in percentage) for individual worksheets across all these categories. The chart shows that some worksheets experienced reductions approaching 100\% in file size. In particular, one worksheet exceeded a 99.99\% reduction, 16 worksheets surpassed 99.9\%, and 210 worksheets achieved reductions above 99\%. Across all worksheets, the average reduction rate was 25\%. Most of these gains were realized by removing rows that lay outside the range of actual data values.
 
-To further assess the performance improvements enabled by \textit{Excel Shrink}, we identified the largest available \textit{Destatis} file~\cite{destatis2023Rechnungsergebnisse}. Prior to processing, this file measured 85.2~MB in its compressed \textit{Excel} (.xlsx) format and expanded to 911~MB when uncompressed. After applying \textit{Excel Shrink}—a process that took approximately 936 seconds—the resulting compressed file size was reduced to 2.76~MB, with an uncompressed size of just 20.6~MB~\cite{destatis2023RechnungsergebnisseShrunk}.
 
-We then tested file opening times using the Dart \texttt{excel} package~\cite{excel_shrink_dart_test}. Before shrinking, the first run took 794.7 seconds to open and read values from the file~\cite{excel_shrink_dart_test_results_original}. On the second run, the process failed due to an out-of-memory exception. In contrast, after applying \textit{Excel Shrink}, we successfully ran the test 10 consecutive times without error. The median time to open the shrunk file and read values was 17.90 seconds, demonstrating a substantial performance improvement~\cite{excel_shrink_dart_test_results_shrunk}.
+Our primary objective was to measure the degree of data reduction achieved by \textit{Excel Shrink}, focusing on metrics such as overall size reduction, removal of empty cells, elimination of whitespace cells, deletion of rows outside the value range, and removal of unnecessary columns. Figure~\ref{fig:size-reduction-chart} presents the distribution of reduction rates (in percentages) for individual worksheets across all these categories. Some worksheets approached a 100\% reduction in file size. In particular, one worksheet exceeded 99.99\%, 16 worksheets surpassed 99.9\%, and 210 worksheets achieved reductions above 99\%. On average, worksheets were reduced by 25\%. Most of these improvements resulted from removing rows that lay outside the actual data range.
 
-\subsection{Summary of Findings}
+To further assess performance improvements, we identified the largest available \textit{Destatis} file~\cite{destatis2023Rechnungsergebnisse}. Before processing, this file measured 85.2~MB in its compressed \textit{Excel} (.xlsx) format and expanded to 911~MB uncompressed. After applying \textit{Excel Shrink}—a process taking a median of 484 seconds over 10 runs—the compressed file size dropped to 2.76~MB, with an uncompressed size of just 20.6~MB~\cite{destatis2023RechnungsergebnisseShrunk}.
 
-The evaluation demonstrates that the data reduction techniques employed by \textit{Excel Shrink} are highly effective in eliminating redundant, empty, or irrelevant data across a variety of \textit{Excel} worksheets. Significant reductions—exceeding 90\% in several cases—were achieved in sheets containing a high proportion of empty cells, or irrelevant rows and columns. These results highlight the robustness of our reduction methods in processing diverse data formats and structures.
+Subsequent tests were performed using both the Dart \texttt{excel} package~\cite{excel_shrink_dart_test, excelPackage} and the Python \texttt{OpenPyXL} package~\cite{open_large_xlsx_file_test, openpyxl_documentation}. Prior to shrinking, the Dart \texttt{excel} package required 794.7 seconds on its first run to open and read values, then failed with an out-of-memory exception on the second run~\cite{excel_shrink_dart_test_results_original}. The \texttt{OpenPyXL} package required a median of 301 seconds over 10 runs~\cite{excel_shrink_openpyxl_test_results_original}.
 
-Moreover, the analysis underscores the importance of addressing different reduction factors independently, as their impact on file size varied. While empty cell removal provided substantial reductions in certain worksheets, others benefited more from the removal of rows or columns. Notably, whitespace removal had a smaller overall impact.
+In contrast, after applying \textit{Excel Shrink}, the Dart \texttt{excel} package successfully ran 10 consecutive tests without error, with a median time of 29.8 seconds~\cite{excel_shrink_dart_test_results_shrunk}, and \texttt{OpenPyXL} required a median of 5.2 seconds~\cite{excel_shrink_openpyxl_test_results_shrunk}, demonstrating a substantial performance improvement. Figure~\ref{fig:comparison_of_processing_times_before_and_after_excel_shrink} shows these results, highlighting the effectiveness of \textit{Excel Shrink} in reducing processing times.
+
+\begin{figure*}
+  \centering
+  \includegraphics[width=\textwidth]{images/charts/comparison_of_processing_times_before_and_after_excel_shrink.pdf}
+  \caption{Comparison of processing times before and after applying \textit{Excel Shrink}.}
+  \label{fig:comparison_of_processing_times_before_and_after_excel_shrink}
+\end{figure*}
+
+
+
+Our evaluation demonstrates that \textit{Excel Shrink} effectively eliminates redundant, empty, or irrelevant data across a diverse set of \textit{Excel} worksheets. Significant reductions—exceeding 90\% in several cases—were achieved in sheets containing a high proportion of empty cells, or irrelevant rows and columns. These results highlight the robustness of our reduction methods in processing diverse data formats and structures. Moreover, the performance improvements in file opening times underscore the practical benefits of using \textit{Excel Shrink} to enhance data processing efficiency.
 
 \section{Experimental Setup}
 \label{sec:experimental-setup}
 
 To evaluate the behavior of \textit{Excel} regarding how the files are interpreted and saved, as well as to test the behavior of the \textit{Add-in} and the new \textit{Check Performance} feature, we tested with two distinct versions of \textit{Excel} from \textit{Microsoft Office}: \textit{Microsoft Office LTSC Professional Plus 2021} and \textit{Microsoft Excel for Microsoft 365 MSO (Version 2409 Build 16.0.18025.20030) 64-bit}. These versions were selected to evaluate compatibility and performance across different Excel environments.Our test machine was an \textit{Intel Core i5-10210U} quad-core CPU desktop machine running at 1.60~GHz with 16~GB of RAM.
+
+\section{Outlook}
+
+While \textit{Excel Shrink} can significantly reduce file sizes and thereby expedite the opening of \textit{Excel} files through libraries like \texttt{OpenPyXL} or the Dart \texttt{excel} package, there is still room for further optimization. The current implementation relies on an XML DOM parser, which can be replaced with a StAX or SAX parser to lower memory usage and improve processing speed. Such a streaming-based parser would consume far less memory, allowing multiple processes or threads to operate on different worksheets in parallel, thus further reducing the overall processing time.
+
 
 \section{Conclusion}
 \label{sec:conclusion}
