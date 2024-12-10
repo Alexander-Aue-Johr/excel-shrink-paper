@@ -337,13 +337,23 @@ Columns \texttt{WWA} and the partially visible \texttt{WWB} correspond to the 16
 
 The last visible columns in Figure~\ref{fig:col_w} are shown in Listing~\ref{lst:columnsFoerderprogrammeEnd}. The first column \texttt{min="16146" max="16146"} has a fixed width of \texttt{2.21875} and refers to column \texttt{WVZ}, which is visible as the column immediately to the left of \texttt{WWA} but is too narrow to display more than the letter \texttt{W}. The second column \texttt{min="16147" max="16147"} defines column \texttt{WWA} with a width of \texttt{5.21875}. The final definition \texttt{min="16148" max="16384"} covers a larger range from column \texttt{16148} to \texttt{16384}, corresponding to columns \texttt{WWB} through \texttt{XFD} (the last column in \textit{Excel}). This explains why scrolling all the way to the right via the scrollbar lands on column \texttt{WWB}. The penultimate definition specifies where the data range ends, thereby also defining where the scrollable range ends, and the final definition simply assigns a default width to all remaining columns. Surprisingly, these column definitions extend all the way to \textit{Excel}'s maximum limit of 16,384 columns. We have no explanation for why these user-defined column widths appear up to just before the maximum allowable column, but not exactly at it.
 
-To delete these columns, the following steps must be taken:
-\begin{enumerate}
-  \item Identify the actual right boundary of the data range and cell formats.
-  \item Determine the first redundant column definition and save the \texttt{min} value to use it later.
-  \item Delete all redundant column definitions except for the last one.
-  \item Overwrite the \texttt{min} value of the last column definition with the saved value of the first redundant column definition.
-\end{enumerate}
+To remove redundant column definitions, we can implement a procedure as outlined in Algorithm~\ref{alg:remove_redundant_columns}. This algorithm identifies the actual right boundary of data and cell formats, locates redundant column definitions, and adjusts the last column definition to account for the removed columns.
+
+\begin{algorithm}
+  \caption{Removing Redundant Column Definitions}
+  \label{alg:remove_redundant_columns}
+  \begin{algorithmic}[1]
+    \STATE \textbf{Input:} Worksheet XML structure with column definitions
+    \STATE \textbf{Output:} Modified worksheet XML without redundant column definitions
+    
+    \STATE Identify the actual right boundary of the data range and cell formats.
+    \STATE Find the first redundant column definition, record its \texttt{min} value as \textit{savedMin}.
+    \STATE Remove all redundant column definitions except the last one.
+    \STATE Overwrite the \texttt{min} value of the last remaining redundant column definition with \textit{savedMin}.
+
+    \STATE \textbf{return} Modified XML
+  \end{algorithmic}
+\end{algorithm}
 
 \begin{lstlisting}[caption={Final column definitions in the worksheet}, label={lst:columnsFoerderprogrammeEnd}, firstnumber={2414}, numbersep={-15pt}]
   <col min="16146" max="16146" width="2.21875" style="39" customWidth="1" />
