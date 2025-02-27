@@ -38,62 +38,13 @@
   month =        jun,
   note =         {\url{http://www.ctan.org/pkg/listings}}
 }
-
-@Manual{Fear05,
-  title =        {Publication quality tables in {\LaTeX}},
-  author =       {Simon Fear},
-  year =         2005,
-  month =        apr,
-  note =         {\url{http://www.ctan.org/pkg/booktabs}}
-}
-
+ 
 @Manual{ACMIdentityStandards,
   title =        {{ACM} Visual Identity Standards},
   organization = {Association for Computing Machinery},
   year =         2007,
   note =         {\url{http://identitystandards.acm.org}}
 }
-
-@Manual{Sommerfeldt13:Subcaption,
-  title =        {The subcaption package},
-  author =       {Axel Sommerfeldt},
-  year =         2013,
-  month =        apr,
-  note =         {\url{http://www.ctan.org/pkg/subcaption}}
-}
-
-@Manual{Nomencl,
-  title =        {A package to create a nomenclature},
-  author =       {Boris Veytsman and Bern Schandl and Lee Netherton
-                  and C. V. Radhakrishnan},
-  year =         2005,
-  month =        sep,
-  note =         {\url{http://www.ctan.org/pkg/nomencl}}
-}
-
-@Manual{Talbot16:Glossaries,
-  title =        {User Manual for glossaries.sty v4.44},
-  author =       {Nicola L. C. Talbot},
-  year =         2019,
-  month =        dec,
-  note =         {\url{http://www.ctan.org/pkg/glossaries}}
-}
-
-@Manual{Carlisle04:Textcase,
-  title =        {The \textsl{textcase} package},
-  author =       {David Carlisle},
-  month =        oct,
-  year =         2004,
-  note =         {\url{http://www.ctan.org/pkg/textcase}}
-}
-
-@Manual{Braams22:Babel,
-  title = 	 {Babel},
-  author = 	 {Johannes L. Braams and Javier Bezos},
-  year = 	 2022,
-  note = 	 {\url{http://www.ctan.org/pkg/babel}}}
-
-
 
 
 
@@ -116,70 +67,82 @@
 
 
 @mastersthesis{johr2021entwicklung,
-  title={Entwicklung einer Formularanwendung mit Kompatibilit{\"a}tsvalidierung der Einfach-und Mehrfachauswahl-Eingabefelder},
-  author={Johr, Alexander},
-  year={2021}
+  author       = {Alexander Johr},
+  title        = {{Entwicklung einer Formularanwendung mit Kompatibilit{\"a}tsvalidierung der Einfach- und Mehrfachauswahl-Eingabefelder}},
+  school       = {Hochschule Harz},
+  year         = {2021},
+  address      = {Wernigerode, Deutschland},
+  note         = {Masterarbeit im Studiengang Medien- und Spielekonzeption},
 }
 
-@inproceedings{chen2013senbazuru,
-  title={Senbazuru: A prototype spreadsheet database management system},
-  author={Chen, Zhe and Cafarella, Michael and Chen, Jun and Prevo, Daniel and Zhuang, Junfeng},
-  journal={Proceedings of the VLDB Endowment},
-  volume={6},
-  number={12},
-  pages={1202--1205},
-  year={2013},
-  organization={VLDB Endowment}
+
+@article{chen2013senbazuru,
+  author    = {Zhe Chen and Michael Cafarella and Jun Chen and Daniel Prevo and Junfeng Zhuang},
+  title     = {{Senbazuru: A Prototype Spreadsheet Database Management System}},
+  journal   = {Proceedings of the VLDB Endowment},
+  volume    = {6},
+  number    = {12},
+  pages     = {1202--1205},
+  year      = {2013},
+  publisher = {VLDB Endowment},
+  doi       = {10.14778/2536274.2536276},
+  url       = {https://doi.org/10.14778/2536274.2536276},
 }
+
 
 
 @inproceedings{koci2019xlindy,
-  title={Xlindy: Interactive recognition and information extraction in spreadsheets},
-  author={Koci, Elvis and Kuban, Dana and Luettig, Nico and Olwig, Dominik and Thiele, Maik and Gonsior, Julius and Lehner, Wolfgang and Romero, Oscar},
-  booktitle={Proceedings of the ACM Symposium on Document Engineering 2019},
-  pages={1--4},
-  year={2019}
+  author       = {Elvis Koci and Dana Kuban and Nico Luettig and Dominik Olwig and Maik Thiele and Julius Gonsior and Wolfgang Lehner and Oscar Romero},
+  title        = {{XLIndy: Interactive Recognition and Information Extraction in Spreadsheets}},
+  booktitle    = {Proceedings of the ACM Symposium on Document Engineering 2019 (DocEng '19)},
+  location     = {Berlin, Germany},
+  publisher    = {Association for Computing Machinery},
+  address      = {New York, NY, USA},
+  pages        = {1--4},
+  year         = {2019},
+  doi          = {10.1145/3342558.3345409},
+  url          = {https://doi.org/10.1145/3342558.3345409},
 }
 
 @inproceedings{dong2019tablesense,
-  title={Tablesense: Spreadsheet table detection with convolutional neural networks},
-  author={Dong, Haoyu and Liu, Shijie and Han, Shi and Fu, Zhouyu and Zhang, Dongmei},
-  booktitle={Proceedings of the AAAI conference on artificial intelligence},
-  volume={33},
-  number={01},
-  pages={69--76},
-  year={2019}
+  author       = {Haoyu Dong and Shijie Liu and Shi Han and Zhouyu Fu and Dongmei Zhang},
+  title        = {{TableSense: Spreadsheet Table Detection with Convolutional Neural Networks}},
+  booktitle    = {Proceedings of the Thirty-Third AAAI Conference on Artificial Intelligence (AAAI-19)},
+  series       = {AAAI '19},
+  pages        = {69--76},
+  year         = {2019},
+  publisher    = {Association for the Advancement of Artificial Intelligence},
+  address      = {Honolulu, Hawaii, USA},
+  doi          = {10.1609/aaai.v33i01.330169},
+  url          = {https://doi.org/10.1609/aaai.v33i01.330169},
 }
 
-@article{barowy2015flashrelate,
-  title={FlashRelate: extracting relational data from semi-structured spreadsheets using examples},
-  author={Barowy, Daniel W and Gulwani, Sumit and Hart, Ted and Zorn, Benjamin},
-  journal={ACM SIGPLAN Notices},
-  volume={50},
-  number={6},
-  pages={218--228},
-  year={2015},
-  publisher={ACM New York, NY, USA}
+
+@inproceedings{barowy2015flashrelate,
+  author    = {Daniel W. Barowy and Sumit Gulwani and Ted Hart and Benjamin Zorn},
+  title     = {{FlashRelate: Extracting Relational Data from Semi-Structured Spreadsheets Using Examples}},
+  booktitle = {Proceedings of the 36th ACM SIGPLAN Conference on Programming Language Design and Implementation (PLDI)},
+  series    = {PLDI '15},
+  pages     = {218--228},
+  year      = {2015},
+  publisher = {ACM},
+  address   = {Portland, OR, USA},
+  doi       = {10.1145/2737924.2737952},
+  url       = {https://doi.org/10.1145/2737924.2737952},
 }
 
-@inproceedings{koci2019xlindy,
-  title={Xlindy: Interactive recognition and information extraction in spreadsheets},
-  author={Koci, Elvis and Kuban, Dana and Luettig, Nico and Olwig, Dominik and Thiele, Maik and Gonsior, Julius and Lehner, Wolfgang and Romero, Oscar},
-  booktitle={Proceedings of the ACM Symposium on Document Engineering 2019},
-  pages={1--4},
-  year={2019}
-}
+
+
 
 @inproceedings{west2008because,
-  title={Because excel will mind me! the state of constituent data management in small nonprofit organizations},
-  author={West, Hannah and Green, Gina},
-  booktitle = {Proceedings of the Fourteenth Americas Conference on Information Systems},
+  author    = {Hannah West and Gina Green},
+  title     = {{Because Excel will Mind Me! The State of Constituent Data Management in Small Nonprofit Organizations}},
+  booktitle = {Proceedings of the Fourteenth Americas Conference on Information Systems (AMCIS 2008)},
   year      = {2008},
-  number    = {336},
+  pages     = {336},
+  publisher = {Association for Information Systems},
+  address   = {Toronto, Ontario, Canada},
   url       = {https://aisel.aisnet.org/amcis2008/336},
-  organization    = {Association for Information Systems},
-  publisher = {AIS Electronic Library (AISeL)},
-
 }
 
 
@@ -191,6 +154,8 @@
   url = {https://www.scottmax.com/excel-statistics},
   note = {Accessed: 2024-05-15},
 }
+
+
 
 @misc{EuSpRIG_Horror_Stories,
   author = {O'Beirne, Patrick and Hermans, Felienne and Cheng, Tie and Campbell, Mary Pat},
@@ -306,16 +271,7 @@
 }
 
 
-@article{bourbeillon2009mass,
-  title={Mass data exploration in oncology: An information synthesis approach},
-  author={Bourbeillon, Julie and Garbay, Catherine and Giroud, Fran{\c{c}}oise},
-  journal={Journal of Biomedical Informatics},
-  volume={42},
-  number={4},
-  pages={612--623},
-  year={2009},
-  publisher={Elsevier}
-}
+
 
 @misc{SB23,
   author       = {{Statistisches Bundesamt}},
@@ -366,6 +322,119 @@
 
 
 
+@misc{Microsoft2007OpenXML,
+  author       = {{Microsoft Support}},
+  title        = {{The file size of an Excel workbook may unexpectedly increase exponentially}},
+  howpublished = {\url{https://support.microsoft.com/en-us/topic/the-file-size-of-an-excel-workbook-may-unexpectedly-increase-exponentially-b1e8e0ad-94a8-f97f-5adc-2e22798beac9}},
+  year         = {n.d.},
+  note         = {Accessed: 2025-02-27},
+}
+
+@techreport{ecma2007openxml,
+  author      = {{Ecma International}},
+  title       = {{Office Open XML Formats}},
+  institution = {Ecma International},
+  year        = {2007},
+  url         = {https://www.ecma-international.org/wp-content/uploads/Office-Open-XML-White-Paper.pdf},
+  note        = {Accessed: 2025-02-27}
+}
+
+@misc{MicrosoftXLSB,
+  author = {{Microsoft Support}},
+  title  = {{Reduce the file size of your Excel spreadsheets}},
+  howpublished = {Microsoft Support Article},
+  note   = {Saving a workbook as an Excel Binary Workbook (.xlsb) instead of the default Excel Workbook (.xlsx) can significantly reduce the file size},
+  url    = {https://support.microsoft.com/en-us/office/reduce-the-file-size-of-your-excel-spreadsheets-c4f69e3a-8eea-4e9d-8ded-0ac301192bf9},
+}
+
+
+
+
+@article{Rahman2021NOAH,
+  author = {Sajjadur Rahman and Mangesh Bendre and Yuyang Liu and Shichu Zhu and Zhaoyuan Su and Karrie Karahalios and Aditya G. Parameswaran},
+  title = {{NOAH: Interactive Spreadsheet Exploration with Dynamic Hierarchical Overviews}},
+  journal = {PVLDB},
+  volume = {14},
+  number = {6},
+  pages = {970--983},
+  year = {2021},
+  doi = {10.14778/3447689.3447701},
+  url = {https://doi.org/10.14778/3447689.3447701},
+}
+
+@article{Bendre2015DataSpread,
+  author = {Mangesh Bendre and Bofan Sun and Ding Zhang and Xinyan Zhou and Kevin Chen-Chuan Chang and Aditya G. Parameswaran},
+  title = {{DataSpread: Unifying Databases and Spreadsheets}},
+  journal = {PVLDB},
+  volume = {8},
+  number = {12},
+  pages = {2000--2003},
+  year = {2015},
+  doi = {10.14778/2824032.2824121},
+  url = {https://doi.org/10.14778/2824032.2824121},
+}
+
+
+
+@article{Budiu2019Hillview,
+  author = {Mihai Budiu and Parikshit Gopalan and Lalith Suresh and Udi Wieder and Han Kruiger and Marcos K. Aguilera},
+  title = {{Hillview: A Trillion-Cell Spreadsheet for Big Data}},
+  journal = {PVLDB},
+  volume = {12},
+  number = {11},
+  pages = {1442--1457},
+  year = {2019},
+  doi = {10.14778/3342263.3342279},
+  url = {https://doi.org/10.14778/3342263.3342279},
+}
+
+@inproceedings{Bendre2019AntiFreeze,
+  author = {Mangesh Bendre and Tana Wattanawaroon and Kelly Mack and Kevin Chen-Chuan Chang and Aditya G. Parameswaran},
+  title = {{Anti-Freeze for Large and Complex Spreadsheets: Asynchronous Formula Computation}},
+  booktitle = {Proceedings of the 2019 ACM SIGMOD International Conference on Management of Data (SIGMOD '19)},
+  publisher = {ACM},
+  address = {New York, NY, USA},
+  pages = {1277--1294},
+  year = {2019},
+  doi = {10.1145/3299869.3319876},
+  url = {https://doi.org/10.1145/3299869.3319876},
+}
+
+@inproceedings{Henze2022SheetReader,
+  author = {Felix Henze and Haralampos Gavriilidis and Eleni Tzirita Zacharatou and Volker Markl},
+  title = {{Efficient Specialized Spreadsheet Parsing for Data Science}},
+  booktitle = {Proceedings of the 24th International Workshop on Design, Optimization, Languages and Analytical Processing of Big Data (DOLAP)},
+  series = {CEUR Workshop Proceedings},
+  volume = {3130},
+  pages = {41--50},
+  publisher = {CEUR-WS.org},
+  year = {2022},
+  url = {http://ceur-ws.org/Vol-3130/paper5.pdf},
+}
+
+@manual{openxlsx,
+  author        = {Philipp Schauberger and Alexander Walker},
+  title         = {{openxlsx: Read, Write and Edit xlsx Files}},
+  organization  = {R Foundation for Statistical Computing},
+  address       = {Vienna, Austria},
+  year          = {2021},
+  note          = {R package version 4.2.5},
+  doi           = {10.32614/CRAN.package.openxlsx},
+  url           = {https://CRAN.R-project.org/package=openxlsx},
+}
+
+
+@inproceedings{Bendre2018PDM,
+  author    = {Mangesh Bendre and Vipul Venkataraman and Xinyan Zhou and Kevin Chen-Chuan Chang and Aditya G. Parameswaran},
+  title     = {{Towards a Holistic Integration of Spreadsheets with Databases: A Scalable Storage Engine for Presentational Data Management}},
+  booktitle = {Proceedings of the 34th IEEE International Conference on Data Engineering (ICDE)},
+  publisher = {IEEE},
+  address   = {Paris, France},
+  pages     = {113--124},
+  year      = {2018},
+  doi       = {10.1109/ICDE.2018.00020},
+  url       = {https://doi.org/10.1109/ICDE.2018.00020},
+}
 
 
 
@@ -393,3 +462,549 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@mastersthesis{johr2021entwicklung,
+  title={Entwicklung einer Formularanwendung mit Kompatibilit{\"a}tsvalidierung der Einfach-und Mehrfachauswahl-Eingabefelder},
+  author={Johr, Alexander},
+  year={2021}
+}
+
+@inproceedings{chen2013senbazuru,
+  title={Senbazuru: A prototype spreadsheet database management system},
+  author={Chen, Zhe and Cafarella, Michael and Chen, Jun and Prevo, Daniel and Zhuang, Junfeng},
+  journal={Proceedings of the VLDB Endowment},
+  volume={6},
+  number={12},
+  pages={1202--1205},
+  year={2013},
+  organization={VLDB Endowment}
+}
+
+
+
+
+@inproceedings{dong2019tablesense,
+  title={Tablesense: Spreadsheet table detection with convolutional neural networks},
+  author={Dong, Haoyu and Liu, Shijie and Han, Shi and Fu, Zhouyu and Zhang, Dongmei},
+  booktitle={Proceedings of the AAAI conference on artificial intelligence},
+  volume={33},
+  number={01},
+  pages={69--76},
+  year={2019}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@book{openxml,
+  title={Open XML SDK 2.5 for Office},
+  author={Microsoft},
+  year={2014},
+  publisher={Microsoft Press}
+}
+
+@article{excelxml,
+  title={Understanding the Open XML File Formats},
+  author={Giselle Schott},
+  journal={Journal of Open Source Software},
+  volume={3},
+  number={23},
+  year={2018},
+  pages={100-110}
+}
+
+@misc{destatis,
+  author       = {Statistisches Bundesamt Destatis (German Federal Statistical Office)},
+  title        = {Startseite - Statistisches Bundesamt (German Federal Statistical Office)},
+  howpublished = {\url{https://www.destatis.de/DE/Themen/Wirtschaft/Volkswirtschaftliche-Gesamtrechnungen-Inlandsprodukt/Publikationen/Downloads-Inlandsprodukt/konsumausgaben-pdf-5811109.html}},
+  year         = {2023},
+  month        = {June},
+  day          = {6},
+  note         = {Accessed on October 7, 2024}
+}
+
+@misc{destatis2023Konsumausgaben5811109,
+  author       = {Statistisches Bundesamt Destatis (German Federal Statistical Office)},
+  title        = {Private Konsumausgaben und Verfügbares Einkommen - 1. Vierteljahr 2023 (Private Consumption Expenditures and Disposable Income - 1st Quarter 2023) (Letzte Ausgabe - berichtsweise eingestellt)},
+  howpublished = {\url{https://www.destatis.de/DE/Themen/Wirtschaft/Volkswirtschaftliche-Gesamtrechnungen-Inlandsprodukt/Publikationen/Downloads-Inlandsprodukt/konsumausgaben-pdf-5811109.html}},
+  year         = {2023},
+  month        = {June},
+  day          = {6},
+  note         = {Accessed on October 7, 2024}
+}
+
+@misc{destatis2023Foerderprogramme,
+  author       = {Statistisches Bundesamt Destatis (German Federal Statistical Office)},
+  title        = {Förderprogramme - Landwirtschaftszählung 2020 (Support Programs - Agricultural Census 2020)},
+  year         = {2021},
+  month        = {October},
+  day          = {4},
+  urldate      = {2024-10-04},
+  url          = {https://www.destatis.de/DE/Themen/Branchen-Unternehmen/Landwirtschaft-Forstwirtschaft-Fischerei/Landwirtschaftliche-Betriebe/Publikationen/Downloads-Landwirtschaftliche-Betriebe/foerderprogramme-5411206209004.html},
+  note         = {Accessed: 2024-12-08}
+}
+
+
+@misc{destatis2023Rechnungsergebnisse,
+  author       = {Statistisches Bundesamt Destatis (German Federal Statistical Office)},
+  title        = {Statistischer Bericht - Rechnungsergebnisse der Kernhaushalte der Gemeinden und Gemeindeverbände 2021 (Statistical Report - Financial Results of the Core Budgets of Municipalities and Municipal Associations 2021)},
+  howpublished = {\url{https://www.destatis.de/DE/Themen/Staat/Oeffentliche-Finanzen/Ausgaben-Einnahmen/Publikationen/Downloads-Ausgaben-und-Einnahmen/statistischer-bericht-rechnungsergebnis-kernhaushalt-gemeinden-2140331217005.html}},
+  year         = {2023},
+  month        = {September},
+  day          = {18},
+  note         = {Accessed on October 7, 2024}
+}
+
+
+
+@misc{destatis2022Verkehrsunfaelle,
+  author       = {Statistisches Bundesamt Destatis (German Federal Statistical Office)},
+  title        = {Verkehrsunf{\"a}lle - Zeitreihen 2021 (Traffic Accidents - Time Series 2021) (Letzte Ausgabe - berichtsweise eingestellt)},
+  howpublished = {\url{https://www.destatis.de/DE/Themen/Gesellschaft-Umwelt/Verkehrsunfaelle/Publikationen/Downloads-Verkehrsunfaelle/verkehrsunfaelle-zeitreihen-pdf-5462403.html}},
+  year         = {2022},
+  month        = {July},
+  day          = {7},
+  note         = {Accessed on October 7, 2024}
+}
+
+@misc{destatis2022Wanderungen,
+  author       = {Statistisches Bundesamt Destatis (German Federal Statistical Office)},
+  title        = {Wanderungen - Fachserie 1 Reihe 1.2 - 2021 (Migration - Series 1, Series 1.2 - 2021) (Letzte Ausgabe - berichtsweise eingestellt)},
+  howpublished = {\url{https://www.destatis.de/DE/Themen/Gesellschaft-Umwelt/Bevoelkerung/Wanderungen/Publikationen/Downloads-Wanderungen/wanderungen-2010120217004.html}},
+  year         = {2022},
+  month        = {December},
+  day          = {6},
+  note         = {Accessed on October 7, 2024}
+}
+
+
+
+
+@article{panko1998we,
+  title={What we know about spreadsheet errors},
+  author={Panko, Raymond R},
+  journal={Journal of Organizational and End User Computing (JOEUC)},
+  volume={10},
+  number={2},
+  pages={15--21},
+  year={1998},
+  publisher={IGI Global}
+}
+
+
+@inproceedings{swidan2016improving,
+  title={Improving the performance of a large scale spreadsheet: a case study},
+  author={Swidan, Alaaeddin and Hermans, Felienne and Koesoemowidjojo, Ruben},
+  booktitle={2016 IEEE 23rd International Conference on Software Analysis, Evolution, and Reengineering (SANER)},
+  volume={1},
+  pages={673--677},
+  year={2016},
+  organization={IEEE}
+}
+@inproceedings{antiFreezeBendre2019sigmod,
+  title={Anti-freeze for large and complex spreadsheets: Asynchronous formula computation},
+  author={Bendre, Mangesh and Wattanawaroon, Tana and Mack, Kelly and Chang, Kevin and Parameswaran, Aditya},
+  booktitle={Proceedings of the 2019 International Conference on Management of Data},
+  pages={1277--1294},
+  year={2019}
+}
+
+@inproceedings{tang2023efficient,
+  title={Efficient and Compact Spreadsheet Formula Graphs},
+  author={Tang, Dixin and Chen, Fanchao and De Leon, Christopher and Wattanawaroon, Tana and Yun, Jeaseok and Seshadri, Srinivasan and Parameswaran, Aditya G},
+  booktitle={2023 IEEE 39th International Conference on Data Engineering (ICDE)},
+  pages={2634--2646},
+  year={2023},
+  organization={IEEE}
+}
+
+@techreport{deutsch1996deflate,
+  title={DEFLATE compressed data format specification version 1.3},
+  author={Deutsch, Peter},
+  year={1996}
+}
+
+@article{paoli2006ecma,
+  title={ECMA-376 office open XML file formats},
+  author={Paoli, J and Valet-Harper, I and Farquhar, A and Sebestyen, I},
+  journal={URL http://www.ecmainternational.org/publications/standards/Ecma-376.htm},
+  pages={11},
+  year={2006}
+}
+
+@techreport{ecma376-5th2021,
+  title        = {ECMA-376: Office Open XML File Formats},
+  author       = {{Ecma International}},
+  year         = {2021},
+  edition      = {5th},
+  month        = {December},
+  institution  = {Ecma International},
+  number       = {ECMA-376},
+  url          = {https://ecma-international.org/publications-and-standards/standards/ecma-376/},
+  note         = {ISO/IEC 29500, Technical Committee TC45}
+}
+
+
+@inproceedings{Mack2018Scalability,
+  author = {Kelly Mack and John Lee and Kevin Chen-Chuan Chang and Karrie Karahalios and Aditya G. Parameswaran},
+  title = {{Characterizing Scalability Issues in Spreadsheet Software using Online Forums}},
+  booktitle = {Extended Abstracts of the 2018 CHI Conference on Human Factors in Computing Systems (CHI EA '18)},
+  publisher = {ACM},
+  address = {New York, NY, USA},
+  pages = {Paper CS04, 1--9},
+  year = {2018},
+  doi = {10.1145/3170427.3174359},
+  url = {https://doi.org/10.1145/3170427.3174359},
+}
+
+
+
+@inproceedings{Rahman2020Benchmarking,
+  author = {Sajjadur Rahman and Kelly Mack and Mangesh Bendre and Ruilin Zhang and Karrie Karahalios and Aditya G. Parameswaran},
+  title = {{Benchmarking Spreadsheet Systems}},
+  booktitle = {Proceedings of the 2020 ACM SIGMOD International Conference on Management of Data (SIGMOD '20)},
+  publisher = {ACM},
+  address = {New York, NY, USA},
+  pages = {1589--1599},
+  year = {2020},
+  doi = {10.1145/3318464.3389782},
+  url = {https://doi.org/10.1145/3318464.3389782},
+}
+
+@inproceedings{cunha2012smellsheet,
+  title={Smellsheet detective: A tool for detecting bad smells in spreadsheets},
+  author={Cunha, J{\'a}come and Fernandes, Joao Paulo and Martins, Pedro and Mendes, Jorge and Saraiva, Joao},
+  booktitle={2012 IEEE Symposium on Visual Languages and Human-Centric Computing (VL/HCC)},
+  pages={243--244},
+  year={2012},
+  organization={IEEE}
+}
+
+@inproceedings{abreu2014faultysheet,
+  title={Faultysheet detective: When smells meet fault localization},
+  author={Abreu, Rui and Cunha, J{\'a}come and Fernandes, Joao Paulo and Martins, Pedro and Perez, Alexandre and Saraiva, Joao},
+  booktitle={2014 IEEE International Conference on Software Maintenance and Evolution},
+  pages={625--628},
+  year={2014},
+  organization={IEEE}
+}
+
+@misc{python2024,
+  title        = {Welcome to Python.org},
+  author       = {{Python Software Foundation}},
+  year         = {2024},
+  howpublished = {\url{https://www.python.org/}},
+  note         = {Accessed on October 7, 2024}
+}
+
+
+@misc{flutter2024,
+  title        = {Flutter - Build apps for any screen},
+  author       = {Flutter Team},
+  year         = {2024},
+  howpublished = {\url{https://flutter.dev/}},
+  note         = {Accessed on October 7, 2024},
+}
+
+@misc{nuitka2024,
+  title        = {Nuitka the Python Compiler — Nuitka the Python Compiler},
+  author       = {Nuitka Team},
+  year         = {2024},
+  howpublished = {\url{https://nuitka.net/}},
+  note         = {Accessed on October 7, 2024}
+}
+
+@misc{destatis2024robots,
+  title        = {robots.txt},
+  author       = {Statistisches Bundesamt Destatis (German Federal Statistical Office)},
+  year         = {2024},
+  howpublished = {\url{https://www.destatis.de/robots.txt}},
+  note         = {Accessed on October 7, 2024}
+}
+
+@misc{microsoft2024sharedstring,
+  title        = {Working with the shared string table | Microsoft Learn},
+  author       = {Microsoft Corporation},
+  year         = {2024},
+  howpublished = {\url{https://learn.microsoft.com/en-us/office/open-xml/spreadsheet/working-with-the-shared-string-table?tabs=cs}},
+  note         = {Accessed on October 7, 2024}
+}
+
+@misc{microsoft2024workbook,
+  title        = {Workbook Class (DocumentFormat.OpenXml.Spreadsheet) | Microsoft Learn},
+  author       = {Microsoft Corporation},
+  year         = {2024},
+  howpublished = {\url{https://learn.microsoft.com/en-us/dotnet/api/documentformat.openxml.spreadsheet.workbook?view=openxml-3.0.1}},
+  note         = {Accessed on October 7, 2024}
+}
+
+
+
+
+
+
+@misc{microsoft_support,
+  author       = {{Microsoft Support}},
+  title        = {Reduce the file size of your Excel spreadsheets},
+  howpublished = {\url{https://support.microsoft.com/en-us/office/reduce-the-file-size-of-your-excel-spreadsheets-c4f69e3a-8eea-4e9d-8ded-0ac301192bf9}},
+  note         = {Accessed: 2025-02-26}
+}
+
+@misc{excelforum,
+  author       = {Users on MrExcel},
+  title        = {File size increased \& slow after formulas and conditional formatting},
+  howpublished = {\url{https://www.excelforum.com/excel-general/762063-file-size-increased-and-slow-after-formulas-and-conditional-formatting.html}},
+  note         = {Accessed: 2025-02-26}
+}
+
+
+
+@misc{upslide_blog,
+  author       = {UpSlide},
+  title        = {How To Reduce Excel File Size in 8 Easy Ways},
+  year         = {2024},
+  howpublished = {\url{https://upslide.net/blog/reduce-excel-file-size/}},
+  note         = {Accessed: 2025-02-26}
+}
+
+
+@misc{thebricks_blog,
+  author       = {{The Bricks}},
+  title        = {{How to Reduce Excel Sheet Size}},
+  howpublished = {\url{https://thebricks.com/resources/guide-how-to-reduce-excel-sheet-size}},
+  month        = feb,
+  year         = {2025},
+  note         = {Accessed: 2025-02-27},
+}
+
+
+@misc{neuxpower2024nxpowerlite,
+  title        = {NXPowerLite Desktop - File Compressor Software},
+  author       = {Neuxpower},
+  year         = {2024},
+  howpublished = {\url{https://neuxpower.com/nxpowerlite-desktop/}},
+  note         = {Accessed on October 7, 2024}
+}
+
+@misc{sobolsoft,
+  author       = {Sobolsoft},
+  title        = {Excel File Size Reduce Software},
+  howpublished = {\url{https://www.sobolsoft.com/excelsize/}},
+  note         = {Accessed: 2025-02-26}
+}
+
+@misc{wecompress,
+  author       = {WeCompress},
+  title        = {Online File Compressor for Excel Files},
+  howpublished = {\url{https://www.youcompress.com/excel/}},
+  note         = {Accessed: 2025-02-26}
+}
+
+@misc{kernel_excel,
+  author       = {Kernel for Excel Repair},
+  title        = {Kernel for Excel Repair},
+  howpublished = {\url{https://www.reddit.com/r/excel/comments/1awtq8d/how_to_decrease_excel_file_size_and_speed_up/}},
+  note         = {Accessed: 2025-02-26}
+}
+
+@inproceedings{obeirne2013,
+  author       = {Patrick O'Beirne},
+  title        = {Excel 2013 Spreadsheet Inquire},
+  booktitle    = {Proceedings of the EuSpRIG 2013 Conference “Spreadsheet Risk Management”},
+  year         = {2013},
+  isbn         = {978-1-9054045-1-3},
+  publisher    = {European Spreadsheet Risks Interest Group},
+  note         = {Accessed: 2025-02-26},
+  url          = {http://www.sysmod.com/xltest}
+}
+
+
+
+
+
+@article{o2014excel,
+  title={Excel 2013 Spreadsheet Inquire},
+  author={O'Beirne, Patrick},
+  journal={arXiv preprint arXiv:1401.7586},
+  year={2014}
+}
+
+@misc{excel-shrink,
+  title        = {Excel Shrink - An open-source tool designed to optimize Excel files by eliminating redundant content without altering their visual appearance or functionality},
+  year         = {2024},
+  howpublished = {\url{https://anonymous.4open.science/r/excel-shrink-F754/README.md}},
+}
+
+@misc{excel-shrink-ui,
+  title        = {Excel Shrink UI - An open-source graphical user interface for Excel Shrink},
+  year         = {2024},
+  howpublished = {\url{https://anonymous.4open.science/r/excel-shrink-ui-BE5C/README.md}},
+}
+
+@misc{shirolkar2022check,
+  author       = {Prash Shirolkar},
+  title        = {Check Performance in Excel for the Web},
+  year         = {2022},
+  month        = sep,
+  day          = {22},
+  howpublished = {\url{https://techcommunity.microsoft.com/t5/microsoft-365-insider-blog/check-performance-in-excel-for-the-web/ba-p/4216095}},
+  note         = {Microsoft 365 Insider Blog, Accessed: 2024-04-27}
+}
+
+@misc{shirolkar2024make,
+  author       = {Prash Shirolkar},
+  title        = {Make Your Workbooks More Performant with Check Performance in Excel for Windows},
+  year         = {2024},
+  month        = apr,
+  day          = {03},
+  url          = {https://techcommunity.microsoft.com/t5/microsoft-365-insider-blog/make-your-workbooks-more-performant-with-check-performance-in/ba-p/4224276},
+  journal      = {Microsoft 365 Insider Blog},
+  note         = {Accessed: 2024-10-18}
+}
+
+
+
+@inproceedings{userExperienceSpreadsheets2022,
+  title={“It’s freedom to put things where my mind wants”: Understanding and improving the user experience of structuring data in spreadsheets},
+  author={Chalhoub, George and Sarkar, Advait},
+  booktitle={Proceedings of the 2022 CHI Conference on Human Factors in Computing Systems},
+  pages={1--24},
+  year={2022}
+}
+
+@misc{original_destatis_xlsx_files,
+  title        = {Original Destatis XLSX Files Before Shrinking with Excel Shrink},
+  howpublished = {\url{https://anonymous.4open.science/r/original_destatis_xlsx_files-5B7B/}},
+  note         = {Accessed: 2024-12-07}
+}
+
+@misc{shrinked_destatis_xlsx_files,
+  title        = {Destatis XLSX Files Shrunk with Excel Shrink},
+  howpublished = {\url{https://anonymous.4open.science/r/shrinked_destatis_xlsx_files-4E27/}},
+  note         = {Accessed: 2024-12-07}
+}
+
+
+@misc{excel_shrink_results_csv,
+  title        = {Results of Excel Shrink on Destatis XLSX Files},
+  howpublished = {\url{https://anonymous.4open.science/r/excel-shrink-results-7468/shrink_results.csv}},
+  note         = {Accessed: 2024-12-08}
+}
+
+
+
+
+
+@misc{m365_insider,
+  author       = {Microsoft 365 Insider Blog},
+  title        = {Make your workbooks more performant with Check Performance in Excel for Windows},
+  howpublished = {\url{https://techcommunity.microsoft.com/blog/microsoft365insiderblog/make-your-workbooks-more-performant-with-check-performance-in-excel-for-windows/4224276}},
+  note         = {Accessed: 2025-02-26}
+}
+
+
+@misc{mrexcel2024check,
+  title        = {Excel 2024: Check Performance in Excel},
+  howpublished = {\url{https://www.mrexcel.com/excel-tips/excel-2024-check-performance-in-excel/}},
+  note         = {Accessed: 2025-02-26},
+  year         = {2024},
+  publisher    = {MrExcel.com}
+}
+
+@misc{microsoft_cleanup,
+  author       = {{Microsoft Support}},
+  title        = {Cleanup cells in your workbook},
+  howpublished = {\url{https://support.microsoft.com/en-us/office/cleanup-cells-in-your-workbook-edcc579f-b82f-495b-8d31-e786cd11717b}},
+  note         = {Accessed: 2025-02-26},
+  year         = {n.d.}
+}
