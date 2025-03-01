@@ -213,6 +213,803 @@ All these strategies offer evidence that a combination of advanced parsing, back
 From straightforward file-format optimizations (\texttt{.xlsb} compression) to \emph{architectural} overhauls (DataSpread, Budiu2019Hillview) and specialized parsers (SheetReader), the research consensus is that Excel’s native engine and file format alone do not scale gracefully. Modern solutions increasingly combine streaming-based XML handling, database or distributed architectures, and asynchronous computation to push spreadsheet interactivity far beyond Excel’s historical limits. These insights strongly motivate the need for further improvements in \texttt{.xlsx} bloat reduction and high-performance parsing directly addressed by our proposed approach in this paper.
 
   
+\section{Excel Shrink}
+\label{sec:methodology4}
+
+Our methodology evolved from an initial DOM-based prototype, the \emph{Excel Shrink Analyzer}, which helped us investigate and understand the primary causes of file bloat in large Excel files. This analysis revealed that excessive file sizes primarily resulted from hidden rows, empty but styled cells, bloated shared strings, and unnecessary columns.
+
+Because we encountered frequent memory limitations and poor scalability using XML-based approaches, we shifted to a \emph{stream-based approach}. This change was motivated by the insight that an efficient processing model could be implemented using \emph{regex-based chunk processing} on the raw bytestream.
+
+Constructing effective regular expressions required more than a simple pattern, given the hierarchical nature of Excel’s XML structure. Consequently, we developed a pipeline of multiple regex stages, each designed to target a specific inefficiency in spreadsheet data:
+
+1. Identify whitespace-only shared strings and remove their referencing cells.
+2. Delete purely empty cells lacking any borders or fill styles.
+3. Delete purely empty rows lacking any borders or fill styles nor a height.
+3. Truncate rows that fall outside the bounding box of the visible data region.
+4. Prune unnecessary column definitions, ensuring the final column range still extends to previous the maximum column index to preserve layout.
+
+This systematic approach enables efficient, scalable file-size reduction without requiring large in-memory representations, thereby significantly improving both performance and storage efficiency.
+
+
+
+\subsection{Multithreading for Performance}
+To further increase parsing speed, we use multithreading. In this approach, each XML file within the ZIP archive is processed by its own thread, as described in Algorithm~\ref{alg:multithreading}. Because each thread splits the large \texttt{worksheetX.xml} files into smaller chunks and processes these chunks incrementally, only a negligible amount of memory is used per thread. This setup represents a significant improvement over our previous DOM-based approach, where a single thread attempted to process all worksheets consecutively. The DOM-based method consistently consumed nearly 100\% of the available memory on our test machine, which prevented any realistic automation. By contrast, our new approach effectively reduces overall computation time and allows the files to be processed more quickly.
+
+\begin{algorithm}[ht]
+  \caption{Clean Excel Files with Multithreading}
+  \label{alg:multithreading}
+  \begin{algorithmic}
+
+    \STATE \textbf{Input:} 
+    \STATE \quad \texttt{InP} $\leftarrow$ Excel file path
+    \STATE \quad \texttt{OutP} $\leftarrow$ Output path
+    \vspace{0.2cm}
+    
+    \STATE \texttt{InArc} $\leftarrow$ Open the ZIP archive \texttt{InP} for reading
+    \STATE \texttt{OutArc} $\leftarrow$ Create a new ZIP archive for writing
+    \STATE \texttt{ShStr} $\leftarrow$ Extract shared strings from \texttt{sharedStrings.xml}
+    \STATE \texttt{Sty} $\leftarrow$ Extract styles from \texttt{styles.xml}
+    \STATE \texttt{SF} $\leftarrow$ List of all sheet XML files in \texttt{InArc}
+    \STATE \texttt{NSF} $\leftarrow$ List of non-sheet files in \texttt{InArc}    
+    \vspace{0.2cm}
+
+    \STATE \texttt{wvp} $\leftarrow$ dynamically create a pattern based on \texttt{ShStr} to identify whitespace-only cell values
+    \STATE \texttt{icp} $\leftarrow$ dynamically create a pattern based on \texttt{Sty} to identify cells that are invisible
+    \STATE \texttt{sdcp} $\leftarrow$ dynamically create a pattern based on \texttt{Sty} to identify cells whose styles depend on row/column styles 
+    \vspace{0.2cm}
+    \STATE \FOR{each sheet file \texttt{sf} in \texttt{SF} \textbf{in parallel}}
+        \STATE Clean sheet file \texttt{sf} in a stream-based manner using \texttt{wvp}, \texttt{icp}, \texttt{sdcp}, and \texttt{Sty}
+        \STATE Write cleaned sheet back to the ZIP archive \texttt{OutArc}
+    \ENDFOR
+
+    \STATE \FOR{each non-sheet file \texttt{nsf} in \texttt{NSF}}
+        \IF{\texttt{nsf} is \texttt{workbook.xml}}
+            \STATE Clean workbook metadata with a DOM-based approach
+            \STATE Write cleaned workbook to \texttt{OutArc}
+        \ELSE
+            \STATE Copy \texttt{nsf} unchanged to \texttt{OutArc}
+        \ENDIF
+    \ENDFOR
+
+    \STATE \textbf{Output:} Cleaned Excel file
+
+  \end{algorithmic}
+\end{algorithm}
+
+\subsection{Methodology (High-Level State-Machine Overview)}
+
+As mentioned above, our new approach employs a state machine that helps manage the complexity of the operations needed to segment the file and apply different regular expressions. The state machine is split into multiple states, each representing a specific file section under processing, as described in Algorithm~\ref{alg:state_machine}, which provides a high-level overview of the state machine’s operation. The state machine transitions between states based on the XML content it encounters, allowing it to apply different regex patterns depending on the context. This approach ensures that the regex patterns are applied only to the relevant sections of the XML, preventing overmatching and preserving the XML structure.
+
+\begin{algorithm}[ht]
+  \caption{State-Machine Overview}
+  \label{alg:state_machine}
+  \begin{algorithmic}
+
+    \STATE \textbf{Input:} 
+    \STATE \quad \texttt{SheetS} $\leftarrow$ Sheet XML stream
+    \vspace{0.2cm}
+
+    \STATE \textbf{Initialize:}
+    \STATE \quad \texttt{Buffer} $\leftarrow$ Empty buffer
+    \STATE \quad \texttt{Output} $\leftarrow$ Empty buffer
+    \STATE \quad \texttt{State} $\leftarrow$ BEFORE\_COLS
+    \STATE \quad \texttt{MaxRow} $\leftarrow$ 0
+    \STATE \quad \texttt{MaxCol} $\leftarrow$ 0
+    \vspace{0.2cm}
+
+    \STATE \textbf{Processing Sheet Stream}
+    \WHILE{\texttt{State} $\neq$ END\_OF\_FILE}
+        \STATE Read chunk from \texttt{SheetS} into \texttt{Buffer}
+
+        \STATE \IF{\texttt{State} is in BEFORE\_COLS, BEFORE\_SHEET\_DATA \textbf{or} AFTER\_SHEET\_DATA} 
+            \IF{Found \texttt{<cols>} or \texttt{<sheetData>}}
+                \STATE Store \texttt{Buffer} in \texttt{Output} until last found tag
+                \STATE Discard content in \texttt{Buffer} until last found tag
+            \ENDIF
+            \IF{Found \texttt{<cols>}}
+              \STATE \texttt{State} $\leftarrow$ IN\_COLS
+            \ELSIF{Found \texttt{<sheetData>}}
+                \STATE \texttt{State} $\leftarrow$ IN\_SHEET\_DATA
+            \ELSIF{Reached end of file}
+                \STATE Store entire \texttt{Buffer} in \texttt{Output} 
+                \STATE \texttt{State} $\leftarrow$ END\_OF\_FILE
+            \ENDIF
+        \ELSIF{\texttt{State} is IN\_COLS}
+            \IF{Found \texttt{</cols>} or \texttt{<col/>}}
+                \STATE Parse column definitions
+                \STATE Store \texttt{Buffer} in \texttt{Output} until last found tag
+                \STATE Discard content in \texttt{Buffer} until last found tag
+            \ENDIF
+            \IF{Found \texttt{</cols>}}
+                \STATE \texttt{State} $\leftarrow$ BEFORE\_SHEET\_DATA
+            \ENDIF
+        \ELSIF{\texttt{State} is IN\_SHEET\_DATA}
+            \IF{Found \texttt{</row>}, \texttt{<row .../>} or \texttt{</sheetData>}}
+                \STATE Clean \texttt{Buffer} of invisible cells/rows using patterns
+                \STATE Store cleaned \texttt{Buffer} in \texttt{Output}
+                \STATE Discard content in \texttt{Buffer} until last found tag
+                \STATE Extract any remaining cell references to update \texttt{MaxRow} and \texttt{MaxCol}
+            \ENDIF
+            \IF{Found \texttt{</sheetData>}}
+                \STATE \texttt{State} $\leftarrow$ AFTER\_SHEET\_DATA
+            \ENDIF
+        \ENDIF
+    \ENDWHILE
+    \vspace{0.2cm}
+
+    \STATE \textbf{Post-Processing}
+    \STATE Extract and update \texttt{MaxRow} and \texttt{MaxCol} from merge cells
+    \STATE Remove rows exceeding \texttt{MaxRow} from \texttt{sheetData}
+    \STATE Merge extraneous columns beyond \texttt{MaxCol}
+    \vspace{0.2cm}
+
+    \STATE \textbf{Output:} Cleaned sheet XML
+
+  \end{algorithmic}
+\end{algorithm}
+
+We implement our spreadsheet parser streaming-based, processing the XML data incrementally to minimize memory consumption and permit early discarding of unnecessary file sections. Both our “consecutive” and “interleaved” parsing approaches, which reduce memory usage, use this same underlying state machine. Below, we focus on how the parser transitions between states (i.e., how each state function decides to proceed), deferring lower-level details of in-state processing until later sections.
+
+\paragraph{States Overview.}
+We define six main states in our parser:
+\begin{itemize}
+  \item \texttt{BEFORE\_COLS}: The parser has not yet encountered the \texttt{<cols>} element. It searches for either \texttt{<cols>} or \texttt{<sheetData>}.
+  \item \texttt{IN\_COLS}: The parser found \texttt{<cols>} and is processing column definitions.
+  \item \texttt{BEFORE\_SHEET\_DATA}: The parser has finished reading (or did not detect) the \texttt{<cols>} node and is searching for the first \texttt{<sheetData>} element.
+  \item \texttt{IN\_SHEET\_DATA}: The parser is processing the main worksheet data (rows and cells).
+  \item \texttt{AFTER\_SHEET\_DATA}: The parser has detected the closing \texttt{</sheetData>} and is collecting any subsequent chunks until the end of the file.
+  \item \texttt{END\_OF\_FILE}: The parser has reached the end of the stream, and no further parsing is needed.
+\end{itemize}
+
+\paragraph{1. In between nodes}
+In \texttt{BEFORE\_COLS}, \texttt{BEFORE\_SHEET\_DATA}, or \texttt{AFTER\_SHEET\_DATA}, the parser looks for tag boundaries (e.g., \verb|<cols>|, \verb|<sheetData>|) or the end of file. When it detects such a tag at position \verb|i| in the buffer:
+\begin{enumerate}
+  \item It \emph{cuts} the buffer at \verb|i|, splitting the buffer into two segments:
+   (1) from the start to the end of the located tag, and (2) the bytes after that tag.
+  \item It returns the first segment as a chunk to add to the output, which the parser outputs or processes for the current state.
+  \item The second segment becomes the updated buffer, ensuring the XML node boundary is never split across segments.
+\end{enumerate}
+If the parser fails to find any relevant tag or end of file, it returns no new output chunk, remains in the same state and leaves the buffer unmodified. This ensures that subsequent incoming data can be appended, eventually providing enough content to match the target boundary.
+
+\paragraph{2. In column definition node.}
+In \texttt{IN\_COLS}, the parser searches for \verb|</cols>| or any \verb|<col .../>| elements. On detecting \verb|</cols>|, it cuts the buffer right before the closing tag and transitions to \texttt{BEFORE\_SHEET\_DATA}. If it does not find the closing tag but locates complete \verb|<col .../>| elements, those are consumed and removed from the buffer as a clean cut. If no match is found, the buffer remains unchanged, waiting for more data to complete the matching.
+
+\paragraph{3.  In sheet data node.}
+While \texttt{IN\_SHEET\_DATA}, the parser similarly looks for \verb|</sheetData>| or row boundaries \texttt{<row ...>...</row>} (or \texttt{<row .../>}). If \verb|</sheetData>| is found, the parser cuts the buffer at that tag and transitions to \texttt{AFTER\_SHEET\_DATA}. If no boundary is present yet, the buffer remains unaltered to combine with future data chunks.
+
+\paragraph{Ensuring ``Clean Cuts'' within the Streaming Buffer.}
+Our parser reads raw XML data into a working buffer and ensures each XML node boundary is cleanly preserved, so no node is split across buffers. Each state-transition function adheres to this principle, only cutting when a relevant XML tag is fully identified. 
+
+\paragraph{Buffer Updates and State Progress.}
+By constraining parsing decisions to these well-defined cuts, the parser never splits an XML node across multiple buffers. Each function (1) cuts on the matching tag boundary and updates the parser state, or (2) leaves the buffer intact if no complete boundary is found, thus allowing the next chunk to complete it. This way the parser can process the XML incrementally without needing to store the entire document in memory and it is ensured that the regular expressions dont't fail due to incomplete XML nodes and also only the regular expressions that are relevant to the current section of the document are applied, incresing the performance in comparison to applying all regular expressions on the whole document.
+
+\paragraph{Putting It All Together.}
+Through these transitions, the parser identifies the \texttt{<cols>} segment (if any) and the main \texttt{<sheetData>} block (if any). After discovering \texttt{</sheetData>}, it enters a final phase to read any remaining data. Upon reaching the end of the stream, it moves to \texttt{END\_OF\_FILE}. Then it does postprocessing to the collected output chunks that each state outputted in a different output buffer, so that the postprocessing can be more efficient by only applying the post processing that targets specific regions of the files only get applied to that paticular file section and not the whole document.  Later sections detail how, \emph{within} each state, cells, rows, and styles are selectively removed or retained to produce a more compact representation.
+
+\paragraph{Data Cleaning within the \texttt{sheetData} Node.}
+Most of the significant size reduction occurs in the \texttt{sheetData} node, which often contains the primary causes of file bloat. Our data cleaning proceeds as follows:
+
+\noindent
+\textbf{Overview.} We streamline the XML-based spreadsheet by removing extraneous cell entries and entire rows that do not contribute to visible content or formatting. In particular, we remove cells containing only whitespace, those referencing styles that provide only a basic font (i.e., no genuine fill or border), and rows with no meaningful content.
+
+\subsection{Optimization of Shared String References}
+Excel’s Open XML format manages textual data through a shared string table stored in \texttt{sharedStrings.xml}. Identical strings appearing multiple times are stored only once, but whitespace-only entries can also reside in this table and cells referencing those whitespaces  bloat the file.
+
+\subsubsection{Identifying Empty String Entries}
+We first scan the shared string table to detect entries consisting solely of whitespace. Indices of these redundant entries are marked for later removal.
+
+\subsubsection{Pattern-Based Detection and Removal}
+We compile these indices into a single regular expression pattern, matching \texttt{<v>} elements in the worksheet XML that reference them. All such occurrences are removed, thus clearing the affected cell entries.
+
+\begin{verbatim}
+'<v>(?:' + whitespace_ids_pattern + ')</v>'
+\end{verbatim}
+
+\subsubsection{Application to Sheet Data}
+This regular expression is applied to the raw XML to locate and remove all \texttt{<v>} elements referencing whitespace-only strings. The removal cuts file size significantly without modifying meaningful content. And it also simplifies regular expressions that will be applied next, because now all whitespace cells can be matched easily because they dont contain a child <v> node anymore and can hence be matched with a regular expression that is both less complex and thus faster and safer because there is less likely to overmatch.
+
+
+
+\section{Elimination of Invisible Cells and Removal of Redundant XML Elements}
+
+Cells in Excel's Open XML reference styles (defined in \lstinline|styles.xml| under \lstinline|cellXfs|) may sometimes only set font properties---without explicit fill or border attributes---and therefore can be considered unnecessary. Removing these cells reduces file size and simplifies further processing.
+
+\subsection{Elimination of Invisible Cells}
+
+\subsubsection{Identifying Minimal Style Definitions}
+
+We parse the \lstinline|cellXfs| list to locate style definitions that lack custom fill or border settings. In other words, these definitions have:
+\begin{itemize}
+  \item \lstinline|fill_id| and \lstinline|border_id| either unset or set to zero.
+  \item \lstinline|apply_fill| and \lstinline|apply_border| flagged as \lstinline|False|.
+\end{itemize}
+
+\subsubsection{Regular Expression Construction for Cell Matching}
+
+Once we have the indices of minimal styles, we build a regular expression that detects cell elements (\lstinline|<c>|) whose style attribute (\lstinline|s|) corresponds to one of these indices.
+
+\paragraph{Regex Listing for Minimal Cell Matching}
+\begin{lstlisting}[caption={Regex for Minimal Cell Matching}, label={lst:regex-minimal}]
+<c\b(?=[^>]*\bs="(?:7|11|17)")% 
+[^>]*(?:\/>|>\s*<\/c>)
+\end{lstlisting}
+
+\paragraph{Pattern Breakdown:}
+\begin{itemize}
+  \item \textbf{1:} \lstinline|<c\b| \\
+    Matches the opening of a cell element (\lstinline|<c>|). The word boundary (\lstinline|\bs|) ensures that similar tag names are not mistakenly matched.
+  \item \textbf{2:} \lstinline|(?=[^>]*\bs="(?:7|11|17)")| \\
+    A positive lookahead that checks for the presence of a style attribute (\lstinline|s|) whose value is one of the minimal style indices (here, \lstinline|7|, \lstinline|11|, or \lstinline|17|). It does not match if the attribute is missing or does not match one of these values.
+  \item \textbf{3:} \lstinline{[^>]*(?:\/>|>\s*<\/c>)} \\
+    Matches the remainder of the cell tag, accommodating both self-closing tags (\lstinline|/>|) and tags with explicit closing elements (\lstinline|</c>|). This component excludes malformed tags or tags with unexpected nested content.
+\end{itemize}
+
+\subsubsection{Substitution to Remove Redundant References}
+
+Applying the above pattern to the XML buffer, all cell elements referencing these minimal styles are removed. This includes cells that are already empty (lacking a nested \lstinline|<v>| node) or cells whose content has been removed in a previous processing step. Removing these cells reduces file size and simplifies subsequent processing, as rows with no remaining cells can be eliminated with an additional regular expression.
+
+\subsection{Deleting Invisible Cells that Depend on Row or Column Styles}
+
+Even after the initial clean-up, some cells might persist with no truly visible style. Since Excel's style system can inherit properties from row or column settings, we must compare each cell's local style properties (e.g., \lstinline|apply_fill|, \lstinline|apply_border|) with those inherited from its row or column.
+
+\paragraph{Checks Include:}
+\begin{itemize}
+  \item \textbf{Border:} If a cell has \lstinline|apply_border| set, its \lstinline|border_id| is compared against the row and column \lstinline|border_id|. If they match and the border object is empty, the cell is deemed invisible with respect to borders.
+  \item \textbf{Fill:} If \lstinline|apply_fill| is set, the cell's \lstinline|fill_id| is compared with that of its row or column. A match, or a fill object with a pattern type of \lstinline|none|, implies that no unique fill is applied.
+\end{itemize}
+Any cell with no distinct fill or border (and without any value) is removed.
+
+\subsubsection{Regular Expression for Identifying Invisible Cells Dependent on Row/Column Styles}
+
+\paragraph{Regex Listing for Invisible Cell Detection}
+\begin{lstlisting}[caption={Regex for Invisible Cell Detection}, label={lst:regex-invisible}]
+<c\b(?=[^>]*\br="([A-Za-z]+)(\d+)")% 
+(?=[^>]*\bs="(?:3|5)")% 
+[^>]*(?:\/>|>\s*<\/c>)
+\end{lstlisting}
+
+\paragraph{Pattern Breakdown:}
+\begin{itemize}
+  \item \textbf{1:} \lstinline|<c\b| \\
+    Matches the beginning of a cell element.
+  \item \textbf{2:} \lstinline|(?=[^>]*\br="([A-Za-z]+)(\d+)")| \\
+    A positive lookahead that captures the cell reference attribute (\lstinline|r|), splitting it into its alphabetical and numeric parts (e.g., \lstinline|A1| becomes \lstinline|A| and \lstinline|1|). It does not match if the cell reference is missing or improperly formatted.
+  \item \textbf{3:} \lstinline|(?=[^>]*\bs="(?:3|5)")| \\
+    A positive lookahead that checks for a style attribute (\lstinline|s|) matching the criteria for inherited fill or border properties (here, the allowed values are \lstinline|3| or \lstinline|5|). If the style does not match, the cell is not considered invisible by this rule.
+  \item \textbf{4:} \lstinline{[^>]*(?:\/>|>\s*<\/c>)} \\
+    Matches the remainder of the cell tag, accommodating both self-closing and paired tags.
+\end{itemize}
+
+\subsection{Removal of Empty Rows in Worksheet XML}
+
+After removing invisible cells, rows that no longer contain any cell elements can be eliminated. These empty \lstinline|<row>| elements, which may lack fill, border, or even height attributes, do not contribute to displayed content but can unnecessarily increase file size.
+
+\subsubsection{Regular Expression for Identifying Empty Rows}
+
+\paragraph{Regex Listing for Empty Row Removal}
+\begin{lstlisting}[caption={Regex for Empty Row Removal}, label={lst:regex-empty}]
+<row(?![^>]*\bht=)%
+(?=[^>]*(?:\bs="
+(?:7|11|17)
+"|(?:(?!\bs=").)*))%
+[^>]*?(?:\/>|></row>)
+\end{lstlisting}
+
+\paragraph{Pattern Breakdown:}
+\begin{itemize}
+  \item \textbf{1:} \lstinline|<row| \\
+    Matches the opening of a \lstinline|<row>| tag.
+  \item \textbf{2:} \lstinline|(?![^>]*\bht=)| \\
+    A negative lookahead ensuring that no height attribute (\lstinline|ht|) is present. Rows with a height attribute are excluded, as their height may affect layout.
+  \item \textbf{3:} \lstinline{(?=[^>]*(?:\bs="} \\
+    \item \textbf{4:} \lstinline{(?:7|11|17)} \\
+    \item \textbf{5:} \lstinline{"|(?:(?!\bs=").)*))} \\
+  \item \textbf{6:} \lstinline|[^>]*?| \\
+    A minimal match for the remainder of the tag.
+  \item \textbf{7:} \lstinline|(?:\/>|></row>)| \\
+    Matches the end of the row element, handling both self-closing tags (\lstinline|/>|) and paired row tags (\lstinline|</row>|).
+\end{itemize}
+
+\subsection{Bounding Rows and Columns}
+\label{sec:bounding_rows_and_columns}
+After purging cells without visible content or style, only cells with meaningful data or formatting remain. We then define the boundaries for rows and columns:
+\begin{itemize}
+  \item \textbf{Rows} below the last cell that contained data or had a style that is visible to the user are removed. Even if a row has a height attribute, it does not affect the document's appearance if there is no content below.
+  \item \textbf{Columns} to the right of the last cell that contained data or had a style that is visible to the user a defined maximum (e.g., \lstinline|MaxCol|) are similarly eliminated from the \lstinline|<cols>| section.
+\end{itemize}
+For example, if the last row with visible content is row 42, the regular expression is constructed to match any row identifiers indicating rows beyond this threshold. The regex is designed to match IDs that are longer than three characters (i.e., row numbers from 100 upwards) as well as rows in the range 43--99.
+
+\subsubsection{Regular Expression for Bounding Rows}
+
+\paragraph{Regex Listing for Row Boundary Matching}
+\begin{lstlisting}[caption={Regex for Row Boundary Matching}, label={lst:regex-boundary}]
+<row[^r]+r="
+(:\d{3,}|4[3-9]|4\d{1})
+"[^/>]*?(?:\/>|></row>)
+\end{lstlisting}
+
+\paragraph{Pattern Breakdown:}
+\begin{itemize}
+  \item \textbf{1:} \lstinline|<row[^r]+r="| \\
+    Matches a \lstinline|<row>| tag that contains an attribute \lstinline|r| indicating the row number.
+  \item \textbf{2:} \lstinline|(:\d{3,}|4[3-9]|4\d{1})| \\
+    Captures row numbers that fall outside the defined boundary:
+    \begin{itemize}
+      \item \lstinline|\d{3,}| matches any row number with three or more digits (i.e., 100 or above). When used inline, the curly braces must be escaped, so it becomes \lstinline|\d\{\3,\}|.
+      \item \lstinline|4[3-9]| matches rows numbered 43 through 49.
+      \item \lstinline|4\d{1}| captures additional two-digit rows starting with 4 when applicable. Here, \lstinline|\d{1}| should be written as \lstinline|4\d\{\1\}|.
+    \end{itemize}
+  \item \textbf{3:} \lstinline|[^/>]*?(?:\/>|></row>)| \\
+    Matches the remainder of the row element, accommodating both self-closing tags (\lstinline|/>|) and paired tags (\lstinline|</row>|).
+\end{itemize}
+
+
+
+
+  
+
+\subsection{Reporting Reduction Results}
+
+To provide a breakdown of how many bytes were saved by deleting whitespaces, empty cells, columns, and rows, we compare the file size before and after each reduction step. For this purpose, we used Excel Schrink Analyser to calculate the size of the worksheet by converting the XML structure into a string, as it would be stored in the file, and compute the length of this string. We then perform a reduction step and again calculate the length of the new string to determine the difference caused by each reduction. Finally, we calculate the percentage reduction relative to the original size. These results are saved in a CSV table.~\cite{excel_shrink_results_csv}
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+  
+\section{Evaluation}
+We tested our approach on 1,200+ real Excel files from the German Federal Statistical Office, covering year-based directories and containing numerous oversize spreadsheets.  
+
+In this evaluation, we processed all \textit{Excel} files obtained from the German Federal Statistical Office (\textit{Destatis})~\cite{original_destatis_xlsx_files,shrinked_destatis_xlsx_files}. The complete details of how these files were acquired through a custom web scraping approach can be found in Appendix~\ref{sec:scraping_destatis}.
+
+Our primary goal was to quantify the extent of data reduction achieved by \textit{Excel Shrink}, focusing on metrics such as overall size reduction, removal of empty cells, elimination of whitespace cells, deletion of rows outside the value range, and the removal of unnecessary columns. Figure~\ref{fig:size-reduction-chart} presents the distribution of reduction rates (in percentage) for individual worksheets across all these categories. The chart shows that some worksheets experienced reductions approaching 100\% in file size. In particular, one worksheet exceeded a 99.99\% reduction, 16 worksheets surpassed 99.9\%, and 210 worksheets achieved reductions above 99\%. Across all worksheets, the average reduction rate was 25\%. Most of these gains were realized by removing rows that lay outside the range of actual data values.
+
+\begin{figure*}
+  \centering
+  \includegraphics[width=\textwidth]{images/charts/combined_chart_distribution_of_size_reduction.pdf}
+  \caption{Distribution of Size Reduction Percentages for Excel Sheets}
+  \label{fig:size-reduction-chart}
+\end{figure*}
+
+To further assess the performance improvements enabled by \textit{Excel Shrink}, we identified the largest available \textit{Destatis} file.\footnote{The file reference can be found here: [LINK TO THE FILE].} Prior to processing, this file measured 85.2~MB in its compressed \textit{Excel} (.xlsx) format and expanded to 911~MB when uncompressed. After applying \textit{Excel Shrink}—a process that took approximately 935.5 seconds—the resulting compressed file size was reduced to 2.76~MB, with an uncompressed size of just 20.6~MB.
+
+We then tested file opening times using the Dart \texttt{excel} package. Before shrinking, the first run took 794.7 seconds to open and read values from the file. On the second run, the process failed due to an out-of-memory exception. In contrast, after applying \textit{Excel Shrink}, we successfully ran the test 10 consecutive times without error. The median time to open the shrunk file and read values was 17.90 seconds, demonstrating a substantial performance improvement.
+
+\subsection{Summary of Findings}
+
+The evaluation demonstrates that the data reduction techniques employed by \textit{Excel Shrink} are highly effective in eliminating redundant, empty, or irrelevant data across a variety of \textit{Excel} worksheets. Significant reductions—exceeding 90\% in several cases—were achieved in sheets containing a high proportion of empty cells, or irrelevant rows and columns. These results highlight the robustness of our reduction methods in processing diverse data formats and structures.
+
+Moreover, the analysis underscores the importance of addressing different reduction factors independently, as their impact on file size varied. While empty cell removal provided substantial reductions in certain worksheets, others benefited more from the removal of rows or columns. Notably, whitespace removal had a smaller overall impact.
+
+
+\section{Reduction Ratio}
+
+The evaluation results focus on the top three files for each reduction factor, as shown in Table \ref{tab:combined_top_factors}.
+
+\subsection{Overall Reduction Ratio}
+The top three worksheets with the highest overall reduction ratios are all from the same file, with reduction ranging up to 99.99\%. This indicates that almost all data in these sheets consisted of file bloat that was successfully eliminated. The repetition of this file in the subsequent table suggests that the worksheet was duplicated multiple times. A Excel user has no means to know that with duplicating this worksheet he duplicates 99.99\% file bloat, wheras he intended to just copy over 0.01\% of actual data.
+ 
+\subsection{Rows Outside of Value Range Reduction Ratio}
+
+The majority of unnecessary data consisted of rows outside the value range, with reduction ratios between 99.94\% and 99.99\% in the top five files. This suggests that the largest portions of redundant data were predominantly from a single category rather than a combination of different categories.
+
+\subsection{Empty Cell Reduction Ratio}
+Empty cell removal achieved significant reductions, with ratios between 99.90\% and 99.91\% in the top three files. Notably, three different files were affected, although the worksheets shared the same name. This suggests that these explanatory worksheets might have been duplicated from one \textit{Excel} file to another, or the entire file was duplicated, leading to a similar number of empty cells across them.
+
+\subsection{Removed Columns Reduction Ratio}
+Removing unnecessary column definitions resulted in reduction ratios ranging from 92.43\% to 94.38\% in the top three worksheets. Similar worksheet names were again noticeable, implying that duplicated worksheets carried over a significant amount of file bloat due to unused column definitions.
+
+\subsection{Whitespace Cell Reduction Ratio}
+Whitespace cell removal was the least effective in reducing file size. The top sheet still had a notable 79.71\% of the file size attributed to whitespaces, while the second entry dropped to 44.68\%, and the last three entries were around one-third. With the exception of the last two files, the top three were distinct. However, the similar worksheet names and high proportion of whitespace suggest that redundant content might have been carried over to other worksheets through duplication.
+
+\begin{table*}[t]
+  \centering
+  \caption{Top Sheets by Each Reduction Factor}
+  \label{tab:combined_top_factors}
+  \begin{tabular}{p{0.45\textwidth} l r}
+  \toprule
+  File & Sheet & Reduction Factor Value (\%) \\
+  \midrule
+  \multicolumn{3}{l}{\textbf{Top 3 rows for Reduction Ratio}} \\
+  \midrule
+  verkehrsunfaelle-zeitreihen-xlsx-5462403.xlsx & Technisch\_bedingte\_Leerseit & 99.99 \\
+  verkehrsunfaelle-zeitreihen-xlsx-5462403.xlsx & 4.6\_(3) & 99.96 \\
+  verkehrsunfaelle-zeitreihen-xlsx-5462403.xlsx & 3.1\_(7) & 99.96 \\
+  \addlinespace
+  \multicolumn{3}{l}{\textbf{Top 3 rows for Rows Outside of Value Range Reduction Ratio}} \\
+  \midrule
+  verkehrsunfaelle-zeitreihen-xlsx-5462403.xlsx & Technisch\_bedingte\_Leerseit & 99.99 \\
+  verkehrsunfaelle-zeitreihen-xlsx-5462403.xlsx & 3.1\_(7) & 99.96 \\
+  verkehrsunfaelle-zeitreihen-xlsx-5462403.xlsx & 4.6\_(3) & 99.95 \\
+  \addlinespace
+  \multicolumn{3}{l}{\textbf{Top 3 rows for Empty Cell Reduction Ratio}} \\
+  \midrule
+  statistischer-bericht-mikrozensus-h...-2010300217005.xlsx & Erl\"auterung zu CSV-Tabellen & 99.91 \\
+  statistischer-bericht-mikrozensus-h...erstergebnisse.xlsx & Erl\"auterung zu CSV-Tabellen & 99.91 \\
+  statistischer-bericht-mikrozensus-h...-endergebnisse.xlsx & Erl\"auterung zu CSV-Tabellen & 99.91 \\
+  \addlinespace
+  \multicolumn{3}{l}{\textbf{Top 3 rows for Removed Columns Reduction Ratio}} \\
+  \midrule
+  strauchbeerenanbau-2030319227005.xlsx & DE3\_2 (4) & 94.38 \\
+  strauchbeerenanbau-2030319227005.xlsx & DE3\_2 (3) & 93.41 \\
+  strauchbeerenanbau-2030319227005.xlsx & DE3\_2 & 93.37 \\
+  \addlinespace
+  \multicolumn{3}{l}{\textbf{Top 3 rows for Whitespace Cell Reduction Ratio}} \\
+  \midrule
+  statistischer-bericht-berufliche-sc...-5211004227005.xlsx & 21121-17 & 79.71 \\
+  statistischer-bericht-verkehr-2080110231075.xlsx & csv-46251-28 & 44.68 \\
+  ueberschuldung-2150500217005.xlsx & 5.1 & 29.97 \\
+  \addlinespace
+  \bottomrule
+  \end{tabular}
+\end{table*}
+
+
+\subsection{Vergleich mit anderen Werkzeugen zum reduzieren von Bloat}
+
+
+\subsection{Excel Inquire Add-in}
+
+The \textit{Excel Inquire} Add-in, available only in \textit{Office Professional Plus} and \textit{Microsoft 365 Apps for Enterprise}, can remove some redundant content~\cite{o2014excel}.
+
+\textit{Excel Inquire} ignored whitespace cells but can delete empty cell, column, and row definitions. Yet, in certain cases, a significant number of unnecessary elements remain. For example, consider a worksheet serving as a cover sheet, where only the first 77 rows are used and the remaining rows (78 to 65,533(the old limit of row in Excelfiles before it was increased to 1,048,576)) are hidden. Despite being hidden, all these rows and cells are defined in the XML structure, as shown in Listing~\ref{lst:row-65533}.
+
+\begin{lstlisting}[caption={Row 65533 in sheetX.xml}, label={lst:row-65533}]
+<row r="65533" spans="1:7" ht="0" hidden="1" customHeight="1">
+  <c r="A65533" s="68" />
+  <c r="B65533" s="68" />
+  <c r="C65533" s="68" />
+  <c r="D65533" s="68" />
+  <c r="E65533" s="68" />
+  <c r="F65533" s="68" />
+  <c r="G65533" s="68" />
+</row>
+</sheetData>
+\end{lstlisting}
+
+When applying the \textit{Excel Inquire} Add-in to such worksheets, these hidden rows and cells remain. A dialog box reports that because the default row height is \texttt{0}, the tool cannot clean the sheet, causing the operation to be skipped entirely. Excel Shrink removes those cells because they are below the cells that have content or visual style. See \ref{sec:bounding_rows_and_columns} fore reference.
+
+\subsection{Excel Check Performance}
+
+The \textit{Check Performance} feature, introduced in \textit{Excel} for the Web and recent desktop versions, can achieve substantial file size reductions~\cite{shirolkar2022check,shirolkar2024make}. However, it often removes cells and rows that influence the spreadsheet’s layout and formatting, thereby altering its visual appearance. This is unacceptable in contexts where maintaining the original look and structure of the spreadsheet is essential.
+
+Figure~\ref{fig:performance} illustrates how \textit{Check Performance} modifies a cover sheet by removing empty rows. While such modifications might be acceptable in some instances, they become problematic when these empty rows serve a functional purpose, such as aligning the layout for printing on A4 pages. In the example shown, the cells responsible for providing space on the cover sheet (Figure~\ref{fig:performance_before}) are removed, as shown in Figure~\ref{fig:performance_after}~\cite{destatis2022Verkehrsunfaelle}. Excel Shrink preserves this layout.
+
+\begin{figure}[ht]
+  \centering
+  \begin{subfigure}[b]{0.48\linewidth}
+    \centering
+    \includegraphics[width=\textwidth]{images/excel_shrink/related_work/performance/verkehrsunfaelle-performance.png}
+    \caption{Before Applying Check Performance}
+    \label{fig:performance_before}
+  \end{subfigure}
+  \hspace{0.01\linewidth} 
+  \begin{subfigure}[b]{0.48\linewidth}
+    \centering
+    \includegraphics[width=\textwidth]{images/excel_shrink/related_work/performance/verkehrsunfaelle-performance_after.png}
+    \caption{After Applying Check Performance}
+    \label{fig:performance_after}
+  \end{subfigure}
+  \caption{Comparison of a Cover Sheet Before and After Applying Check Performance}
+  \label{fig:performance}
+\end{figure}
+
+As another example, consider a form-like structure composed of several empty cells arranged to form a table, anticipating future data entry~\cite{destatis2023Rechnungsergebnisse}. \textit{Check Performance} removes all borders outside the active data region, resulting in the scenario shown in Figure~\ref{fig:table_no_table}, where the intended table layout is lost. Because Excel Shrink marks all cells as important if they are visible to the user, it does not delete them.
+
+\begin{figure}[ht]
+  \centering
+  \begin{subfigure}[b]{0.48\linewidth}
+    \centering
+    \includegraphics[width=\textwidth]{images/excel_shrink/related_work/performance/table2.png}
+    \caption{Before Applying Check Performance}
+    \label{fig:table}
+  \end{subfigure}
+  \hspace{0.01\linewidth} 
+  \begin{subfigure}[b]{0.48\linewidth}
+    \centering
+    \includegraphics[width=\textwidth]{images/excel_shrink/related_work/performance/no_table2.png}
+    \caption{After Applying Check Performance}
+    \label{fig:no_table}
+  \end{subfigure}
+  \caption{Removal of Borders Defining an Empty Table Structure}
+  \label{fig:table_no_table}
+\end{figure}
+
+
+
+\section{Experimental Setup}
+\label{sec:experimental-setup}
+
+To evaluate the behavior of \textit{Excel} regarding how the files are interpreted and saved, as well as to test the behavior of the \textit{Add-in} and the new \textit{Check Performance} feature, we tested with two distinct versions of \textit{Excel} from \textit{Microsoft Office}: \textit{Microsoft Office LTSC Professional Plus 2021} and \textit{Microsoft Excel for Microsoft 365 MSO (Version 2409 Build 16.0.18025.20030) 64-bit}. These versions were selected to evaluate compatibility and performance across different Excel environments.Our test machine was an \textit{Intel Core i7-4790K} quad-core CPU desktop machine running at 4.00~GHz with 16~GB of RAM.
+
+\section{Conclusion}
+\label{sec:conclusion}
+
+We have presented \textit{Excel Shrink}, an open-source tool that significantly reduces the file sizes of \textit{Excel} sheets from \textit{Destatis} by eliminating unnecessary content. Our analysis identified common practices that lead to bloated \textit{Excel} files and demonstrated how targeted removal of redundant data can achieve reductions of up to 99.99\% without altering the spreadsheets' appearance.
+
+Our tool outperforms existing solutions in both file size reduction and preservation of formatting. By making \textit{Excel Shrink} available to the community, we hope to facilitate more efficient data processing and analysis of large-scale \textit{Excel} datasets.
+
+
+
+ 
+
+
+\section{Conclusion}
+\label{sec:conclusion}
+We introduced a streaming-based, multiprocessing strategy for removing Excel file bloat at scale, demonstrating that it can outperform native Excel loading times. By combining partial XML parsing for style metadata with a pipeline of dynamic regex transformations, we preserve worksheet layout while eliminating up to 99.99\% of the storage overhead. 
+
+Beyond Excel, our contribution highlights how domain-specific streaming transformations can circumvent memory-intensive parsing in other compressed XML-based systems. Future work includes porting our approach to lower-level languages (C++, Rust) for even higher throughput, and extending the technique to related file formats such as ODS (OpenDocument Spreadsheet). We believe that bridging the gap between domain-specific knowledge (styles, merges, hidden columns) and high-performance streaming offers a promising avenue for \emph{truly large} spreadsheet management in the broader data management community.
+
+
+
+\bibliographystyle{ACM-Reference-Format}
+\bibliography{acmart.bib}
+
+
+
+\appendix
+
+
+
+%\clearpage
+
+
+\section{Old Background}
+
+
+\subsection{Limitations of Existing Solutions}
+
+Several proprietary tools and features, such as NXPowerLite Desktop, the Inquire Add-in, and the Excel Performance tab, attempt to mitigate file bloat. However, they suffer from notable shortcomings:
+
+\begin{itemize}
+    \item \textbf{Closed Source and Lack of Transparency:} Existing tools do not disclose their underlying methods, making it difficult to understand the root causes of bloat or to improve upon their techniques.
+    \item \textbf{Incomplete Coverage:} They often fail to address all sources of unnecessary content. For example, redundant column definitions may remain uncorrected, leaving substantial portions of file bloat unresolved.
+    \item \textbf{Visual Alterations:} Some solutions can significantly alter the spreadsheet’s original appearance, which is unacceptable for users who rely on specific formatting or corporate branding.
+    \item \textbf{Limited Automation:} Due to the lack of batch processing or command-line interfaces, integrating these tools into automated workflows or pipelines (e.g., for cloud uploads or large-scale data processing) is challenging or impossible.
+\end{itemize}
+
+\subsection{Our Approach and Contributions}
+
+Motivated by these gaps, we conducted a systematic investigation into the root causes of Excel file bloat, focusing on previously undocumented inefficiencies and the limitations of existing solutions. We then developed \textit{Excel Shrink}, an open-source tool designed to effectively reduce file sizes while preserving the spreadsheet’s visual appearance. Unlike proprietary offerings, \textit{Excel Shrink} provides a transparent, platform-independent solution that does not require Microsoft Excel itself. It can also be integrated into automated pipelines, enabling seamless batch processing and large-scale deployment. For those preferring a more user-friendly interface, we offer \textit{Excel Shrink UI}~\cite{excel-shrink-ui}, which eliminates the need for Python installation or command-line interactions.
+
+Our contributions are as follows:
+
+\begin{itemize}
+    \item \textbf{Comprehensive Analysis:} We reveal the root causes of file bloat in Destatis Excel files, identifying previously undocumented issues such as unnecessary column definitions.
+    \item \textbf{Critical Evaluation of Existing Tools:} We show why current proprietary solutions fail to fully resolve file bloat and how they may inadvertently alter the spreadsheet’s appearance.
+    \item \textbf{Novel Open-Source Solution:} We introduce \textit{Excel Shrink}, which effectively addresses all identified causes of bloat, preserves visual formatting, supports automation, and is not tied to a specific operating system or to Microsoft Excel.
+    \item \textbf{Empirical Validation:} We evaluate \textit{Excel Shrink} on a comprehensive set of Destatis Excel files, demonstrating that it can reduce file sizes by up to 99.99\% without compromising usability or appearance.
+\end{itemize}
+
+By thoroughly examining hidden redundancies and providing a transparent, open-source solution, our work fills a significant gap in spreadsheet optimization research and practice.
+
+
+\section{Old Related Work}
+\label{sec:old-related-work}
+
+Several tools and techniques have been developed to reduce \textit{Excel} file bloat, including proprietary solutions such as \textit{NXPowerLite Desktop}, the \textit{Excel Inquire} Add-in, and the built-in \textit{Check Performance} feature in recent versions of \textit{Excel}. While these tools can alleviate certain issues, they also exhibit notable limitations.
+
+\subsection{NXPowerLite Desktop}
+
+\textit{NXPowerLite Desktop} is a commercial application primarily focused on compressing embedded images in \textit{Excel} files~\cite{neuxpower2024nxpowerlite}. Although it can remove some empty cells, it disregards other sources of file bloat such as cells containing only whitespace and redundant column definitions.
+
+The tool offers limited batch functionality, allowing users to select and process multiple files simultaneously, but only up to a maximum of 20 files at once. Being closed-source, it does not provide a means to adjust this artificial limit, further motivating the need for a more flexible, open-source solution.
+
+\subsection{Excel Inquire Add-in}
+
+The \textit{Excel Inquire} Add-in, available only in \textit{Office Professional Plus} and \textit{Microsoft 365 Apps for Enterprise}, can remove some redundant content~\cite{o2014excel}. However, it lacks comprehensive batch processing capabilities because it requires manually opening each \textit{Excel} file before applying the add-in. This approach is impractical for large datasets.
+
+\textit{Excel Inquire} ignores whitespace cells but can delete empty cell, column, and row definitions. Yet, in certain cases, a significant number of unnecessary elements remain. For example, consider a worksheet serving as a cover sheet, where only the first 77 rows are used and the remaining rows (78 to 65533) are hidden. Despite being hidden, all these rows and cells are defined in the XML structure, as shown in Listing~\ref{lst:row-65533}.
+
+\begin{lstlisting}[caption={Row 65533 in sheetX.xml}, label={lst:row-65533}]
+<row r="65533" spans="1:7" ht="0" hidden="1" customHeight="1">
+  <c r="A65533" s="68" />
+  <c r="B65533" s="68" />
+  <c r="C65533" s="68" />
+  <c r="D65533" s="68" />
+  <c r="E65533" s="68" />
+  <c r="F65533" s="68" />
+  <c r="G65533" s="68" />
+</row>
+</sheetData>
+\end{lstlisting}
+
+When applying the \textit{Excel Inquire} Add-in to such worksheets, these hidden rows and cells remain. A dialog box reports that because the default row height is \texttt{0}, the tool cannot clean the sheet, causing the operation to be skipped entirely.
+\subsection{Excel Check Performance}
+
+The \textit{Check Performance} feature, introduced in \textit{Excel} for the Web and recent desktop versions, can achieve substantial file size reductions~\cite{shirolkar2022check,shirolkar2024make}. However, it often removes cells and rows that influence the spreadsheet’s layout and formatting, thereby altering its visual appearance. This is unacceptable in contexts where maintaining the original look and structure of the spreadsheet is essential.
+
+Figure~\ref{fig:performance} illustrates how \textit{Check Performance} modifies a cover sheet by removing empty rows. While such modifications might be acceptable in some instances, they become problematic when these empty rows serve a functional purpose, such as aligning the layout for printing on A4 pages. In the example shown, the cells responsible for providing whitespace on the cover sheet (Figure~\ref{fig:performance_before}) are removed, as shown in Figure~\ref{fig:performance_after}~\cite{destatis2022Verkehrsunfaelle}.
+
+\begin{figure}[ht]
+  \centering
+  \begin{subfigure}[b]{0.48\linewidth}
+    \centering
+    \includegraphics[width=\textwidth]{images/excel_shrink/related_work/performance/verkehrsunfaelle-performance.png}
+    \caption{Before Applying Check Performance}
+    \label{fig:performance_before}
+  \end{subfigure}
+  \hspace{0.01\linewidth} 
+  \begin{subfigure}[b]{0.48\linewidth}
+    \centering
+    \includegraphics[width=\textwidth]{images/excel_shrink/related_work/performance/verkehrsunfaelle-performance_after.png}
+    \caption{After Applying Check Performance}
+    \label{fig:performance_after}
+  \end{subfigure}
+  \caption{Comparison of a Cover Sheet Before and After Applying Check Performance}
+  \label{fig:performance}
+\end{figure}
+
+As another example, consider a form-like structure composed of several empty cells arranged to form a table, anticipating future data entry~\cite{destatis2023Rechnungsergebnisse}. \textit{Check Performance} removes all borders outside the active data region, resulting in the scenario shown in Figure~\ref{fig:table_no_table}, where the intended table layout is lost.
+
+\begin{figure}[ht]
+  \centering
+  \begin{subfigure}[b]{0.48\linewidth}
+    \centering
+    \includegraphics[width=\textwidth]{images/excel_shrink/related_work/performance/table2.png}
+    \caption{Before Applying Check Performance}
+    \label{fig:table}
+  \end{subfigure}
+  \hspace{0.01\linewidth} 
+  \begin{subfigure}[b]{0.48\linewidth}
+    \centering
+    \includegraphics[width=\textwidth]{images/excel_shrink/related_work/performance/no_table2.png}
+    \caption{After Applying Check Performance}
+    \label{fig:no_table}
+  \end{subfigure}
+  \caption{Removal of Borders Defining an Empty Table Structure}
+  \label{fig:table_no_table}
+\end{figure}
+
+
+
+
+
+\section{Scraping Destatis}
+\label{sec:scraping_destatis}
+
+The \textit{Destatis} website does not provide an API for searching publications, making it necessary to interact with the website directly. To automate this process, we developed a web scraper that searches for relevant publications while minimizing the number of requests to the server. The web scraping and downloading process is outlined in Algorithm~\ref{alg:web_scraping_caching}. The URL structure of the \textit{Destatis} website is as follows, with query parameters appended to the base path:
+
+\begin{itemize}
+  \item \url{/SiteGlobals/Forms/Suche/Expertensuche\_Formular.html}:
+
+  This is the base path of the URL, which points to the expert search form on the \textit{Destatis} website. It serves as the primary endpoint where the search query is submitted.
+
+  \item \url{templateQueryString=2000}:
+
+  This query parameter specifies the search year. In this case, the search is focused on publications from the year 2000. By adjusting this value, different years can be searched.
+
+  \item \url{gtp=474\_list\%253D2}:
+
+  This parameter handles pagination. It points to a specific page of search results. The value \texttt{\%253D} is a doubly encoded sequence, where \texttt{\%253D} is the URL-encoded form of \texttt{\%3D}, which itself encodes the equal sign (\texttt{=}). After decoding twice, the query parameter becomes \texttt{gtp=474\_list=2}. The number after the second equal sign corresponds to the current page index in the pagination of the search results.
+
+
+  \item \url{documentType\_=publication}:
+
+  This parameter filters the results by the type of document. By setting this to \texttt{publication}, the search is limited to publications, where \textit{Excel} files are usually attached.
+
+  \item \url{resultsPerPage=100}:
+
+  This parameter determines how many results should be displayed per page. In this case, it is set to \texttt{100}, which is the maximum number of results that can be retrieved in a single page request.
+\end{itemize}
+
+Through extensive testing, we discovered that \textit{Excel} files are exclusively found in the ``Publication'' document type. By using the GET parameter \texttt{documentType\_=publication}, we were able to significantly narrow down our search results.
+
+Initially, we assumed that searching for the term \texttt{xlsx} would identify all publications containing \textit{Excel} file attachments. However, this search only returned about 100 results, far fewer than the actual number of \textit{Excel} files available on the \textit{Destatis} website. Furthermore, there is no option to retrieve a complete list of all publications ever created. To overcome this, we refined our strategy by searching based on publication years. A publication should appear in the search results when queried by its publication year. Although this approach returns some irrelevant results---where the publication year might appear in the text or a file attachment---the number of requests is greatly reduced by caching and reusing links to the \textit{Excel} file attachments. This ensures that the same files are not downloaded multiple times.
+
+The search results on the \textit{Destatis} website, like many others, are paginated, with the interface offering the ability to display 10, 20, or 30 entries per page. The number of results per page can be adjusted using the GET parameter \texttt{resultsPerPage=30}. While the interface does not provide an option for more than 30 results per page, we found that manually setting this parameter allowed us to request up to 100 results per page. Through testing, we confirmed that 100 is the maximum number of results that can be returned at once. We set the \texttt{resultsPerPage} parameter accordingly to reduce the number of requests further.
+
+Once the results for a page are fetched by the web scraper, we simulate clicking the ``next page'' link to load subsequent results. The XPath expression \texttt{//a[@class='forward button']/@href} is used to identify the link using the CSS class \texttt{forward button}.
+ 
+
+
+\begin{algorithm}
+  \caption{Web Scraping and Downloading Excel Files with Caching}
+  \label{alg:web_scraping_caching}
+  \begin{algorithmic}
+
+      \STATE \textbf{Input:} Base URL \texttt{B}, form URL \texttt{F}, download folder \texttt{D}, CSV cache file \texttt{C}, crawl delay (30 seconds)
+      \STATE \textbf{Initialize:} Cached URLs set \texttt{U}, and load file records from CSV \texttt{C}
+      \STATE Create folder \texttt{D} if it does not exist
+
+      \STATE \COMMENT{--- Scraping Process ---}
+      \FOR{each year in years}
+          \STATE Construct the search URL using year and base parameters
+          \WHILE{there are more pages to fetch}
+              \STATE Send HTTP GET request to search URL
+              \STATE Parse HTML to extract \texttt{.xlsx} links
+              \STATE Filter links that are not already in the cache \texttt{U}
+              \FOR{each new link}
+                  \STATE Extract file name from link
+                  \STATE Add new link and file name to file records
+                  \STATE Append new records to cache \texttt{C}
+              \ENDFOR
+              \STATE Save the updated file records back to CSV \texttt{C}
+              \STATE Check for the next page button
+              \IF{next page exists}
+                  \STATE Update URL to the next page
+                  \STATE Wait for \texttt{CRAWL\_DELAY} seconds
+              \ELSE
+                  \STATE Exit the loop
+              \ENDIF
+          \ENDWHILE
+      \ENDFOR
+
+      \STATE \COMMENT{--- Download Process ---}
+      \FOR{each new file record}
+          \STATE Download file from the URL
+          \STATE Save it in the download folder \texttt{D}
+          \STATE Wait for \texttt{CRAWL\_DELAY} seconds
+      \ENDFOR
+  \end{algorithmic}
+\end{algorithm}
+
+Once we have queried each publication year from \texttt{2000} to \texttt{2024}, and the file attachments have been extracted from the result pages until no further ``next page'' button is available, the scraping process for the \textit{Excel} files is complete.
+
+\subsection{Respecting Crawl Delay}
+
+To minimize the load on the \textit{Destatis} website, we adhered to the \texttt{crawl-delay} directive specified in the site's \texttt{robots.txt} file~\cite{destatis2024robots}, pausing for 30 seconds between requests. This delay ensures that our scraper operates within the guidelines provided by \textit{Destatis}.
+
+\section{Surprise}
+
+\textit{Check Performance} was capable of outperforming \textit{Excel Shrink} in specific cases without altering the worksheet’s appearance. Nevertheless, it modified the worksheet in a manner that required users to perform multiple steps to revert the changes made by \textit{Check Performance}. This issue arose when a worksheet contained an actual value in a hidden row, and between this row and the next visible row, there were thousands of additional hidden rows without any values. For example, we had a worksheet whose visible content extended only to row \texttt{94}. After making the invisible rows visible to verify our observations from the XML file of the sheet, we found that in row \texttt{65536}, column \texttt{A}, the number \texttt{3} was stored, presumably by accident \cite[Sheet: \texttt{Tabelle 2.1.1}]{destatis2022Wanderungen}.
+
+In such scenarios, \textit{Excel Shrink} is unable to remove the hidden rows because our strategy involves removing only content outside the range of actual values and visible formatting. Since the last row within the user-designated area contains an actual value, all intervening rows must be preserved. In contrast, \textit{Check Performance} removes all these hidden rows. This action alone would typically result in the previously hidden and now deleted rows becoming visible again. To prevent this, \textit{Check Performance} employs a workaround by setting the row height to zero for the entire worksheet. This creates the illusion that the rows are deleted when, in fact, they are merely not visible due to having no height.
+
+However, this approach presents a significant drawback for users. Once users select all rows and attempt to make them visible again, the previously hidden rows remain invisible. To actually make all rows visible, users must select all rows in the worksheet and assign a new height. This method is disadvantageous because it also alters the height of rows that users may have previously customized. To preserve these custom height settings, users must follow a specific procedure: first, select all rows using the \textit{Select All} button, then hold down the \textit{Control} key and deselect all visible rows except the last one. Consequently, only the last visible row and all hidden rows remain selected. Users can then adjust the height of all previously invisible rows using the resize handle of the last visible row, thereby making them visible again.
+
+Given that users may be surprised when attempting to make the rows visible in the usual manner but find that the rows remain hidden, we decided not to adopt the same strategy as \textit{Check Performance}. Considering that the steps required to actually make these rows visible involve a learning curve and can be time-consuming—especially when the worksheet already contains several visible cells requiring multiple scrolls to deselect the hidden rows—we opted to retain these rows to avoid imposing additional complexity and inconvenience on the user.
+
+
+
+\section{Determining the Sheet Name}
+
+To provide the user with a breakdown of the reduction per worksheet, it is necessary to determine the worksheet titles. However, through the worksheet files, we only know an ID indicated in the filename, such as \texttt{sheet1.xml}, \texttt{sheet2.xml}, and so forth. Unfortunately, we cannot determine the sheet title directly from the sheet file because the title is only associated with the individual sheets in the \texttt{xl/workbook.xml} file. This association is shown in Listing~\ref{lst:sheet_title_from_workbook}~\cite{destatis2023Foerderprogramme}. The \texttt{sheetId} attribute should be ignored; the ID that maps the sheet title to the corresponding \texttt{sheetX.xml} is the \texttt{r:id} attribute. Since each value in this attribute starts with \texttt{rId}, the ID must be extracted by removing the first three characters. These IDs then provide a unique mapping to the worksheet titles, which can be used for output.
+
+\begin{lstlisting}[caption={workbook.xml mapping IDs to worksheet titles}, label={lst:sheet_title_from_workbook}]
+<sheets>
+  <sheet name="Titelseite" sheetId="10" r:id="rId1"/>
+  <sheet name="Inhalt" sheetId="11" r:id="rId2"/>
+  <sheet name="Erläuterungen" sheetId="3" r:id="rId3"/>
+  <sheet name="Allgemeines" sheetId="4" r:id="rId4"/>
+  <sheet name="0901_T_D" sheetId="12" r:id="rId5"/>
+  <sheet name="0901_T_BW" sheetId="13" r:id="rId6"/>
+\end{lstlisting}
+
+
+
+
+\end{document}
+\endinput
+
+
+Here the the improvment that Modern Excel introduced to supports up to 1,048,576 rows and 16,384 columns becomes one of the main reasons for the bloat because in the worst case scenarios this limit is the only thing that limits the filebloat at that point . \cite{Rahman2021NOAH, MicrosoftExcelSpecs}
+
+Sheet24.xml
+statistischer-bericht-diagnosedaten-5231301227015.xlsx
+
+
+%\label{sec:conclusion}
+  
+%  We have presented \textit{Excel Shrink}, an open-source tool that significantly reduces the file sizes of \textit{Excel} sheets from \textit{Destatis} by eliminating redundant content overlooked by existing solutions. Our comprehensive analysis uncovered previously undocumented sources of file bloat, such as unnecessary column definitions, and provided insights into why proprietary tools fail to fully address these issues.
+  
+%  Our evaluation demonstrates that \textit{Excel Shrink} outperforms existing tools in both file size reduction and preservation of formatting, achieving reductions of up to 99.99\% without altering the visual appearance of spreadsheets. By making \textit{Excel Shrink} available to the community, we hope to facilitate more efficient data processing and analysis of large-scale \textit{Excel} datasets and encourage further research into \textit{Excel} file optimization.
+  
+%  In future work, we plan to extend our tool to handle additional types of redundancies and to explore optimization techniques for other spreadsheet formats. We also aim to collaborate with organizations like \textit{Destatis} to integrate our tool into their data publication workflows, improving the efficiency and accessibility of publicly available data.
+
+
+
+
 \section{Excel Shrink Analyzer}
 
 The objective of \textit{Excel Shrink Analyzer} wase to identify, reduce and log the size of \textit{Excel} file bloat by removing multiple different types of redundant content and find out which of them contribute the most to the file size and optimization of the removal of that paticular type of redundant content should be prioratized should hence be optimized.
@@ -523,667 +1320,8 @@ If the first entry is renamed and the user clicks OK, the dialog reappears for t
 
 In the files we examined, there were up to 60 redundant \texttt{Print\_Area} and 55 \texttt{Print\_Titles} entries. Renaming these entries offers no advantage to the user, as these entries are only stored in the \textit{Defined Names} accessible via \textit{Excel}'s \texttt{Formulas}~$\rightarrow$~\texttt{Name Manager}. Users might think that they are repairing the \textit{Print Areas} or \texttt{Print Titles} by entering those new names, but this is not the case because those \textit{Print Areas} and \texttt{Print Titles} are already migrated correctly. In reality, the user only renames redundant \textit{Defined Names}. To simplify the analysis and spare users the need to manually rename redundant entries, \textit{Excel Shrink} was extended to automatically remove redundant entries.
 
-\section{Excel Shrink}
-\label{sec:methodology4}
 
-Our methodology evolved from an initial DOM-based prototype, the \emph{Excel Shrink Analyzer}, which helped us investigate and understand the primary causes of file bloat in large Excel files. This analysis revealed that excessive file sizes primarily resulted from hidden rows, empty but styled cells, bloated shared strings, and unnecessary columns.
 
-Because we encountered frequent memory limitations and poor scalability using XML-based approaches, we shifted to a \emph{stream-based approach}. This change was motivated by the insight that an efficient processing model could be implemented using \emph{regex-based chunk processing} on the raw bytestream.
-
-Constructing effective regular expressions required more than a simple pattern, given the hierarchical nature of Excel’s XML structure. Consequently, we developed a pipeline of multiple regex stages, each designed to target a specific inefficiency in spreadsheet data:
-
-1. Identify whitespace-only shared strings and remove their referencing cells.
-2. Delete purely empty cells lacking any borders or fill styles.
-3. Delete purely empty rows lacking any borders or fill styles nor a height.
-3. Truncate rows that fall outside the bounding box of the visible data region.
-4. Prune unnecessary column definitions, ensuring the final column range still extends to previous the maximum column index to preserve layout.
-
-This systematic approach enables efficient, scalable file-size reduction without requiring large in-memory representations, thereby significantly improving both performance and storage efficiency.
-
-
-
-\subsection{Multithreading for Performance}
-To further increase parsing speed, we use multithreading. In this approach, each XML file within the ZIP archive is processed by its own thread, as described in Algorithm~\ref{alg:multithreading}. Because each thread splits the large \texttt{worksheetX.xml} files into smaller chunks and processes these chunks incrementally, only a negligible amount of memory is used per thread. This setup represents a significant improvement over our previous DOM-based approach, where a single thread attempted to process all worksheets consecutively. The DOM-based method consistently consumed nearly 100\% of the available memory on our test machine, which prevented any realistic automation. By contrast, our new approach effectively reduces overall computation time and allows the files to be processed more quickly.
-
-\begin{algorithm}[ht]
-  \caption{Clean Excel Files with Multithreading}
-  \label{alg:multithreading}
-  \begin{algorithmic}
-
-    \STATE \textbf{Input:} 
-    \STATE \quad \texttt{InP} $\leftarrow$ Excel file path
-    \STATE \quad \texttt{OutP} $\leftarrow$ Output path
-    \vspace{0.2cm}
-    
-    \STATE \texttt{InArc} $\leftarrow$ Open the ZIP archive \texttt{InP} for reading
-    \STATE \texttt{OutArc} $\leftarrow$ Create a new ZIP archive for writing
-    \STATE \texttt{ShStr} $\leftarrow$ Extract shared strings from \texttt{sharedStrings.xml}
-    \STATE \texttt{Sty} $\leftarrow$ Extract styles from \texttt{styles.xml}
-    \STATE \texttt{SF} $\leftarrow$ List of all sheet XML files in \texttt{InArc}
-    \STATE \texttt{NSF} $\leftarrow$ List of non-sheet files in \texttt{InArc}    
-    \vspace{0.2cm}
-
-    \STATE \texttt{wvp} $\leftarrow$ dynamically create a pattern based on \texttt{ShStr} to identify whitespace-only cell values
-    \STATE \texttt{icp} $\leftarrow$ dynamically create a pattern based on \texttt{Sty} to identify cells that are invisible
-    \STATE \texttt{sdcp} $\leftarrow$ dynamically create a pattern based on \texttt{Sty} to identify cells whose styles depend on row/column styles 
-    \vspace{0.2cm}
-    \STATE \FOR{each sheet file \texttt{sf} in \texttt{SF} \textbf{in parallel}}
-        \STATE Clean sheet file \texttt{sf} in a stream-based manner using \texttt{wvp}, \texttt{icp}, \texttt{sdcp}, and \texttt{Sty}
-        \STATE Write cleaned sheet back to the ZIP archive \texttt{OutArc}
-    \ENDFOR
-
-    \STATE \FOR{each non-sheet file \texttt{nsf} in \texttt{NSF}}
-        \IF{\texttt{nsf} is \texttt{workbook.xml}}
-            \STATE Clean workbook metadata with a DOM-based approach
-            \STATE Write cleaned workbook to \texttt{OutArc}
-        \ELSE
-            \STATE Copy \texttt{nsf} unchanged to \texttt{OutArc}
-        \ENDIF
-    \ENDFOR
-
-    \STATE \textbf{Output:} Cleaned Excel file
-
-  \end{algorithmic}
-\end{algorithm}
-
-\subsection{Methodology (High-Level State-Machine Overview)}
-
-As mentioned above, our new approach employs a state machine that helps manage the complexity of the operations needed to segment the file and apply different regular expressions. The state machine is split into multiple states, each representing a specific file section under processing, as described in Algorithm~\ref{alg:multithreading}, which provides a high-level overview of the state machine’s operation. The state machine transitions between states based on the XML content it encounters, allowing it to apply different regex patterns depending on the context. This approach ensures that the regex patterns are applied only to the relevant sections of the XML, preventing overmatching and preserving the XML structure.
-
-\begin{algorithm}[ht]
-  \caption{State-Machine Overview}
-  \label{alg:state_machine}
-  \begin{algorithmic}
-
-    \STATE \textbf{Input:} 
-    \STATE \quad \texttt{SheetS} $\leftarrow$ Sheet XML stream
-    \vspace{0.2cm}
-
-    \STATE \textbf{Initialize:}
-    \STATE \quad \texttt{Buffer} $\leftarrow$ Empty buffer
-    \STATE \quad \texttt{Output} $\leftarrow$ Empty buffer
-    \STATE \quad \texttt{State} $\leftarrow$ BEFORE\_COLS
-    \STATE \quad \texttt{MaxRow} $\leftarrow$ 0
-    \STATE \quad \texttt{MaxCol} $\leftarrow$ 0
-    \vspace{0.2cm}
-
-    \STATE \textbf{Processing Sheet Stream}
-    \WHILE{\texttt{State} $\neq$ END\_OF\_FILE}
-        \STATE Read chunk from \texttt{SheetS} into \texttt{Buffer}
-
-        \STATE \IF{\texttt{State} is in BEFORE\_COLS, BEFORE\_SHEET\_DATA \textbf{or} AFTER\_SHEET\_DATA} 
-            \IF{Found \texttt{<cols>} or \texttt{<sheetData>}}
-                \STATE Store \texttt{Buffer} in \texttt{Output} until last found tag
-                \STATE Discard content in \texttt{Buffer} until last found tag
-            \ENDIF
-            \IF{Found \texttt{<cols>}}
-              \STATE \texttt{State} $\leftarrow$ IN\_COLS
-            \ELSIF{Found \texttt{<sheetData>}}
-                \STATE \texttt{State} $\leftarrow$ IN\_SHEET\_DATA
-            \ELSIF{Reached end of file}
-                \STATE Store entire \texttt{Buffer} in \texttt{Output} 
-                \STATE \texttt{State} $\leftarrow$ END\_OF\_FILE
-            \ENDIF
-        \ELSIF{\texttt{State} is IN\_COLS}
-            \IF{Found \texttt{</cols>} or \texttt{<col/>}}
-                \STATE Parse column definitions
-                \STATE Store \texttt{Buffer} in \texttt{Output} until last found tag
-                \STATE Discard content in \texttt{Buffer} until last found tag
-            \ENDIF
-            \IF{Found \texttt{</cols>}}
-                \STATE \texttt{State} $\leftarrow$ BEFORE\_SHEET\_DATA
-            \ENDIF
-        \ELSIF{\texttt{State} is IN\_SHEET\_DATA}
-            \IF{Found \texttt{</row>}, \texttt{<row .../>} or \texttt{</sheetData>}}
-                \STATE Clean \texttt{Buffer} of invisible cells/rows using patterns
-                \STATE Store cleaned \texttt{Buffer} in \texttt{Output}
-                \STATE Discard content in \texttt{Buffer} until last found tag
-                \STATE Extract any remaining cell references to update \texttt{MaxRow} and \texttt{MaxCol}
-            \ENDIF
-            \IF{Found \texttt{</sheetData>}}
-                \STATE \texttt{State} $\leftarrow$ AFTER\_SHEET\_DATA
-            \ENDIF
-        \ENDIF
-    \ENDWHILE
-    \vspace{0.2cm}
-
-    \STATE \textbf{Post-Processing}
-    \STATE Extract and update \texttt{MaxRow} and \texttt{MaxCol} from merge cells
-    \STATE Remove rows exceeding \texttt{MaxRow} from \texttt{sheetData}
-    \STATE Merge extraneous columns beyond \texttt{MaxCol}
-    \vspace{0.2cm}
-
-    \STATE \textbf{Output:} Cleaned sheet XML
-
-  \end{algorithmic}
-\end{algorithm}
-
-We implement our spreadsheet parser streaming-based, processing the XML data incrementally to minimize memory consumption and permit early discarding of unnecessary file sections. Both our “consecutive” and “interleaved” parsing approaches, which reduce memory usage, use this same underlying state machine. Below, we focus on how the parser transitions between states (i.e., how each state function decides to proceed), deferring lower-level details of in-state processing until later sections.
-
-\paragraph{States Overview.}
-We define six main states in our parser:
-\begin{itemize}
-  \item \texttt{BEFORE\_COLS}: The parser has not yet encountered the \texttt{<cols>} element. It searches for either \texttt{<cols>} or \texttt{<sheetData>}.
-  \item \texttt{IN\_COLS}: The parser found \texttt{<cols>} and is processing column definitions.
-  \item \texttt{BEFORE\_SHEET\_DATA}: The parser has finished reading (or did not detect) the \texttt{<cols>} node and is searching for the first \texttt{<sheetData>} element.
-  \item \texttt{IN\_SHEET\_DATA}: The parser is processing the main worksheet data (rows and cells).
-  \item \texttt{AFTER\_SHEET\_DATA}: The parser has detected the closing \texttt{</sheetData>} and is collecting any subsequent chunks until the end of the file.
-  \item \texttt{END\_OF\_FILE}: The parser has reached the end of the stream, and no further parsing is needed.
-\end{itemize}
-
-\paragraph{1. In between nodes}
-In \texttt{BEFORE\_COLS}, \texttt{BEFORE\_SHEET\_DATA}, or \texttt{AFTER\_SHEET\_DATA}, the parser looks for tag boundaries (e.g., \verb|<cols>|, \verb|<sheetData>|) or the end of file. When it detects such a tag at position \verb|i| in the buffer:
-\begin{enumerate}
-  \item It \emph{cuts} the buffer at \verb|i|, splitting the buffer into two segments:
-   (1) from the start to the end of the located tag, and (2) the bytes after that tag.
-  \item It returns the first segment as a chunk to add to the output, which the parser outputs or processes for the current state.
-  \item The second segment becomes the updated buffer, ensuring the XML node boundary is never split across segments.
-\end{enumerate}
-If the parser fails to find any relevant tag or end of file, it returns no new output chunk, remains in the same state and leaves the buffer unmodified. This ensures that subsequent incoming data can be appended, eventually providing enough content to match the target boundary.
-
-\paragraph{2. In column definition node.}
-In \texttt{IN\_COLS}, the parser searches for \verb|</cols>| or any \verb|<col .../>| elements. On detecting \verb|</cols>|, it cuts the buffer right before the closing tag and transitions to \texttt{BEFORE\_SHEET\_DATA}. If it does not find the closing tag but locates complete \verb|<col .../>| elements, those are consumed and removed from the buffer as a clean cut. If no match is found, the buffer remains unchanged, waiting for more data to complete the matching.
-
-\paragraph{3.  In sheet data node.}
-While \texttt{IN\_SHEET\_DATA}, the parser similarly looks for \verb|</sheetData>| or row boundaries \texttt{<row ...>...</row>} (or \texttt{<row .../>}). If \verb|</sheetData>| is found, the parser cuts the buffer at that tag and transitions to \texttt{AFTER\_SHEET\_DATA}. If no boundary is present yet, the buffer remains unaltered to combine with future data chunks.
-
-\paragraph{Ensuring ``Clean Cuts'' within the Streaming Buffer.}
-Our parser reads raw XML data into a working buffer and ensures each XML node boundary is cleanly preserved, so no node is split across buffers. Each state-transition function adheres to this principle, only cutting when a relevant XML tag is fully identified. 
-
-\paragraph{Buffer Updates and State Progress.}
-By constraining parsing decisions to these well-defined cuts, the parser never splits an XML node across multiple buffers. Each function (1) cuts on the matching tag boundary and updates the parser state, or (2) leaves the buffer intact if no complete boundary is found, thus allowing the next chunk to complete it. This way the parser can process the XML incrementally without needing to store the entire document in memory and it is ensured that the regular expressions dont't fail due to incomplete XML nodes and also only the regular expressions that are relevant to the current section of the document are applied, incresing the performance in comparison to applying all regular expressions on the whole document.
-
-\paragraph{Putting It All Together.}
-Through these transitions, the parser identifies the \texttt{<cols>} segment (if any) and the main \texttt{<sheetData>} block (if any). After discovering \texttt{</sheetData>}, it enters a final phase to read any remaining data. Upon reaching the end of the stream, it moves to \texttt{END\_OF\_FILE}. Then it does postprocessing to the collected output chunks that each state outputted in a different output buffer, so that the postprocessing can be more efficient by only applying the post processing that targets specific regions of the files only get applied to that paticular file section and not the whole document.  Later sections detail how, \emph{within} each state, cells, rows, and styles are selectively removed or retained to produce a more compact representation.
-
-\paragraph{Data Cleaning within the \texttt{sheetData} Node.}
-Most of the significant size reduction occurs in the \texttt{sheetData} node, which often contains the primary causes of file bloat. Our data cleaning proceeds as follows:
-
-\noindent
-\textbf{Overview.} We streamline the XML-based spreadsheet by removing extraneous cell entries and entire rows that do not contribute to visible content or formatting. In particular, we remove cells containing only whitespace, those referencing styles that provide only a basic font (i.e., no genuine fill or border), and rows with no meaningful content.
-
-\subsection{Optimization of Shared String References}
-Excel’s Open XML format manages textual data through a shared string table stored in \texttt{sharedStrings.xml}. Identical strings appearing multiple times are stored only once, but whitespace-only entries can also reside in this table and cells referencing those whitespaces  bloat the file.
-
-\subsubsection{Identifying Empty String Entries}
-We first scan the shared string table to detect entries consisting solely of whitespace. Indices of these redundant entries are marked for later removal.
-
-\subsubsection{Pattern-Based Detection and Removal}
-We compile these indices into a single regular expression pattern, matching \texttt{<v>} elements in the worksheet XML that reference them. All such occurrences are removed, thus clearing the affected cell entries.
-
-\begin{verbatim}
-'<v>(?:' + whitespace_ids_pattern + ')</v>'
-\end{verbatim}
-
-\subsubsection{Application to Sheet Data}
-This regular expression is applied to the raw XML to locate and remove all \texttt{<v>} elements referencing whitespace-only strings. The removal cuts file size significantly without modifying meaningful content. And it also simplifies regular expressions that will be applied next, because now all whitespace cells can be matched easily because they dont contain a child <v> node anymore and can hence be matched with a regular expression that is both less complex and thus faster and safer because there is less likely to overmatch.
-
-
-\subsection{Elimination of Invisible Cells}
-Cells in Excel’s Open XML reference styles from \texttt{styles.xml} (within \texttt{cellXfs}). Sometimes these styles only set font properties without distinct fill or border attributes and thus can be unnecessary.
-
-\subsubsection{Identifying Minimal Style Definitions}
-We parse the \texttt{cellXfs} list to locate style definitions with no custom fill or border settings (i.e., \texttt{fill\_id}, \texttt{border\_id} unset or set to zero, and \texttt{apply\_fill}, \texttt{apply\_border} as \texttt{False}).
-
-\subsubsection{Regular Expression Construction for Cell Matching}
-Having found these minimal style indices, we build a regular expression to detect cell elements (\texttt{<c>}) whose style attribute (\texttt{s}) matches any of those indices. 
-
-\begin{verbatim}
-'<c\b'
-'(?=[^>]*\bs="(?:' + font_style_ids_pattern + ')")'
-'[^>]*(?:\/>|>\s*<\/c>)'
-\end{verbatim}
-
-\subsubsection{Substitution to Remove Redundant References}
-Applying the pattern to the buffer, all cells referencing these minimal styles are removed. This includes cells, that already had no content (no nested <v> node) or got their content removed by the previous step. Removing those cells reduces the file size futher while also simplifying the subsequent processing steps, as now there are rows nodes that contain no cells anymore and can be removed with a simple regular expression that matches the empty row node.
-
-
-\subsection{Deleting Invisible Cells that depend on Row or Column Styles} 
-
-At this point, most empty cells and whitespace have been removed. Still, some cells may remain that have no truly visible style. Because Excel’s style system can inherit fills/borders from rows or columns, we must carefully check each cell’s local style (\texttt{applyFill}, \texttt{applyBorder}, etc.) against the row/column styles to decide if the cell is actually visible:
-
-\begin{itemize}
-\item \textbf{Check Border:} If a cell has \texttt{applyBorder} set, compare \texttt{borderId} to the row and column \texttt{borderId}. If all match and the border object itself is empty, the cell is considered invisible in terms of borders.
-\item \textbf{Check Fill:} Similarly, if \texttt{applyFill} is set, compare \texttt{fillId} with that of the row/column. If they match, no unique fill is introduced by the cell. If the fill object has a pattern type of \texttt{none}, it is also considered invisible.
-\end{itemize}
-
-Any cell that ends up with no distinct fill or border (and no value) is removed.
-
-\subsubsection{Regular Expression for Identifying Invisible Cells that Depend on Row or Column Styles} 
-
-\begin{verbatim}
-'<c\b'
-'(?=[^>]*\br="([A-Za-z]+)(\d+)")'
-'(?=[^>]*\bs="(' + apply_fill_border_ids_pattern + ')")'
-'[^>]*(?:\/>|>\s*<\/c>)'
-\end{verbatim}
-
-
-
-
-\subsection{Removal of Empty Rows in Worksheet XML}
-After removing invisible cells, we can also remove empty \texttt{<row>} elements if they have no fill nor border nur height (attribute ht) applied. These do not contribute any displayed content but can inflate file size.
-
-\subsubsection{Regular Expression for Identifying Empty Rows}
-A pattern checks for \texttt{<row>} tags without any \texttt{<c>} (cell) elements or textual data inside. Matched rows are removed from the XML.
-
-\begin{verbatim}
-'<row'
-'(?![^>]*\bht=)'                                
-'(?=[^>]*(?:\bs="(?:' + only_font_style_ids_pattern + ')"|(?:(?!\bs=").)*))'  
-'[^>]*?'                                           
-'(?:\/>|><\/row>)'
-\end{verbatim}
-
-
- 
-
-\subsection{Bounding Rows and Columns}
-After deleting all cells that have no visible style or content, the only remaining cells are those with meaningful data or formatting. We then finalize row/column boundaries:
-\begin{itemize}
-  \item Any rows beyond \texttt{MaxRow} are removed, as they cannot contain relevant data. Even if they have a height attribute applied, which was a reason the keep them in prior steps, this height can not affect the visual appearance of the document, because that given height can not shift cells upwards or donwards because there is no content below this point.
-  \item Any columns beyond \texttt{MaxCol} are removed from the \texttt{<cols>} section, as they similarly do not affect displayed content.
-\end{itemize}
-
-114
-\begin{verbatim}
-<row[^r]+r="(:\d{4,}|11[6-9]|1[2-9]\d{1}|[2-9]\d{2})"[^/>]*?(?:/>|></row>)
-\end{verbatim}
-  
-
-\section{Evaluation}
-\label{sec:evaluation}
-
-We tested our approach on 1,200+ real Excel files from the German Federal Statistical Office, covering year-based directories and containing numerous oversize spreadsheets.  
- 
-
-
-\section{Conclusion}
-\label{sec:conclusion}
-We introduced a streaming-based, multiprocessing strategy for removing Excel file bloat at scale, demonstrating that it can outperform native Excel loading times. By combining partial XML parsing for style metadata with a pipeline of dynamic regex transformations, we preserve worksheet layout while eliminating up to 99.99\% of the storage overhead. 
-
-Beyond Excel, our contribution highlights how domain-specific streaming transformations can circumvent memory-intensive parsing in other compressed XML-based systems. Future work includes porting our approach to lower-level languages (C++, Rust) for even higher throughput, and extending the technique to related file formats such as ODS (OpenDocument Spreadsheet). We believe that bridging the gap between domain-specific knowledge (styles, merges, hidden columns) and high-performance streaming offers a promising avenue for \emph{truly large} spreadsheet management in the broader data management community.
-
-
-
-\bibliographystyle{ACM-Reference-Format}
-\bibliography{acmart.bib}
-
-
-
-\appendix
-
-
-
-\subsection{Reporting Reduction Results}
-
-To provide a breakdown of how many bytes were saved by deleting whitespaces, empty cells, columns, and rows, we compare the file size before and after each reduction step. For this purpose, we calculate the size of the worksheet by converting the XML structure into a string, as it would be stored in the file, and compute the length of this string. We then perform a reduction step and again calculate the length of the new string to determine the difference caused by the reduction. Finally, we calculate the percentage reduction relative to the original size. These results are saved in a CSV table.~\cite{excel_shrink_results_csv}
-
-
-
- 
-
-
-
-
-
-
-
-
-
-\begin{figure*}
-  \centering
-  \includegraphics[width=\textwidth]{images/charts/combined_chart_distribution_of_size_reduction.pdf}
-  \caption{Distribution of Size Reduction Percentages for Excel Sheets}
-  \label{fig:size-reduction-chart}
-\end{figure*}
-
-  
-\section{Evaluation}
-
-In this evaluation, we processed all \textit{Excel} files obtained from the German Federal Statistical Office (\textit{Destatis})~\cite{original_destatis_xlsx_files,shrinked_destatis_xlsx_files}. The complete details of how these files were acquired through a custom web scraping approach can be found in Appendix~\ref{sec:scraping_destatis}.
-
-Our primary goal was to quantify the extent of data reduction achieved by \textit{Excel Shrink}, focusing on metrics such as overall size reduction, removal of empty cells, elimination of whitespace cells, deletion of rows outside the value range, and the removal of unnecessary columns. Figure~\ref{fig:size-reduction-chart} presents the distribution of reduction rates (in percentage) for individual worksheets across all these categories. The chart shows that some worksheets experienced reductions approaching 100\% in file size. In particular, one worksheet exceeded a 99.99\% reduction, 16 worksheets surpassed 99.9\%, and 210 worksheets achieved reductions above 99\%. Across all worksheets, the average reduction rate was 25\%. Most of these gains were realized by removing rows that lay outside the range of actual data values.
-
-To further assess the performance improvements enabled by \textit{Excel Shrink}, we identified the largest available \textit{Destatis} file.\footnote{The file reference can be found here: [LINK TO THE FILE].} Prior to processing, this file measured 85.2~MB in its compressed \textit{Excel} (.xlsx) format and expanded to 911~MB when uncompressed. After applying \textit{Excel Shrink}—a process that took approximately 935.5 seconds—the resulting compressed file size was reduced to 2.76~MB, with an uncompressed size of just 20.6~MB.
-
-We then tested file opening times using the Dart \texttt{excel} package. Before shrinking, the first run took 794.7 seconds to open and read values from the file. On the second run, the process failed due to an out-of-memory exception. In contrast, after applying \textit{Excel Shrink}, we successfully ran the test 10 consecutive times without error. The median time to open the shrunk file and read values was 17.90 seconds, demonstrating a substantial performance improvement.
-
-\subsection{Summary of Findings}
-
-The evaluation demonstrates that the data reduction techniques employed by \textit{Excel Shrink} are highly effective in eliminating redundant, empty, or irrelevant data across a variety of \textit{Excel} worksheets. Significant reductions—exceeding 90\% in several cases—were achieved in sheets containing a high proportion of empty cells, or irrelevant rows and columns. These results highlight the robustness of our reduction methods in processing diverse data formats and structures.
-
-Moreover, the analysis underscores the importance of addressing different reduction factors independently, as their impact on file size varied. While empty cell removal provided substantial reductions in certain worksheets, others benefited more from the removal of rows or columns. Notably, whitespace removal had a smaller overall impact.
-
-\section{Experimental Setup}
-\label{sec:experimental-setup}
-
-To evaluate the behavior of \textit{Excel} regarding how the files are interpreted and saved, as well as to test the behavior of the \textit{Add-in} and the new \textit{Check Performance} feature, we tested with two distinct versions of \textit{Excel} from \textit{Microsoft Office}: \textit{Microsoft Office LTSC Professional Plus 2021} and \textit{Microsoft Excel for Microsoft 365 MSO (Version 2409 Build 16.0.18025.20030) 64-bit}. These versions were selected to evaluate compatibility and performance across different Excel environments.Our test machine was an \textit{Intel Core i7-4790K} quad-core CPU desktop machine running at 4.00~GHz with 16~GB of RAM.
-
-\section{Conclusion}
-\label{sec:conclusion}
-
-We have presented \textit{Excel Shrink}, an open-source tool that significantly reduces the file sizes of \textit{Excel} sheets from \textit{Destatis} by eliminating unnecessary content. Our analysis identified common practices that lead to bloated \textit{Excel} files and demonstrated how targeted removal of redundant data can achieve reductions of up to 99.99\% without altering the spreadsheets' appearance.
-
-Our tool outperforms existing solutions in both file size reduction and preservation of formatting. By making \textit{Excel Shrink} available to the community, we hope to facilitate more efficient data processing and analysis of large-scale \textit{Excel} datasets.
-
-%\clearpage
-
-
-\section{Old Background}
-
-
-\subsection{Limitations of Existing Solutions}
-
-Several proprietary tools and features, such as NXPowerLite Desktop, the Inquire Add-in, and the Excel Performance tab, attempt to mitigate file bloat. However, they suffer from notable shortcomings:
-
-\begin{itemize}
-    \item \textbf{Closed Source and Lack of Transparency:} Existing tools do not disclose their underlying methods, making it difficult to understand the root causes of bloat or to improve upon their techniques.
-    \item \textbf{Incomplete Coverage:} They often fail to address all sources of unnecessary content. For example, redundant column definitions may remain uncorrected, leaving substantial portions of file bloat unresolved.
-    \item \textbf{Visual Alterations:} Some solutions can significantly alter the spreadsheet’s original appearance, which is unacceptable for users who rely on specific formatting or corporate branding.
-    \item \textbf{Limited Automation:} Due to the lack of batch processing or command-line interfaces, integrating these tools into automated workflows or pipelines (e.g., for cloud uploads or large-scale data processing) is challenging or impossible.
-\end{itemize}
-
-\subsection{Our Approach and Contributions}
-
-Motivated by these gaps, we conducted a systematic investigation into the root causes of Excel file bloat, focusing on previously undocumented inefficiencies and the limitations of existing solutions. We then developed \textit{Excel Shrink}, an open-source tool designed to effectively reduce file sizes while preserving the spreadsheet’s visual appearance. Unlike proprietary offerings, \textit{Excel Shrink} provides a transparent, platform-independent solution that does not require Microsoft Excel itself. It can also be integrated into automated pipelines, enabling seamless batch processing and large-scale deployment. For those preferring a more user-friendly interface, we offer \textit{Excel Shrink UI}~\cite{excel-shrink-ui}, which eliminates the need for Python installation or command-line interactions.
-
-Our contributions are as follows:
-
-\begin{itemize}
-    \item \textbf{Comprehensive Analysis:} We reveal the root causes of file bloat in Destatis Excel files, identifying previously undocumented issues such as unnecessary column definitions.
-    \item \textbf{Critical Evaluation of Existing Tools:} We show why current proprietary solutions fail to fully resolve file bloat and how they may inadvertently alter the spreadsheet’s appearance.
-    \item \textbf{Novel Open-Source Solution:} We introduce \textit{Excel Shrink}, which effectively addresses all identified causes of bloat, preserves visual formatting, supports automation, and is not tied to a specific operating system or to Microsoft Excel.
-    \item \textbf{Empirical Validation:} We evaluate \textit{Excel Shrink} on a comprehensive set of Destatis Excel files, demonstrating that it can reduce file sizes by up to 99.99\% without compromising usability or appearance.
-\end{itemize}
-
-By thoroughly examining hidden redundancies and providing a transparent, open-source solution, our work fills a significant gap in spreadsheet optimization research and practice.
-
-
-\section{Old Related Work}
-\label{sec:old-related-work}
-
-Several tools and techniques have been developed to reduce \textit{Excel} file bloat, including proprietary solutions such as \textit{NXPowerLite Desktop}, the \textit{Excel Inquire} Add-in, and the built-in \textit{Check Performance} feature in recent versions of \textit{Excel}. While these tools can alleviate certain issues, they also exhibit notable limitations.
-
-\subsection{NXPowerLite Desktop}
-
-\textit{NXPowerLite Desktop} is a commercial application primarily focused on compressing embedded images in \textit{Excel} files~\cite{neuxpower2024nxpowerlite}. Although it can remove some empty cells, it disregards other sources of file bloat such as cells containing only whitespace and redundant column definitions.
-
-The tool offers limited batch functionality, allowing users to select and process multiple files simultaneously, but only up to a maximum of 20 files at once. Being closed-source, it does not provide a means to adjust this artificial limit, further motivating the need for a more flexible, open-source solution.
-
-\subsection{Excel Inquire Add-in}
-
-The \textit{Excel Inquire} Add-in, available only in \textit{Office Professional Plus} and \textit{Microsoft 365 Apps for Enterprise}, can remove some redundant content~\cite{o2014excel}. However, it lacks comprehensive batch processing capabilities because it requires manually opening each \textit{Excel} file before applying the add-in. This approach is impractical for large datasets.
-
-\textit{Excel Inquire} ignores whitespace cells but can delete empty cell, column, and row definitions. Yet, in certain cases, a significant number of unnecessary elements remain. For example, consider a worksheet serving as a cover sheet, where only the first 77 rows are used and the remaining rows (78 to 65533) are hidden. Despite being hidden, all these rows and cells are defined in the XML structure, as shown in Listing~\ref{lst:row-65533}.
-
-\begin{lstlisting}[caption={Row 65533 in sheetX.xml}, label={lst:row-65533}]
-<row r="65533" spans="1:7" ht="0" hidden="1" customHeight="1">
-  <c r="A65533" s="68" />
-  <c r="B65533" s="68" />
-  <c r="C65533" s="68" />
-  <c r="D65533" s="68" />
-  <c r="E65533" s="68" />
-  <c r="F65533" s="68" />
-  <c r="G65533" s="68" />
-</row>
-</sheetData>
-\end{lstlisting}
-
-When applying the \textit{Excel Inquire} Add-in to such worksheets, these hidden rows and cells remain. A dialog box reports that because the default row height is \texttt{0}, the tool cannot clean the sheet, causing the operation to be skipped entirely.
-\subsection{Excel Check Performance}
-
-The \textit{Check Performance} feature, introduced in \textit{Excel} for the Web and recent desktop versions, can achieve substantial file size reductions~\cite{shirolkar2022check,shirolkar2024make}. However, it often removes cells and rows that influence the spreadsheet’s layout and formatting, thereby altering its visual appearance. This is unacceptable in contexts where maintaining the original look and structure of the spreadsheet is essential.
-
-Figure~\ref{fig:performance} illustrates how \textit{Check Performance} modifies a cover sheet by removing empty rows. While such modifications might be acceptable in some instances, they become problematic when these empty rows serve a functional purpose, such as aligning the layout for printing on A4 pages. In the example shown, the cells responsible for providing whitespace on the cover sheet (Figure~\ref{fig:performance_before}) are removed, as shown in Figure~\ref{fig:performance_after}~\cite{destatis2022Verkehrsunfaelle}.
-
-\begin{figure}[ht]
-  \centering
-  \begin{subfigure}[b]{0.48\linewidth}
-    \centering
-    \includegraphics[width=\textwidth]{images/excel_shrink/related_work/performance/verkehrsunfaelle-performance.png}
-    \caption{Before Applying Check Performance}
-    \label{fig:performance_before}
-  \end{subfigure}
-  \hspace{0.01\linewidth} 
-  \begin{subfigure}[b]{0.48\linewidth}
-    \centering
-    \includegraphics[width=\textwidth]{images/excel_shrink/related_work/performance/verkehrsunfaelle-performance_after.png}
-    \caption{After Applying Check Performance}
-    \label{fig:performance_after}
-  \end{subfigure}
-  \caption{Comparison of a Cover Sheet Before and After Applying Check Performance}
-  \label{fig:performance}
-\end{figure}
-
-As another example, consider a form-like structure composed of several empty cells arranged to form a table, anticipating future data entry~\cite{destatis2023Rechnungsergebnisse}. \textit{Check Performance} removes all borders outside the active data region, resulting in the scenario shown in Figure~\ref{fig:table_no_table}, where the intended table layout is lost.
-
-\begin{figure}[ht]
-  \centering
-  \begin{subfigure}[b]{0.48\linewidth}
-    \centering
-    \includegraphics[width=\textwidth]{images/excel_shrink/related_work/performance/table2.png}
-    \caption{Before Applying Check Performance}
-    \label{fig:table}
-  \end{subfigure}
-  \hspace{0.01\linewidth} 
-  \begin{subfigure}[b]{0.48\linewidth}
-    \centering
-    \includegraphics[width=\textwidth]{images/excel_shrink/related_work/performance/no_table2.png}
-    \caption{After Applying Check Performance}
-    \label{fig:no_table}
-  \end{subfigure}
-  \caption{Removal of Borders Defining an Empty Table Structure}
-  \label{fig:table_no_table}
-\end{figure}
-
-
-
-
-
-\section{Scraping Destatis}
-\label{sec:scraping_destatis}
-
-The \textit{Destatis} website does not provide an API for searching publications, making it necessary to interact with the website directly. To automate this process, we developed a web scraper that searches for relevant publications while minimizing the number of requests to the server. The web scraping and downloading process is outlined in Algorithm~\ref{alg:web_scraping_caching}. The URL structure of the \textit{Destatis} website is as follows, with query parameters appended to the base path:
-
-\begin{itemize}
-  \item \url{/SiteGlobals/Forms/Suche/Expertensuche\_Formular.html}:
-
-  This is the base path of the URL, which points to the expert search form on the \textit{Destatis} website. It serves as the primary endpoint where the search query is submitted.
-
-  \item \url{templateQueryString=2000}:
-
-  This query parameter specifies the search year. In this case, the search is focused on publications from the year 2000. By adjusting this value, different years can be searched.
-
-  \item \url{gtp=474\_list\%253D2}:
-
-  This parameter handles pagination. It points to a specific page of search results. The value \texttt{\%253D} is a doubly encoded sequence, where \texttt{\%253D} is the URL-encoded form of \texttt{\%3D}, which itself encodes the equal sign (\texttt{=}). After decoding twice, the query parameter becomes \texttt{gtp=474\_list=2}. The number after the second equal sign corresponds to the current page index in the pagination of the search results.
-
-
-  \item \url{documentType\_=publication}:
-
-  This parameter filters the results by the type of document. By setting this to \texttt{publication}, the search is limited to publications, where \textit{Excel} files are usually attached.
-
-  \item \url{resultsPerPage=100}:
-
-  This parameter determines how many results should be displayed per page. In this case, it is set to \texttt{100}, which is the maximum number of results that can be retrieved in a single page request.
-\end{itemize}
-
-Through extensive testing, we discovered that \textit{Excel} files are exclusively found in the ``Publication'' document type. By using the GET parameter \texttt{documentType\_=publication}, we were able to significantly narrow down our search results.
-
-Initially, we assumed that searching for the term \texttt{xlsx} would identify all publications containing \textit{Excel} file attachments. However, this search only returned about 100 results, far fewer than the actual number of \textit{Excel} files available on the \textit{Destatis} website. Furthermore, there is no option to retrieve a complete list of all publications ever created. To overcome this, we refined our strategy by searching based on publication years. A publication should appear in the search results when queried by its publication year. Although this approach returns some irrelevant results---where the publication year might appear in the text or a file attachment---the number of requests is greatly reduced by caching and reusing links to the \textit{Excel} file attachments. This ensures that the same files are not downloaded multiple times.
-
-The search results on the \textit{Destatis} website, like many others, are paginated, with the interface offering the ability to display 10, 20, or 30 entries per page. The number of results per page can be adjusted using the GET parameter \texttt{resultsPerPage=30}. While the interface does not provide an option for more than 30 results per page, we found that manually setting this parameter allowed us to request up to 100 results per page. Through testing, we confirmed that 100 is the maximum number of results that can be returned at once. We set the \texttt{resultsPerPage} parameter accordingly to reduce the number of requests further.
-
-Once the results for a page are fetched by the web scraper, we simulate clicking the ``next page'' link to load subsequent results. The XPath expression \texttt{//a[@class='forward button']/@href} is used to identify the link using the CSS class \texttt{forward button}.
- 
-
-
-\begin{algorithm}
-  \caption{Web Scraping and Downloading Excel Files with Caching}
-  \label{alg:web_scraping_caching}
-  \begin{algorithmic}
-
-      \STATE \textbf{Input:} Base URL \texttt{B}, form URL \texttt{F}, download folder \texttt{D}, CSV cache file \texttt{C}, crawl delay (30 seconds)
-      \STATE \textbf{Initialize:} Cached URLs set \texttt{U}, and load file records from CSV \texttt{C}
-      \STATE Create folder \texttt{D} if it does not exist
-
-      \STATE \COMMENT{--- Scraping Process ---}
-      \FOR{each year in years}
-          \STATE Construct the search URL using year and base parameters
-          \WHILE{there are more pages to fetch}
-              \STATE Send HTTP GET request to search URL
-              \STATE Parse HTML to extract \texttt{.xlsx} links
-              \STATE Filter links that are not already in the cache \texttt{U}
-              \FOR{each new link}
-                  \STATE Extract file name from link
-                  \STATE Add new link and file name to file records
-                  \STATE Append new records to cache \texttt{C}
-              \ENDFOR
-              \STATE Save the updated file records back to CSV \texttt{C}
-              \STATE Check for the next page button
-              \IF{next page exists}
-                  \STATE Update URL to the next page
-                  \STATE Wait for \texttt{CRAWL\_DELAY} seconds
-              \ELSE
-                  \STATE Exit the loop
-              \ENDIF
-          \ENDWHILE
-      \ENDFOR
-
-      \STATE \COMMENT{--- Download Process ---}
-      \FOR{each new file record}
-          \STATE Download file from the URL
-          \STATE Save it in the download folder \texttt{D}
-          \STATE Wait for \texttt{CRAWL\_DELAY} seconds
-      \ENDFOR
-  \end{algorithmic}
-\end{algorithm}
-
-Once we have queried each publication year from \texttt{2000} to \texttt{2024}, and the file attachments have been extracted from the result pages until no further ``next page'' button is available, the scraping process for the \textit{Excel} files is complete.
-
-\subsection{Respecting Crawl Delay}
-
-To minimize the load on the \textit{Destatis} website, we adhered to the \texttt{crawl-delay} directive specified in the site's \texttt{robots.txt} file~\cite{destatis2024robots}, pausing for 30 seconds between requests. This delay ensures that our scraper operates within the guidelines provided by \textit{Destatis}.
-
-\section{Surprise}
-
-\textit{Check Performance} was capable of outperforming \textit{Excel Shrink} in specific cases without altering the worksheet’s appearance. Nevertheless, it modified the worksheet in a manner that required users to perform multiple steps to revert the changes made by \textit{Check Performance}. This issue arose when a worksheet contained an actual value in a hidden row, and between this row and the next visible row, there were thousands of additional hidden rows without any values. For example, we had a worksheet whose visible content extended only to row \texttt{94}. After making the invisible rows visible to verify our observations from the XML file of the sheet, we found that in row \texttt{65536}, column \texttt{A}, the number \texttt{3} was stored, presumably by accident \cite[Sheet: \texttt{Tabelle 2.1.1}]{destatis2022Wanderungen}.
-
-In such scenarios, \textit{Excel Shrink} is unable to remove the hidden rows because our strategy involves removing only content outside the range of actual values and visible formatting. Since the last row within the user-designated area contains an actual value, all intervening rows must be preserved. In contrast, \textit{Check Performance} removes all these hidden rows. This action alone would typically result in the previously hidden and now deleted rows becoming visible again. To prevent this, \textit{Check Performance} employs a workaround by setting the row height to zero for the entire worksheet. This creates the illusion that the rows are deleted when, in fact, they are merely not visible due to having no height.
-
-However, this approach presents a significant drawback for users. Once users select all rows and attempt to make them visible again, the previously hidden rows remain invisible. To actually make all rows visible, users must select all rows in the worksheet and assign a new height. This method is disadvantageous because it also alters the height of rows that users may have previously customized. To preserve these custom height settings, users must follow a specific procedure: first, select all rows using the \textit{Select All} button, then hold down the \textit{Control} key and deselect all visible rows except the last one. Consequently, only the last visible row and all hidden rows remain selected. Users can then adjust the height of all previously invisible rows using the resize handle of the last visible row, thereby making them visible again.
-
-Given that users may be surprised when attempting to make the rows visible in the usual manner but find that the rows remain hidden, we decided not to adopt the same strategy as \textit{Check Performance}. Considering that the steps required to actually make these rows visible involve a learning curve and can be time-consuming—especially when the worksheet already contains several visible cells requiring multiple scrolls to deselect the hidden rows—we opted to retain these rows to avoid imposing additional complexity and inconvenience on the user.
-
-
-
-\section{Determining the Sheet Name}
-
-To provide the user with a breakdown of the reduction per worksheet, it is necessary to determine the worksheet titles. However, through the worksheet files, we only know an ID indicated in the filename, such as \texttt{sheet1.xml}, \texttt{sheet2.xml}, and so forth. Unfortunately, we cannot determine the sheet title directly from the sheet file because the title is only associated with the individual sheets in the \texttt{xl/workbook.xml} file. This association is shown in Listing~\ref{lst:sheet_title_from_workbook}~\cite{destatis2023Foerderprogramme}. The \texttt{sheetId} attribute should be ignored; the ID that maps the sheet title to the corresponding \texttt{sheetX.xml} is the \texttt{r:id} attribute. Since each value in this attribute starts with \texttt{rId}, the ID must be extracted by removing the first three characters. These IDs then provide a unique mapping to the worksheet titles, which can be used for output.
-
-\begin{lstlisting}[caption={workbook.xml mapping IDs to worksheet titles}, label={lst:sheet_title_from_workbook}]
-<sheets>
-  <sheet name="Titelseite" sheetId="10" r:id="rId1"/>
-  <sheet name="Inhalt" sheetId="11" r:id="rId2"/>
-  <sheet name="Erläuterungen" sheetId="3" r:id="rId3"/>
-  <sheet name="Allgemeines" sheetId="4" r:id="rId4"/>
-  <sheet name="0901_T_D" sheetId="12" r:id="rId5"/>
-  <sheet name="0901_T_BW" sheetId="13" r:id="rId6"/>
-\end{lstlisting}
-
-
-
-\section{Reduction Ratio}
-
-The evaluation results focus on the top five files for each reduction factor, as shown in Table \ref{tab:combined_top_factors}.
-
-\subsection{Overall Reduction Ratio}
-The top five worksheets with the highest overall reduction ratios are all from the same file, with reduction ratios ranging between 99.95\% and 99.99\%. This indicates that almost all data in these sheets consisted of file bloat that was successfully eliminated. The repetition of this file in the subsequent table suggests that the high reduction is primarily attributable to a specific reduction category.
- 
-\subsection{Rows Outside of Value Range Reduction Ratio}
-
-The majority of unnecessary data consisted of rows outside the value range, with reduction ratios between 99.94\% and 99.99\% in the top five files. This suggests that the largest portions of redundant data were predominantly from a single category rather than a combination of different categories.
-
-\subsection{Empty Cell Reduction Ratio}
-Empty cell removal achieved significant reductions, with ratios between 99.90\% and 99.91\% in the top five files. Notably, three different files were affected, although the worksheets shared the same name. This suggests that these explanatory worksheets might have been duplicated from one \textit{Excel} file to another, or the entire file was duplicated, leading to a similar number of empty cells across them.
-
-\subsection{Removed Columns Reduction Ratio}
-Removing unnecessary column definitions resulted in reduction ratios ranging from 92.43\% to 94.38\% in the top five worksheets. Similar worksheet names were again noticeable, implying that duplicated worksheets carried over a significant amount of file bloat due to unused column definitions.
-
-\subsection{Whitespace Cell Reduction Ratio}
-Whitespace cell removal was the least effective in reducing file size. The top sheet still had a notable 79.71\% of the file size attributed to whitespaces, while the second entry dropped to 44.68\%, and the last three entries were around one-third. With the exception of the last two files, the top five were distinct. However, the similar worksheet names and high proportion of whitespace suggest that redundant content might have been carried over to other worksheets through duplication.
-
-
-\begin{table}[t]
-  \centering
-  \caption{Top Sheets by Each Reduction Factor}
-  \label{tab:combined_top_factors}
-  \begin{tabular}{p{0.45\textwidth} l r}
-  \toprule
-  File & Sheet & Reduction Factor Value (\%) \\
-  \midrule
-  \multicolumn{3}{l}{\textbf{Top 5 rows for Reduction Ratio}} \\
-  \midrule
-  verkehrsunfaelle-zeitreihen-xlsx-5462403.xlsx & Technisch\_bedingte\_Leerseit & 99.99 \\
-  verkehrsunfaelle-zeitreihen-xlsx-5462403.xlsx & 4.6\_(3) & 99.96 \\
-  verkehrsunfaelle-zeitreihen-xlsx-5462403.xlsx & 3.1\_(7) & 99.96 \\
-  verkehrsunfaelle-zeitreihen-xlsx-5462403.xlsx & 5.1.4\_(2) & 99.95 \\
-  verkehrsunfaelle-zeitreihen-xlsx-5462403.xlsx & 3.1\_(1) & 99.95 \\
-  \addlinespace
-  \multicolumn{3}{l}{\textbf{Top 5 rows for Rows Outside of Value Range Reduction Ratio}} \\
-  \midrule
-  verkehrsunfaelle-zeitreihen-xlsx-5462403.xlsx & Technisch\_bedingte\_Leerseit & 99.99 \\
-  verkehrsunfaelle-zeitreihen-xlsx-5462403.xlsx & 3.1\_(7) & 99.96 \\
-  verkehrsunfaelle-zeitreihen-xlsx-5462403.xlsx & 4.6\_(3) & 99.95 \\
-  verkehrsunfaelle-zeitreihen-xlsx-5462403.xlsx & 3.1\_(1) & 99.95 \\
-  verkehrsunfaelle-zeitreihen-xlsx-5462403.xlsx & 10.1 & 99.94 \\
-  \addlinespace
-  \multicolumn{3}{l}{\textbf{Top 5 rows for Empty Cell Reduction Ratio}} \\
-  \midrule
-  statistischer-bericht-mikrozensus-h...-2010300217005.xlsx & Erl\"auterung zu CSV-Tabellen & 99.91 \\
-  statistischer-bericht-mikrozensus-h...erstergebnisse.xlsx & Erl\"auterung zu CSV-Tabellen & 99.91 \\
-  statistischer-bericht-mikrozensus-h...-endergebnisse.xlsx & Erl\"auterung zu CSV-Tabellen & 99.91 \\
-  statistischer-bericht-migrationshin...-2010220227005.xlsx & Erl\"auterung zu CSV-Tabellen & 99.90 \\
-  statistischer-bericht-migrationshin...-2010220227005.xlsx & Erl\"auterung zu CSV-Tabellen & 99.90 \\
-  \addlinespace
-  \multicolumn{3}{l}{\textbf{Top 5 rows for Removed Columns Reduction Ratio}} \\
-  \midrule
-  strauchbeerenanbau-2030319227005.xlsx & DE3\_2 (4) & 94.38 \\
-  strauchbeerenanbau-2030319227005.xlsx & DE3\_2 (3) & 93.41 \\
-  strauchbeerenanbau-2030319227005.xlsx & DE3\_2 & 93.37 \\
-  strauchbeerenanbau-2030319227005.xlsx & DE3\_2 (2) & 92.43 \\
-  fallpauschalen-krankenhaus-2120640167005.xlsx & Erl\"auterungen Fehlerkorrektur & 91.11 \\
-  \addlinespace
-  \multicolumn{3}{l}{\textbf{Top 5 rows for Whitespace Cell Reduction Ratio}} \\
-  \midrule
-  statistischer-bericht-berufliche-sc...-5211004227005.xlsx & 21121-17 & 79.71 \\
-  statistischer-bericht-verkehr-2080110231075.xlsx & csv-46251-28 & 44.68 \\
-  ueberschuldung-2150500217005.xlsx & 5.1 & 29.97 \\
-  rohholz-holzhalbwaren-9030001207005.xlsx & Seite\_5 & 27.91 \\
-  rohholz-holzhalbwaren-9030001207005.xlsx & Seite\_4 & 27.61 \\
-  \addlinespace
-  \bottomrule
-  \end{tabular}
-  \end{table}
-
-\end{document}
-\endinput
-
-
-Here the the improvment that Modern Excel introduced to supports up to 1,048,576 rows and 16,384 columns becomes one of the main reasons for the bloat because in the worst case scenarios this limit is the only thing that limits the filebloat at that point . \cite{Rahman2021NOAH, MicrosoftExcelSpecs}
-
-Sheet24.xml
-statistischer-bericht-diagnosedaten-5231301227015.xlsx
-
-
-%\label{sec:conclusion}
-  
-%  We have presented \textit{Excel Shrink}, an open-source tool that significantly reduces the file sizes of \textit{Excel} sheets from \textit{Destatis} by eliminating redundant content overlooked by existing solutions. Our comprehensive analysis uncovered previously undocumented sources of file bloat, such as unnecessary column definitions, and provided insights into why proprietary tools fail to fully address these issues.
-  
-%  Our evaluation demonstrates that \textit{Excel Shrink} outperforms existing tools in both file size reduction and preservation of formatting, achieving reductions of up to 99.99\% without altering the visual appearance of spreadsheets. By making \textit{Excel Shrink} available to the community, we hope to facilitate more efficient data processing and analysis of large-scale \textit{Excel} datasets and encourage further research into \textit{Excel} file optimization.
-  
-%  In future work, we plan to extend our tool to handle additional types of redundancies and to explore optimization techniques for other spreadsheet formats. We also aim to collaborate with organizations like \textit{Destatis} to integrate our tool into their data publication workflows, improving the efficiency and accessibility of publicly available data.
 
 \end{document}
 \endinput
