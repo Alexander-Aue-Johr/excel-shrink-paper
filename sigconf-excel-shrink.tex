@@ -398,17 +398,30 @@ Most of the significant size reduction occurs in the \texttt{sheetData} node, wh
 \noindent
 \textbf{Overview.} We streamline the XML-based spreadsheet by removing extraneous cell entries and entire rows that do not contribute to visible content or formatting. In particular, we remove cells containing only whitespace, those referencing styles that provide only a basic font (i.e., no genuine fill or border), and rows with no meaningful content.
 
-\subsection{Optimization of Shared String References}
-Excel’s Open XML format manages textual data through a shared string table stored in \texttt{sharedStrings.xml}. Identical strings appearing multiple times are stored only once, but whitespace-only entries can also reside in this table and cells referencing those whitespaces  bloat the file.
+\subsection{Automatic Deletion of White Spaces}
 
-\subsubsection{Identifying Empty String Entries}
-We first scan the shared string table to detect entries consisting solely of whitespace. Indices of these redundant entries are marked for later removal.
+Excel’s Open XML format manages textual data through a shared string table stored in \texttt{sharedStrings.xml}. Identical strings appearing multiple times are stored only once, but whitespace-only entries can also reside in this table and cells referencing those whitespaces  bloat the file.  Such a shared strings table would loke like as shown Listing~\ref{lst:sharedStringsSst}. If a cell is declared in the xml like this \lstinline|<c r="A1" t="s"><v>42</v></c>| it means that the attribute t="s" specifies that it is a shared string and it holds the index of the referenced shared string inside the <v> element which is index 42 here. Inside the shared strings File that shared string is the 43th <si> element inside the <sst> node because the index starts at 0. That cell would show "Hello VLDB" to the user. However a cell referencing the shared string with the index 43 would contain just a whitespace character, because the content of the \texttt{<t>} element is empty, indicating that no text is stored. The attribute \texttt{xml:space="preserve"} suggests that this represents a whitespace character. Therefore, all cells referencing index \texttt{43} for the reusable string can be deleted, as they contain no visible content.
 
-\subsubsection{Pattern-Based Detection and Removal}
-We compile these indices into a single regular expression pattern, matching \texttt{<v>} elements in the worksheet XML that reference them. All such occurrences are removed, thus clearing the affected cell entries.
+\begin{lstlisting}[caption={Shared String Table (\texttt{sst}) in \texttt{sharedStrings.xml}}, label={lst:sharedStringsSst}, firstnumber=48]
+<sst count="17962" uniqueCount="732">
+  <!-- 42 other si elements  -->
+  <si>
+    <t>Hello VLDB</t>
+  </si>
+  <si>
+    <t xml:space="preserve"></t>
+  </si>
+  <!-- ... -->
+</sst>  
+\end{lstlisting}
+
+
+
+\subsubsection{Pattern-Based Detection and Removal of Whitespaces}
+We first scan the shared string table to detect entries consisting solely of whitespace. Indices of these redundant entries are marked for later removal. We compile these indices into a single regular expression pattern, matching \texttt{<v>} elements in the worksheet XML that reference them. All such occurrences are removed, thus clearing the affected cell entries.
 
 \begin{verbatim}
-'<v>(?:' + whitespace_ids_pattern + ')</v>'
+'<v>(?:43|47|53)</v>'
 \end{verbatim}
 
 \subsubsection{Application to Sheet Data}
@@ -669,6 +682,17 @@ Whitespace cell removal was the least effective in reducing file size. The top s
 
 
 \subsection{Comparison with Other Tools for Reducing Bloat}
+
+Excel users lack a straightforward method to identify which cells in a worksheet contain only whitespace characters. To highlight these whitespaces, we have marked cells containing exclusively whitespaces in red within this worksheet, which includes 4,121 such instances (see Figure~\ref{fig:whitespaces})~\cite{destatis2023Konsumausgaben5811109}. Excel Inquire Add-in, Excel Check Performance and NXPowerLite Desktop did not remove Whitespaces, while Excel Shrink identified and removed them.
+
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=\linewidth]{images/excel_shrink/whitespaces/whitespaces3.png}
+  \caption{Cells containing only whitespaces are highlighted in red.}
+  \label{fig:whitespaces}
+\end{figure}%
+
 
 
 \subsection{Excel Inquire Add-in}
