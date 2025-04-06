@@ -604,6 +604,7 @@ We tested our approach on 1,183 real Excel files from the German Federal Statist
   \label{fig:loading-times}
 \end{figure*}
 
+
 Our primary goal was to quantify the extent of data reduction achieved by \textit{Excel Shrink}, focusing on metrics such as overall size reduction, removal of empty cells, elimination of whitespace cells, deletion of rows outside the value range, and the removal of unnecessary columns. Figure~\ref{fig:size-reduction-chart} presents the distribution of reduction rates (in percentage) for individual worksheets across all these categories. The chart shows that some worksheets experienced reductions approaching 100\% in file size. In particular, one worksheet exceeded a 99.99\% reduction, 16 worksheets surpassed 99.9\%, and 210 worksheets achieved reductions above 99\%. Across all worksheets, the average reduction rate was 25\%. Most of these gains were realized by removing rows that lay outside the range of actual data values.
 
 
@@ -763,6 +764,26 @@ As another example, consider a form-like structure composed of several empty cel
 \end{figure}
 
 
+
+
+\begin{figure}[ht]
+  \centering
+  \begin{subfigure}[b]{0.48\linewidth}
+    \centering
+    \includegraphics[width=\textwidth]{images/excel_shrink/apply_fill/libre_office_apply_fill_before.png}
+    \caption{Before Saving with Libre Office Calc}
+    \label{fig:performance_before}
+  \end{subfigure}
+  \hspace{0.01\linewidth} 
+  \begin{subfigure}[b]{0.48\linewidth}
+    \centering
+    \includegraphics[width=\textwidth]{images/excel_shrink/apply_fill/libre_office_apply_fill_error.png}
+    \caption{After Saving with Libre Office Calc}
+    \label{fig:performance_after}
+  \end{subfigure}
+  \caption{}
+  \label{fig:performance}
+\end{figure}
 
 \section{Experimental Setup}
 \label{sec:experimental-setup}
