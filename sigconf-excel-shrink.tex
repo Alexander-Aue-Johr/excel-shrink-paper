@@ -568,6 +568,113 @@ Similarly if the max row index would be 123 group would like like this: \lstinli
 
   
 
+ \section{Methodology}
+
+ \subsection{Initial Experiments with XML Parsers}
+ 
+ \subsubsection{DOM-Based Prototype}
+ Our first prototype employed a DOM parser to read and manipulate the XML subfiles of an Excel workbook (essentially a ZIP containing multiple XML documents).
+ 
+ \paragraph{Rationale.}
+ A DOM-based approach is straightforward to implement and allows direct in-memory manipulation of the entire document tree.
+ 
+ \paragraph{Key Observation.}
+ For very large Excel files (unzipped size in the hundreds of MB or more), this approach heavily taxed both runtime and memory. A single thread could consume all available RAM, making multithreading infeasible. Despite these drawbacks, the DOM-based prototype was a successful \textit{proof of concept} that demonstrated the general feasibility of performing the necessary bloat cleanups on Excel files’ XML data.
+ 
+ \subsubsection{Switching to Streaming Parsers}
+ To reduce memory usage, we tested a series of \emph{streaming} or event-driven XML parsers (e.g., StAX, SAX, or custom “InterParse”-like approaches):
+ 
+ \begin{itemize}
+     \item \textbf{Outcome:} These approaches offered modest speed improvements and somewhat lower memory footprints than DOM, but still proved insufficient for very large documents—especially in Python—because partial trees were still built in memory.
+     \item \textbf{Further Variation:} Even minimal-memory parsers with event-based processing used little RAM but introduced large numbers of parse events, reducing overall performance.
+ \end{itemize}
+ 
+ At this stage, it became clear that strictly hierarchical parsers might always be at a disadvantage for large-scale cleanup, suggesting we test whether XML’s structure truly requires a tree-based model or if a more direct, regex-based solution could suffice.
+ 
+ \subsection{Proof-of-Concept Using Regular Expressions}
+ 
+ \subsubsection{Processing the Byte Stream}
+ We developed a \textbf{proof-of-concept} (PoC) that treats each XML subfile as a raw byte stream, applying \textit{regular expressions} without fully decoding or storing the entire document in memory. The approach processes:
+ 
+ \begin{enumerate}
+     \item \emph{Inner Nodes First} (e.g., cells) to remove unnecessary or oversized elements,
+     \item \emph{Outer Nodes Next} (e.g., entire rows) in a subsequent pass once the inner nodes are removed.
+ \end{enumerate}
+ 
+ By iterating “from the inside out,” we flatten or remove large parts of the hierarchy. Comparing the output to the DOM-based solution confirmed that both removed identical bloat elements.
+ 
+ \subsubsection{Chunk-Based Parsing}
+ To handle large XML files without loading them in entirety:
+ 
+ \begin{itemize}
+     \item \textbf{Chunking:} We split each XML file into chunks of manageable size, ensuring boundaries align with valid XML tags.
+     \item \textbf{Benefit:} Memory usage drops because we do not keep the entire uncompressed XML in RAM.
+     \item \textbf{Challenge:} Chunk boundaries can complicate regex usage if tags are split; small buffers or additional passes mitigate this issue.
+ \end{itemize}
+ 
+ \subsubsection{Multi-Pass vs.\ Single-Pass Considerations}
+ Because certain deletions require global context (e.g., row height that only matters if subsequent rows exist), our initial PoC used multiple consecutive regex passes:
+ 
+ \begin{itemize}
+     \item \emph{Pass 1:} Remove easily detected bloat such as empty cells or irrelevant attributes.
+     \item \emph{Pass 2:} Remove rows that are definitively empty once their cells are gone.
+     \item \emph{Pass 3:} Adjust elements requiring knowledge of the entire sheet, such as row or style attributes.
+ \end{itemize}
+ 
+ Though this worked well for most files, it caused significant \emph{runtime outliers} in some cases. Careful \emph{regex optimizations} (avoiding catastrophic backtracking) drastically reduced these outliers.
+ 
+ \subsection{Optimizing the Regex Approach}
+ 
+ \subsubsection{Avoiding Catastrophic Backtracking}
+ Experiments revealed that seemingly small regex details can lead to huge performance impacts:
+ 
+ \begin{itemize}
+     \item Multiple \lstinline|.*?| segments or complex capturing groups often triggered heavy backtracking.
+     \item Sometimes a \emph{negative character class} like \lstinline|[^"]+| was faster than \lstinline|\d+| or \lstinline|[A-Za-z]+|, depending on the matching engine’s internal logic.
+     \item Parsing complex attributes separately (first capturing the entire attribute string, then dissecting it) could outperform capturing them directly with multiple lookaheads.
+ \end{itemize}
+ 
+ Ultimately, carefully minimizing and structuring the regex components, with limited use of \lstinline|.*?|, proved most efficient in common scenarios.
+ 
+ \subsubsection{Nested vs.\ Global Scanning}
+ We compared:
+ 
+ \begin{enumerate}
+     \item \textbf{Global:} A single pass to match and remove all relevant tags (e.g.\ rows, cells) at once.
+     \item \textbf{Nested:} Process each row first, then parse its cells within a smaller substring.
+ \end{enumerate}
+ 
+ Although global matching was initially expected to reduce overhead, \emph{nested} matching proved \textbf{faster} and more elegant. It allowed row-level information (e.g., style or height) to be used immediately when deciding which cells to remove, reducing additional passes and large-scale backtracking.
+ 
+ \subsection{Multithreading and Task Distribution}
+ 
+ \subsubsection{Early Proof-of-Concept}
+ An initial design spawned one thread per Excel file, each of which also launched one thread per worksheet. This left many CPU cores idle when the remaining tasks were fewer than the available threads.
+ 
+ \subsubsection{Final Multithreading Architecture}
+ In the improved approach, we create a fixed number of threads (one per CPU core) and divide the workflow into two phases:
+ 
+ \begin{enumerate}
+     \item \textbf{Analysis Phase:} Each thread scans assigned files for workbook metadata, generating tasks for each worksheet or other sub-components.
+     \item \textbf{Execution Phase:} These tasks are processed in parallel, irrespective of which file they belong to, ensuring no core remains idle once it finishes a task.
+ \end{enumerate}
+ 
+ Once a sheet is finished, a coordinating thread writes it into the Excel ZIP container. This can occur in parallel for multiple workbooks, but typically concurrency is balanced to avoid excessive context switching.
+ 
+ \subsection{Summary of the Methodological Approach}
+ \begin{enumerate}
+     \item \textbf{DOM-Based Parsing} demonstrated feasibility but was too memory-intensive for large files.
+     \item \textbf{Streaming Parsers} offered some improvements but not enough for truly massive workbooks.
+     \item \textbf{Regex Proof-of-Concept} confirmed that XML can be processed \emph{without} fully building a hierarchical model.
+     \item \textbf{Chunk-Based + Multi-Pass} handling reduced memory usage and managed complex global dependencies.
+     \item \textbf{Regex Fine-Tuning} eliminated costly backtracking, sometimes preferring nested over global scanning.
+     \item \textbf{Multithreading Redesign} used a fixed-thread-pool to ensure full CPU utilization and minimized idle cores.
+ \end{enumerate}
+ 
+ Overall, this multi-stage approach proved both scalable and performant for “bloat removal,” offering a viable alternative to traditional XML tree-based methods for large Excel files while keeping memory overhead manageable.
+ 
+
+
 \subsection{Reporting Reduction Results}
 
 To provide a breakdown of how many bytes were saved by deleting whitespaces, empty cells, columns, and rows, we compare the file size before and after each reduction step. For this purpose, we used Excel Schrink Analyser to calculate the size of the worksheet by converting the XML structure into a string, as it would be stored in the file, and compute the length of this string. We then perform a reduction step and again calculate the length of the new string to determine the difference caused by each reduction. Finally, we calculate the percentage reduction relative to the original size. These results are saved in a CSV table.~\cite{excel_shrink_results_csv}
