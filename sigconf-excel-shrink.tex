@@ -5,6 +5,10 @@
 %\documentclass[sigconf, nonacm]{acmart}
 \documentclass[sigconf,anonymous]{acmart}
 
+%remove:
+\usepackage[newfloat]{minted}
+%remove end
+
 \usepackage{booktabs}
 
 \usepackage{algorithm}
@@ -266,11 +270,11 @@ From straightforward file-format optimizations (\texttt{.xlsb} compression) to \
   \end{algorithmic}
 \end{algorithm}
 
-Our methodology evolved from an initial DOM-based prototype, the \emph{Excel Shrink Analyzer}, which helped us investigate and understand the primary causes of file bloat in large Excel files. This analysis revealed that excessive file sizes primarily resulted from hidden rows, empty but styled cells, bloated shared strings, and unnecessary columns.
+Our methodology evolved from an initial DOM-based prototype, the \emph{Excel Shrink Analyzer}, which helped us investigate and understand the primary causes of file bloat in large Excel files. This analysis revealed that excessive file sizes primarily resulted from hidden rows, empty rows, empty but styled cells, whitespace cells, and unnecessary columns.
 
 Because we encountered frequent memory limitations and poor scalability using XML-based approaches, we shifted to a \emph{stream-based approach}. This change was motivated by the insight that an efficient processing model could be implemented using \emph{regex-based chunk processing} on the raw bytestream.
 
-Constructing effective regular expressions required more than a simple pattern, given the hierarchical nature of Excel’s XML structure. Consequently, we developed a pipeline of multiple regex stages, each designed to target a specific inefficiency in spreadsheet data:
+Constructing effective regular expressions required complex patterns, given the hierarchical nature of Excel’s XML structure. Consequently, we developed a pipeline of multiple regex stages, each designed to target a specific inefficiency in spreadsheet data:
 
 1. Identify whitespace-only shared strings and remove their referencing cells.
 2. Delete purely empty cells lacking any borders or fill styles.
@@ -280,7 +284,175 @@ Constructing effective regular expressions required more than a simple pattern, 
 
 This systematic approach enables efficient, scalable file-size reduction without requiring large in-memory representations, thereby significantly improving both performance and storage efficiency.
 
+\subsection{Preprocessing with Context-Free Pruning}
 
+Our script adopts a two-stage cleaning procedure based on a chunking strategy. In the initial pre-processing phase, individual chunks are analysed and cleaned using lightweight operations that do not require any global context from the worksheet. Despite their simplicity, these early operations are effective in eliminating a large portion of file bloat from Excel spreadsheets.
+
+One such operation involves the removal of visually inconsequential cells—cells that contain no content and no layout-relevant styling, such as background fills or borders. Font-only styling (e.g., font family or size) is insufficient to classify a cell as visually relevant. By filtering out these cells during chunk-level processing, we reduce both the computational burden and the memory footprint of subsequent operations.
+
+This filtering is implemented efficiently using regular expressions, allowing us to discard a large number of irrelevant cells without scanning each one individually. The regex pattern used for this operation is shown in \autoref{lst:regex_empty_cells}. The ids inside the s tag are collected when the style.xml was parsed an searched for  and then used to dynamically compile that regex pattern for each excel file.
+
+The filtering is implemented efficiently using regular expressions. 
+
+\begin{lstlisting}[caption={Regex for removing visually inconsequential cells},label={lst:regex_empty_cells}]
+(?:
+  # Match all self-closing c nodes
+  <c\b
+  (?:
+    # which have no style attribute
+    (?![^>]*\bs=)[^>]*
+    # or only font styles
+    |[^>]*\bs="(?:2|7|12)"[^>]*
+  )
+  />
+# Match one or more to remove consecutive matches in one go 
+)+
+\end{lstlisting}
+
+
+
+Another highly effective and fast operation that we apply during the pre-processing phase is the reduction of hidden rows. In Excel’s internal representation, rows can be marked as hidden using the attribute hidden="1". While such rows are visually collapsed in the spreadsheet, their presence in the XML can extend unnecessarily over thousands or even millions of entries. In practice, we observed worksheets where, starting at a certain point, all subsequent rows were marked as hidden. However, Excel renders all following rows as hidden as soon as a single row with hidden="1" is encountered, unless a later row explicitly overrides this setting. Therefore, from a rendering perspective, a long sequence of hidden rows is semantically equivalent to just the first hidden row being present.
+
+To exploit this, we use a regular expression to identify and collapse consecutive hidden rows into a single representative row. This technique avoids expensive per-row checks and requires no document-wide context, making it highly suitable for pre-processing. The resulting simplification significantly reduces the size of the document before it is fully loaded into memory.
+The regex used for this task is shown in \autoref{lst:regex_hidden_rows}.
+
+\begin{lstlisting}[caption={Regex for collapsing hidden rows},label={lst:regex_hidden_rows}]
+# match and capture a hidden row
+(<row\b[^>]*?hidden="1"[^/>]+?/>)
+# match a sequence of hidden rows
+(?:<row\b[^>]+?hidden="1"[^/>]+?/>)+
+\end{lstlisting}
+
+Once all chunks have been pre-cleaned, they are reassembled into a complete document for the second phase. This phase applies context-aware operations, such as identifying the last visually relevant row or cell. If trailing rows beyond this point contain no visual content—e.g., they have a defined height but no visible cells—they can be safely removed without affecting the worksheet layout. However, this step is deferred until the full document structure is available, as it requires global context.
+
+Ultimately, even though the full workbook must be loaded into memory for this final step (e.g., to determine the truncation point), the overall memory load is substantially reduced thanks to the prior removal of non-visible cells and redundant hidden rows. In contrast, more expensive operations such as regex-based pattern detection on row content are reserved for the post-processing phase and only applied when necessary.
+
+\subsection{Context-Aware Post-Processing and Format Override Detection}
+
+
+After pre-processing, the document is significantly reduced in size and complexity: only those rows and cells remain which could not be safely discarded based on context-free visual criteria. These include cells that do not clearly lack visual styling and rows that are not part of a redundant sequence of hidden entries.
+
+The post-processing phase now applies more nuanced checks that require contextual interpretation and are computationally more expensive. A key task is to identify and eliminate cells that contain only whitespace characters. While such cells may technically be non-empty, they typically carry no meaningful information and can be removed to further reduce the document size.
+
+
+
+More challenging, however, is the detection of visually white cells that are semantically significant. During pre-processing, we removed cells only if they had no background colour or border. However, some white-looking cells must not be removed, because they may intentionally override an inherited fill or border. This is often the case when a white background is explicitly applied to suppress a coloured fill defined at the row or column level. Technically, these cells have style flags such as applyFill="1" or applyBorder="1" set, which indicates that their visual appearance should take precedence over inherited formatting.
+
+Detecting these overrides requires a deeper understanding of Excel's styling cascade and cannot be handled reliably using simple regular expressions. Consequently, this logic is deferred to the post-processing phase, where the document context is fully available and a cell's styling can be interpreted in relation to its parent row or column formatting.
+
+The regex to match those cells and capture the relevant attributes is shown in \autoref{lst:regex_rows_with_cells}. The regex captures the row id, hidden state, style, and height attributes of the row. The regex also captures the content of the row if it contains any cells. This allows us to identify rows that are empty or contain only whitespace.
+
+\begin{lstlisting}[caption={Regex for rows in cell range},label={lst:regex_rows_with_cells}]
+<row\b
+# capture the whole attribute string
+( # capture the row's
+  (?:[^>]*\br="([^"]+?)")?  # row id,
+  (?:[^>]*\bhidden="(1)")?  # hidden state,
+  (?:[^>]*\bs="([^"]+?)")?  # style,
+  (?:[^>]*\bht="([^"]+?)")? # and height
+  [^/>]*?
+)
+# match empty rows and rows with cells
+(?:/>|>(.*?)</row>)
+\end{lstlisting}
+
+The algorith m for the row replacement procedure is shown in \autoref{alg:replace_row}. The algorithm first checks if the row is empty and if it was already empty before cleaning. If the row is empty, it checks if it is hidden and if the previous row was also hidden. If both conditions are true, the row is deleted. If not, it replaces the row with a self-closing tag. If the row has no style or fill or border and no height, it deletes the row. If the row became empty by cleaning, it adds a custom height if absent. Finally, it replaces the row with a self-closing tag.
+
+\begin{algorithm}[ht]
+  \caption{Row Replacement Procedure}
+  \label{alg:replace_row}
+  \begin{algorithmic}[1]
+    \STATE $was\_already\_empty \gets (row\_content \text{ is empty})$
+    \IF{not $was\_already\_empty$}
+      \STATE $row\_content \gets CleanCells(row\_content)$
+    \ENDIF
+    \STATE $is\_empty \gets (row\_content \text{ is empty})$
+    \STATE $became\_empty\_by\_cleaning \gets (\lnot was\_already\_empty) \land is\_empty$
+    
+    \IF{$is\_empty$}
+      \IF{$is\_hidden$}
+        \IF{$PreviousRowWasAlsoHidden()$}
+          \RETURN $DeleteRow()$
+        \ELSE
+          \RETURN $ReplaceWithSelfClosingRow()$
+        \ENDIF
+      \ENDIF
+      \IF{$\left((\lnot has\_style) \lor (\lnot has\_fill\_or\_border)\right) \land \lnot has\_height$}
+        \RETURN $DeleteRow()$
+      \ENDIF
+      \IF{$became\_empty\_by\_cleaning \land has\_height$}
+        \RETURN $AddCustomHeightIfAbsent()$
+      \ENDIF
+      \RETURN $ReplaceWithSelfClosingRow()$
+    \ENDIF
+
+    \RETURN $DoNotReplaceRow()$
+  \end{algorithmic}
+\end{algorithm}
+
+\subsection{Two-Tiered Post-Processing for Efficient Truncation}
+
+
+To further optimise the document reduction process, the post-processing phase is internally divided into two distinct stages. This separation is motivated by the observation that identifying rows containing cells is computationally more expensive than identifying empty rows. Specifically, matching the full structure of <row> elements that contain <c> (cell) definitions requires more complex regular expressions compared to detecting empty rows, which can be handled more efficiently.
+
+In the first stage of post-processing, we focus exclusively on rows that contain cell definitions. By scanning for the final occurrence of a <c> element and then locating the surrounding <row> end tag, we determine the upper boundary of the last row containing meaningful cell data. The document is truncated at this point, ensuring that no superfluous cell-containing rows are preserved.
+
+In the second stage, we analyse rows that do not contain any cells. Here, we identify the last row that is visually relevant based on lightweight heuristics: the presence of a visible background colour or border, or the absence of the hidden="1" attribute. These attributes can be detected efficiently through simple pattern matching. Once this second visual boundary is found, the document is truncated again. All subsequent rows are excluded from further analysis, significantly reducing the processing time, as expensive regex-based matching is no longer necessary on these parts of the document.
+
+By separating the treatment of cell-containing and cell-less rows, we are able to apply specialised heuristics and optimise pattern matching logic, resulting in both performance improvements and robust preservation of visually meaningful content.
+
+\subsection{Rule-Based Removal of Empty Rows with Structural and Visual Constraints}
+
+
+In the post-processing step focused on rows and cells containing content, we apply a rule-based filtering mechanism implemented using regular expressions. The process begins by iterating over all row elements (<row>) in the XML representation of the worksheet. Each row is evaluated against a set of structural and visual criteria to determine whether it can be safely removed.
+
+A row is only eligible for removal if all of the following conditions are met:
+
+It contains no cells (i.e. no <c> elements present).
+
+It is not marked as hidden, or if it is hidden, the immediately preceding row must not be hidden. If the preceding row is hidden however, the row after that can safely be removed if it also has no content. This condition ensures that we do not break intended collapsible groups of visible data.
+
+It does not contain any visible styling such as background colour or borders. The presence of such styling suggests that the row contributes to the visual appearance of the sheet and must be preserved.
+
+If the row contains cells, these cells must first be examined if they can be removed, if so, the row can be deleted as well, otherwise, the row will be kept
+
+\subsection{Cell-Level Evaluation and Visual Override Resolution}
+
+Before a row can be safely removed, its constituent cells must be individually examined. As part of the initial regular expression match that identifies candidate <row> elements, the styling information of the row itself is extracted. This context is critical when evaluating the visual significance of each cell within the row.
+
+Each cell (<c>) is analysed according to the following decision logic:
+
+Content Check: If the cell contains non-empty content, it is retained immediately.
+
+Whitespace Detection: If the cell contains a string, we check whether it consists solely of whitespace characters. This includes identifying that the cell uses a shared string by matching the t="s" attribute and if so resolving shared strings via looking up the index inside the <v> element which is the child of the <c> element and lookup which string in the SharedStrings table it references. If the corresponding string is pure whitespace, the cell content is cleared and the cell is flagged as empty.
+
+Styling Context: Once a cell is deemed empty, we assess whether it contributes visually through styling:
+
+If the cell defines a background colour or border, it is preserved.
+
+If not, we then check whether it overrides inherited styling from its parent row or column. A white background or explicit border in the cell may overwrite a coloured row or column style. In such cases, even visually “empty” cells must not be removed, as doing so would alter the rendered appearance of the worksheet.
+
+Safe Deletion: Only if the cell neither contains meaningful content, nor introduces visual styling, nor overrides inherited formats, can it be safely removed.
+
+This process ensures that cells are not only semantically empty, but also visually redundant before they are discarded. By incorporating row-level styling context captured during the earlier regex match and column-level styling that we extracted earlier in the <cols> node, we avoid unnecessary recomputation and ensure correctness across nested formatting layers.
+
+
+
+\subsection{Parallel Context Extraction for Large-Scale Preprocessing}
+
+Both the pre-processing and post-processing phases are implemented using multithreading to improve throughput when handling large collections of Excel workbooks. This is only possible because we dont use xml parsing which would be memory consuming per se and would consume the whole systems memoery just by runing single threaded just as our xml streaming prof of concept did and because we dont use xml parsing but rahter perform operations on the raw bytestring and morover because we split huge document into smaller chunks only a negligible amount of memory is used per thread. The pipeline begins by parallelising the extraction of essential context information from each file. Given that Excel .xlsx files are essentially ZIP archives, they can be opened and inspected quickly using lightweight I/O operations.
+
+In this initial step, each thread is assigned one workbook and performs the following tasks:
+
+Workbook Discovery: The internal structure of the archive is read to determine which worksheets are present.
+
+Shared Strings Extraction: The sharedStrings.xml file is parsed to extract the mapping of shared string indices to their actual content. This information is later used to resolve cell values, particularly for detecting whitespace-only entries.
+
+Style Information Parsing: The styles.xml file is analysed to extract all available styles, including fill and border definitions, as well as flags indicating whether these styles apply at the cell, row, or column level.
+
+This extraction process is fully parallelised across all available CPU threads, with one thread per file. The number of concurrent threads is configured to match the number of virtual cores available on the machine, ensuring optimal utilisation of the host system’s hardware resources.
+
+By performing context extraction up front in a multithreaded fashion, we ensure that all subsequent cleaning steps—many of which depend on shared strings and style definitions—can be executed without repeated I/O or redundant parsing effort.
 
 \subsection{Multithreading for Performance}
 To further increase parsing speed, we use multithreading. In this approach, each XML file within the ZIP archive is processed by its own thread, as described in Algorithm~\ref{alg:multithreading}. Because each thread splits the large \texttt{worksheetX.xml} files into smaller chunks and processes these chunks incrementally, only a negligible amount of memory is used per thread. This setup represents a significant improvement over our previous DOM-based approach, where a single thread attempted to process all worksheets consecutively. The DOM-based method consistently consumed nearly 100\% of the available memory on our test machine, which prevented any realistic automation. By contrast, our new approach effectively reduces overall computation time and allows the files to be processed more quickly.
