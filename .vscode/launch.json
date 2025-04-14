@@ -1,0 +1,72 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+
+
+//     parser = argparse.ArgumentParser(
+// description="Compare Excel file sizes in two folders and list the top files by absolute and percentage differences. "
+// "Then copy the larger version of each file into separate destination folders."
+// )
+// parser.add_argument("folder1", help="Path to the first folder")
+// parser.add_argument("folder2", help="Path to the second folder")
+// parser.add_argument("--abs-count", type=int, default=10,
+//     help="Number of files to display for absolute differences (default: 10)")
+// parser.add_argument("--rel-count", type=int, default=10,
+//     help="Number of files to display for relative differences (default: 10)")
+// parser.add_argument("--csv-abs-out", default="absolute_comparison.csv",
+//     help="CSV file to save the absolute comparison results (default: absolute_comparison.csv)")
+// parser.add_argument("--csv-rel-out", default="relative_comparison.csv",
+//     help="CSV file to save the relative comparison results (default: relative_comparison.csv)")
+// parser.add_argument("--abs-dest", default="absolute_top",
+//     help="Destination folder to copy files with highest absolute differences (default: absolute_top)")
+// parser.add_argument("--rel-dest", default="relative_top",
+//     help="Destination folder to copy files with highest relative differences (default: relative_top)")
+// args = parser.parse_args()
+        {
+            "name": "Compare Excel File Sizes",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/scripts/compare_filesizes.py",
+            "console": "integratedTerminal",
+            "args": [
+                "R:/o",
+                "R:/d",
+                "--abs-count", "3",
+                "--rel-count", "3",
+            ]
+        },
+
+        {
+            "name": "Generate Chart Loading Times Size Reduction",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "scripts/loading_times_size_reduction/loading_times_size_reduction_chart.py",
+            "console": "integratedTerminal",
+            "args": [
+                "controller",
+                "--input-folder",
+                "scripts/loading_times_size_reduction/original_files_with_max_absolute_difference",
+                "--shrunk-folder",
+                "scripts/loading_times_size_reduction/shrunk_files"
+            ]
+        },
+        {
+            "name": "Generate Chart Loading Times Size Reduction --run-tests",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "scripts/loading_times_size_reduction/loading_times_size_reduction_chart.py",
+            "console": "integratedTerminal",
+            "args": [
+                "controller",
+                "--input-folder",
+                "scripts/loading_times_size_reduction/original_files_with_max_absolute_difference",
+                "--shrunk-folder",
+                "scripts/loading_times_size_reduction/shrunk_files",
+                "--run-tests"
+            ]
+        }
+    ]
+}
