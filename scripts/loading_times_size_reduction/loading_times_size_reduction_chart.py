@@ -2,11 +2,8 @@
 import os
 import sys
 import argparse
-import csv
 import subprocess
 import time
-import tempfile
-import shutil
 import logging
 import json
 
