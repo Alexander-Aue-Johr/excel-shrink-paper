@@ -2,11 +2,8 @@
 import os
 import sys
 import argparse
-import csv
 import subprocess
 import time
-import tempfile
-import shutil
 import logging
 import json
 
@@ -133,11 +130,15 @@ def benchmark_pandas(file_path):
 
 def benchmark_excel_com(file_path):
     """
-    Benchmark: via win32com (only on Windows). Opens with Excel COM and saves.
+    Benchmark: via win32com (only on Windows). 
+    First runs excel_shrink.py --only-clean-workbook on the original,
+    then opens the cleaned workbook with Excel COM and saves it.
     """
     import time
     import os
     import tempfile
+    import subprocess
+    import logging
 
     name = "Microsoft Excel"
     try:
@@ -146,30 +147,51 @@ def benchmark_excel_com(file_path):
         logging.warning("win32com not available; skipping Excel COM benchmark.")
         return None, None
 
-    try:
-        excel = win32com.client.Dispatch("Excel.Application")
-        excel.Visible = False
-        excel.Application.DisplayAlerts = False
+    # 1) Prepare a temp dir and run excel_shrink with only-clean-workbook
+    with tempfile.TemporaryDirectory() as shrink_dir:
+        shrink_script = os.path.join("..", "excel-shrink", "excel_shrink.py")
+        logging.info(f"Running excel_shrink --only-clean-workbook on {file_path}")
+        subprocess.run([
+            sys.executable,
+            shrink_script,
+            "--only-clean-workbook",
+            file_path,
+            shrink_dir
+        ], check=True)
 
-        abs_file_path = os.path.abspath(file_path)
-        start = time.perf_counter()
-        wb = excel.Workbooks.Open(abs_file_path)
-        open_time = time.perf_counter() - start
+        cleaned_path = os.path.join(shrink_dir, os.path.basename(file_path))
+        if not os.path.exists(cleaned_path):
+            logging.error(f"Cleaned workbook not found at {cleaned_path}")
+            return None, None
 
-        with tempfile.NamedTemporaryFile(delete=False, suffix=".xlsx") as tmp:
-            tmp_name = tmp.name
+        # 2) Now open the cleaned workbook via COM
+        try:
+            excel = win32com.client.Dispatch("Excel.Application")
+            excel.Visible = False
+            excel.Application.DisplayAlerts = False
 
-        start = time.perf_counter()
-        wb.SaveAs(os.path.abspath(tmp_name))
-        wb.Close()
-        save_time = time.perf_counter() - start
-        excel.Quit()
+            abs_file = os.path.abspath(cleaned_path)
+            start = time.perf_counter()
+            wb = excel.Workbooks.Open(abs_file)
+            open_time = time.perf_counter() - start
 
-        os.remove(tmp_name)
-        return open_time, save_time
-    except Exception as e:
-        logging.error(f"{name} error: {e}")
-        return None, None
+            # save to a temporary file to measure save time
+            with tempfile.NamedTemporaryFile(delete=False, suffix=".xlsx") as tmp:
+                tmp_name = tmp.name
+
+            start = time.perf_counter()
+            wb.SaveAs(os.path.abspath(tmp_name))
+            wb.Close()
+            save_time = time.perf_counter() - start
+
+            excel.Quit()
+            os.remove(tmp_name)
+            return open_time, save_time
+
+        except Exception as e:
+            logging.error(f"{name} error after cleaning: {e}")
+            return None, None
+
 
 def benchmark_r_openxlsx(file_path):
     """
