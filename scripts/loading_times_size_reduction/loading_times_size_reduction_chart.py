@@ -1,4 +1,17 @@
 #!/usr/bin/env python3
+
+# Auto-install essential Python packages if missing
+required = ["pandas", "openpyxl", "matplotlib", "numpy"]
+import importlib
+import subprocess
+import sys
+
+for pkg in required:
+    try:
+        importlib.import_module(pkg)
+    except ImportError:
+        subprocess.check_call([sys.executable, "-m", "pip", "install", "--user", pkg])
+
 import os
 import sys
 import argparse
