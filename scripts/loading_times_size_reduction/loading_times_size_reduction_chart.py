@@ -781,41 +781,43 @@ def _generate_complex_chart(df):
 # ========================================================================
 
 def main():
+    import argparse
+    import sys
+
     parser = argparse.ArgumentParser(
-        description="Run measurements on Excel files (multiple libraries, including R) "
-                    "and generate a comparison chart using subprocess-based measurement "
-                    "to avoid memory bloat."
+        description="Run measurements on Excel files and generate comparison chart."
     )
 
     subparsers = parser.add_subparsers(dest="mode", help="Subcommand: controller or measure-one")
 
-    # controller subcommand
-    ctrl_parser = subparsers.add_parser("controller", help="Controller mode: loop over all files/libraries.")
-    ctrl_parser.add_argument("--input-folder", required=True,
-                             help="Folder containing original Excel files")
-    ctrl_parser.add_argument("--shrunk-folder", required=True,
-                             help="Folder where shrunk files will be stored")
-    ctrl_parser.add_argument("--csv-out", default="excel_benchmarks.csv",
-                             help="CSV file for measurement data (default: excel_benchmarks.csv)")
-    ctrl_parser.add_argument("--run-tests", action="store_true",
-                             help="Run measurements even if CSV file exists")
-
-    # measure-one subcommand
-    meas_parser = subparsers.add_parser("measure-one", help="Measure one library on one file. Called by controller.")
+    # measure-one subcommand bleibt unverändert
+    meas_parser = subparsers.add_parser("measure-one", help="Measure one library on one file.")
     meas_parser.add_argument("--library", required=True, help="Library name, e.g. 'openpyxl(default)'")
     meas_parser.add_argument("--file", required=True, help="Path to the .xlsx file")
 
-    # Default to "controller" mode if no subcommand provided
     args, unknown = parser.parse_known_args()
+
+    # Standard-Speicherort relativ zum Skriptpfad (nur für controller)
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    input_folder = os.path.join(script_dir, "input")
+    shrunk_folder = os.path.join(script_dir, "shrunk_files")
+    csv_out = os.path.join(script_dir, "excel_benchmarks.csv")
+
     if not args.mode:
         args.mode = "controller"
-        sys.argv.insert(1, "controller")
-        args = parser.parse_args()
 
     if args.mode == "measure-one":
         measure_one_main(args)
     else:
-        if (not args.run_tests) and os.path.exists(args.csv_out):
+        class Args:
+            pass
+        args = Args()
+        args.input_folder = input_folder
+        args.shrunk_folder = shrunk_folder
+        args.csv_out = csv_out
+        args.run_tests = True
+
+        if not args.run_tests and os.path.exists(args.csv_out):
             logging.info(f"CSV file {args.csv_out} already exists. Skipping measurements.")
             generate_chart(args.csv_out)
             sys.exit(0)
