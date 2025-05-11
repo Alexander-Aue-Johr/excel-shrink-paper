@@ -791,6 +791,7 @@ def main():
     subparsers = parser.add_subparsers(dest="mode", help="Subcommand: controller or measure-one")
 
     # measure-one subcommand bleibt unverändert
+    ctrl_parser = subparsers.add_parser("controller", help="Controller mode: full benchmark")
     meas_parser = subparsers.add_parser("measure-one", help="Measure one library on one file.")
     meas_parser.add_argument("--library", required=True, help="Library name, e.g. 'openpyxl(default)'")
     meas_parser.add_argument("--file", required=True, help="Path to the .xlsx file")
