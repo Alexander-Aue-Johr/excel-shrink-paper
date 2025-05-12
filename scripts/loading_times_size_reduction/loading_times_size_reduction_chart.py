@@ -31,48 +31,7 @@ for package in required_packages:
     except ImportError:
         print(f"🔹 Package '{package}' not found. Attempting installation...")
         install_package(package)
-
-# ============================================================================
-# 📥 Download Excel files from Destatis
-# ============================================================================
-
-files_to_download = [
-    {
-        "url": "https://www.destatis.de/DE/Themen/Staat/Oeffentliche-Finanzen/Ausgaben-Einnahmen/Publikationen/Downloads-Ausgaben-und-Einnahmen/statistischer-bericht-rechnungsergebnis-kernhaushalt-gemeinden-2140331217005.xlsx?__blob=publicationFile&v=4",
-        "filename": "statistischer-bericht-kernhaushalt-gemeinden.xlsx"
-    },
-    {
-        "url": "https://www.destatis.de/DE/Themen/Gesellschaft-Umwelt/Verkehrsunfaelle/Publikationen/Downloads-Verkehrsunfaelle/verkehrsunfaelle-zeitreihen-xlsx-5462403.xlsx?__blob=publicationFile&v=19",
-        "filename": "verkehrsunfaelle-zeitreihen-xlsx-5462403.xlsx"
-    },
-    {
-        "url": "https://www.destatis.de/DE/Themen/Gesellschaft-Umwelt/Bevoelkerung/Wanderungen/Publikationen/Downloads-Wanderungen/wanderungen-2010120217005.xlsx?__blob=publicationFile&v=3",
-        "filename": "wanderungen-2010120217005.xlsx"
-    }
-]
-
-# Directory to store downloaded files
-output_folder = "scripts/loading_times_size_reduction/input"
-
-# ============================================================================
-# 📥 Download Logic
-# ============================================================================
-
-os.makedirs(output_folder, exist_ok=True)
-
-for file in files_to_download:
-    output_path = os.path.join(output_folder, file["filename"])
-    if os.path.exists(output_path):
-        print(f"✅ File already exists: {output_path}")
-    else:
-        print(f"⬇️ Downloading {file['filename']}...")
-        try:
-            urllib.request.urlretrieve(file["url"], output_path)
-            print(f"✅ Downloaded: {output_path}")
-        except Exception as e:
-            print(f"❌ Failed to download {file['filename']}: {e}")
-
-
+        
 import os
 import sys
 import argparse
@@ -449,6 +408,46 @@ def controller_main(args):
     input_folder = os.path.abspath(os.path.join(script_dir, args.input_folder))
     shrunk_folder = os.path.abspath(os.path.join(script_dir, args.shrunk_folder))
     csv_out = os.path.abspath(os.path.join(script_dir, args.csv_out))
+
+    # ============================================================================
+    # 📥 Download Excel files from Destatis
+    # ============================================================================
+
+    files_to_download = [
+        {
+            "url": "https://www.destatis.de/DE/Themen/Staat/Oeffentliche-Finanzen/Ausgaben-Einnahmen/Publikationen/Downloads-Ausgaben-und-Einnahmen/statistischer-bericht-rechnungsergebnis-kernhaushalt-gemeinden-2140331217005.xlsx?__blob=publicationFile&v=4",
+            "filename": "statistischer-bericht-kernhaushalt-gemeinden.xlsx"
+        },
+        {
+            "url": "https://www.destatis.de/DE/Themen/Gesellschaft-Umwelt/Verkehrsunfaelle/Publikationen/Downloads-Verkehrsunfaelle/verkehrsunfaelle-zeitreihen-xlsx-5462403.xlsx?__blob=publicationFile&v=19",
+            "filename": "verkehrsunfaelle-zeitreihen-xlsx-5462403.xlsx"
+        },
+        {
+            "url": "https://www.destatis.de/DE/Themen/Gesellschaft-Umwelt/Bevoelkerung/Wanderungen/Publikationen/Downloads-Wanderungen/wanderungen-2010120217005.xlsx?__blob=publicationFile&v=3",
+            "filename": "wanderungen-2010120217005.xlsx"
+        }
+    ]
+
+    # Directory to store downloaded files
+    output_folder = "scripts/loading_times_size_reduction/input"
+
+    # ============================================================================
+    # 📥 Download Logic
+    # ============================================================================
+
+    os.makedirs(output_folder, exist_ok=True)
+
+    for file in files_to_download:
+        output_path = os.path.join(output_folder, file["filename"])
+        if os.path.exists(output_path):
+            print(f"✅ File already exists: {output_path}")
+        else:
+            print(f"⬇️ Downloading {file['filename']}...")
+            try:
+                urllib.request.urlretrieve(file["url"], output_path)
+                print(f"✅ Downloaded: {output_path}")
+            except Exception as e:
+                print(f"❌ Failed to download {file['filename']}: {e}")
 
     logging.info("Starting measurements...")
 
