@@ -11,7 +11,7 @@ import logging
 # 🛠 Helper: Ensure required packages
 # ============================================================================
 
-required_packages = ["pandas", "openpyxl", "matplotlib", "numpy"]
+required_packages = ["pandas", "openpyxl", "matplotlib", "numpy", "pympler", "certifi"]
 
 def install_package(package):
     try:
@@ -31,7 +31,9 @@ for package in required_packages:
     except ImportError:
         print(f"🔹 Package '{package}' not found. Attempting installation...")
         install_package(package)
-        
+
+
+
 import os
 import sys
 import argparse
@@ -39,6 +41,16 @@ import subprocess
 import time
 import logging
 import json
+
+
+def _rss_mb():  # ### NEW
+    """Return RSS of current process in MB (uses Pympler)."""
+    try:
+        from pympler import process
+        rss_bytes = process.ProcessMemoryInfo().memory_info().rss
+    except Exception:
+        return None
+    return rss_bytes / (1024 ** 2)
 
 # Only import heavy libraries in measure-one mode to avoid overhead in controller mode
 # We will import them conditionally in the child process.
@@ -402,6 +414,7 @@ def controller_main(args):
     import csv
     import os
     import pandas as pd
+    import certifi
 
     # 📍 Resolve paths relative to script location
     script_dir = os.path.dirname(os.path.abspath(__file__))
@@ -434,6 +447,8 @@ def controller_main(args):
     # ============================================================================
     # 📥 Download Logic
     # ============================================================================
+
+    os.environ["SSL_CERT_FILE"] = certifi.where()
 
     os.makedirs(output_folder, exist_ok=True)
 
