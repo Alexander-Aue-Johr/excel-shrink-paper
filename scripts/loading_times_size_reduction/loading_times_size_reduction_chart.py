@@ -89,25 +89,15 @@ def measure_one_main(args):
         print(json.dumps({"error": "Unknown library"}))
         sys.exit(1)
 
-    measure_func = lib_funcs[library_name]
+    open_t, save_t, peak_mb = lib_funcs[library_name](file_path)  # ### NEW
 
-    open_t, save_t = measure_func(file_path)
-    # If error or None, None returned
-    if open_t is None or save_t is None:
-        result = {
-            "library": library_name,
-            "file": os.path.basename(file_path),
-            "Original Open Time (s)": None,
-            "Original Save Time (s)": None,
-        }
-    else:
-        result = {
-            "library": library_name,
-            "file": os.path.basename(file_path),
-            "Original Open Time (s)": open_t,
-            "Original Save Time (s)": save_t,
-        }
-
+    result = {
+        "library": library_name,
+        "file": os.path.basename(file_path),
+        "Original Open Time (s)": open_t,
+        "Original Save Time (s)": save_t,
+        "Peak Memory (MB)": peak_mb,                     # ### NEW
+    }
     print(json.dumps(result))
 
 
