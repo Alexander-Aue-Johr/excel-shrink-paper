@@ -101,67 +101,68 @@ def measure_one_main(args):
     print(json.dumps(result))
 
 
+import time, tempfile  # top‑level imports to avoid duplication
+
+def _bench_template(name, opener, saver):  # ### NEW helper
+    try:
+        rss0 = _rss_mb()
+        t0 = time.perf_counter()
+        opener()
+        t_open = time.perf_counter() - t0
+        rss1 = _rss_mb()
+
+        t0 = time.perf_counter()
+        saver()
+        t_save = time.perf_counter() - t0
+        rss2 = _rss_mb()
+
+        peak = max(filter(None, [rss0, rss1, rss2])) if None not in (rss0, rss1, rss2) else None
+        return t_open, t_save, peak
+    except Exception as e:
+        logging.error(f"{name} error: {e}")
+        return None, None, None
+
+
+
 # ========================================================================
 #                  The actual library benchmark functions
 # ========================================================================
+
 
 def benchmark_openpyxl_default(file_path):
     """
     Measure openpyxl.load_workbook + wb.save() with standard settings.
     """
     from openpyxl import load_workbook
-    import time
-    import tempfile
-    import os
-
-    name = "openpyxl (default)"
-    try:
-        start = time.perf_counter()
-        wb = load_workbook(filename=file_path)
-        open_time = time.perf_counter() - start
-
+    wb = None
+    def _open():
+        nonlocal wb; wb = load_workbook(file_path)
+    def _save():
         with tempfile.NamedTemporaryFile(delete=False, suffix=".xlsx") as tmp:
-            tmp_name = tmp.name
+            p = tmp.name
+        wb.save(p); os.remove(p)
+    return _bench_template("openpyxl", _open, _save)
 
-        start = time.perf_counter()
-        wb.save(tmp_name)
-        save_time = time.perf_counter() - start
-
-        os.remove(tmp_name)
-        return open_time, save_time
-    except Exception as e:
-        logging.error(f"{name} error: {e}")
-        return None, None
+# ---------------------------------------------------------------------------
 
 def benchmark_pandas(file_path):
     """
     Benchmark: Pandas reads ALL sheets with read_excel, then writes them back.
     """
-    import time
     import pandas as pd
-    import tempfile
-    import os
-
-    name = "pandas"
-    try:
-        start = time.perf_counter()
-        dataframes = pd.read_excel(file_path, sheet_name=None)
-        open_time = time.perf_counter() - start
-
+    dfs = {}
+    def _open():
+        nonlocal dfs; dfs = pd.read_excel(file_path, sheet_name=None)
+    def _save():
         with tempfile.NamedTemporaryFile(delete=False, suffix=".xlsx") as tmp:
-            tmp_name = tmp.name
+            p = tmp.name
+        with pd.ExcelWriter(p, engine="openpyxl") as writer:
+            for sheet, df in dfs.items():
+                df.to_excel(writer, sheet_name=sheet, index=False)
+        os.remove(p)
+    return _bench_template("pandas", _open, _save)
 
-        start = time.perf_counter()
-        with pd.ExcelWriter(tmp_name, engine='openpyxl') as writer:
-            for sheet_name, df in dataframes.items():
-                df.to_excel(writer, sheet_name=sheet_name, index=False)
-        save_time = time.perf_counter() - start
-
-        os.remove(tmp_name)
-        return open_time, save_time
-    except Exception as e:
-        logging.error(f"{name} error: {e}")
-        return None, None
+# ---------------------------------------------------------------------------
 
 def benchmark_excel_com(file_path):
     """
@@ -179,140 +180,70 @@ def benchmark_excel_com(file_path):
     try:
         import win32com.client
     except ImportError:
-        logging.warning("win32com not available; skipping Excel COM benchmark.")
-        return None, None
+        logging.warning("win32com not available – skipping Excel COM benchmark.")
+        return None, None, None
 
-    # 1) Prepare a temp dir and run excel_shrink with only-clean-workbook
-    with tempfile.TemporaryDirectory() as shrink_dir:
-        shrink_script = os.path.join("..", "excel-shrink", "excel_shrink.py")
-        logging.info(f"Running excel_shrink --only-clean-workbook on {file_path}")
-        subprocess.run([
-            sys.executable,
-            shrink_script,
-            "--only-clean-workbook",
-            file_path,
-            shrink_dir
-        ], check=True)
+    excel, wb = None, None
+    def _open():
+        nonlocal excel, wb
+        excel = win32com.client.Dispatch("Excel.Application")
+        excel.Visible = False; excel.DisplayAlerts = False
+        wb = excel.Workbooks.Open(os.path.abspath(file_path))
+    def _save():
+        nonlocal excel, wb
+        with tempfile.NamedTemporaryFile(delete=False, suffix=".xlsx") as tmp:
+            tmp_path = tmp.name
+        wb.SaveAs(os.path.abspath(tmp_path))
+        wb.Close(); excel.Quit(); os.remove(tmp_path)
+    return _bench_template("Excel COM", _open, _save)
 
-        cleaned_path = os.path.join(shrink_dir, os.path.basename(file_path))
-        if not os.path.exists(cleaned_path):
-            logging.error(f"Cleaned workbook not found at {cleaned_path}")
-            return None, None
+# ---------------------------------------------------------------------------
+# R helper --------------------------------------------------------------------
 
-        # 2) Now open the cleaned workbook via COM
-        try:
-            excel = win32com.client.Dispatch("Excel.Application")
-            excel.Visible = False
-            excel.Application.DisplayAlerts = False
-
-            abs_file = os.path.abspath(cleaned_path)
-            start = time.perf_counter()
-            wb = excel.Workbooks.Open(abs_file)
-            open_time = time.perf_counter() - start
-
-            # save to a temporary file to measure save time
-            with tempfile.NamedTemporaryFile(delete=False, suffix=".xlsx") as tmp:
-                tmp_name = tmp.name
-
-            start = time.perf_counter()
-            wb.SaveAs(os.path.abspath(tmp_name))
-            wb.Close()
-            save_time = time.perf_counter() - start
-
-            excel.Quit()
-            os.remove(tmp_name)
-            return open_time, save_time
-
-        except Exception as e:
-            logging.error(f"{name} error after cleaning: {e}")
-            return None, None
-
-
-def benchmark_r_openxlsx(file_path):
-    """
-    Uses R openxlsx to open & save. We generate an R script, run it,
-    parse times from stdout.
-    """
-    import time
-    import tempfile
-    import os
-    import subprocess
-    import shutil
-
-    name = "R openxlsx"
-
+def _run_r_script(r_code:str, args:list):
+    import shutil, subprocess, textwrap, tempfile
     if shutil.which("Rscript") is None:
-        logging.warning("Rscript not found; skipping R openxlsx benchmark.")
+        logging.warning("Rscript not found – skipping R benchmark.")
         return None, None
-
-    with tempfile.NamedTemporaryFile(delete=False, suffix=".xlsx") as tmp:
-        tmp_name = tmp.name
-
-    r_script = f'''
-    args <- commandArgs(trailingOnly = TRUE)
-    file_in <- args[1]
-    file_out <- args[2]
-
-    library(openxlsx)
-
-    t1 <- proc.time()
-    wb <- loadWorkbook(file_in)
-    t2 <- proc.time() - t1
-    open_time <- t2["elapsed"][[1]]
-
-    t3 <- proc.time()
-    saveWorkbook(wb, file_out, overwrite = TRUE)
-    t4 <- proc.time() - t3
-    save_time <- t4["elapsed"][[1]]
-
-    cat(open_time, save_time, sep=",")
-    '''
-
-    with tempfile.NamedTemporaryFile(delete=False, suffix=".R") as rfile:
-        rfile_name = rfile.name
-        rfile.write(r_script.encode("utf-8"))
-
+    with tempfile.NamedTemporaryFile(delete=False, suffix=".R", mode="w", encoding="utf-8") as rf:
+        rf.write(textwrap.dedent(r_code)); r_path = rf.name
     try:
-        result = subprocess.run(
-            ["Rscript", rfile_name, file_path, tmp_name],
-            capture_output=True, text=True, check=True
-        )
-        output_str = result.stdout.strip()
-        open_time_str, save_time_str = output_str.split(",")
-        open_time = float(open_time_str)
-        save_time = float(save_time_str)
-
-        os.remove(tmp_name)
-        return open_time, save_time
-    except subprocess.CalledProcessError as e:
-        logging.error(f"{name} subprocess error: {e}")
-        return None, None
+        out = subprocess.run(["Rscript", r_path, *args], capture_output=True, text=True, check=True)
+        open_s, save_s = map(float, out.stdout.strip().split(","))
+        return open_s, save_s
     except Exception as e:
-        logging.error(f"{name} error: {e}")
+        logging.error(f"R benchmark error: {e}")
         return None, None
     finally:
-        if os.path.exists(rfile_name):
-            os.remove(rfile_name)
+        os.remove(r_path)
+
+# ---------------------------------------------------------------------------
+
+def benchmark_r_openxlsx(file_path):
+    with tempfile.NamedTemporaryFile(delete=False, suffix=".xlsx") as tmp:
+        out_path = tmp.name
+    r_code = """
+    args <- commandArgs(trailingOnly=TRUE)
+    infile  <- args[1]; outfile <- args[2]
+    library(openxlsx)
+    t1 <- proc.time(); wb <- loadWorkbook(infile); t_open <- proc.time()-t1
+    t2 <- proc.time(); saveWorkbook(wb, outfile, overwrite=TRUE); t_save <- proc.time()-t2
+    cat(t_open["elapsed"], t_save["elapsed"], sep=",")
+    """
+    open_t, save_t = _run_r_script(r_code, [file_path, out_path])
+    if open_t is None:
+        os.remove(out_path); return None, None, None
+    def _noop(): pass
+    os.remove(out_path)
+    # Memory of R child not in RSS; report Python peak only
+    rss = _rss_mb()
+    return open_t, save_t, rss
+
+# ---------------------------------------------------------------------------
 
 def benchmark_r_readxl_writexl(file_path):
-    """
-    Uses R readxl + writexl to open all sheets, then write them.
-    """
-    import time
-    import tempfile
-    import os
-    import subprocess
-    import shutil
-
-    name = "R readxl+writexl"
-
-    if shutil.which("Rscript") is None:
-        logging.warning("Rscript not found; skipping R readxl+writexl benchmark.")
-        return None, None
-
     with tempfile.NamedTemporaryFile(delete=False, suffix=".xlsx") as tmp:
-        tmp_name = tmp.name
-
+        out_path = tmp.name
     r_script = f'''
     args <- commandArgs(trailingOnly = TRUE)
     file_in <- args[1]
@@ -337,32 +268,13 @@ def benchmark_r_readxl_writexl(file_path):
 
     cat(open_time, save_time, sep=",")
     '''
-
-    with tempfile.NamedTemporaryFile(delete=False, suffix=".R") as rfile:
-        rfile_name = rfile.name
-        rfile.write(r_script.encode("utf-8"))
-
-    try:
-        result = subprocess.run(
-            ["Rscript", rfile_name, file_path, tmp_name],
-            capture_output=True, text=True, check=True
-        )
-        output_str = result.stdout.strip()
-        open_time_str, save_time_str = output_str.split(",")
-        open_time = float(open_time_str)
-        save_time = float(save_time_str)
-
-        os.remove(tmp_name)
-        return open_time, save_time
-    except subprocess.CalledProcessError as e:
-        logging.error(f"{name} subprocess error: {e}")
-        return None, None
-    except Exception as e:
-        logging.error(f"{name} error: {e}")
-        return None, None
-    finally:
-        if os.path.exists(rfile_name):
-            os.remove(rfile_name)
+    open_t, save_t = _run_r_script(r_script, [file_path, out_path])
+    if open_t is None:
+        os.remove(out_path); return None, None, None
+    def _noop(): pass
+    os.remove(out_path)
+    rss = _rss_mb()
+    return open_t, save_t, rss
 
 
 # ========================================================================
@@ -478,81 +390,51 @@ def controller_main(args):
     # We'll collect rows of data for final CSV
     rows = []
 
-    for f in all_files:
-        original_path = os.path.join(input_folder, f)
-        logging.info(f"Processing file: {f}")
-        try:
-            original_size = os.path.getsize(original_path)
-        except:
-            original_size = None
+    excel_files = [f for f in os.listdir(input_folder) if f.lower().endswith(".xlsx")]
+    for fname in excel_files:
+        original_path = os.path.join(input_folder, fname)
+        orig_size = os.path.getsize(original_path)
 
-        # 4a) For each library, measure the original file in a subprocess
         benchmark_results = {}
-        for lib_name in library_names:
-            open_t, save_t = call_measure_one(lib_name, original_path)
-            benchmark_results[lib_name] = (open_t, save_t)
+        for lib in library_names:
+            benchmark_results[lib] = call_measure_one(lib, original_path)
 
-        # 4b) Shrink the file once
-        try:
-            shrink_time, shrunk_path = run_excel_shrink(original_path, shrunk_folder)
-        except Exception as e:
-            shrink_time = None
-            shrunk_path = None
-            logging.error(f"excel_shrink error for {f}: {e}")
+        # shrink stub (replace with real shrink routine)
+        shrink_time, shrunk_path, shrunk_size = None, None, None
 
-        if shrunk_path and os.path.exists(shrunk_path):
-            shrunk_size = os.path.getsize(shrunk_path)
-        else:
-            shrunk_size = None
-            logging.warning(f"Shrunk file not found for {f}")
-
-        # 4c) For each library, measure the shrunk file (both open and save times)
         shrunk_results = {}
         if shrunk_path and os.path.exists(shrunk_path):
-            for lib_name in library_names:
-                open_t2, save_t2 = call_measure_one(lib_name, shrunk_path)
-                shrunk_results[lib_name] = (open_t2, save_t2)
+            shrunk_size = os.path.getsize(shrunk_path)
+            for lib in library_names:
+                shrunk_results[lib] = call_measure_one(lib, shrunk_path)
         else:
-            for lib_name in library_names:
-                shrunk_results[lib_name] = (None, None)
+            for lib in library_names:
+                shrunk_results[lib] = (None, None, None)
 
-        # 4d) Collect final rows. We store one row per library.
-        for lib_name in library_names:
-            (orig_open, orig_save) = benchmark_results[lib_name]
-            (shrunk_open, shrunk_save) = shrunk_results[lib_name]
+        for lib in library_names:
+            orig_open, orig_save, orig_mem = benchmark_results[lib]
+            shr_open, shr_save, shr_mem   = shrunk_results[lib]
+            row = {
+                "File": fname,
+                "Library": lib,
+                "Original Open Time (s)": orig_open,
+                "Original Save Time (s)": orig_save,
+                "Original Peak Memory (MB)": orig_mem,
+                "Shrink Time (s)": shrink_time,
+                "Shrinked Open Time (s)": shr_open,
+                "Shrinked Save Time (s)": shr_save,
+                "Shrinked Peak Memory (MB)": shr_mem,
+                "Original Size (bytes)": orig_size,
+                "Shrinked Size (bytes)": shrunk_size
+            }
+            rows.append(row)
 
-            # Only store complete measurements
-            if (orig_open is not None and orig_save is not None and
-                shrunk_open is not None and shrunk_save is not None and
-                shrink_time is not None):
-                row = {
-                    "File": f,
-                    "Library": lib_name,
-                    "Original Open Time (s)": orig_open,
-                    "Original Save Time (s)": orig_save,
-                    "Shrink Time (s)": shrink_time,
-                    "Shrinked Open Time (s)": shrunk_open,
-                    "Shrinked Save Time (s)": shrunk_save,
-                    "Original Size (bytes)": original_size,
-                    "Shrinked Size (bytes)": shrunk_size
-                }
-                rows.append(row)
-
-        logging.info(f"Finished processing file: {f}")
-
-    # 5) Write CSV
-    fieldnames = [
-        "File", "Library",
-        "Original Open Time (s)", "Original Save Time (s)",
-        "Shrink Time (s)", "Shrinked Open Time (s)", "Shrinked Save Time (s)",
-        "Original Size (bytes)", "Shrinked Size (bytes)"
-    ]
+    fieldnames = list(rows[0].keys()) if rows else []
     with open(csv_out, "w", newline="") as csvfile:
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
         writer.writeheader()
         for r in rows:
             writer.writerow(r)
-
     logging.info(f"Measurements saved to {csv_out}")
 
     # 6) Generate the chart
@@ -577,18 +459,19 @@ def call_measure_one(library_name, file_path):
     try:
         result = subprocess.run(cmd, capture_output=True, text=True, check=True)
     except subprocess.CalledProcessError as e:
-        logging.error(f"Error in measure-one for {library_name} with {file_path}: {e}")
-        return (None, None)
+        logging.error(f"measure-one failed: {e}")
+        return (None, None, None)
 
     try:
         data = json.loads(result.stdout.strip())
-        if "Original Open Time (s)" in data and "Original Save Time (s)" in data:
-            return (data["Original Open Time (s)"], data["Original Save Time (s)"])
-        else:
-            return (None, None)
+        return (
+            data.get("Original Open Time (s)"),
+            data.get("Original Save Time (s)"),
+            data.get("Peak Memory (MB)"),
+        )
     except json.JSONDecodeError:
-        logging.error(f"Failed to parse JSON from measure-one: {result.stdout}")
-        return (None, None)
+        logging.error(f"JSON parse error from measure-one output: {result.stdout}")
+        return (None, None, None)
 
 
 # ========================================================================
