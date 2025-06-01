@@ -279,14 +279,12 @@ def benchmark_r_openxlsx(file_path):
     t2 <- proc.time(); saveWorkbook(wb, outfile, overwrite=TRUE); t_save <- proc.time()-t2
     cat(t_open["elapsed"], t_save["elapsed"], sep=",")
     """
-    open_t, save_t = _run_r_script(r_code, [file_path, out_path])
+    open_t, save_t, peak_r = _run_r_script(r_code, [file_path, out_path])
     if open_t is None:
         os.remove(out_path); return None, None, None
-    def _noop(): pass
     os.remove(out_path)
-    # Memory of R child not in RSS; report Python peak only
-    rss = _rss_mb()
-    return open_t, save_t, rss
+    # R subprocess memory already reported; return those values
+    return open_t, save_t, peak_r
 
 # ---------------------------------------------------------------------------
 
@@ -317,13 +315,11 @@ def benchmark_r_readxl_writexl(file_path):
 
     cat(open_time, save_time, sep=",")
     '''
-    open_t, save_t = _run_r_script(r_script, [file_path, out_path])
+    open_t, save_t, peak_r = _run_r_script(r_script, [file_path, out_path])
     if open_t is None:
         os.remove(out_path); return None, None, None
-    def _noop(): pass
     os.remove(out_path)
-    rss = _rss_mb()
-    return open_t, save_t, rss
+    return open_t, save_t, peak_r
 
 
 # ========================================================================
