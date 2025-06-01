@@ -431,6 +431,8 @@ def controller_main(args):
     script_dir = os.path.dirname(os.path.abspath(__file__))
     input_folder = os.path.abspath(os.path.join(script_dir, args.input_folder))
     shrunk_folder = os.path.abspath(os.path.join(script_dir, args.shrunk_folder))
+    second_shrink_shrunk_folder = os.path.abspath(os.path.join(script_dir, args.second_shrinkage_shrunk_folder))
+
     csv_out = os.path.abspath(os.path.join(script_dir, args.csv_out))
 
     # ============================================================================
@@ -508,7 +510,8 @@ def controller_main(args):
         for lib in library_names:
             benchmark_results[lib] = call_measure_one(lib, original_path)
 
-        shrink_time, shrunk_path, shrunk_size= run_excel_shrink(original_path, shrunk_folder)
+        shrink_time, shrunk_path, shrink_peak_mem = run_excel_shrink(original_path, shrunk_folder)
+
 
         shrunk_results = {}
         if shrunk_path and os.path.exists(shrunk_path):
@@ -536,6 +539,36 @@ def controller_main(args):
                 "Shrinked Size (bytes)": shrunk_size
             }
             rows.append(row)
+
+
+        # 1) Prepare shrink folder
+        if not os.path.exists(second_shrink_shrunk_folder):
+            os.makedirs(second_shrink_shrunk_folder)
+            logging.info(f"Created second shrink folder: {second_shrink_shrunk_folder}")
+
+        # run excel shrink again with shrunk file
+        if shrunk_path and os.path.exists(shrunk_path):
+            shrunk_shrink_time, shrunk_shrink_path, shrunk_shrink_peak_mem = run_excel_shrink(shrunk_path, second_shrink_shrunk_folder)
+            if shrunk_shrink_path and os.path.exists(shrunk_shrink_path):
+                shrink_shrunk_size = os.path.getsize(shrunk_shrink_path)
+            else:
+                logging.error(f"Shrunk file {shrunk_shrink_path} not found after second shrink.")
+                shrink_shrunk_size = 0
+        
+        row = {
+            "File": fname,
+            "Library": "Excel Shrink",
+            "Original Open Time (s)": 0,
+            "Original Save Time (s)": shrink_time,
+            "Original Peak Memory (MB)": shrink_peak_mem,
+            "Shrink Time (s)": shrunk_shrink_time,
+            "Shrinked Open Time (s)": 0,
+            "Shrinked Save Time (s)": shrunk_shrink_time,
+            "Shrinked Peak Memory (MB)": shrunk_shrink_peak_mem,
+            "Original Size (bytes)": shrunk_size,
+            "Shrinked Size (bytes)": shrink_shrunk_size
+        }
+        rows.append(row)
 
     fieldnames = list(rows[0].keys()) if rows else []
     with open(csv_out, "w", newline="") as csvfile:
@@ -798,6 +831,7 @@ def main():
     script_dir = os.path.dirname(os.path.abspath(__file__))
     input_folder = os.path.join(script_dir, "input")
     shrunk_folder = os.path.join(script_dir, "shrunk_files")
+    second_shrink_shrunk_folder = os.path.join(script_dir, "second_shrinkage_shrunk_files")
     csv_out = os.path.join(script_dir, "excel_benchmarks.csv")
 
     if not args.mode:
@@ -811,6 +845,7 @@ def main():
         args = Args()
         args.input_folder = input_folder
         args.shrunk_folder = shrunk_folder
+        args.second_shrinkage_shrunk_folder = second_shrink_shrunk_folder
         args.csv_out = csv_out
         args.run_tests = True
 
