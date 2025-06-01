@@ -343,25 +343,72 @@ def benchmark_r_readxl_writexl(file_path):
 #                            EXCEL-SHRINK
 # ========================================================================
 
+import os
+import sys
+import time
+import logging
+import psutil
+
 def run_excel_shrink(original_file, output_dir):
     """
-    Calls external excel_shrink.py in ../excel-shrink/ with subprocess.
-    Returns (shrink_time, shrunk_path).
+    Calls external excel_shrink.py in ../excel-shrink/ with psutil to messen, 
+    wie lange es dauert und wie viel Arbeitsspeicher peak genutzt wird.
+    Liefert (shrink_time, shrunk_path, peak_memory_bytes).
     """
     logging.info(f"Running excel_shrink on {original_file}")
     output_file = os.path.join(output_dir, os.path.basename(original_file))
     start = time.perf_counter()
 
-    # Adjust the path to excel_shrink.py as needed:
+    # Pfad zum excel_shrink.py
     shrink_script = os.path.join("..", "excel-shrink", "excel_shrink.py")
 
-    subprocess.run([sys.executable, shrink_script, original_file, output_dir],
-                   check=True)
+    # Wir nutzen psutil.Popen statt subprocess.run, um den Prozess zu überwachen.
+    cmd = [sys.executable, shrink_script, original_file, output_dir]
+    proc = psutil.Popen(cmd)
+
+    peak_mem = 0
+    try:
+        # Solange der Prozess läuft, pollen wir in kurzen Intervallen
+        while proc.is_running():
+            try:
+                # RSS in Bytes
+                current = proc.memory_info().rss
+                if current > peak_mem:
+                    peak_mem = current
+
+                # Kinderprozesse ebenfalls prüfen (rekursiv)
+                for child in proc.children(recursive=True):
+                    child_mem = child.memory_info().rss
+                    if child_mem > peak_mem:
+                        peak_mem = child_mem
+            except (psutil.NoSuchProcess, psutil.AccessDenied):
+                # Falls der Prozess zwischenzeitlich verschwunden ist oder kein Zugriff möglich ist
+                pass
+
+            time.sleep(0.1)
+
+        # Nachdem proc.is_running() False liefert, warten wir noch auf das Exit-Status
+        proc.wait()
+        
+
+        for child in proc.children(recursive=True):
+            try:
+                child_mem = child.memory_info().rss
+                if child_mem > peak_mem:
+                    peak_mem = child_mem
+            except (psutil.NoSuchProcess, psutil.AccessDenied):
+                pass
+
+    except Exception:
+        # Falls ein unerwarteter Fehler passiert, trotzdem abbrechen
+        proc.kill()
+        raise
 
     shrink_time = time.perf_counter() - start
     logging.info(f"excel_shrink completed in {shrink_time:.2f}s for {original_file}")
+    logging.info(f"Peak memory usage: {peak_mem / (1024**2):.2f} MB")
 
-    return shrink_time, output_file
+    return shrink_time, output_file, peak_mem
 
 
 # ========================================================================
@@ -461,8 +508,7 @@ def controller_main(args):
         for lib in library_names:
             benchmark_results[lib] = call_measure_one(lib, original_path)
 
-        # shrink stub (replace with real shrink routine)
-        shrink_time, shrunk_path, shrunk_size = None, None, None
+        shrink_time, shrunk_path, shrunk_size= run_excel_shrink(original_path, shrunk_folder)
 
         shrunk_results = {}
         if shrunk_path and os.path.exists(shrunk_path):
