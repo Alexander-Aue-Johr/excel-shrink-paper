@@ -221,20 +221,48 @@ def benchmark_excel_com(file_path):
 # ---------------------------------------------------------------------------
 # R helper --------------------------------------------------------------------
 
-def _run_r_script(r_code:str, args:list):
-    import shutil, subprocess, textwrap, tempfile
+def _run_r_script(r_code: str, args: list):
+    """Run Rscript, parse two numeric values (open, save) from stdout, and
+    return (open_s, save_s, peak_rss_mb).  Uses psutil to sample the child
+    process every 50 ms while it runs and records the peak resident‐set‐size
+    of the R subprocess.  Falls back to None if psutil is unavailable.
+    """
+    import shutil, subprocess, textwrap, tempfile, time
+    try:
+        import psutil
+    except ImportError:
+        psutil = None  # memory report will be None
+
     if shutil.which("Rscript") is None:
         logging.warning("Rscript not found – skipping R benchmark.")
-        return None, None
+        return None, None, None
+
     with tempfile.NamedTemporaryFile(delete=False, suffix=".R", mode="w", encoding="utf-8") as rf:
         rf.write(textwrap.dedent(r_code)); r_path = rf.name
+
+    peak_rss = None
     try:
-        out = subprocess.run(["Rscript", r_path, *args], capture_output=True, text=True, check=True)
-        open_s, save_s = map(float, out.stdout.strip().split(","))
-        return open_s, save_s
+        proc = subprocess.Popen(["Rscript", r_path, *args], stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+        if psutil:
+            p = psutil.Process(proc.pid)
+            peak_rss = 0
+            while proc.poll() is None:
+                try:
+                    rss_now = p.memory_info().rss
+                    if rss_now > peak_rss:
+                        peak_rss = rss_now
+                except psutil.NoSuchProcess:
+                    break
+                time.sleep(0.05)
+        stdout, stderr = proc.communicate()
+        if proc.returncode != 0:
+            raise subprocess.CalledProcessError(proc.returncode, proc.args, output=stdout, stderr=stderr)
+        open_s, save_s = map(float, stdout.strip().split(","))
+        peak_mb = peak_rss / (1024 ** 2) if peak_rss else None
+        return open_s, save_s, peak_mb
     except Exception as e:
         logging.error(f"R benchmark error: {e}")
-        return None, None
+        return None, None, None
     finally:
         os.remove(r_path)
 
