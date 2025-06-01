@@ -182,57 +182,57 @@ def benchmark_excel_com(file_path):
     except ImportError:
         logging.warning("win32com not available – skipping Excel COM benchmark.")
         return None, None, None
+    
+    with tempfile.TemporaryDirectory() as shrink_dir:
 
-    excel, wb = None, None
-    def _open():
-        nonlocal excel, wb
+        excel, wb = None, None
+        def _open():
+            nonlocal excel, wb
 
-        with tempfile.TemporaryDirectory() as shrink_dir:
-                shrink_script = os.path.join("..", "excel-shrink", "excel_shrink.py")
-                logging.info(f"Running excel_shrink --only-clean-workbook on {file_path}")
-                subprocess.run([
-                    sys.executable,
-                    shrink_script,
-                    "--only-clean-workbook",
-                    file_path,
-                    shrink_dir
-                ], check=True)
+            shrink_script = os.path.join("..", "excel-shrink", "excel_shrink.py")
+            logging.info(f"Running excel_shrink --only-clean-workbook on {file_path}")
+            subprocess.run([
+                sys.executable,
+                shrink_script,
+                "--only-clean-workbook",
+                file_path,
+                shrink_dir
+            ], check=True)
 
-                cleaned_path = os.path.join(shrink_dir, os.path.basename(file_path))
-                if not os.path.exists(cleaned_path):
-                    logging.error(f"Cleaned workbook not found at {cleaned_path}")
-                    return None, None, None
+            cleaned_path = os.path.join(shrink_dir, os.path.basename(file_path))
+            if not os.path.exists(cleaned_path):
+                logging.error(f"Cleaned workbook not found at {cleaned_path}")
+                return None, None, None
 
-                excel = win32com.client.Dispatch("Excel.Application")
-                excel.Visible = False
-                
-                excel.Application.DisplayAlerts = False
+            excel = win32com.client.DispatchEx("Excel.Application")
+            excel.Visible = False
+            
+            excel.Application.DisplayAlerts = False
 
-                abs_file = os.path.abspath(cleaned_path)
+            abs_file = os.path.abspath(cleaned_path)
 
-                file_exists = os.path.exists(abs_file)
-                if not file_exists:
-                    logging.error(f"File does not exist: {abs_file}")
-                    return None, None, None
+            file_exists = os.path.exists(abs_file)
+            if not file_exists:
+                logging.error(f"File does not exist: {abs_file}")
+                return None, None, None
 
-                try:
-                    excel.Workbooks.Open(abs_file)
-                except Exception as e:
-                    logging.error(f"Error opening workbook: {e}")
-                    return None, None, None
-                    
+            try:
                 wb = excel.Workbooks.Open(abs_file)
+            except Exception as e:
+                logging.error(f"Error opening workbook: {e}")
+                return None, None, None
                 
-                if wb is None:
-                    logging.error(f"Failed to open workbook: {abs_file}")
-                    return None, None, None
+            
+            if wb is None:
+                logging.error(f"Failed to open workbook: {abs_file}")
+                return None, None, None
 
-    def _save():
-        nonlocal excel, wb
-        with tempfile.NamedTemporaryFile(delete=False, suffix=".xlsx") as tmp:
-            tmp_path = tmp.name
-        wb.SaveAs(os.path.abspath(tmp_path))
-        wb.Close(); excel.Quit(); os.remove(tmp_path)
+        def _save():
+            nonlocal excel, wb
+            with tempfile.NamedTemporaryFile(delete=False, suffix=".xlsx") as tmp:
+                tmp_path = tmp.name
+            wb.SaveAs(os.path.abspath(tmp_path))
+            wb.Close(); excel.Quit(); os.remove(tmp_path)
     return _bench_template("Excel COM", _open, _save)
 
 # ---------------------------------------------------------------------------
