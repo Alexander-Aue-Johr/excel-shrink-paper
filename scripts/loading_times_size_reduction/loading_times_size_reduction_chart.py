@@ -408,7 +408,7 @@ def run_excel_shrink(original_file, output_dir):
     logging.info(f"excel_shrink completed in {shrink_time:.2f}s for {original_file}")
     logging.info(f"Peak memory usage: {peak_mem / (1024**2):.2f} MB")
 
-    return shrink_time, output_file, peak_mem
+    return shrink_time, output_file, (peak_mem / (1024**2))
 
 
 # ========================================================================
