@@ -640,6 +640,10 @@ def generate_chart(csv_file):
     try:
         # Use the extended chart routine
         _generate_complex_chart(df)
+
+        df = pd.read_csv(csv_file)
+
+        _generate_memory_chart(df)
     except Exception as e:
         logging.error(f"Could not generate chart: {e}")
 
@@ -803,6 +807,99 @@ def _generate_complex_chart(df):
     plt.savefig(outname, dpi=300, bbox_inches='tight')
     logging.info(f"Chart generated and saved to {outname}")
     plt.show()
+
+
+
+def _generate_memory_chart(df):
+    import pandas as pd
+    import numpy as np
+    import matplotlib.pyplot as plt
+    plt.switch_backend('agg')
+
+    import logging
+
+    logging.basicConfig(level=logging.INFO)
+
+
+    # Prüfen, ob die erforderlichen Spalten vorhanden sind
+    required_cols = {"File", "Library", "Original Peak Memory (MB)", "Shrinked Peak Memory (MB)"}
+    missing = required_cols - set(df.columns)
+    if missing:
+        raise ValueError(f"Die folgenden notwendigen Spalten fehlen in der CSV: {missing}")
+
+    # Sicherstellen, dass die Speicherwerte numerisch sind und NaN durch 0 ersetzen
+    df["Original Peak Memory (MB)"] = pd.to_numeric(df["Original Peak Memory (MB)"], errors="coerce").fillna(0.0)
+    df["Shrinked Peak Memory (MB)"] = pd.to_numeric(df["Shrinked Peak Memory (MB)"], errors="coerce").fillna(0.0)
+
+    # Einzigartige Dateinamen und Bibliotheken ermitteln
+    files = sorted(df["File"].unique())
+    libraries = sorted(df["Library"].unique())
+
+    n_files = len(files)
+    if n_files == 0:
+        raise ValueError("Keine Dateien in der CSV gefunden.")
+
+    # Erstellen der Subplots (eine Zeile pro Datei)
+    fig, axes = plt.subplots(nrows=n_files, figsize=(12, 4 * n_files), sharey=True)
+    if n_files == 1:
+        axes = [axes]  # Damit axes iterierbar bleibt, wenn nur eine Datei existiert
+
+    # Breiteste Beschriftung der x-Achse ermitteln, um Platz für Rotationswinkel zu schaffen
+    plt.rcParams.update({'xtick.labelsize': 8})
+
+    for ax, file_name in zip(axes, files):
+        # Daten subsetten für die aktuelle Datei
+        subset = df[df["File"] == file_name]
+
+        # X-Positionen für gruppierte Balken: eine Position pro Library
+        n_libs = len(libraries)
+        x = np.arange(n_libs)
+        bar_width = 0.35
+
+        # Speicherwerte für jede Library sammeln (0, falls nicht vorhanden)
+        original_mem = [
+            float(subset[subset["Library"] == lib]["Original Peak Memory (MB)"].iloc[0])
+            if lib in subset["Library"].values else 0.0
+            for lib in libraries
+        ]
+        shrunk_mem = [
+            float(subset[subset["Library"] == lib]["Shrinked Peak Memory (MB)"].iloc[0])
+            if lib in subset["Library"].values else 0.0
+            for lib in libraries
+        ]
+
+        # Original-Peak-Memory-Balken
+        ax.bar(
+            x - bar_width/2,
+            original_mem,
+            width=bar_width,
+            label="Original Peak Memory",
+            color="skyblue",
+            edgecolor="black"
+        )
+        # Shrinked-Peak-Memory-Balken
+        ax.bar(
+            x + bar_width/2,
+            shrunk_mem,
+            width=bar_width,
+            label="Shrinked Peak Memory",
+            color="orange",
+            edgecolor="black"
+        )
+
+        # Achsen und Titel formatieren
+        ax.set_title(f"Memory Consumption für Datei:\n'{file_name}'", fontsize=10, pad=10)
+        ax.set_xlabel("Library", fontsize=9)
+        ax.set_ylabel("Peak Memory (MB)", fontsize=9)
+        ax.set_xticks(x)
+        ax.set_xticklabels(libraries, rotation=45, ha="right", fontsize=8)
+        ax.legend(fontsize=8)
+        ax.grid(axis="x", linestyle="--", alpha=0.5)
+
+    plt.tight_layout()
+    output_path = "memory_consumption.pdf"
+    plt.savefig(output_path, dpi=300, bbox_inches="tight")
+    plt.close(fig)
 
 
 # ========================================================================
