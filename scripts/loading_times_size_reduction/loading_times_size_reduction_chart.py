@@ -591,7 +591,6 @@ def generate_chart(csv_file):
     Generate a chart from the CSV file.
     """
     import pandas as pd
-    import matplotlib.pyplot as plt
     import logging
 
     logging.info(f"Generating chart from {csv_file}")
@@ -623,6 +622,8 @@ def _generate_complex_chart(df):
     import pandas as pd
     import numpy as np
     import matplotlib.pyplot as plt
+    plt.switch_backend('agg')
+
     import logging
 
     logging.info("Using extended chart routine...")
