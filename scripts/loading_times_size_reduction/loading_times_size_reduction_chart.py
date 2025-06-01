@@ -47,7 +47,7 @@ def _rss_mb():  # ### NEW
     """Return RSS of current process in MB (uses Pympler)."""
     try:
         from pympler import process
-        rss_bytes = process.ProcessMemoryInfo().memory_info().rss
+        rss_bytes = process.ProcessMemoryInfo().rss
     except Exception:
         return None
     return rss_bytes / (1024 ** 2)
