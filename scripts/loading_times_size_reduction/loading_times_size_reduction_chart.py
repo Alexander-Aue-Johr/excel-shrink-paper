@@ -186,9 +186,30 @@ def benchmark_excel_com(file_path):
     excel, wb = None, None
     def _open():
         nonlocal excel, wb
-        excel = win32com.client.Dispatch("Excel.Application")
-        excel.Visible = False; excel.DisplayAlerts = False
-        wb = excel.Workbooks.Open(os.path.abspath(file_path))
+
+    with tempfile.TemporaryDirectory() as shrink_dir:
+            shrink_script = os.path.join("..", "excel-shrink", "excel_shrink.py")
+            logging.info(f"Running excel_shrink --only-clean-workbook on {file_path}")
+            subprocess.run([
+                sys.executable,
+                shrink_script,
+                "--only-clean-workbook",
+                file_path,
+                shrink_dir
+            ], check=True)
+
+            cleaned_path = os.path.join(shrink_dir, os.path.basename(file_path))
+            if not os.path.exists(cleaned_path):
+                logging.error(f"Cleaned workbook not found at {cleaned_path}")
+                return None, None, None
+
+            excel = win32com.client.Dispatch("Excel.Application")
+            excel.Visible = False
+            excel.Application.DisplayAlerts = False
+
+            abs_file = os.path.abspath(cleaned_path)
+            wb = excel.Workbooks.Open(abs_file)
+
     def _save():
         nonlocal excel, wb
         with tempfile.NamedTemporaryFile(delete=False, suffix=".xlsx") as tmp:
