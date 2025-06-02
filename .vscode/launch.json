@@ -38,34 +38,15 @@
                 "--rel-count", "3",
             ]
         },
-
         {
             "name": "Generate Chart Loading Times Size Reduction",
             "type": "debugpy",
             "request": "launch",
             "program": "scripts/loading_times_size_reduction/loading_times_size_reduction_chart.py",
             "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}",
             "args": [
-                "controller",
-                "--input-folder",
-                "scripts/loading_times_size_reduction/original_files_with_max_absolute_difference",
-                "--shrunk-folder",
-                "scripts/loading_times_size_reduction/shrunk_files"
-            ]
-        },
-        {
-            "name": "Generate Chart Loading Times Size Reduction --run-tests",
-            "type": "debugpy",
-            "request": "launch",
-            "program": "scripts/loading_times_size_reduction/loading_times_size_reduction_chart.py",
-            "console": "integratedTerminal",
-            "args": [
-                "controller",
-                "--input-folder",
-                "scripts/loading_times_size_reduction/original_files_with_max_absolute_difference",
-                "--shrunk-folder",
-                "scripts/loading_times_size_reduction/shrunk_files",
-                "--run-tests"
+                "controller"
             ]
         }
     ]
