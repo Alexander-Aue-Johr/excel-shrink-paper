@@ -528,11 +528,6 @@ def generate_chart(csv_file):
         logging.warning(f"CSV file {csv_file} not found; skipping chart.")
         return
 
-
-    if df.empty:
-        logging.warning("CSV file is empty; no chart to generate.")
-        return
-
     try:
         df = pd.read_csv(csv_file)
         _generate_complex_chart(df)
@@ -543,26 +538,18 @@ def generate_chart(csv_file):
 
 
 def _generate_complex_chart(df):
-    """
-    Extended chart function that plots two groups of bars per file:
-      - One group shows original measurements (stacked: open then save)
-      - The other group shows shrunk file measurements (stacked:
-          shrink time + shrunk open + shrunk save)
-    Each file will display 2 bars per library.
-    """
 
 
     logging.info("Using extended chart routine...")
 
     if df.empty:
-        logging.warning("DataFrame is empty; no chart to plot.")
+        logging.warning("DataFrame is empty; nothing to plot.")
         return
 
     needed_cols = {
         "File", "Library",
         "Original Open Time (s)", "Original Save Time (s)",
-        "Shrink Time (s)", "Shrinked Open Time (s)", "Shrinked Save Time (s)",
-        "Original Size (bytes)", "Shrinked Size (bytes)"
+        "Shrink Time (s)", "Shrinked Open Time (s)", "Shrinked Save Time (s)"
     }
     missing = needed_cols - set(df.columns)
     if missing:
@@ -570,11 +557,12 @@ def _generate_complex_chart(df):
         return
 
     library_info = [
-        ("openpyxl(default)", "darkorange", "orangered", "peru"),
-        ("pandas", "steelblue", "royalblue", "dodgerblue"),
-        ("Microsoft Excel", "darkgreen", "green", "limegreen"),
-        ("R openxlsx", "red", "firebrick", "lightsalmon"),
-        ("R readxl+writexl", "chocolate", "sienna", "tan"),
+        ("openpyxl(default)",      "darkorange",  "orangered"),
+        ("pandas",                 "steelblue",   "royalblue"),
+        ("Microsoft Excel",        "darkgreen",   "limegreen"),
+        ("R openxlsx",             "red",         "firebrick"),
+        ("R readxl+writexl",       "chocolate",   "sienna"),
+        ("Excel Shrink",           "gray",        "dimgray"),
     ]
     n_libs = len(library_info)
 
@@ -591,7 +579,7 @@ def _generate_complex_chart(df):
             val = temp.loc[(f, lib), col]
             if isinstance(val, pd.Series):
                 val = val.iloc[0]
-            return float(val)
+            return float(val) if pd.notna(val) else 0.0
         return 0.0
 
     total_bars_per_file = 2 * n_libs
@@ -602,46 +590,46 @@ def _generate_complex_chart(df):
         nrows=2, figsize=(14, 7), gridspec_kw={'height_ratios': [4, 1]}
     )
 
-    y_positions_top = np.arange(n_files) * (bar_height * 20)
+    y_positions_top = np.arange(n_files) * (bar_height * (total_bars_per_file + 2))
 
     for i, f in enumerate(files):
         base = y_positions_top[i]
 
         subdf = df[df["File"] == f]
-        shrink_t = subdf["Shrink Time (s)"].mean() if not subdf.empty else 0.0
+        shrink_t = get_times(f, "Excel Shrink", "Shrink Time (s)")
 
-        for lib_index, (lib_name, c_open, c_save, c_shrunk) in enumerate(library_info):
-            offset_idx = lib_index  # indices 0 .. n_libs-1
-            pos = base + offsets[offset_idx]
+        for lib_index, (lib_name, c_open, c_save) in enumerate(library_info):
+            pos = base + offsets[lib_index]
             open_t = get_times(f, lib_name, "Original Open Time (s)")
             save_t = get_times(f, lib_name, "Original Save Time (s)")
 
             if i == 0:
                 ax_time.barh(pos, open_t, height=bar_height, color=c_open,
-                             label=f"{lib_name} original open")
+                             label=f"{lib_name} open")
                 ax_time.barh(pos, save_t, height=bar_height, left=open_t, color=c_save,
-                             label=f"{lib_name} original save")
+                             label=f"{lib_name} save")
             else:
                 ax_time.barh(pos, open_t, height=bar_height, color=c_open)
                 ax_time.barh(pos, save_t, height=bar_height, left=open_t, color=c_save)
 
-        for lib_index, (lib_name, c_open, c_save, c_shrunk) in enumerate(library_info):
-            offset_idx = n_libs + lib_index  # indices n_libs .. 2*n_libs-1
-            pos = base + offsets[offset_idx]
+        for lib_index, (lib_name, c_open, c_save) in enumerate(library_info):
+            pos = base + offsets[n_libs + lib_index]
             shrunk_open = get_times(f, lib_name, "Shrinked Open Time (s)")
             shrunk_save = get_times(f, lib_name, "Shrinked Save Time (s)")
 
             if i == 0:
                 ax_time.barh(pos, shrink_t, height=bar_height, color="purple",
-                             label="Shrink time")
-                ax_time.barh(pos, shrunk_open, height=bar_height, left=shrink_t, color=c_shrunk,
+                             label="Shrink time" if lib_index == 0 else "")
+                ax_time.barh(pos, shrunk_open, height=bar_height, left=shrink_t, color=c_open,
                              label=f"{lib_name} shrunk open")
-                ax_time.barh(pos, shrunk_save, height=bar_height, left=shrink_t + shrunk_open, color=c_save,
+                ax_time.barh(pos, shrunk_save, height=bar_height,
+                             left=shrink_t + shrunk_open, color=c_save,
                              label=f"{lib_name} shrunk save")
             else:
                 ax_time.barh(pos, shrink_t, height=bar_height, color="purple")
-                ax_time.barh(pos, shrunk_open, height=bar_height, left=shrink_t, color=c_shrunk)
-                ax_time.barh(pos, shrunk_save, height=bar_height, left=shrink_t + shrunk_open, color=c_save)
+                ax_time.barh(pos, shrunk_open, height=bar_height, left=shrink_t, color=c_open)
+                ax_time.barh(pos, shrunk_save, height=bar_height,
+                             left=shrink_t + shrunk_open, color=c_save)
 
     ax_time.set_yticks(y_positions_top)
     def shortfile(fn):
@@ -652,7 +640,6 @@ def _generate_complex_chart(df):
     ax_time.set_title('Time Comparison per Excel File')
     ax_time.legend(ncol=2, fontsize=8)
 
-    # Bottom chart: File Size Comparison
     group_size = df.groupby('File')[["Original Size (bytes)", "Shrinked Size (bytes)"]].mean()
     orig_size_mb_list = []
     shrunk_size_mb_list = []
@@ -669,11 +656,13 @@ def _generate_complex_chart(df):
 
     y_positions_bottom = np.arange(n_files) * 0.6
     file_bar_height = 0.25
-    for i in range(n_files):
+    for i, f in enumerate(files):
         base = y_positions_bottom[i]
-        ax_size.barh(base - file_bar_height*0.3, orig_size_mb_list[i], height=file_bar_height,
+        ax_size.barh(base - file_bar_height*0.3,
+                     orig_size_mb_list[i], height=file_bar_height,
                      color="darkorange", label="Original Size (MB)" if i == 0 else "")
-        ax_size.barh(base + file_bar_height*0.3, shrunk_size_mb_list[i], height=file_bar_height,
+        ax_size.barh(base + file_bar_height*0.3,
+                     shrunk_size_mb_list[i], height=file_bar_height,
                      color="steelblue", label="Shrinked Size (MB)" if i == 0 else "")
 
     ax_size.set_yticks(y_positions_bottom)
@@ -687,7 +676,7 @@ def _generate_complex_chart(df):
     outname = 'time_and_filesize_comparison_by_file.pdf'
     plt.savefig(outname, dpi=300, bbox_inches='tight')
     logging.info(f"Chart generated and saved to {outname}")
-    plt.show()
+    plt.close(fig)
 
 
 def _generate_memory_chart(df):
