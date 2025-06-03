@@ -218,11 +218,31 @@ def benchmark_r_openxlsx(file_path):
         out_path = tmp.name
     r_code = """
     args <- commandArgs(trailingOnly=TRUE)
-    infile  <- args[1]; outfile <- args[2]
+    infile  <- args[1]
+    outfile <- args[2]
+
     library(openxlsx)
-    t1 <- proc.time(); wb <- loadWorkbook(infile); t_open <- proc.time()-t1
-    t2 <- proc.time(); saveWorkbook(wb, outfile, overwrite=TRUE); t_save <- proc.time()-t2
-    cat(t_open["elapsed"], t_save["elapsed"], sep=",")
+
+    t_start_open <- proc.time()
+    wb <- tryCatch({
+        loadWorkbook(infile)
+    }, error = function(e) {
+        cat("ERROR_OPEN:", e$message, sep=""); quit(status=1)
+    })
+    t_finish_open <- proc.time() - t_start_open
+
+    open_time <- t_finish_open[["elapsed"]][[1]]
+
+    t_start_save <- proc.time()
+    tryCatch({
+        saveWorkbook(wb, outfile, overwrite = TRUE)
+    }, error = function(e) {
+        cat("ERROR_SAVE:", e$message, sep=""); quit(status=1)
+    })
+    t_finish_save <- proc.time() - t_start_save
+    save_time <- t_finish_save[["elapsed"]][[1]]
+
+    cat(open_time, save_time, sep = ",")
     """
     open_t, save_t = _run_r_script(r_code, [file_path, out_path])
     if open_t is None:
