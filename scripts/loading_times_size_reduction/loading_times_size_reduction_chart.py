@@ -347,7 +347,7 @@ def run_and_measure(cmd, *, capture_output=False, text=True, poll_interval=0.1):
     if capture_output:
         stdout, stderr = proc.communicate()
 
-    return peak_private
+    return stdout, stderr, duration, total_private, proc.returncode
 
 
 def run_excel_shrink(original_file, output_dir):
