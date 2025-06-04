@@ -286,7 +286,6 @@ def benchmark_r_readxl_writexl(file_path):
 import psutil, subprocess, time
 
 def run_and_measure(cmd, *, capture_output=False, text=True, poll_interval=0.1):
-    # Prozess starten (psutil.Popen liefert gleich ein psutil.Process-Objekt)
     if capture_output:
         proc = psutil.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=text)
     else:
@@ -298,11 +297,9 @@ def run_and_measure(cmd, *, capture_output=False, text=True, poll_interval=0.1):
     try:
         while proc.is_running():
             try:
-                # Für parent
                 m = proc.memory_full_info()
                 private_parent = getattr(m, "private", 0)  # Bytes, die committed sind
 
-                # Für alle Kinder summieren
                 total_private = private_parent
                 for child in proc.children(recursive=True):
                     try:
@@ -321,7 +318,6 @@ def run_and_measure(cmd, *, capture_output=False, text=True, poll_interval=0.1):
 
         proc.wait()
 
-        # Ein letzter Check nach Ende, falls Kinder noch nachreichen
         try:
             m = proc.memory_full_info()
             total_private = getattr(m, "private", 0)
