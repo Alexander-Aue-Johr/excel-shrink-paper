@@ -283,48 +283,59 @@ def benchmark_r_readxl_writexl(file_path):
     os.remove(out_path)
     return open_t, save_t
 
+import psutil, subprocess, time
+
 def run_and_measure(cmd, *, capture_output=False, text=True, poll_interval=0.1):
+    # Prozess starten (psutil.Popen liefert gleich ein psutil.Process-Objekt)
     if capture_output:
-        proc = psutil.Popen(
-            cmd,
-            stdout=subprocess.PIPE,
-            stderr=subprocess.PIPE,
-            text=text
-        )
+        proc = psutil.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=text)
     else:
         proc = psutil.Popen(cmd)
 
-    peak_mem = 0
+    peak_private = 0
     t0 = time.perf_counter()
 
     try:
         while proc.is_running():
             try:
-                current = proc.memory_info().rss
-                if current > peak_mem:
-                    peak_mem = current
+                # Für parent
+                m = proc.memory_full_info()
+                private_parent = getattr(m, "private", 0)  # Bytes, die committed sind
 
+                # Für alle Kinder summieren
+                total_private = private_parent
                 for child in proc.children(recursive=True):
                     try:
-                        child_mem = child.memory_info().rss
-                        if child_mem > peak_mem:
-                            peak_mem = child_mem
+                        cm = child.memory_full_info()
+                        total_private += getattr(cm, "private", 0)
                     except (psutil.NoSuchProcess, psutil.AccessDenied):
                         pass
+
+                if total_private > peak_private:
+                    peak_private = total_private
+
             except (psutil.NoSuchProcess, psutil.AccessDenied):
-                pass
+                break
 
             time.sleep(poll_interval)
 
         proc.wait()
 
+        # Ein letzter Check nach Ende, falls Kinder noch nachreichen
+        try:
+            m = proc.memory_full_info()
+            total_private = getattr(m, "private", 0)
+        except (psutil.NoSuchProcess, psutil.AccessDenied):
+            total_private = 0
         for child in proc.children(recursive=True):
             try:
-                child_mem = child.memory_info().rss
-                if child_mem > peak_mem:
-                    peak_mem = child_mem
+                cm = child.memory_full_info()
+                total_private += getattr(cm, "private", 0)
             except (psutil.NoSuchProcess, psutil.AccessDenied):
                 pass
+
+        if total_private > peak_private:
+            peak_private = total_private
 
     except Exception:
         proc.kill()
@@ -336,7 +347,8 @@ def run_and_measure(cmd, *, capture_output=False, text=True, poll_interval=0.1):
     if capture_output:
         stdout, stderr = proc.communicate()
 
-    return stdout, stderr, duration, peak_mem, proc.returncode
+    return peak_private
+
 
 def run_excel_shrink(original_file, output_dir):
     logging.info(f"Running excel_shrink on {original_file}")
