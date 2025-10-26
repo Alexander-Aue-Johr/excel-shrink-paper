@@ -144,7 +144,7 @@ def benchmark_excel_com(file_path):
         def _open():
             nonlocal excel, wb
 
-            shrink_script = os.path.join("..", "excel-shrink", "excel_shrink.py")
+            shrink_script = os.path.join("scripts", "excel-shrink", "excel_shrink.py")
             logging.info(f"Running excel_shrink --only-clean-workbook on {file_path}")
             subprocess.run(
                 [
