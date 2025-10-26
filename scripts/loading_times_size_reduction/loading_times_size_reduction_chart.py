@@ -707,6 +707,8 @@ def _generate_complex_chart(df, *, outname="time_and_filesize_comparison_by_file
     n_libs = len(library_info)
 
     files = sorted(df["File"].unique())
+    file_labels = {f: f"File {i+1}" for i, f in enumerate(files)}
+
     n_files = len(files)
     if n_files == 0:
         logging.info("No files found in data; nothing to plot.")
@@ -912,7 +914,7 @@ def _generate_complex_chart(df, *, outname="time_and_filesize_comparison_by_file
         ax.margins(y=0.08)
 
     ax_time.set_yticks(y_positions_top)
-    ax_time.set_yticklabels([shortfile(f) for f in files])
+    ax_time.set_yticklabels([file_labels[f] for f in files])
     ax_time.invert_yaxis()
     ax_time.set_xlabel("Time (seconds)")
     ax_time.set_title("Time Comparison per Excel File")
@@ -992,7 +994,7 @@ def _generate_complex_chart(df, *, outname="time_and_filesize_comparison_by_file
             )
 
     ax_size.set_yticks(y_positions_bottom)
-    ax_size.set_yticklabels([shortfile(f) for f in files])
+    ax_size.set_yticklabels([file_labels[f] for f in files])
     ax_size.invert_yaxis()
     ax_size.set_xlabel("File Size (MB)")
     ax_size.set_title("File Size Comparison per Excel File")
@@ -1116,10 +1118,9 @@ def _generate_complex_chart(df, *, outname="time_and_filesize_comparison_by_file
 
         # y/x labels
         ax.set_xlabel("Library", fontsize=9)
-        ax.set_ylabel("Peak Memory (MiB)", fontsize=9, labelpad=18)
 
         ax.set_xlabel("Library", fontsize=9)
-        ax.set_ylabel(file_name, fontsize=9)
+        ax.set_ylabel(f"Peak Memory (MiB) {file_labels[file_name]}", fontsize=9)
         ax.ticklabel_format(style="plain", axis="y")
         ax.set_xticks(x)
         ax.set_xticklabels(libraries, rotation=45, ha="right", fontsize=8)
