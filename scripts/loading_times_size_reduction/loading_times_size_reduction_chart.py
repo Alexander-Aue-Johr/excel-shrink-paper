@@ -219,18 +219,17 @@ def _run_r_script(r_code: str, args: list):
         logging.error(
             f"Rscript failed (exit code {cpe.returncode}); " f"stderr: {cpe.stderr!r}"
         )
-        return None, None
+        raise cpe
 
     except Exception as e:
         logging.error(f"R benchmark error: {e}")
-        return None, None
+        raise e
 
     finally:
         try:
             os.remove(r_path)
-            raise
-        except OSError:
-            raise
+        except Exception as e:
+            raise e
 
 
 def benchmark_r_openxlsx(file_path):
