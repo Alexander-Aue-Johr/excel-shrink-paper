@@ -1,0 +1,44 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "py:create-venv-if-missing",
+            "type": "shell",
+            "windows": {
+                "command": "if (!(Test-Path .venv\\Scripts\\python.exe)) { if (Get-Command py -ErrorAction SilentlyContinue) { py -m venv .venv } else { python -m venv .venv } }"
+            },
+            "linux": {
+                "command": "if [ ! -x .venv/bin/python ]; then (command -v python3 >/dev/null 2>&1 && python3 -m venv .venv) || python -m venv .venv; fi"
+            },
+            "osx": {
+                "command": "if [ ! -x .venv/bin/python ]; then (command -v python3 >/dev/null 2>&1 && python3 -m venv .venv) || python -m venv .venv; fi"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "py:install-reqs",
+            "type": "shell",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "windows": {
+                "command": ".\\.venv\\Scripts\\python -m pip install -r requirements.txt"
+            },
+            "linux": {
+                "command": "./.venv/bin/python -m pip install -r requirements.txt"
+            },
+            "osx": {
+                "command": "./.venv/bin/python -m pip install -r requirements.txt"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "py:bootstrap",
+            "dependsOn": [
+                "py:create-venv-if-missing",
+                "py:install-reqs"
+            ],
+            "dependsOrder": "sequence"
+        },
+    ]
+}
