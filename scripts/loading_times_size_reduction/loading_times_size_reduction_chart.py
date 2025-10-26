@@ -18,6 +18,7 @@ import csv
 import certifi
 import numpy as np
 import matplotlib.pyplot as plt
+import matplotlib.transforms as mtransforms
 
 
 plt.switch_backend("agg")
@@ -653,6 +654,41 @@ def _generate_complex_chart(df):
         logging.warning(f"Missing columns: {missing}. Cannot plot.")
         return
 
+    PX_PER_CHAR = 6.0
+    INSIDE_PAD_PX = 0.0  # left/right padding for inside text
+    RIGHT_LABEL_PAD_PX = 12.0  # gap from bar end to right-side label
+    RIGHT_ARROW_SHRINK = 1  # do not shrink arrow heads
+    FONT_SIZE = 7
+    VERTICAL_LABEL_OFFSET_PX = -0.6
+
+    def can_fit_inside(ax, width_data, text):
+        """Heuristic: can `text` fit inside a horizontal bar of data-width `width_data`?"""
+        # Convert pixels to data units using current axes transform box
+        x_min, x_max = ax.get_xlim()
+        data_per_px = (x_max - x_min) / max(ax.bbox.width, 1.0)
+        needed_data = ((len(text) * PX_PER_CHAR) + INSIDE_PAD_PX) * data_per_px
+        return width_data >= needed_data
+
+    def right_label(ax, x_end, y, parts):
+        """
+        Place one combined label to the right of the bar, with a small arrow
+        pointing back to the bar end.
+        """
+        # Convert px pad to data units
+        x_min, x_max = ax.get_xlim()
+        data_per_px = (x_max - x_min) / max(ax.bbox.width, 1.0)
+        x_text = x_end + RIGHT_LABEL_PAD_PX * data_per_px
+        text = ", ".join(parts)
+        ax.annotate(
+            text,
+            xy=(x_end, y + 0.001),
+            xytext=(x_text, y + 0.008),
+            va="center",
+            ha="left",
+            fontsize=FONT_SIZE,
+            arrowprops=dict(arrowstyle="->", shrinkA=RIGHT_ARROW_SHRINK, lw=0.8),
+        )
+
     library_info = [
         ("openpyxl(default)", "darkorange", "orangered"),
         ("pandas", "steelblue", "royalblue"),
@@ -676,92 +712,191 @@ def _generate_complex_chart(df):
             val = temp.loc[(f, lib), col]
             if isinstance(val, pd.Series):
                 val = val.iloc[0]
-            return float(val) if pd.notna(val) else 0.0
+            try:
+                return float(val) if pd.notna(val) else 0.0
+            except Exception:
+                return 0.0
         return 0.0
 
-    total_bars_per_file = 2 * n_libs
-    offsets = np.linspace(-0.7, 0.7, total_bars_per_file)
-    bar_height = 0.1
+    def text_vshift(ax, points: float):
+        """Return a transform that shifts text vertically by `points` (pt)."""
+        return mtransforms.ScaledTranslation(
+            0, points / 72.0, ax.figure.dpi_scale_trans
+        )
+
+    total_bars_per_file = (n_libs - 1) + n_libs
+    bar_height = 0.09
+
+    # Build a single centered offsets array for the whole cluster, then slice it
+    offsets_all = np.linspace(-0.50, 0.50, total_bars_per_file)
+    offsets_orig = offsets_all[: (n_libs - 1)]
+    offsets_shr = offsets_all[(n_libs - 1) :]
 
     fig, (ax_time, ax_size) = plt.subplots(
         nrows=2, figsize=(14, 7), gridspec_kw={"height_ratios": [4, 1]}
     )
 
     y_positions_top = np.arange(n_files) * (bar_height * (total_bars_per_file + 2))
-
     for i, f in enumerate(files):
         base = y_positions_top[i]
-
-        subdf = df[df["File"] == f]
         shrink_t = get_times(f, "Excel Shrink", "Shrink Time (s)")
 
-        for lib_index, (lib_name, c_open, c_save) in enumerate(library_info):
-            pos = base + offsets[lib_index]
+        libraries_no_shrink = [
+            (n, co, cs) for (n, co, cs) in library_info if n != "Excel Shrink"
+        ]
+        for lib_index, (lib_name, c_open, c_save) in enumerate(libraries_no_shrink):
+            pos = base + offsets_orig[lib_index]
             open_t = get_times(f, lib_name, "Original Open Time (s)")
             save_t = get_times(f, lib_name, "Original Save Time (s)")
 
-            if i == 0:
-                ax_time.barh(
-                    pos,
-                    open_t,
-                    height=bar_height,
-                    color=c_open,
-                    label=f"{lib_name} open",
-                )
-                ax_time.barh(
-                    pos,
-                    save_t,
-                    height=bar_height,
-                    left=open_t,
-                    color=c_save,
-                    label=f"{lib_name} save",
-                )
-            else:
-                ax_time.barh(pos, open_t, height=bar_height, color=c_open)
-                ax_time.barh(pos, save_t, height=bar_height, left=open_t, color=c_save)
+            r1 = ax_time.barh(
+                pos,
+                open_t,
+                height=bar_height,
+                color=c_open,
+                label=f"{lib_name} open" if i == 0 else "",
+            )
+            r2 = ax_time.barh(
+                pos,
+                save_t,
+                height=bar_height,
+                left=open_t,
+                color=c_save,
+                label=f"{lib_name} save" if i == 0 else "",
+            )
 
+            # Labels: try inside each; else one combined to the right
+            label_open = f"{open_t:.1f}"
+            label_save = f"{save_t:.1f}"
+            ok_open = open_t > 0 and can_fit_inside(ax_time, open_t, label_open)
+            ok_save = save_t > 0 and can_fit_inside(ax_time, save_t, label_save)
+
+            if ok_open:
+                ax_time.text(
+                    open_t / 2.0,
+                    pos,
+                    label_open,
+                    va="center",
+                    ha="center",
+                    fontsize=FONT_SIZE,
+                    color="white",
+                    transform=ax_time.transData
+                    + text_vshift(ax_time, VERTICAL_LABEL_OFFSET_PX),
+                )
+            if ok_save:
+                ax_time.text(
+                    open_t + (save_t / 2.0),
+                    pos,
+                    label_save,
+                    va="center",
+                    ha="center",
+                    fontsize=FONT_SIZE,
+                    color="white",
+                    transform=ax_time.transData
+                    + text_vshift(ax_time, VERTICAL_LABEL_OFFSET_PX),
+                )
+
+            if not (ok_open and ok_save):
+                # place one combined label to the right of the full stack
+                x_end = open_t + save_t
+                parts = []
+                if open_t > 0:
+                    parts.append(label_open)
+                if save_t > 0:
+                    parts.append(label_save)
+                if parts:
+                    right_label(ax_time, x_end, pos, parts)
+
+        # SHRUNK: three stacked segments (shrink + shrunk_open + shrunk_save)
         for lib_index, (lib_name, c_open, c_save) in enumerate(library_info):
-            pos = base + offsets[n_libs + lib_index]
-            shrunk_open = get_times(f, lib_name, "Shrinked Open Time (s)")
-            shrunk_save = get_times(f, lib_name, "Shrinked Save Time (s)")
+            pos = base + offsets_shr[lib_index]
+            shr_open = get_times(f, lib_name, "Shrinked Open Time (s)")
+            shr_save = get_times(f, lib_name, "Shrinked Save Time (s)")
 
-            if i == 0:
-                ax_time.barh(
+            # Draw bars (shrink segment is always purple)
+            r0 = ax_time.barh(
+                pos,
+                shrink_t,
+                height=bar_height,
+                color="purple",
+                label="Shrink time" if (i == 0 and lib_index == 0) else "",
+            )
+            r1 = ax_time.barh(
+                pos,
+                shr_open,
+                height=bar_height,
+                left=shrink_t,
+                color=c_open,
+                label=f"{lib_name} shrunk open" if i == 0 else "",
+            )
+            r2 = ax_time.barh(
+                pos,
+                shr_save,
+                height=bar_height,
+                left=shrink_t + shr_open,
+                color=c_save,
+                label=f"{lib_name} shrunk save" if i == 0 else "",
+            )
+
+            # Labels: try inside each; else one combined to the right
+            lab0 = f"{shrink_t:.1f}"
+            lab1 = f"{shr_open:.1f}"
+            lab2 = f"{shr_save:.1f}"
+
+            ok0 = shrink_t > 0 and can_fit_inside(ax_time, shrink_t, lab0)
+            ok1 = shr_open > 0 and can_fit_inside(ax_time, shr_open, lab1)
+            ok2 = shr_save > 0 and can_fit_inside(ax_time, shr_save, lab2)
+
+            if ok0:
+                ax_time.text(
+                    shrink_t / 2.0,
                     pos,
-                    shrink_t,
-                    height=bar_height,
-                    color="purple",
-                    label="Shrink time" if lib_index == 0 else "",
+                    lab0,
+                    va="center",
+                    ha="center",
+                    fontsize=FONT_SIZE,
+                    color="white",
+                    transform=ax_time.transData
+                    + text_vshift(ax_time, VERTICAL_LABEL_OFFSET_PX),
                 )
-                ax_time.barh(
+            if ok1:
+                ax_time.text(
+                    shrink_t + (shr_open / 2.0),
                     pos,
-                    shrunk_open,
-                    height=bar_height,
-                    left=shrink_t,
-                    color=c_open,
-                    label=f"{lib_name} shrunk open",
+                    lab1,
+                    va="center",
+                    ha="center",
+                    fontsize=FONT_SIZE,
+                    color="white",
+                    transform=ax_time.transData
+                    + text_vshift(ax_time, VERTICAL_LABEL_OFFSET_PX),
                 )
-                ax_time.barh(
+            if ok2:
+                ax_time.text(
+                    shrink_t + shr_open + (shr_save / 2.0),
                     pos,
-                    shrunk_save,
-                    height=bar_height,
-                    left=shrink_t + shrunk_open,
-                    color=c_save,
-                    label=f"{lib_name} shrunk save",
-                )
-            else:
-                ax_time.barh(pos, shrink_t, height=bar_height, color="purple")
-                ax_time.barh(
-                    pos, shrunk_open, height=bar_height, left=shrink_t, color=c_open
-                )
-                ax_time.barh(
-                    pos,
-                    shrunk_save,
-                    height=bar_height,
-                    left=shrink_t + shrunk_open,
-                    color=c_save,
+                    lab2,
+                    va="center",
+                    ha="center",
+                    fontsize=FONT_SIZE,
+                    color="white",
+                    transform=ax_time.transData
+                    + text_vshift(ax_time, VERTICAL_LABEL_OFFSET_PX),
                 )
 
+            if not (ok0 and ok1 and ok2):
+                x_end = shrink_t + shr_open + shr_save
+                parts = []
+                if shrink_t > 0:
+                    parts.append(lab0)
+                if shr_open > 0:
+                    parts.append(lab1)
+                if shr_save > 0:
+                    parts.append(lab2)
+                if parts:
+                    right_label(ax_time, x_end, pos, parts)
+
+    # y ticks / labels
     ax_time.set_yticks(y_positions_top)
 
     def shortfile(fn):
@@ -781,11 +916,11 @@ def _generate_complex_chart(df):
     for f in files:
         if f in group_size.index:
             row = group_size.loc[f]
-            orig_size = row["Original Size (bytes)"] or 0
-            shrunk_size = row["Shrinked Size (bytes)"] or 0
+            orig_size = float(row.get("Original Size (bytes)", 0) or 0)
+            shrunk_size = float(row.get("Shrinked Size (bytes)", 0) or 0)
         else:
-            orig_size = 0
-            shrunk_size = 0
+            orig_size = 0.0
+            shrunk_size = 0.0
         orig_size_mb_list.append(orig_size / (1024 * 1024))
         shrunk_size_mb_list.append(shrunk_size / (1024 * 1024))
 
