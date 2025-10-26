@@ -379,7 +379,14 @@ def run_excel_shrink(original_file, output_dir):
 
     shrink_script = os.path.join("..", "excel-shrink", "excel_shrink.py")
 
-    cmd = [sys.executable, shrink_script, original_file, output_dir]
+    cmd = [
+        sys.executable,
+        shrink_script,
+        original_file,
+        output_dir,
+        "--chunk-size",
+        "2097152",
+    ]
 
     _, _, duration, peak_mem_bytes, returncode = run_and_measure(
         cmd, capture_output=False
