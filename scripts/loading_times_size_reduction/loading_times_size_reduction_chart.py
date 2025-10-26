@@ -19,6 +19,8 @@ import certifi
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.transforms as mtransforms
+from matplotlib.gridspec import GridSpec, GridSpecFromSubplotSpec
+from collections import OrderedDict
 
 
 plt.switch_backend("agg")
@@ -462,9 +464,9 @@ def controller_main(args):
     logging.info(f"Found {len(all_files)} Excel files in {input_folder}.")
 
     library_names = [
-        "openpyxl(default)",
-        "pandas",
-        "Microsoft Excel",
+        # "openpyxl(default)",
+        # "pandas",
+        # "Microsoft Excel",
         "R openxlsx",
         "R readxl+writexl",
     ]
@@ -632,9 +634,8 @@ def generate_chart(csv_file):
         logging.error(f"Could not generate chart: {e}")
 
 
-def _generate_complex_chart(df):
-
-    logging.info("Using extended chart routine...")
+def _generate_complex_chart(df, *, outname="time_and_filesize_comparison_by_file.pdf"):
+    logging.info("Using extended chart routine (with memory at bottom)...")
 
     if df.empty:
         logging.warning("DataFrame is empty; nothing to plot.")
@@ -648,33 +649,34 @@ def _generate_complex_chart(df):
         "Shrink Time (s)",
         "Shrinked Open Time (s)",
         "Shrinked Save Time (s)",
+        "Original Size (bytes)",
+        "Shrinked Size (bytes)",
+        "Original Peak Memory",
+        "Shrinked Peak Memory",
     }
     missing = needed_cols - set(df.columns)
     if missing:
         logging.warning(f"Missing columns: {missing}. Cannot plot.")
         return
 
+    # --- layout constants (same as before) ---
     PX_PER_CHAR = 6.0
-    INSIDE_PAD_PX = 0.0  # left/right padding for inside text
-    RIGHT_LABEL_PAD_PX = 12.0  # gap from bar end to right-side label
-    RIGHT_ARROW_SHRINK = 1  # do not shrink arrow heads
+    INSIDE_PAD_PX = 0.0
+    RIGHT_LABEL_PAD_PX = 12.0
+    RIGHT_ARROW_SHRINK = 1
     FONT_SIZE = 7
     VERTICAL_LABEL_OFFSET_PX = -0.6
 
+    # --- helpers from your original function ---
+    import matplotlib.transforms as mtransforms
+
     def can_fit_inside(ax, width_data, text):
-        """Heuristic: can `text` fit inside a horizontal bar of data-width `width_data`?"""
-        # Convert pixels to data units using current axes transform box
         x_min, x_max = ax.get_xlim()
         data_per_px = (x_max - x_min) / max(ax.bbox.width, 1.0)
         needed_data = ((len(text) * PX_PER_CHAR) + INSIDE_PAD_PX) * data_per_px
         return width_data >= needed_data
 
     def right_label(ax, x_end, y, parts):
-        """
-        Place one combined label to the right of the bar, with a small arrow
-        pointing back to the bar end.
-        """
-        # Convert px pad to data units
         x_min, x_max = ax.get_xlim()
         data_per_px = (x_max - x_min) / max(ax.bbox.width, 1.0)
         x_text = x_end + RIGHT_LABEL_PAD_PX * data_per_px
@@ -689,13 +691,18 @@ def _generate_complex_chart(df):
             arrowprops=dict(arrowstyle="->", shrinkA=RIGHT_ARROW_SHRINK, lw=0.8),
         )
 
+    def text_vshift(ax, points: float):
+        return mtransforms.ScaledTranslation(
+            0, points / 72.0, ax.figure.dpi_scale_trans
+        )
+
     library_info = [
         ("openpyxl(default)", "darkorange", "orangered"),
         ("pandas", "steelblue", "royalblue"),
         ("Microsoft Excel", "darkgreen", "limegreen"),
         ("R openxlsx", "red", "firebrick"),
         ("R readxl+writexl", "chocolate", "sienna"),
-        ("Excel Shrink", "gray", "dimgray"),
+        ("Excel Shrink", "mediumpurple", "purple"),
     ]
     n_libs = len(library_info)
 
@@ -718,23 +725,37 @@ def _generate_complex_chart(df):
                 return 0.0
         return 0.0
 
-    def text_vshift(ax, points: float):
-        """Return a transform that shifts text vertically by `points` (pt)."""
-        return mtransforms.ScaledTranslation(
-            0, points / 72.0, ax.figure.dpi_scale_trans
-        )
+    def shortfile(fn):
+        return fn if len(fn) <= 15 else fn[:5] + "..." + fn[-5:]
 
+    # ==== Figure layout ====
+    fig = plt.figure(figsize=(14, 7 + 4 * n_files))
+
+    # Outer grid: keep a small gap between top block and memory block
+    gs = GridSpec(nrows=2, ncols=1, height_ratios=[7, 4 * n_files], hspace=0.15)
+
+    # Top (time + size): ADD a bit more space between these two
+    gs_top = GridSpecFromSubplotSpec(
+        nrows=2, ncols=1, subplot_spec=gs[0], height_ratios=[4, 1], hspace=0.35
+    )
+    ax_time = fig.add_subplot(gs_top[0, 0])
+    ax_size = fig.add_subplot(gs_top[1, 0])
+
+    # Bottom (memory panes): DECREASE spacing between the two charts
+    gs_bottom = GridSpecFromSubplotSpec(
+        nrows=n_files, ncols=1, subplot_spec=gs[1], hspace=0.08  # e.g., 0.05–0.10
+    )
+    mem_axes = [fig.add_subplot(gs_bottom[i, 0]) for i in range(n_files)]
+
+    mem_axes[0].set_title("Memory Consumption")
+    plt.subplots_adjust(left=0.18)  # tweak to taste (0.16–0.22)
+
+    # ==== TIME section (top) ====
     total_bars_per_file = (n_libs - 1) + n_libs
     bar_height = 0.09
-
-    # Build a single centered offsets array for the whole cluster, then slice it
     offsets_all = np.linspace(-0.50, 0.50, total_bars_per_file)
     offsets_orig = offsets_all[: (n_libs - 1)]
     offsets_shr = offsets_all[(n_libs - 1) :]
-
-    fig, (ax_time, ax_size) = plt.subplots(
-        nrows=2, figsize=(14, 7), gridspec_kw={"height_ratios": [4, 1]}
-    )
 
     y_positions_top = np.arange(n_files) * (bar_height * (total_bars_per_file + 2))
     for i, f in enumerate(files):
@@ -749,14 +770,14 @@ def _generate_complex_chart(df):
             open_t = get_times(f, lib_name, "Original Open Time (s)")
             save_t = get_times(f, lib_name, "Original Save Time (s)")
 
-            r1 = ax_time.barh(
+            ax_time.barh(
                 pos,
                 open_t,
                 height=bar_height,
                 color=c_open,
                 label=f"{lib_name} open" if i == 0 else "",
             )
-            r2 = ax_time.barh(
+            ax_time.barh(
                 pos,
                 save_t,
                 height=bar_height,
@@ -765,7 +786,6 @@ def _generate_complex_chart(df):
                 label=f"{lib_name} save" if i == 0 else "",
             )
 
-            # Labels: try inside each; else one combined to the right
             label_open = f"{open_t:.1f}"
             label_save = f"{save_t:.1f}"
             ok_open = open_t > 0 and can_fit_inside(ax_time, open_t, label_open)
@@ -795,9 +815,7 @@ def _generate_complex_chart(df):
                     transform=ax_time.transData
                     + text_vshift(ax_time, VERTICAL_LABEL_OFFSET_PX),
                 )
-
             if not (ok_open and ok_save):
-                # place one combined label to the right of the full stack
                 x_end = open_t + save_t
                 parts = []
                 if open_t > 0:
@@ -807,21 +825,19 @@ def _generate_complex_chart(df):
                 if parts:
                     right_label(ax_time, x_end, pos, parts)
 
-        # SHRUNK: three stacked segments (shrink + shrunk_open + shrunk_save)
         for lib_index, (lib_name, c_open, c_save) in enumerate(library_info):
             pos = base + offsets_shr[lib_index]
             shr_open = get_times(f, lib_name, "Shrinked Open Time (s)")
             shr_save = get_times(f, lib_name, "Shrinked Save Time (s)")
 
-            # Draw bars (shrink segment is always purple)
-            r0 = ax_time.barh(
+            ax_time.barh(
                 pos,
                 shrink_t,
                 height=bar_height,
-                color="purple",
+                color="mediumorchid",
                 label="Shrink time" if (i == 0 and lib_index == 0) else "",
             )
-            r1 = ax_time.barh(
+            ax_time.barh(
                 pos,
                 shr_open,
                 height=bar_height,
@@ -829,7 +845,7 @@ def _generate_complex_chart(df):
                 color=c_open,
                 label=f"{lib_name} shrunk open" if i == 0 else "",
             )
-            r2 = ax_time.barh(
+            ax_time.barh(
                 pos,
                 shr_save,
                 height=bar_height,
@@ -838,11 +854,7 @@ def _generate_complex_chart(df):
                 label=f"{lib_name} shrunk save" if i == 0 else "",
             )
 
-            # Labels: try inside each; else one combined to the right
-            lab0 = f"{shrink_t:.1f}"
-            lab1 = f"{shr_open:.1f}"
-            lab2 = f"{shr_save:.1f}"
-
+            lab0, lab1, lab2 = f"{shrink_t:.1f}", f"{shr_open:.1f}", f"{shr_save:.1f}"
             ok0 = shrink_t > 0 and can_fit_inside(ax_time, shrink_t, lab0)
             ok1 = shr_open > 0 and can_fit_inside(ax_time, shr_open, lab1)
             ok2 = shr_save > 0 and can_fit_inside(ax_time, shr_save, lab2)
@@ -883,7 +895,6 @@ def _generate_complex_chart(df):
                     transform=ax_time.transData
                     + text_vshift(ax_time, VERTICAL_LABEL_OFFSET_PX),
                 )
-
             if not (ok0 and ok1 and ok2):
                 x_end = shrink_t + shr_open + shr_save
                 parts = []
@@ -896,23 +907,39 @@ def _generate_complex_chart(df):
                 if parts:
                     right_label(ax_time, x_end, pos, parts)
 
-    # y ticks / labels
+    ax_time.margins(x=0.02)
+    for ax in mem_axes:
+        ax.margins(y=0.08)
+
     ax_time.set_yticks(y_positions_top)
-
-    def shortfile(fn):
-        return fn if len(fn) <= 15 else fn[:5] + "..." + fn[-5:]
-
     ax_time.set_yticklabels([shortfile(f) for f in files])
     ax_time.invert_yaxis()
     ax_time.set_xlabel("Time (seconds)")
     ax_time.set_title("Time Comparison per Excel File")
-    ax_time.legend(ncol=2, fontsize=8)
+    # Collect all handles/labels that were added while drawing
+    handles, labels = ax_time.get_legend_handles_labels()
 
+    # Drop empties and keep first occurrence of each label
+    pairs = [(h, l) for h, l in zip(handles, labels) if l]
+    # Build an OrderedDict keyed by label; first occurrence wins
+    seen = OrderedDict()
+    for h, l in pairs:
+        # rename "Excel Shrink shrunk save" to "Second Excel Shrink run" for legend brevity
+        if "Excel Shrink" in l and "shrunk" in l:
+            l = l.replace("Excel Shrink shrunk save", "Second Excel Shrink run")
+        # drop if contains "shrunk" to reduce legend size
+        if "shrunk" in l:
+            continue
+        if l not in seen:
+            seen[l] = h
+
+    # Create the legend with unique entries
+    ax_time.legend(list(seen.values()), list(seen.keys()), ncol=3, fontsize=8)
+    # ==== SIZE section (middle) ====
     group_size = df.groupby("File")[
         ["Original Size (bytes)", "Shrinked Size (bytes)"]
     ].mean()
-    orig_size_mb_list = []
-    shrunk_size_mb_list = []
+    orig_size_mb_list, shrunk_size_mb_list = [], []
     for f in files:
         if f in group_size.index:
             row = group_size.loc[f]
@@ -943,6 +970,27 @@ def _generate_complex_chart(df):
             label="Shrinked Size (MB)" if i == 0 else "",
         )
 
+    for i, f in enumerate(files):
+        base = y_positions_bottom[i]
+        orig = orig_size_mb_list[i]
+        shr = shrunk_size_mb_list[i]
+        if orig > 0:
+            red_pct = 100.0 * (1.0 - (shr / orig))
+            label = f"−{red_pct:.1f}%"
+
+            x_min, x_max = ax_size.get_xlim()
+            data_per_px = (x_max - x_min) / max(ax_size.bbox.width, 1.0)
+            x_text = shr + 10 * data_per_px
+            ax_size.annotate(
+                label,
+                xy=(shr, base + file_bar_height * 0.3),
+                xytext=(x_text, base + file_bar_height * 0.3),
+                va="center",
+                ha="left",
+                fontsize=FONT_SIZE,
+                arrowprops=dict(arrowstyle="->", lw=0.8, shrinkA=0, shrinkB=0),
+            )
+
     ax_size.set_yticks(y_positions_bottom)
     ax_size.set_yticklabels([shortfile(f) for f in files])
     ax_size.invert_yaxis()
@@ -950,8 +998,139 @@ def _generate_complex_chart(df):
     ax_size.set_title("File Size Comparison per Excel File")
     ax_size.legend(ncol=2, fontsize=8)
 
+    # ==== MEMORY section (bottom) ====
+    # Prepare numbers (MiB)
+    df["Original Peak Memory"] = pd.to_numeric(
+        df["Original Peak Memory"], errors="coerce"
+    ).fillna(0.0)
+    df["Shrinked Peak Memory"] = pd.to_numeric(
+        df["Shrinked Peak Memory"], errors="coerce"
+    ).fillna(0.0)
+
+    # Use the same order as in library_info (defined earlier)
+    lib_order = [n for (n, _, _) in library_info]
+    libraries = [l for l in lib_order if l in df["Library"].unique()]
+
+    plt.rcParams.update({"xtick.labelsize": 8})
+
+    for ax, file_name in zip(mem_axes, files):
+        subset = df[df["File"] == file_name]
+        n_libs_local = len(libraries)
+        x = np.arange(n_libs_local)
+        bar_width = 0.35
+
+        def _first_or_zero(series):
+            return float(series.iloc[0]) if len(series) else 0.0
+
+        original_mem = [
+            (
+                (
+                    _first_or_zero(
+                        subset.loc[subset["Library"] == lib, "Original Peak Memory"]
+                    )
+                    / (1024**2)
+                )
+                if lib in subset["Library"].values
+                else 0.0
+            )
+            for lib in libraries
+        ]
+        shrunk_mem = [
+            (
+                (
+                    _first_or_zero(
+                        subset.loc[subset["Library"] == lib, "Shrinked Peak Memory"]
+                    )
+                    / (1024**2)
+                )
+                if lib in subset["Library"].values
+                else 0.0
+            )
+            for lib in libraries
+        ]
+
+        def _data_per_px_y(ax):
+            """Convert pixels to Y data units for the given axes."""
+            y_min, y_max = ax.get_ylim()
+            return (y_max - y_min) / max(ax.bbox.height, 1.0)
+
+        def _can_fit_inside_vertical(ax, bar_height_data, font_size_pts=7, fudge=1.1):
+            """
+            Heuristic: can a horizontal text (normal orientation) fit *vertically*
+            inside a vertical bar of height `bar_height_data`?
+            We estimate text pixel height ~ font_size_pts (in points) -> px via DPI.
+            """
+            text_px = (font_size_pts / 72.0) * ax.figure.dpi * fudge
+            needed_data = text_px * _data_per_px_y(ax)
+            return bar_height_data >= needed_data
+
+        bars_orig = ax.bar(
+            x - bar_width / 2,
+            original_mem,
+            width=bar_width,
+            label="Original Peak Memory (MiB)",
+            color="steelblue",
+            edgecolor="black",
+        )
+        bars_shr = ax.bar(
+            x + bar_width / 2,
+            shrunk_mem,
+            width=bar_width,
+            label="Shrinked Peak Memory (MiB)",
+            color="darkorange",
+            edgecolor="black",
+        )
+
+        # --- Add labels (inside if tall enough; else above with arrow) ---
+        PAD_PX = 6  # gap above bar for outside labels
+        for bar in list(bars_orig) + list(bars_shr):
+            h = bar.get_height()
+            if h <= 0:
+                continue
+            label = f"{h:.1f}"
+            x_center = bar.get_x() + bar.get_width() / 2.0
+
+            if _can_fit_inside_vertical(ax, h, font_size_pts=FONT_SIZE):
+                # Inside the bar
+                ax.text(
+                    x_center,
+                    h / 2.0,
+                    label,
+                    ha="center",
+                    va="center",
+                    fontsize=FONT_SIZE,
+                    color="white",
+                )
+            else:
+                # Outside with arrow pointing to the bar top
+                y_pad = PAD_PX * _data_per_px_y(ax)
+                ax.annotate(
+                    label,
+                    xy=(x_center, h),
+                    xytext=(x_center, h + y_pad),
+                    ha="center",
+                    va="bottom",
+                    fontsize=FONT_SIZE,
+                    arrowprops=dict(arrowstyle="->", lw=0.8, shrinkA=0, shrinkB=0),
+                )
+
+        # y/x labels
+        ax.set_xlabel("Library", fontsize=9)
+        ax.set_ylabel("Peak Memory (MiB)", fontsize=9, labelpad=18)
+
+        ax.set_xlabel("Library", fontsize=9)
+        ax.set_ylabel(file_name, fontsize=9)
+        ax.ticklabel_format(style="plain", axis="y")
+        ax.set_xticks(x)
+        ax.set_xticklabels(libraries, rotation=45, ha="right", fontsize=8)
+        ax.legend(fontsize=8)
+        ax.grid(axis="x", linestyle="--", alpha=0.5)
+
+        if ax is not mem_axes[-1]:
+            ax.set_xticklabels([])
+            ax.set_xlabel("")
+
     plt.tight_layout()
-    outname = "time_and_filesize_comparison_by_file.pdf"
     plt.savefig(outname, dpi=300, bbox_inches="tight")
     logging.info(f"Chart generated and saved to {outname}")
     plt.close(fig)
