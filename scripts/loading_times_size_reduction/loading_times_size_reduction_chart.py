@@ -470,22 +470,36 @@ def controller_main(args):
 
     excel_files = [f for f in os.listdir(input_folder) if f.lower().endswith(".xlsx")]
     for fname in excel_files:
+        logging.info(f"Processing file: {fname}")
+
         original_path = os.path.join(input_folder, fname)
         orig_size = os.path.getsize(original_path)
 
         benchmark_results = {}
         for lib in library_names:
+            logging.info(f"Measuring library: {lib} on file: {fname}")
             benchmark_results[lib] = call_measure_one(lib, original_path)
+            logging.info(
+                f"Results for {lib} on {fname}: Open Time={benchmark_results[lib][0]}, Save Time={benchmark_results[lib][1]}, Peak Memory={benchmark_results[lib][2]}"
+            )
 
+        logging.info(f"Running shrink on: {fname}")
         shrink_time, shrunk_path, shrink_peak_mem = run_excel_shrink(
             original_path, shrunk_folder
+        )
+        logging.info(
+            f"Shrink results for {fname}: Time={shrink_time}, Shrunk Path={shrunk_path}, Peak Memory={shrink_peak_mem}"
         )
 
         shrunk_results = {}
         if shrunk_path and os.path.exists(shrunk_path):
             shrunk_size = os.path.getsize(shrunk_path)
             for lib in library_names:
+                logging.info(f"Measuring library: {lib} on file: {shrunk_path}")
                 shrunk_results[lib] = call_measure_one(lib, shrunk_path)
+                logging.info(
+                    f"Results for {lib} on shrunk {fname}: Open Time={shrunk_results[lib][0]}, Save Time={shrunk_results[lib][1]}, Peak Memory={shrunk_results[lib][2]}"
+                )
         else:
             for lib in library_names:
                 shrunk_results[lib] = (None, None, None)
@@ -513,8 +527,12 @@ def controller_main(args):
             logging.info(f"Created second shrink folder: {second_shrink_shrunk_folder}")
 
         if shrunk_path and os.path.exists(shrunk_path):
+            logging.info(f"Running second shrink on: {shrunk_path}")
             shrunk_shrink_time, shrunk_shrink_path, shrunk_shrink_peak_mem = (
                 run_excel_shrink(shrunk_path, second_shrink_shrunk_folder)
+            )
+            logging.info(
+                f"Second shrink results for {shrunk_path}: Time={shrunk_shrink_time}, Shrunk Path={shrunk_shrink_path}, Peak Memory={shrunk_shrink_peak_mem}"
             )
             if shrunk_shrink_path and os.path.exists(shrunk_shrink_path):
                 shrink_shrunk_size = os.path.getsize(shrunk_shrink_path)
