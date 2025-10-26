@@ -68,7 +68,19 @@ R-related benchmarks require `Rscript` to be available in `PATH`, and the follow
 - `readxl`
 - `writexl`
 
-If R is not installed or not found, the script will automatically skip those benchmarks.
+Check if these packages are installed:
+
+```bash
+Rscript -e "pkgs <- c('openxlsx','readxl','writexl'); sapply(pkgs, function(p) as.character(packageVersion(p)))"
+```
+
+Install them if missing:
+
+```bash
+Rscript -e "install.packages(c('openxlsx','readxl','writexl'), repos='https://cloud.r-project.org')"
+```
+
+If R or any required packages are not found, the script will automatically skip R-related benchmarks.
 
 ---
 
