@@ -530,7 +530,7 @@ def controller_main(args):
             "Original Open Time (s)": 0,
             "Original Save Time (s)": shrink_time,
             "Original Peak Memory": shrink_peak_mem,
-            "Shrink Time (s)": shrunk_shrink_time,
+            "Shrink Time (s)": shrink_time,
             "Shrinked Open Time (s)": 0,
             "Shrinked Save Time (s)": shrunk_shrink_time,
             "Shrinked Peak Memory": shrunk_shrink_peak_mem,
