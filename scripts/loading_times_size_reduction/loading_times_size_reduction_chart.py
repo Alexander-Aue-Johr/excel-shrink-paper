@@ -22,7 +22,6 @@ import matplotlib.transforms as mtransforms
 from matplotlib.gridspec import GridSpec, GridSpecFromSubplotSpec
 from collections import OrderedDict
 
-
 plt.switch_backend("agg")
 
 logging.basicConfig(
