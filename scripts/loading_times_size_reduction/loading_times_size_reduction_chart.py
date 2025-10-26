@@ -947,18 +947,18 @@ def _generate_complex_chart(df, *, outname="time_and_filesize_comparison_by_file
         shrunk_size_mb_list.append(shrunk_size / (1024 * 1024))
 
     y_positions_bottom = np.arange(n_files) * 0.6
-    file_bar_height = 0.25
+    file_bar_height = 0.15
     for i, f in enumerate(files):
         base = y_positions_bottom[i]
         ax_size.barh(
-            base - file_bar_height * 0.3,
+            base - file_bar_height * 0.55,
             orig_size_mb_list[i],
             height=file_bar_height,
             color="darkorange",
             label="Original Size (MB)" if i == 0 else "",
         )
         ax_size.barh(
-            base + file_bar_height * 0.3,
+            base + file_bar_height * 0.55,
             shrunk_size_mb_list[i],
             height=file_bar_height,
             color="steelblue",
@@ -978,8 +978,8 @@ def _generate_complex_chart(df, *, outname="time_and_filesize_comparison_by_file
             x_text = shr + 10 * data_per_px
             ax_size.annotate(
                 label,
-                xy=(shr, base + file_bar_height * 0.3),
-                xytext=(x_text, base + file_bar_height * 0.3),
+                xy=(shr + 0.15, base + file_bar_height * 0.55),
+                xytext=(x_text, base + file_bar_height * 0.55),
                 va="center",
                 ha="left",
                 fontsize=FONT_SIZE,
