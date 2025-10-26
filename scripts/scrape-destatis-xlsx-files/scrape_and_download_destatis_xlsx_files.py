@@ -302,7 +302,6 @@ def download_files(file_records: List[FileRecord], crawl_delay: float) -> None:
             print(f"Downloading file: {unique_file_name}")
 
         download_file(record.url, DOWNLOAD_FOLDER, unique_file_name)
-        time.sleep(crawl_delay)
 
 
 def main() -> None:
