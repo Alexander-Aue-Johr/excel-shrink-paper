@@ -48,6 +48,18 @@
             "args": [
                 "controller"
             ]
+        },
+        {
+            "name": "Generate Chart Loading Times Size Reduction (only generate chart, no data processing)",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "scripts/loading_times_size_reduction/loading_times_size_reduction_chart.py",
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}",
+            "args": [
+                "controller",
+                "--no-run-tests"
+            ]
         }
     ]
 }

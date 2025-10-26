@@ -18,9 +18,14 @@ import csv
 import certifi
 import numpy as np
 import matplotlib.pyplot as plt
-plt.switch_backend('agg')
 
-logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+
+plt.switch_backend("agg")
+
+logging.basicConfig(
+    level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s"
+)
+
 
 def measure_one_main(args):
     """
@@ -52,9 +57,10 @@ def measure_one_main(args):
         "library": library_name,
         "file": os.path.basename(file_path),
         "Original Open Time (s)": open_t,
-        "Original Save Time (s)": save_t
+        "Original Save Time (s)": save_t,
     }
     print(json.dumps(result))
+
 
 def _bench_template(name, opener, saver):  # ### NEW helper
     try:
@@ -71,27 +77,36 @@ def _bench_template(name, opener, saver):  # ### NEW helper
         logging.error(f"{name} error: {e}")
         return None, None
 
+
 def benchmark_openpyxl_default(file_path):
     """
     Measure openpyxl.load_workbook + wb.save() with standard settings.
     """
     wb = None
+
     def _open():
-        nonlocal wb; wb = load_workbook(file_path)
+        nonlocal wb
+        wb = load_workbook(file_path)
+
     def _save():
         with tempfile.NamedTemporaryFile(delete=False, suffix=".xlsx") as tmp:
             p = tmp.name
         wb.save(p)
         os.remove(p)
+
     return _bench_template("openpyxl", _open, _save)
+
 
 def benchmark_pandas(file_path):
     """
     Benchmark: Pandas reads ALL sheets with read_excel, then writes them back.
     """
     dfs = {}
+
     def _open():
-        nonlocal dfs; dfs = pd.read_excel(file_path, sheet_name=None)
+        nonlocal dfs
+        dfs = pd.read_excel(file_path, sheet_name=None)
+
     def _save():
         with tempfile.NamedTemporaryFile(delete=False, suffix=".xlsx") as tmp:
             p = tmp.name
@@ -99,17 +114,19 @@ def benchmark_pandas(file_path):
             for sheet, df in dfs.items():
                 df.to_excel(writer, sheet_name=sheet, index=False)
         os.remove(p)
+
     return _bench_template("pandas", _open, _save)
+
 
 # ---------------------------------------------------------------------------
 
+
 def benchmark_excel_com(file_path):
     """
-    Benchmark: via win32com (only on Windows). 
+    Benchmark: via win32com (only on Windows).
     First runs excel_shrink.py --only-clean-workbook on the original,
     then opens the cleaned workbook with Excel COM and saves it.
     """
-
 
     name = "Microsoft Excel"
     try:
@@ -117,22 +134,26 @@ def benchmark_excel_com(file_path):
     except ImportError:
         logging.warning("win32com not available - skipping Excel COM benchmark.")
         return None, None, None
-    
+
     with tempfile.TemporaryDirectory() as shrink_dir:
 
         excel, wb = None, None
+
         def _open():
             nonlocal excel, wb
 
             shrink_script = os.path.join("..", "excel-shrink", "excel_shrink.py")
             logging.info(f"Running excel_shrink --only-clean-workbook on {file_path}")
-            subprocess.run([
-                sys.executable,
-                shrink_script,
-                "--only-clean-workbook",
-                file_path,
-                shrink_dir
-            ], check=True)
+            subprocess.run(
+                [
+                    sys.executable,
+                    shrink_script,
+                    "--only-clean-workbook",
+                    file_path,
+                    shrink_dir,
+                ],
+                check=True,
+            )
 
             cleaned_path = os.path.join(shrink_dir, os.path.basename(file_path))
             if not os.path.exists(cleaned_path):
@@ -141,7 +162,7 @@ def benchmark_excel_com(file_path):
 
             excel = win32com.client.DispatchEx("Excel.Application")
             excel.Visible = False
-            
+
             excel.Application.DisplayAlerts = False
 
             abs_file = os.path.abspath(cleaned_path)
@@ -156,8 +177,7 @@ def benchmark_excel_com(file_path):
             except Exception as e:
                 logging.error(f"Error opening workbook: {e}")
                 return None, None, None
-                
-            
+
             if wb is None:
                 logging.error(f"Failed to open workbook: {abs_file}")
                 return None, None, None
@@ -170,6 +190,7 @@ def benchmark_excel_com(file_path):
             wb.Close()
             excel.Quit()
             os.remove(tmp_path)
+
     return _bench_template("Excel COM", _open, _save)
 
 
@@ -178,17 +199,15 @@ def _run_r_script(r_code: str, args: list):
         logging.warning("Rscript not found – skipping R benchmark.")
         return None, None
 
-    with tempfile.NamedTemporaryFile(delete=False, suffix=".R", 
-                                     mode="w", encoding="utf-8") as rf:
+    with tempfile.NamedTemporaryFile(
+        delete=False, suffix=".R", mode="w", encoding="utf-8"
+    ) as rf:
         rf.write(textwrap.dedent(r_code))
         r_path = rf.name
 
     try:
         completed = subprocess.run(
-            ["Rscript", r_path, *args],
-            capture_output=True,
-            text=True,
-            check=True
+            ["Rscript", r_path, *args], capture_output=True, text=True, check=True
         )
 
         out = completed.stdout.strip()
@@ -198,8 +217,7 @@ def _run_r_script(r_code: str, args: list):
 
     except subprocess.CalledProcessError as cpe:
         logging.error(
-            f"Rscript failed (exit code {cpe.returncode}); "
-            f"stderr: {cpe.stderr!r}"
+            f"Rscript failed (exit code {cpe.returncode}); " f"stderr: {cpe.stderr!r}"
         )
         return None, None
 
@@ -212,6 +230,7 @@ def _run_r_script(r_code: str, args: list):
             os.remove(r_path)
         except OSError:
             pass
+
 
 def benchmark_r_openxlsx(file_path):
     with tempfile.NamedTemporaryFile(delete=False, suffix=".xlsx") as tmp:
@@ -246,14 +265,16 @@ def benchmark_r_openxlsx(file_path):
     """
     open_t, save_t = _run_r_script(r_code, [file_path, out_path])
     if open_t is None:
-        os.remove(out_path); return None, None
+        os.remove(out_path)
+        return None, None
     os.remove(out_path)
     return open_t, save_t
+
 
 def benchmark_r_readxl_writexl(file_path):
     with tempfile.NamedTemporaryFile(delete=False, suffix=".xlsx") as tmp:
         out_path = tmp.name
-    r_script = f'''
+    r_script = f"""
     args <- commandArgs(trailingOnly = TRUE)
     file_in <- args[1]
     file_out <- args[2]
@@ -276,18 +297,23 @@ def benchmark_r_readxl_writexl(file_path):
     save_time <- t4["elapsed"][[1]]
 
     cat(open_time, save_time, sep=",")
-    '''
+    """
     open_t, save_t = _run_r_script(r_script, [file_path, out_path])
     if open_t is None:
-        os.remove(out_path); return None, None
+        os.remove(out_path)
+        return None, None
     os.remove(out_path)
     return open_t, save_t
 
+
 import psutil, subprocess, time
+
 
 def run_and_measure(cmd, *, capture_output=False, text=True, poll_interval=0.1):
     if capture_output:
-        proc = psutil.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=text)
+        proc = psutil.Popen(
+            cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=text
+        )
     else:
         proc = psutil.Popen(cmd)
 
@@ -353,19 +379,21 @@ def run_excel_shrink(original_file, output_dir):
     shrink_script = os.path.join("..", "excel-shrink", "excel_shrink.py")
 
     cmd = [sys.executable, shrink_script, original_file, output_dir]
-    
+
     _, _, duration, peak_mem_bytes, returncode = run_and_measure(
-        cmd,
-        capture_output=False
+        cmd, capture_output=False
     )
 
     if returncode == 0:
         logging.info(f"excel_shrink completed in {duration:.2f}s for {original_file}")
         logging.info(f"Peak memory usage: {peak_mem_bytes / (1024**2):.2f} MB")
     else:
-        logging.error(f"excel_shrink failed (exit code {returncode}) for {original_file}")
+        logging.error(
+            f"excel_shrink failed (exit code {returncode}) for {original_file}"
+        )
 
     return duration, output_file, peak_mem_bytes
+
 
 def controller_main(args):
     """
@@ -377,23 +405,25 @@ def controller_main(args):
     script_dir = os.path.dirname(os.path.abspath(__file__))
     input_folder = os.path.abspath(os.path.join(script_dir, args.input_folder))
     shrunk_folder = os.path.abspath(os.path.join(script_dir, args.shrunk_folder))
-    second_shrink_shrunk_folder = os.path.abspath(os.path.join(script_dir, args.second_shrinkage_shrunk_folder))
+    second_shrink_shrunk_folder = os.path.abspath(
+        os.path.join(script_dir, args.second_shrinkage_shrunk_folder)
+    )
 
     csv_out = os.path.abspath(os.path.join(script_dir, args.csv_out))
 
     files_to_download = [
         {
             "url": "https://www.destatis.de/DE/Themen/Staat/Oeffentliche-Finanzen/Ausgaben-Einnahmen/Publikationen/Downloads-Ausgaben-und-Einnahmen/statistischer-bericht-rechnungsergebnis-kernhaushalt-gemeinden-2140331217005.xlsx?__blob=publicationFile&v=4",
-            "filename": "statistischer-bericht-kernhaushalt-gemeinden.xlsx"
+            "filename": "statistischer-bericht-kernhaushalt-gemeinden.xlsx",
         },
         {
             "url": "https://www.destatis.de/DE/Themen/Gesellschaft-Umwelt/Verkehrsunfaelle/Publikationen/Downloads-Verkehrsunfaelle/verkehrsunfaelle-zeitreihen-xlsx-5462403.xlsx?__blob=publicationFile&v=19",
-            "filename": "verkehrsunfaelle-zeitreihen-xlsx-5462403.xlsx"
+            "filename": "verkehrsunfaelle-zeitreihen-xlsx-5462403.xlsx",
         },
         {
             "url": "https://www.destatis.de/DE/Themen/Gesellschaft-Umwelt/Bevoelkerung/Wanderungen/Publikationen/Downloads-Wanderungen/wanderungen-2010120217005.xlsx?__blob=publicationFile&v=3",
-            "filename": "wanderungen-2010120217005.xlsx"
-        }
+            "filename": "wanderungen-2010120217005.xlsx",
+        },
     ]
 
     output_folder = "scripts/loading_times_size_reduction/input"
@@ -420,8 +450,11 @@ def controller_main(args):
         os.makedirs(shrunk_folder)
         logging.info(f"Created shrunk folder: {shrunk_folder}")
 
-    all_files = [f for f in os.listdir(input_folder)
-                 if f.lower().endswith('.xlsx') and os.path.isfile(os.path.join(input_folder, f))]
+    all_files = [
+        f
+        for f in os.listdir(input_folder)
+        if f.lower().endswith(".xlsx") and os.path.isfile(os.path.join(input_folder, f))
+    ]
     logging.info(f"Found {len(all_files)} Excel files in {input_folder}.")
 
     library_names = [
@@ -443,7 +476,9 @@ def controller_main(args):
         for lib in library_names:
             benchmark_results[lib] = call_measure_one(lib, original_path)
 
-        shrink_time, shrunk_path, shrink_peak_mem = run_excel_shrink(original_path, shrunk_folder)
+        shrink_time, shrunk_path, shrink_peak_mem = run_excel_shrink(
+            original_path, shrunk_folder
+        )
 
         shrunk_results = {}
         if shrunk_path and os.path.exists(shrunk_path):
@@ -456,7 +491,7 @@ def controller_main(args):
 
         for lib in library_names:
             orig_open, orig_save, orig_mem = benchmark_results[lib]
-            shr_open, shr_save, shr_mem   = shrunk_results[lib]
+            shr_open, shr_save, shr_mem = shrunk_results[lib]
             row = {
                 "File": fname,
                 "Library": lib,
@@ -468,23 +503,26 @@ def controller_main(args):
                 "Shrinked Save Time (s)": shr_save,
                 "Shrinked Peak Memory": shr_mem,
                 "Original Size (bytes)": orig_size,
-                "Shrinked Size (bytes)": shrunk_size
+                "Shrinked Size (bytes)": shrunk_size,
             }
             rows.append(row)
-
 
         if not os.path.exists(second_shrink_shrunk_folder):
             os.makedirs(second_shrink_shrunk_folder)
             logging.info(f"Created second shrink folder: {second_shrink_shrunk_folder}")
 
         if shrunk_path and os.path.exists(shrunk_path):
-            shrunk_shrink_time, shrunk_shrink_path, shrunk_shrink_peak_mem = run_excel_shrink(shrunk_path, second_shrink_shrunk_folder)
+            shrunk_shrink_time, shrunk_shrink_path, shrunk_shrink_peak_mem = (
+                run_excel_shrink(shrunk_path, second_shrink_shrunk_folder)
+            )
             if shrunk_shrink_path and os.path.exists(shrunk_shrink_path):
                 shrink_shrunk_size = os.path.getsize(shrunk_shrink_path)
             else:
-                logging.error(f"Shrunk file {shrunk_shrink_path} not found after second shrink.")
+                logging.error(
+                    f"Shrunk file {shrunk_shrink_path} not found after second shrink."
+                )
                 shrink_shrunk_size = 0
-        
+
         row = {
             "File": fname,
             "Library": "Excel Shrink",
@@ -496,7 +534,7 @@ def controller_main(args):
             "Shrinked Save Time (s)": shrunk_shrink_time,
             "Shrinked Peak Memory": shrunk_shrink_peak_mem,
             "Original Size (bytes)": shrunk_size,
-            "Shrinked Size (bytes)": shrink_shrunk_size
+            "Shrinked Size (bytes)": shrink_shrunk_size,
         }
         rows.append(row)
 
@@ -521,15 +559,19 @@ def call_measure_one(library_name, file_path):
         sys.executable,
         os.path.abspath(__file__),
         "measure-one",
-        "--library", library_name,
-        "--file", file_path
+        "--library",
+        library_name,
+        "--file",
+        file_path,
     ]
 
     stdout, stderr, duration, peak_mem_bytes, returncode = run_and_measure(
         cmd, capture_output=True, text=True
     )
 
-    logging.info(f"{library_name} completed in {duration:.2f}s; Peak memory usage {peak_mem_bytes / (1024**2):.2f} MB; file: {file_path}")
+    logging.info(
+        f"{library_name} completed in {duration:.2f}s; Peak memory usage {peak_mem_bytes / (1024**2):.2f} MB; file: {file_path}"
+    )
 
     if returncode == 0:
         try:
@@ -537,14 +579,17 @@ def call_measure_one(library_name, file_path):
             return (
                 data.get("Original Open Time (s)"),
                 data.get("Original Save Time (s)"),
-                peak_mem_bytes
+                peak_mem_bytes,
             )
         except json.JSONDecodeError:
             logging.error(f"JSON parse error from measure-one output: {stdout!r}")
             return (None, None, None)
     else:
-        logging.error(f"measure-one ({library_name}) failed with exit code {returncode}; stderr: {stderr!r}")
+        logging.error(
+            f"measure-one ({library_name}) failed with exit code {returncode}; stderr: {stderr!r}"
+        )
         return (None, None, None)
+
 
 def generate_chart(csv_file):
     """
@@ -567,7 +612,6 @@ def generate_chart(csv_file):
 
 def _generate_complex_chart(df):
 
-
     logging.info("Using extended chart routine...")
 
     if df.empty:
@@ -575,9 +619,13 @@ def _generate_complex_chart(df):
         return
 
     needed_cols = {
-        "File", "Library",
-        "Original Open Time (s)", "Original Save Time (s)",
-        "Shrink Time (s)", "Shrinked Open Time (s)", "Shrinked Save Time (s)"
+        "File",
+        "Library",
+        "Original Open Time (s)",
+        "Original Save Time (s)",
+        "Shrink Time (s)",
+        "Shrinked Open Time (s)",
+        "Shrinked Save Time (s)",
     }
     missing = needed_cols - set(df.columns)
     if missing:
@@ -585,12 +633,12 @@ def _generate_complex_chart(df):
         return
 
     library_info = [
-        ("openpyxl(default)",      "darkorange",  "orangered"),
-        ("pandas",                 "steelblue",   "royalblue"),
-        ("Microsoft Excel",        "darkgreen",   "limegreen"),
-        ("R openxlsx",             "red",         "firebrick"),
-        ("R readxl+writexl",       "chocolate",   "sienna"),
-        ("Excel Shrink",           "gray",        "dimgray"),
+        ("openpyxl(default)", "darkorange", "orangered"),
+        ("pandas", "steelblue", "royalblue"),
+        ("Microsoft Excel", "darkgreen", "limegreen"),
+        ("R openxlsx", "red", "firebrick"),
+        ("R readxl+writexl", "chocolate", "sienna"),
+        ("Excel Shrink", "gray", "dimgray"),
     ]
     n_libs = len(library_info)
 
@@ -615,7 +663,7 @@ def _generate_complex_chart(df):
     bar_height = 0.1
 
     fig, (ax_time, ax_size) = plt.subplots(
-        nrows=2, figsize=(14, 7), gridspec_kw={'height_ratios': [4, 1]}
+        nrows=2, figsize=(14, 7), gridspec_kw={"height_ratios": [4, 1]}
     )
 
     y_positions_top = np.arange(n_files) * (bar_height * (total_bars_per_file + 2))
@@ -632,10 +680,21 @@ def _generate_complex_chart(df):
             save_t = get_times(f, lib_name, "Original Save Time (s)")
 
             if i == 0:
-                ax_time.barh(pos, open_t, height=bar_height, color=c_open,
-                             label=f"{lib_name} open")
-                ax_time.barh(pos, save_t, height=bar_height, left=open_t, color=c_save,
-                             label=f"{lib_name} save")
+                ax_time.barh(
+                    pos,
+                    open_t,
+                    height=bar_height,
+                    color=c_open,
+                    label=f"{lib_name} open",
+                )
+                ax_time.barh(
+                    pos,
+                    save_t,
+                    height=bar_height,
+                    left=open_t,
+                    color=c_save,
+                    label=f"{lib_name} save",
+                )
             else:
                 ax_time.barh(pos, open_t, height=bar_height, color=c_open)
                 ax_time.barh(pos, save_t, height=bar_height, left=open_t, color=c_save)
@@ -646,29 +705,56 @@ def _generate_complex_chart(df):
             shrunk_save = get_times(f, lib_name, "Shrinked Save Time (s)")
 
             if i == 0:
-                ax_time.barh(pos, shrink_t, height=bar_height, color="purple",
-                             label="Shrink time" if lib_index == 0 else "")
-                ax_time.barh(pos, shrunk_open, height=bar_height, left=shrink_t, color=c_open,
-                             label=f"{lib_name} shrunk open")
-                ax_time.barh(pos, shrunk_save, height=bar_height,
-                             left=shrink_t + shrunk_open, color=c_save,
-                             label=f"{lib_name} shrunk save")
+                ax_time.barh(
+                    pos,
+                    shrink_t,
+                    height=bar_height,
+                    color="purple",
+                    label="Shrink time" if lib_index == 0 else "",
+                )
+                ax_time.barh(
+                    pos,
+                    shrunk_open,
+                    height=bar_height,
+                    left=shrink_t,
+                    color=c_open,
+                    label=f"{lib_name} shrunk open",
+                )
+                ax_time.barh(
+                    pos,
+                    shrunk_save,
+                    height=bar_height,
+                    left=shrink_t + shrunk_open,
+                    color=c_save,
+                    label=f"{lib_name} shrunk save",
+                )
             else:
                 ax_time.barh(pos, shrink_t, height=bar_height, color="purple")
-                ax_time.barh(pos, shrunk_open, height=bar_height, left=shrink_t, color=c_open)
-                ax_time.barh(pos, shrunk_save, height=bar_height,
-                             left=shrink_t + shrunk_open, color=c_save)
+                ax_time.barh(
+                    pos, shrunk_open, height=bar_height, left=shrink_t, color=c_open
+                )
+                ax_time.barh(
+                    pos,
+                    shrunk_save,
+                    height=bar_height,
+                    left=shrink_t + shrunk_open,
+                    color=c_save,
+                )
 
     ax_time.set_yticks(y_positions_top)
+
     def shortfile(fn):
         return fn if len(fn) <= 15 else fn[:5] + "..." + fn[-5:]
+
     ax_time.set_yticklabels([shortfile(f) for f in files])
     ax_time.invert_yaxis()
-    ax_time.set_xlabel('Time (seconds)')
-    ax_time.set_title('Time Comparison per Excel File')
+    ax_time.set_xlabel("Time (seconds)")
+    ax_time.set_title("Time Comparison per Excel File")
     ax_time.legend(ncol=2, fontsize=8)
 
-    group_size = df.groupby('File')[["Original Size (bytes)", "Shrinked Size (bytes)"]].mean()
+    group_size = df.groupby("File")[
+        ["Original Size (bytes)", "Shrinked Size (bytes)"]
+    ].mean()
     orig_size_mb_list = []
     shrunk_size_mb_list = []
     for f in files:
@@ -686,23 +772,31 @@ def _generate_complex_chart(df):
     file_bar_height = 0.25
     for i, f in enumerate(files):
         base = y_positions_bottom[i]
-        ax_size.barh(base - file_bar_height*0.3,
-                     orig_size_mb_list[i], height=file_bar_height,
-                     color="darkorange", label="Original Size (MB)" if i == 0 else "")
-        ax_size.barh(base + file_bar_height*0.3,
-                     shrunk_size_mb_list[i], height=file_bar_height,
-                     color="steelblue", label="Shrinked Size (MB)" if i == 0 else "")
+        ax_size.barh(
+            base - file_bar_height * 0.3,
+            orig_size_mb_list[i],
+            height=file_bar_height,
+            color="darkorange",
+            label="Original Size (MB)" if i == 0 else "",
+        )
+        ax_size.barh(
+            base + file_bar_height * 0.3,
+            shrunk_size_mb_list[i],
+            height=file_bar_height,
+            color="steelblue",
+            label="Shrinked Size (MB)" if i == 0 else "",
+        )
 
     ax_size.set_yticks(y_positions_bottom)
     ax_size.set_yticklabels([shortfile(f) for f in files])
     ax_size.invert_yaxis()
-    ax_size.set_xlabel('File Size (MB)')
-    ax_size.set_title('File Size Comparison per Excel File')
+    ax_size.set_xlabel("File Size (MB)")
+    ax_size.set_title("File Size Comparison per Excel File")
     ax_size.legend(ncol=2, fontsize=8)
 
     plt.tight_layout()
-    outname = 'time_and_filesize_comparison_by_file.pdf'
-    plt.savefig(outname, dpi=300, bbox_inches='tight')
+    outname = "time_and_filesize_comparison_by_file.pdf"
+    plt.savefig(outname, dpi=300, bbox_inches="tight")
     logging.info(f"Chart generated and saved to {outname}")
     plt.close(fig)
 
@@ -711,10 +805,16 @@ def _generate_memory_chart(df):
     required_cols = {"File", "Library", "Original Peak Memory", "Shrinked Peak Memory"}
     missing = required_cols - set(df.columns)
     if missing:
-        raise ValueError(f"Die folgenden notwendigen Spalten fehlen in der CSV: {missing}")
+        raise ValueError(
+            f"Die folgenden notwendigen Spalten fehlen in der CSV: {missing}"
+        )
 
-    df["Original Peak Memory"] = pd.to_numeric(df["Original Peak Memory"], errors="coerce").fillna(0.0)
-    df["Shrinked Peak Memory"] = pd.to_numeric(df["Shrinked Peak Memory"], errors="coerce").fillna(0.0)
+    df["Original Peak Memory"] = pd.to_numeric(
+        df["Original Peak Memory"], errors="coerce"
+    ).fillna(0.0)
+    df["Shrinked Peak Memory"] = pd.to_numeric(
+        df["Shrinked Peak Memory"], errors="coerce"
+    ).fillna(0.0)
 
     files = sorted(df["File"].unique())
     libraries = sorted(df["Library"].unique())
@@ -727,7 +827,7 @@ def _generate_memory_chart(df):
     if n_files == 1:
         axes = [axes]
 
-    plt.rcParams.update({'xtick.labelsize': 8})
+    plt.rcParams.update({"xtick.labelsize": 8})
 
     for ax, file_name in zip(axes, files):
         subset = df[df["File"] == file_name]
@@ -737,34 +837,41 @@ def _generate_memory_chart(df):
         bar_width = 0.35
 
         original_mem = [
-            float(subset[subset["Library"] == lib]["Original Peak Memory"].iloc[0]) / (1024**2)
-            if lib in subset["Library"].values else 0.0
+            (
+                float(subset[subset["Library"] == lib]["Original Peak Memory"].iloc[0])
+                / (1024**2)
+                if lib in subset["Library"].values
+                else 0.0
+            )
             for lib in libraries
         ]
         shrunk_mem = [
-            float(subset[subset["Library"] == lib]["Shrinked Peak Memory"].iloc[0]) / (1024**2)
-            if lib in subset["Library"].values else 0.0
+            (
+                float(subset[subset["Library"] == lib]["Shrinked Peak Memory"].iloc[0])
+                / (1024**2)
+                if lib in subset["Library"].values
+                else 0.0
+            )
             for lib in libraries
         ]
 
         ax.bar(
-            x - bar_width/2,
+            x - bar_width / 2,
             original_mem,
             width=bar_width,
             label="Original Peak Memory (MiB)",
             color="skyblue",
-            edgecolor="black"
+            edgecolor="black",
         )
 
         ax.bar(
-            x + bar_width/2,
+            x + bar_width / 2,
             shrunk_mem,
             width=bar_width,
             label="Shrinked Peak Memory (MiB)",
             color="orange",
-            edgecolor="black"
+            edgecolor="black",
         )
-
 
         ax.set_title(f"Memory Consumption:\n'{file_name}'", fontsize=10, pad=10)
         ax.set_xlabel("Library", fontsize=9)
@@ -780,19 +887,35 @@ def _generate_memory_chart(df):
     plt.savefig(output_path, dpi=300, bbox_inches="tight")
     plt.close(fig)
 
-def main():
-    import argparse
-    import sys
 
+def main():
     parser = argparse.ArgumentParser(
         description="Run measurements on Excel files and generate comparison chart."
     )
 
-    subparsers = parser.add_subparsers(dest="mode", help="Subcommand: controller or measure-one")
+    subparsers = parser.add_subparsers(
+        dest="mode", required=True, help="Subcommand: controller or measure-one"
+    )
 
-    ctrl_parser = subparsers.add_parser("controller", help="Controller mode: full benchmark")
-    meas_parser = subparsers.add_parser("measure-one", help="Measure one library on one file.")
-    meas_parser.add_argument("--library", required=True, help="Library name, e.g. 'openpyxl(default)'")
+    # add run tests / controller mode
+    ctrl_parser = subparsers.add_parser(
+        "controller", help="Run measurements on all files and libraries."
+    )
+
+    ctrl_parser.add_argument(
+        "--run-tests",
+        "--run_tests",
+        action=argparse.BooleanOptionalAction,
+        default=True,
+        help="Whether to run the measurements (default: True).",
+    )
+
+    meas_parser = subparsers.add_parser(
+        "measure-one", help="Measure one library on one file."
+    )
+    meas_parser.add_argument(
+        "--library", required=True, help="Library name, e.g. 'openpyxl(default)'"
+    )
     meas_parser.add_argument("--file", required=True, help="Path to the .xlsx file")
 
     args, unknown = parser.parse_known_args()
@@ -800,7 +923,9 @@ def main():
     script_dir = os.path.dirname(os.path.abspath(__file__))
     input_folder = os.path.join(script_dir, "input")
     shrunk_folder = os.path.join(script_dir, "shrunk_files")
-    second_shrink_shrunk_folder = os.path.join(script_dir, "second_shrinkage_shrunk_files")
+    second_shrink_shrunk_folder = os.path.join(
+        script_dir, "second_shrinkage_shrunk_files"
+    )
     csv_out = os.path.join(script_dir, "excel_benchmarks.csv")
 
     if not args.mode:
@@ -809,17 +934,15 @@ def main():
     if args.mode == "measure-one":
         measure_one_main(args)
     else:
-        class Args:
-            pass
-        args = Args()
         args.input_folder = input_folder
         args.shrunk_folder = shrunk_folder
         args.second_shrinkage_shrunk_folder = second_shrink_shrunk_folder
         args.csv_out = csv_out
-        args.run_tests = True
 
         if not args.run_tests and os.path.exists(args.csv_out):
-            logging.info(f"CSV file {args.csv_out} already exists. Skipping measurements.")
+            logging.info(
+                f"CSV file {args.csv_out} already exists. Skipping measurements."
+            )
             generate_chart(args.csv_out)
             sys.exit(0)
         controller_main(args)
