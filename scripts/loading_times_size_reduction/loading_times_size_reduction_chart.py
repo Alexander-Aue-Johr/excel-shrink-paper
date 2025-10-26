@@ -428,10 +428,6 @@ def controller_main(args):
             "url": "https://www.destatis.de/DE/Themen/Gesellschaft-Umwelt/Verkehrsunfaelle/Publikationen/Downloads-Verkehrsunfaelle/verkehrsunfaelle-zeitreihen-xlsx-5462403.xlsx?__blob=publicationFile&v=19",
             "filename": "verkehrsunfaelle-zeitreihen-xlsx-5462403.xlsx",
         },
-        {
-            "url": "https://www.destatis.de/DE/Themen/Gesellschaft-Umwelt/Bevoelkerung/Wanderungen/Publikationen/Downloads-Wanderungen/wanderungen-2010120217005.xlsx?__blob=publicationFile&v=3",
-            "filename": "wanderungen-2010120217005.xlsx",
-        },
     ]
 
     output_folder = "scripts/loading_times_size_reduction/input"
