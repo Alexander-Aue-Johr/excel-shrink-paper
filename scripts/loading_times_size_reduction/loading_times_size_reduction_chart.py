@@ -228,8 +228,9 @@ def _run_r_script(r_code: str, args: list):
     finally:
         try:
             os.remove(r_path)
+            raise
         except OSError:
-            pass
+            raise
 
 
 def benchmark_r_openxlsx(file_path):
