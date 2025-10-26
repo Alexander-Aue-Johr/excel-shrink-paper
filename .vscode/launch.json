@@ -30,12 +30,40 @@
             "type": "debugpy",
             "request": "launch",
             "program": "${workspaceFolder}/scripts/compare_filesizes.py",
-            "console": "integratedTerminal",
+            "python": "${workspaceFolder}/.venv/Scripts/python",
+            "preLaunchTask": "py:bootstrap",
             "args": [
                 "R:/o",
                 "R:/d",
-                "--abs-count", "3",
-                "--rel-count", "3",
+                "--abs-count",
+                "3",
+                "--rel-count",
+                "3",
+            ]
+        },
+        {
+            "name": "Scrape and Download Destatis XLSX Files",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "scripts/scrape-destatis-xlsx-files/scrape_and_download_destatis_xlsx_files.py",
+            "python": "${workspaceFolder}/.venv/Scripts/python",
+            "preLaunchTask": "py:bootstrap",
+            "args": [
+                "--crawl_delay",
+                "30"
+            ]
+        },
+        {
+            "name": "Download Destatis XLSX Files",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "scripts/scrape-destatis-xlsx-files/scrape_and_download_destatis_xlsx_files.py",
+            "python": "${workspaceFolder}/.venv/Scripts/python",
+            "preLaunchTask": "py:bootstrap",
+            "args": [
+                "--crawl_delay",
+                "30",
+                "--skip_scraping"
             ]
         },
         {
@@ -43,8 +71,8 @@
             "type": "debugpy",
             "request": "launch",
             "program": "scripts/loading_times_size_reduction/loading_times_size_reduction_chart.py",
-            "console": "integratedTerminal",
-            "cwd": "${workspaceFolder}",
+            "python": "${workspaceFolder}/.venv/Scripts/python",
+            "preLaunchTask": "py:bootstrap",
             "args": [
                 "controller"
             ]
@@ -54,8 +82,8 @@
             "type": "debugpy",
             "request": "launch",
             "program": "scripts/loading_times_size_reduction/loading_times_size_reduction_chart.py",
-            "console": "integratedTerminal",
-            "cwd": "${workspaceFolder}",
+            "python": "${workspaceFolder}/.venv/Scripts/python",
+            "preLaunchTask": "py:bootstrap",
             "args": [
                 "controller",
                 "--no-run-tests"
