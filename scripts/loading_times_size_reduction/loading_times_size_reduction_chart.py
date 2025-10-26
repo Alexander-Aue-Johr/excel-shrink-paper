@@ -308,9 +308,6 @@ def benchmark_r_readxl_writexl(file_path):
     return open_t, save_t
 
 
-import psutil, subprocess, time
-
-
 def run_and_measure(cmd, *, capture_output=False, text=True, poll_interval=0.1):
     if capture_output:
         proc = psutil.Popen(
@@ -665,9 +662,6 @@ def _generate_complex_chart(df, *, outname="time_and_filesize_comparison_by_file
     RIGHT_ARROW_SHRINK = 1
     FONT_SIZE = 7
     VERTICAL_LABEL_OFFSET_PX = -0.6
-
-    # --- helpers from your original function ---
-    import matplotlib.transforms as mtransforms
 
     def can_fit_inside(ax, width_data, text):
         x_min, x_max = ax.get_xlim()
