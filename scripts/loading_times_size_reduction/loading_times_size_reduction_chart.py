@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+from importlib.metadata import files
 import os
 import sys
 import subprocess
@@ -26,6 +27,13 @@ plt.switch_backend("agg")
 
 logging.basicConfig(
     level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s"
+)
+
+chart_output_path: str = os.path.join(
+    "scripts",
+    "loading_times_size_reduction",
+    "charts",
+    "time_and_filesize_comparison_by_file.pdf",
 )
 
 
@@ -460,9 +468,9 @@ def controller_main(args):
     logging.info(f"Found {len(all_files)} Excel files in {input_folder}.")
 
     library_names = [
-        # "openpyxl(default)",
-        # "pandas",
-        # "Microsoft Excel",
+        "openpyxl(default)",
+        "pandas",
+        "Microsoft Excel",
         "R openxlsx",
         "R readxl+writexl",
     ]
@@ -624,13 +632,11 @@ def generate_chart(csv_file):
     try:
         df = pd.read_csv(csv_file)
         _generate_complex_chart(df)
-        df = pd.read_csv(csv_file)
-        _generate_memory_chart(df)
     except Exception as e:
         logging.error(f"Could not generate chart: {e}")
 
 
-def _generate_complex_chart(df, *, outname="time_and_filesize_comparison_by_file.pdf"):
+def _generate_complex_chart(df):
     logging.info("Using extended chart routine (with memory at bottom)...")
 
     if df.empty:
@@ -724,19 +730,19 @@ def _generate_complex_chart(df, *, outname="time_and_filesize_comparison_by_file
         return fn if len(fn) <= 15 else fn[:5] + "..." + fn[-5:]
 
     # ==== Figure layout ====
-    fig = plt.figure(figsize=(14, 7 + 4 * n_files))
+    fig = plt.figure(figsize=(14, 7 + 1.8 * n_files))
 
     # Outer grid: keep a small gap between top block and memory block
-    gs = GridSpec(nrows=2, ncols=1, height_ratios=[7, 4 * n_files], hspace=0.15)
+    gs = GridSpec(nrows=2, ncols=1, height_ratios=[7, 1.8 * n_files], hspace=0.20)
 
-    # Top (time + size): ADD a bit more space between these two
+    # Top (time + size)
     gs_top = GridSpecFromSubplotSpec(
         nrows=2, ncols=1, subplot_spec=gs[0], height_ratios=[4, 1], hspace=0.35
     )
     ax_time = fig.add_subplot(gs_top[0, 0])
     ax_size = fig.add_subplot(gs_top[1, 0])
 
-    # Bottom (memory panes): DECREASE spacing between the two charts
+    # Bottom (memory panes)
     gs_bottom = GridSpecFromSubplotSpec(
         nrows=n_files, ncols=1, subplot_spec=gs[1], hspace=0.08  # e.g., 0.05–0.10
     )
@@ -931,33 +937,50 @@ def _generate_complex_chart(df, *, outname="time_and_filesize_comparison_by_file
     # Create the legend with unique entries
     ax_time.legend(list(seen.values()), list(seen.keys()), ncol=3, fontsize=8)
     # ==== SIZE section (middle) ====
+
+    def _bar_label(ax, x, y, text, fontsize):
+        ax.text(
+            x,
+            y,
+            text,
+            va="center",
+            ha="center",
+            fontsize=fontsize,
+            color="white",
+        )
+
     group_size = df.groupby("File")[
         ["Original Size (bytes)", "Shrinked Size (bytes)"]
-    ].mean()
+    ].max()
     orig_size_mb_list, shrunk_size_mb_list = [], []
+    orig_size_b_list, shrunk_size_b_list = [], []
     for f in files:
         if f in group_size.index:
             row = group_size.loc[f]
-            orig_size = float(row.get("Original Size (bytes)", 0) or 0)
-            shrunk_size = float(row.get("Shrinked Size (bytes)", 0) or 0)
+            orig_size = float(row.get("Original Size (bytes)", 0) or 0)  # bytes
+            shrunk_size = float(row.get("Shrinked Size (bytes)", 0) or 0)  # bytes
         else:
             orig_size = 0.0
             shrunk_size = 0.0
+
+        orig_size_b_list.append(orig_size)
+        shrunk_size_b_list.append(shrunk_size)
         orig_size_mb_list.append(orig_size / (1024 * 1024))
         shrunk_size_mb_list.append(shrunk_size / (1024 * 1024))
 
-    y_positions_bottom = np.arange(n_files) * 0.6
-    file_bar_height = 0.15
+    y_positions_bottom = np.arange(n_files) * 0.1
+    file_bar_height = 0.04
     for i, f in enumerate(files):
         base = y_positions_bottom[i]
-        ax_size.barh(
+        # draw bars
+        b1 = ax_size.barh(
             base - file_bar_height * 0.55,
             orig_size_mb_list[i],
             height=file_bar_height,
             color="darkorange",
             label="Original Size (MB)" if i == 0 else "",
         )
-        ax_size.barh(
+        b2 = ax_size.barh(
             base + file_bar_height * 0.55,
             shrunk_size_mb_list[i],
             height=file_bar_height,
@@ -965,20 +988,38 @@ def _generate_complex_chart(df, *, outname="time_and_filesize_comparison_by_file
             label="Shrinked Size (MB)" if i == 0 else "",
         )
 
+        # add value labels (MB)
+        _bar_label(
+            ax_size,
+            orig_size_mb_list[i],
+            base - file_bar_height * 0.55,
+            f"{orig_size_mb_list[i]:.1f} MB",
+            FONT_SIZE,
+        )
+        _bar_label(
+            ax_size,
+            shrunk_size_mb_list[i],
+            base + file_bar_height * 0.55,
+            f"{shrunk_size_mb_list[i]:.1f} MB",
+            FONT_SIZE,
+        )
+
     for i, f in enumerate(files):
         base = y_positions_bottom[i]
-        orig = orig_size_mb_list[i]
-        shr = shrunk_size_mb_list[i]
-        if orig > 0:
-            red_pct = 100.0 * (1.0 - (shr / orig))
+        orig_b = orig_size_b_list[i]
+        shr_b = shrunk_size_b_list[i]
+        shr_mb = shrunk_size_mb_list[i]
+
+        if orig_b > 0:
+            red_pct = 100.0 * (1.0 - (shr_b / orig_b))
             label = f"−{red_pct:.1f}%"
 
             x_min, x_max = ax_size.get_xlim()
             data_per_px = (x_max - x_min) / max(ax_size.bbox.width, 1.0)
-            x_text = shr + 10 * data_per_px
+            x_text = shr_mb + 10 * data_per_px
             ax_size.annotate(
                 label,
-                xy=(shr + 0.15, base + file_bar_height * 0.55),
+                xy=(shr_mb + 0.15, base + file_bar_height * 0.55),
                 xytext=(x_text, base + file_bar_height * 0.55),
                 va="center",
                 ha="left",
@@ -1109,14 +1150,10 @@ def _generate_complex_chart(df, *, outname="time_and_filesize_comparison_by_file
                     arrowprops=dict(arrowstyle="->", lw=0.8, shrinkA=0, shrinkB=0),
                 )
 
-        # y/x labels
-        ax.set_xlabel("Library", fontsize=9)
-
-        ax.set_xlabel("Library", fontsize=9)
-        ax.set_ylabel(f"Peak Memory (MiB) {file_labels[file_name]}", fontsize=9)
+        ax.set_ylabel(f"Peak Memory (MiB) \n {file_labels[file_name]}", fontsize=9)
         ax.ticklabel_format(style="plain", axis="y")
         ax.set_xticks(x)
-        ax.set_xticklabels(libraries, rotation=45, ha="right", fontsize=8)
+        ax.set_xticklabels(libraries, ha="center", fontsize=8)
         ax.legend(fontsize=8)
         ax.grid(axis="x", linestyle="--", alpha=0.5)
 
@@ -1125,95 +1162,11 @@ def _generate_complex_chart(df, *, outname="time_and_filesize_comparison_by_file
             ax.set_xlabel("")
 
     plt.tight_layout()
-    plt.savefig(outname, dpi=300, bbox_inches="tight")
-    logging.info(f"Chart generated and saved to {outname}")
-    plt.close(fig)
+    # create directory if not exists
+    os.makedirs(os.path.dirname(chart_output_path), exist_ok=True)
 
-
-def _generate_memory_chart(df):
-    required_cols = {"File", "Library", "Original Peak Memory", "Shrinked Peak Memory"}
-    missing = required_cols - set(df.columns)
-    if missing:
-        raise ValueError(
-            f"Die folgenden notwendigen Spalten fehlen in der CSV: {missing}"
-        )
-
-    df["Original Peak Memory"] = pd.to_numeric(
-        df["Original Peak Memory"], errors="coerce"
-    ).fillna(0.0)
-    df["Shrinked Peak Memory"] = pd.to_numeric(
-        df["Shrinked Peak Memory"], errors="coerce"
-    ).fillna(0.0)
-
-    files = sorted(df["File"].unique())
-    libraries = sorted(df["Library"].unique())
-
-    n_files = len(files)
-    if n_files == 0:
-        raise ValueError("Keine Dateien in der CSV gefunden.")
-
-    fig, axes = plt.subplots(nrows=n_files, figsize=(12, 4 * n_files), sharey=True)
-    if n_files == 1:
-        axes = [axes]
-
-    plt.rcParams.update({"xtick.labelsize": 8})
-
-    for ax, file_name in zip(axes, files):
-        subset = df[df["File"] == file_name]
-
-        n_libs = len(libraries)
-        x = np.arange(n_libs)
-        bar_width = 0.35
-
-        original_mem = [
-            (
-                float(subset[subset["Library"] == lib]["Original Peak Memory"].iloc[0])
-                / (1024**2)
-                if lib in subset["Library"].values
-                else 0.0
-            )
-            for lib in libraries
-        ]
-        shrunk_mem = [
-            (
-                float(subset[subset["Library"] == lib]["Shrinked Peak Memory"].iloc[0])
-                / (1024**2)
-                if lib in subset["Library"].values
-                else 0.0
-            )
-            for lib in libraries
-        ]
-
-        ax.bar(
-            x - bar_width / 2,
-            original_mem,
-            width=bar_width,
-            label="Original Peak Memory (MiB)",
-            color="skyblue",
-            edgecolor="black",
-        )
-
-        ax.bar(
-            x + bar_width / 2,
-            shrunk_mem,
-            width=bar_width,
-            label="Shrinked Peak Memory (MiB)",
-            color="orange",
-            edgecolor="black",
-        )
-
-        ax.set_title(f"Memory Consumption:\n'{file_name}'", fontsize=10, pad=10)
-        ax.set_xlabel("Library", fontsize=9)
-        ax.set_ylabel("Peak Memory", fontsize=9)
-        ax.ticklabel_format(style="plain", axis="y")
-        ax.set_xticks(x)
-        ax.set_xticklabels(libraries, rotation=45, ha="right", fontsize=8)
-        ax.legend(fontsize=8)
-        ax.grid(axis="x", linestyle="--", alpha=0.5)
-
-    plt.tight_layout()
-    output_path = "memory_consumption.pdf"
-    plt.savefig(output_path, dpi=300, bbox_inches="tight")
+    plt.savefig(chart_output_path, dpi=300, bbox_inches="tight")
+    logging.info(f"Chart generated and saved to {chart_output_path}")
     plt.close(fig)
 
 
