@@ -306,3 +306,5 @@ scripts/loading_times_size_reduction/shrunk_files/*
 scripts/scrape-destatis-xlsx-files/downloaded/*
 scripts/analyze_destatis_xlsx_files/shrinked_by_analyzer/*
 scripts/analyze_destatis_xlsx_files/shrinked_by_excel_shrink/*
+
+**/__pycache__/*
