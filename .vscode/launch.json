@@ -57,6 +57,32 @@
                 "--log",
                 "analysis_output.csv",
                 "scripts/scrape-destatis-xlsx-files/downloaded",
+                "scripts/analyze_destatis_xlsx_files/shrinked_by_analyzer",
+            ]
+        },
+        {
+            "name": "Generate Distribution of Size Reduction Chart",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "scripts/analyze_destatis_xlsx_files/generate_distribution_of_size_reduction_chart.py",
+            "python": "${workspaceFolder}/.venv/Scripts/python",
+            "preLaunchTask": "py:bootstrap"
+        },
+        {
+            "name": "Shrink Destatis XLSX Files (excel-shrink)",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "scripts/excel_shrink/excel_shrink.py",
+            "python": "${workspaceFolder}/.venv/Scripts/python",
+            "preLaunchTask": "py:bootstrap",
+            "args": [
+                "--recursive",
+                "--chunk-size",
+                "2097152",
+                "scripts/scrape-destatis-xlsx-files/downloaded",
+                "scripts/analyze_destatis_xlsx_files/shrinked_by_excel_shrink",
+            ]
+        },
         {
             "name": "Generate Chart Loading Times Size Reduction",
             "type": "debugpy",
