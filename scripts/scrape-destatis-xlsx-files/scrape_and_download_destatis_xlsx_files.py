@@ -286,7 +286,7 @@ def scrape_urls(
 
 def download_files(file_records: List[FileRecord], crawl_delay: float) -> None:
     """
-    Download files based on the list of FileRecord objects, overwriting existing files.
+    Download files based on the list of FileRecord objects,.
 
     Args:
         file_records (List[FileRecord]): A list of FileRecord objects to download.
@@ -297,7 +297,8 @@ def download_files(file_records: List[FileRecord], crawl_delay: float) -> None:
         file_path: str = os.path.join(DOWNLOAD_FOLDER, unique_file_name)
 
         if os.path.exists(file_path):
-            print(f"File {unique_file_name} already exists. Overwriting file.")
+            print(f"File {unique_file_name} already exists.")
+            continue
         else:
             print(f"Downloading file: {unique_file_name}")
 
@@ -307,7 +308,7 @@ def download_files(file_records: List[FileRecord], crawl_delay: float) -> None:
 def main() -> None:
     """
     Main function to parse command-line arguments, scrape URLs based on provided queries,
-    warn on duplicate filenames, and download files (overwriting existing ones).
+    warn on duplicate filenames, and download files.
     A new flag '--skip_scraping' allows skipping the scraping process and directly downloading
     files from the CSV log.
     """
