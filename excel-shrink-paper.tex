@@ -79,23 +79,11 @@ literate=%
 \title{Excel Shrink: High-Performance Bytestream Parsing and Cleaning of Bloated Excel Spreadsheets}
 
 
-\author{\IEEEauthorblockN{1\textsuperscript{st} Given Name Surname}
-\IEEEauthorblockA{\textit{dept. name of organization (of Aff.)} \\
-\textit{name of organization (of Aff.)}\\
-City, Country \\
-email address or ORCID}
-\and
-\IEEEauthorblockN{2\textsuperscript{nd} Given Name Surname}
-\IEEEauthorblockA{\textit{dept. name of organization (of Aff.)} \\
-\textit{name of organization (of Aff.)}\\
-City, Country \\
-email address or ORCID}
-\and
-\IEEEauthorblockN{3\textsuperscript{rd} Given Name Surname}
-\IEEEauthorblockA{\textit{dept. name of organization (of Aff.)} \\
-\textit{name of organization (of Aff.)}\\
-City, Country \\
-email address or ORCID}
+\author{\IEEEauthorblockN{1\textsuperscript{st} Alexander Aue-Johr}
+\IEEEauthorblockA{\textit{Institute of Rural Studies} \\
+\textit{Thünen-Institute}\\
+Braunschweig, Germany \\
+0009-0001-8683-3630}
 
 }
 
@@ -128,7 +116,7 @@ Second, the issue brings to light fundamental challenges in language theory and 
 
 This paper situates the Excel bloat problem within the context of database research and proposes technical approaches to mitigate it. We begin by analyzing the internal structure of Excel's Open XML format to identify the causes of file bloat and review related work and online resources regarding bloat in Excel files. We employ manual guides as well as tools such as Microsoft Excel’s Performance Tab and the Excel Inquire Add-In, and also trial versions of proprietary utilities like NXPowerLite Desktop, to assess their file size reduction capabilities.
 
-After applying these manual guides and automatic tools to real-world Excel files, we perform a qualitative analysis of the XML code to examine the changes responsible for file size reduction. By comparing the visual integrity of the files before and after cleaning—and incrementally reverting modifications to pinpoint when visual errors disappeared—we gain insight into Excel's internal file structure and determined which cleanup operations are safe. Building on this reverse-engineering process, we identify a set of safe modifications and implement them in our own protptype tool - Excel Shrink Analyzer - using regular DOM-XML parsing for fast prototyping, to tests these changes across a large number of files and validate the outcome by file size reduction and and if the Spreadsheet still looks the same, to find the set of modifications that are safe and effective.
+After applying these manual guides and automatic tools to real-world Excel files, we perform a qualitative analysis of the XML code to examine the changes responsible for file size reduction. By comparing the visual integrity of the files before and after cleaning—and incrementally reverting modifications to pinpoint when visual errors disappeared—we gain insight into Excel's internal file structure and determine which cleanup operations are safe. Building on this reverse-engineering process, we identify a set of safe modifications and implement them in our own protptype tool - Excel Shrink Analyzer - using regular DOM-XML parsing for fast prototyping, to test these changes across a large number of files and validate the outcome by file size reduction and if the Spreadsheet still looks the same, to find the set of modifications that are safe and effective.
 
 Following the prototype phase, we develop a tool applying the same modifications, but this time efficiently, using a state-machine-guided, regex-driven parser designed to clean bloated Excel files. This parser operates directly on the raw XML byte stream to overcome the limitations of conventional XML parsers when dealing with large, deeply nested structures. We evaluate the performance of this tool — referred to as Excel Shrink — on the same Dataset a series of Excel files by comparing the loading times of pre-cleaned files versus the original files when opened with standard libraries and Microsoft Excel itself.
 
@@ -161,10 +149,10 @@ Instead of duplicating formatting information, these elements simply reference t
 Despite the prevalence of the Excel bloat problem in practice, there is scant academic literature that directly addresses it. To our knowledge, no peer-reviewed study thus far has focused on the internal inefficiencies of Excel's XML format or the mitigation of bloated spreadsheets. This is consistent with the fact that the database research community has traditionally viewed spreadsheets as end-user tools rather than enterprise-scale data management systems. However, indirectly, several lines of work and industry reports touch on related issues. Microsoft's official guidelines and support articles acknowledge problems such as the “Too many different cell formats” error (triggered by style overflow)
 \cite{Microsoft2024TooManyCellFormats} and provide best practices for reducing workbook size (e.g., removing unused styles, turning off pivot cache, etc.). The Excel user community (blogs, forums) is rife with case studies of bloated files and remedies. For example, Power \cite{Power2025WhyExcelFileLarge}
  enumerates common reasons for oversized files and recommends using a ZIP tool to inspect which internal parts are largest - an approach that reveals whether data, formatting, or media are to blame. On Stack Overflow, Superuser and ExcelForum, numerous Q\&A threads document instances of mysterious file growth, often resolved by cleaning formats or rebuilding the workbook from scratch \cite{chrtak2024ExcelSheetBloated, SuperUser739577, SuperUser63119, ExcelForum1349596}
-. These sources, while not formal research, provide valuable insight into the root causes of bloat and confirm that our problem formulation is grounded in reality. However the solutions they provide are often manual, some of them utalizing the Excel built in features, recently introduced features like the excel check performance tab or the older Excel Inquire Add In, which are not suitable for automation pipelines and not scalable for large numbers of files. Yet the cause in the XML structure of the Excel file is not addressed in these sources and can only be identified by reverse engeneering the cleanup tools or Microsoft excel itself by try and error removing parts of the XML file and checking if the file still looks the same.
+. These sources, while not formal research, provide valuable insight into the root causes of bloat and confirm that our problem formulation is grounded in reality. However the solutions they provide are often manual, some of them utalizing the Excel built in features, recently introduced features like the excel check performance tab or the older Excel Inquire Add In, which are not suitable for automation pipelines and not scalable for large numbers of files. Yet the causes in the XML structure of the Excel file is not addressed in these sources and can only be identified by reverse engeneering the cleanup tools or Microsoft excel itself by try and error removing parts of the XML file and checking if the file still looks the same.
 
 
-In the academic sphere, there is growing recognition that spreadsheets and databases need not be disjoint worlds. Some research efforts have looked at enhancing spreadsheets to handle larger datasets by leveraging database technology in the background as discussed in related work \ref{sec:related-work}. Like DataSpread \cite{Bendre2015DataSpread} and Hillview \cite{Budiu2019Hillview} two systems that retain an Excel-like interface but manages data in a relational database to improve scalability ; 
+In the academic sphere, there is growing recognition that spreadsheets and databases need not be disjoint worlds. Some research efforts have looked at enhancing spreadsheets to handle larger datasets by leveraging database technology in the background. DataSpread \cite{Bendre2015DataSpread} and Hillview \cite{Budiu2019Hillview} are two systems that retain an Excel-like interface but manage data in a relational database to improve scalability.
 
 While these works are not about Excel's file format per se, they underscore a broader point: when spreadsheets approach the size of databases, one must apply database-like solutions. Our work aligns with this philosophy by treating Excel bloat and processing as a data management problem. Instead of dismissing bloated spreadsheets as user error, we view them as an important issue in large-scale semi-structured data processing that warrants efficient techniques.
 
@@ -181,9 +169,9 @@ However, there is a lack of peer-reviewed studies specifically quantifying how �
 
 Several proprietary tools have been developed to address Excel bloat automatically. Notable examples include UpSlide’s Automation Software, which offers a one-click “Smart Clean” feature \cite{upslide_blog}; NXPowerLite Desktop \cite{neuxpower2024nxpowerlite}; Sobolsoft’s Excel File Size Reduce Software \cite{sobolsoft}; and online services such as WeCompress \cite{wecompress}. Other tools, such as Kernel for Excel Repair \cite{kernel_excel}, have also been mentioned in user communities for their file compression capabilities.
 
-Excel has also developed two tools to assist users. One such tool is \textbf{Excel Inquire}, an add-in introduced with Excel 2013 that provides a range of auditing features—including Workbook Analysis, Relationship Diagrams, and the Clean Excess Cell Formatting command. O'Beirne discusses this in the proceedings of the EuSpRIG 2013 Conference on “Spreadsheet Risk Management” \cite{obeirne2013}, noting that the \textit{Clean Excess Cell Formatting} command removes excess formatting but does not indicate beforehand what will be cleared, nor does it report afterwards what was removed.
+Microsoft has also developed two tools to assist users. One such tool is \textbf{Excel Inquire}, an add-in introduced with Excel 2013 that provides a range of auditing features—including Workbook Analysis, Relationship Diagrams, and the Clean Excess Cell Formatting command. O'Beirne notes that the \textit{Clean Excess Cell Formatting} command removes excess formatting but does not indicate beforehand what will be cleared, nor does it report afterwards what was removed \cite{obeirne2013}.
 
-More recently, Microsoft introduced the \textbf{Excel Performance Tab}, a built-in feature designed to monitor workbook performance by identifying inefficiencies and offering cleaning recommendations. However, the Performance Tab has received negative user feedback; several users report that its forced “Check Performance” pop-up and the associated reformatting remove intentional formatting and disrupt workflows \cite{mrexcel2024check,microsoft_cleanup} and also Excel users report theat their pixel art is deleted \cite{mrexcel2024check} while the Microsoft Support Seite even mentions a warning that pixel art will be removed by the tool \cite{microsoft_cleanup}.
+More recently, Microsoft introduced the \textbf{Excel Performance Tab}, a built-in feature designed to monitor workbook performance by identifying inefficiencies and offering cleaning recommendations. However, the Performance Tab has received negative user feedback; several users report that its forced “Check Performance” pop-up and the associated reformatting remove intentional formatting and disrupt workflows \cite{mrexcel2024check,microsoft_cleanup} and also Excel users report that their pixel art is deleted \cite{mrexcel2024check} while the Microsoft Support Site even mentions a warning that pixel art will be removed by the tool \cite{microsoft_cleanup}.
 
 In contrast, our paper provides a comprehensive scientific analysis of the root causes of Excel file bloat in XML-based workbooks. To address this gap, we introduce \textit{Excel Shrink}--- a command-line tool designed for automation pipelines. Unlike proprietary tools that are only accessible through a graphical user interface and sometimes remove too many elements (thereby altering the visual appearance) or too few (leaving the file size large), Excel Shrink selectively reduces file size by eliminating only those elements that do not affect the workbook’s visual integrity.
 
@@ -202,11 +190,11 @@ Similar to this Excel Shrink also aims to reduce the memory footprint by streamw
 \textbf{Comparisons of Parsing Approaches and Tools.}
 These studies collectively show a trade-off between \emph{DOM-based} simplicity (at the cost of high memory usage) and fully \emph{SAX-based} pipelines (often incurring higher CPU overhead). Hybrid or domain-specific solutions—like regex-based extraction or streaming chunk processors that skip unneeded style markup—strike a middle ground 
 \cite{openxlsx, Henze2022SheetReader}. 
-Meanwhile, broad tool evaluations (Microsoft Excel vs.\ Google Sheets vs.\ LibreOffice Calc) confirm that no mainstream spreadsheet program handles truly large data sets efficiently out of the box 
+Meanwhile, broad tool evaluations (Microsoft Excel vs.\ Google Sheets vs.\ LibreOffice Calc) confirm that no mainstream spreadsheet program handles large data sets efficiently out of the box 
 \cite{Rahman2020Benchmarking}.
 
 \textbf{Parameswaran’s Contributions: Bridging Spreadsheets and Databases.}
-Aditya Parameswaran and collaborators have extensively researched integrating spreadsheets with database backends to achieve both usability and scalability 
+Aditya Parameswaran and collaborators have researched integrating spreadsheets with database backends to achieve both usability and scalability 
 \cite{Bendre2015DataSpread, Bendre2018PDM}. 
 \emph{DataSpread} preserves the familiar Excel-like interface while relying on a relational DBMS for storage and large-scale computations, enabling interactive performance even at billions of cells. This approach can be seen as bypassing Excel’s internal storage and recalculation limits by adopting database features (indexing, query optimization, concurrency control). In related work on “anti-freeze” recalculation, Parameswaran’s group explored asynchronous formula evaluation with incremental updates, preventing interface lock-ups for large or complex dependency graphs 
 \cite{Bendre2019AntiFreeze}. 
@@ -214,8 +202,8 @@ Additionally, they highlight practical tactics like saving spreadsheets as binar
 \cite{Mack2018Scalability}. 
 All these strategies offer evidence that a combination of advanced parsing, background recalculation, and robust data management techniques can significantly enhance performance for real-world Excel workloads.
 
-\paragraph{Summary.}
-From straightforward file-format optimizations (\texttt{.xlsb} compression) to \emph{architectural} overhauls (DataSpread, Budiu2019Hillview) and specialized parsers (SheetReader), the research consensus is that Excel’s native engine and file format alone do not scale gracefully. Modern solutions increasingly combine streaming-based XML handling, database or distributed architectures, and asynchronous computation to push spreadsheet interactivity far beyond Excel’s historical limits. These insights strongly motivate the need for further improvements in \texttt{.xlsx} bloat reduction and high-performance parsing directly addressed by our proposed approach in this paper.
+\textbf{Summary}
+From straightforward file-format optimizations (\texttt{.xlsb} compression) to \emph{architectural} overhauls (DataSpread, Hillview) and specialized parsers (SheetReader), the research consensus is that Excel’s native engine and file format alone do not scale gracefully. Modern solutions increasingly combine streaming-based XML handling, database or distributed architectures, and asynchronous computation to push spreadsheet interactivity far beyond Excel’s historical limits. These insights strongly motivate the need for further improvements in \texttt{.xlsx} bloat reduction and high-performance parsing directly addressed by our proposed approach in this paper.
 
   
 
@@ -395,63 +383,57 @@ the XML structure.
 \SetKwProg{Fn}{Function}{:}{}
 
 \Fn{\textsc{BuildWorkbookPatterns}($B_{\text{stylesXml}}, B_{\text{sharedStringsXml}}$)}{
-  $xfs \gets \mathrm{parseCellXfs}(B_{\text{stylesXml}})$\;
-  $S_{\mathrm{fb}} \gets \{\, i \mid xfs[i].\mathrm{fillId}\neq0 \lor xfs[i].\mathrm{borderId}\neq0 \,\}$\;
-  $S_{\mathrm{font}} \gets \{\, i \mid xfs[i].\mathrm{fillId}=6 \,\}$\;
+
+  % parse cellXfs
+  $xfs \gets \operatorname{parseCellXfs}(B_{\text{stylesXml}})$\;
+
+  % index sets
+  $S_{\mathrm{fb}} \gets \{\, i \mid xfs[i].\mathrm{fillId}\neq 0 \lor xfs[i].\mathrm{borderId}\neq 0 \,\}$\;
+  $S_{\mathrm{font}} \gets \{\, i \mid (xfs[i].\mathrm{fillId}\in\{0,\mathtt{None}\}) \land (xfs[i].\mathrm{borderId}\in\{0,\mathtt{None}\}) \land \neg xfs[i].\mathrm{applyFill} \land \neg xfs[i].\mathrm{applyBorder} \,\}$\;
+
+  % shared strings indices that are whitespace-only
+  $W \gets \textsc{IndicesOfWhitespaceSI}(B_{\text{sharedStringsXml}})$\;
+
+  % optional: finite map view of xfs (for exposition)
   $\mathsf{XFS} \gets \{\, "0"\mapsto xfs[0],\ "1"\mapsto xfs[1],\ldots \,\}$\;
-
-}
-
-
-\Fn{\textsc{BuildWorkbookPatterns}($B_{\text{stylesXml}}$, $B_{\text{sharedStringsXML}}$)}{
-
-  $xfs \gets \mathrm{parseCellXfs}(B_{\text{stylesXml}})$\;
-
-  $S_{\mathrm{fb}} \leftarrow \{\, i \mid xfs[i].\mathrm{fillId} \neq 0 \lor xfs[i].\mathrm{borderId} \neq 0 \,\}$\;
-  $S_{\mathrm{font}} \leftarrow \{\, i \mid (xfs[i].\mathrm{fillId} \in \{0,\text{None}\}) \land (xfs[i].\mathrm{borderId} \in \{0,\text{None}\}) \land \neg xfs[i].\mathrm{applyFill} \land \neg xfs[i].\mathrm{applyBorder} \,\}$\;
-
-  $W \leftarrow \IdxWhitespaceSI(B_{\text{sharedStringsXML}})$\;
-
-  $\mathsf{XFS} \gets \{\, "0"\mapsto xfs[0],\ "1"\mapsto xfs[1],\ldots \,\}$\;
-
 
   %%% OFS + (rho1, rho2)
   \uIf{$|S_{\mathrm{font}}|>0$}{
-    $\mathrm{OFS} \leftarrow \Join(S_{\mathrm{font}}, \texttt{|})$\;
-    $p_{\text{ra}} \leftarrow$ \code{'\s*(\bspans="[^"]+?"|' + }\\
+    $\mathrm{OFS} \gets \Join(S_{\mathrm{font}}, \texttt{|})$\;
+    $p_{\text{ra}} \gets$ \code{'\s*(\bspans="[^"]+?"|' + }\\
     \code{   '\b[^\s:]*?:dyDescent="[^"]*"|' + } \\
     \code{   '\bs="(?:' + OFS + ')")'}\;
-    $p_{\text{e}} \leftarrow$ \code{'(?:<c\b(?:(?![^>]*\bs=)[^>]*|[^>]*' + } \\
+    $p_{\text{e}} \gets$ \code{'(?:<c\b(?:(?![^>]*\bs=)[^>]*|[^>]*' + } \\
     \code{ '\bs="(?:' + OFS + ')"[^>]*)/>)+'}\;
   }\Else{
-    $p_{\text{ra}} \leftarrow$ \code{'\s*(\bspans="[^"]+?"|'} \\
+    $p_{\text{ra}} \gets$ \code{'\s*(\bspans="[^"]+?"|' + } \\
     \code{      '\b[^\s:]*?:dyDescent="[^"]*")'}\;
-    $p_{\text{e}} \leftarrow$ \code{'(?:<c\b(?![^>]*\bs=)[^>]*/>)+'}\;
+    $p_{\text{e}} \gets$ \code{'(?:<c\b(?![^>]*\bs=)[^>]*/>)+'}\;
   }
 
   %%% FB + (rho3)
   \uIf{$|S_{\mathrm{fb}}|>0$}{
-    $\mathrm{FB} \leftarrow \Join(S_{\mathrm{fb}}, \texttt{|})$\;
-    $p_{\text{fbh}} \leftarrow$ \code{'(?:s="(?:' + FB + ')"|"hidden="1")'}\;
+    $\mathrm{FB} \gets \Join(S_{\mathrm{fb}}, \texttt{|})$\;
+    $p_{\text{fbh}} \gets$ \code{'(?:s="(?:' + FB + ')"|"hidden="1")'}\;
   }\Else{
-    $p_{\text{fbh}} \leftarrow$ \code{'"hidden="1"'}\;
+    $p_{\text{fbh}} \gets$ \code{'"hidden="1"'}\;
   }
 
   %%% WS + (rho4, rho5)
   \uIf{$|W|>0$}{
-      $\mathrm{WS} \leftarrow \Join(W, \texttt{|})$\;
-    $p_{\text{ws}} \leftarrow$ \code{'<v>(?:' + WS + ')</v>'}\;
-    $p_{\text{wc}} \leftarrow$ \code{'(<c\b[^>]*?\bt="s"[^>]*?)><v>(?:'} \\
+      $\mathrm{WS} \gets \Join(W, \texttt{|})$\;
+    $p_{\text{ws}} \gets$ \code{'<v>(?:' + WS + ')</v>'}\;
+    $p_{\text{wc}} \gets$ \code{'(<c\b[^>]*?\bt="s"[^>]*?)><v>(?:'} \\
     \code{   + WS + ')</v></c>'}\;
   }\Else{
-    $p_{\text{ws}} \leftarrow \text{None}$\;
-    $p_{\text{wc}} \leftarrow \text{None}$\;
+    $p_{\text{ws}} \gets \text{None}$\;
+    $p_{\text{wc}} \gets \text{None}$\;
   }
 
-  $R \leftarrow \{p_{\text{ra}},p_{\text{e}},p_{\text{fbh}},p_{\text{ws}},p_{\text{wc}}\}$ with \textsf{compile} for all non-\texttt{None}\;
+  $\mathcal{P} \leftarrow \{p_{\text{ra}},p_{\text{e}},p_{\text{fbh}},p_{\text{ws}},p_{\text{wc}}\}$ with \textsc{compile} for all non-\texttt{None}\;
 
+  \KwRet $\langle \mathcal{P},\ $XFS$\rangle$\;
 
-  \Return $\textsf{Patterns}(\mathrm{xfs}, R)$\;
 }
 \caption{Consolidated construction: compute alternations and build dependent regexes in the same branch.}
 \label{alg:build-wb-patterns}
@@ -462,121 +444,100 @@ the XML structure.
 These patterns parameterise all sheet and workbook transformations that follow, ensuring we preserve semantically relevant visual styling.
 
 
+\newcommand{\xtag}[1]{\text{\scriptsize\texttt{#1}}} % for literal XML tags
+\newcommand{\concat}{\mathbin{\|}}                   % byte-sequence 
 
-\newcommand{\xtag}[1]{\text{\scriptsize\texttt{#1}}} % needs amsmath (acmart loads it)
 \begin{algorithm}
   \caption{Streaming extraction of sheet components}
   \label{alg:preprocess}
   \DontPrintSemicolon
-  \SetKwFunction{ParseCols}{$\mathrm{parseColDefs}$}
-  \SetKwFunction{PreSD}{$\mathrm{preProcessSheetData}$}
-  \SetKwFunction{TrackMC}{$\mathrm{trackMaxMerge}$}
-
-  \SetKwFunction{Preprocess}{$\mathrm{PreprocessSheetStreamwise}$}
   \SetKwProg{Fn}{Function}{:}{}
+  \SetKwFunction{NextTag}{$\mathrm{nextTag}$}
+  \SetKwFunction{Consume}{$\mathrm{consumeUntil}$}
+  \SetKwFunction{ParseCols}{$\mathrm{parseColDefs}$}
+  \SetKwFunction{PreSD}{$\mathrm{preProcessSD}$}
+  \SetKwFunction{TrackMC}{$\mathrm{trackMaxMerge}$}
+\SetKwFunction{ConsumeSD}{ConsumeSheetData}
+\SetKwFunction{ConsumeCols}{ConsumeCols}
+\SetKwFunction{ConsumeMC}{ConsumeMergeCells}
 
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  % Main procedure
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \Fn{\textsc{PreprocessSheetStreamwise}($\mathit{sheetStream}, \mathcal{P}, \mathsf{chunkSize}$)}{
 
-\Fn{\textsc{PreprocessSheetStreamwise}($\mathit{sheetStream}, \mathcal{P}, \mathsf{chunkSize}$)}{
- 
+    % buffers / accumulators
+    $state \gets \mathsf{IN\_WORKSHEET}$;\quad $b \gets \epsilon$;\;
+    $B_{\text{preCols}},\ B_{\text{cols}},\ B_{\text{preSD}},\ B_{\text{sheetData}},\ B_{\text{preMC}},\ B_{\text{mergeCells}},\ B_{\text{tail}} \gets \epsilon$;\;
 
-  $\phi_{\text{cols}} \gets \mathrm{parseColDefs}(x,\mathcal{P})$;\quad
-  $\phi_{\text{sd}} \gets \mathrm{preProcessSheetData}(x,\mathcal{P})$;\quad
-  $\phi_{\Delta} \gets \mathrm{trackMaxMerge}(x)$;\;
+    % tracking structures
+    $\mathcal{T} \gets \varnothing$;\quad \emph{processed tags} \;
+    $\mathcal{T} \gets \varnothing$;\quad \emph{processed tags} \;
 
-  \While{$state \neq \mathsf{FOUND\_END}$}{
- 
-    \eIf{$state=\mathsf{IN\_WORKSHEET}$}{
+    $\mathcal{D}_col \gets \mathrm{newRangeMap}()$;\quad \emph{column defs (map)} \;
+    $m_{\max}\gets \bot$;\;
 
-      \If{$tag=\texttt{<cols>}$}{
-        $B_{\text{preCols}} \gets B_{\text{preCols}} \,\|\, \mathrm{takeUntil}(b, tag)$;\;
-        $state \gets \mathsf{IN\_COLS}$;\;
-      }
-      \ElseIf{$tag=\texttt{<sheetData>}$}{\dots}
-      \ElseIf{$tag=\texttt{<mergeCells>}$}{\dots}
-      \Else{\textbf{break}}
-    }{
-      \uIf{$state=\mathsf{IN\_COLS}$}{
-        $(chunk,b,state,\mathcal{D}) \gets \mathrm{consumeUntil}(b,\texttt{</cols>},\phi_{\text{cols}})$;\;
-        $B_{\text{cols}} \gets B_{\text{cols}} \,\|\, chunk$;\;
-      }
-      \uElseIf{$state=\mathsf{IN\_SHEETDATA}$}{\dots}
-      \uElseIf{$state=\mathsf{IN\_MERGECELLS}$}{\dots}
-    }
-  }
-
-  \KwRet~$\langle
-     \mathrm{Preprocessed}:\langle B_{\text{preCols}}, B_{\text{cols}}, B_{\text{preSD}}, B_{\text{sheetData}},
-                              B_{\text{preMC}}, B_{\text{mergeCells}}, B_{\text{tail}}\rangle,\;
-     \mathrm{Metrics}:\langle \mathcal{D}, m_{\max}\rangle
-  \rangle$\;
-}
-
-
-\Fn{\textsc{PreprocessSheetStreamwise}($\mathit{sheetStream}, \mathcal{P}, \mathsf{chunkSize}$)}{
-
-  $state \gets \mathsf{IN\_WORKSHEET}$;\quad $b \gets \epsilon$;\;
-  $B_{\text{preCols}}, B_{\text{cols}}, B_{\text{preSD}}, B_{\text{sheetData}},
-    B_{\text{preMC}}, B_{\text{mergeCells}}, B_{\text{tail}} \gets \epsilon$;\;
-  $\mathcal{T} \gets \varnothing$;\quad $\mathcal{D} \gets \mathrm{newRangeMap}()$;\quad $m_{\max}\gets \bot$;\;
-
-    $state \gets \texttt{IN\_WORKSHEET}$;\quad $buf \gets \epsilon$;\;
-    \textbf{initialise accumulators: }
-      $B_{\mathrm{preCols}},\ B_{\mathrm{cols}},\ B_{\mathrm{preSD}},\ B_{\mathrm{sheetData}},\ B_{\mathrm{preMC}},\ B_{\mathrm{mergeCells}},\ B_{\mathrm{tail}}$;\;
-    $processedTags \gets \varnothing$;\quad $colDefs \gets \varnothing$;\quad $maxMerge \gets \bot$;\;
-
+    % literals / observers
     $\mathcal{O} \gets \{\xtag{<cols>},\ \xtag{<sheetData>},\ \xtag{<mergeCells>},\ \xtag{</worksheet>}\}$;\;
-    $\phi_{\mathrm{cols}}(x) \gets \mathrm{parseColDefs}(x,\ patterns)$;\;
-    $\phi_{\mathrm{sd}}(x) \gets \mathrm{preProcessSheetData}(x,\ patterns)$;\;
-    $\phi_{\mathrm{mc}}(x) \gets \mathrm{trackMaxMerge}(x)$;\;
 
     \While{$state \neq \mathsf{FOUND\_END}$}{
-      $b \gets b \,\|\, \mathrm{read}(\mathit{sheetStream}, \mathsf{chunkSize})$;\;
+      $b \gets b \concat \mathrm{read}(\mathit{sheetStream}, \mathsf{chunkSize})$;\;
 
       \uIf{$state = \mathsf{IN\_WORKSHEET}$}{
-        $remainingTags \gets \mathcal{O} \smallsetminus processedTags$\;
-      $\langle tag, span\rangle \gets \mathrm{nextTag}(b, \mathcal{T})$;\;
+        $R \gets \mathcal{O} \smallsetminus \mathcal{T}$;\;
+        $\langle tag,\ i_{\text{tag}},\ j_{\text{tag}} \rangle \gets \NextTag(b, R)$;\;
 
+        \uIf{$tag \neq \bot$}{
+          \lIf{$tag = \xtag{<cols>}$}{
+            $B_{\text{preCols}} \gets B_{\text{preCols}} \concat b[0{:}i_{\text{tag}})$
+          }
+          \lIf{$tag = \xtag{<sheetData>}$}{
+            $B_{\text{preSD}} \gets B_{\text{preSD}} \concat b[0{:}i_{\text{tag}})$
+          }
+          \lIf{$tag = \xtag{<mergeCells>}$}{
+            $B_{\text{preMC}} \gets B_{\text{preMC}} \concat b[0{:}i_{\text{tag}})$
+          }
 
-        \uIf{\textsf{found}(tag)}{
-          \lIf{$tag = \xtag{<cols>}$}{ $B_{\mathrm{preCols}} \gets \textsf{concat}\!\bigl(B_{\mathrm{preCols}},\ \textsf{takeUntil}(buf,\ tag)\bigr)$ }
-          \lIf{$tag = \xtag{<sheetData>}$}{ $B_{\mathrm{preSD}} \gets \textsf{concat}\!\bigl(B_{\mathrm{preSD}},\ \textsf{takeUntil}(buf,\ tag)\bigr)$ }
-          \lIf{$tag = \xtag{<mergeCells>}$}{ $B_{\mathrm{preMC}} \gets \textsf{concat}\!\bigl(B_{\mathrm{preMC}},\ \textsf{takeUntil}(buf,\ tag)\bigr)$ }
+          % drop the consumed prefix incl. the tag
+          $b \gets b[j_{\text{tag}}{:}|b|)$;\;
 
-          $buf \gets \textsf{after}(buf,\ tag)$;\;
-          $state \gets \textsf{nextState}(tag)$;\;
-          $processedTags \gets processedTags \cup \{tag\}$;\;
+          % state transition + bookkeeping
+          $state \gets \mathrm{nextState}(tag)$;\;
+          $\mathcal{T} \gets \mathcal{T} \cup \{tag\}$;\;
         }
       }
 
       \uElseIf{$state = \mathsf{IN\_COLS}$}{
-        $(chunk,\ buf,\ state,\ colDefs) \gets$\\
-        \Indp $\textsf{consumeUntil}\bigl(buf,\ \xtag{</cols>},\ \phi_{\mathrm{cols}}\bigr)$\Indm;\;
-        \textsf{appendInPlace} \!($B_{\mathrm{cols}},\ chunk$)\;
+        $\langle c,\ b,\ state,\ \mathcal{D}_col \rangle \gets \textsc{ConsumeCols}(b,\ \mathcal{P}, \mathcal{D}_col)$\;
+        $B_{\text{cols}} \gets B_{\text{cols}} \concat c$\;
       }
 
-      \uElseIf{$state = \mathsf{IN\_SHEETDATA}$}{
-        $(chunk,\ buf,\ state) \gets$\\
-        \Indp $\textsf{consumeUntil}\bigl(buf,\ \xtag{</sheetData>},\ \phi_{\mathrm{sd}}\bigr)$\Indm;\;
-        \textsf{appendInPlace} \!($B_{\mathrm{sheetData}},\ chunk$)\;
-      }
+\uElseIf{$state=\mathsf{IN\_SHEETDATA}$}{
+  $\langle c,\ b,\ state\rangle \gets \textsc{ConsumeSheetData}(b,\mathcal{P})$\;
+  $B_{\text{sheetData}} \gets B_{\text{sheetData}} \concat c$\;
+}
 
       \uElseIf{$state = \mathsf{IN\_MERGECELLS}$}{
-        $(chunk,\ buf,\ state,\ maxMerge) \gets$\\
-        \Indp $\textsf{consumeUntil}\bigl(buf,\ \xtag{</mergeCells>},\ \phi_{\mathrm{mc}}\bigr)$\Indm;\;
-        \textsf{appendInPlace} \!($B_{\mathrm{mergeCells}},\ chunk$)\;
+        $\langle c,\ b,\ state,\ m_{\max} \rangle \gets \textsc{ConsumeMergeCells}(b,\ m_{\max})$\;
+        $B_{\text{mergeCells}} \gets B_{\text{mergeCells}} \concat c$\;
       }
 
       \Else{
-        \textsf{appendInPlace} \!($B_{\mathrm{tail}},\ \textsf{rest}(buf)$)\; \textbf{break}\;
+        % no further structural tag: everything remaining is tail
+        $B_{\text{tail}} \gets B_{\text{tail}} \concat b[0{:}|b|)$;\;
+        $b \gets \epsilon$;\;
+        \textbf{break}\;
       }
     }
+
+  $\mathcal{M} \leftarrow \{\mathcal{D}_col,m_{\max}\}$\;
+
 
 \Return $\textsf{Preprocessed}\left(
   \vcenter{\hbox{$
     \begin{alignedat}{1}
       &B_{\mathrm{preCols}},\ B_{\mathrm{cols}},\ B_{\mathrm{preSD}},\ B_{\mathrm{sheetData}},\\
-      &B_{\mathrm{preMC}},\ B_{\mathrm{mergeCells}},\ B_{\mathrm{tail}},\\
-      &\textsf{Metrics}(colDefs,\ maxMerge)
+      &B_{\mathrm{preMC}},\ B_{\mathrm{mergeCells}},\ B_{\mathrm{tail}},\mathcal{M}
     \end{alignedat}
   $}}
 \right)$;\;
@@ -585,16 +546,31 @@ These patterns parameterise all sheet and workbook transformations that follow, 
 
   \BlankLine
 
-  \Fn{\ParseCols{$x$, patterns}}{
-    $defs \gets \textsf{newRangeMap}()$\;
-    \ForEach{$c \gets \textsf{nextCol}(x)$}{
-      $(\texttt{min},\texttt{max},\texttt{style},\texttt{hidden}) \gets \textsf{fields}(c)$\;
-      $xf \gets \textsf{xfLookup}(\texttt{style},\ patterns)$%\tcp*[r]{map raw index to style facts}
-      \textsf{addRange}($defs$, $\texttt{min}$, $\texttt{max}$, $xf$, $\texttt{hidden}$)\;
-    }
-    \textsf{finalise}($defs$)\;
-    \KwRet $defs$\;
+\Fn{\textsc{ConsumeSheetData}($b,\mathcal{P}$)}{
+  $i \gets \operatorname{find}\!\bigl(b,\xtag{</sheetData>}\bigr)$\;
+  \lIf{$i \ge 0$}{
+    \KwRet $\langle \textsc{PreProcessSD}(b[0{:}i],\mathcal{P}),\ b[i{:}],\ \mathsf{IN\_WORKSHEET}\rangle$
   }
+  $k \gets \operatorname{rfind}\!\bigl(b,\xtag{<row}\bigr)$\;
+  \lIf{$k \ge 0$}{
+    \KwRet $\langle \textsc{PreProcessSD}(b[0{:}k],\mathcal{P}),\ b[k{:}],\ \mathsf{IN\_SHEETDATA}\rangle$
+  }
+  \KwRet $\langle \epsilon,\ b,\ \mathsf{IN\_SHEETDATA}\rangle$\;
+}
+
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  % Column-definition parser (map builder)
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  %\Fn{\ParseCols{$x, \mathcal{P}$}}{
+  %  $\mathcal{E} \gets \mathrm{newRangeMap}()$;\;
+  %  \ForEach{$c \gets \mathrm{nextCol}(x)$}{
+  %    $(\texttt{min},\texttt{max},\texttt{style},\texttt{hidden}) \gets \mathrm{fields}(c)$\;
+  %    $xf \gets \mathrm{xfLookup}(\texttt{style},\ \mathcal{P})$\;
+  %    $\mathrm{addRange}(\mathcal{E},\ \texttt{min},\ \texttt{max},\ xf,\ \texttt{hidden})$\;
+  %  }
+  %  $\mathrm{finalise}(\mathcal{E})$;\;
+  %  \KwRet $\mathcal{E}$\;
+  %}
 
 \end{algorithm}
 
@@ -603,10 +579,9 @@ These patterns parameterise all sheet and workbook transformations that follow, 
 
 
 
-We implement our spreadsheet parser streaming-based, processing the XML data incrementally to minimize memory consumption and permit early discarding of unnecessary file sections. Both our “consecutive” and “interleaved” parsing approaches, which reduce memory usage, use this same underlying state machine. Below, we focus on how the parser transitions between states (i.e., how each state function decides to proceed), deferring lower-level details of in-state processing until later sections.
-The complete streaming pre-processing algorithm is summarised in Algorithm \ref{alg:preprocess}.
+We implement our spreadsheet parser streaming-based, processing the XML data incrementally to minimize memory consumption and permit early discarding of unnecessary file sections. Below, we focus on how the parser transitions between states (i.e., how each state function decides to proceed), deferring lower-level details of in-state processing until later sections (Algorithm \ref{alg:preprocess}).
 
-\paragraph{States Overview.}
+\paragraph{States Overview}
 We define six main states in our parser:
 \begin{itemize}
   \item \texttt{BEFORE\_COLS}: The parser has not yet encountered the \texttt{<cols>} element. It searches for either \texttt{<cols>} or \texttt{<sheetData>}.
@@ -627,12 +602,12 @@ In \texttt{BEFORE\_COLS}, \texttt{BEFORE\_SHEET\_DATA}, or \texttt{AFTER\_SHEET\
 \end{enumerate}
 If the parser fails to find any relevant tag or end of file, it returns no new output chunk, remains in the same state and leaves the buffer unmodified. This ensures that subsequent incoming data can be appended, eventually providing enough content to match the target boundary.
 
-\paragraph{In column definition node.}
+\paragraph{In column definition node}
 In \texttt{IN\_COLS}, the parser searches for \verb|</cols>| or any \verb|<col .../>| elements. On detecting \verb|</cols>|, it cuts the buffer right before the closing tag and transitions to \texttt{BEFORE\_SHEET\_DATA}. If it does not find the closing tag but locates complete \verb|<col .../>| elements, those are consumed and removed from the buffer as a clean cut. If no match is found, the buffer remains unchanged, waiting for more data to complete the matching.
 
 
 \begin{algorithm}
-\caption{preProcessSheetData — streaming prefilters for \texttt{<sheetData>} chunks}
+\caption{PreProcessSD — streaming prefilters for \texttt{<sheetData>} chunks}
 \label{alg:presd}
 \DontPrintSemicolon
 \SetKwFunction{PreSD}{preProcessSheetData}
@@ -650,12 +625,11 @@ In \texttt{IN\_COLS}, the parser searches for \verb|</cols>| or any \verb|<col .
   
   \BlankLine
 
-
-\Fn{\PreSD{$x$, $\mathcal{P}$}}{
+  
+\Fn{\textsc{PreProcessSD}($b$, $\mathcal{P}$)}{
   %\tcp{Input: $x$ = \texttt{<sheetData>} bytes (row-aligned).}
   %\tcp{Params: $\mathcal{P}$ = pattern pack with fields
   %$\{p_{\text{ws}}, p_{\text{wc}}, p_{\text{e}}\}$: whitespace, whitespace-cell, consecutive-font-only-styled-empty-cells.}
-  $y \gets x$\;
 
   
 
@@ -665,61 +639,64 @@ In \texttt{IN\_COLS}, the parser searches for \verb|</cols>| or any \verb|<col .
 
   \BlankLine
   %\tcp{Coalesce consecutive hidden rows.}
-  \If{$\textsf{has}(y,\ \xtag{hidden="1"})$}{
-    $y \gets \textsf{sub}(p_{\text{hid}}, "\textbackslash1", y)$\;
+  \If{$\operatorname{has}(b,\ \xtag{hidden="1"})$}{
+    $b \gets \operatorname{sub}(p_{\text{hid}}, "\textbackslash1", b)$\;
   }
 
   \BlankLine
   %\tcp{Replace whitespace shared-string cells.}
-  \If{$\textsf{has}(p_{\text{ws}})\ \land\ \textsf{has}(p_{\text{wc}})$}{
-    \If{$\textsf{match}(p_{\text{ws}}, y)$}{
-      $y \gets \textsf{sub}(p_{\text{wc}}, "\textbackslash1/>", y)$\;
+  \If{$\operatorname{has}(\mathcal{P}.p_{\text{ws}})\ \land\ \operatorname{has}(\mathcal{P}.p_{\text{wc}})$}{
+    \If{$\operatorname{match}(\mathcal{P}.p_{\text{ws}}, b)$}{
+      $b \gets \operatorname{sub}(\mathcal{P}.p_{\text{wc}}, "\textbackslash1/>", b)$\;
     }
   }
 
   \BlankLine
   %\tcp{Drop consecutive empty, layout-neutral cells.}
-  \If{$\textsf{has}(y,\ \xtag{<c})$}{
-    $y \gets \textsf{sub}(p_{\text{e}}, "", y)$\;
+  \If{$\operatorname{has}(b,\ \xtag{<c})$}{
+    $b \gets \operatorname{sub}(\mathcal{P}.p_{\text{e}}, "", b)$\;
   }
 
   \BlankLine
   %\tcp{Return cleaned chunk.}
-  \KwRet $y$\;
+  \KwRet $b$\;
 }
 \end{algorithm}
 
 
 
-\paragraph{In sheet data node.}
+\paragraph{In sheet data node}
 While \texttt{IN\_SHEET\_DATA}, the parser similarly looks for \verb|</sheetData>| or row boundaries \texttt{<row ...>...</row>} (or \texttt{<row .../>}). If \verb|</sheetData>| is found, the parser cuts the buffer at that tag and transitions to \texttt{AFTER\_SHEET\_DATA}. If no boundary is present yet, the buffer remains unaltered to combine with future data chunks.
 
-\paragraph{Ensuring ``Clean Cuts'' within the Streaming Buffer.}
+\paragraph{Ensuring ``Clean Cuts'' within the Streaming Buffer}
 Our parser reads raw XML data into a working buffer and ensures each XML node boundary is cleanly preserved, so no node is split across buffers. Each state-transition function adheres to this principle, only cutting when a relevant XML tag is fully identified. 
 
-\paragraph{Buffer Updates and State Progress.}
+\paragraph{Buffer Updates and State Progress}
 By constraining parsing decisions to these well-defined cuts, the parser never splits an XML node across multiple buffers. Each function (1) cuts on the matching tag boundary and updates the parser state, or (2) leaves the buffer intact if no complete boundary is found, thus allowing the next chunk to complete it. This way the parser can process the XML incrementally without needing to store the entire document in memory and it is ensured that the regular expressions dont't fail due to incomplete XML nodes and also only the regular expressions that are relevant to the current section of the document are applied, incresing the performance in comparison to applying all regular expressions on the whole document.
 
 
 \begin{algorithm}[t]
-\caption{splitSheetDataRanges — compute \emph{cellsRange} and trailing \emph{rowsRange}}
+\caption{SplitSheetDataRanges — compute \emph{cellsRange} and trailing \emph{rowsRange}}
 \label{alg:split-sheetdata}
 \DontPrintSemicolon
 \SetKwProg{Fn}{Function}{:}{}
+\SetKw{Raise}{\textbf{raise}}
 
-\Fn{splitSheetDataRanges($sheetData$, $\mathcal{P}$)}{
+\Fn{\textsc{SplitSheetDataRanges}($B_{\mathrm{sheetData}}$, $\mathcal{P}$)}{
   %\tcp{Input $sheet_data_bytes$: bytes of the \xtag{<sheetData>} node.}
   %\tcp{$patterns.p_{\mathrm{fbh}}$: compiled regex for \code{s="FB"} or \code{hidden="1"}.}
 
   \BlankLine
   %\tcp{1) Find the end of the last row that still contains a cell.}
-  $i_{\mathrm{lastC}} \gets \textsf{rfind}(sheetData,\ \code{"<c "})$\;
+  $i_{\mathrm{lastC}} \gets \operatorname{rfind}(B_{\mathrm{sheetData}},\ \code{"<c "})$\;
   \If{$i_{\mathrm{lastC}} = -1$}{
     $i_{\mathrm{cellsEnd}} \gets -1$\;
   }
   \Else{
-    $j \gets \textsf{find}(sheetData,\ \code{"</row>"},\ i_{\mathrm{lastC}})$\;
-    \If{$j=-1$}{\KwRet \textsf{error}(\code{"no </row> after last <c"})}
+    $j \gets \operatorname{find}(B_{\mathrm{sheetData}},\ \code{"</row>"},\ i_{\mathrm{lastC}})$\;
+    \If{$j=-1$}{
+          \Raise{Error: "no </row> after last <c"}{}
+      }
     $i_{\mathrm{cellsEnd}} \gets j + |\code{"</row>"}|$\;
   }
 
@@ -727,7 +704,7 @@ By constraining parsing decisions to these well-defined cuts, the parser never s
   %\tcp{2) Scan for last visible attribute (fill/border style or \code{hidden="1"}).}
   $i_{\mathrm{visAttr}} \gets i_{\mathrm{cellsEnd}}$\;
   $m_{\mathrm{last}} \gets \bot$\;
-  \ForEach{$m \in \textsf{finditer}(patterns.p_{\mathrm{fbh}},\ sheetData,\ \text{start}=i_{\mathrm{cellsEnd}})$}{
+  \ForEach{$m \in \operatorname{finditer}(patterns.p_{\mathrm{fbh}},\ B_{\mathrm{sheetData}},\ \text{start}=i_{\mathrm{cellsEnd}})$}{
     $m_{\mathrm{last}} \gets m$\;
   }
   \If{$m_{\mathrm{last}} \neq \bot$}{
@@ -736,8 +713,8 @@ By constraining parsing decisions to these well-defined cuts, the parser never s
 
   \BlankLine
   %\tcp{3) From that anchor, find the end position of the last visible row.}
-  $j_{\mathrm{close}} \gets \textsf{find}(sheetData,\ \code{"</row>"},\ i_{\mathrm{visAttr}})$\;
-  $j_{\mathrm{self}}  \gets \textsf{find}(sheetData,\ \code{"/>"},\ i_{\mathrm{visAttr}})$\;
+  $j_{\mathrm{close}} \gets \operatorname{find}(B_{\mathrm{sheetData}},\ \code{"</row>"},\ i_{\mathrm{visAttr}})$\;
+  $j_{\mathrm{self}}  \gets \operatorname{find}(B_{\mathrm{sheetData}},\ \code{"/>"},\ i_{\mathrm{visAttr}})$\;
 
   \uIf{$j_{\mathrm{close}} \neq -1 \land j_{\mathrm{self}} \neq -1$}{
     \uIf{$j_{\mathrm{close}} < j_{\mathrm{self}}$}{
@@ -753,7 +730,7 @@ By constraining parsing decisions to these well-defined cuts, the parser never s
     $i_{\mathrm{rowsEnd}} \gets j_{\mathrm{close}} + |\code{"</row>"}|$\;
   }
   \Else{
-    \KwRet \textsf{error}(\code{"no </row> or /> after last anchor"})\;
+    \Raise{Error: "no </row> or /> after last anchor"}{}
   }
 
   \BlankLine
@@ -761,7 +738,7 @@ By constraining parsing decisions to these well-defined cuts, the parser never s
   \uIf{$i_{\mathrm{cellsEnd}} = -1$}{
     $\textit{cellsRange} \gets \epsilon$\;
   }\Else{
-    $\textit{cellsRange} \gets sheetData[0 : i_{\mathrm{cellsEnd}}]$\;
+    $\textit{cellsRange} \gets B_{\mathrm{sheetData}}[0 : i_{\mathrm{cellsEnd}}]$\;
   }
 
   $i_{\mathrm{rowsStart}} \gets \max(0,\ i_{\mathrm{cellsEnd}})$\;
@@ -772,7 +749,8 @@ By constraining parsing decisions to these well-defined cuts, the parser never s
   }
 
   \BlankLine
-  \KwRet $(\textit{cellsRange},\ \textit{rowsRange})$\;
+    \KwRet $\langle \textit{cellsRange},\ \textit{rowsRange}\rangle$\;
+
 }
 \end{algorithm}
 
@@ -847,17 +825,17 @@ cell cleanup}
 
 \BlankLine
 
-\Fn{cleanRowsAndCellsInRange($B_{\text{row}}$, $\mathcal{P}$, $\mathcal{M}$, $XFS$)}{
+\Fn{\textsc{CleanRowsAndCellsInRange}($B_{\text{row}}$, $\mathcal{P}$, $\mathcal{M}$, $XFS$)}{
   %\tcp{$\mathcal{M}$: mutable per-sheet state; $params$: xfs/columns.}
   \KwRet \Sub($B_{\text{row}}$, $p_{\text{row}}$,
-    \ReplaceRow($\cdot$, $\mathcal{P}$, $\mathcal{M}$, $XFS$))\;
+    \textsc{ReplaceRow}($\cdot$, $\mathcal{P}$, $\mathcal{M}$, $XFS$))\;
 }
 
 
 \BlankLine
 
 
-\Fn{ReplaceRow($m$, $\mathcal{P}$, $\mathcal{M}$, $XFS$)}{
+\Fn{\textsc{ReplaceRow}($m$, $\mathcal{P}$, $\mathcal{M}$, $XFS$)}{
   %\tcp{$m$ has groups from $p_{\text{row}}$:}
   %\tcp{$rowAttr$, $r$, $hidden$?, $styleId$?, $ht$?, $content$?}
   $(rowAttr,\ r,\ hidden,\ sId,\ ht,\ content)
@@ -894,7 +872,7 @@ cell cleanup}
       \KwRet \code{''}\;
     }
     \If{$becameEmpty$}{
-      $rowAttr \gets \textsf{addCustomHeightIfAbsent}(rowAttr)$\;
+      $rowAttr \gets \textsc{addCustomHeightIfAbsent}(rowAttr)$\;
     }
     \KwRet \code{'<row' + clean(rowAttr) + '/>'}\;
   }
@@ -906,7 +884,7 @@ cell cleanup}
 
 \BlankLine
 
-\Fn{CleanCells($rowBytes$, $\mathcal{P}$, $\mathcal{M}$, $XFS$)}{
+\Fn{\textsc{CleanCells}($rowBytes$, $\mathcal{P}$, $\mathcal{M}$, $XFS$)}{
   \If{$rowBytes=\epsilon$}{\KwRet $rowBytes$}
   \KwRet \Sub($rowBytes$, $p_{\text{cell}}$,
     \ReplaceCell($\cdot$, $\mathcal{M}$, $XFS$))\;
@@ -914,18 +892,18 @@ cell cleanup}
 
 \BlankLine
 
-\Fn{ReplaceCell($m$, $\mathcal{M}$, $XFS$)}{
+\Fn{\textsc{ReplaceCell}($m$, $\mathcal{M}$, $XFS$)}{
   %\tcp{Groups from $p_{\text{cell}}$: $cellAttr$, $col$?, $row$?, $styleId$?}
   $(cellAttr,\ col,\ row,\ sId) \gets \text{groups}(m)$\;
   $style \gets (sId\neq\bot)\ ?\ \mathrm{xfs}[sId]\ :\ \bot$\;
   $coord \gets (col,row)$\;
 
-  \If{$\textsf{cellIsHidden}(coord,\ \mathcal{M})$}{\KwRet \code{''}\;}
+  \If{$\textsc{cellIsHidden}(coord,\ \mathcal{M})$}{\KwRet \code{''}\;}
   \If{$style=\bot$}{\KwRet \code{''}\;}
   \If{$style.hasFillOrBorder$}{\KwRet \code{'<c' + cellAttr + '/>'}\;}
   \If{$\lnot style.hasApplyFillOrBorder$}{\KwRet \code{''}\;}
 
-  \If{$\textsf{cellOverridesFillOrBorder}(style,\ coord,\ \mathcal{M})$}{
+  \If{$\textsc{cellOverridesFillOrBorder}(style,\ coord,\ \mathcal{M})$}{
     \KwRet \code{'<c' + cellAttr + '/>'}\;
   }
   \Else{
@@ -947,11 +925,10 @@ Alg.~\ref{alg:split-sheetdata}:
 (i) a \emph{rows+cells} sweep over the prefix slice that still contains cells
 (\emph{cellsRange}), and (ii) a \emph{trailing empty-rows} sweep over the
 suffix slice that no longer contains any cells (\emph{rowsRange}).
-Both passes are guided by workbook-specific patterns (compiled as described in
-\S\ref{sec:wb-patterns}) and update a small, per-sheet metrics state $\mathcal{M}$ used by later
+Both passes are guided by workbook-specific patterns (See \ref{sec:wb-patterns}) and update a small, per-sheet metrics state $\mathcal{M}$ used by later
 steps (merge-column normalization and diagnostics).
 
-\paragraph*{Range splitting.}
+\paragraph*{Range splitting}
 
 Alg.~\ref{alg:split-sheetdata} identifies the last row that still contains a
 cell by scanning backwards for a \xtag{<c} token, then advancing to the
@@ -969,7 +946,7 @@ intermediate range (between the last cell-bearing and the last relevant row)
 is examined only for rows that are hidden or have an explicitly defined
 height.
 
-\paragraph*{Row+cell sweep on the cells prefix.}
+\paragraph*{Row+cell sweep on the cells prefix}
 The first pass (Alg.~\ref{alg:rows-cells}) applies a row-level regex
 \mbox{$p_{\text{row}}$} to the \emph{cellsRange}. Each row match is handed to
 \emph{ReplaceRow}, which (i) records row
@@ -982,7 +959,7 @@ cells in hidden row/column, without style, or without visible effects are
 dropped; cells with fills/borders or with effective overrides are kept as
 self-closing. All actions are appended to $\mathcal{M}$ for downstream use.
 
-\paragraph*{Trailing empty-rows sweep.}
+\paragraph*{Trailing empty-rows sweep}
 The second pass (Alg.~\ref{alg:rows-trailing}) runs over the \emph{rowsRange}
 using \mbox{$p_{\text{rowE}}$}. \emph{ReplaceEmptyRow} preserves the first row of any hidden-run and
 any style-bearing empty row (to retain layout height/borders), while deleting
@@ -990,7 +967,7 @@ layout-neutral empty rows. This pass never touches cells (by construction there
 are none in the suffix), which makes it both simpler and faster. Also  \mbox{$p_{\text{rowE}}$} is slightly simpler and hence faster than \mbox{$p_{\text{row}}$} as it omits the cell content group.
 
 \begin{algorithm}[h]
-\caption{cleanEmptyRowsFromAfterCellRange — apply $p_{\text{rowE}}$}
+\caption{CleanEmptyRowsFromAfterCellRange — apply $p_{\text{rowE}}$}
 \label{alg:rows-trailing}
 \DontPrintSemicolon
 \SetKwFunction{Sub}{sub}
@@ -1014,7 +991,7 @@ are none in the suffix), which makes it both simpler and faster. Also  \mbox{$p_
 \BlankLine
 
 
-\Fn{cleanEmptyRowsFromAfterCellRange($x$, $\mathcal{P}$, $\mathcal{M}$, $XFS$)}{
+\Fn{\textsc{CleanEmptyRowsFromAfterCellRange}($x$, $\mathcal{P}$, $\mathcal{M}$, $XFS$)}{
   %\tcp{Input $x$: rowsRange bytes (after last row with any cell).}
   \KwRet \Sub($x$, $p_{\text{rowE}}$,
     \ReplaceEmptyRow($\cdot$, $\mathcal{M}$, $XFS$))\;
@@ -1023,7 +1000,7 @@ are none in the suffix), which makes it both simpler and faster. Also  \mbox{$p_
 
 \BlankLine
 
-\Fn{ReplaceEmptyRow($m$, $\mathcal{M}$, $XFS$)}{
+\Fn{\textsc{ReplaceEmptyRow}($m$, $\mathcal{M}$, $XFS$)}{
   %\tcp{Groups from $p_{\text{rowE}}$: $rowAttr$, $r$, $hidden$?, $styleId$?}
   $(rowAttr,\ r,\ hidden,\ sId) \gets \text{groups}(m)$\;
   $rowStyle \gets
@@ -1054,17 +1031,13 @@ are none in the suffix), which makes it both simpler and faster. Also  \mbox{$p_
 
 
  
-\paragraph*{Metrics and column merging.}
+\paragraph*{Metrics and column merging}
 The rows+cells pass records kept cell coordinates and row attributes in
 $\mathcal{M}$; combined with merge-cell bounds and visible column definitions,
-those are then used to merge extraneous \xtag{<col>} ranges, as outlined in
-\S\ref{sec:columns}.
+those are then used to merge extraneous \xtag{<col>} ranges (See \ref{sec:columns}).
 
-\paragraph{Cell policy (summary).}
-A cell is kept (as self-closing) iff it visibly affects layout:
-not in a hidden row/column; has a style; either carries a
-fill/border or overrides an \emph{apply} style from its row/column.
-Otherwise the cell is deleted.
+\paragraph{Cell policy (summary)}
+A cell is kept (as self-closing) iff it has a visible effect on layout: it is not in a hidden row or column, it carries a cell style, and it either applies a fill or border or explicitly overrides an inherited \emph{apply} style from its row/column. Otherwise the cell is deleted.
 
 \subsection{Column Range Compaction}
 \label{sec:columns}
@@ -1134,7 +1107,7 @@ libraries—\texttt{openpyxl}, \texttt{pandas}, \texttt{Microsoft~Excel},
 \texttt{R~openxlsx}, \texttt{R~readxl+writexl}, and our own
 \texttt{Excel~Shrink} pipeline—both in their original and cleaned versions.
 
-\paragraph{Loading and Saving Times.}
+\paragraph{Loading and Saving Times}
 The upper chart shows that \texttt{openpyxl} required by far the longest
 execution times, with more than 500 seconds for the largest workbook, whereas
 \texttt{pandas} and the R-based libraries performed substantially faster.
@@ -1147,7 +1120,7 @@ run”) is shown only for completeness and confirms the idempotence of our
 cleaning approach—the processing time remains minimal because no further
 redundant content is detected.
 
-\paragraph{File Size Reduction.}
+\paragraph{File Size Reduction}
 The middle chart quantifies the reduction in file size. Both workbooks
 shrank substantially—from 85.2~MB and 35.4~MB (911~MB and 741~MB uncompressed)
 to 2.4~MB and 1.9~MB (20.8~MB and 10.7~MB uncompressed)—corresponding
@@ -1157,7 +1130,7 @@ reduces storage requirements but also decreases network transfer time
 when exchanging files.
 
 
-\paragraph{Memory Consumption.}
+\paragraph{Memory Consumption}
 The bottom chart shows the peak memory usage for each library before and after shrinking.
 Across all tools, the reduction in file complexity led to markedly lower memory requirements.
 \texttt{openpyxl} exhibited the highest demand—up to 8.5 GB when opening the uncleaned workbook—posing a serious challenge for consumer-grade computers with 8 GB of RAM.
@@ -1228,7 +1201,7 @@ When applying the \textit{Excel Inquire} Add-in to such worksheets, these hidden
 
 The \textit{Check Performance} feature, introduced in \textit{Excel} for the Web and recent desktop versions, can achieve substantial file size reductions~\cite{shirolkar2022check,shirolkar2024make}. However, it often removes cells and rows that influence the spreadsheet’s layout and formatting, thereby altering its visual appearance. This is unacceptable in contexts where maintaining the original look and structure of the spreadsheet is essential.
 
-Figure~\ref{fig:cover_sheet_check_performance} illustrates how \textit{Check Performance} modifies a cover sheet by removing empty rows. Such modifications become problematic when these empty rows serve a functional purpose, such as aligning the layout for printing on A4 pages. In the example shown, the cells responsible for providing space on the cover sheet (Figure~\ref{fig:cover_sheet_check_performance_before}) are removed, as shown in Figure~\ref{fig:cover_sheet_check_performance_after}~\cite{destatis2022Verkehrsunfaelle}. Excel Shrink preserves this layout.
+Figure~\ref{fig:cover_sheet_check_performance} illustrates how \textit{Check Performance} modifies a cover sheet by removing empty rows. Such modifications become problematic when these empty rows serve a functional purpose, such as aligning the layout for printing. In the example shown, the cells responsible for providing space on the cover sheet (Figure~\ref{fig:cover_sheet_check_performance_before}) are removed, as shown in Figure~\ref{fig:cover_sheet_check_performance_after}~\cite{destatis2022Verkehrsunfaelle}. Excel Shrink preserves this layout.
 
 \begin{figure}[ht]
   \centering
@@ -1301,7 +1274,7 @@ the shading changes to bright green because the
     \caption{After Saving with Libre Office Calc}
     \label{fig:libre_office_apply_fill_after}
   \end{subfigure}
-  \caption{}
+  \caption{Visualisation Error Caused by Ignoring \texttt{applyFill} in LibreOffice Calc}
   \label{fig:libre_office_apply_fill}
 \end{figure}
 
@@ -1309,6 +1282,11 @@ the shading changes to bright green because the
 \label{sec:conclusion}
 
 We have presented \textit{Excel Shrink}, a tool that significantly reduces the file sizes of \textit{Excel} sheets by eliminating unnecessary content. Our analysis identified common practices that lead to bloated \textit{Excel} files and demonstrated how targeted removal of redundant data can achieve reductions of up to 99.99\% in real-world Excel files without altering the spreadsheets' appearance while outperforming existing solutions in both file size reduction, preservation of formatting and performance.
+
+\section*{Acknowledgements}
+
+I warmly thank Dr.\,agr.\,Norbert Röder and Dr.\,Johanna Fick for their invaluable guidance and advice on scientific writing, as well as Prof.\,Dr.\,Hardy Pundt and Prof.\,Dr.-Ing.\,Jörg Dörr for their mentorship during this work. Finally, I extend my thanks to the Statistisches Bundesamt (DESTATIS) for enabling the publication of the insights presented here.
+
 
 \section*{AI-Generated Content Acknowledgement}
 We used OpenAI’s ChatGPT 5 solely for language editing and grammar enhancement. No AI-generated content was used in this paper; all scientific ideas, analyses, and conclusions are entirely the authors’ own.
