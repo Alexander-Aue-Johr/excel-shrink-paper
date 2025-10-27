@@ -1084,7 +1084,7 @@ Beyond memory efficiency, we further optimised scheduling. When a file with mult
 
   
 \section{Evaluation}
-We tested our approach on 1,183 real Excel files from the German Federal Statistical Office (\textit{Destatis})~\cite{original_destatis_xlsx_files},\cite{shrinked_destatis_xlsx_files}, covering year-based directories and containing numerous oversize spreadsheets. Excel Shrink Analyzer Script completed parsing and cleaning those files in 2 hours 5 minutes and 6 seconds while our multithreaded streambased approach using regular expressions took 23 minutes and 27 seconds. This represents a 5.3x speedup over the single-threaded DOM-Parser driven version. The multithreaded approach also significantly reduced memory usage, as each thread only required a small buffer to process its portion of the file. This improvement allowed us to process larger files that would have exceeded memory limits using the single-threaded approach. 
+We tested our approach on 1,183 real Excel files from the German Federal Statistical Office (\textit{Destatis})~\cite{original_destatis_xlsx_files},\cite{shrinked_destatis_xlsx_files}, covering year-based directories and containing numerous oversize spreadsheets. Excel Shrink Analyzer Script completed parsing and cleaning those files in 3 hours and 43 minutes while our multithreaded streambased approach using regular expressions took 23 minutes and 27 seconds. This represents a 10x speedup over the single-threaded DOM-Parser driven version. The multithreaded approach also significantly reduced memory usage, as each thread only required a small buffer to process its portion of the file. This improvement allowed us to process larger files that would have exceeded memory limits using the single-threaded approach.
 
 
 
@@ -1151,7 +1151,7 @@ more accessible for both analytical and production workloads.
 \subsection{Experimental Setup}
 \label{sec:experimental-setup}
 
-To evaluate the behavior of \textit{Excel} regarding how the files are interpreted and saved, as well as to test the behavior of the \textit{Add-in} and the new \textit{Check Performance} feature, we tested with two distinct versions of \textit{Excel} from \textit{Microsoft Office}: \textit{Microsoft Office LTSC Professional Plus 2021} and \textit{Microsoft Excel for Microsoft 365 MSO (Version 2409 Build 16.0.18025.20030) 64-bit}. These versions were selected to evaluate compatibility and performance across different Excel environments. Our test machine was an \textit{Intel Core i7-4790K} quad-core CPU desktop machine running at 4.00~GHz with 16~GB of RAM.
+To evaluate the behavior of \textit{Excel} regarding how the files are interpreted and saved, as well as to test the behavior of the \textit{Add-in} and the new \textit{Check Performance} feature, we tested with two distinct versions of \textit{Excel} from \textit{Microsoft Office}: \textit{Microsoft Office LTSC Professional Plus 2021} and \textit{Microsoft Excel for Microsoft 365 MSO (Version 2409 Build 16.0.18025.20030) 64-bit}. These versions were selected to evaluate compatibility and performance across different Excel environments. Our experiments were conducted on a laptop equipped with an AMD Ryzen 5 Pro 7535U processor (6 cores, 12 threads, 2.9 GHz base clock) and 32 GB of RAM.
 
 \subsection{Comparison with Other Tools for Reducing Bloat}
 
@@ -1285,7 +1285,7 @@ We have presented \textit{Excel Shrink}, a tool that significantly reduces the f
 
 \section*{Acknowledgements}
 
-I warmly thank Dr.\,agr.\,Norbert Röder and Dr.\,Johanna Fick for their invaluable guidance and advice on scientific writing, as well as Prof.\,Dr.\,Hardy Pundt and Prof.\,Dr.-Ing.\,Jörg Dörr for their mentorship during this work. Finally, I extend my thanks to the Statistisches Bundesamt (DESTATIS) for enabling the publication of the insights presented here.
+I warmly thank Dr.\,agr.\,Norbert Röder and Dr.\,Johanna Fick for their invaluable guidance and advice on scientific writing, as well as Prof.\,Dr.\,Hardy Pundt and Prof.\,Dr.-Ing.\,Jörg Dörr for their mentorship during this work. I also wish to thank Linus Schmidt for his support in the scientific literature search and for the code experiments we conducted together. Finally, I extend my thanks to the Statistisches Bundesamt (DESTATIS) for enabling the publication of the insights presented here.
 
 
 \section*{AI-Generated Content Acknowledgement}
