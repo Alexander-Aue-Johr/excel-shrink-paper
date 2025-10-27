@@ -1147,6 +1147,8 @@ def main(
     # Write the log data to the CSV file if log_file is provided
     if log_file:
         log_file_path = Path(output_path) / log_file
+        if not log_file_path.parent.exists():
+            log_file_path.parent.mkdir(parents=True, exist_ok=True)
         with open(log_file_path, "a", newline="") as csvfile:
             writer = csv.writer(csvfile)
             writer.writerow(
@@ -1159,6 +1161,9 @@ def main(
     end_time = time.time()
     elapsed_time = end_time - start_time
     print(f"Script completed in {elapsed_time:.2f} seconds.", flush=True)
+
+    with open(Path(output_path) / "elapsed_time.txt", "w") as f:
+        f.write(f"Elapsed time: {elapsed_time:.2f} seconds.\n")
 
 
 if __name__ == "__main__":
