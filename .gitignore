@@ -300,9 +300,9 @@ TSWLatexianTemp*
 # Uncomment the next line to have this generated file ignored.
 #*Notes.bib
 
-scripts/loading_times_size_reduction/input/*.xlsx
-scripts/loading_times_size_reduction/second_shrinkage_shrunk_files/*.xlsx
-scripts/loading_times_size_reduction/shrunk_files/*.xlsx
-scripts/scrape-destatis-xlsx-files/downloaded/*.xlsx
-scripts/analyze_destatis_xlsx_files/shrinked_by_analyzer/*.xlsx
-scripts/analyze_destatis_xlsx_files/shrinked_by_excel_shrink/*.xlsx
+scripts/loading_times_size_reduction/input/*
+scripts/loading_times_size_reduction/second_shrinkage_shrunk_files/*
+scripts/loading_times_size_reduction/shrunk_files/*
+scripts/scrape-destatis-xlsx-files/downloaded/*
+scripts/analyze_destatis_xlsx_files/shrinked_by_analyzer/*
+scripts/analyze_destatis_xlsx_files/shrinked_by_excel_shrink/*
