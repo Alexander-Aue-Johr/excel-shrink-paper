@@ -1,126 +1,135 @@
-
 # Excel Benchmarking & Shrinking – Supplementary Material
 
-This repository contains the supplementary material for the anonymous submission:
+This repository accompanies the submission:
 
-**“Efficient Measurement of Excel File Handling: A Cross-Library Benchmark with File Shrinking”**  
-(submission ID: [REDACTED])
+**“Excel Shrink: High-Performance Bytestream
+Parsing and Cleaning of Bloated Excel Spreadsheets”**  
 
-The repository is structured as follows:
-
-- `sigconf-excel-shrink.tex`: The LaTeX source for the paper (required for reproducibility, but not central to the evaluation)
-- `scripts/loading_times_size_reduction/`: Core implementation for measurement, shrinking, and chart generation
-- Example input files (optional, to be added on request)
-
-We recommend reviewers to begin with the script:
-
-```
-scripts/loading_times_size_reduction/loading_times_size_reduction_chart.py
-```
-
-which includes all benchmark logic and produces the main result figures in the paper.
+It provides all scripts and configurations necessary to reproduce the benchmark results and figures presented in the paper.
 
 ---
 
-## 🚀 Quick Start (No Setup Required)
+## 📂 Repository Structure
 
-This script is designed to run out-of-the-box on any machine with Python 3.8+ and basic `pip` access.
+| Path | Description |
+|------|--------------|
+| `excel-shrink-paper/` | LaTeX source for the paper (for transparency, not required for evaluation). |
+| `scripts/loading_times_size_reduction/` | Core measurement logic for benchmarking, shrinking, and chart generation. |
+| `scripts/scrape-destatis-xlsx-files/` | Crawls and downloads public `.xlsx` files from the German Statistical Office (DESTATIS). |
+| `scripts/excel_shrink/` | Stand-alone implementation of the *Excel Shrink* optimizer that removes redundant XML markup. |
+| `scripts/excel_shrink_analyzer/` | Variant used for statistical analysis of shrink ratios and XML component frequencies. |
+| `scripts/analyze_destatis_xlsx_files/` | Aggregates results and generates global distributions of file-size reduction. |
+
+All relevant VS Code launch configurations for reproducibility are included in  
+`.vscode/launch.json` and `.vscode/tasks.json`.
+
+---
+
+## 🚀 Quick Start (Automatic Setup)
+
+No manual installation is required.  
+Each script automatically bootstraps its environment and installs missing dependencies.
+
+Example – to reproduce the main benchmark figures:
 
 ```bash
-python loading_times_size_reduction_chart.py --input-folder ./input --shrunk-folder ./shrunk
+python scripts/loading_times_size_reduction/loading_times_size_reduction_chart.py \
+       --input-folder ./input --shrunk-folder ./shrunk
 ```
 
-All required Python dependencies are automatically installed on first run if missing.  
-No virtual environment or external package manager is required.
+All dependencies will be installed on first run.
 
 ---
 
-## 🧪 What It Does
+## 🧩 Alternative (VS Code Integration)
 
-For each input `.xlsx` file:
+You can also execute all workflows directly from **VS Code** via the pre-configured launch entries:
 
-- Runs open/save benchmarks using:
-  - `openpyxl`
-  - `pandas`
-  - Microsoft Excel COM (Windows only)
-  - `R openxlsx` (if R is installed)
-  - `R readxl + writexl` (if R is installed)
-- Performs lossless optimization (shrinking)
-- Reruns all benchmarks on the optimized version
-- Outputs:
-  - `excel_benchmarks.csv`
-  - `time_and_filesize_comparison_by_file.pdf`
+| Launch Configuration                                         | Purpose                                                                 |
+| ------------------------------------------------------------ | ----------------------------------------------------------------------- |
+| **Compare Excel File Sizes**                                 | Compares original and shrunk workbook sizes.                            |
+| **Scrape and Download Destatis XLSX Files**                  | Performs web scraping and download of source workbooks.                 |
+| **Download Destatis XLSX Files**                             | Downloads previously discovered URLs (skip new crawl).                  |
+| **Shrink Destatis XLSX Files (excel-shrink)**                | Runs the core shrinker on all downloaded files.                         |
+| **Analyze Destatis XLSX Files (excel-shrink-analyzer)**      | Evaluates reduction ratios and XML statistics.                          |
+| **Generate Distribution of Size Reduction Chart**            | Produces the histogram of reduction percentages.                        |
+| **Generate Chart Loading Times Size Reduction**              | Runs full benchmark and creates the main time/size figures.             |
+| **Generate Chart Loading Times Size Reduction (only chart)** | Regenerates plots from existing CSV data without re-running benchmarks. |
+
+All launch entries automatically call the `py:bootstrap` task, which:
+
+1. creates a virtual environment (`.venv`) if missing, and
+2. installs required Python packages via `pip install -r requirements.txt`.
+
+---
+
+## 🧪 What the Benchmark Does
+
+For each `.xlsx` file, the benchmark:
+
+1. Measures **open/save times** and **memory usage** using:
+
+   * `openpyxl`
+   * `pandas`
+   * `Microsoft Excel` (COM interface, Windows only)
+   * `R openxlsx`
+   * `R readxl + writexl`
+2. Performs **lossless XML shrinking** using *Excel Shrink*.
+3. Re-measures performance on the cleaned files.
+4. Generates:
+
+   * `excel_benchmarks.csv`
+   * `time_and_filesize_comparison_by_file.pdf`
 
 ---
 
 ## 📦 Dependencies
 
-All dependencies are handled internally by the script via `pip`.
+Handled automatically by the bootstrap step.
 
-If preferred, they can be installed manually:
-
-- `pandas`, `openpyxl`, `matplotlib`, `numpy`
-- `pywin32` (Windows only)
-
-R-related benchmarks require `Rscript` to be available in `PATH`, and the following R packages:
-
-- `openxlsx`
-- `readxl`
-- `writexl`
-
-Check if these packages are installed:
+Manual installation (optional):
 
 ```bash
-Rscript -e "pkgs <- c('openxlsx','readxl','writexl'); sapply(pkgs, function(p) as.character(packageVersion(p)))"
+pip install pandas openpyxl matplotlib numpy
 ```
 
-Install them if missing:
+Windows-only:
 
 ```bash
-Rscript -e "install.packages(c('openxlsx','readxl','writexl'), repos='https://cloud.r-project.org')"
+pip install pywin32
 ```
 
-If R or any required packages are not found, the script will automatically skip R-related benchmarks.
+R-based benchmarks require:
+
+```r
+install.packages(c('openxlsx','readxl','writexl'), repos='https://cloud.r-project.org')
+```
+
+If R or any of these packages are missing, R-related benchmarks are skipped gracefully.
 
 ---
 
-## 🧘 Optional: Virtual Environments (`venv`)
-
-To isolate the environment, standard Python `venv` can be used:
+## 🧘 Optional: Manual Virtual Environment
 
 ```bash
-# Create and activate (Linux/macOS)
 python3 -m venv .venv
-source .venv/bin/activate
-
-# or on Windows
-.venv\Scripts\activate
+source .venv/bin/activate  # Linux/macOS
+# or
+.venv\Scripts\activate     # Windows
 ```
 
-However, the script runs without `venv` by default.
+Then run any script or VS Code launch target.
 
 ---
 
-## 🧠 Design Principles
+---
 
-This tool is designed to be:
+## 🏛️ Data Acknowledgement
 
-- ✅ Self-contained
-- ✅ Robust in unknown environments
-- ✅ Compatible with non-technical users and automated test systems
-
-Optional components (such as R or Excel COM) are autodetected and skipped if unavailable.
+We gratefully acknowledge the **Statistisches Bundesamt (DESTATIS)** for making the analyzed `.xlsx` datasets publicly available and permitting the publication of aggregated results.
 
 ---
 
-## 📎 Citation / Context
-
-This script is part of an anonymous submission to a peer-reviewed venue.  
-Please do not attribute authorship during the review process.
-
----
-
-## License
+## 📜 License
 
 To be specified upon acceptance.
-```
