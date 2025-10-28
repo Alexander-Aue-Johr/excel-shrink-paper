@@ -745,7 +745,7 @@ By constraining parsing decisions to these well-defined cuts, the parser never s
   \uIf{$i_{\mathrm{rowsEnd}} = -1$}{
     $\textit{rowsRange} \gets \epsilon$\;
   }\Else{
-    $\textit{rowsRange} \gets x[i_{\mathrm{rowsStart}} : i_{\mathrm{rowsEnd}}]$\;
+    $\textit{rowsRange} \gets B_{\mathrm{sheetData}}[i_{\mathrm{rowsStart}} : i_{\mathrm{rowsEnd}}]$\;
   }
 
   \BlankLine
@@ -895,7 +895,7 @@ cell cleanup}
 \Fn{\textsc{ReplaceCell}($m$, $\mathcal{M}$, $XFS$)}{
   %\tcp{Groups from $p_{\text{cell}}$: $cellAttr$, $col$?, $row$?, $styleId$?}
   $(cellAttr,\ col,\ row,\ sId) \gets \text{groups}(m)$\;
-  $style \gets (sId\neq\bot)\ ?\ \mathrm{xfs}[sId]\ :\ \bot$\;
+  $style \gets (sId\neq\bot)\ ?\ $XFS$[sId]\ :\ \bot$\;
   $coord \gets (col,row)$\;
 
   \If{$\textsc{cellIsHidden}(coord,\ \mathcal{M})$}{\KwRet \code{''}\;}
