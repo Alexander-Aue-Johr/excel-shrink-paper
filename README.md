@@ -13,11 +13,11 @@ It provides all scripts and configurations necessary to reproduce the benchmark 
 
 | Path | Description |
 |------|--------------|
-| `excel-shrink-paper/` | LaTeX source for the paper (for transparency, not required for evaluation). |
+| `excel-shrink-paper.tex` | LaTeX source for the paper (for transparency, not required for evaluation). |
 | `scripts/loading_times_size_reduction/` | Core measurement logic for benchmarking, shrinking, and chart generation. |
 | `scripts/scrape-destatis-xlsx-files/` | Crawls and downloads public `.xlsx` files from the German Statistical Office (DESTATIS). |
 | `scripts/excel_shrink/` | Stand-alone implementation of the *Excel Shrink* optimizer that removes redundant XML markup. |
-| `scripts/excel_shrink_analyzer/` | Variant used for statistical analysis of shrink ratios and XML component frequencies. |
+| `scripts/excel_shrink_analyzer/` | Variant used for analysis of shrink ratios and XML component frequencies. |
 | `scripts/analyze_destatis_xlsx_files/` | Aggregates results and generates global distributions of file-size reduction. |
 
 All relevant VS Code launch configurations for reproducibility are included in  
