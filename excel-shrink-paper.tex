@@ -1084,7 +1084,7 @@ Beyond memory efficiency, we further optimised scheduling. When a file with mult
 
   
 \section{Evaluation}
-We tested our approach on 1,183 real Excel files from the German Federal Statistical Office (\textit{Destatis})~\cite{original_destatis_xlsx_files},\cite{shrinked_destatis_xlsx_files}, covering year-based directories and containing numerous oversize spreadsheets. Excel Shrink Analyzer Script completed parsing and cleaning those files in 3 hours and 43 minutes while our multithreaded streambased approach using regular expressions took 23 minutes and 27 seconds. This represents a 10x speedup over the single-threaded DOM-Parser driven version. The multithreaded approach also significantly reduced memory usage, as each thread only required a small buffer to process its portion of the file. This improvement allowed us to process larger files that would have exceeded memory limits using the single-threaded approach.
+We tested our approach on 1,183 real Excel files from the German Federal Statistical Office (\textit{Destatis})~\cite{original_destatis_xlsx_files},\cite{shrinked_destatis_xlsx_files}, covering year-based directories and containing numerous oversize spreadsheets. Excel Shrink Analyzer Script completed parsing and cleaning those files in 3 hours and 43 minutes while our multithreaded streambased approach using regular expressions took 20 minutes and 42 seconds. This represents a 10x speedup over the single-threaded DOM-Parser driven version. The multithreaded approach also significantly reduced memory usage, as each thread only required a small buffer to process its portion of the file. This improvement allowed us to process larger files that would have exceeded memory limits using the single-threaded approach.
 
 
 
