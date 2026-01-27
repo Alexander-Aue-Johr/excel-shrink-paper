@@ -12,19 +12,19 @@
             "python": "${workspaceFolder}/.venv/Scripts/python",
             "preLaunchTask": "py:bootstrap",
             "args": [
-                "R:/o",
-                "R:/d",
+                "C:/Users/aue-johr/Downloads/old_downloads/data_gov_3nd_dl",
+                "C:/Users/aue-johr/Downloads/old_downloads/data_gov_3nd_dl_s",
                 "--abs-count",
-                "3",
+                "100",
                 "--rel-count",
-                "3",
+                "100",
             ]
         },
         {
             "name": "Scrape and Download Destatis XLSX Files",
             "type": "debugpy",
             "request": "launch",
-            "program": "scripts/scrape-destatis-xlsx-files/scrape_and_download_destatis_xlsx_files.py",
+            "program": "scripts/scrape_destatis_xlsx_files/scrape_and_download_destatis_xlsx_files.py",
             "python": "${workspaceFolder}/.venv/Scripts/python",
             "preLaunchTask": "py:bootstrap",
             "args": [
@@ -36,7 +36,7 @@
             "name": "Download Destatis XLSX Files",
             "type": "debugpy",
             "request": "launch",
-            "program": "scripts/scrape-destatis-xlsx-files/scrape_and_download_destatis_xlsx_files.py",
+            "program": "scripts/scrape_destatis_xlsx_files/scrape_and_download_destatis_xlsx_files.py",
             "python": "${workspaceFolder}/.venv/Scripts/python",
             "preLaunchTask": "py:bootstrap",
             "args": [
@@ -56,7 +56,7 @@
                 "--recursive",
                 "--log",
                 "analysis_output.csv",
-                "scripts/scrape-destatis-xlsx-files/downloaded",
+                "scripts/scrape_destatis_xlsx_files/downloaded",
                 "scripts/analyze_destatis_xlsx_files/shrinked_by_analyzer",
             ]
         },
@@ -76,11 +76,75 @@
             "python": "${workspaceFolder}/.venv/Scripts/python",
             "preLaunchTask": "py:bootstrap",
             "args": [
+                "scripts/scrape_destatis_xlsx_files/downloaded",
+                "scripts/analyze_destatis_xlsx_files/shrinked_by_excel_shrink",
                 "--recursive",
                 "--chunk-size",
                 "2097152",
-                "scripts/scrape-destatis-xlsx-files/downloaded",
-                "scripts/analyze_destatis_xlsx_files/shrinked_by_excel_shrink",
+            ]
+        },
+        {
+            "name": "Prepare original Destatis XLSX Files for Comparison (fix corrupt workbook.xml, don't touch sheet files)",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "scripts/excel_shrink/excel_shrink.py",
+            "python": "${workspaceFolder}/.venv/Scripts/python",
+            "preLaunchTask": "py:bootstrap",
+            "args": [
+                "scripts/scrape_destatis_xlsx_files/downloaded",
+                "scripts/analyze_destatis_xlsx_files/fixed_original_corrupt_destatis_files",
+                "--recursive",
+                "--only-clean-workbook"
+            ]
+        },
+        {
+            "name": "Verify same values of shrunk Destatis files with original",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "scripts/verify_shrunk_xlsx_values/verify_shrunk_xlsx_values.py",
+            "python": "${workspaceFolder}/.venv/Scripts/python",
+            "preLaunchTask": "py:bootstrap",
+            "args": [
+                "scripts\\analyze_destatis_xlsx_files\\fixed_original_corrupt_destatis_files",
+                "scripts\\analyze_destatis_xlsx_files\\shrinked_by_excel_shrink",
+                "--out",
+                "scripts\\analyze_destatis_xlsx_files\\report.json",
+            ]
+        },
+        {
+            "name": "Scrape and Download Data.gov XLSX Files",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "scripts\\scrape_data_gov_xlsx_files\\scrape_and_download_data_gov_xlsx_files.py",
+            "python": "${workspaceFolder}/.venv/Scripts/python",
+            "preLaunchTask": "py:bootstrap",
+            "args": [
+                "--scrape",
+                "--out",
+                "scripts\\scrape_data_gov_xlsx_files\\"
+            ]
+        },
+        {
+            "name": "Download Data.gov XLSX Files",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "scripts\\scrape_data_gov_xlsx_files\\scrape_and_download_data_gov_xlsx_files.py",
+            "python": "${workspaceFolder}/.venv/Scripts/python",
+            "preLaunchTask": "py:bootstrap",
+            "args": []
+        },
+        {
+            "name": "Verify same values of shrunk data.gov files with original",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "scripts/verify_shrunk_xlsx_values/verify_shrunk_xlsx_values.py",
+            "python": "${workspaceFolder}/.venv/Scripts/python",
+            "preLaunchTask": "py:bootstrap",
+            "args": [
+                "scripts\\scrape_data_gov_xlsx_files\\downloaded",
+                "scripts\\analyze_data_gov_xlsx_files\\shrinked_by_excel_shrink",
+                "--out",
+                "scripts\\analyze_data_gov_xlsx_files\\report.json",
             ]
         },
         {
@@ -104,6 +168,78 @@
             "args": [
                 "controller",
                 "--no-run-tests"
+            ]
+        },
+        {
+            "name": "Compare values of shrunk data.gov with original",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "scripts/scrape_data_gov_xlsx_files/compare_file_hashes.py",
+            "python": "${workspaceFolder}/.venv/Scripts/python",
+            "preLaunchTask": "py:bootstrap",
+            "args": [
+                "C:/Users/aue-johr/Downloads/old_downloads/data_gov_3nd_dl",
+                "C:/Users/aue-johr/Downloads/old_downloads/data_gov_3nd_dl_s",
+                "--out",
+                "C:/Users/aue-johr/Downloads/old_downloads/data_gov_3nd_dl_s"
+            ]
+        },
+        {
+            "name": "Why Different?",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "scripts/scrape_data_gov_xlsx_files/compare_file_hashes.py",
+            "python": "${workspaceFolder}/.venv/Scripts/python",
+            "preLaunchTask": "py:bootstrap",
+            "args": [
+                "C:/Users/aue-johr/Downloads/old_downloads/diff/A",
+                "C:/Users/aue-johr/Downloads/old_downloads/diff/B",
+                "--out",
+                "C:/Users/aue-johr/Downloads/old_downloads/diff/diff"
+            ]
+        },
+        {
+            "name": "Compare values of shrunk data.gov with original (test)",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "scripts/scape-data-gov-xlsx-files/compare_file_hashes.py",
+            "python": "${workspaceFolder}/.venv/Scripts/python",
+            "preLaunchTask": "py:bootstrap",
+            "args": [
+                "scripts/scape-data-gov-xlsx-files/test1",
+                "scripts/scape-data-gov-xlsx-files/test2",
+                "--out",
+                "scripts/scape-data-gov-xlsx-files/out_test"
+            ]
+        },
+        {
+            "name": "Compare values of shrunk data.gov with original (singlecore)",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "scripts/scape-data-gov-xlsx-files/compare_file_hashes.py",
+            "python": "${workspaceFolder}/.venv/Scripts/python",
+            "preLaunchTask": "py:bootstrap",
+            "args": [
+                "scripts/scape-data-gov-xlsx-files/different",
+                "scripts/scape-data-gov-xlsx-files/different_ws",
+                "--out",
+                "scripts/scape-data-gov-xlsx-files/different_ws_out_test"
+            ]
+        },
+        {
+            "name": "Compare values of shrunk data.gov with original (multicore)",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "scripts/scape-data-gov-xlsx-files/compare_file_hashes_multicore.py",
+            "python": "${workspaceFolder}/.venv/Scripts/python",
+            "preLaunchTask": "py:bootstrap",
+            "args": [
+                "scripts/scape-data-gov-xlsx-files/different",
+                "scripts/scape-data-gov-xlsx-files/different_ws",
+                "--out",
+                "scripts/scape-data-gov-xlsx-files/different_ws_out_test",
+                "--workers",
+                "1"
             ]
         }
     ]

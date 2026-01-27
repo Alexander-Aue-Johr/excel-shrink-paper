@@ -1,5 +1,6 @@
 col_cache = {}
 
+
 def convert_letters_byte_string_to_integer(col_bytes: bytes) -> int:
     """
     Convert a column-letter bytes object (e.g. b'A', b'B', b'AA', etc.)
@@ -16,6 +17,7 @@ def convert_letters_byte_string_to_integer(col_bytes: bytes) -> int:
             # a-z (normalize to uppercase)
             col_index = col_index * 26 + (b - 97 + 1)
     return col_index
+
 
 def letters_byte_string_to_integer(col_bytes: bytes | None) -> int:
     """Return a cached or newly computed column index for col_b."""

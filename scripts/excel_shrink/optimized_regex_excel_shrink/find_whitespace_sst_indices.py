@@ -3,7 +3,8 @@ from typing import List
 
 t_node_content_capture_group = re.compile(rb"<t[^>]*>(.*?)</t>", re.DOTALL)
 
-def find_whitespace_sst_indices(si_matches: list)  -> List[int]:
+
+def find_whitespace_sst_indices(si_matches: list) -> List[int]:
     """
     Given the list of <si> blocks, find which indices are purely whitespace.
     """

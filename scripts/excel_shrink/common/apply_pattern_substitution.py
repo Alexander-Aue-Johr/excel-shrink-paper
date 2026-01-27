@@ -5,6 +5,7 @@ import logging
 
 from common.named_tupples import CleanSheetParameters, CleanWorkbookParameters
 
+
 def apply_pattern_substitution(
     data: bytes,
     pattern: re.Pattern,
@@ -22,5 +23,7 @@ def apply_pattern_substitution(
     duration = end_time - start_time
 
     if duration > duration_logging_threshold:
-        logging.info(f"{description}: reduced from {old_len} to {len(new_data)} by {difference} bytes, reduction {reduction_percent:.4f}% in {duration:.4f} seconds, in file {params.xlsx_file_path} : {params.zip_info.filename}")
+        logging.info(
+            f"{description}: reduced from {old_len} to {len(new_data)} by {difference} bytes, reduction {reduction_percent:.4f}% in {duration:.4f} seconds, in file {params.xlsx_file_path} : {params.zip_info.filename}"
+        )
     return new_data

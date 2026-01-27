@@ -1,17 +1,13 @@
-
 from typing import Optional, Tuple
 
 
 def extract_xml_block(
-    xml_bytes: bytes,
-    start_tag: bytes,
-    end_tag: bytes,
-    start_index: int = 0
+    xml_bytes: bytes, start_tag: bytes, end_tag: bytes, start_index: int = 0
 ) -> Tuple[Optional[bytes], int, int, int]:
     """
     Searches in xml_bytes for the region delimited by start_tag and end_tag,
     beginning at start_index. If found, returns a tuple of:
-    
+
         (extracted_block, new_index, block_start, block_end)
 
     where:
@@ -39,7 +35,7 @@ def extract_xml_block(
 
     # The content is between (start_tag_end + 1) and end_idx
     block_start = start_tag_end + 1
-    block_end   = end_idx
+    block_end = end_idx
     extracted_data = xml_bytes[block_start:block_end]
 
     # Position after the end_tag

@@ -9,11 +9,13 @@ from common.sheet_streaming_state import SheetStreamingState
 from common.slice_bytes import WhereToSlice
 from parsing.parse_xfs import XF
 
+
 class ColumnDefinition(NamedTuple):
     min: int
     max: int
     cell_xf: Optional[XF]
     hidden: bool
+
 
 class ColumnRangeMap:
     exact: Dict[int, ColumnDefinition]
@@ -44,8 +46,10 @@ class ColumnRangeMap:
             if cd.min <= col <= cd.max:
                 return cd
         raise KeyError(col)
-    
-    def get(self, col: int, default: Optional[ColumnDefinition] = None) -> Optional[ColumnDefinition]:
+
+    def get(
+        self, col: int, default: Optional[ColumnDefinition] = None
+    ) -> Optional[ColumnDefinition]:
         if col in self.exact:
             return self.exact[col]
         idx = bisect_right(self._interval_starts, col) - 1
@@ -66,24 +70,30 @@ class ColumnRangeMap:
 
     def __len__(self):
         return len(self.exact) + len(self.intervals)
-    
+
     def get_last_visible_range(self) -> Optional[ColumnDefinition]:
 
-        last_visible : ColumnDefinition | None = None
+        last_visible: ColumnDefinition | None = None
 
         for cd in self.exact.values():
-            if cd.hidden or cd.cell_xf and cd.cell_xf.has_fill_or_border:
+            if (
+                cd.hidden
+                or cd.cell_xf
+                and (cd.cell_xf.has_fill_or_border or cd.cell_xf.has_apply_protection)
+            ):
                 if last_visible is None or cd.max > last_visible.max:
                     last_visible = cd
 
         for cd in self.intervals:
-            if cd.hidden or cd.cell_xf and cd.cell_xf.has_fill_or_border:
+            if (
+                cd.hidden
+                or cd.cell_xf
+                and (cd.cell_xf.has_fill_or_border or cd.cell_xf.has_apply_protection)
+            ):
                 if last_visible is None or cd.max > last_visible.max:
                     last_visible = cd
 
         return last_visible
-
-
 
 
 @dataclass(frozen=True)
@@ -91,6 +101,7 @@ class TagToProcess:
     tag_start: bytes
     tag_end: bytes | None = None
     where_to_slice: WhereToSlice = WhereToSlice.before_tag
+
 
 class CollectChunksResult(NamedTuple):
     new_state: SheetStreamingState | None
@@ -103,16 +114,19 @@ class CollectColsResult(NamedTuple):
     new_state: SheetStreamingState | None
     chunk_to_add: bytes
     updated_buffer: bytes
-    column_definitions : ColumnRangeMap
+    column_definitions: ColumnRangeMap
+
 
 class CleanSheetDataResult(NamedTuple):
     chunk_to_add: bytes
     updated_buffer: bytes
     new_state: SheetStreamingState | None = None
 
+
 class CellCoordinate(NamedTuple):
     column: bytes
     row: bytes
+
 
 class MergeCellsParsingResult(NamedTuple):
     new_state: SheetStreamingState | None
@@ -120,28 +134,35 @@ class MergeCellsParsingResult(NamedTuple):
     updated_buffer: bytes
     max_col_and_row: CellCoordinate | None
 
+
 class DefinedName(NamedTuple):
     name: bytes
     local_sheet_id: bytes
-
-class XlsxFileToWrite(NamedTuple):
-    zip_handle: ZipFile
-    remaining_files_to_write: List[str]
 
 
 class CleanSheetParameters(NamedTuple):
     xlsx_file_path: str
     zip_info: ZipInfo
-    workbook_specific_patterns : WorkbookSpecificPatterns
+    workbook_specific_patterns: WorkbookSpecificPatterns
+
+
+class XlsxFileToWrite(NamedTuple):
+    zip_handle: ZipFile
+    remaining_files_to_write: List[str]
+    successfully_written_sheet_files: List[str]
+    failed_sheet_files: List[CleanSheetParameters]
+
 
 class CleanWorkbookParameters(NamedTuple):
     xlsx_file_path: str
     zip_info: ZipInfo
+
 
 class CleanXlsxParameters(NamedTuple):
     file_path: str
     clean_workbook_parameters: CleanWorkbookParameters
     clean_sheet_parameters: List[CleanSheetParameters]
     workbook_zip_info: ZipInfo
-    sheet_zip_files : List[ZipInfo]
-    other_zip_files : List[ZipInfo]
+    sheet_zip_files: List[ZipInfo]
+    other_zip_files: List[ZipInfo]
+    only_clean_workbook: bool

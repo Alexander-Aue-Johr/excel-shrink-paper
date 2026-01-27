@@ -90,7 +90,11 @@ Braunschweig, Germany \\
 \maketitle
 
 \begin{abstract}
-  This paper introduces Excel Shrink, a tool designed to mitigate the pervasive problem of file bloat in Microsoft Excel spreadsheets. By analyzing Excel’s Office Open XML structure, we identify common sources of file bloat—such as cells, rows and columns that are empty, contain only whitespace, or have a style assigned that is invisible to the user. We propose a novel, streaming-based, regex-driven approach to reduce file size without altering the visual appearance. Our method employs a state-machine to manage the hierarchy of XML documents without relying on conventional XML parsing techniques by processing XML data incrementally at the bytestream level, and it leverages multithreading for performance improvements. This enables Excel Shrink to outperform Microsoft Excel when loading bloated files, and cleaning plus opening the shrunk file is faster than opening the bloated file directly. Evaluation on a dataset from the German Federal Statistical Office demonstrates that Excel Shrink can achieve file size reductions of up to 99.99\% and dramatically improve file loading times. This work not only provides practical insights for developers and end users but also opens new avenues for the efficient management of large-scale semi-structured data in spreadsheet environments.
+  This paper introduces Excel Shrink, a tool designed to mitigate the pervasive problem of file bloat in Microsoft Excel spreadsheets. By analyzing Excel’s Office Open XML structure, we identify common sources of file bloat—such as cells, rows and columns that are empty, 
+  %contain only whitespace, 
+  or have a style assigned that is invisible to the user. We propose a novel, streaming-based, regex-driven approach to reduce file size without altering the visual appearance. Our method employs a state-machine to manage the hierarchy of XML documents without relying on conventional XML parsing techniques by processing XML data incrementally at the bytestream level, and it leverages multithreading for performance improvements. This enables Excel Shrink to outperform Microsoft Excel when loading bloated files, and cleaning plus opening the shrunk file is faster than opening the bloated file directly.
+  Evaluation on large-scale real-world spreadsheets from the German Federal Statistical Office and data.gov demonstrates that Excel Shrink can achieve file size reductions of up to 99.99\% and dramatically improve file loading times.
+  This work not only provides practical insights for developers and end users but also opens new avenues for the efficient management of large-scale semi-structured data in spreadsheet environments.
 
 \end{abstract}
 
@@ -114,11 +118,31 @@ Streaming SAX parser avoids high memory usage but suffer from high CPU overhead 
 Such scenarios reflect the mismatch between Excel’s data model and big-data processing needs. Processing such bloated XML files is computationally expensive: parsing XML requires reading and interpreting deeply nested structures, which can strain I/O and memory. Indeed, standard XML parsing in memory (DOM) would load the entire spreadsheet into a tree, potentially consuming gigabytes of RAM for a bloated file. This is aggravated by Excel-specific XML components like the Shared Strings table (which holds all text entries) and the Styles table – both can grow very large and must be parsed or loaded before data can be accessed. As a result, reading a large .xlsx file with conventional libraries often becomes a bottleneck \cite{sancozta2020spout}. 
 Second, the issue brings to light fundamental challenges in language theory and parsing. Excel’s file format—essentially a collection of XML documents—is a context-free language (Type-2 in the Chomsky hierarchy). Parsing such documents correctly requires managing recursive tag structures and dependencies (e.g., matching \texttt{<row>} and \texttt{</row>} tags or resolving references in shared string tables). It is mathematically impossible to accurately parse or validate XML using only regular expressions or simplistic line-by-line methods, since regular languages (Type-3) cannot handle arbitrary nested structures  \cite{Champion2021RegexTips,bobince2009RegexMatchOpenTags}. Consequently, robust tools for processing \texttt{.xlsx} files at scale must employ proper XML parsing strategies rather than relying on ad-hoc techniques.
 
-This paper situates the Excel bloat problem within the context of database research and proposes technical approaches to mitigate it. We begin by analyzing the internal structure of Excel's Open XML format to identify the causes of file bloat and review related work and online resources regarding bloat in Excel files. We employ manual guides as well as tools such as Microsoft Excel’s Performance Tab and the Excel Inquire Add-In, and also trial versions of proprietary utilities like NXPowerLite Desktop, to assess their file size reduction capabilities.
+This paper situates the Excel bloat problem within the context of database research
+and proposes technical approaches to mitigate it.
+We begin by analysing the internal structure of Excel's Office Open XML format
+to identify the root causes of file bloat,
+and review both related academic work and practitioner-oriented resources
+addressing bloat in Excel files.
+To ground this analysis, we examine manual guidelines as well as tools such as
+Microsoft Excel’s Performance Tab and the Excel Inquire Add-In,
+and trial versions of proprietary utilities including NXPowerLite Desktop,
+to assess their file size reduction behaviour.
 
-After applying these manual guides and automatic tools to real-world Excel files, we perform a qualitative analysis of the XML code to examine the changes responsible for file size reduction. By comparing the visual integrity of the files before and after cleaning—and incrementally reverting modifications to pinpoint when visual errors disappeared—we gain insight into Excel's internal file structure and determine which cleanup operations are safe. Building on this reverse-engineering process, we identify a set of safe modifications and implement them in our own protptype tool - Excel Shrink Analyzer - using regular DOM-XML parsing for fast prototyping, to test these changes across a large number of files and validate the outcome by file size reduction and if the Spreadsheet still looks the same, to find the set of modifications that are safe and effective.
 
-Following the prototype phase, we develop a tool applying the same modifications, but this time efficiently, using a state-machine-guided, regex-driven parser designed to clean bloated Excel files. This parser operates directly on the raw XML byte stream to overcome the limitations of conventional XML parsers when dealing with large, deeply nested structures. We evaluate the performance of this tool — referred to as Excel Shrink — on the same Dataset a series of Excel files by comparing the loading times of pre-cleaned files versus the original files when opened with standard libraries and Microsoft Excel itself.
+
+After applying these manual guides and automatic tools to real-world Excel files, we perform a qualitative analysis of the XML code to examine the changes responsible for file size reduction. By comparing the visual integrity of the files before and after cleaning—and incrementally reverting modifications to pinpoint when visual errors disappeared—we gain insight into Excel's internal file structure and determine which cleanup operations are safe. Building on this reverse-engineering process, we identify a set of safe modifications and implement them in our own protptype tool - Excel Shrink Analyzer \cite{Johr2026ExcelShrinkAnalyzer} - using regular DOM-XML parsing for fast prototyping, to test these changes across a large number of files and validate the outcome by file size reduction and if the Spreadsheet still looks the same, to find the set of modifications that are safe and effective.
+
+Following the prototype phase, we develop a tool applying the same modifications, but this time efficiently, using a state-machine-guided, regex-driven parser designed to clean bloated Excel files. This parser operates directly on the raw XML byte stream to overcome the limitations of conventional XML parsers when dealing with large, deeply nested structures. We evaluate the performance of this tool — referred to as Excel Shrink \cite{Johr2026ExcelShrink} — on the same Dataset a series of Excel files by comparing the loading times of pre-cleaned files versus the original files when opened with standard libraries and Microsoft Excel itself.
+
+The scope of this work is intentionally focused on Microsoft Excel
+and its Office Open XML representation.
+The observed bloat patterns arise primarily from interactive, user-driven editing
+practices—such as repeated formatting, copy-and-paste operations,
+and manual range manipulation—that are characteristic of Excel usage.
+
+
+
 
 To guide our study, we pose the following research questions:
 
@@ -149,7 +173,7 @@ Instead of duplicating formatting information, these elements simply reference t
 Despite the prevalence of the Excel bloat problem in practice, there is scant academic literature that directly addresses it. To our knowledge, no peer-reviewed study thus far has focused on the internal inefficiencies of Excel's XML format or the mitigation of bloated spreadsheets. This is consistent with the fact that the database research community has traditionally viewed spreadsheets as end-user tools rather than enterprise-scale data management systems. However, indirectly, several lines of work and industry reports touch on related issues. Microsoft's official guidelines and support articles acknowledge problems such as the “Too many different cell formats” error (triggered by style overflow)
 \cite{Microsoft2024TooManyCellFormats} and provide best practices for reducing workbook size (e.g., removing unused styles, turning off pivot cache, etc.). The Excel user community (blogs, forums) is rife with case studies of bloated files and remedies. For example, Power \cite{Power2025WhyExcelFileLarge}
  enumerates common reasons for oversized files and recommends using a ZIP tool to inspect which internal parts are largest - an approach that reveals whether data, formatting, or media are to blame. On Stack Overflow, Superuser and ExcelForum, numerous Q\&A threads document instances of mysterious file growth, often resolved by cleaning formats or rebuilding the workbook from scratch \cite{chrtak2024ExcelSheetBloated, SuperUser739577, SuperUser63119, ExcelForum1349596}
-. These sources, while not formal research, provide valuable insight into the root causes of bloat and confirm that our problem formulation is grounded in reality. However the solutions they provide are often manual, some of them utalizing the Excel built in features, recently introduced features like the excel check performance tab or the older Excel Inquire Add In, which are not suitable for automation pipelines and not scalable for large numbers of files. Yet the causes in the XML structure of the Excel file is not addressed in these sources and can only be identified by reverse engeneering the cleanup tools or Microsoft excel itself by try and error removing parts of the XML file and checking if the file still looks the same.
+. These sources, while not formal research, provide valuable insight into the root causes of bloat and confirm that our problem formulation is grounded in reality. However the solutions they provide are often manual, some of them utilizing the Excel built in features, recently introduced features like the excel \textbf{Check Performance Tab} or the older Excel Inquire Add In, which are not suitable for automation pipelines and not scalable for large numbers of files. Yet the causes in the XML structure of the Excel file is not addressed in these sources and can only be identified by reverse engeneering the cleanup tools or Microsoft excel itself by try and error removing parts of the XML file and checking if the file still looks the same.
 
 
 In the academic sphere, there is growing recognition that spreadsheets and databases need not be disjoint worlds. Some research efforts have looked at enhancing spreadsheets to handle larger datasets by leveraging database technology in the background. DataSpread \cite{Bendre2015DataSpread} and Hillview \cite{Budiu2019Hillview} are two systems that retain an Excel-like interface but manage data in a relational database to improve scalability.
@@ -165,7 +189,9 @@ A substantial body of research in top-tier venues (VLDB, SIGMOD, ICDE) has explo
 \textbf{Minimizing Excel File Size and Bloat.}
 Microsoft’s transition from the binary \texttt{.xls} format to \texttt{.xlsx} (Office Open XML) introduced compression and a shared string table to reduce repeated data \cite{ecma2007openxml,Microsoft2007OpenXML}. Further reduction is achieved in the \texttt{.xlsb} (binary) format, which stores data in a compact binary container at the cost of certain compatibility constraints \cite{MicrosoftXLSB,Mack2018Scalability}.
 
-However, there is a lack of peer-reviewed studies specifically quantifying how “bloat” (whitespace values, invisible formatting, rows and column definitions outside of the visible content) affects Excel file size \cite{lackOfStudies}. Instead, most advice on the subject comes from practitioners sharing their experiences. For example, Microsoft’s support article on cleaning excess cell formatting provides practical tips for reducing file size and improving performance \cite{MicrosoftXLSB}. Additionally, discussions on forums such as MrExcel illustrate that users have long noticed dramatic size reductions after clearing unused formatting or trimming the “used range” \cite{excelforum}. Popular Excel blogs from UpSlide \cite{upslide_blog}, The Bricks \cite{thebricks_blog} and Chandoo \cite{metadataBloat} further detail these methods based on accumulated user experience rather than formal experimentation.
+However, there is a lack of peer-reviewed studies specifically quantifying how “bloat” (
+  %whitespace values,
+  invisible formatting, rows and column definitions outside of the visible content) affects Excel file size \cite{lackOfStudies}. Instead, most advice on the subject comes from practitioners sharing their experiences. For example, Microsoft’s support article on cleaning excess cell formatting provides practical tips for reducing file size and improving performance \cite{MicrosoftXLSB}. Additionally, discussions on forums such as MrExcel illustrate that users have long noticed dramatic size reductions after clearing unused formatting or trimming the “used range” \cite{excelforum}. Popular Excel blogs from UpSlide \cite{upslide_blog}, The Bricks \cite{thebricks_blog} and Chandoo \cite{metadataBloat} further detail these methods based on accumulated user experience rather than formal experimentation.
 
 Several proprietary tools have been developed to address Excel bloat automatically. Notable examples include UpSlide’s Automation Software, which offers a one-click “Smart Clean” feature \cite{upslide_blog}; NXPowerLite Desktop \cite{neuxpower2024nxpowerlite}; Sobolsoft’s Excel File Size Reduce Software \cite{sobolsoft}; and online services such as WeCompress \cite{wecompress}. Other tools, such as Kernel for Excel Repair \cite{kernel_excel}, have also been mentioned in user communities for their file compression capabilities.
 
@@ -180,12 +206,17 @@ Rahman et al.~\cite{Rahman2020Benchmarking} conducted a comprehensive study comp
 \cite{Rahman2021NOAH}, 
 highlighting the lack of indexing in typical spreadsheet software. Addressing this, “DataSpread”~\cite{Bendre2015DataSpread} (VLDB 2015) and “Hillview”~\cite{Budiu2019Hillview} (PVLDB 2019) offload data management to database engines or distributed clusters, respectively, while retaining a spreadsheet-like interface. These architectures stretch the notion of a “spreadsheet” to hundreds of millions (or billions) of rows by introducing parallelization, indexing structures, or incremental computation. In a different line of work, Bendre et al.~\cite{Bendre2019AntiFreeze} proposed an \emph{anti-freeze} model for formula recalculation, allowing asynchronous updates so the user interface does not lock while large spreadsheets recompute.
 
+Systems such as \textit{DataSpread} and \textit{Hillview} improve scalability by re-architecting the spreadsheet runtime around database-style storage and computation. Our contribution is complementary: rather than replacing Excel’s execution model, we reduce the overhead of \emph{representing} and \emph{loading} real-world workbooks by eliminating redundant OOXML content that inflates I/O, memory pressure, and parsing costs in downstream tools.
+
 \textbf{Efficient Excel XML Processing.}
 As modern Excel files (\texttt{.xlsx}) are essentially XML (SpreadsheetML) within a ZIP container, \emph{parsing} can become a bottleneck for large sheets. Classical DOM-based XML parsing can exhaust memory on multi-hundred-thousand-row spreadsheets, whereas SAX-based streaming, though more memory-friendly, suffers from high CPU overhead through numerous event callbacks 
 \cite{Henze2022SheetReader}. 
 A hybrid parser that combines DOM and SAX parsing, along with regular expressions for extracting the relevant file contents (e.g.\ \texttt{openxlsx} in R), can still be slow and memory-intensive under worst-case scenarios. By contrast, parsers relying exclusively on DOM parsing (e.g.\ \texttt{readxl} in R) may achieve faster runtime performance but often at the cost of higher memory usage. For instance, the memory consumption of \texttt{readxl} can exceed ten times the size of the uncompressed worksheet \cite{Henze2022SheetReader}. 
 To address this, Henze et al.~\cite{Henze2022SheetReader} introduced \emph{SheetReader}, a specialized streaming parser that integrates decompression and XML scanning, and parallelizes chunk-level parsing. This yields dramatically lower memory footprints (often $40\times$ less) and faster loads ($3\times$ or more) compared to standard libraries.
 Similar to this Excel Shrink also aims to reduce the memory footprint by streamwise processing of small chunks of the XML file and only keeping the relevant parts in memory.
+
+\textit{SheetReader} and related work accelerate \emph{general-purpose extraction} from SpreadsheetML via streaming and parallel parsing. \textit{Excel Shrink} instead performs a \emph{semantics-preserving transformation} of SpreadsheetML: it uses streaming, state-guided pattern matching to \emph{delete} redundant structures (e.g. %whitespace-only string references, 
+empty styled cells, and out-of-range rows/columns) so that subsequent consumers (Excel itself and third-party libraries) face a substantially smaller parsing workload.
 
 \textbf{Comparisons of Parsing Approaches and Tools.}
 These studies collectively show a trade-off between \emph{DOM-based} simplicity (at the cost of high memory usage) and fully \emph{SAX-based} pipelines (often incurring higher CPU overhead). Hybrid or domain-specific solutions—like regex-based extraction or streaming chunk processors that skip unneeded style markup—strike a middle ground 
@@ -202,26 +233,75 @@ Additionally, they highlight practical tactics like saving spreadsheets as binar
 \cite{Mack2018Scalability}. 
 All these strategies offer evidence that a combination of advanced parsing, background recalculation, and robust data management techniques can significantly enhance performance for real-world Excel workloads.
 
-\textbf{Summary}
-From straightforward file-format optimizations (\texttt{.xlsb} compression) to \emph{architectural} overhauls (DataSpread, Hillview) and specialized parsers (SheetReader), the research consensus is that Excel’s native engine and file format alone do not scale gracefully. Modern solutions increasingly combine streaming-based XML handling, database or distributed architectures, and asynchronous computation to push spreadsheet interactivity far beyond Excel’s historical limits. These insights strongly motivate the need for further improvements in \texttt{.xlsx} bloat reduction and high-performance parsing directly addressed by our proposed approach in this paper.
+We focus on a different leverage point:
+rather than replacing Excel's execution model
+\textit{Excel Shrink} targets the physical representation of \texttt{.xlsx} files.
+By eliminating redundant and visually inconsequential OOXML structures,
+our approach reduces I/O, memory pressure, and parsing cost while preserving
+full compatibility with the existing \texttt{.xlsx} ecosystem.
 
-  
+
+\textbf{Summary}
+Prior work improves spreadsheet scalability either by changing the execution
+architecture (e.g., database-backed spreadsheets) or by accelerating ingestion
+and parsing through specialised streaming designs.
+However, the community lacks systematic, reproducible evidence on
+\emph{which} OOXML structures dominate file size
+and \emph{which} transformations preserve visual integrity.
+
+This paper fills that gap by
+(i) empirically characterising common sources of \texttt{.xlsx} bloat, and
+(ii) introducing a streaming transformation approach that reduces bloat
+while retaining the \texttt{.xlsx} format for compatibility with existing
+Excel-based and programmatic workflows.
+
 
 \section{Methodology}
 
-\noindent Excel-Shrink is a stream-oriented XLSX cleaner that removes visually inconsequential XML
-while preserving user-visible layout semantics
-(e.g., fill/border styles that convey meaning),
-and merges superfluous column definitions.
-The system operates directly on the bytestream of the zipped OOXML container:
-it parses \texttt{xl/workbook.xml}
-and per-sheet \texttt{xl/worksheets/sheet*.xml} streams with regular expressions
-instead of loading full XML trees into memory,
-applies workbook-specific rewriting rules
-derived from \texttt{xl/styles.xml} and \texttt{xl/sharedStrings.xml},
-and re-emits a compacted archive.
+\noindent \textit{Excel Shrink} is a stream-oriented \texttt{.xlsx} cleaner designed to remove
+\emph{structural bloat that is provably invisible to the user}
+while preserving all layout- and semantics-relevant content.
+By default, the system follows a conservative safety policy:
+only XML elements whose removal cannot affect visual appearance
+or formula evaluation are pruned.
+Operations that may alter semantics or layout are intentionally excluded
+unless explicitly enabled by the user.
 
-We first formalise inputs and artefacts, then describe pipeline stages.
+\textbf{Whitespace handling policy.}
+Whitespace-only cells are treated as \emph{potentially relevant} content.
+Although often unintentional, such cells may affect formula semantics
+(e.g., tests for non-emptiness or string concatenation)
+or serve layout purposes, such as preventing text from visually overflowing
+into adjacent cells.
+Therefore, Excel Shrink does \emph{not} remove whitespace-only cells by default.
+
+\textbf{System overview.}
+Excel Shrink operates directly on the bytestream of the zipped OOXML container.
+It parses \texttt{xl/workbook.xml} and per-sheet
+\texttt{xl/worksheets/sheet*.xml} streams using regular expressions
+instead of materialising full XML trees in memory,
+applies workbook-specific rewriting rules derived from
+\texttt{xl/styles.xml} and \texttt{xl/sharedStrings.xml},
+and re-emits a compacted archive.
+\textbf{Edge cases and robustness.}
+A common concern with regex-based SpreadsheetML processing is whether
+user-entered text could accidentally match XML patterns.
+This cannot occur for valid Excel files: Excel escapes XML-like input.
+As a conservative safeguard, processing aborts upon encountering
+\texttt{CDATA}, which Excel itself treats as malformed.
+We further rely on SpreadsheetML’s mandated element order
+(violations are rejected by Excel),
+while remaining agnostic to attribute ordering:
+all regular expressions are written to match attributes independent of order.
+Finally, prefixed/non-default namespaces (e.g., \texttt{x:worksheet}) are passed through unchanged to avoid data loss; such cases were only observed in machine-generated spreadsheets in our dataset and did not exhibit user-induced bloat.
+
+\textbf{Formula semantics.}
+Removing \emph{empty} cells, rows, or columns does not change formula semantics,
+even when these coordinates are referenced.
+Excel Shrink removes only their serialized representations from the worksheet XML;
+upon loading, Excel materializes missing cells as empty
+and evaluates references without introducing \texttt{\#REF!} errors.
+
 
 \subsection{Inputs, Outputs, and Notation}
 
@@ -235,7 +315,7 @@ A cleaned XLSX written either to a file path or into an output directory, preser
 \begin{itemize}
 \item \emph{Workbook XML} (\texttt{xl/workbook.xml}): contains \texttt{<definedNames>} nodes.
 \item \emph{Sheet XML} (\texttt{xl/worksheets/sheet*.xml}): contains \texttt{<cols>}, \texttt{<sheetData>}, \texttt{<mergeCells>}.
-\item \emph{Styles} (\texttt{xl/styles.xml}): provides \texttt{<cellXfs>} with fill/border/apply flags.
+\item \emph{Styles} (\texttt{xl/styles.xml}): provides \texttt{<cellXfs>} with fill/border/apply/protection flags.
 \item \emph{Shared Strings} (\texttt{xl/sharedStrings.xml}): enables identification of pure-whitespace string table entries.
 \end{itemize}
 
@@ -243,7 +323,7 @@ A cleaned XLSX written either to a file path or into an output directory, preser
 From \texttt{styles.xml} and \texttt{sharedStrings.xml} we derive:
 \begin{enumerate}
 \item sets of style indices with \emph{fill} or \emph{border} or with neither but \emph{font-only};
-\item regex-like predicates for: (i) whitespace cells, (ii) consecutive empty cells/rows, (iii) attributes irrelevant for empty rows (\emph{spans}, vendor \emph{dyDescent}, etc.), and (iv) presence of \emph{hidden} rows/columns.
+\item regex-like predicates for: (i) whitespace-only cells (for optional removal), (ii) consecutive empty cells/rows, (iii) attributes irrelevant for empty rows (\emph{spans}, vendor \emph{dyDescent}, etc.), and (iv) presence of \emph{hidden} rows/columns.
 \end{enumerate}
 
 
@@ -262,59 +342,60 @@ others can be applied independently to each worksheet. Despite their simplicity,
 these early operations are effective in eliminating a large portion of file bloat
 from Excel spreadsheets.
 
-Such operations involve the removal of visually inconsequential cells and rows—
-cells that contain no content and no layout-relevant styling,
-such as background fills or borders.
-Font-only styling (e.g., font family or size) or filled  with
- whitespace characters  is insufficient to classify a cell as visually relevant.
-By filtering out these cells during chunk-level processing,
-we reduce both the computational burden and the memory footprint
-of subsequent operations.
+These operations remove visually inconsequential cells and rows,
+i.e., elements that contain no content and no layout- or semantics-relevant styling.
+Cells are considered visually relevant if their associated style specifies
+background fills, borders, or protection attributes.
+Font-only styling (e.g., font family or size) is insufficient to classify a cell
+as visually relevant.
+Cells marked as protected, or explicitly exempted from protection,
+are conservatively preserved, as protection often encodes user intent
+(e.g., preventing modification of form templates).
 
-To identify and remove these visually inconsequential cells,
-we need to know which styles correspond to visually empty formatting
-and which shared strings correspond to whitespace-only content.
+To identify removable cells and rows, Excel Shrink derives workbook-specific
+classification rules from \texttt{styles.xml} and \texttt{sharedStrings.xml}.
+From the extracted style definitions, we determine which style indices correspond to
+(i) visually empty formatting, (ii) fill- or border-bearing cells, and
+(iii) protected or protection-exempt cells.
+Shared strings are analysed to identify whitespace-only entries
+(for optional removal).
+Based on these sets, we compile regular expressions that match
+cells and rows that are safe to remove.
+The construction of these sets and the resulting patterns
+is summarised in Algorithm~\ref{alg:build-wb-patterns}.
 
-After extracting the style definitions from styles.xml
-and the shared strings from sharedStrings.xml during the initial context extraction phase,
-we can compile regex patterns that match cells and rows that are visually empty.
-The  compilation of these patterns is summarised in Algorithm \ref{alg:build-wb-patterns}.
-
-After extracting the style definitions from \texttt{styles.xml} and the shared strings
-from \texttt{sharedStrings.xml} during the initial context extraction phase, we construct
-several sets of indices that determine which cells or rows can safely be removed.
-These sets and the resulting regular expressions are compiled in
-Algorithm~\ref{alg:build-wb-patterns}.
-
-Let \(S_{\mathrm{fb}}\) denote the set of all \emph{fill/border} style indices,
-i.e.\ those \texttt{xf} records where either the \texttt{fillId} or
-\texttt{borderId} attribute is non-zero.
+Let \(S_{\mathrm{fbp}}\) denote the set of all \emph{fill/border/applyProtection} style indices,
+i.e.\ those \texttt{xf} records where either the \texttt{fillId},
+\texttt{borderId}, or \texttt{applyProtection} attribute is non-zero.
 For example, if the parsed style table (\texttt{styles.xml}) contains
+
 \[
-XFS[0].\mathrm{fillId}=0,
-XFS[1].\mathrm{fillId}=3,
-XFS[2].\mathrm{borderId}=2
+\begin{aligned}
+XFS[0].\mathrm{fillId} &= 0, \quad XFS[1].\mathrm{fillId} = 3,\\
+XFS[2].\mathrm{borderId} &= 2, \quad XFS[3].\mathrm{applyProtection} = 1,
+\end{aligned}
 \]
-then \(S_{\mathrm{fb}}=\{1,2\}\).
+
+then \(S_{\mathrm{fbp}}=\{1,2,3\}\).
 These indices are joined into a single alternation string
-\(\mathrm{FB} = \texttt{"1|2"}\),
+\(\mathrm{FBP} = \texttt{"1|2|3"}\),
 which is used to form the regular expression
 \[
-p_{\text{fbh}} = \code{"(?:s="(?:1|2)"|"hidden="1")"}
+p_{\text{fbh}} = \code{"(?:s="(?:1|2|3)"|"hidden="1")"}
 \]
-matching a row attribute that either has style with a set fill or border or a row attribute that is hidden used to find the last visually relevant row.
+matching a row attribute that either has a style with a set fill, border or applyProtection attribute, or a row attribute that is hidden used to find the last visually relevant row.
 
 Analogously, \(S_{\mathrm{font}}\) represents the set of \emph{font-only} styles—
 those that apply no fill or border at all.
 For instance, if
 \[
 \begin{aligned}
-XFS[3].\mathrm{fillId} &= 0, \quad XFS[3].\mathrm{borderId} = 0,\\
-XFS[4].\mathrm{fillId} &= 0, \quad XFS[4].\mathrm{borderId} = 0,
+XFS[4].\mathrm{fillId} &= 0, \quad XFS[4].\mathrm{borderId} = 0,\\
+XFS[5].\mathrm{fillId} &= 0, \quad XFS[5].\mathrm{borderId} = 0,
 \end{aligned}
 \]
 
-\noindent then \(S_{\mathrm{font}}=\{3,4\}\) is incorporated into the patterns
+\noindent then \(S_{\mathrm{font}}=\{4,5\}\) is incorporated into the patterns
 
 \[
 \begin{aligned}
@@ -322,13 +403,13 @@ p_{\text{ra}} &=
   \begin{aligned}[t]
   &\codeline{\s*(spans="[^"]+")}\\[-1pt]
   &\codeline{|[^:]+:dyDescent="[^"]*"}\\[-1pt]
-  &\codeline{|s="(?:3|4)")}
+  &\codeline{|s="(?:4|5)")}
   \end{aligned}
 \\[4pt]
 p_{\text{e}}  &= 
   \begin{aligned}[t]
   &\codeline{(?:<c\b(?:(?![^>]*s=)[^>]*)}\\[-1pt]
-  &\codeline{|[^>]*s="(?:3|4)"}\\[-1pt]
+  &\codeline{|[^>]*s="(?:4|5)"}\\[-1pt]
   &\codeline{[^>]*)/>)+}
   \end{aligned}
 \end{aligned}
@@ -388,12 +469,11 @@ the XML structure.
   $xfs \gets \operatorname{parseCellXfs}(B_{\text{stylesXml}})$\;
 
   % index sets
-  $S_{\mathrm{fb}} \gets \{\, i \mid xfs[i].\mathrm{fillId}\neq 0 \lor xfs[i].\mathrm{borderId}\neq 0 \,\}$\;
+  $S_{\mathrm{fbp}} \gets \{\, i \mid xfs[i].\mathrm{fillId}\neq 0 \lor xfs[i].\mathrm{borderId}\neq 0 \lor xfs[i].\mathrm{applyProtection} = 1 \,\}$\;
   $S_{\mathrm{font}} \gets \{\, i \mid (xfs[i].\mathrm{fillId}\in\{0,\mathtt{None}\}) \land (xfs[i].\mathrm{borderId}\in\{0,\mathtt{None}\}) \land \neg xfs[i].\mathrm{applyFill} \land \neg xfs[i].\mathrm{applyBorder} \,\}$\;
 
   % shared strings indices that are whitespace-only
-  $W \gets \textsc{IndicesOfWhitespaceSI}(B_{\text{sharedStringsXml}})$\;
-
+  $W \gets \textsc{IndicesOfWhitespaceSI}(B_{\text{sharedStringsXml}})$;
   % optional: finite map view of xfs (for exposition)
   $\mathsf{XFS} \gets \{\, "0"\mapsto xfs[0],\ "1"\mapsto xfs[1],\ldots \,\}$\;
 
@@ -411,12 +491,12 @@ the XML structure.
     $p_{\text{e}} \gets$ \code{'(?:<c\b(?![^>]*\bs=)[^>]*/>)+'}\;
   }
 
-  %%% FB + (rho3)
-  \uIf{$|S_{\mathrm{fb}}|>0$}{
-    $\mathrm{FB} \gets \Join(S_{\mathrm{fb}}, \texttt{|})$\;
-    $p_{\text{fbh}} \gets$ \code{'(?:s="(?:' + FB + ')"|"hidden="1")'}\;
+  %%% FBP + (rho3)
+  \uIf{$|S_{\mathrm{fbp}}|>0$}{
+    $\mathrm{FBP} \gets \Join(S_{\mathrm{fbp}}, \texttt{|})$\;
+    $p_{\text{fbph}} \gets$ \code{'(?:s="(?:' + FBP + ')"|"hidden="1")'}\;
   }\Else{
-    $p_{\text{fbh}} \gets$ \code{'"hidden="1"'}\;
+    $p_{\text{fbph}} \gets$ \code{'"hidden="1"'}\;
   }
 
   %%% WS + (rho4, rho5)
@@ -430,7 +510,7 @@ the XML structure.
     $p_{\text{wc}} \gets \text{None}$\;
   }
 
-  $\mathcal{P} \leftarrow \{p_{\text{ra}},p_{\text{e}},p_{\text{fbh}},p_{\text{ws}},p_{\text{wc}}\}$ with \textsc{compile} for all non-\texttt{None}\;
+  $\mathcal{P} \leftarrow \{p_{\text{ra}},p_{\text{e}},p_{\text{fbph}},p_{\text{ws}},p_{\text{wc}}\}$ with \textsc{compile} for all non-\texttt{None}\;
 
   \KwRet $\langle \mathcal{P},\ $XFS$\rangle$\;
 
@@ -474,7 +554,7 @@ These patterns parameterise all sheet and workbook transformations that follow, 
     $\mathcal{T} \gets \varnothing$;\quad \emph{processed tags} \;
     $\mathcal{T} \gets \varnothing$;\quad \emph{processed tags} \;
 
-    $\mathcal{D}_col \gets \mathrm{newRangeMap}()$;\quad \emph{column defs (map)} \;
+    $\mathcal{D}_{col} \gets \mathrm{newRangeMap}()$;\quad \emph{column defs (map)} \;
     $m_{\max}\gets \bot$;\;
 
     % literals / observers
@@ -508,7 +588,7 @@ These patterns parameterise all sheet and workbook transformations that follow, 
       }
 
       \uElseIf{$state = \mathsf{IN\_COLS}$}{
-        $\langle c,\ b,\ state,\ \mathcal{D}_col \rangle \gets \textsc{ConsumeCols}(b,\ \mathcal{P}, \mathcal{D}_col)$\;
+        $\langle c,\ b,\ state,\ \mathcal{D}_{col} \rangle \gets \textsc{ConsumeCols}(b,\ \mathcal{P}, \mathcal{D}_{col})$\;
         $B_{\text{cols}} \gets B_{\text{cols}} \concat c$\;
       }
 
@@ -530,7 +610,7 @@ These patterns parameterise all sheet and workbook transformations that follow, 
       }
     }
 
-  $\mathcal{M} \leftarrow \{\mathcal{D}_col,m_{\max}\}$\;
+  $\mathcal{M} \leftarrow \{\mathcal{D}_{col},m_{\max}\}$\;
 
 
 \Return $\textsf{Preprocessed}\left(
@@ -575,13 +655,14 @@ These patterns parameterise all sheet and workbook transformations that follow, 
 \end{algorithm}
 
 
+
 \subsection{Streaming Sheet Pre-processing}
 
 
 
 We implement our spreadsheet parser streaming-based, processing the XML data incrementally to minimize memory consumption and permit early discarding of unnecessary file sections. Below, we focus on how the parser transitions between states (i.e., how each state function decides to proceed), deferring lower-level details of in-state processing until later sections (Algorithm \ref{alg:preprocess}).
 
-\paragraph{States Overview}
+\textbf{States Overview}
 We define six main states in our parser:
 \begin{itemize}
   \item \texttt{BEFORE\_COLS}: The parser has not yet encountered the \texttt{<cols>} element. It searches for either \texttt{<cols>} or \texttt{<sheetData>}.
@@ -592,7 +673,7 @@ We define six main states in our parser:
   \item \texttt{END\_OF\_FILE}: The parser has reached the end of the stream, and no further parsing is needed.
 \end{itemize}
 
-\paragraph{In between nodes}
+\textbf{In between nodes}
 In \texttt{BEFORE\_COLS}, \texttt{BEFORE\_SHEET\_DATA}, or \texttt{AFTER\_SHEET\_DATA}, the parser looks for tag boundaries (e.g., \verb|<cols>|, \verb|<sheetData>|) or the end of file. When it detects such a tag at position \verb|i| in the buffer:
 \begin{enumerate}
   \item It \emph{cuts} the buffer at \verb|i|, splitting the buffer into two segments:
@@ -602,7 +683,7 @@ In \texttt{BEFORE\_COLS}, \texttt{BEFORE\_SHEET\_DATA}, or \texttt{AFTER\_SHEET\
 \end{enumerate}
 If the parser fails to find any relevant tag or end of file, it returns no new output chunk, remains in the same state and leaves the buffer unmodified. This ensures that subsequent incoming data can be appended, eventually providing enough content to match the target boundary.
 
-\paragraph{In column definition node}
+\textbf{In column definition node}
 In \texttt{IN\_COLS}, the parser searches for \verb|</cols>| or any \verb|<col .../>| elements. On detecting \verb|</cols>|, it cuts the buffer right before the closing tag and transitions to \texttt{BEFORE\_SHEET\_DATA}. If it does not find the closing tag but locates complete \verb|<col .../>| elements, those are consumed and removed from the buffer as a clean cut. If no match is found, the buffer remains unchanged, waiting for more data to complete the matching.
 
 
@@ -665,13 +746,17 @@ In \texttt{IN\_COLS}, the parser searches for \verb|</cols>| or any \verb|<col .
 
 
 
-\paragraph{In sheet data node}
+\textbf{In sheet data node}
 While \texttt{IN\_SHEET\_DATA}, the parser similarly looks for \verb|</sheetData>| or row boundaries \texttt{<row ...>...</row>} (or \texttt{<row .../>}). If \verb|</sheetData>| is found, the parser cuts the buffer at that tag and transitions to \texttt{AFTER\_SHEET\_DATA}. If no boundary is present yet, the buffer remains unaltered to combine with future data chunks.
 
-\paragraph{Ensuring ``Clean Cuts'' within the Streaming Buffer}
-Our parser reads raw XML data into a working buffer and ensures each XML node boundary is cleanly preserved, so no node is split across buffers. Each state-transition function adheres to this principle, only cutting when a relevant XML tag is fully identified. 
+\textbf{Ensuring ``Clean Cuts'' within the Streaming Buffer}
+Our parser processes XML data in a streaming fashion using a working buffer that preserves XML node boundaries, ensuring that no node is split across buffer cuts. State transitions are performed only after a complete and relevant XML tag has been identified.
 
-\paragraph{Buffer Updates and State Progress}
+If no such tag can be detected, the buffer is incrementally extended with subsequent input chunks without altering the parser state or consuming already buffered content. This process is repeated until either a valid cut point is identified or the end of the input stream is reached.
+
+If the end of the stream is reached while the parser remains inside a nested XML node and no valid closing tag can be identified, parsing is aborted and the file is skipped. This condition indicates malformed or corrupted XML; skipping such files prevents partial processing and potential data loss.
+
+\textbf{Buffer Updates and State Progress}
 By constraining parsing decisions to these well-defined cuts, the parser never splits an XML node across multiple buffers. Each function (1) cuts on the matching tag boundary and updates the parser state, or (2) leaves the buffer intact if no complete boundary is found, thus allowing the next chunk to complete it. This way the parser can process the XML incrementally without needing to store the entire document in memory and it is ensured that the regular expressions dont't fail due to incomplete XML nodes and also only the regular expressions that are relevant to the current section of the document are applied, incresing the performance in comparison to applying all regular expressions on the whole document.
 
 
@@ -684,7 +769,7 @@ By constraining parsing decisions to these well-defined cuts, the parser never s
 
 \Fn{\textsc{SplitSheetDataRanges}($B_{\mathrm{sheetData}}$, $\mathcal{P}$)}{
   %\tcp{Input $sheet_data_bytes$: bytes of the \xtag{<sheetData>} node.}
-  %\tcp{$patterns.p_{\mathrm{fbh}}$: compiled regex for \code{s="FB"} or \code{hidden="1"}.}
+  %\tcp{$patterns.p_{\mathrm{fbph}}$: compiled regex for \code{s="FBP"} or \code{hidden="1"}.}
 
   \BlankLine
   %\tcp{1) Find the end of the last row that still contains a cell.}
@@ -704,7 +789,7 @@ By constraining parsing decisions to these well-defined cuts, the parser never s
   %\tcp{2) Scan for last visible attribute (fill/border style or \code{hidden="1"}).}
   $i_{\mathrm{visAttr}} \gets i_{\mathrm{cellsEnd}}$\;
   $m_{\mathrm{last}} \gets \bot$\;
-  \ForEach{$m \in \operatorname{finditer}(patterns.p_{\mathrm{fbh}},\ B_{\mathrm{sheetData}},\ \text{start}=i_{\mathrm{cellsEnd}})$}{
+  \ForEach{$m \in \operatorname{finditer}(patterns.p_{\mathrm{fbph}},\ B_{\mathrm{sheetData}},\ \text{start}=i_{\mathrm{cellsEnd}})$}{
     $m_{\mathrm{last}} \gets m$\;
   }
   \If{$m_{\mathrm{last}} \neq \bot$}{
@@ -757,38 +842,44 @@ By constraining parsing decisions to these well-defined cuts, the parser never s
 
 
 The sub-routine \textsf{preProcessSheetData} (Algorithm \ref{alg:presd}) performs three linear passes over chunks:
-(i) collapse explicit whitespace cells discovered via shared-strings indices,
+(i) optionally identify and collapse explicit whitespace-only cells
+via shared-string indices (disabled by default to preserve semantics and layout),
 (ii) remove consecutive empty cells (either styleless or font-only),
 and (iii) opportunistically remove runs of hidden rows
 while retaining the first sentinel
 when needed to preserve row height/visibility semantics.
 
 Two of these transformations depend on workbook-specific patterns
-derived from \texttt{styles.xml} and \texttt{sharedStrings.xml} as described in Section
-\ref{sec:wb-patterns}. Those are the removal of explicit whitespace cells
-and the removal of consecutive empty cells with font-only or no styling.
-Before these, we can also collapse consecutive hidden rows
-into a single sentinel row.
-In Excel’s internal representation,
-rows can be marked as hidden using the attribute \xtag{hidden="1"}.
-While such rows are visually collapsed in the spreadsheet,
-their presence in the XML can extend unnecessarily over thousands or even millions
-of entries. In practice, we observed worksheets where, starting at a certain point,
+derived from \texttt{styles.xml} and \texttt{sharedStrings.xml},
+as described in Section~\ref{sec:wb-patterns}:
+(i) the removal of consecutive empty cells with no styling or font-only styling,
+and (ii) the optional detection and removal of explicit whitespace-only cells.
+In addition, we collapse consecutive hidden rows into a single sentinel row
+during pre-processing.
+
+In Excel's internal representation, rows may be marked as hidden using the attribute
+\xtag{hidden="1"}.
+Although such rows are visually collapsed in the spreadsheet,
+their explicit representation in the worksheet XML can extend unnecessarily
+over thousands or even millions of entries.
+In practice, we observed worksheets in which, beyond a certain point,
 all subsequent rows were marked as hidden.
-However, Excel renders all following rows as hidden
-as soon as a single row with \xtag{hidden="1"} is encountered,
+Excel renders all following rows as hidden
+once a single row with \xtag{hidden="1"} is encountered,
 unless a later row explicitly overrides this setting.
-Therefore, from a rendering perspective,
-a long sequence of hidden rows is semantically equivalent to just the first hidden row
-being present.
-To exploit this, we use a regular expression to identify
-and collapse consecutive hidden rows into a single representative row.
-This technique avoids expensive per-row checks and requires no document-wide context,
-making it highly suitable for pre-processing.
-The resulting simplification significantly reduces the size of the document
-before it is fully loaded into memory.
-The regex used for this task is constructed and applied in Algorithm \ref{alg:presd} first.
-Then the whitespace cell replacement and empty cell removal follow.
+From a rendering perspective, a long sequence of hidden rows
+is therefore semantically equivalent to the presence of only the first hidden row.
+
+To exploit this equivalence, Excel Shrink uses a regular expression
+to identify and collapse consecutive hidden rows into a single representative row.
+This transformation avoids expensive per-row checks
+and requires no document-wide context,
+making it well suited for chunk-level pre-processing.
+The resulting simplification significantly reduces document size
+before subsequent cleaning passes are applied.
+The construction and application of the corresponding regular expression
+are shown in Algorithm~\ref{alg:presd}.
+
 
 \begin{algorithm}
 \caption{cleanRowsAndCellsInRange — apply $p_{\text{row}}$ with
@@ -928,14 +1019,14 @@ suffix slice that no longer contains any cells (\emph{rowsRange}).
 Both passes are guided by workbook-specific patterns (See \ref{sec:wb-patterns}) and update a small, per-sheet metrics state $\mathcal{M}$ used by later
 steps (merge-column normalization and diagnostics).
 
-\paragraph*{Range splitting}
+\textbf{Range splitting}
 
 Alg.~\ref{alg:split-sheetdata} identifies the last row that still contains a
 cell by scanning backwards for a \xtag{<c} token, then advancing to the
 end of that row. From that anchor it scans forward for the last
-\emph{visibly relevant attribute}---either a fill/border-bearing style
-(\code{s="FB"}) or \xtag{hidden="1"}---by iterating a precompiled pattern
-\mbox{$p_{\mathrm{fbh}}$}. The earliest of the next
+\emph{visibly relevant attribute}---either a fill/border/protection-bearing style
+(\code{s="FBP"}) or \xtag{hidden="1"}---by iterating a precompiled pattern
+\mbox{$p_{\mathrm{fbph}}$}. The earliest of the next
 \xtag{</row>} and \xtag{/>} delimiters after this anchor marks the end of the
 trailing visible-rows region. The function returns two slices: the \emph{cells_range} from the beginning up to and including
 the last cell-bearing row, and the \emph{rows_range} from there up to the last
@@ -946,7 +1037,7 @@ intermediate range (between the last cell-bearing and the last relevant row)
 is examined only for rows that are hidden or have an explicitly defined
 height.
 
-\paragraph*{Row+cell sweep on the cells prefix}
+\textbf{Row+cell sweep on the cells prefix}
 The first pass (Alg.~\ref{alg:rows-cells}) applies a row-level regex
 \mbox{$p_{\text{row}}$} to the \emph{cellsRange}. Each row match is handed to
 \emph{ReplaceRow}, which (i) records row
@@ -959,7 +1050,7 @@ cells in hidden row/column, without style, or without visible effects are
 dropped; cells with fills/borders or with effective overrides are kept as
 self-closing. All actions are appended to $\mathcal{M}$ for downstream use.
 
-\paragraph*{Trailing empty-rows sweep}
+\textbf{Trailing empty-rows sweep}
 The second pass (Alg.~\ref{alg:rows-trailing}) runs over the \emph{rowsRange}
 using \mbox{$p_{\text{rowE}}$}. \emph{ReplaceEmptyRow} preserves the first row of any hidden-run and
 any style-bearing empty row (to retain layout height/borders), while deleting
@@ -1031,12 +1122,12 @@ are none in the suffix), which makes it both simpler and faster. Also  \mbox{$p_
 
 
  
-\paragraph*{Metrics and column merging}
+\textbf{Metrics and column merging}
 The rows+cells pass records kept cell coordinates and row attributes in
 $\mathcal{M}$; combined with merge-cell bounds and visible column definitions,
 those are then used to merge extraneous \xtag{<col>} ranges (See \ref{sec:columns}).
 
-\paragraph{Cell policy (summary)}
+\textbf{Cell policy (summary)}
 A cell is kept (as self-closing) iff it has a visible effect on layout: it is not in a hidden row or column, it carries a cell style, and it either applies a fill or border or explicitly overrides an inherited \emph{apply} style from its row/column. Otherwise the cell is deleted.
 
 \subsection{Column Range Compaction}
@@ -1047,9 +1138,9 @@ that exceed the rightmost visible column inferred from (i) kept cells,
 (ii) \xtag{<mergeCells>}, and (iii) last visible column definition (hidden or with fill/border).
 If the first extraneous range precedes others, we widen it to the last, replacing the suffix.
 
-\subsection{Workbook De-duplication of Defined Names}
+%\subsection{Workbook De-duplication of Defined Names}
 
-Some workbooks redundantly define both \texttt{Print\_Area} and \texttt{\_xlnm.Print\_Area} (and analogously \texttt{Print\_Titles}) for the same \texttt{localSheetId}. We keep one representative and delete duplicates.
+%Some workbooks redundantly define both \texttt{Print\_Area} and \texttt{\_xlnm.Print\_Area} (and analogously \texttt{Print\_Titles}) for the same \texttt{localSheetId}. We keep one representative and delete duplicates.
 
 \begin{figure*}[t]
   \centering
@@ -1084,65 +1175,92 @@ Beyond memory efficiency, we further optimised scheduling. When a file with mult
 
   
 \section{Evaluation}
-We tested our approach on 1,183 real Excel files from the German Federal Statistical Office (\textit{Destatis})~\cite{original_destatis_xlsx_files},\cite{shrinked_destatis_xlsx_files}, covering year-based directories and containing numerous oversize spreadsheets. Excel Shrink Analyzer Script completed parsing and cleaning those files in 3 hours and 43 minutes while our multithreaded streambased approach using regular expressions took 20 minutes and 42 seconds. This represents a 10x speedup over the single-threaded DOM-Parser driven version. The multithreaded approach also significantly reduced memory usage, as each thread only required a small buffer to process its portion of the file. This improvement allowed us to process larger files that would have exceeded memory limits using the single-threaded approach.
 
+
+We evaluated \textit{Excel Shrink} on 1{,}183 real-world Excel files from the German
+Federal Statistical Office (\textit{Destatis})~\cite{original_destatis_xlsx_files,shrinked_destatis_xlsx_files}
+and 8{,}643 real-world Excel files from \texttt{data.gov}~\cite{data_gov_xlsx_files}.
+For each workbook, we verified value-level equivalence before and after cleaning
+by recalculating all formulas and comparing the resulting cell values.
+All values were identical, except for cells containing volatile formulas
+(e.g.\ \texttt{=RAND()}, \texttt{=NOW()}, or \texttt{=CELL("filename")}),
+whose semantics explicitly permit differing results across recalculations
+\cite{Johr2026AnalyzeDataGovReport,Johr2026AnalyzeDestatisReport}.
 
 
 \begin{figure*}
   \centering
   \includegraphics[width=\textwidth]{scripts/loading_times_size_reduction/charts/time_and_filesize_comparison_by_file.pdf}
-  \caption{Loading Times and Size Reduction for the 3 Largest \textit{Destatis} Files Before and After applying \textit{Excel Shrink}}
+  \caption{Loading Times and Size Reduction for the largest \textit{Destatis} and \textit{data.gov} Files Before and After applying \textit{Excel Shrink}}
   \label{fig:loading-times}
 \end{figure*}
 
+Our primary goal was to quantify the extent of data reduction achieved by
+\textit{Excel Shrink} under its default, conservative configuration.
+We therefore focus on metrics such as overall file size reduction,
+removal of empty cells,
+deletion of rows outside the range of actual data values,
+and elimination of unnecessary column definitions.
 
-Our primary goal was to quantify the extent of data reduction achieved by \textit{Excel Shrink}, focusing on metrics such as overall size reduction, removal of empty cells, elimination of whitespace cells, deletion of rows outside the value range, and the removal of unnecessary columns. Figure~\ref{fig:size-reduction-chart} presents the distribution of reduction rates (in percentage) for individual worksheets across all these categories. The chart shows that some worksheets experienced reductions approaching 100\% in file size. In particular, one worksheet exceeded a 99.99\% reduction, 16 worksheets surpassed 99.9\%, and 210 worksheets achieved reductions above 99\%. Across all worksheets, the average reduction rate was 25\%. Most of these gains were realized by removing rows that lay outside the range of actual data values.
+Figure~\ref{fig:size-reduction-chart} presents the distribution of reduction rates
+(in percentage) for individual worksheets.
+To disentangle the contribution of different bloat sources,
+these measurements were obtained using \textit{Excel Shrink Analyzer},
+which enables optional transformations (including whitespace removal)
+for diagnostic purposes.
+The chart shows that some worksheets experienced reductions approaching 100\%
+in file size.
+In particular, one worksheet exceeded a 99.99\% reduction,
+16 worksheets surpassed 99.9\%,
+and 210 worksheets achieved reductions above 99\%.
+Across all worksheets, the average reduction rate was 25\%.
+Most of these gains were realised by removing rows that lay outside
+the range of actual data values.
 
+We further observed that optional whitespace removal yields only
+comparatively small additional size reductions,
+reinforcing the decision to preserve such cells by default in
+\textit{Excel Shrink} given their limited contribution to bloat
+and their potential impact on visual appearance or formula evaluation.
 
-To further assess the performance improvements enabled by \textit{Excel Shrink}, we identified the two largest files in our \textit{Destatis} dataset \cite{destatis2023Rechnungsergebnisse, destatis2022Verkehrsunfaelle}. Prior to processing, these files measured 85.2~MB and 36.3~MB in their compressed \textit{Excel} (.xlsx) format and expanded to 911~MB and 741~MB when uncompressed. 
-Figure~\ref{fig:loading-times} summarises the runtime, size, and memory
-consumption for the two representative \textit{Destatis} workbooks before and
-after applying \textit{Excel Shrink}.  Each file was processed with six
-libraries—\texttt{openpyxl}, \texttt{pandas}, \texttt{Microsoft~Excel},
-\texttt{R~openxlsx}, \texttt{R~readxl+writexl}, and our own
-\texttt{Excel~Shrink} pipeline—both in their original and cleaned versions.
+To further assess the performance improvements enabled by \textit{Excel Shrink}, we selected two particularly large workbooks from our \textit{Destatis} and \textit{data.gov} datasets \cite{destatis2023Rechnungsergebnisse, Hazari2015DobutamineQTdata}. In their original compressed \textit{Excel} (\texttt{.xlsx}) form, the files measured approximately 116~MB and 85~MB, respectively, and expanded by nearly an order of magnitude when uncompressed due to extensive sparsity and redundant formatting.
+
+Figure~\ref{fig:loading-times} summarises runtime, file size, and peak memory
+consumption before and after applying \textit{Excel Shrink}. Each file was
+processed using \texttt{openpyxl}, \texttt{pandas}, \texttt{Microsoft~Excel},
+\texttt{R~openxlsx}, \texttt{R~readxl+writexl}, and our \texttt{Excel~Shrink}
+pipeline. For \textit{Excel Shrink}, we additionally report a single-core
+execution and a variant with sheetdata splitting disabled to isolate the impact
+of key algorithmic design choices.
 
 \paragraph{Loading and Saving Times}
-The upper chart shows that \texttt{openpyxl} required by far the longest
-execution times, with more than 500 seconds for the largest workbook, whereas
-\texttt{pandas} and the R-based libraries performed substantially faster.
-After shrinking, the time to open and save the same files decreased for every
-library, often by one to two orders of magnitude.
-For example, \texttt{R~readxl+writexl} improved from 191.7 s to 7.9 s in the
-second file, and \texttt{Excel~Shrink} itself completed a full clean-and-save
-cycle in less than 10 seconds.  The second shrink run (“Second~Excel~Shrink
-run”) is shown only for completeness and confirms the idempotence of our
-cleaning approach—the processing time remains minimal because no further
-redundant content is detected.
+After shrinking, loading and saving times decrease
+consistently across all libraries, often by more than an order of magnitude.
+The default multi-core configuration of \texttt{Excel~Shrink} completes a full
+clean-and-save cycle in only a few seconds, while the single-core variant is
+slower but remains competitive, demonstrating effective parallel scalability
+without relying on excessive per-core memory. Disabling sheetdata splitting
+significantly increases runtime, as large sheet XML streams must be processed
+more exhaustively without early truncation (Algorithm~\ref{alg:split-sheetdata}).
 
 \paragraph{File Size Reduction}
-The middle chart quantifies the reduction in file size. Both workbooks
-shrank substantially—from 85.2~MB and 35.4~MB (911~MB and 741~MB uncompressed)
-to 2.4~MB and 1.9~MB (20.8~MB and 10.7~MB uncompressed)—corresponding
-to 97.2\% and 94.7\% reductions (97.7\% and 98.6\% for the uncompressed sizes).
-Such compression not only
-reduces storage requirements but also decreases network transfer time
-when exchanging files.
-
+Both workbooks shrink from approximately 116~MB and 85~MB to 3.1~MB and 4.9~MB,
+corresponding to reductions of about 97.4\% and 94.2\%, respectively. These
+reductions are independent of parallel execution and result solely from the
+removal of visually irrelevant XML content.
 
 \paragraph{Memory Consumption}
-The bottom chart shows the peak memory usage for each library before and after shrinking.
-Across all tools, the reduction in file complexity led to markedly lower memory requirements.
-\texttt{openpyxl} exhibited the highest demand—up to 8.5 GB when opening the uncleaned workbook—posing a serious challenge for consumer-grade computers with 8 GB of RAM.
-After shrinking, its peak memory dropped to about 620 MB, making the workbook manageable on typical systems.
-For R-based libraries such as \texttt{openxlsx} and \texttt{readxl + writexl}, the original peak consumption of roughly 2.5 GB decreased to below 700 MB.
-Even though \texttt{Excel Shrink} is implemented in Python, its memory profile was comparable to that of Microsoft Excel itself for the bloated workbook and became slightly lower than that of Excel for the cleaned workbook.
+For the original workbooks, peak memory usage is substantial:
+\texttt{openpyxl} exceeds 8~GB on the larger file, while R-based libraries peak
+around 2--3~GB. After shrinking, peak memory usage drops below 1~GB across all
+tools. The single-core \texttt{Excel~Shrink} variant exhibits particularly low
+memory consumption, highlighting the streaming nature of the core algorithms.
+In contrast, disabling sheetdata splitting increases peak memory usage, as
+larger XML fragments must be retained for analysis.
 
-Overall, these results confirm that \textit{Excel Shrink} not only minimises
-file sizes but also enables faster and more memory-efficient processing across
-different ecosystems, making large public spreadsheet datasets substantially
-more accessible for both analytical and production workloads.
-
+Overall, these results show that \textit{Excel Shrink} achieves substantial file
+size reductions while enabling faster and more memory-efficient processing
+across spreadsheet ecosystems.
 
 
 
@@ -1155,15 +1273,15 @@ To evaluate the behavior of \textit{Excel} regarding how the files are interpret
 
 \subsection{Comparison with Other Tools for Reducing Bloat}
 
-Excel users lack a straightforward method to identify which cells in a worksheet contain only whitespace characters. To highlight these whitespaces, we have marked cells containing exclusively whitespaces in red within this worksheet, which includes 4,121 such instances (see Figure~\ref{fig:whitespaces})~\cite{destatis2023Konsumausgaben5811109}. Excel Inquire Add-in, Excel Check Performance and NXPowerLite Desktop did not remove Whitespaces, while Excel Shrink identified and removed them.
+%Excel users lack a straightforward method to identify which cells in a worksheet contain only whitespace characters. To highlight these whitespaces, we have marked cells containing exclusively whitespaces in red within this worksheet, which includes 4,121 such instances (see Figure~\ref{fig:whitespaces})~\cite{destatis2023Konsumausgaben5811109}. Excel Inquire Add-in, Excel Check Performance and NXPowerLite Desktop did not remove Whitespaces, while Excel Shrink identified and removed them.
 
 
-\begin{figure}[ht]
-  \centering
-  \includegraphics[width=\linewidth]{images/excel_shrink/whitespaces/whitespaces3.png}
-  \caption{Cells containing only whitespaces highlighted in red.}
-  \label{fig:whitespaces}
-\end{figure}%
+%\begin{figure}[ht]
+%  \centering
+%  \includegraphics[width=\linewidth]{images/excel_shrink/whitespaces/whitespaces3.png}
+%  \caption{Cells containing only whitespaces highlighted in red.}
+%  \label{fig:whitespaces}
+%\end{figure}%
 
 
 
@@ -1171,31 +1289,8 @@ Excel users lack a straightforward method to identify which cells in a worksheet
 
 The \textit{Excel Inquire} Add-in, available only in \textit{Office Professional Plus} and \textit{Microsoft 365 Apps for Enterprise}, can remove some redundant content~\cite{o2014excel}.
 
-\textit{Excel Inquire} ignored whitespace cells but can delete empty cell, column, and row definitions. Yet, in certain cases, a significant number of unnecessary elements remain. For example, consider a worksheet serving as a cover sheet, where only the first 77 rows are used and the remaining rows (78 to 65,533(the old limit of row in Excelfiles before it was increased to 1,048,576)) are hidden. Despite being hidden, all these rows and cells are defined in the XML structure, as shown in Listing~\ref{lst:row-65533}.
-
-\begin{lstlisting}[
-  language=XML,
-  caption={Row 65533 in sheetX.xml},
-  label={lst:row-65533},
-  basicstyle=\ttfamily\footnotesize,
-  frame=none,
-  breaklines=true,
-  columns=fullflexible,
-  showstringspaces=false
-]
-  <row r="65533" spans="1:7" ht="0" hidden="1" customHeight="1">
-    <c r="A65533" s="68" />
-    <c r="B65533" s="68" />
-    <c r="C65533" s="68" />
-    <c r="D65533" s="68" />
-    <c r="E65533" s="68" />
-    <c r="F65533" s="68" />
-    <c r="G65533" s="68" />
-  </row>
-</sheetData>
-\end{lstlisting}
-
-When applying the \textit{Excel Inquire} Add-in to such worksheets, these hidden rows and cells remain. A dialog box reports that because the default row height is \texttt{0}, the tool cannot clean the sheet, causing the operation to be skipped entirely. Excel Shrink successfully removed those cells.
+\textit{Excel Inquire} can delete empty cell, column, and row definitions. Yet, in certain cases, a significant number of unnecessary elements remain. For example, consider a worksheet serving as a cover sheet, where only the first 77 rows are used and the remaining rows (78 to 65,533(the old limit of row in Excelfiles before it was increased to 1,048,576)) are hidden. Despite being hidden, all these rows and cells are defined in the XML structure.
+When applying the \textit{Excel Inquire} Add-in to such worksheets, these hidden rows and cells remain. Excel Shrink successfully removed those cells.
 
 \subsubsection{Excel Check Performance}
 
@@ -1208,75 +1303,87 @@ Figure~\ref{fig:cover_sheet_check_performance} illustrates how \textit{Check Per
   \begin{subfigure}[b]{0.48\linewidth}
     \centering
     \includegraphics[width=\textwidth]{images/excel_shrink/related_work/performance/verkehrsunfaelle-performance.png}
-    \caption{Before Applying Check Performance}
+    \caption{Before Check Performance}
     \label{fig:cover_sheet_check_performance_before}
   \end{subfigure}
   \hspace{0.01\linewidth} 
   \begin{subfigure}[b]{0.48\linewidth}
     \centering
     \includegraphics[width=\textwidth]{images/excel_shrink/related_work/performance/verkehrsunfaelle-performance_after.png}
-    \caption{After Applying Check Performance}
+    \caption{After Check Performance}
     \label{fig:cover_sheet_check_performance_after}
   \end{subfigure}
   \caption{Comparison of a Cover Sheet Before and After Applying Check Performance}
   \label{fig:cover_sheet_check_performance}
 \end{figure}
 
-As another example, consider a form-like structure composed of several empty cells arranged to form a table, anticipating future data entry~\cite{destatis2023Rechnungsergebnisse}. \textit{Check Performance} removes all borders outside the active data region, resulting in the scenario shown in Figure~\ref{fig:table_no_table}, where the intended table layout is lost. Because Excel Shrink marks all cells as important if they are visible to the user, it does not delete them.
+%As another example, consider a form-like structure composed of several empty cells arranged to form a table, anticipating future data entry~\cite{destatis2023Rechnungsergebnisse}. \textit{Check Performance} removes all borders outside the active data region, resulting in the scenario shown in Figure~\ref{fig:table_no_table}, where the intended table layout is lost. Because Excel Shrink marks all cells as important if they are visible to the user, it does not delete them.
 
-\begin{figure}[ht]
-  \centering
-  \begin{subfigure}[b]{0.48\linewidth}
-    \centering
-    \includegraphics[width=\textwidth]{images/excel_shrink/related_work/performance/table2.png}
-    \caption{Before Applying Check Performance}
-    \label{fig:table}
-  \end{subfigure}
-  \hspace{0.01\linewidth} 
-  \begin{subfigure}[b]{0.48\linewidth}
-    \centering
-    \includegraphics[width=\textwidth]{images/excel_shrink/related_work/performance/no_table2.png}
-    \caption{After Applying Check Performance}
-    \label{fig:no_table}
-  \end{subfigure}
-  \caption{Removal of Borders Defining an Empty Table Structure}
-  \label{fig:table_no_table}
-\end{figure}
+%\begin{figure}[ht]
+%  \centering
+%  \begin{subfigure}[b]{0.48\linewidth}
+%    \centering
+%    \includegraphics[width=\textwidth]{images/excel_shrink/related_work/%performance/table2.png}
+%    \caption{Before Applying Check Performance}
+%    \label{fig:table}
+%  \end{subfigure}
+%  \hspace{0.01\linewidth} 
+%  \begin{subfigure}[b]{0.48\linewidth}
+%    \centering
+%    \includegraphics[width=\textwidth]{images/excel_shrink/related_work/%performance/no_table2.png}
+%    \caption{After Applying Check Performance}
+%    \label{fig:no_table}
+%  \end{subfigure}
+%  \caption{Removal of Borders Defining an Empty Table Structure}
+%  \label{fig:table_no_table}
+%\end{figure}
 
 
-\subsubsection{LibreOffice Calc}
+%\subsubsection{LibreOffice Calc}
+%
+%Another commonly used tool capable of reading and rewriting Excel workbooks is
+%\textit{LibreOffice Calc}. When opening and re-saving spreadsheets, Calc internally
+%parses the XML and reconstructs its own representation of the file, usually resulting in a smaller file size. However, LibreOffice does not fully interpret the
+%\texttt{applyFill} and \texttt{applyBorder} overwrite flags, which can lead to visualisation errors when a workbook is re-saved.
+%
+%Figure~\ref{fig:libre_office_apply_fill} shows such a case.
+%In the original file (Figure~\ref{fig:libre_office_apply_fill_before}),
+%header cells are shaded in light blue as intended.
+%After saving the same workbook in LibreOffice Calc
+%(Figure~\ref{fig:libre_office_apply_fill_after}),
+%the shading changes to bright green because the
+%\texttt{applyFill} flag is not respected. Excel Shrink preserves the original appearance.
+%
+%\begin{figure}[ht]
+%  \centering
+%  \begin{subfigure}[b]{0.48\linewidth}
+%    \centering
+%    \includegraphics[width=\textwidth]{images/excel_shrink/apply_fill/libre_office_apply_fill_before.png}
+%    \caption{Before Saving with Libre Office Calc}
+%    \label{fig:libre_office_apply_fill_before}
+%  \end{subfigure}
+%  \hspace{0.01\linewidth} 
+%  \begin{subfigure}[b]{0.48\linewidth}
+%    \centering
+%    \includegraphics[width=\textwidth]{images/excel_shrink/apply_fill/libre_office_apply_fill_error.png}
+%    \caption{After Saving with Libre Office Calc}
+%    \label{fig:libre_office_apply_fill_after}
+%  \end{subfigure}
+%  \caption{Visualisation Error Caused by Ignoring \texttt{applyFill} in LibreOffice Calc}
+%  \label{fig:libre_office_apply_fill}
+%\end{figure}
 
-Another commonly used tool capable of reading and rewriting Excel workbooks is
-\textit{LibreOffice Calc}. When opening and re-saving spreadsheets, Calc internally
-parses the XML and reconstructs its own representation of the file, usually resulting in a smaller file size. However, LibreOffice does not fully interpret the
-\texttt{applyFill} and \texttt{applyBorder} overwrite flags, which can lead to visualisation errors when a workbook is re-saved.
 
-Figure~\ref{fig:libre_office_apply_fill} shows such a case.
-In the original file (Figure~\ref{fig:libre_office_apply_fill_before}),
-header cells are shaded in light blue as intended.
-After saving the same workbook in LibreOffice Calc
-(Figure~\ref{fig:libre_office_apply_fill_after}),
-the shading changes to bright green because the
-\texttt{applyFill} flag is not respected. Excel Shrink preserves the original appearance.
 
-\begin{figure}[ht]
-  \centering
-  \begin{subfigure}[b]{0.48\linewidth}
-    \centering
-    \includegraphics[width=\textwidth]{images/excel_shrink/apply_fill/libre_office_apply_fill_before.png}
-    \caption{Before Saving with Libre Office Calc}
-    \label{fig:libre_office_apply_fill_before}
-  \end{subfigure}
-  \hspace{0.01\linewidth} 
-  \begin{subfigure}[b]{0.48\linewidth}
-    \centering
-    \includegraphics[width=\textwidth]{images/excel_shrink/apply_fill/libre_office_apply_fill_error.png}
-    \caption{After Saving with Libre Office Calc}
-    \label{fig:libre_office_apply_fill_after}
-  \end{subfigure}
-  \caption{Visualisation Error Caused by Ignoring \texttt{applyFill} in LibreOffice Calc}
-  \label{fig:libre_office_apply_fill}
-\end{figure}
+
+\section{Future Work}
+While \textit{Excel Shrink} parses \texttt{styles.xml} and
+\texttt{sharedStrings.xml} for contextual correctness,
+it does not yet remove unused style definitions or unreferenced shared strings.
+Safely eliminating such entries—while preserving rendering and recalculation
+semantics—requires global reference tracking and additional validation,
+and is left for future work.
+
 
 \section{Conclusion}
 \label{sec:conclusion}

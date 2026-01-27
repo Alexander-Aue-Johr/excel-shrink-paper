@@ -152,15 +152,14 @@ def benchmark_excel_com(file_path):
         def _open():
             nonlocal excel, wb
 
-            shrink_script = os.path.join("scripts", "excel-shrink", "excel_shrink.py")
             logging.info(f"Running excel_shrink --only-clean-workbook on {file_path}")
             subprocess.run(
                 [
                     sys.executable,
-                    shrink_script,
-                    "--only-clean-workbook",
+                    EXCEL_SHRINK_SCRIPT,
                     file_path,
                     shrink_dir,
+                    "--only-clean-workbook",
                 ],
                 check=True,
             )
@@ -327,84 +326,211 @@ def run_and_measure(cmd, *, capture_output=False, text=True, poll_interval=0.1):
     peak_private = 0
     t0 = time.perf_counter()
 
+    def _safe_children(p):
+        try:
+            return p.children(recursive=True)
+        except (psutil.NoSuchProcess, psutil.AccessDenied):
+            return []
+
+    def _safe_private_bytes(p):
+        """Return private bytes for a psutil process, or 0 if not available."""
+        try:
+            m = p.memory_full_info()
+            return int(getattr(m, "private", 0) or 0)
+        except (psutil.NoSuchProcess, psutil.AccessDenied, OSError):
+            return 0
+
     try:
-        while proc.is_running():
+        # Poll until process terminates
+        while True:
+            # update peak (parent + children)
+            total_private = _safe_private_bytes(proc)
+            for child in _safe_children(proc):
+                total_private += _safe_private_bytes(child)
+
+            if total_private > peak_private:
+                peak_private = total_private
+
+            # has the process ended?
             try:
-                m = proc.memory_full_info()
-                private_parent = getattr(m, "private", 0)  # Bytes, die committed sind
+                rc = proc.poll()
+            except (psutil.NoSuchProcess, OSError):
+                # process handle invalid now; treat as ended
+                rc = 0
+                break
 
-                total_private = private_parent
-                for child in proc.children(recursive=True):
-                    try:
-                        cm = child.memory_full_info()
-                        total_private += getattr(cm, "private", 0)
-                    except (psutil.NoSuchProcess, psutil.AccessDenied):
-                        pass
-
-                if total_private > peak_private:
-                    peak_private = total_private
-
-            except (psutil.NoSuchProcess, psutil.AccessDenied):
+            if rc is not None:
                 break
 
             time.sleep(poll_interval)
 
-        proc.wait()
-
-        try:
-            m = proc.memory_full_info()
-            total_private = getattr(m, "private", 0)
-        except (psutil.NoSuchProcess, psutil.AccessDenied):
-            total_private = 0
-        for child in proc.children(recursive=True):
+        # Make sure we reap the process and collect output if requested
+        stdout = stderr = None
+        if capture_output:
             try:
-                cm = child.memory_full_info()
-                total_private += getattr(cm, "private", 0)
-            except (psutil.NoSuchProcess, psutil.AccessDenied):
+                stdout, stderr = proc.communicate(timeout=5)
+            except Exception:
+                # If communicate fails (rare), fall back
+                stdout, stderr = None, None
+        else:
+            try:
+                proc.wait(timeout=5)
+            except Exception:
                 pass
 
+        # One last peak update after exit (best-effort)
+        total_private = _safe_private_bytes(proc)
+        for child in _safe_children(proc):
+            total_private += _safe_private_bytes(child)
         if total_private > peak_private:
             peak_private = total_private
 
+        duration = time.perf_counter() - t0
+
+        # Returncode
+        try:
+            returncode = proc.returncode
+            if returncode is None:
+                returncode = proc.wait(timeout=1)
+        except (psutil.NoSuchProcess, OSError):
+            # already gone
+            returncode = 0
+
+        return stdout, stderr, duration, peak_private, returncode
+
     except Exception:
-        proc.kill()
+        # If *we* crash while monitoring, do not crash again on kill().
+        try:
+            if proc.is_running():
+                proc.kill()
+        except (psutil.NoSuchProcess, psutil.AccessDenied, OSError):
+            pass
         raise
 
-    duration = time.perf_counter() - t0
 
-    stdout = stderr = None
-    if capture_output:
-        stdout, stderr = proc.communicate()
+EXCEL_SHRINK_SCRIPT = os.path.join("scripts", "excel_shrink", "excel_shrink.py")
 
-    return stdout, stderr, duration, peak_private, proc.returncode
+# If your old analyser is elsewhere, adjust this path.
+OLD_ANALYSER_SCRIPT = os.path.join(
+    "scripts", "excel_shrink_analyzer", "excel_shrink_analyzer.py"
+)
+
+EXCEL_SHRINK_SINGLE_CORE_ARGS = ["--disable-multiprocessing"]
+EXCEL_SHRINK_NO_SPLIT_ARGS = ["--disable-sheetdata-splitting"]
 
 
-def run_excel_shrink(original_file, output_dir):
-    logging.info(f"Running excel_shrink on {original_file}")
+def run_excel_shrink_variant(
+    original_file: str,
+    output_dir: str,
+    *,
+    variant_name: str,
+    extra_args: list[str] | None = None,
+    chunk_size: int = 2097152,
+):
+    """
+    Runs excel_shrink.py with optional extra args.
+    Returns (duration_s, output_file_path, peak_mem_bytes, returncode).
+    """
+    os.makedirs(output_dir, exist_ok=True)
+
     output_file = os.path.join(output_dir, os.path.basename(original_file))
-
-    shrink_script = os.path.join("..", "excel-shrink", "excel_shrink.py")
 
     cmd = [
         sys.executable,
-        shrink_script,
+        EXCEL_SHRINK_SCRIPT,
         original_file,
         output_dir,
         "--chunk-size",
-        "2097152",
+        str(chunk_size),
+        "--force-overwrite",
     ]
+    if extra_args:
+        # put extra args at the end (safe for most argparse setups)
+        cmd.extend(extra_args)
 
+    logging.info("Running Excel Shrink [%s] on %s", variant_name, original_file)
     _, _, duration, peak_mem_bytes, returncode = run_and_measure(
         cmd, capture_output=False
     )
 
     if returncode == 0:
-        logging.info(f"excel_shrink completed in {duration:.2f}s for {original_file}")
-        logging.info(f"Peak memory usage: {peak_mem_bytes / (1024**2):.2f} MB")
+        logging.info(
+            "Excel Shrink [%s] completed in %.2fs; peak private %.2f MiB",
+            variant_name,
+            duration,
+            peak_mem_bytes / (1024**2),
+        )
     else:
         logging.error(
-            f"excel_shrink failed (exit code {returncode}) for {original_file}"
+            "Excel Shrink [%s] failed (exit %s) for %s",
+            variant_name,
+            returncode,
+            original_file,
         )
+
+    return duration, output_file, peak_mem_bytes, returncode
+
+
+def run_old_excel_shrink_analyser(
+    original_file: str,
+    output_dir: str,
+    *,
+    log_csv_path: str | None = None,
+):
+    """
+    Runs the old excel_shrink_analyser.py on one XLSX and measures time + peak memory.
+    Produces an output XLSX (same basename in output_dir).
+    Returns (duration_s, output_file_path, peak_mem_bytes, returncode, stdout, stderr).
+    """
+    os.makedirs(output_dir, exist_ok=True)
+
+    output_file = os.path.join(output_dir, os.path.basename(original_file))
+
+    cmd = [
+        sys.executable,
+        OLD_ANALYSER_SCRIPT,
+        original_file,
+        output_file,
+    ]
+
+    if log_csv_path:
+        cmd.extend(["--log", log_csv_path])
+
+    logging.info("Running OLD analyser on %s", original_file)
+
+    stdout, stderr, duration, peak_mem_bytes, returncode = run_and_measure(
+        cmd, capture_output=True, text=True
+    )
+
+    if returncode == 0:
+        logging.info(
+            "OLD analyser completed in %.2fs; peak private %.2f MiB",
+            duration,
+            peak_mem_bytes / (1024**2),
+        )
+    else:
+        logging.error(
+            "OLD analyser failed (exit %s) for %s; stderr=%r",
+            returncode,
+            original_file,
+            stderr,
+        )
+
+    return duration, output_file, peak_mem_bytes, returncode, stdout, stderr
+
+
+def run_excel_shrink(original_file, output_dir):
+    # Default run = no extra args
+    duration, output_file, peak_mem_bytes, returncode = run_excel_shrink_variant(
+        original_file,
+        output_dir,
+        variant_name="default",
+        extra_args=None,
+        chunk_size=2097152,
+    )
+
+    if returncode != 0:
+        return duration, output_file, peak_mem_bytes
 
     return duration, output_file, peak_mem_bytes
 
@@ -422,6 +548,15 @@ def controller_main(args):
     second_shrink_shrunk_folder = os.path.abspath(
         os.path.join(script_dir, args.second_shrinkage_shrunk_folder)
     )
+    single_core_shrunk_folder = os.path.abspath(
+        os.path.join(script_dir, args.shrunk_folder + "_single_core")
+    )
+    no_split_shrunk_folder = os.path.abspath(
+        os.path.join(script_dir, args.shrunk_folder + "_no_split")
+    )
+    # analyser_shrunk_folder = os.path.abspath(
+    #    os.path.join(script_dir, args.shrunk_folder + "_old_analyser")
+    # )
 
     csv_out = os.path.abspath(os.path.join(script_dir, args.csv_out))
 
@@ -431,8 +566,8 @@ def controller_main(args):
             "filename": "statistischer-bericht-kernhaushalt-gemeinden.xlsx",
         },
         {
-            "url": "https://www.destatis.de/DE/Themen/Gesellschaft-Umwelt/Verkehrsunfaelle/Publikationen/Downloads-Verkehrsunfaelle/verkehrsunfaelle-zeitreihen-xlsx-5462403.xlsx?__blob=publicationFile&v=19",
-            "filename": "verkehrsunfaelle-zeitreihen-xlsx-5462403.xlsx",
+            "url": "https://pasteur.epa.gov/uploads/10.23719/1503098/QT_RR%20data_dobutamine%20challenge%20test_Hazari_Dec%202015.xlsx",
+            "filename": "QT_RR data_dobutamine challenge test_Hazari_Dec 2015.xlsx",
         },
     ]
 
@@ -456,9 +591,15 @@ def controller_main(args):
 
     logging.info("Starting measurements...")
 
-    if not os.path.exists(shrunk_folder):
-        os.makedirs(shrunk_folder)
-        logging.info(f"Created shrunk folder: {shrunk_folder}")
+    for p in [
+        shrunk_folder,
+        single_core_shrunk_folder,
+        no_split_shrunk_folder,
+        # analyser_shrunk_folder,
+    ]:
+        if not os.path.exists(p):
+            os.makedirs(p)
+            logging.info("Created folder: %s", p)
 
     all_files = [
         f
@@ -484,14 +625,6 @@ def controller_main(args):
         original_path = os.path.join(input_folder, fname)
         orig_size = os.path.getsize(original_path)
 
-        benchmark_results = {}
-        for lib in library_names:
-            logging.info(f"Measuring library: {lib} on file: {fname}")
-            benchmark_results[lib] = call_measure_one(lib, original_path)
-            logging.info(
-                f"Results for {lib} on {fname}: Open Time={benchmark_results[lib][0]}, Save Time={benchmark_results[lib][1]}, Peak Memory={benchmark_results[lib][2]}"
-            )
-
         logging.info(f"Running shrink on: {fname}")
         shrink_time, shrunk_path, shrink_peak_mem = run_excel_shrink(
             original_path, shrunk_folder
@@ -499,6 +632,107 @@ def controller_main(args):
         logging.info(
             f"Shrink results for {fname}: Time={shrink_time}, Shrunk Path={shrunk_path}, Peak Memory={shrink_peak_mem}"
         )
+
+        # Excel Shrink single-core
+        sc_time, sc_path, sc_peak_mem, sc_rc = run_excel_shrink_variant(
+            original_path,
+            single_core_shrunk_folder,
+            variant_name="single-core",
+            extra_args=EXCEL_SHRINK_SINGLE_CORE_ARGS,
+        )
+        sc_size = (
+            os.path.getsize(sc_path)
+            if (sc_rc == 0 and os.path.exists(sc_path))
+            else None
+        )
+
+        rows.append(
+            {
+                "File": fname,
+                "Library": "Excel Shrink (single-core)",
+                "Original Open Time (s)": None,
+                "Original Save Time (s)": None,
+                "Original Peak Memory": None,
+                "Shrink Time (s)": sc_time,
+                "Shrinked Open Time (s)": None,
+                "Shrinked Save Time (s)": None,
+                "Shrinked Peak Memory": sc_peak_mem,
+                "Original Size (bytes)": orig_size,
+                "Shrinked Size (bytes)": sc_size,
+            }
+        )
+
+        # Excel Shrink with "no split sheetData" mode
+        ns_time, ns_path, ns_peak_mem, ns_rc = run_excel_shrink_variant(
+            original_path,
+            no_split_shrunk_folder,
+            variant_name="no-split",
+            extra_args=EXCEL_SHRINK_NO_SPLIT_ARGS,
+        )
+        ns_size = (
+            os.path.getsize(ns_path)
+            if (ns_rc == 0 and os.path.exists(ns_path))
+            else None
+        )
+
+        rows.append(
+            {
+                "File": fname,
+                "Library": "Excel Shrink (no-split-sheetdata)",
+                "Original Open Time (s)": None,
+                "Original Save Time (s)": None,
+                "Original Peak Memory": None,
+                "Shrink Time (s)": ns_time,
+                "Shrinked Open Time (s)": None,
+                "Shrinked Save Time (s)": None,
+                "Shrinked Peak Memory": ns_peak_mem,
+                "Original Size (bytes)": orig_size,
+                "Shrinked Size (bytes)": ns_size,
+            }
+        )
+
+        # 3) OLD analyser run
+        # Optional: per-file analyser log
+        analyser_log = None
+        # analyser_log = os.path.join(analyser_shrunk_folder, f"{os.path.splitext(fname)[0]}_analyser_log.csv")
+
+        # an_time, an_path, an_peak_mem, an_rc, an_stdout, an_stderr = (
+        #    run_old_excel_shrink_analyser(
+        #        original_path,
+        #        analyser_shrunk_folder,
+        #        log_csv_path=analyser_log,
+        #    )
+        # )
+        #
+        # an_size = (
+        #    os.path.getsize(an_path)
+        #    if (an_rc == 0 and os.path.exists(an_path))
+        #    else None
+        # )
+        #
+        # rows.append(
+        #    {
+        #        "File": fname,
+        #        "Library": "Excel Shrink Analyser (old)",
+        #        "Original Open Time (s)": None,
+        #        "Original Save Time (s)": None,
+        #        "Original Peak Memory": None,
+        #        "Shrink Time (s)": an_time,  # runtime of analyser
+        #        "Shrinked Open Time (s)": None,
+        #        "Shrinked Save Time (s)": None,
+        #        "Shrinked Peak Memory": an_peak_mem,  # peak private mem during analyser
+        #        "Original Size (bytes)": orig_size,
+        #        "Shrinked Size (bytes)": an_size,  # size of analyser-produced XLSX
+        #    }
+        # )
+
+        benchmark_results = {}
+        for lib in library_names:
+            logging.info(f"Measuring library: {lib} on file: {fname}")
+            benchmark_results[lib] = call_measure_one(lib, original_path)
+            logging.info(
+                f"Results for {lib} on {fname}: Open Time={benchmark_results[lib][0]}, Save Time={benchmark_results[lib][1]}, Peak Memory={benchmark_results[lib][2]}"
+            )
 
         shrunk_results = {}
         if shrunk_path and os.path.exists(shrunk_path):
@@ -705,6 +939,13 @@ def _generate_complex_chart(df):
     ]
     n_libs = len(library_info)
 
+    extra_run_info = [
+        ("Excel Shrink (single-core)", "slateblue"),
+        ("Excel Shrink (no-split-sheetdata)", "teal"),
+        # ("Excel Shrink Analyser (old)", "dimgray"),
+    ]
+    n_extra = len(extra_run_info)
+
     files = sorted(df["File"].unique())
     file_labels = {f: f"File {i+1}" for i, f in enumerate(files)}
 
@@ -752,11 +993,12 @@ def _generate_complex_chart(df):
     plt.subplots_adjust(left=0.18)  # tweak to taste (0.16–0.22)
 
     # ==== TIME section (top) ====
-    total_bars_per_file = (n_libs - 1) + n_libs
+    total_bars_per_file = (n_libs - 1) + n_libs + n_extra
     bar_height = 0.09
-    offsets_all = np.linspace(-0.50, 0.50, total_bars_per_file)
+    offsets_all = np.linspace(-0.60, 0.60, total_bars_per_file)
     offsets_orig = offsets_all[: (n_libs - 1)]
-    offsets_shr = offsets_all[(n_libs - 1) :]
+    offsets_shr = offsets_all[(n_libs - 1) : (n_libs - 1 + n_libs)]
+    offsets_extra = offsets_all[(n_libs - 1 + n_libs) :]
 
     y_positions_top = np.arange(n_files) * (bar_height * (total_bars_per_file + 2))
     for i, f in enumerate(files):
@@ -908,6 +1150,36 @@ def _generate_complex_chart(df):
                 if parts:
                     right_label(ax_time, x_end, pos, parts)
 
+        # --- Extra run-only bars (single segment each) ---
+        for ex_i, (run_name, run_color) in enumerate(extra_run_info):
+            pos = base + offsets_extra[ex_i]
+            run_t = get_times(f, run_name, "Shrink Time (s)")
+
+            ax_time.barh(
+                pos,
+                run_t,
+                height=bar_height,
+                color=run_color,
+                label=run_name if (i == 0) else "",
+            )
+
+            lab = f"{run_t:.1f}"
+            ok = run_t > 0 and can_fit_inside(ax_time, run_t, lab)
+            if ok:
+                ax_time.text(
+                    run_t / 2.0,
+                    pos,
+                    lab,
+                    va="center",
+                    ha="center",
+                    fontsize=FONT_SIZE,
+                    color="white",
+                    transform=ax_time.transData
+                    + text_vshift(ax_time, VERTICAL_LABEL_OFFSET_PX),
+                )
+            elif run_t > 0:
+                right_label(ax_time, run_t, pos, [lab])
+
     ax_time.margins(x=0.02)
     for ax in mem_axes:
         ax.margins(y=0.08)
@@ -991,18 +1263,18 @@ def _generate_complex_chart(df):
         # add value labels (MB)
         _bar_label(
             ax_size,
-            orig_size_mb_list[i],
+            orig_size_mb_list[i] * 0.97,
             base - file_bar_height * 0.55,
-            f"{orig_size_mb_list[i]:.1f} MB",
+            f"{int(round(orig_size_mb_list[i]))} MB",
             FONT_SIZE,
         )
-        _bar_label(
-            ax_size,
-            shrunk_size_mb_list[i],
-            base + file_bar_height * 0.55,
-            f"{shrunk_size_mb_list[i]:.1f} MB",
-            FONT_SIZE,
-        )
+        # _bar_label(
+        #    ax_size,
+        #    shrunk_size_mb_list[i] - 1.5,
+        #    base + file_bar_height * 0.55,
+        #    f"{int(round(shrunk_size_mb_list[i]))} MB",
+        #    FONT_SIZE,
+        # )
 
     for i, f in enumerate(files):
         base = y_positions_bottom[i]
@@ -1012,11 +1284,14 @@ def _generate_complex_chart(df):
 
         if orig_b > 0:
             red_pct = 100.0 * (1.0 - (shr_b / orig_b))
-            label = f"−{red_pct:.1f}%"
+            label = f"{int(round(shrunk_size_mb_list[i]))} MB (−{red_pct:.1f}%)"
 
             x_min, x_max = ax_size.get_xlim()
             data_per_px = (x_max - x_min) / max(ax_size.bbox.width, 1.0)
             x_text = shr_mb + 10 * data_per_px
+            x_text = max(
+                shr_mb + 10 * data_per_px, ax_size.get_xlim()[0] + 5 * data_per_px
+            )
             ax_size.annotate(
                 label,
                 xy=(shr_mb + 0.15, base + file_bar_height * 0.55),
@@ -1043,73 +1318,79 @@ def _generate_complex_chart(df):
         df["Shrinked Peak Memory"], errors="coerce"
     ).fillna(0.0)
 
-    # Use the same order as in library_info (defined earlier)
-    lib_order = [n for (n, _, _) in library_info]
-    libraries = [l for l in lib_order if l in df["Library"].unique()]
+    lib_order = [n for (n, _, _) in library_info] + [n for (n, _) in extra_run_info]
+    present = set(df["Library"].dropna().unique())
+
+    # keep order but remove duplicates
+    libraries = list(OrderedDict.fromkeys([l for l in lib_order if l in present]))
+    extra_run_names = {n for (n, _) in extra_run_info}
 
     plt.rcParams.update({"xtick.labelsize": 8})
 
     for ax, file_name in zip(mem_axes, files):
         subset = df[df["File"] == file_name]
-        n_libs_local = len(libraries)
-        x = np.arange(n_libs_local)
-        bar_width = 0.35
 
-        def _first_or_zero(series):
-            return float(series.iloc[0]) if len(series) else 0.0
+        # one row per library; peak memory should be the max across repeats
+        subset_by_lib = subset.groupby("Library", as_index=True)[
+            ["Original Peak Memory", "Shrinked Peak Memory"]
+        ].max()
 
-        original_mem = [
-            (
-                (
-                    _first_or_zero(
-                        subset.loc[subset["Library"] == lib, "Original Peak Memory"]
-                    )
-                    / (1024**2)
+        x = np.arange(len(libraries))
+        bar_width = 0.25
+
+        original_mem = []
+        shrunk_mem = []
+        run_mem = []
+
+        for lib in libraries:
+            row = subset_by_lib.loc[lib] if lib in subset_by_lib.index else None
+
+            if lib in extra_run_names:
+                # extra runs: only show the "run" bar (stored in Shrinked Peak Memory)
+                original_mem.append(0.0)
+                shrunk_mem.append(0.0)
+                run_mem.append(
+                    (float(row["Shrinked Peak Memory"]) / (1024**2))
+                    if row is not None
+                    else 0.0
                 )
-                if lib in subset["Library"].values
-                else 0.0
-            )
-            for lib in libraries
-        ]
-        shrunk_mem = [
-            (
-                (
-                    _first_or_zero(
-                        subset.loc[subset["Library"] == lib, "Shrinked Peak Memory"]
-                    )
-                    / (1024**2)
+            else:
+                original_mem.append(
+                    (float(row["Original Peak Memory"]) / (1024**2))
+                    if row is not None
+                    else 0.0
                 )
-                if lib in subset["Library"].values
-                else 0.0
-            )
-            for lib in libraries
+                shrunk_mem.append(
+                    (float(row["Shrinked Peak Memory"]) / (1024**2))
+                    if row is not None
+                    else 0.0
+                )
+                run_mem.append(0.0)
+
+        # sanity check: prevents shape mismatch forever
+        assert len(x) == len(original_mem) == len(shrunk_mem) == len(run_mem)
+
+        # Make run bars centered for extra runs
+        run_mem_center = [
+            run_mem[i] if libraries[i] in extra_run_names else 0.0
+            for i in range(len(libraries))
         ]
-
-        def _data_per_px_y(ax):
-            """Convert pixels to Y data units for the given axes."""
-            y_min, y_max = ax.get_ylim()
-            return (y_max - y_min) / max(ax.bbox.height, 1.0)
-
-        def _can_fit_inside_vertical(ax, bar_height_data, font_size_pts=7, fudge=1.1):
-            """
-            Heuristic: can a horizontal text (normal orientation) fit *vertically*
-            inside a vertical bar of height `bar_height_data`?
-            We estimate text pixel height ~ font_size_pts (in points) -> px via DPI.
-            """
-            text_px = (font_size_pts / 72.0) * ax.figure.dpi * fudge
-            needed_data = text_px * _data_per_px_y(ax)
-            return bar_height_data >= needed_data
+        run_mem_right = [
+            run_mem[i] if libraries[i] not in extra_run_names else 0.0
+            for i in range(len(libraries))
+        ]
 
         bars_orig = ax.bar(
-            x - bar_width / 2,
+            x - bar_width,
             original_mem,
             width=bar_width,
             label="Original Peak Memory (MiB)",
             color="steelblue",
             edgecolor="black",
         )
+
         bars_shr = ax.bar(
-            x + bar_width / 2,
+            x,
             shrunk_mem,
             width=bar_width,
             label="Shrinked Peak Memory (MiB)",
@@ -1117,17 +1398,51 @@ def _generate_complex_chart(df):
             edgecolor="black",
         )
 
-        # --- Add labels (inside if tall enough; else above with arrow) ---
+        # centered run bars for the extra runs
+        bars_run_center = ax.bar(
+            x,
+            run_mem_center,
+            width=bar_width,
+            label="Run Peak Memory (MiB)",
+            color="mediumpurple",
+            edgecolor="black",
+        )
+
+        # (optional) keep the old right-offset run bars for non-extra (likely all zero)
+        bars_run_right = ax.bar(
+            x + bar_width,
+            run_mem_right,
+            width=bar_width,
+            color="mediumpurple",
+            edgecolor="black",
+        )
+
+        # --- Add numeric labels to memory bars ---
+        def _data_per_px_y(ax):
+            y_min, y_max = ax.get_ylim()
+            return (y_max - y_min) / max(ax.bbox.height, 1.0)
+
+        def _can_fit_inside_vertical(ax, bar_height_data, font_size_pts=7, fudge=1.1):
+            text_px = (font_size_pts / 72.0) * ax.figure.dpi * fudge
+            needed_data = text_px * _data_per_px_y(ax)
+            return bar_height_data >= needed_data
+
         PAD_PX = 6  # gap above bar for outside labels
-        for bar in list(bars_orig) + list(bars_shr):
+
+        for bar in (
+            list(bars_orig)
+            + list(bars_shr)
+            + list(bars_run_center)
+            + list(bars_run_right)
+        ):
             h = bar.get_height()
             if h <= 0:
                 continue
-            label = f"{h:.1f}"
+
+            label = f"{int(round(h))}"
             x_center = bar.get_x() + bar.get_width() / 2.0
 
             if _can_fit_inside_vertical(ax, h, font_size_pts=FONT_SIZE):
-                # Inside the bar
                 ax.text(
                     x_center,
                     h / 2.0,
@@ -1138,7 +1453,6 @@ def _generate_complex_chart(df):
                     color="white",
                 )
             else:
-                # Outside with arrow pointing to the bar top
                 y_pad = PAD_PX * _data_per_px_y(ax)
                 ax.annotate(
                     label,
@@ -1150,16 +1464,27 @@ def _generate_complex_chart(df):
                     arrowprops=dict(arrowstyle="->", lw=0.8, shrinkA=0, shrinkB=0),
                 )
 
-        ax.set_ylabel(f"Peak Memory (MiB) \n {file_labels[file_name]}", fontsize=9)
+        ax.set_ylabel(f"Peak Memory (MiB)\n{file_labels[file_name]}", fontsize=9)
         ax.ticklabel_format(style="plain", axis="y")
+
+        display_labels = [
+            lib.replace(
+                "Excel Shrink (single-core)", "Excel Shrink\n(single-core)"
+            ).replace(
+                "Excel Shrink (no-split-sheetdata)",
+                "Excel Shrink\n(no-split-sheetdata)",
+            )
+            for lib in libraries
+        ]
         ax.set_xticks(x)
-        ax.set_xticklabels(libraries, ha="center", fontsize=8)
+        ax.set_xticklabels(display_labels, ha="center", fontsize=8)
+
         ax.legend(fontsize=8)
         ax.grid(axis="x", linestyle="--", alpha=0.5)
 
-        if ax is not mem_axes[-1]:
-            ax.set_xticklabels([])
-            ax.set_xlabel("")
+        # if ax is not mem_axes[-1]:
+        #    ax.set_xticklabels([])
+        #    ax.set_xlabel("")
 
     plt.tight_layout()
     # create directory if not exists

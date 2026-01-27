@@ -2,6 +2,7 @@ from enum import Enum, auto
 
 
 class SheetStreamingState(Enum):
+    SEEK_WORKSHEET_NODE = auto()
     IN_WORKSHEET_NODE = auto()
     IN_COLS_NODE = auto()
     IN_SHEET_DATA_NODE = auto()
