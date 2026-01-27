@@ -10,10 +10,10 @@
     "missing_in_originals": []
   },
   "summary": {
-    "same": 1163,
+    "same": 1167,
     "skipped": 12,
     "different": 0,
-    "error": 6
+    "error": 2
   },
   "same_files": [
     "01011970_Auszug_GV.xlsx",
@@ -751,6 +751,7 @@
     "statistischer-bericht-budget-bildung-5217108227005.xlsx",
     "statistischer-bericht-bvb-bundeslaender-2070-5124205219005.xlsx",
     "statistischer-bericht-bvb-deutschland-2070-5124202219005.xlsx",
+    "statistischer-bericht-diagnosedaten-5231301227015.xlsx",
     "statistischer-bericht-ehescheidungen-eheschliessungen-geborene-gestorbene-5126001227005.xlsx",
     "statistischer-bericht-ehescheidungen-eheschliessungen-geborene-gestorbene-5126001237005.xlsx",
     "statistischer-bericht-ehescheidungen-eheschliessungen-geborene-gestorbene-zeitreihen-5126107.xlsx",
@@ -938,6 +939,8 @@
     "statistischer-bericht-monatserhebung-tourismus-2060710241065.xlsx",
     "statistischer-bericht-monatserhebung-tourismus-2060710241075.xlsx",
     "statistischer-bericht-oekologischer-landbau-2030221239005.xlsx",
+    "statistischer-bericht-operationen-prozeduren-5231401227015.xlsx",
+    "statistischer-bericht-operationen-prozeduren-5231401237015.xlsx",
     "statistischer-bericht-personalstand-oeffentlicher-dienst-2140600227005.xlsx",
     "statistischer-bericht-personengesellschaften-gemeinschaften-5731101187005.xlsx",
     "statistischer-bericht-personengesellschaften-gemeinschaften-5731101197005.xlsx",
@@ -1014,6 +1017,7 @@
     "statistischer-bericht-steuerhaushalt-2140400243215.xlsx",
     "statistischer-bericht-strafgerichte-2100230227005.xlsx",
     "statistischer-bericht-strafgerichte-2100230237005.xlsx",
+    "statistischer-bericht-strafverfolgung-2100300227005.xlsx",
     "statistischer-bericht-strafvollzug-2100410237005.xlsx",
     "statistischer-bericht-stromsteuerstatistik-2140970227005.xlsx",
     "statistischer-bericht-stromsteuerstatistik-2140970237005.xlsx",
@@ -1233,34 +1237,14 @@
   "different_files": [],
   "errors": [
     {
-      "filename": "statistischer-bericht-diagnosedaten-5231301227015.xlsx",
-      "reason": "com_error: (-2147024882, 'Not enough memory resources are available to complete this operation.', None, None)",
-      "elapsed_sec": 120.24377012252808
-    },
-    {
-      "filename": "statistischer-bericht-operationen-prozeduren-5231401227015.xlsx",
-      "reason": "com_error: (-2147024882, 'Not enough memory resources are available to complete this operation.', None, None)",
-      "elapsed_sec": 23.590850353240967
-    },
-    {
-      "filename": "statistischer-bericht-operationen-prozeduren-5231401237015.xlsx",
-      "reason": "com_error: (-2147024882, 'Not enough memory resources are available to complete this operation.', None, None)",
-      "elapsed_sec": 24.52222990989685
-    },
-    {
-      "filename": "statistischer-bericht-strafverfolgung-2100300227005.xlsx",
-      "reason": "com_error: (-2147352567, 'Exception occurred.', (0, None, None, None, 0, -2147024882), None)",
-      "elapsed_sec": 56.83808779716492
-    },
-    {
       "filename": "unfaelle-gewalt-kinder-tabellenband-xlsx-5230001.xlsx",
-      "reason": "com_error: (-2147417848, 'The object invoked has disconnected from its clients.', None, None)",
-      "elapsed_sec": 15641.609859228134
+      "reason": "com_error: (-2147023170, 'The remote procedure call failed.', None, None)",
+      "elapsed_sec": 1286.437091588974
     },
     {
       "filename": "wanderungen-2010120217005.xlsx",
-      "reason": "com_error: (-2147352567, 'Exception occurred.', (0, None, None, None, 0, -2147024882), None)",
-      "elapsed_sec": 18.511181116104126
+      "reason": "com_error: (-2147023174, 'The RPC server is unavailable.', None, None)",
+      "elapsed_sec": 0.0034935474395751953
     }
   ]
 }
