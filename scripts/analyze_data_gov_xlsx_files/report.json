@@ -5,25 +5,13 @@
     "row_chunk": 2000,
     "col_chunk": 256,
     "max_diffs_per_file": 200,
-    "common_files": 8632,
-    "missing_in_shrunk": [
-      "NERC CIP to NIST CSF v1.1.XLSX",
-      "NIST CSF v1.1 to NERC CIP FINAL.XLSX",
-      "NIST CSF v1.1 to NERC CIP.XLSX",
-      "RARE-PIN-Mercury-FINAL.XLSX",
-      "Summary of Fracture Sealing Experiments in HT Flow loop.XLSX",
-      "Summary of LCM Transportation Experiments in HT Flow loop.XLSX",
-      "Summary of Rheology Experiments in HT Flow loop.XLSX",
-      "Table 1.XLSX",
-      "Utah_PFA_Sinter_Silica Phase XRD.XLSX",
-      "daily_questionnaire_data.XLSX",
-      "miRNA Analysis for OzoneDiets Vascular Pulmonary Manuscript.XLSX"
-    ],
+    "common_files": 8643,
+    "missing_in_shrunk": [],
     "missing_in_originals": []
   },
   "summary": {
-    "same": 6197,
-    "skipped": 2429,
+    "same": 6206,
+    "skipped": 2431,
     "different": 6,
     "error": 0
   },
@@ -2750,6 +2738,8 @@
     "NIS ph1 dataset for science-hub.xlsx",
     "NIS ph2 Table S1 S4-S8.xlsx",
     "NIS ph2 data for figures.xlsx",
+    "NIST CSF v1.1 to NERC CIP FINAL.XLSX",
+    "NIST CSF v1.1 to NERC CIP.XLSX",
     "NIST1036_auSTR_Seq_SuppTables.xlsx",
     "NISTIR85-3273-37_v2.xlsx",
     "NIST_Resilience_Indicator_Inventory_v.01.xlsx",
@@ -3101,6 +3091,7 @@
     "RARE 2093 SRA Metadata Revised.xlsx",
     "RARE Lipid Summary.xlsx",
     "RARE draft_Raw data spreadsheet V2.xlsx",
+    "RARE-PIN-Mercury-FINAL.XLSX",
     "RARE-PIN-moisture.xlsx",
     "RBF_Results_30um (2).xlsx",
     "RBF_Results_30um.xlsx",
@@ -3548,7 +3539,10 @@
     "Summary Data for Statistical Analysis 082216_clean.xlsx",
     "Summary Results 80 C Low RH.xlsx",
     "Summary Stats Selected Sites.xlsx",
+    "Summary of Fracture Sealing Experiments in HT Flow loop.XLSX",
+    "Summary of LCM Transportation Experiments in HT Flow loop.XLSX",
     "Summary of Results.xlsx",
+    "Summary of Rheology Experiments in HT Flow loop.XLSX",
     "Summary-combined-stress-strain-curves.xlsx",
     "Summary_2021-07-21_MonoterpeneOO_1stGenRxns.xlsx",
     "Summary_2021-07-23_MonoterpeneOO_2ndGenRxns.xlsx",
@@ -3681,6 +3675,7 @@
     "Table 1 baseline SF RWH LCI calc.xlsx",
     "Table 1 fiber size data Cyphert 2016 JTEHA.xlsx",
     "Table 1. Field Characteristics.xlsx",
+    "Table 1.XLSX",
     "Table 1_20250725.xlsx",
     "Table 2 - GETEM Hydrothermal Scenarios.xlsx",
     "Table 2 - Water Requirements for Observation Well Drilling.xlsx",
@@ -3919,6 +3914,7 @@
     "Utah FORGE Deep Well Temperature Profiles_Sept 2022.xlsx",
     "Utah FORGE EGS Reservoir Produced Fluids trace elements 2024.xlsx",
     "Utah_FORGE Phase 2 Rock Properties Data.xlsx",
+    "Utah_PFA_Sinter_Silica Phase XRD.XLSX",
     "Utility-Scale Solar 2024 Edition Data File.xlsx",
     "VA-AP-and-IB.xlsx",
     "VAMMS Evaluation Data Tables and Dictionary.xlsx",
@@ -5386,6 +5382,7 @@
     "meta-data.xlsx",
     "metadata.xlsx",
     "metals data correlations 081117.xlsx",
+    "miRNA Analysis for OzoneDiets Vascular Pulmonary Manuscript.XLSX",
     "microwave.xlsx",
     "mina2008.xlsx",
     "mlpa-habitat-matrix-model-dmp-metadata-worksheet.xlsx",
@@ -9912,6 +9909,10 @@
       "reason": "all_xl_worksheets_sheetN_xml_sizes_equal"
     },
     {
+      "filename": "NERC CIP to NIST CSF v1.1.XLSX",
+      "reason": "all_xl_worksheets_sheetN_xml_sizes_equal"
+    },
+    {
       "filename": "NESCOR AMI Failure Scenarios_CSF Subcategories.xlsx",
       "reason": "all_xl_worksheets_sheetN_xml_sizes_equal"
     },
@@ -12473,6 +12474,10 @@
     },
     {
       "filename": "dailyError_2006.xlsx",
+      "reason": "all_xl_worksheets_sheetN_xml_sizes_equal"
+    },
+    {
+      "filename": "daily_questionnaire_data.XLSX",
       "reason": "all_xl_worksheets_sheetN_xml_sizes_equal"
     },
     {
@@ -15949,109 +15954,109 @@
       "filename": "1DoF Economic Model for Teamer MP 12-22-24.xlsx",
       "reason": "value_mismatch",
       "diff_count": 13,
-      "elapsed_sec": 4.900493621826172,
+      "elapsed_sec": 6.055253267288208,
       "diffs": [
         {
           "sheet": "MC_Simu",
           "cell": "T46",
-          "original": 0.7150462950388016,
-          "shrunk": 0.3894206222111243,
+          "original": 0.14050929515930943,
+          "shrunk": 0.3436869571666942,
           "original_formula": "=RAND()",
           "shrunk_formula": "=RAND()"
         },
         {
           "sheet": "MC_Simu",
           "cell": "T47",
-          "original": 0.9117303333009664,
-          "shrunk": 0.5224345863660074,
+          "original": 0.35368812474353106,
+          "shrunk": 0.00972874381640565,
           "original_formula": "=RAND()",
           "shrunk_formula": "=RAND()"
         },
         {
           "sheet": "MC_Simu",
           "cell": "T48",
-          "original": 0.5175559110507844,
-          "shrunk": 0.6562368898936362,
+          "original": 0.7074145829495304,
+          "shrunk": 0.09946391664857446,
           "original_formula": "=RAND()",
           "shrunk_formula": "=RAND()"
         },
         {
           "sheet": "MC_Simu",
           "cell": "T50",
-          "original": 0.3336736914116577,
-          "shrunk": 0.5132930193141028,
+          "original": 0.4199755389124973,
+          "shrunk": 0.8928440304183021,
           "original_formula": "=RAND()",
           "shrunk_formula": "=RAND()"
         },
         {
           "sheet": "MC_Simu",
           "cell": "T51",
-          "original": 0.9888880162428193,
-          "shrunk": 0.4881841176278596,
+          "original": 0.8881980355378044,
+          "shrunk": 0.18768138021525005,
           "original_formula": "=RAND()",
           "shrunk_formula": "=RAND()"
         },
         {
           "sheet": "MC_Simu",
           "cell": "T52",
-          "original": 0.8078308517549331,
-          "shrunk": 0.5003964870699742,
+          "original": 0.5040140445143063,
+          "shrunk": 0.05658916478006082,
           "original_formula": "=RAND()",
           "shrunk_formula": "=RAND()"
         },
         {
           "sheet": "MC_Simu",
           "cell": "T54",
-          "original": 0.22254596608452193,
-          "shrunk": 0.3481574856306022,
+          "original": 0.7562740232851591,
+          "shrunk": 0.30466717819994893,
           "original_formula": "=RAND()",
           "shrunk_formula": "=RAND()"
         },
         {
           "sheet": "MC_Simu",
           "cell": "T55",
-          "original": 0.7946763071091659,
-          "shrunk": 0.5936284678374889,
+          "original": 0.9079433446072858,
+          "shrunk": 0.7499491294636648,
           "original_formula": "=RAND()",
           "shrunk_formula": "=RAND()"
         },
         {
           "sheet": "MC_Simu",
           "cell": "T57",
-          "original": 0.9544252765640835,
-          "shrunk": 0.07303344732514172,
+          "original": 0.9615137018557339,
+          "shrunk": 0.6369313071929968,
           "original_formula": "=RAND()",
           "shrunk_formula": "=RAND()"
         },
         {
           "sheet": "MC_Simu",
           "cell": "T58",
-          "original": 0.5105783062091654,
-          "shrunk": 0.22940796415628195,
+          "original": 0.9450680157589716,
+          "shrunk": 0.20485956851370812,
           "original_formula": "=RAND()",
           "shrunk_formula": "=RAND()"
         },
         {
           "sheet": "MC_Simu",
           "cell": "T66",
-          "original": 0.8253907623471164,
-          "shrunk": 0.03301173756136877,
+          "original": 0.7076844401212036,
+          "shrunk": 0.6142966471987004,
           "original_formula": "=RAND()",
           "shrunk_formula": "=RAND()"
         },
         {
           "sheet": "MC_Simu",
           "cell": "T67",
-          "original": 0.5927670463391307,
-          "shrunk": 0.19708746228224772,
+          "original": 0.8347486399691763,
+          "shrunk": 0.3594634501590852,
           "original_formula": "=RAND()",
           "shrunk_formula": "=RAND()"
         },
         {
           "sheet": "MC_Simu",
           "cell": "T68",
-          "original": 0.9288169142057694,
-          "shrunk": 0.9426560662149832,
+          "original": 0.6108702929541551,
+          "shrunk": 0.5965520000979647,
           "original_formula": "=RAND()",
           "shrunk_formula": "=RAND()"
         }
@@ -16061,7 +16066,7 @@
       "filename": "Adapting_Urban_BMPs_datasources1_508.xlsx",
       "reason": "value_mismatch",
       "diff_count": 35,
-      "elapsed_sec": 9.630556583404541,
+      "elapsed_sec": 9.909942865371704,
       "diffs": [
         {
           "sheet": "Phoenix_Conventional",
@@ -16349,13 +16354,13 @@
       "filename": "Challenge_2_Monarch_of_the_Mountain_Results.xlsx",
       "reason": "value_mismatch",
       "diff_count": 1,
-      "elapsed_sec": 12.398650884628296,
+      "elapsed_sec": 11.368978500366211,
       "diffs": [
         {
           "sheet": "Nov1",
           "cell": "BC34",
-          "original": 46048.755960648145,
-          "shrunk": 46048.75600243056,
+          "original": 46049.14900972222,
+          "shrunk": 46049.149052546294,
           "original_formula": "=NOW()",
           "shrunk_formula": "=NOW()"
         }
@@ -16365,1605 +16370,1605 @@
       "filename": "Cluster2_DEA data_May2018.xlsx",
       "reason": "value_mismatch",
       "diff_count": 722,
-      "elapsed_sec": 5.891647815704346,
+      "elapsed_sec": 3.693356513977051,
       "diffs": [
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "C4",
-          "original": 0.389895670675656,
-          "shrunk": 0.3702136320067645,
+          "original": 0.08503447567899391,
+          "shrunk": 0.7805689566595522,
           "original_formula": "=RAND()",
           "shrunk_formula": "=RAND()"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "D4",
-          "original": 0.5848451052043575,
-          "shrunk": 0.4805543451471741,
+          "original": 0.018526289191871936,
+          "shrunk": 0.4249169973499407,
           "original_formula": "=RAND()",
           "shrunk_formula": "=RAND()"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "E4",
-          "original": 0.498465462914886,
-          "shrunk": 0.2686739758830724,
+          "original": 0.7230881321841826,
+          "shrunk": 0.8992915128623997,
           "original_formula": "=RAND()",
           "shrunk_formula": "=RAND()"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "F4",
-          "original": 0.5641398636739834,
-          "shrunk": 0.5151327047525768,
+          "original": 0.5255076261739317,
+          "shrunk": 0.1041067339927616,
           "original_formula": "=RAND()",
           "shrunk_formula": "=RAND()"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "G4",
-          "original": 0.29548519027917575,
-          "shrunk": 0.35041315474124046,
+          "original": 0.8199801989129348,
+          "shrunk": 0.8730699320064853,
           "original_formula": "=RAND()",
           "shrunk_formula": "=RAND()"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "H4",
-          "original": 0.6312728693072007,
-          "shrunk": 0.9669488716785155,
+          "original": 0.6501906238811254,
+          "shrunk": 0.5248448151769826,
           "original_formula": "=RAND()",
           "shrunk_formula": "=RAND()"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "K4",
-          "original": 5.974293037542296,
-          "shrunk": 5.77560786063668,
+          "original": 5.753056267810763,
+          "shrunk": 7.484922588152912,
           "original_formula": "=(1/I31)*(C31*C4+D31*D4+E31*E4+F31*F4+G31*G4+H31*H4)",
           "shrunk_formula": "=(1/I31)*(C31*C4+D31*D4+E31*E4+F31*F4+G31*G4+H31*H4)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "L4",
-          "original": 0.1673838216029959,
-          "shrunk": 0.17314194871425428,
+          "original": 0.17382065348381073,
+          "shrunk": 0.13360191614844402,
           "original_formula": "=1/K4",
           "shrunk_formula": "=1/K4"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "M4",
-          "original": 5.974293037542296,
-          "shrunk": 5.77560786063668,
+          "original": 5.753056267810763,
+          "shrunk": 7.484922588152912,
           "original_formula": "=(1/$I$31)*(C31*$C$4+D31*$D$4+E31*$E$4+F31*$F$4+G31*$G$4+H31*$H$4)",
           "shrunk_formula": "=(1/$I$31)*(C31*$C$4+D31*$D$4+E31*$E$4+F31*$F$4+G31*$G$4+H31*$H$4)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "N4",
-          "original": 8.357156493763656,
-          "shrunk": 5.630689102556797,
+          "original": 8.048969172975323,
+          "shrunk": 7.858750492359275,
           "original_formula": "=(1/$I$32)*(C31*$C$5+D31*$D$5+E31*$E$5+F31*$F$5+G31*$G$5+H31*$H$5)",
           "shrunk_formula": "=(1/$I$32)*(C31*$C$5+D31*$D$5+E31*$E$5+F31*$F$5+G31*$G$5+H31*$H$5)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "O4",
-          "original": 9.117311392217154,
-          "shrunk": 6.522459457420661,
+          "original": 9.655043851973899,
+          "shrunk": 4.538733064778844,
           "original_formula": "=(1/$I$33)*(C31*$C$6+D31*$D$6+E31*$E$6+F31*$F$6+G31*$G$6+H31*$H$6)",
           "shrunk_formula": "=(1/$I$33)*(C31*$C$6+D31*$D$6+E31*$E$6+F31*$F$6+G31*$G$6+H31*$H$6)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "P4",
-          "original": 15.54848749004978,
-          "shrunk": 9.96600166936964,
+          "original": 12.257180068253714,
+          "shrunk": 12.736116794500326,
           "original_formula": "=(1/$I$34)*($C$7*C31+$D$7*D31+$E$7*E31+$F$7*F31+$G$7*G31+$H$7*H31)",
           "shrunk_formula": "=(1/$I$34)*($C$7*C31+$D$7*D31+$E$7*E31+$F$7*F31+$G$7*G31+$H$7*H31)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "Q4",
-          "original": 8.046174464003332,
-          "shrunk": 4.777129266633223,
+          "original": 5.116041673063702,
+          "shrunk": 4.53648583155769,
           "original_formula": "=(1/$I$35)*($C$8*C31+$D$8*D31+$E$8*E31+$F$8*F31+$G$8*G31+$H$8*H31)",
           "shrunk_formula": "=(1/$I$35)*($C$8*C31+$D$8*D31+$E$8*E31+$F$8*F31+$G$8*G31+$H$8*H31)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "R4",
-          "original": 2.4595334821942196,
-          "shrunk": 5.214724586536107,
+          "original": 7.72184881323946,
+          "shrunk": 7.638156067380991,
           "original_formula": "=(1/$I$36)*($C$9*C31+$D$9*D31+$E$9*E31+$F$9*F31+$G$9*G31+$H$9*H31)",
           "shrunk_formula": "=(1/$I$36)*($C$9*C31+$D$9*D31+$E$9*E31+$F$9*F31+$G$9*G31+$H$9*H31)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "S4",
-          "original": 5.967275995821979,
-          "shrunk": 7.678870951753606,
+          "original": 6.151566070021689,
+          "shrunk": 8.570137990899411,
           "original_formula": "=(1/$I$37)*($C$10*C31+$D$10*D31+$E$10*E31+$F$10*F31+$G$10*G31+$H$10*H31)",
           "shrunk_formula": "=(1/$I$37)*($C$10*C31+$D$10*D31+$E$10*E31+$F$10*F31+$G$10*G31+$H$10*H31)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "T4",
-          "original": 10.192074269921477,
-          "shrunk": 11.665826700441844,
+          "original": 12.7028903123403,
+          "shrunk": 8.899411666229533,
           "original_formula": "=(1/$I$38)*($C$11*C31+$D$11*D31+$E$11*E31+$F$11*F31+$G$11*G31+$H$11*H31)",
           "shrunk_formula": "=(1/$I$38)*($C$11*C31+$D$11*D31+$E$11*E31+$F$11*F31+$G$11*G31+$H$11*H31)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "U4",
-          "original": 5.115372674018411,
-          "shrunk": 3.7282184415045174,
+          "original": 3.9291882638379083,
+          "shrunk": 4.888342354508879,
           "original_formula": "=(1/$I$39)*($C$12*C31+$D$12*D31+$E$12*E31+$F$12*F31+$G$12*G31+$H$12*H31)",
           "shrunk_formula": "=(1/$I$39)*($C$12*C31+$D$12*D31+$E$12*E31+$F$12*F31+$G$12*G31+$H$12*H31)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "V4",
-          "original": 8.403290343662366,
-          "shrunk": 5.8821108803164215,
+          "original": 5.673834743775875,
+          "shrunk": 5.760411365383192,
           "original_formula": "=(1/$I$40)*($C$13*C31+$D$13*D31+$E$13*E31+$F$13*F31+$G$13*G31+$H$13*H31)",
           "shrunk_formula": "=(1/$I$40)*($C$13*C31+$D$13*D31+$E$13*E31+$F$13*F31+$G$13*G31+$H$13*H31)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "W4",
-          "original": 8.575656949650174,
-          "shrunk": 4.538679850961376,
+          "original": 4.51497961031544,
+          "shrunk": 7.347288237420068,
           "original_formula": "=(1/$I$41)*($C$14*C31+$D$14*D31+$E$14*E31+$F$14*F31+$G$14*G31+$H$14*H31)",
           "shrunk_formula": "=(1/$I$41)*($C$14*C31+$D$14*D31+$E$14*E31+$F$14*F31+$G$14*G31+$H$14*H31)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "X4",
-          "original": 12.622578904969677,
-          "shrunk": 7.300954757520499,
+          "original": 12.575903706262954,
+          "shrunk": 5.628464426149425,
           "original_formula": "=(1/$I$42)*($C$15*C31+$D$15*D31+$E$15*E31+$F$15*F31+$G$15*G31+$H$15*H31)",
           "shrunk_formula": "=(1/$I$42)*($C$15*C31+$D$15*D31+$E$15*E31+$F$15*F31+$G$15*G31+$H$15*H31)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "Y4",
-          "original": 6.592658083128133,
-          "shrunk": 5.260313748394792,
+          "original": 4.727659204540078,
+          "shrunk": 4.249528830123822,
           "original_formula": "=(1/$I$43)*($C$16*C31+$D$16*D31+$E$16*E31+$F$16*F31+$G$16*G31+$H$16*H31)",
           "shrunk_formula": "=(1/$I$43)*($C$16*C31+$D$16*D31+$E$16*E31+$F$16*F31+$G$16*G31+$H$16*H31)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "Z4",
-          "original": 6.042285040240925,
-          "shrunk": 3.7794026482983045,
+          "original": 8.558886917195453,
+          "shrunk": 4.362482182730589,
           "original_formula": "=(1/$I$44)*($C$17*C31+$D$17*D31+$E$17*E31+$F$17*F31+$G$17*G31+$H$17*H31)",
           "shrunk_formula": "=(1/$I$44)*($C$17*C31+$D$17*D31+$E$17*E31+$F$17*F31+$G$17*G31+$H$17*H31)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "AA4",
-          "original": 4.3943745718774645,
-          "shrunk": 5.119633230421351,
+          "original": 6.2961126864605195,
+          "shrunk": 4.702428253616953,
           "original_formula": "=(1/$I$45)*($C$18*C31+$D$18*D31+$E$18*E31+$F$18*F31+$G$18*G31+$H$18*H31)",
           "shrunk_formula": "=(1/$I$45)*($C$18*C31+$D$18*D31+$E$18*E31+$F$18*F31+$G$18*G31+$H$18*H31)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "AB4",
-          "original": 5.505914931302307,
-          "shrunk": 11.445887115494966,
+          "original": 8.426637195282307,
+          "shrunk": 10.355217931995346,
           "original_formula": "=(1/$I$46)*($C$19*C31+$D$19*D31+$E$19*E31+$F$19*F31+$G$19*G31+$H$19*H31)",
           "shrunk_formula": "=(1/$I$46)*($C$19*C31+$D$19*D31+$E$19*E31+$F$19*F31+$G$19*G31+$H$19*H31)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "AC4",
-          "original": 3.9791694500941466,
-          "shrunk": 6.726935911613535,
+          "original": 3.2573578783061574,
+          "shrunk": 5.387688429240476,
           "original_formula": "=(1/$I$47)*($C$20*C31+$D$20*D31+$E$20*E31+$F$20*F31+$G$20*G31+$H$20*H31)",
           "shrunk_formula": "=(1/$I$47)*($C$20*C31+$D$20*D31+$E$20*E31+$F$20*F31+$G$20*G31+$H$20*H31)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "AD4",
-          "original": 4.430468969992393,
-          "shrunk": 2.050487528062958,
+          "original": 5.333236688634684,
+          "shrunk": 5.542411823695247,
           "original_formula": "=(1/$I$48)*($C$21*C31+$D$21*D31+$E$21*E31+$F$21*F31+$G$21*G31+$H$21*H31)",
           "shrunk_formula": "=(1/$I$48)*($C$21*C31+$D$21*D31+$E$21*E31+$F$21*F31+$G$21*G31+$H$21*H31)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "AE4",
-          "original": 4.824323659007625,
-          "shrunk": 7.424817189192441,
+          "original": 5.6420935892100905,
+          "shrunk": 5.925525506710182,
           "original_formula": "=(1/$I$49)*($C$22*C31+$D$22*D31+$E$22*E31+$F$22*F31+$G$22*G31+$H$22*H31)",
           "shrunk_formula": "=(1/$I$49)*($C$22*C31+$D$22*D31+$E$22*E31+$F$22*F31+$G$22*G31+$H$22*H31)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "AF4",
-          "original": 9.58506943016697,
-          "shrunk": 11.831833303819792,
+          "original": 6.137196652424028,
+          "shrunk": 9.560682410796739,
           "original_formula": "=(1/$I$50)*($C$23*C31+$D$23*D31+$E$23*E31+$F$23*F31+$G$23*G31+$H$23*H31)",
           "shrunk_formula": "=(1/$I$50)*($C$23*C31+$D$23*D31+$E$23*E31+$F$23*F31+$G$23*G31+$H$23*H31)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "AG4",
-          "original": 3.1590596509873015,
-          "shrunk": 1.8752127941969878,
+          "original": 4.270764135006507,
+          "shrunk": 4.763511810474359,
           "original_formula": "=(1/$I$51)*($C$24*C31+$D$24*D31+$E$24*E31+$F$24*F31+$G$24*G31+$H$24*H31)",
           "shrunk_formula": "=(1/$I$51)*($C$24*C31+$D$24*D31+$E$24*E31+$F$24*F31+$G$24*G31+$H$24*H31)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "AH4",
-          "original": 6.213512731174474,
-          "shrunk": 4.792597989135909,
+          "original": 5.615732684726845,
+          "shrunk": 5.529668747088302,
           "original_formula": "=(1/$I$52)*($C$25*C31+$D$25*D31+$E$25*E31+$F$25*F31+$G$25*G31+$H$25*H31)",
           "shrunk_formula": "=(1/$I$52)*($C$25*C31+$D$25*D31+$E$25*E31+$F$25*F31+$G$25*G31+$H$25*H31)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "AI4",
-          "original": 3.110710237033959,
-          "shrunk": 1.981744849594984,
+          "original": 4.840437802907058,
+          "shrunk": 4.387803638150356,
           "original_formula": "=(1/$I$53)*($C$26*C31+$D$26*D31+$E$26*E31+$F$26*F31+$G$26*G31+$H$26*H31)",
           "shrunk_formula": "=(1/$I$53)*($C$26*C31+$D$26*D31+$E$26*E31+$F$26*F31+$G$26*G31+$H$26*H31)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "AJ4",
-          "original": 8.587259712936216,
-          "shrunk": 4.4443558501107985,
+          "original": 7.468510814555703,
+          "shrunk": 8.974458729413204,
           "original_formula": "=(1/$I$54)*($C$27*C31+$D$27*D31+$E$27*E31+$F$27*F31+$G$27*G31+$H$27*H31)",
           "shrunk_formula": "=(1/$I$54)*($C$27*C31+$D$27*D31+$E$27*E31+$F$27*F31+$G$27*G31+$H$27*H31)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "C5",
-          "original": 0.44426560115988245,
-          "shrunk": 0.5661090669781172,
+          "original": 0.3977517649433361,
+          "shrunk": 0.5608723134685775,
           "original_formula": "=RAND()",
           "shrunk_formula": "=RAND()"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "D5",
-          "original": 0.16006699080212006,
-          "shrunk": 0.3492169905727248,
+          "original": 0.5345154583816252,
+          "shrunk": 0.28426107254668165,
           "original_formula": "=RAND()",
           "shrunk_formula": "=RAND()"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "E5",
-          "original": 0.766012672700707,
-          "shrunk": 0.2940200396297842,
+          "original": 0.6231460334879523,
+          "shrunk": 0.6202025483795572,
           "original_formula": "=RAND()",
           "shrunk_formula": "=RAND()"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "F5",
-          "original": 0.9699492613735649,
-          "shrunk": 0.85690642585301,
+          "original": 0.4835317786936828,
+          "shrunk": 0.887543934698947,
           "original_formula": "=RAND()",
           "shrunk_formula": "=RAND()"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "G5",
-          "original": 0.6114280531607501,
-          "shrunk": 0.041568072876925655,
+          "original": 0.7482754629983089,
+          "shrunk": 0.7543470952218602,
           "original_formula": "=RAND()",
           "shrunk_formula": "=RAND()"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "H5",
-          "original": 0.6714307342750884,
-          "shrunk": 0.3679121196759415,
+          "original": 0.7164239671848698,
+          "shrunk": 0.2782190756392585,
           "original_formula": "=RAND()",
           "shrunk_formula": "=RAND()"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "M5",
-          "original": 5.257377873037221,
-          "shrunk": 5.082534917360279,
+          "original": 5.062689515673472,
+          "shrunk": 6.586731877574564,
           "original_formula": "=(1/$I$31)*(C32*$C$4+D32*$D$4+E32*$E$4+F32*$F$4+G32*$G$4+H32*$H$4)",
           "shrunk_formula": "=(1/$I$31)*(C32*$C$4+D32*$D$4+E32*$E$4+F32*$F$4+G32*$G$4+H32*$H$4)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "N5",
-          "original": 7.354297714512017,
-          "shrunk": 4.955006410249982,
+          "original": 7.083092872218282,
+          "shrunk": 6.915700433276163,
           "original_formula": "=(1/$I$32)*(C32*$C$5+D32*$D$5+E32*$E$5+F32*$F$5+G32*$G$5+H32*$H$5)",
           "shrunk_formula": "=(1/$I$32)*(C32*$C$5+D32*$D$5+E32*$E$5+F32*$F$5+G32*$G$5+H32*$H$5)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "O5",
-          "original": 8.023234025151098,
-          "shrunk": 5.739764322530182,
+          "original": 8.49643858973703,
+          "shrunk": 3.9940850970053834,
           "original_formula": "=(1/$I$33)*(C32*$C$6+D32*$D$6+E32*$E$6+F32*$F$6+G32*$G$6+H32*$H$6)",
           "shrunk_formula": "=(1/$I$33)*(C32*$C$6+D32*$D$6+E32*$E$6+F32*$F$6+G32*$G$6+H32*$H$6)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "P5",
-          "original": 13.682668991243808,
-          "shrunk": 8.770081469045284,
+          "original": 10.78631846006327,
+          "shrunk": 11.207782779160286,
           "original_formula": "=(1/$I$34)*($C$7*C32+$D$7*D32+$E$7*E32+$F$7*F32+$G$7*G32+$H$7*H32)",
           "shrunk_formula": "=(1/$I$34)*($C$7*C32+$D$7*D32+$E$7*E32+$F$7*F32+$G$7*G32+$H$7*H32)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "Q5",
-          "original": 7.080633528322933,
-          "shrunk": 4.203873754637236,
+          "original": 4.502116672296057,
+          "shrunk": 3.9921075317707677,
           "original_formula": "=(1/$I$35)*($C$8*C32+$D$8*D32+$E$8*E32+$F$8*F32+$G$8*G32+$H$8*H32)",
           "shrunk_formula": "=(1/$I$35)*($C$8*C32+$D$8*D32+$E$8*E32+$F$8*F32+$G$8*G32+$H$8*H32)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "R5",
-          "original": 2.164389464330913,
-          "shrunk": 4.588957636151775,
+          "original": 6.795226955650726,
+          "shrunk": 6.721577339295273,
           "original_formula": "=(1/$I$36)*($C$9*C32+$D$9*D32+$E$9*E32+$F$9*F32+$G$9*G32+$H$9*H32)",
           "shrunk_formula": "=(1/$I$36)*($C$9*C32+$D$9*D32+$E$9*E32+$F$9*F32+$G$9*G32+$H$9*H32)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "S5",
-          "original": 5.251202876323344,
-          "shrunk": 6.757406437543175,
+          "original": 5.413378141619088,
+          "shrunk": 7.541721431991483,
           "original_formula": "=(1/$I$37)*($C$10*C32+$D$10*D32+$E$10*E32+$F$10*F32+$G$10*G32+$H$10*H32)",
           "shrunk_formula": "=(1/$I$37)*($C$10*C32+$D$10*D32+$E$10*E32+$F$10*F32+$G$10*G32+$H$10*H32)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "T5",
-          "original": 8.969025357530901,
-          "shrunk": 10.265927496388825,
+          "original": 11.178543474859465,
+          "shrunk": 7.8314822662819905,
           "original_formula": "=(1/$I$38)*($C$11*C32+$D$11*D32+$E$11*E32+$F$11*F32+$G$11*G32+$H$11*H32)",
           "shrunk_formula": "=(1/$I$38)*($C$11*C32+$D$11*D32+$E$11*E32+$F$11*F32+$G$11*G32+$H$11*H32)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "U5",
-          "original": 4.501527953136202,
-          "shrunk": 3.280832228523976,
+          "original": 3.45768567217736,
+          "shrunk": 4.301741271967813,
           "original_formula": "=(1/$I$39)*($C$12*C32+$D$12*D32+$E$12*E32+$F$12*F32+$G$12*G32+$H$12*H32)",
           "shrunk_formula": "=(1/$I$39)*($C$12*C32+$D$12*D32+$E$12*E32+$F$12*F32+$G$12*G32+$H$12*H32)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "V5",
-          "original": 7.394895502422884,
-          "shrunk": 5.176257574678451,
+          "original": 4.992974574522772,
+          "shrunk": 5.069162001537209,
           "original_formula": "=(1/$I$40)*($C$13*C32+$D$13*D32+$E$13*E32+$F$13*F32+$G$13*G32+$H$13*H32)",
           "shrunk_formula": "=(1/$I$40)*($C$13*C32+$D$13*D32+$E$13*E32+$F$13*F32+$G$13*G32+$H$13*H32)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "W5",
-          "original": 7.546578115692155,
-          "shrunk": 3.9940382688460128,
+          "original": 3.973182057077588,
+          "shrunk": 6.465613648929661,
           "original_formula": "=(1/$I$41)*($C$14*C32+$D$14*D32+$E$14*E32+$F$14*F32+$G$14*G32+$H$14*H32)",
           "shrunk_formula": "=(1/$I$41)*($C$14*C32+$D$14*D32+$E$14*E32+$F$14*F32+$G$14*G32+$H$14*H32)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "X5",
-          "original": 11.107869436373315,
-          "shrunk": 6.424840186618039,
+          "original": 11.066795261511402,
+          "shrunk": 4.953048695011494,
           "original_formula": "=(1/$I$42)*($C$15*C32+$D$15*D32+$E$15*E32+$F$15*F32+$G$15*G32+$H$15*H32)",
           "shrunk_formula": "=(1/$I$42)*($C$15*C32+$D$15*D32+$E$15*E32+$F$15*F32+$G$15*G32+$H$15*H32)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "Y5",
-          "original": 5.8015391131527565,
-          "shrunk": 4.629076098587418,
+          "original": 4.16034009999527,
+          "shrunk": 3.7395853705089634,
           "original_formula": "=(1/$I$43)*($C$16*C32+$D$16*D32+$E$16*E32+$F$16*F32+$G$16*G32+$H$16*H32)",
           "shrunk_formula": "=(1/$I$43)*($C$16*C32+$D$16*D32+$E$16*E32+$F$16*F32+$G$16*G32+$H$16*H32)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "Z5",
-          "original": 5.3172108354120144,
-          "shrunk": 3.325874330502508,
+          "original": 7.531820487132001,
+          "shrunk": 3.8389843208029184,
           "original_formula": "=(1/$I$44)*($C$17*C32+$D$17*D32+$E$17*E32+$F$17*F32+$G$17*G32+$H$17*H32)",
           "shrunk_formula": "=(1/$I$44)*($C$17*C32+$D$17*D32+$E$17*E32+$F$17*F32+$G$17*G32+$H$17*H32)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "AA5",
-          "original": 3.867049623252169,
-          "shrunk": 4.505277242770789,
+          "original": 5.5405791640852575,
+          "shrunk": 4.138136863182919,
           "original_formula": "=(1/$I$45)*($C$18*C32+$D$18*D32+$E$18*E32+$F$18*F32+$G$18*G32+$H$18*H32)",
           "shrunk_formula": "=(1/$I$45)*($C$18*C32+$D$18*D32+$E$18*E32+$F$18*F32+$G$18*G32+$H$18*H32)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "AB5",
-          "original": 4.845205139546029,
-          "shrunk": 10.072380661635572,
+          "original": 7.415440731848432,
+          "shrunk": 9.112591780155904,
           "original_formula": "=(1/$I$46)*($C$19*C32+$D$19*D32+$E$19*E32+$F$19*F32+$G$19*G32+$H$19*H32)",
           "shrunk_formula": "=(1/$I$46)*($C$19*C32+$D$19*D32+$E$19*E32+$F$19*F32+$G$19*G32+$H$19*H32)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "AC5",
-          "original": 3.5016691160828497,
-          "shrunk": 5.919703602219911,
+          "original": 2.8664749329094183,
+          "shrunk": 4.741165817731618,
           "original_formula": "=(1/$I$47)*($C$20*C32+$D$20*D32+$E$20*E32+$F$20*F32+$G$20*G32+$H$20*H32)",
           "shrunk_formula": "=(1/$I$47)*($C$20*C32+$D$20*D32+$E$20*E32+$F$20*F32+$G$20*G32+$H$20*H32)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "AD5",
-          "original": 3.8988126935933067,
-          "shrunk": 1.8044290246954033,
+          "original": 4.693248285998521,
+          "shrunk": 4.877322404851818,
           "original_formula": "=(1/$I$48)*($C$21*C32+$D$21*D32+$E$21*E32+$F$21*F32+$G$21*G32+$H$21*H32)",
           "shrunk_formula": "=(1/$I$48)*($C$21*C32+$D$21*D32+$E$21*E32+$F$21*F32+$G$21*G32+$H$21*H32)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "AE5",
-          "original": 4.24540481992671,
-          "shrunk": 6.533839126489348,
+          "original": 4.96504235850488,
+          "shrunk": 5.214462445904959,
           "original_formula": "=(1/$I$49)*($C$22*C32+$D$22*D32+$E$22*E32+$F$22*F32+$G$22*G32+$H$22*H32)",
           "shrunk_formula": "=(1/$I$49)*($C$22*C32+$D$22*D32+$E$22*E32+$F$22*F32+$G$22*G32+$H$22*H32)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "AF5",
-          "original": 8.434861098546934,
-          "shrunk": 10.41201330736142,
+          "original": 5.400733054133145,
+          "shrunk": 8.41340052150113,
           "original_formula": "=(1/$I$50)*($C$23*C32+$D$23*D32+$E$23*E32+$F$23*F32+$G$23*G32+$H$23*H32)",
           "shrunk_formula": "=(1/$I$50)*($C$23*C32+$D$23*D32+$E$23*E32+$F$23*F32+$G$23*G32+$H$23*H32)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "AG5",
-          "original": 2.779972492868825,
-          "shrunk": 1.6501872588933497,
+          "original": 3.758272438805727,
+          "shrunk": 4.191890393217436,
           "original_formula": "=(1/$I$51)*($C$24*C32+$D$24*D32+$E$24*E32+$F$24*F32+$G$24*G32+$H$24*H32)",
           "shrunk_formula": "=(1/$I$51)*($C$24*C32+$D$24*D32+$E$24*E32+$F$24*F32+$G$24*G32+$H$24*H32)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "AH5",
-          "original": 5.4678912034335365,
-          "shrunk": 4.2174862304396,
+          "original": 4.941844762559625,
+          "shrunk": 4.866108497437707,
           "original_formula": "=(1/$I$52)*($C$25*C32+$D$25*D32+$E$25*E32+$F$25*F32+$G$25*G32+$H$25*H32)",
           "shrunk_formula": "=(1/$I$52)*($C$25*C32+$D$25*D32+$E$25*E32+$F$25*F32+$G$25*G32+$H$25*H32)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "AI5",
-          "original": 2.7374250085898844,
-          "shrunk": 1.7439354676435859,
+          "original": 4.259585266558211,
+          "shrunk": 3.8612672015723133,
           "original_formula": "=(1/$I$53)*($C$26*C32+$D$26*D32+$E$26*E32+$F$26*F32+$G$26*G32+$H$26*H32)",
           "shrunk_formula": "=(1/$I$53)*($C$26*C32+$D$26*D32+$E$26*E32+$F$26*F32+$G$26*G32+$H$26*H32)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "AJ5",
-          "original": 7.556788547383871,
-          "shrunk": 3.911033148097503,
+          "original": 6.57228951680902,
+          "shrunk": 7.897523681883619,
           "original_formula": "=(1/$I$54)*($C$27*C32+$D$27*D32+$E$27*E32+$F$27*F32+$G$27*G32+$H$27*H32)",
           "shrunk_formula": "=(1/$I$54)*($C$27*C32+$D$27*D32+$E$27*E32+$F$27*F32+$G$27*G32+$H$27*H32)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "C6",
-          "original": 0.922761901627526,
-          "shrunk": 0.14248624756169737,
+          "original": 0.7376129160060679,
+          "shrunk": 0.39312067965345054,
           "original_formula": "=RAND()",
           "shrunk_formula": "=RAND()"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "D6",
-          "original": 0.97540795308583,
-          "shrunk": 0.8213101380932463,
+          "original": 0.7321635691953263,
+          "shrunk": 0.47652367753630587,
           "original_formula": "=RAND()",
           "shrunk_formula": "=RAND()"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "E6",
-          "original": 0.9590079447708796,
-          "shrunk": 0.10657498763066064,
+          "original": 0.9218538451064947,
+          "shrunk": 0.08847395606462682,
           "original_formula": "=RAND()",
           "shrunk_formula": "=RAND()"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "F6",
-          "original": 0.6578694290554606,
-          "shrunk": 0.298349715636155,
+          "original": 0.6077819059263657,
+          "shrunk": 0.46470950602815764,
           "original_formula": "=RAND()",
           "shrunk_formula": "=RAND()"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "G6",
-          "original": 0.12706108870212607,
-          "shrunk": 0.5649927192677437,
+          "original": 0.5198491823463374,
+          "shrunk": 0.485843966710757,
           "original_formula": "=RAND()",
           "shrunk_formula": "=RAND()"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "H6",
-          "original": 0.033162663322117925,
-          "shrunk": 0.9266130660099806,
+          "original": 0.44698577865046285,
+          "shrunk": 0.013485146766192613,
           "original_formula": "=RAND()",
           "shrunk_formula": "=RAND()"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "M6",
-          "original": 5.078149081910952,
-          "shrunk": 4.909266681541178,
+          "original": 4.890097827639148,
+          "shrunk": 6.362184199929975,
           "original_formula": "=(1/$I$31)*(C33*$C$4+D33*$D$4+E33*$E$4+F33*$F$4+G33*$G$4+H33*$H$4)",
           "shrunk_formula": "=(1/$I$31)*(C33*$C$4+D33*$D$4+E33*$E$4+F33*$F$4+G33*$G$4+H33*$H$4)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "N6",
-          "original": 7.103583019699108,
-          "shrunk": 4.786085737173277,
+          "original": 6.841623797029023,
+          "shrunk": 6.679937918505383,
           "original_formula": "=(1/$I$32)*(C33*$C$5+D33*$D$5+E33*$E$5+F33*$F$5+G33*$G$5+H33*$H$5)",
           "shrunk_formula": "=(1/$I$32)*(C33*$C$5+D33*$D$5+E33*$E$5+F33*$F$5+G33*$G$5+H33*$H$5)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "O6",
-          "original": 7.749714683384581,
-          "shrunk": 5.544090538807561,
+          "original": 8.206787274177811,
+          "shrunk": 3.8579231050620173,
           "original_formula": "=(1/$I$33)*(C33*$C$6+D33*$D$6+E33*$E$6+F33*$F$6+G33*$G$6+H33*$H$6)",
           "shrunk_formula": "=(1/$I$33)*(C33*$C$6+D33*$D$6+E33*$E$6+F33*$F$6+G33*$G$6+H33*$H$6)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "P6",
-          "original": 13.216214366542314,
-          "shrunk": 8.471101418964194,
+          "original": 10.418603058015659,
+          "shrunk": 10.825699275325277,
           "original_formula": "=(1/$I$34)*($C$7*C33+$D$7*D33+$E$7*E33+$F$7*F33+$G$7*G33+$H$7*H33)",
           "shrunk_formula": "=(1/$I$34)*($C$7*C33+$D$7*D33+$E$7*E33+$F$7*F33+$G$7*G33+$H$7*H33)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "Q6",
-          "original": 6.839248294402832,
-          "shrunk": 4.060559876638239,
+          "original": 4.348635422104146,
+          "shrunk": 3.856012956824036,
           "original_formula": "=(1/$I$35)*($C$8*C33+$D$8*D33+$E$8*E33+$F$8*F33+$G$8*G33+$H$8*H33)",
           "shrunk_formula": "=(1/$I$35)*($C$8*C33+$D$8*D33+$E$8*E33+$F$8*F33+$G$8*G33+$H$8*H33)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "R6",
-          "original": 2.0906034598650862,
-          "shrunk": 4.432515898555692,
+          "original": 6.5635714912535414,
+          "shrunk": 6.4924326572738424,
           "original_formula": "=(1/$I$36)*($C$9*C33+$D$9*D33+$E$9*E33+$F$9*F33+$G$9*G33+$H$9*H33)",
           "shrunk_formula": "=(1/$I$36)*($C$9*C33+$D$9*D33+$E$9*E33+$F$9*F33+$G$9*G33+$H$9*H33)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "S6",
-          "original": 5.072184596448683,
-          "shrunk": 6.527040308990564,
+          "original": 5.228831159518436,
+          "shrunk": 7.2846172922645005,
           "original_formula": "=(1/$I$37)*($C$10*C33+$D$10*D33+$E$10*E33+$F$10*F33+$G$10*G33+$H$10*H33)",
           "shrunk_formula": "=(1/$I$37)*($C$10*C33+$D$10*D33+$E$10*E33+$F$10*F33+$G$10*G33+$H$10*H33)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "T6",
-          "original": 8.663263129433252,
-          "shrunk": 9.915952695375568,
+          "original": 10.797456765489255,
+          "shrunk": 7.564499916295104,
           "original_formula": "=(1/$I$38)*($C$11*C33+$D$11*D33+$E$11*E33+$F$11*F33+$G$11*G33+$H$11*H33)",
           "shrunk_formula": "=(1/$I$38)*($C$11*C33+$D$11*D33+$E$11*E33+$F$11*F33+$G$11*G33+$H$11*H33)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "U6",
-          "original": 4.348066772915648,
-          "shrunk": 3.1689856752788397,
+          "original": 3.339810024262222,
+          "shrunk": 4.155091001332547,
           "original_formula": "=(1/$I$39)*($C$12*C33+$D$12*D33+$E$12*E33+$F$12*F33+$G$12*G33+$H$12*H33)",
           "shrunk_formula": "=(1/$I$39)*($C$12*C33+$D$12*D33+$E$12*E33+$F$12*F33+$G$12*G33+$H$12*H33)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "V6",
-          "original": 7.142796792113011,
-          "shrunk": 4.999794248268957,
+          "original": 4.822759532209494,
+          "shrunk": 4.896349660575713,
           "original_formula": "=(1/$I$40)*($C$13*C33+$D$13*D33+$E$13*E33+$F$13*F33+$G$13*G33+$H$13*H33)",
           "shrunk_formula": "=(1/$I$40)*($C$13*C33+$D$13*D33+$E$13*E33+$F$13*F33+$G$13*G33+$H$13*H33)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "W6",
-          "original": 7.289308407202648,
-          "shrunk": 3.85787787331717,
+          "original": 3.837732668768125,
+          "shrunk": 6.2451950018070574,
           "original_formula": "=(1/$I$41)*($C$14*C33+$D$14*D33+$E$14*E33+$F$14*F33+$G$14*G33+$H$14*H33)",
           "shrunk_formula": "=(1/$I$41)*($C$14*C33+$D$14*D33+$E$14*E33+$F$14*F33+$G$14*G33+$H$14*H33)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "X6",
-          "original": 10.729192069224224,
-          "shrunk": 6.205811543892422,
+          "original": 10.689518150323513,
+          "shrunk": 4.784194762227011,
           "original_formula": "=(1/$I$42)*($C$15*C33+$D$15*D33+$E$15*E33+$F$15*F33+$G$15*G33+$H$15*H33)",
           "shrunk_formula": "=(1/$I$42)*($C$15*C33+$D$15*D33+$E$15*E33+$F$15*F33+$G$15*G33+$H$15*H33)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "Y6",
-          "original": 5.603759370658912,
-          "shrunk": 4.471266686135574,
+          "original": 4.018510323859067,
+          "shrunk": 3.612099505605248,
           "original_formula": "=(1/$I$43)*($C$16*C33+$D$16*D33+$E$16*E33+$F$16*F33+$G$16*G33+$H$16*H33)",
           "shrunk_formula": "=(1/$I$43)*($C$16*C33+$D$16*D33+$E$16*E33+$F$16*F33+$G$16*G33+$H$16*H33)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "Z6",
-          "original": 5.135942284204785,
-          "shrunk": 3.212492251053559,
+          "original": 7.275053879616136,
+          "shrunk": 3.708109855321001,
           "original_formula": "=(1/$I$44)*($C$17*C33+$D$17*D33+$E$17*E33+$F$17*F33+$G$17*G33+$H$17*H33)",
           "shrunk_formula": "=(1/$I$44)*($C$17*C33+$D$17*D33+$E$17*E33+$F$17*F33+$G$17*G33+$H$17*H33)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "AA6",
-          "original": 3.735218386095844,
-          "shrunk": 4.351688245858148,
+          "original": 5.351695783491442,
+          "shrunk": 3.9970640155744093,
           "original_formula": "=(1/$I$45)*($C$18*C33+$D$18*D33+$E$18*E33+$F$18*F33+$G$18*G33+$H$18*H33)",
           "shrunk_formula": "=(1/$I$45)*($C$18*C33+$D$18*D33+$E$18*E33+$F$18*F33+$G$18*G33+$H$18*H33)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "AB6",
-          "original": 4.68002769160696,
-          "shrunk": 9.729004048170722,
+          "original": 7.162641615989961,
+          "shrunk": 8.801935242196045,
           "original_formula": "=(1/$I$46)*($C$19*C33+$D$19*D33+$E$19*E33+$F$19*F33+$G$19*G33+$H$19*H33)",
           "shrunk_formula": "=(1/$I$46)*($C$19*C33+$D$19*D33+$E$19*E33+$F$19*F33+$G$19*G33+$H$19*H33)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "AC6",
-          "original": 3.3822940325800244,
-          "shrunk": 5.717895524871506,
+          "original": 2.7687541965602334,
+          "shrunk": 4.579535164854404,
           "original_formula": "=(1/$I$47)*($C$20*C33+$D$20*D33+$E$20*E33+$F$20*F33+$G$20*G33+$H$20*H33)",
           "shrunk_formula": "=(1/$I$47)*($C$20*C33+$D$20*D33+$E$20*E33+$F$20*F33+$G$20*G33+$H$20*H33)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "AD6",
-          "original": 3.765898624493534,
-          "shrunk": 1.7429143988535145,
+          "original": 4.533251185339481,
+          "shrunk": 4.71105005014096,
           "original_formula": "=(1/$I$48)*($C$21*C33+$D$21*D33+$E$21*E33+$F$21*F33+$G$21*G33+$H$21*H33)",
           "shrunk_formula": "=(1/$I$48)*($C$21*C33+$D$21*D33+$E$21*E33+$F$21*F33+$G$21*G33+$H$21*H33)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "AE6",
-          "original": 4.100675110156481,
-          "shrunk": 6.311094610813575,
+          "original": 4.795779550828577,
+          "shrunk": 5.0366966807036535,
           "original_formula": "=(1/$I$49)*($C$22*C33+$D$22*D33+$E$22*E33+$F$22*F33+$G$22*G33+$H$22*H33)",
           "shrunk_formula": "=(1/$I$49)*($C$22*C33+$D$22*D33+$E$22*E33+$F$22*F33+$G$22*G33+$H$22*H33)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "AF6",
-          "original": 8.147309015641925,
-          "shrunk": 10.057058308246823,
+          "original": 5.216617154560423,
+          "shrunk": 8.126580049177226,
           "original_formula": "=(1/$I$50)*($C$23*C33+$D$23*D33+$E$23*E33+$F$23*F33+$G$23*G33+$H$23*H33)",
           "shrunk_formula": "=(1/$I$50)*($C$23*C33+$D$23*D33+$E$23*E33+$F$23*F33+$G$23*G33+$H$23*H33)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "AG6",
-          "original": 2.685200703339206,
-          "shrunk": 1.5939308750674397,
+          "original": 3.6301495147555314,
+          "shrunk": 4.048985038903205,
           "original_formula": "=(1/$I$51)*($C$24*C33+$D$24*D33+$E$24*E33+$F$24*F33+$G$24*G33+$H$24*H33)",
           "shrunk_formula": "=(1/$I$51)*($C$24*C33+$D$24*D33+$E$24*E33+$F$24*F33+$G$24*G33+$H$24*H33)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "AH6",
-          "original": 5.281485821498303,
-          "shrunk": 4.073708290765522,
+          "original": 4.773372782017818,
+          "shrunk": 4.700218435025057,
           "original_formula": "=(1/$I$52)*($C$25*C33+$D$25*D33+$E$25*E33+$F$25*F33+$G$25*G33+$H$25*H33)",
           "shrunk_formula": "=(1/$I$52)*($C$25*C33+$D$25*D33+$E$25*E33+$F$25*F33+$G$25*G33+$H$25*H33)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "AI6",
-          "original": 2.6441037014788655,
-          "shrunk": 1.6844831221557366,
+          "original": 4.114372132470999,
+          "shrunk": 3.7296330924278025,
           "original_formula": "=(1/$I$53)*($C$26*C33+$D$26*D33+$E$26*E33+$F$26*F33+$G$26*G33+$H$26*H33)",
           "shrunk_formula": "=(1/$I$53)*($C$26*C33+$D$26*D33+$E$26*E33+$F$26*F33+$G$26*G33+$H$26*H33)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "AJ6",
-          "original": 7.299170755995784,
-          "shrunk": 3.777702472594179,
+          "original": 6.348234192372348,
+          "shrunk": 7.6282899200012215,
           "original_formula": "=(1/$I$54)*($C$27*C33+$D$27*D33+$E$27*E33+$F$27*F33+$G$27*G33+$H$27*H33)",
           "shrunk_formula": "=(1/$I$54)*($C$27*C33+$D$27*D33+$E$27*E33+$F$27*F33+$G$27*G33+$H$27*H33)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "C7",
-          "original": 0.41339698020937776,
-          "shrunk": 0.9983730279052139,
+          "original": 0.5271772396237655,
+          "shrunk": 0.030115403200880797,
           "original_formula": "=RAND()",
           "shrunk_formula": "=RAND()"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "D7",
-          "original": 0.3951711859822157,
-          "shrunk": 0.18584125651398808,
+          "original": 0.7108128334942277,
+          "shrunk": 0.7937663742181952,
           "original_formula": "=RAND()",
           "shrunk_formula": "=RAND()"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "E7",
-          "original": 0.7050365430969574,
-          "shrunk": 0.25868497671754787,
+          "original": 0.9965828142564231,
+          "shrunk": 0.3753970078750055,
           "original_formula": "=RAND()",
           "shrunk_formula": "=RAND()"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "F7",
-          "original": 0.9756511664438242,
-          "shrunk": 0.7033221944062255,
+          "original": 0.41775045112111886,
+          "shrunk": 0.5680355916109231,
           "original_formula": "=RAND()",
           "shrunk_formula": "=RAND()"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "G7",
-          "original": 0.9108336982209582,
-          "shrunk": 0.0785564605454433,
+          "original": 0.12399138461168357,
+          "shrunk": 0.43193793889196785,
           "original_formula": "=RAND()",
           "shrunk_formula": "=RAND()"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "H7",
-          "original": 0.33068762721517564,
-          "shrunk": 0.1924666357067547,
+          "original": 0.01757693502138713,
+          "shrunk": 0.967341280108742,
           "original_formula": "=RAND()",
           "shrunk_formula": "=RAND()"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "M7",
-          "original": 2.9274035883957255,
-          "shrunk": 2.8300478517119734,
+          "original": 2.818997571227274,
+          "shrunk": 3.667612068194927,
           "original_formula": "=(1/$I$31)*(C34*$C$4+D34*$D$4+E34*$E$4+F34*$F$4+G34*$G$4+H34*$H$4)",
           "shrunk_formula": "=(1/$I$31)*(C34*$C$4+D34*$D$4+E34*$E$4+F34*$F$4+G34*$G$4+H34*$H$4)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "N7",
-          "original": 4.0950066819441915,
-          "shrunk": 2.75903766025283,
+          "original": 3.9439948947579073,
+          "shrunk": 3.8507877412560445,
           "original_formula": "=(1/$I$32)*(C34*$C$5+D34*$D$5+E34*$E$5+F34*$F$5+G34*$G$5+H34*$H$5)",
           "shrunk_formula": "=(1/$I$32)*(C34*$C$5+D34*$D$5+E34*$E$5+F34*$F$5+G34*$G$5+H34*$H$5)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "O7",
-          "original": 4.467482582186407,
-          "shrunk": 3.196005134136124,
+          "original": 4.730971487467209,
+          "shrunk": 2.223979201741634,
           "original_formula": "=(1/$I$33)*(C34*$C$6+D34*$D$6+E34*$E$6+F34*$F$6+G34*$G$6+H34*$H$6)",
           "shrunk_formula": "=(1/$I$33)*(C34*$C$6+D34*$D$6+E34*$E$6+F34*$F$6+G34*$G$6+H34*$H$6)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "P7",
-          "original": 7.618758870124393,
-          "shrunk": 4.883340817991123,
+          "original": 6.006018233444321,
+          "shrunk": 6.2406972293051615,
           "original_formula": "=(1/$I$34)*($C$7*C34+$D$7*D34+$E$7*E34+$F$7*F34+$G$7*G34+$H$7*H34)",
           "shrunk_formula": "=(1/$I$34)*($C$7*C34+$D$7*D34+$E$7*E34+$F$7*F34+$G$7*G34+$H$7*H34)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "Q7",
-          "original": 3.942625487361633,
-          "shrunk": 2.3407933406502788,
+          "original": 2.5068604198012143,
+          "shrunk": 2.222878057463268,
           "original_formula": "=(1/$I$35)*($C$8*C34+$D$8*D34+$E$8*E34+$F$8*F34+$G$8*G34+$H$8*H34)",
           "shrunk_formula": "=(1/$I$35)*($C$8*C34+$D$8*D34+$E$8*E34+$F$8*F34+$G$8*G34+$H$8*H34)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "R7",
-          "original": 1.2051714062751677,
-          "shrunk": 2.555215047402693,
+          "original": 3.783705918487336,
+          "shrunk": 3.7426964730166854,
           "original_formula": "=(1/$I$36)*($C$9*C34+$D$9*D34+$E$9*E34+$F$9*F34+$G$9*G34+$H$9*H34)",
           "shrunk_formula": "=(1/$I$36)*($C$9*C34+$D$9*D34+$E$9*E34+$F$9*F34+$G$9*G34+$H$9*H34)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "S7",
-          "original": 2.9239652379527707,
-          "shrunk": 3.7626467663592673,
+          "original": 3.0142673743106285,
+          "shrunk": 4.199367615540711,
           "original_formula": "=(1/$I$37)*($C$10*C34+$D$10*D34+$E$10*E34+$F$10*F34+$G$10*G34+$H$10*H34)",
           "shrunk_formula": "=(1/$I$37)*($C$10*C34+$D$10*D34+$E$10*E34+$F$10*F34+$G$10*G34+$H$10*H34)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "T7",
-          "original": 4.994116392261524,
-          "shrunk": 5.716255083216503,
+          "original": 6.224416253046747,
+          "shrunk": 4.360711716452472,
           "original_formula": "=(1/$I$38)*($C$11*C34+$D$11*D34+$E$11*E34+$F$11*F34+$G$11*G34+$H$11*H34)",
           "shrunk_formula": "=(1/$I$38)*($C$11*C34+$D$11*D34+$E$11*E34+$F$11*F34+$G$11*G34+$H$11*H34)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "U7",
-          "original": 2.5065326102690215,
-          "shrunk": 1.8268270363372137,
+          "original": 1.9253022492805754,
+          "shrunk": 2.3952877537093507,
           "original_formula": "=(1/$I$39)*($C$12*C34+$D$12*D34+$E$12*E34+$F$12*F34+$G$12*G34+$H$12*H34)",
           "shrunk_formula": "=(1/$I$39)*($C$12*C34+$D$12*D34+$E$12*E34+$F$12*F34+$G$12*G34+$H$12*H34)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "V7",
-          "original": 4.11761226839456,
-          "shrunk": 2.882234331355046,
+          "original": 2.7801790244501796,
+          "shrunk": 2.822601569037764,
           "original_formula": "=(1/$I$40)*($C$13*C34+$D$13*D34+$E$13*E34+$F$13*F34+$G$13*G34+$H$13*H34)",
           "shrunk_formula": "=(1/$I$40)*($C$13*C34+$D$13*D34+$E$13*E34+$F$13*F34+$G$13*G34+$H$13*H34)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "W7",
-          "original": 4.2020719053285855,
-          "shrunk": 2.223953126971075,
+          "original": 2.212340009054566,
+          "shrunk": 3.6001712363358336,
           "original_formula": "=(1/$I$41)*($C$14*C34+$D$14*D34+$E$14*E34+$F$14*F34+$G$14*G34+$H$14*H34)",
           "shrunk_formula": "=(1/$I$41)*($C$14*C34+$D$14*D34+$E$14*E34+$F$14*F34+$G$14*G34+$H$14*H34)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "X7",
-          "original": 6.185063663435142,
-          "shrunk": 3.5774678311850443,
+          "original": 6.162192816068849,
+          "shrunk": 2.757947568813218,
           "original_formula": "=(1/$I$42)*($C$15*C34+$D$15*D34+$E$15*E34+$F$15*F34+$G$15*G34+$H$15*H34)",
           "shrunk_formula": "=(1/$I$42)*($C$15*C34+$D$15*D34+$E$15*E34+$F$15*F34+$G$15*G34+$H$15*H34)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "Y7",
-          "original": 3.2304024607327846,
-          "shrunk": 2.5775537367134485,
+          "original": 2.3165530102246388,
+          "shrunk": 2.0822691267606723,
           "original_formula": "=(1/$I$43)*($C$16*C34+$D$16*D34+$E$16*E34+$F$16*F34+$G$16*G34+$H$16*H34)",
           "shrunk_formula": "=(1/$I$43)*($C$16*C34+$D$16*D34+$E$16*E34+$F$16*F34+$G$16*G34+$H$16*H34)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "Z7",
-          "original": 2.9607196697180527,
-          "shrunk": 1.8519072976661692,
+          "original": 4.193854589425772,
+          "shrunk": 2.1376162695379888,
           "original_formula": "=(1/$I$44)*($C$17*C34+$D$17*D34+$E$17*E34+$F$17*F34+$G$17*G34+$H$17*H34)",
           "shrunk_formula": "=(1/$I$44)*($C$17*C34+$D$17*D34+$E$17*E34+$F$17*F34+$G$17*G34+$H$17*H34)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "AA7",
-          "original": 2.1532435402199575,
-          "shrunk": 2.508620282906462,
+          "original": 3.085095216365654,
+          "shrunk": 2.304189844272307,
           "original_formula": "=(1/$I$45)*($C$18*C34+$D$18*D34+$E$18*E34+$F$18*F34+$G$18*G34+$H$18*H34)",
           "shrunk_formula": "=(1/$I$45)*($C$18*C34+$D$18*D34+$E$18*E34+$F$18*F34+$G$18*G34+$H$18*H34)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "AB7",
-          "original": 2.6978983163381303,
-          "shrunk": 5.608484686592533,
+          "original": 4.129052225688331,
+          "shrunk": 5.074056786677719,
           "original_formula": "=(1/$I$46)*($C$19*C34+$D$19*D34+$E$19*E34+$F$19*F34+$G$19*G34+$H$19*H34)",
           "shrunk_formula": "=(1/$I$46)*($C$19*C34+$D$19*D34+$E$19*E34+$F$19*F34+$G$19*G34+$H$19*H34)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "AC7",
-          "original": 1.949793030546132,
-          "shrunk": 3.296198596690632,
+          "original": 1.5961053603700173,
+          "shrunk": 2.639967330327833,
           "original_formula": "=(1/$I$47)*($C$20*C34+$D$20*D34+$E$20*E34+$F$20*F34+$G$20*G34+$H$20*H34)",
           "shrunk_formula": "=(1/$I$47)*($C$20*C34+$D$20*D34+$E$20*E34+$F$20*F34+$G$20*G34+$H$20*H34)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "AD7",
-          "original": 2.170929795296272,
-          "shrunk": 1.0047388887508497,
+          "original": 2.613285977430995,
+          "shrunk": 2.715781793610671,
           "original_formula": "=(1/$I$48)*($C$21*C34+$D$21*D34+$E$21*E34+$F$21*F34+$G$21*G34+$H$21*H34)",
           "shrunk_formula": "=(1/$I$48)*($C$21*C34+$D$21*D34+$E$21*E34+$F$21*F34+$G$21*G34+$H$21*H34)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "AE7",
-          "original": 2.363918592913736,
-          "shrunk": 3.6381604227042956,
+          "original": 2.7646258587129444,
+          "shrunk": 2.903507498287989,
           "original_formula": "=(1/$I$49)*($C$22*C34+$D$22*D34+$E$22*E34+$F$22*F34+$G$22*G34+$H$22*H34)",
           "shrunk_formula": "=(1/$I$49)*($C$22*C34+$D$22*D34+$E$22*E34+$F$22*F34+$G$22*G34+$H$22*H34)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "AF7",
-          "original": 4.696684020781815,
-          "shrunk": 5.797598318871699,
+          "original": 3.007226359687774,
+          "shrunk": 4.684734381290402,
           "original_formula": "=(1/$I$50)*($C$23*C34+$D$23*D34+$E$23*E34+$F$23*F34+$G$23*G34+$H$23*H34)",
           "shrunk_formula": "=(1/$I$50)*($C$23*C34+$D$23*D34+$E$23*E34+$F$23*F34+$G$23*G34+$H$23*H34)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "AG7",
-          "original": 1.5479392289837774,
-          "shrunk": 0.9188542691565241,
+          "original": 2.0926744261531884,
+          "shrunk": 2.334120787132436,
           "original_formula": "=(1/$I$51)*($C$24*C34+$D$24*D34+$E$24*E34+$F$24*F34+$G$24*G34+$H$24*H34)",
           "shrunk_formula": "=(1/$I$51)*($C$24*C34+$D$24*D34+$E$24*E34+$F$24*F34+$G$24*G34+$H$24*H34)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "AH7",
-          "original": 3.0446212382754925,
-          "shrunk": 2.348373014676595,
+          "original": 2.751709015516154,
+          "shrunk": 2.709537686073268,
           "original_formula": "=(1/$I$52)*($C$25*C34+$D$25*D34+$E$25*E34+$F$25*F34+$G$25*G34+$H$25*H34)",
           "shrunk_formula": "=(1/$I$52)*($C$25*C34+$D$25*D34+$E$25*E34+$F$25*F34+$G$25*G34+$H$25*H34)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "AI7",
-          "original": 1.5242480161466403,
-          "shrunk": 0.9710549763015422,
+          "original": 2.371814523424458,
+          "shrunk": 2.1500237826936743,
           "original_formula": "=(1/$I$53)*($C$26*C34+$D$26*D34+$E$26*E34+$F$26*F34+$G$26*G34+$H$26*H34)",
           "shrunk_formula": "=(1/$I$53)*($C$26*C34+$D$26*D34+$E$26*E34+$F$26*F34+$G$26*G34+$H$26*H34)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "AJ7",
-          "original": 4.207757259338746,
-          "shrunk": 2.1777343665542914,
+          "original": 3.6595702991322945,
+          "shrunk": 4.397484777412468,
           "original_formula": "=(1/$I$54)*($C$27*C34+$D$27*D34+$E$27*E34+$F$27*F34+$G$27*G34+$H$27*H34)",
           "shrunk_formula": "=(1/$I$54)*($C$27*C34+$D$27*D34+$E$27*E34+$F$27*F34+$G$27*G34+$H$27*H34)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "C8",
-          "original": 0.10338260059956139,
-          "shrunk": 0.13310223005716348,
+          "original": 0.7850790091392509,
+          "shrunk": 0.712970543474109,
           "original_formula": "=RAND()",
           "shrunk_formula": "=RAND()"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "D8",
-          "original": 0.798999838591069,
-          "shrunk": 0.16856170727914999,
+          "original": 0.1648488045781875,
+          "shrunk": 0.7521209787789177,
           "original_formula": "=RAND()",
           "shrunk_formula": "=RAND()"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "E8",
-          "original": 0.8931621227544406,
-          "shrunk": 0.993344693770973,
+          "original": 0.35984587171947435,
+          "shrunk": 0.08498917472985346,
           "original_formula": "=RAND()",
           "shrunk_formula": "=RAND()"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "F8",
-          "original": 0.7179740069646533,
-          "shrunk": 0.16102729103697067,
+          "original": 0.15697035164015416,
+          "shrunk": 0.18510137991466158,
           "original_formula": "=RAND()",
           "shrunk_formula": "=RAND()"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "G8",
-          "original": 0.9360864747214089,
-          "shrunk": 0.2950656264637366,
+          "original": 0.80327703337808,
+          "shrunk": 0.3527824452340864,
           "original_formula": "=RAND()",
           "shrunk_formula": "=RAND()"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "H8",
-          "original": 0.8484763622957804,
-          "shrunk": 0.7164397443713763,
+          "original": 0.4844078081293641,
+          "shrunk": 0.391384762124914,
           "original_formula": "=RAND()",
           "shrunk_formula": "=RAND()"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "M8",
-          "original": 5.0230187845045,
-          "shrunk": 4.897902952374592,
+          "original": 4.821474193454883,
+          "shrunk": 6.24128831794809,
           "original_formula": "=(1/$I$31)*(C35*$C$4+D35*$D$4+E35*$E$4+F35*$F$4+G35*$G$4+H35*$H$4)",
           "shrunk_formula": "=(1/$I$31)*(C35*$C$4+D35*$D$4+E35*$E$4+F35*$F$4+G35*$G$4+H35*$H$4)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "N8",
-          "original": 7.012329504917894,
-          "shrunk": 4.743688870905375,
+          "original": 6.761512384502213,
+          "shrunk": 6.582199097685146,
           "original_formula": "=(1/$I$32)*(C35*$C$5+D35*$D$5+E35*$E$5+F35*$F$5+G35*$G$5+H35*$H$5)",
           "shrunk_formula": "=(1/$I$32)*(C35*$C$5+D35*$D$5+E35*$E$5+F35*$F$5+G35*$G$5+H35*$H$5)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "O8",
-          "original": 7.568696709002455,
-          "shrunk": 5.546512300541304,
+          "original": 8.057462239687617,
+          "shrunk": 3.8206503133835987,
           "original_formula": "=(1/$I$33)*(C35*$C$6+D35*$D$6+E35*$E$6+F35*$F$6+G35*$G$6+H35*$H$6)",
           "shrunk_formula": "=(1/$I$33)*(C35*$C$6+D35*$D$6+E35*$E$6+F35*$F$6+G35*$G$6+H35*$H$6)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "P8",
-          "original": 13.023990193185195,
-          "shrunk": 8.373598512361994,
+          "original": 10.121330380446361,
+          "shrunk": 10.777810017731094,
           "original_formula": "=(1/$I$34)*($C$7*C35+$D$7*D35+$E$7*E35+$F$7*F35+$G$7*G35+$H$7*H35)",
           "shrunk_formula": "=(1/$I$34)*($C$7*C35+$D$7*D35+$E$7*E35+$F$7*F35+$G$7*G35+$H$7*H35)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "Q8",
-          "original": 6.749596703753225,
-          "shrunk": 3.969641476415383,
+          "original": 4.3012710328894235,
+          "shrunk": 3.8305353721991087,
           "original_formula": "=(1/$I$35)*($C$8*C35+$D$8*D35+$E$8*E35+$F$8*F35+$G$8*G35+$H$8*H35)",
           "shrunk_formula": "=(1/$I$35)*($C$8*C35+$D$8*D35+$E$8*E35+$F$8*F35+$G$8*G35+$H$8*H35)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "R8",
-          "original": 2.0823500700605617,
-          "shrunk": 4.393877133581081,
+          "original": 6.513622305230136,
+          "shrunk": 6.4086406968051,
           "original_formula": "=(1/$I$36)*($C$9*C35+$D$9*D35+$E$9*E35+$F$9*F35+$G$9*G35+$H$9*H35)",
           "shrunk_formula": "=(1/$I$36)*($C$9*C35+$D$9*D35+$E$9*E35+$F$9*F35+$G$9*G35+$H$9*H35)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "S8",
-          "original": 5.049342665870379,
-          "shrunk": 6.396554285393372,
+          "original": 5.2085891987664565,
+          "shrunk": 7.234615243231246,
           "original_formula": "=(1/$I$37)*($C$10*C35+$D$10*D35+$E$10*E35+$F$10*F35+$G$10*G35+$H$10*H35)",
           "shrunk_formula": "=(1/$I$37)*($C$10*C35+$D$10*D35+$E$10*E35+$F$10*F35+$G$10*G35+$H$10*H35)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "T8",
-          "original": 8.501719598552775,
-          "shrunk": 9.689287245313228,
+          "original": 10.772990122385236,
+          "shrunk": 7.510205724925191,
           "original_formula": "=(1/$I$38)*($C$11*C35+$D$11*D35+$E$11*E35+$F$11*F35+$G$11*G35+$H$11*H35)",
           "shrunk_formula": "=(1/$I$38)*($C$11*C35+$D$11*D35+$E$11*E35+$F$11*F35+$G$11*G35+$H$11*H35)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "U8",
-          "original": 4.293670379957718,
-          "shrunk": 3.1341909899324727,
+          "original": 3.2476620205215503,
+          "shrunk": 4.1568607921684135,
           "original_formula": "=(1/$I$39)*($C$12*C35+$D$12*D35+$E$12*E35+$F$12*F35+$G$12*G35+$H$12*H35)",
           "shrunk_formula": "=(1/$I$39)*($C$12*C35+$D$12*D35+$E$12*E35+$F$12*F35+$G$12*G35+$H$12*H35)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "V8",
-          "original": 7.042472453351711,
-          "shrunk": 4.9017344006807315,
+          "original": 4.786110249355694,
+          "shrunk": 4.8274483132850605,
           "original_formula": "=(1/$I$40)*($C$13*C35+$D$13*D35+$E$13*E35+$F$13*F35+$G$13*G35+$H$13*H35)",
           "shrunk_formula": "=(1/$I$40)*($C$13*C35+$D$13*D35+$E$13*E35+$F$13*F35+$G$13*G35+$H$13*H35)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "W8",
-          "original": 7.233494694334736,
-          "shrunk": 3.803194764038701,
+          "original": 3.818638060189612,
+          "shrunk": 6.118480151059501,
           "original_formula": "=(1/$I$41)*($C$14*C35+$D$14*D35+$E$14*E35+$F$14*F35+$G$14*G35+$H$14*H35)",
           "shrunk_formula": "=(1/$I$41)*($C$14*C35+$D$14*D35+$E$14*E35+$F$14*F35+$G$14*G35+$H$14*H35)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "X8",
-          "original": 10.491119379496782,
-          "shrunk": 6.134900335736999,
+          "original": 10.559367451205325,
+          "shrunk": 4.759298080295143,
           "original_formula": "=(1/$I$42)*($C$15*C35+$D$15*D35+$E$15*E35+$F$15*F35+$G$15*G35+$H$15*H35)",
           "shrunk_formula": "=(1/$I$42)*($C$15*C35+$D$15*D35+$E$15*E35+$F$15*F35+$G$15*G35+$H$15*H35)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "Y8",
-          "original": 5.596238438617878,
-          "shrunk": 4.441739589966021,
+          "original": 3.949803541944052,
+          "shrunk": 3.5956288727937924,
           "original_formula": "=(1/$I$43)*($C$16*C35+$D$16*D35+$E$16*E35+$F$16*F35+$G$16*G35+$H$16*H35)",
           "shrunk_formula": "=(1/$I$43)*($C$16*C35+$D$16*D35+$E$16*E35+$F$16*F35+$G$16*G35+$H$16*H35)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "Z8",
-          "original": 5.06490494603948,
-          "shrunk": 3.146361036576481,
+          "original": 7.164724746705462,
+          "shrunk": 3.6572842606505307,
           "original_formula": "=(1/$I$44)*($C$17*C35+$D$17*D35+$E$17*E35+$F$17*F35+$G$17*G35+$H$17*H35)",
           "shrunk_formula": "=(1/$I$44)*($C$17*C35+$D$17*D35+$E$17*E35+$F$17*F35+$G$17*G35+$H$17*H35)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "AA8",
-          "original": 3.688750601607031,
-          "shrunk": 4.2630993311606415,
+          "original": 5.29551050222087,
+          "shrunk": 3.9140751861261487,
           "original_formula": "=(1/$I$45)*($C$18*C35+$D$18*D35+$E$18*E35+$F$18*F35+$G$18*G35+$H$18*H35)",
           "shrunk_formula": "=(1/$I$45)*($C$18*C35+$D$18*D35+$E$18*E35+$F$18*F35+$G$18*G35+$H$18*H35)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "AB8",
-          "original": 4.561104022949167,
-          "shrunk": 9.650688114190736,
+          "original": 7.038665660116583,
+          "shrunk": 8.788323916667952,
           "original_formula": "=(1/$I$46)*($C$19*C35+$D$19*D35+$E$19*E35+$F$19*F35+$G$19*G35+$H$19*H35)",
           "shrunk_formula": "=(1/$I$46)*($C$19*C35+$D$19*D35+$E$19*E35+$F$19*F35+$G$19*G35+$H$19*H35)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "AC8",
-          "original": 3.380153952899407,
-          "shrunk": 5.65336842561851,
+          "original": 2.756706683447114,
+          "shrunk": 4.5554699714377715,
           "original_formula": "=(1/$I$47)*($C$20*C35+$D$20*D35+$E$20*E35+$F$20*F35+$G$20*G35+$H$20*H35)",
           "shrunk_formula": "=(1/$I$47)*($C$20*C35+$D$20*D35+$E$20*E35+$F$20*F35+$G$20*G35+$H$20*H35)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "AD8",
-          "original": 3.6964641148335113,
-          "shrunk": 1.743922755335816,
+          "original": 4.4788544245638615,
+          "shrunk": 4.687635205005248,
           "original_formula": "=(1/$I$48)*($C$21*C35+$D$21*D35+$E$21*E35+$F$21*F35+$G$21*G35+$H$21*H35)",
           "shrunk_formula": "=(1/$I$48)*($C$21*C35+$D$21*D35+$E$21*E35+$F$21*F35+$G$21*G35+$H$21*H35)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "AE8",
-          "original": 4.065661545001198,
-          "shrunk": 6.274647427320013,
+          "original": 4.781633639787583,
+          "shrunk": 5.002020763959061,
           "original_formula": "=(1/$I$49)*($C$22*C35+$D$22*D35+$E$22*E35+$F$22*F35+$G$22*G35+$H$22*H35)",
           "shrunk_formula": "=(1/$I$49)*($C$22*C35+$D$22*D35+$E$22*E35+$F$22*F35+$G$22*G35+$H$22*H35)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "AF8",
-          "original": 7.949551227756498,
-          "shrunk": 10.01031944088272,
+          "original": 5.1320736264972036,
+          "shrunk": 8.116827102997116,
           "original_formula": "=(1/$I$50)*($C$23*C35+$D$23*D35+$E$23*E35+$F$23*F35+$G$23*G35+$H$23*H35)",
           "shrunk_formula": "=(1/$I$50)*($C$23*C35+$D$23*D35+$E$23*E35+$F$23*F35+$G$23*G35+$H$23*H35)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "AG8",
-          "original": 2.645905605829676,
-          "shrunk": 1.5549616938186615,
+          "original": 3.576884004600373,
+          "shrunk": 4.0145992381485875,
           "original_formula": "=(1/$I$51)*($C$24*C35+$D$24*D35+$E$24*E35+$F$24*F35+$G$24*G35+$H$24*H35)",
           "shrunk_formula": "=(1/$I$51)*($C$24*C35+$D$24*D35+$E$24*E35+$F$24*F35+$G$24*G35+$H$24*H35)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "AH8",
-          "original": 5.229217562704454,
-          "shrunk": 4.061810310152517,
+          "original": 4.7183810986382655,
+          "shrunk": 4.658508592223185,
           "original_formula": "=(1/$I$52)*($C$25*C35+$D$25*D35+$E$25*E35+$F$25*F35+$G$25*G35+$H$25*H35)",
           "shrunk_formula": "=(1/$I$52)*($C$25*C35+$D$25*D35+$E$25*E35+$F$25*F35+$G$25*G35+$H$25*H35)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "AI8",
-          "original": 2.6194031227778067,
-          "shrunk": 1.6538140943649087,
+          "original": 4.074561790290419,
+          "shrunk": 3.680408066742813,
           "original_formula": "=(1/$I$53)*($C$26*C35+$D$26*D35+$E$26*E35+$F$26*F35+$G$26*G35+$H$26*H35)",
           "shrunk_formula": "=(1/$I$53)*($C$26*C35+$D$26*D35+$E$26*E35+$F$26*F35+$G$26*G35+$H$26*H35)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "AJ8",
-          "original": 7.156406951923042,
-          "shrunk": 3.7320808832425407,
+          "original": 6.2074285504792615,
+          "shrunk": 7.631801419750764,
           "original_formula": "=(1/$I$54)*($C$27*C35+$D$27*D35+$E$27*E35+$F$27*F35+$G$27*G35+$H$27*H35)",
           "shrunk_formula": "=(1/$I$54)*($C$27*C35+$D$27*D35+$E$27*E35+$F$27*F35+$G$27*G35+$H$27*H35)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "C9",
-          "original": 0.37707560953455443,
-          "shrunk": 0.7017952166416447,
+          "original": 0.20363761806427927,
+          "shrunk": 0.24412105103735804,
           "original_formula": "=RAND()",
           "shrunk_formula": "=RAND()"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "D9",
-          "original": 0.07539604369113151,
-          "shrunk": 0.6312361403184885,
+          "original": 0.751851879243735,
+          "shrunk": 0.48785224290391294,
           "original_formula": "=RAND()",
           "shrunk_formula": "=RAND()"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "E9",
-          "original": 0.027405392114561833,
-          "shrunk": 0.1322406136239167,
+          "original": 0.4108082172659707,
+          "shrunk": 0.870117132060208,
           "original_formula": "=RAND()",
           "shrunk_formula": "=RAND()"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "F9",
-          "original": 0.09858506496456454,
-          "shrunk": 0.13965595243126805,
+          "original": 0.7244924160854842,
+          "shrunk": 0.9995932906263496,
           "original_formula": "=RAND()",
           "shrunk_formula": "=RAND()"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "G9",
-          "original": 0.40137875977621207,
-          "shrunk": 0.5832014284362564,
+          "original": 0.9381606335133036,
+          "shrunk": 0.08996751145037685,
           "original_formula": "=RAND()",
           "shrunk_formula": "=RAND()"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "H9",
-          "original": 0.21401581145276716,
-          "shrunk": 0.3014925724684414,
+          "original": 0.6719263794941881,
+          "shrunk": 0.9014457028917612,
           "original_formula": "=RAND()",
           "shrunk_formula": "=RAND()"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "M9",
-          "original": 4.420256530363959,
-          "shrunk": 4.31015459808964,
+          "original": 4.242897290240297,
+          "shrunk": 5.49233371979432,
           "original_formula": "=(1/$I$31)*(C36*$C$4+D36*$D$4+E36*$E$4+F36*$F$4+G36*$G$4+H36*$H$4)",
           "shrunk_formula": "=(1/$I$31)*(C36*$C$4+D36*$D$4+E36*$E$4+F36*$F$4+G36*$G$4+H36*$H$4)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "N9",
-          "original": 6.170849964327748,
-          "shrunk": 4.17444620639673,
+          "original": 5.950130898361948,
+          "shrunk": 5.792335205962929,
           "original_formula": "=(1/$I$32)*(C36*$C$5+D36*$D$5+E36*$E$5+F36*$F$5+G36*$G$5+H36*$H$5)",
           "shrunk_formula": "=(1/$I$32)*(C36*$C$5+D36*$D$5+E36*$E$5+F36*$F$5+G36*$G$5+H36*$H$5)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "O9",
-          "original": 6.66045310392216,
-          "shrunk": 4.880930824476347,
+          "original": 7.0905667709251015,
+          "shrunk": 3.362172275777567,
           "original_formula": "=(1/$I$33)*(C36*$C$6+D36*$D$6+E36*$E$6+F36*$F$6+G36*$G$6+H36*$H$6)",
           "shrunk_formula": "=(1/$I$33)*(C36*$C$6+D36*$D$6+E36*$E$6+F36*$F$6+G36*$G$6+H36*$H$6)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "P9",
-          "original": 11.461111370002973,
-          "shrunk": 7.368766690878554,
+          "original": 8.906770734792794,
+          "shrunk": 9.484472815603361,
           "original_formula": "=(1/$I$34)*($C$7*C36+$D$7*D36+$E$7*E36+$F$7*F36+$G$7*G36+$H$7*H36)",
           "shrunk_formula": "=(1/$I$34)*($C$7*C36+$D$7*D36+$E$7*E36+$F$7*F36+$G$7*G36+$H$7*H36)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "Q9",
-          "original": 5.9396450993028385,
-          "shrunk": 3.493284499245537,
+          "original": 3.7851185089426926,
+          "shrunk": 3.3708711275352155,
           "original_formula": "=(1/$I$35)*($C$8*C36+$D$8*D36+$E$8*E36+$F$8*F36+$G$8*G36+$H$8*H36)",
           "shrunk_formula": "=(1/$I$35)*($C$8*C36+$D$8*D36+$E$8*E36+$F$8*F36+$G$8*G36+$H$8*H36)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "R9",
-          "original": 1.8324680616532945,
-          "shrunk": 3.866611877551351,
+          "original": 5.731987628602519,
+          "shrunk": 5.639603813188489,
           "original_formula": "=(1/$I$36)*($C$9*C36+$D$9*D36+$E$9*E36+$F$9*F36+$G$9*G36+$H$9*H36)",
           "shrunk_formula": "=(1/$I$36)*($C$9*C36+$D$9*D36+$E$9*E36+$F$9*F36+$G$9*G36+$H$9*H36)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "S9",
-          "original": 4.443421545965934,
-          "shrunk": 5.628967771146166,
+          "original": 4.583558494914481,
+          "shrunk": 6.3664614140434965,
           "original_formula": "=(1/$I$37)*($C$10*C36+$D$10*D36+$E$10*E36+$F$10*F36+$G$10*G36+$H$10*H36)",
           "shrunk_formula": "=(1/$I$37)*($C$10*C36+$D$10*D36+$E$10*E36+$F$10*F36+$G$10*G36+$H$10*H36)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "T9",
-          "original": 7.481513246726442,
-          "shrunk": 8.52657277587564,
+          "original": 9.480231307699007,
+          "shrunk": 6.608981037934168,
           "original_formula": "=(1/$I$38)*($C$11*C36+$D$11*D36+$E$11*E36+$F$11*F36+$G$11*G36+$H$11*H36)",
           "shrunk_formula": "=(1/$I$38)*($C$11*C36+$D$11*D36+$E$11*E36+$F$11*F36+$G$11*G36+$H$11*H36)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "U9",
-          "original": 3.778429934362792,
-          "shrunk": 2.7580880711405755,
+          "original": 2.857942578058964,
+          "shrunk": 3.6580374971082037,
           "original_formula": "=(1/$I$39)*($C$12*C36+$D$12*D36+$E$12*E36+$F$12*F36+$G$12*G36+$H$12*H36)",
           "shrunk_formula": "=(1/$I$39)*($C$12*C36+$D$12*D36+$E$12*E36+$F$12*F36+$G$12*G36+$H$12*H36)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "V9",
-          "original": 6.197375758949506,
-          "shrunk": 4.313526272599043,
+          "original": 4.21177701943301,
+          "shrunk": 4.248154515690853,
           "original_formula": "=(1/$I$40)*($C$13*C36+$D$13*D36+$E$13*E36+$F$13*F36+$G$13*G36+$H$13*H36)",
           "shrunk_formula": "=(1/$I$40)*($C$13*C36+$D$13*D36+$E$13*E36+$F$13*F36+$G$13*G36+$H$13*H36)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "W9",
-          "original": 6.365475331014567,
-          "shrunk": 3.346811392354057,
+          "original": 3.3604014929668584,
+          "shrunk": 5.38426253293236,
           "original_formula": "=(1/$I$41)*($C$14*C36+$D$14*D36+$E$14*E36+$F$14*F36+$G$14*G36+$H$14*H36)",
           "shrunk_formula": "=(1/$I$41)*($C$14*C36+$D$14*D36+$E$14*E36+$F$14*F36+$G$14*G36+$H$14*H36)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "X9",
-          "original": 9.232185053957169,
-          "shrunk": 5.398712295448559,
+          "original": 9.292243357060684,
+          "shrunk": 4.188182310659727,
           "original_formula": "=(1/$I$42)*($C$15*C36+$D$15*D36+$E$15*E36+$F$15*F36+$G$15*G36+$H$15*H36)",
           "shrunk_formula": "=(1/$I$42)*($C$15*C36+$D$15*D36+$E$15*E36+$F$15*F36+$G$15*G36+$H$15*H36)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "Y9",
-          "original": 4.924689825983733,
-          "shrunk": 3.908730839170099,
+          "original": 3.4758271169107666,
+          "shrunk": 3.1641534080585374,
           "original_formula": "=(1/$I$43)*($C$16*C36+$D$16*D36+$E$16*E36+$F$16*F36+$G$16*G36+$H$16*H36)",
           "shrunk_formula": "=(1/$I$43)*($C$16*C36+$D$16*D36+$E$16*E36+$F$16*F36+$G$16*G36+$H$16*H36)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "Z9",
-          "original": 4.457116352514742,
-          "shrunk": 2.7687977121873026,
+          "original": 6.304957777100807,
+          "shrunk": 3.2184101493724673,
           "original_formula": "=(1/$I$44)*($C$17*C36+$D$17*D36+$E$17*E36+$F$17*F36+$G$17*G36+$H$17*H36)",
           "shrunk_formula": "=(1/$I$44)*($C$17*C36+$D$17*D36+$E$17*E36+$F$17*F36+$G$17*G36+$H$17*H36)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "AA9",
-          "original": 3.2461005294141865,
-          "shrunk": 3.751527411421364,
+          "original": 4.660049241954367,
+          "shrunk": 3.4443861637910107,
           "original_formula": "=(1/$I$45)*($C$18*C36+$D$18*D36+$E$18*E36+$F$18*F36+$G$18*G36+$H$18*H36)",
           "shrunk_formula": "=(1/$I$45)*($C$18*C36+$D$18*D36+$E$18*E36+$F$18*F36+$G$18*G36+$H$18*H36)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "AB9",
-          "original": 4.013771540195269,
-          "shrunk": 8.492605540487848,
+          "original": 6.194025780902592,
+          "shrunk": 7.733725046667799,
           "original_formula": "=(1/$I$46)*($C$19*C36+$D$19*D36+$E$19*E36+$F$19*F36+$G$19*G36+$H$19*H36)",
           "shrunk_formula": "=(1/$I$46)*($C$19*C36+$D$19*D36+$E$19*E36+$F$19*F36+$G$19*G36+$H$19*H36)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "AC9",
-          "original": 2.974535478551478,
-          "shrunk": 4.974964214544289,
+          "original": 2.4259018814334605,
+          "shrunk": 4.00881357486524,
           "original_formula": "=(1/$I$47)*($C$20*C36+$D$20*D36+$E$20*E36+$F$20*F36+$G$20*G36+$H$20*H36)",
           "shrunk_formula": "=(1/$I$47)*($C$20*C36+$D$20*D36+$E$20*E36+$F$20*F36+$G$20*G36+$H$20*H36)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "AD9",
-          "original": 3.25288842105349,
-          "shrunk": 1.534652024695518,
+          "original": 3.9413918936161987,
+          "shrunk": 4.125118980404618,
           "original_formula": "=(1/$I$48)*($C$21*C36+$D$21*D36+$E$21*E36+$F$21*F36+$G$21*G36+$H$21*H36)",
           "shrunk_formula": "=(1/$I$48)*($C$21*C36+$D$21*D36+$E$21*E36+$F$21*F36+$G$21*G36+$H$21*H36)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "AE9",
-          "original": 3.577782159601055,
-          "shrunk": 5.521689736041612,
+          "original": 4.207837603013073,
+          "shrunk": 4.4017782722839724,
           "original_formula": "=(1/$I$49)*($C$22*C36+$D$22*D36+$E$22*E36+$F$22*F36+$G$22*G36+$H$22*H36)",
           "shrunk_formula": "=(1/$I$49)*($C$22*C36+$D$22*D36+$E$22*E36+$F$22*F36+$G$22*G36+$H$22*H36)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "AF9",
-          "original": 6.995605080425718,
-          "shrunk": 8.809081107976793,
+          "original": 4.51622479131754,
+          "shrunk": 7.142807850637463,
           "original_formula": "=(1/$I$50)*($C$23*C36+$D$23*D36+$E$23*E36+$F$23*F36+$G$23*G36+$H$23*H36)",
           "shrunk_formula": "=(1/$I$50)*($C$23*C36+$D$23*D36+$E$23*E36+$F$23*F36+$G$23*G36+$H$23*H36)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "AG9",
-          "original": 2.328396933130115,
-          "shrunk": 1.3683662905604221,
+          "original": 3.1476579240483287,
+          "shrunk": 3.532847329570757,
           "original_formula": "=(1/$I$51)*($C$24*C36+$D$24*D36+$E$24*E36+$F$24*F36+$G$24*G36+$H$24*H36)",
           "shrunk_formula": "=(1/$I$51)*($C$24*C36+$D$24*D36+$E$24*E36+$F$24*F36+$G$24*G36+$H$24*H36)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "AH9",
-          "original": 4.601711455179918,
-          "shrunk": 3.5743930729342153,
+          "original": 4.152175366801674,
+          "shrunk": 4.099487561156402,
           "original_formula": "=(1/$I$52)*($C$25*C36+$D$25*D36+$E$25*E36+$F$25*F36+$G$25*G36+$H$25*H36)",
           "shrunk_formula": "=(1/$I$52)*($C$25*C36+$D$25*D36+$E$25*E36+$F$25*F36+$G$25*G36+$H$25*H36)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "AI9",
-          "original": 2.3050747480444698,
-          "shrunk": 1.4553564030411197,
+          "original": 3.585614375455569,
+          "shrunk": 3.2387590987336754,
           "original_formula": "=(1/$I$53)*($C$26*C36+$D$26*D36+$E$26*E36+$F$26*F36+$G$26*G36+$H$26*H36)",
           "shrunk_formula": "=(1/$I$53)*($C$26*C36+$D$26*D36+$E$26*E36+$F$26*F36+$G$26*G36+$H$26*H36)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "AJ9",
-          "original": 6.297638117692277,
-          "shrunk": 3.284231177253436,
+          "original": 5.46253712442175,
+          "shrunk": 6.715985249380671,
           "original_formula": "=(1/$I$54)*($C$27*C36+$D$27*D36+$E$27*E36+$F$27*F36+$G$27*G36+$H$27*H36)",
           "shrunk_formula": "=(1/$I$54)*($C$27*C36+$D$27*D36+$E$27*E36+$F$27*F36+$G$27*G36+$H$27*H36)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "C10",
-          "original": 0.742720986756298,
-          "shrunk": 0.8090769259494284,
+          "original": 0.6380972360833544,
+          "shrunk": 0.6363910719555445,
           "original_formula": "=RAND()",
           "shrunk_formula": "=RAND()"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "D10",
-          "original": 0.19864016691031938,
-          "shrunk": 0.6682362151380217,
+          "original": 0.11991164169578339,
+          "shrunk": 0.5467222180330114,
           "original_formula": "=RAND()",
           "shrunk_formula": "=RAND()"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "E10",
-          "original": 0.19269537011875626,
-          "shrunk": 0.8855644933304206,
+          "original": 0.03920342504724461,
+          "shrunk": 0.4683396718669508,
           "original_formula": "=RAND()",
           "shrunk_formula": "=RAND()"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "F10",
-          "original": 0.4600528949535422,
-          "shrunk": 0.010039231621595146,
+          "original": 0.9838794639595682,
+          "shrunk": 0.7971191229276797,
           "original_formula": "=RAND()",
           "shrunk_formula": "=RAND()"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "G10",
-          "original": 0.5608766703362592,
-          "shrunk": 0.48325424327359734,
+          "original": 0.9046951593822127,
+          "shrunk": 0.6039546944437789,
           "original_formula": "=RAND()",
           "shrunk_formula": "=RAND()"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "H10",
-          "original": 0.6374265433907477,
-          "shrunk": 0.5450210189306608,
+          "original": 0.19914837007599184,
+          "shrunk": 0.9252167603821254,
           "original_formula": "=RAND()",
           "shrunk_formula": "=RAND()"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "M10",
-          "original": 4.269565966828825,
-          "shrunk": 4.163217509518402,
+          "original": 4.09825306443665,
+          "shrunk": 5.305095070255876,
           "original_formula": "=(1/$I$31)*(C37*$C$4+D37*$D$4+E37*$E$4+F37*$F$4+G37*$G$4+H37*$H$4)",
           "shrunk_formula": "=(1/$I$31)*(C37*$C$4+D37*$D$4+E37*$E$4+F37*$F$4+G37*$G$4+H37*$H$4)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "N10",
-          "original": 5.9604800791802095,
-          "shrunk": 4.032135540269569,
+          "original": 5.74728552682688,
+          "shrunk": 5.594869233032373,
           "original_formula": "=(1/$I$32)*(C37*$C$5+D37*$D$5+E37*$E$5+F37*$F$5+G37*$G$5+H37*$H$5)",
           "shrunk_formula": "=(1/$I$32)*(C37*$C$5+D37*$D$5+E37*$E$5+F37*$F$5+G37*$G$5+H37*$H$5)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "O10",
-          "original": 6.4333922026520876,
-          "shrunk": 4.7145354554601075,
+          "original": 6.8488429037344725,
+          "shrunk": 3.2475527663760593,
           "original_formula": "=(1/$I$33)*(C37*$C$6+D37*$D$6+E37*$E$6+F37*$F$6+G37*$G$6+H37*$H$6)",
           "shrunk_formula": "=(1/$I$33)*(C37*$C$6+D37*$D$6+E37*$E$6+F37*$F$6+G37*$G$6+H37*$H$6)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "P10",
-          "original": 11.070391664207415,
-          "shrunk": 7.117558735507695,
+          "original": 8.603130823379406,
+          "shrunk": 9.161138515071428,
           "original_formula": "=(1/$I$34)*($C$7*C37+$D$7*D37+$E$7*E37+$F$7*F37+$G$7*G37+$H$7*H37)",
           "shrunk_formula": "=(1/$I$34)*($C$7*C37+$D$7*D37+$E$7*E37+$F$7*F37+$G$7*G37+$H$7*H37)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "Q10",
-          "original": 5.737157198190241,
-          "shrunk": 3.374195254953076,
+          "original": 3.6560803779560094,
+          "shrunk": 3.2559550663692423,
           "original_formula": "=(1/$I$35)*($C$8*C37+$D$8*D37+$E$8*E37+$F$8*F37+$G$8*G37+$H$8*H37)",
           "shrunk_formula": "=(1/$I$35)*($C$8*C37+$D$8*D37+$E$8*E37+$F$8*F37+$G$8*G37+$H$8*H37)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "R10",
-          "original": 1.7699975595514779,
-          "shrunk": 3.7347955635439183,
+          "original": 5.536578959445615,
+          "shrunk": 5.447344592284336,
           "original_formula": "=(1/$I$36)*($C$9*C37+$D$9*D37+$E$9*E37+$F$9*F37+$G$9*G37+$H$9*H37)",
           "shrunk_formula": "=(1/$I$36)*($C$9*C37+$D$9*D37+$E$9*E37+$F$9*F37+$G$9*G37+$H$9*H37)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "S10",
-          "original": 4.291941265989823,
-          "shrunk": 5.437071142584365,
+          "original": 4.427300818951488,
+          "shrunk": 6.149422956746559,
           "original_formula": "=(1/$I$37)*($C$10*C37+$D$10*D37+$E$10*E37+$F$10*F37+$G$10*G37+$H$10*H37)",
           "shrunk_formula": "=(1/$I$37)*($C$10*C37+$D$10*D37+$E$10*E37+$F$10*F37+$G$10*G37+$H$10*H37)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "T10",
-          "original": 7.226461658769858,
-          "shrunk": 8.235894158516244,
+          "original": 9.15704160402745,
+          "shrunk": 6.3836748661864124,
           "original_formula": "=(1/$I$38)*($C$11*C37+$D$11*D37+$E$11*E37+$F$11*F37+$G$11*G37+$H$11*H37)",
           "shrunk_formula": "=(1/$I$38)*($C$11*C37+$D$11*D37+$E$11*E37+$F$11*F37+$G$11*G37+$H$11*H37)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "U10",
-          "original": 3.64961982296406,
-          "shrunk": 2.6640623414426017,
+          "original": 2.760512717443318,
+          "shrunk": 3.533331673343151,
           "original_formula": "=(1/$I$39)*($C$12*C37+$D$12*D37+$E$12*E37+$F$12*F37+$G$12*G37+$H$12*H37)",
           "shrunk_formula": "=(1/$I$39)*($C$12*C37+$D$12*D37+$E$12*E37+$F$12*F37+$G$12*G37+$H$12*H37)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "V10",
-          "original": 5.986101585348954,
-          "shrunk": 4.166474240578622,
+          "original": 4.068193711952341,
+          "shrunk": 4.1033310662923,
           "original_formula": "=(1/$I$40)*($C$13*C37+$D$13*D37+$E$13*E37+$F$13*F37+$G$13*G37+$H$13*H37)",
           "shrunk_formula": "=(1/$I$40)*($C$13*C37+$D$13*D37+$E$13*E37+$F$13*F37+$G$13*G37+$H$13*H37)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "W10",
-          "original": 6.1484704901845255,
-          "shrunk": 3.2327155494328963,
+          "original": 3.2458423511611705,
+          "shrunk": 5.200708128400574,
           "original_formula": "=(1/$I$41)*($C$14*C37+$D$14*D37+$E$14*E37+$F$14*F37+$G$14*G37+$H$14*H37)",
           "shrunk_formula": "=(1/$I$41)*($C$14*C37+$D$14*D37+$E$14*E37+$F$14*F37+$G$14*G37+$H$14*H37)"
         },
         {
           "sheet": "Fig. 5a Aux.ARWH",
           "cell": "X10",
-          "original": 8.917451472572264,
-          "shrunk": 5.214665285376449,
+          "original": 8.975462333524527,
+          "shrunk": 4.045403368250872,
           "original_formula": "=(1/$I$42)*($C$15*C37+$D$15*D37+$E$15*E37+$F$15*F37+$G$15*G37+$H$15*H37)",
           "shrunk_formula": "=(1/$I$42)*($C$15*C37+$D$15*D37+$E$15*E37+$F$15*F37+$G$15*G37+$H$15*H37)"
         }
@@ -17973,1605 +17978,1605 @@
       "filename": "Treatment Wetlands LRV Database.xlsx",
       "reason": "value_mismatch",
       "diff_count": 7770,
-      "elapsed_sec": 10.809254884719849,
+      "elapsed_sec": 12.40175199508667,
       "diffs": [
         {
           "sheet": "Figure 2",
           "cell": "AR33",
-          "original": -0.11207652839920845,
-          "shrunk": 0.5927018115961342,
+          "original": 0.8881400408327407,
+          "shrunk": 0.6771187142161281,
           "original_formula": "=AVERAGE(AY33:BJ33)-AVERAGE(BK33:BV33)",
           "shrunk_formula": "=AVERAGE(AY33:BJ33)-AVERAGE(BK33:BV33)"
         },
         {
           "sheet": "Figure 2",
           "cell": "AS33",
-          "original": -0.2763145386203477,
-          "shrunk": 0.14339010051960696,
+          "original": 0.1455595042822339,
+          "shrunk": 0.29880178988854417,
           "original_formula": "=(1/(AQ33-1))*SUM(BW33:CH33)",
           "shrunk_formula": "=(1/(AQ33-1))*SUM(BW33:CH33)"
         },
         {
           "sheet": "Figure 2",
           "cell": "AT33",
-          "original": 1.2048424054253226,
-          "shrunk": 1.1213253792275317,
+          "original": 1.2989241114037786,
+          "shrunk": 1.259905484438019,
           "original_formula": "=SQRT((STDEV.S(AY33:BJ33)^2)+(STDEV.S(BK33:BV33)^2))",
           "shrunk_formula": "=SQRT((STDEV.S(AY33:BJ33)^2)+(STDEV.S(BK33:BV33)^2))"
         },
         {
           "sheet": "Figure 2",
           "cell": "AU33",
-          "original": 1.4157239487808961,
-          "shrunk": 0.9851854673413296,
+          "original": 1.1815603406604456,
+          "shrunk": 0.9948659457132458,
           "original_formula": "=SQRT((STDEV.S(AY33:BJ33)^2)+(STDEV.S(BK33:BV33)^2)-2*AS33)",
           "shrunk_formula": "=SQRT((STDEV.S(AY33:BJ33)^2)+(STDEV.S(BK33:BV33)^2)-2*AS33)"
         },
         {
           "sheet": "Figure 2",
           "cell": "AW33",
-          "original": -2.094042285323864,
-          "shrunk": -1.2518784372331555,
+          "original": -1.2485901224264753,
+          "shrunk": -1.3954258076844135,
           "original_formula": "=AR33+AV33*AT33",
           "shrunk_formula": "=AR33+AV33*AT33"
         },
         {
           "sheet": "Figure 2",
           "cell": "AX33",
-          "original": -2.4409424241437825,
-          "shrunk": -1.027928282180353,
+          "original": -1.0555267195536924,
+          "shrunk": -0.9594357664821613,
           "original_formula": "=AR33+AV33*AU33",
           "shrunk_formula": "=AR33+AV33*AU33"
         },
         {
           "sheet": "Figure 2",
           "cell": "AY33",
-          "original": 5.104689572592869,
-          "shrunk": 3.6043685467072875,
+          "original": 2.744046090111323,
+          "shrunk": 4.6463745501905205,
           "original_formula": "=NORM.INV(RAND(),$AH33,$AI33)",
           "shrunk_formula": "=NORM.INV(RAND(),$AH33,$AI33)"
         },
         {
           "sheet": "Figure 2",
           "cell": "AZ33",
-          "original": 1.9052094015190177,
-          "shrunk": 3.900526015007682,
+          "original": 5.497969960824808,
+          "shrunk": 3.2073496533098607,
           "original_formula": "=NORM.INV(RAND(),$AH33,$AI33)",
           "shrunk_formula": "=NORM.INV(RAND(),$AH33,$AI33)"
         },
         {
           "sheet": "Figure 2",
           "cell": "BA33",
-          "original": 3.2405960529445133,
-          "shrunk": 5.461095260112855,
+          "original": 4.369529471015795,
+          "shrunk": 4.955170089858898,
           "original_formula": "=NORM.INV(RAND(),$AH33,$AI33)",
           "shrunk_formula": "=NORM.INV(RAND(),$AH33,$AI33)"
         },
         {
           "sheet": "Figure 2",
           "cell": "BB33",
-          "original": 4.666327042673132,
-          "shrunk": 5.5748566257635,
+          "original": 4.22131285936627,
+          "shrunk": 5.646123924637367,
           "original_formula": "=NORM.INV(RAND(),$AH33,$AI33)",
           "shrunk_formula": "=NORM.INV(RAND(),$AH33,$AI33)"
         },
         {
           "sheet": "Figure 2",
           "cell": "BC33",
-          "original": 3.0745739648080965,
-          "shrunk": 4.232892220328159,
+          "original": 4.398231500546437,
+          "shrunk": 1.9141390722757423,
           "original_formula": "=NORM.INV(RAND(),$AH33,$AI33)",
           "shrunk_formula": "=NORM.INV(RAND(),$AH33,$AI33)"
         },
         {
           "sheet": "Figure 2",
           "cell": "BD33",
-          "original": 3.717929652236606,
-          "shrunk": 4.383340823624594,
+          "original": 4.708654676253223,
+          "shrunk": 3.792996099273903,
           "original_formula": "=NORM.INV(RAND(),$AH33,$AI33)",
           "shrunk_formula": "=NORM.INV(RAND(),$AH33,$AI33)"
         },
         {
           "sheet": "Figure 2",
           "cell": "BE33",
-          "original": 3.646431314572162,
-          "shrunk": 3.857672299288976,
+          "original": 5.541257200099318,
+          "shrunk": 4.03671539310516,
           "original_formula": "=NORM.INV(RAND(),$AH33,$AI33)",
           "shrunk_formula": "=NORM.INV(RAND(),$AH33,$AI33)"
         },
         {
           "sheet": "Figure 2",
           "cell": "BF33",
-          "original": 3.547401223195938,
-          "shrunk": 3.5111923947434707,
+          "original": 3.626795722440737,
+          "shrunk": 3.4355976645386823,
           "original_formula": "=NORM.INV(RAND(),$AH33,$AI33)",
           "shrunk_formula": "=NORM.INV(RAND(),$AH33,$AI33)"
         },
         {
           "sheet": "Figure 2",
           "cell": "BG33",
-          "original": 3.5362622645402344,
-          "shrunk": 3.258301182679387,
+          "original": 4.095406271050104,
+          "shrunk": 4.500292645498419,
           "original_formula": "=NORM.INV(RAND(),$AH33,$AI33)",
           "shrunk_formula": "=NORM.INV(RAND(),$AH33,$AI33)"
         },
         {
           "sheet": "Figure 2",
           "cell": "BH33",
-          "original": 3.7200128669865817,
-          "shrunk": 3.831631451220032,
+          "original": 3.3413231118428834,
+          "shrunk": 3.0252996481887386,
           "original_formula": "=NORM.INV(RAND(),$AH33,$AI33)",
           "shrunk_formula": "=NORM.INV(RAND(),$AH33,$AI33)"
         },
         {
           "sheet": "Figure 2",
           "cell": "BI33",
-          "original": 3.809403892627685,
-          "shrunk": 3.8822270202261113,
+          "original": 2.8858108595097414,
+          "shrunk": 4.687128319309149,
           "original_formula": "=NORM.INV(RAND(),$AH33,$AI33)",
           "shrunk_formula": "=NORM.INV(RAND(),$AH33,$AI33)"
         },
         {
           "sheet": "Figure 2",
           "cell": "BJ33",
-          "original": 2.9903916659953618,
-          "shrunk": 3.2247549108310096,
+          "original": 3.650232351448614,
+          "shrunk": 3.209220976315752,
           "original_formula": "=NORM.INV(RAND(),$AH33,$AI33)",
           "shrunk_formula": "=NORM.INV(RAND(),$AH33,$AI33)"
         },
         {
           "sheet": "Figure 2",
           "cell": "BK33",
-          "original": 3.3974599943433716,
-          "shrunk": 1.4975992254489303,
+          "original": 3.8195544716095964,
+          "shrunk": 2.818274835431922,
           "original_formula": "=NORM.INV(RAND(),$AJ33,$AK33)",
           "shrunk_formula": "=NORM.INV(RAND(),$AJ33,$AK33)"
         },
         {
           "sheet": "Figure 2",
           "cell": "BL33",
-          "original": 4.19436579451981,
-          "shrunk": 4.041772555526213,
+          "original": 4.850093094602617,
+          "shrunk": 3.4795495749929994,
           "original_formula": "=NORM.INV(RAND(),$AJ33,$AK33)",
           "shrunk_formula": "=NORM.INV(RAND(),$AJ33,$AK33)"
         },
         {
           "sheet": "Figure 2",
           "cell": "BM33",
-          "original": 4.902219555774222,
-          "shrunk": 4.529930590788894,
+          "original": 1.7582562030810083,
+          "shrunk": 2.541229397058184,
           "original_formula": "=NORM.INV(RAND(),$AJ33,$AK33)",
           "shrunk_formula": "=NORM.INV(RAND(),$AJ33,$AK33)"
         },
         {
           "sheet": "Figure 2",
           "cell": "BN33",
-          "original": 2.115395161325182,
-          "shrunk": 2.8766005718464935,
+          "original": 2.5231645959235376,
+          "shrunk": 3.6537774245148826,
           "original_formula": "=NORM.INV(RAND(),$AJ33,$AK33)",
           "shrunk_formula": "=NORM.INV(RAND(),$AJ33,$AK33)"
         },
         {
           "sheet": "Figure 2",
           "cell": "BO33",
-          "original": 3.7664030156111723,
-          "shrunk": 3.5162693409720767,
+          "original": 2.6341226956348502,
+          "shrunk": 2.2782810840733676,
           "original_formula": "=NORM.INV(RAND(),$AJ33,$AK33)",
           "shrunk_formula": "=NORM.INV(RAND(),$AJ33,$AK33)"
         },
         {
           "sheet": "Figure 2",
           "cell": "BP33",
-          "original": 2.5095305461250597,
-          "shrunk": 3.498118818459635,
+          "original": 2.420943739032134,
+          "shrunk": 2.914207019721049,
           "original_formula": "=NORM.INV(RAND(),$AJ33,$AK33)",
           "shrunk_formula": "=NORM.INV(RAND(),$AJ33,$AK33)"
         },
         {
           "sheet": "Figure 2",
           "cell": "BQ33",
-          "original": 3.661975153245474,
-          "shrunk": 3.572308785441095,
+          "original": 4.270678492397919,
+          "shrunk": 3.8072753172285094,
           "original_formula": "=NORM.INV(RAND(),$AJ33,$AK33)",
           "shrunk_formula": "=NORM.INV(RAND(),$AJ33,$AK33)"
         },
         {
           "sheet": "Figure 2",
           "cell": "BR33",
-          "original": 4.136824872344797,
-          "shrunk": 3.2757459025695894,
+          "original": 2.280827248313337,
+          "shrunk": 3.8454874885783044,
           "original_formula": "=NORM.INV(RAND(),$AJ33,$AK33)",
           "shrunk_formula": "=NORM.INV(RAND(),$AJ33,$AK33)"
         },
         {
           "sheet": "Figure 2",
           "cell": "BS33",
-          "original": 3.9290479217303353,
-          "shrunk": 2.8761382831346687,
+          "original": 3.6480489977224626,
+          "shrunk": 4.29664542230423,
           "original_formula": "=NORM.INV(RAND(),$AJ33,$AK33)",
           "shrunk_formula": "=NORM.INV(RAND(),$AJ33,$AK33)"
         },
         {
           "sheet": "Figure 2",
           "cell": "BT33",
-          "original": 5.217894602614353,
-          "shrunk": 3.685957342970653,
+          "original": 3.9961459058946467,
+          "shrunk": 3.296287103665255,
           "original_formula": "=NORM.INV(RAND(),$AJ33,$AK33)",
           "shrunk_formula": "=NORM.INV(RAND(),$AJ33,$AK33)"
         },
         {
           "sheet": "Figure 2",
           "cell": "BU33",
-          "original": 3.5103757375851674,
-          "shrunk": 4.595013771446831,
+          "original": 3.4676723348088108,
+          "shrunk": 4.001677697023705,
           "original_formula": "=NORM.INV(RAND(),$AJ33,$AK33)",
           "shrunk_formula": "=NORM.INV(RAND(),$AJ33,$AK33)"
         },
         {
           "sheet": "Figure 2",
           "cell": "BV33",
-          "original": 2.9626549002637503,
-          "shrunk": 3.64498182277438,
+          "original": 2.753381805495441,
+          "shrunk": 1.9982911013162568,
           "original_formula": "=NORM.INV(RAND(),$AJ33,$AK33)",
           "shrunk_formula": "=NORM.INV(RAND(),$AJ33,$AK33)"
         },
         {
           "sheet": "Figure 2",
           "cell": "BW33",
-          "original": -0.4491197123221142,
-          "shrunk": 0.8980346423451564,
+          "original": -0.8313537450384866,
+          "shrunk": -0.3088340682734072,
           "original_formula": "=(AY33-AVERAGE($AY33:$BJ33))*(BK33-AVERAGE($BK33:$BV33))",
           "shrunk_formula": "=(AY33-AVERAGE($AY33:$BJ33))*(BK33-AVERAGE($BK33:$BV33))"
         },
         {
           "sheet": "Figure 2",
           "cell": "BX33",
-          "original": -0.8413046780336177,
-          "shrunk": -0.09171252506142023,
+          "original": 2.320517556762554,
+          "shrunk": -0.16800904116555607,
           "original_formula": "=(AZ33-AVERAGE($AY33:$BJ33))*(BL33-AVERAGE($BK33:$BV33))",
           "shrunk_formula": "=(AZ33-AVERAGE($AY33:$BJ33))*(BL33-AVERAGE($BK33:$BV33))"
         },
         {
           "sheet": "Figure 2",
           "cell": "BY33",
-          "original": -0.41067136468779847,
-          "shrunk": 1.48826234707978,
+          "original": -0.4034744912819656,
+          "shrunk": -0.7267832106612676,
           "original_formula": "=(BA33-AVERAGE($AY33:$BJ33))*(BM33-AVERAGE($BK33:$BV33))",
           "shrunk_formula": "=(BA33-AVERAGE($AY33:$BJ33))*(BM33-AVERAGE($BK33:$BV33))"
         },
         {
           "sheet": "Figure 2",
           "cell": "BZ33",
-          "original": -1.7128231113536452,
-          "shrunk": -0.8950423031831699,
+          "original": -0.08909542246163321,
+          "shrunk": 0.706337499946337,
           "original_formula": "=(BB33-AVERAGE($AY33:$BJ33))*(BN33-AVERAGE($BK33:$BV33))",
           "shrunk_formula": "=(BB33-AVERAGE($AY33:$BJ33))*(BN33-AVERAGE($BK33:$BV33))"
         },
         {
           "sheet": "Figure 2",
           "cell": "CA33",
-          "original": -0.037594238822946185,
-          "shrunk": 0.00841393371640932,
+          "original": -0.17498217826284246,
+          "shrunk": 1.9389173446481427,
           "original_formula": "=(BC33-AVERAGE($AY33:$BJ33))*(BO33-AVERAGE($BK33:$BV33))",
           "shrunk_formula": "=(BC33-AVERAGE($AY33:$BJ33))*(BO33-AVERAGE($BK33:$BV33))"
         },
         {
           "sheet": "Figure 2",
           "cell": "CB33",
-          "original": -0.1631752759852588,
-          "shrunk": 0.009881253056309864,
+          "original": -0.4831097606609137,
+          "shrunk": 0.042367848799855404,
           "original_formula": "=(BD33-AVERAGE($AY33:$BJ33))*(BP33-AVERAGE($BK33:$BV33))",
           "shrunk_formula": "=(BD33-AVERAGE($AY33:$BJ33))*(BP33-AVERAGE($BK33:$BV33))"
         },
         {
           "sheet": "Figure 2",
           "cell": "CC33",
-          "original": -0.001997335336039727,
-          "shrunk": -0.021223312118843738,
+          "original": 1.5510108749626814,
+          "shrunk": 0.06494403516336332,
           "original_formula": "=(BE33-AVERAGE($AY33:$BJ33))*(BQ33-AVERAGE($BK33:$BV33))",
           "shrunk_formula": "=(BE33-AVERAGE($AY33:$BJ33))*(BQ33-AVERAGE($BK33:$BV33))"
         },
         {
           "sheet": "Figure 2",
           "cell": "CD33",
-          "original": -0.014471764329628746,
-          "shrunk": 0.10530178337605711,
+          "original": 0.4266920535482019,
+          "shrunk": -0.29206360683582844,
           "original_formula": "=(BF33-AVERAGE($AY33:$BJ33))*(BR33-AVERAGE($BK33:$BV33))",
           "shrunk_formula": "=(BF33-AVERAGE($AY33:$BJ33))*(BR33-AVERAGE($BK33:$BV33))"
         },
         {
           "sheet": "Figure 2",
           "cell": "CE33",
-          "original": -0.010352171347859556,
-          "shrunk": 0.4742640732894792,
+          "original": 0.00239076755764597,
+          "shrunk": 0.6092591428443508,
           "original_formula": "=(BG33-AVERAGE($AY33:$BJ33))*(BS33-AVERAGE($BK33:$BV33))",
           "shrunk_formula": "=(BG33-AVERAGE($AY33:$BJ33))*(BS33-AVERAGE($BK33:$BV33))"
         },
         {
           "sheet": "Figure 2",
           "cell": "CF33",
-          "original": 0.21374120868012167,
-          "shrunk": -0.04993250399139136,
+          "original": -0.5946656953594233,
+          "shrunk": -0.046630001819994285,
           "original_formula": "=(BH33-AVERAGE($AY33:$BJ33))*(BT33-AVERAGE($BK33:$BV33))",
           "shrunk_formula": "=(BH33-AVERAGE($AY33:$BJ33))*(BT33-AVERAGE($BK33:$BV33))"
         },
         {
           "sheet": "Figure 2",
           "cell": "CG33",
-          "original": -0.04167979931388158,
-          "shrunk": -0.2007036068587959,
+          "original": -0.32004379517582426,
+          "shrunk": 0.5800096328711204,
           "original_formula": "=(BI33-AVERAGE($AY33:$BJ33))*(BU33-AVERAGE($BK33:$BV33))",
           "shrunk_formula": "=(BI33-AVERAGE($AY33:$BJ33))*(BU33-AVERAGE($BK33:$BV33))"
         },
         {
           "sheet": "Figure 2",
           "cell": "CH33",
-          "original": 0.42998831802884346,
-          "shrunk": -0.14825267593389427,
+          "original": 0.19726838251457882,
+          "shrunk": 0.8873041132568702,
           "original_formula": "=(BJ33-AVERAGE($AY33:$BJ33))*(BV33-AVERAGE($BK33:$BV33))",
           "shrunk_formula": "=(BJ33-AVERAGE($AY33:$BJ33))*(BV33-AVERAGE($BK33:$BV33))"
         },
         {
           "sheet": "Figure 2",
           "cell": "AR34",
-          "original": 0.5781998318594623,
-          "shrunk": 0.020866197777851703,
+          "original": 0.5297410994854541,
+          "shrunk": 0.4466995622216192,
           "original_formula": "=AVERAGE(AY34:BJ34)-AVERAGE(BK34:BV34)",
           "shrunk_formula": "=AVERAGE(AY34:BJ34)-AVERAGE(BK34:BV34)"
         },
         {
           "sheet": "Figure 2",
           "cell": "AS34",
-          "original": -0.00747399432128822,
-          "shrunk": -0.030122445685178384,
+          "original": -0.054001429101398005,
+          "shrunk": 0.0523179524612738,
           "original_formula": "=(1/(AQ34-1))*SUM(BW34:CH34)",
           "shrunk_formula": "=(1/(AQ34-1))*SUM(BW34:CH34)"
         },
         {
           "sheet": "Figure 2",
           "cell": "AT34",
-          "original": 0.6016700779576253,
-          "shrunk": 0.7303720487562126,
+          "original": 0.8223684140236086,
+          "shrunk": 0.7358779854184271,
           "original_formula": "=SQRT((STDEV.S(AY34:BJ34)^2)+(STDEV.S(BK34:BV34)^2))",
           "shrunk_formula": "=SQRT((STDEV.S(AY34:BJ34)^2)+(STDEV.S(BK34:BV34)^2))"
         },
         {
           "sheet": "Figure 2",
           "cell": "AU34",
-          "original": 0.6139665067022071,
-          "shrunk": 0.7705116618031841,
+          "original": 0.8856029960351881,
+          "shrunk": 0.6609693672939277,
           "original_formula": "=SQRT((STDEV.S(AY34:BJ34)^2)+(STDEV.S(BK34:BV34)^2)-2*AS34)",
           "shrunk_formula": "=SQRT((STDEV.S(AY34:BJ34)^2)+(STDEV.S(BK34:BV34)^2)-2*AS34)"
         },
         {
           "sheet": "Figure 2",
           "cell": "AW34",
-          "original": -0.4115474463808313,
-          "shrunk": -1.1805958224261182,
+          "original": -0.8230549415833821,
+          "shrunk": -0.7638197237916933,
           "original_formula": "=AR34+AV34*AT34",
           "shrunk_formula": "=AR34+AV34*AT34"
         },
         {
           "sheet": "Figure 2",
           "cell": "AX34",
-          "original": -0.4317750716656683,
-          "shrunk": -1.246625485888386,
+          "original": -0.9270758289924304,
+          "shrunk": -0.640595046976892,
           "original_formula": "=AR34+AV34*AU34",
           "shrunk_formula": "=AR34+AV34*AU34"
         },
         {
           "sheet": "Figure 2",
           "cell": "AY34",
-          "original": 3.668169248546885,
-          "shrunk": 3.1285236808305257,
+          "original": 3.672105811345631,
+          "shrunk": 3.517293309108825,
           "original_formula": "=NORM.INV(RAND(),$AH34,$AI34)",
           "shrunk_formula": "=NORM.INV(RAND(),$AH34,$AI34)"
         },
         {
           "sheet": "Figure 2",
           "cell": "AZ34",
-          "original": 3.0949090323183213,
-          "shrunk": 3.5735988244037715,
+          "original": 3.924196768921517,
+          "shrunk": 3.3529631041537806,
           "original_formula": "=NORM.INV(RAND(),$AH34,$AI34)",
           "shrunk_formula": "=NORM.INV(RAND(),$AH34,$AI34)"
         },
         {
           "sheet": "Figure 2",
           "cell": "BA34",
-          "original": 3.3753264952449245,
-          "shrunk": 4.001691551534912,
+          "original": 4.274363531977361,
+          "shrunk": 3.2500446717974376,
           "original_formula": "=NORM.INV(RAND(),$AH34,$AI34)",
           "shrunk_formula": "=NORM.INV(RAND(),$AH34,$AI34)"
         },
         {
           "sheet": "Figure 2",
           "cell": "BB34",
-          "original": 3.9125083287942415,
-          "shrunk": 3.293510662191597,
+          "original": 3.457945825454335,
+          "shrunk": 3.8261276248926004,
           "original_formula": "=NORM.INV(RAND(),$AH34,$AI34)",
           "shrunk_formula": "=NORM.INV(RAND(),$AH34,$AI34)"
         },
         {
           "sheet": "Figure 2",
           "cell": "BC34",
-          "original": 3.4631484103853496,
-          "shrunk": 3.773629417744316,
+          "original": 3.9054890772377795,
+          "shrunk": 3.3749016999248265,
           "original_formula": "=NORM.INV(RAND(),$AH34,$AI34)",
           "shrunk_formula": "=NORM.INV(RAND(),$AH34,$AI34)"
         },
         {
           "sheet": "Figure 2",
           "cell": "BD34",
-          "original": 2.904214747345649,
-          "shrunk": 3.499391934567803,
+          "original": 3.3385471795445048,
+          "shrunk": 3.4520156367683064,
           "original_formula": "=NORM.INV(RAND(),$AH34,$AI34)",
           "shrunk_formula": "=NORM.INV(RAND(),$AH34,$AI34)"
         },
         {
           "sheet": "Figure 2",
           "cell": "BE34",
-          "original": 4.0039221806551195,
-          "shrunk": 4.051527477385619,
+          "original": 4.038548667539894,
+          "shrunk": 3.6757067736172275,
           "original_formula": "=NORM.INV(RAND(),$AH34,$AI34)",
           "shrunk_formula": "=NORM.INV(RAND(),$AH34,$AI34)"
         },
         {
           "sheet": "Figure 2",
           "cell": "BF34",
-          "original": 3.8387846445604445,
-          "shrunk": 4.048976037234572,
+          "original": 3.5578415405921255,
+          "shrunk": 3.965727305259747,
           "original_formula": "=NORM.INV(RAND(),$AH34,$AI34)",
           "shrunk_formula": "=NORM.INV(RAND(),$AH34,$AI34)"
         },
         {
           "sheet": "Figure 2",
           "cell": "BG34",
-          "original": 3.6291740203918326,
-          "shrunk": 3.277761931261142,
+          "original": 3.7058298157257132,
+          "shrunk": 3.808419939218108,
           "original_formula": "=NORM.INV(RAND(),$AH34,$AI34)",
           "shrunk_formula": "=NORM.INV(RAND(),$AH34,$AI34)"
         },
         {
           "sheet": "Figure 2",
           "cell": "BH34",
-          "original": 3.5220385026946848,
-          "shrunk": 3.168994960535132,
+          "original": 3.1378992146113913,
+          "shrunk": 3.6737906915358622,
           "original_formula": "=NORM.INV(RAND(),$AH34,$AI34)",
           "shrunk_formula": "=NORM.INV(RAND(),$AH34,$AI34)"
         },
         {
           "sheet": "Figure 2",
           "cell": "BI34",
-          "original": 3.2138378332230837,
-          "shrunk": 3.6980799898575496,
+          "original": 4.574547254723421,
+          "shrunk": 4.245279707708386,
           "original_formula": "=NORM.INV(RAND(),$AH34,$AI34)",
           "shrunk_formula": "=NORM.INV(RAND(),$AH34,$AI34)"
         },
         {
           "sheet": "Figure 2",
           "cell": "BJ34",
-          "original": 3.460442075248705,
-          "shrunk": 3.8266962514150045,
+          "original": 4.005263257953292,
+          "shrunk": 3.3156830398073778,
           "original_formula": "=NORM.INV(RAND(),$AH34,$AI34)",
           "shrunk_formula": "=NORM.INV(RAND(),$AH34,$AI34)"
         },
         {
           "sheet": "Figure 2",
           "cell": "BK34",
-          "original": 3.549231945223747,
-          "shrunk": 4.584048541721522,
+          "original": 3.8836216329141613,
+          "shrunk": 2.6620079914459667,
           "original_formula": "=NORM.INV(RAND(),$AJ34,$AK34)",
           "shrunk_formula": "=NORM.INV(RAND(),$AJ34,$AK34)"
         },
         {
           "sheet": "Figure 2",
           "cell": "BL34",
-          "original": 3.753381483803768,
-          "shrunk": 2.5361413502863677,
+          "original": 4.1081937498310825,
+          "shrunk": 2.430655693796515,
           "original_formula": "=NORM.INV(RAND(),$AJ34,$AK34)",
           "shrunk_formula": "=NORM.INV(RAND(),$AJ34,$AK34)"
         },
         {
           "sheet": "Figure 2",
           "cell": "BM34",
-          "original": 3.2319919729892126,
-          "shrunk": 3.634527578036563,
+          "original": 3.408350835862574,
+          "shrunk": 3.597525257876057,
           "original_formula": "=NORM.INV(RAND(),$AJ34,$AK34)",
           "shrunk_formula": "=NORM.INV(RAND(),$AJ34,$AK34)"
         },
         {
           "sheet": "Figure 2",
           "cell": "BN34",
-          "original": 2.9064356030541756,
-          "shrunk": 2.587065178112991,
+          "original": 4.027739523910666,
+          "shrunk": 3.758028462859371,
           "original_formula": "=NORM.INV(RAND(),$AJ34,$AK34)",
           "shrunk_formula": "=NORM.INV(RAND(),$AJ34,$AK34)"
         },
         {
           "sheet": "Figure 2",
           "cell": "BO34",
-          "original": 2.7080936060225436,
-          "shrunk": 3.4038399429999178,
+          "original": 2.275499901287617,
+          "shrunk": 3.8292049235423438,
           "original_formula": "=NORM.INV(RAND(),$AJ34,$AK34)",
           "shrunk_formula": "=NORM.INV(RAND(),$AJ34,$AK34)"
         },
         {
           "sheet": "Figure 2",
           "cell": "BP34",
-          "original": 2.7725968218909975,
-          "shrunk": 4.4346296154832325,
+          "original": 2.0741070675381392,
+          "shrunk": 1.8157918566561142,
           "original_formula": "=NORM.INV(RAND(),$AJ34,$AK34)",
           "shrunk_formula": "=NORM.INV(RAND(),$AJ34,$AK34)"
         },
         {
           "sheet": "Figure 2",
           "cell": "BQ34",
-          "original": 3.078263290478806,
-          "shrunk": 3.9492077702407427,
+          "original": 2.865696882202533,
+          "shrunk": 4.062348577619319,
           "original_formula": "=NORM.INV(RAND(),$AJ34,$AK34)",
           "shrunk_formula": "=NORM.INV(RAND(),$AJ34,$AK34)"
         },
         {
           "sheet": "Figure 2",
           "cell": "BR34",
-          "original": 2.827997596520119,
-          "shrunk": 3.2097230295392034,
+          "original": 3.7157899311124445,
+          "shrunk": 3.6024225313117473,
           "original_formula": "=NORM.INV(RAND(),$AJ34,$AK34)",
           "shrunk_formula": "=NORM.INV(RAND(),$AJ34,$AK34)"
         },
         {
           "sheet": "Figure 2",
           "cell": "BS34",
-          "original": 2.3366535239439052,
-          "shrunk": 3.4556657150661967,
+          "original": 2.6385319630559687,
+          "shrunk": 3.1452247259599453,
           "original_formula": "=NORM.INV(RAND(),$AJ34,$AK34)",
           "shrunk_formula": "=NORM.INV(RAND(),$AJ34,$AK34)"
         },
         {
           "sheet": "Figure 2",
           "cell": "BT34",
-          "original": 2.1825791005228248,
-          "shrunk": 3.869165159427438,
+          "original": 3.85517413003616,
+          "shrunk": 3.4839009803074314,
           "original_formula": "=NORM.INV(RAND(),$AJ34,$AK34)",
           "shrunk_formula": "=NORM.INV(RAND(),$AJ34,$AK34)"
         },
         {
           "sheet": "Figure 2",
           "cell": "BU34",
-          "original": 2.3495374997549234,
-          "shrunk": 4.126254335953993,
+          "original": 2.7282526770874993,
+          "shrunk": 3.0559800114624958,
           "original_formula": "=NORM.INV(RAND(),$AJ34,$AK34)",
           "shrunk_formula": "=NORM.INV(RAND(),$AJ34,$AK34)"
         },
         {
           "sheet": "Figure 2",
           "cell": "BV34",
-          "original": 3.451315092890678,
-          "shrunk": 3.3017201287595555,
+          "original": 3.654726456962685,
+          "shrunk": 2.6544677442957454,
           "original_formula": "=NORM.INV(RAND(),$AJ34,$AK34)",
           "shrunk_formula": "=NORM.INV(RAND(),$AJ34,$AK34)"
         },
         {
           "sheet": "Figure 2",
           "cell": "BW34",
-          "original": 0.09983332680159203,
-          "shrunk": -0.47998208658029523,
+          "original": -0.07814488196921474,
+          "shrunk": 0.05343401328464422,
           "original_formula": "=(AY34-AVERAGE($AY34:$BJ34))*(BK34-AVERAGE($BK34:$BV34))",
           "shrunk_formula": "=(AY34-AVERAGE($AY34:$BJ34))*(BK34-AVERAGE($BK34:$BV34))"
         },
         {
           "sheet": "Figure 2",
           "cell": "BX34",
-          "original": -0.3398875637355196,
-          "shrunk": 0.04036560816494475,
+          "original": 0.10466426616508809,
+          "shrunk": 0.19982639580287684,
           "original_formula": "=(AZ34-AVERAGE($AY34:$BJ34))*(BL34-AVERAGE($BK34:$BV34))",
           "shrunk_formula": "=(AZ34-AVERAGE($AY34:$BJ34))*(BL34-AVERAGE($BK34:$BV34))"
         },
         {
           "sheet": "Figure 2",
           "cell": "BY34",
-          "original": -0.03995766807393314,
-          "shrunk": 0.016968574378600564,
+          "original": 0.06588496721876388,
+          "shrunk": -0.15702318812066043,
           "original_formula": "=(BA34-AVERAGE($AY34:$BJ34))*(BM34-AVERAGE($BK34:$BV34))",
           "shrunk_formula": "=(BA34-AVERAGE($AY34:$BJ34))*(BM34-AVERAGE($BK34:$BV34))"
         },
         {
           "sheet": "Figure 2",
           "cell": "BZ34",
-          "original": -0.009148014840760988,
-          "shrunk": 0.319606923711133,
+          "original": -0.25884208368129374,
+          "shrunk": 0.11934761824978776,
           "original_formula": "=(BB34-AVERAGE($AY34:$BJ34))*(BN34-AVERAGE($BK34:$BV34))",
           "shrunk_formula": "=(BB34-AVERAGE($AY34:$BJ34))*(BN34-AVERAGE($BK34:$BV34))"
         },
         {
           "sheet": "Figure 2",
           "cell": "CA34",
-          "original": 0.009732952714135145,
-          "shrunk": -0.030275638133846552,
+          "original": -0.10548584383067934,
+          "shrunk": -0.16137345361586183,
           "original_formula": "=(BC34-AVERAGE($AY34:$BJ34))*(BO34-AVERAGE($BK34:$BV34))",
           "shrunk_formula": "=(BC34-AVERAGE($AY34:$BJ34))*(BO34-AVERAGE($BK34:$BV34))"
         },
         {
           "sheet": "Figure 2",
           "cell": "CB34",
-          "original": 0.09431369034206868,
-          "shrunk": -0.0948859093263213,
+          "original": 0.5509427835789318,
+          "shrunk": 0.23032478158583394,
           "original_formula": "=(BD34-AVERAGE($AY34:$BJ34))*(BP34-AVERAGE($BK34:$BV34))",
           "shrunk_formula": "=(BD34-AVERAGE($AY34:$BJ34))*(BP34-AVERAGE($BK34:$BV34))"
         },
         {
           "sheet": "Figure 2",
           "cell": "CC34",
-          "original": 0.07413823828982315,
-          "shrunk": 0.15749086151901115,
+          "original": -0.0966100278673992,
+          "shrunk": 0.04811477010841948,
           "original_formula": "=(BE34-AVERAGE($AY34:$BJ34))*(BQ34-AVERAGE($BK34:$BV34))",
           "shrunk_formula": "=(BE34-AVERAGE($AY34:$BJ34))*(BQ34-AVERAGE($BK34:$BV34))"
         },
         {
           "sheet": "Figure 2",
           "cell": "CD34",
-          "original": -0.033492352889336295,
-          "shrunk": -0.16665986112096673,
+          "original": -0.10776293858335514,
+          "shrunk": 0.14720219161402026,
           "original_formula": "=(BF34-AVERAGE($AY34:$BJ34))*(BR34-AVERAGE($BK34:$BV34))",
           "shrunk_formula": "=(BF34-AVERAGE($AY34:$BJ34))*(BR34-AVERAGE($BK34:$BV34))"
         },
         {
           "sheet": "Figure 2",
           "cell": "CE34",
-          "original": -0.07224794143011179,
-          "shrunk": 0.0452153060856784,
+          "original": 0.05904125400046613,
+          "shrunk": -0.005527680581267001,
           "original_formula": "=(BG34-AVERAGE($AY34:$BJ34))*(BS34-AVERAGE($BK34:$BV34))",
           "shrunk_formula": "=(BG34-AVERAGE($AY34:$BJ34))*(BS34-AVERAGE($BK34:$BV34))"
         },
         {
           "sheet": "Figure 2",
           "cell": "CF34",
-          "original": -0.01107116692668278,
-          "shrunk": -0.12319150827466692,
+          "original": -0.3873201899202021,
+          "shrunk": 0.016164481414785253,
           "original_formula": "=(BH34-AVERAGE($AY34:$BJ34))*(BT34-AVERAGE($BK34:$BV34))",
           "shrunk_formula": "=(BH34-AVERAGE($AY34:$BJ34))*(BT34-AVERAGE($BK34:$BV34))"
         },
         {
           "sheet": "Figure 2",
           "cell": "CG34",
-          "original": 0.1699979169382038,
-          "shrunk": 0.046146909599047665,
+          "original": -0.41966522216905294,
+          "shrunk": -0.07411581422446749,
           "original_formula": "=(BI34-AVERAGE($AY34:$BJ34))*(BU34-AVERAGE($BK34:$BV34))",
           "shrunk_formula": "=(BI34-AVERAGE($AY34:$BJ34))*(BU34-AVERAGE($BK34:$BV34))"
         },
         {
           "sheet": "Figure 2",
           "cell": "CH34",
-          "original": -0.024425354723648627,
-          "shrunk": -0.062146082559280974,
+          "original": 0.07928219694256937,
+          "shrunk": 0.15912336155590073,
           "original_formula": "=(BJ34-AVERAGE($AY34:$BJ34))*(BV34-AVERAGE($BK34:$BV34))",
           "shrunk_formula": "=(BJ34-AVERAGE($AY34:$BJ34))*(BV34-AVERAGE($BK34:$BV34))"
         },
         {
           "sheet": "Figure 2",
           "cell": "AR35",
-          "original": 1.5202923470567926,
-          "shrunk": 1.05902449509898,
+          "original": 1.4324114781158515,
+          "shrunk": 1.1482600931703257,
           "original_formula": "=AVERAGE(AY35:BJ35)-AVERAGE(BK35:BV35)",
           "shrunk_formula": "=AVERAGE(AY35:BJ35)-AVERAGE(BK35:BV35)"
         },
         {
           "sheet": "Figure 2",
           "cell": "AS35",
-          "original": 0.01835818751526981,
-          "shrunk": 0.004489519817198301,
+          "original": 0.08179423391569074,
+          "shrunk": 0.1781128172140952,
           "original_formula": "=(1/(AQ35-1))*SUM(BW35:CH35)",
           "shrunk_formula": "=(1/(AQ35-1))*SUM(BW35:CH35)"
         },
         {
           "sheet": "Figure 2",
           "cell": "AT35",
-          "original": 1.1438203272645309,
-          "shrunk": 1.1488225626877961,
+          "original": 1.2089959503500252,
+          "shrunk": 1.2232726056808827,
           "original_formula": "=SQRT((STDEV.S(AY35:BJ35)^2)+(STDEV.S(BK35:BV35)^2))",
           "shrunk_formula": "=SQRT((STDEV.S(AY35:BJ35)^2)+(STDEV.S(BK35:BV35)^2))"
         },
         {
           "sheet": "Figure 2",
           "cell": "AU35",
-          "original": 1.1276562268852146,
-          "shrunk": 1.1449079617620619,
+          "original": 1.1393343408022858,
+          "shrunk": 1.0677875413119906,
           "original_formula": "=SQRT((STDEV.S(AY35:BJ35)^2)+(STDEV.S(BK35:BV35)^2)-2*AS35)",
           "shrunk_formula": "=SQRT((STDEV.S(AY35:BJ35)^2)+(STDEV.S(BK35:BV35)^2)-2*AS35)"
         },
         {
           "sheet": "Figure 2",
           "cell": "AW35",
-          "original": -0.3612920912933606,
-          "shrunk": -0.8307886205224446,
+          "original": -0.55638686020994,
+          "shrunk": -0.8640233431747264,
           "original_formula": "=AR35+AV35*AT35",
           "shrunk_formula": "=AR35+AV35*AT35"
         },
         {
           "sheet": "Figure 2",
           "cell": "AX35",
-          "original": -0.33470214616938554,
-          "shrunk": -0.8243491019996119,
+          "original": -0.44179351250390875,
+          "shrunk": -0.6082504122878989,
           "original_formula": "=AR35+AV35*AU35",
           "shrunk_formula": "=AR35+AV35*AU35"
         },
         {
           "sheet": "Figure 2",
           "cell": "AY35",
-          "original": 4.053949508223638,
-          "shrunk": 4.603698496834164,
+          "original": 4.281974814332671,
+          "shrunk": 5.167569414635575,
           "original_formula": "=NORM.INV(RAND(),$AH35,$AI35)",
           "shrunk_formula": "=NORM.INV(RAND(),$AH35,$AI35)"
         },
         {
           "sheet": "Figure 2",
           "cell": "AZ35",
-          "original": 4.790730075454888,
-          "shrunk": 3.977679639844345,
+          "original": 2.81985769722347,
+          "shrunk": 3.7345917848058665,
           "original_formula": "=NORM.INV(RAND(),$AH35,$AI35)",
           "shrunk_formula": "=NORM.INV(RAND(),$AH35,$AI35)"
         },
         {
           "sheet": "Figure 2",
           "cell": "BA35",
-          "original": 4.2650892580841555,
-          "shrunk": 3.267834046375965,
+          "original": 3.662383900340201,
+          "shrunk": 3.9957820967751156,
           "original_formula": "=NORM.INV(RAND(),$AH35,$AI35)",
           "shrunk_formula": "=NORM.INV(RAND(),$AH35,$AI35)"
         },
         {
           "sheet": "Figure 2",
           "cell": "BB35",
-          "original": 3.699153595610847,
-          "shrunk": 3.6430906963443115,
+          "original": 4.959462159669391,
+          "shrunk": 5.446573766446097,
           "original_formula": "=NORM.INV(RAND(),$AH35,$AI35)",
           "shrunk_formula": "=NORM.INV(RAND(),$AH35,$AI35)"
         },
         {
           "sheet": "Figure 2",
           "cell": "BC35",
-          "original": 3.7184785699794753,
-          "shrunk": 3.7495248781991477,
+          "original": 5.804357725057506,
+          "shrunk": 5.140809671078759,
           "original_formula": "=NORM.INV(RAND(),$AH35,$AI35)",
           "shrunk_formula": "=NORM.INV(RAND(),$AH35,$AI35)"
         },
         {
           "sheet": "Figure 2",
           "cell": "BD35",
-          "original": 4.033982249498604,
-          "shrunk": 4.564830701672684,
+          "original": 4.835154088339266,
+          "shrunk": 4.5109110983428735,
           "original_formula": "=NORM.INV(RAND(),$AH35,$AI35)",
           "shrunk_formula": "=NORM.INV(RAND(),$AH35,$AI35)"
         },
         {
           "sheet": "Figure 2",
           "cell": "BE35",
-          "original": 3.6541876383640286,
-          "shrunk": 3.9410088350248933,
+          "original": 3.789131815194491,
+          "shrunk": 4.340626267599192,
           "original_formula": "=NORM.INV(RAND(),$AH35,$AI35)",
           "shrunk_formula": "=NORM.INV(RAND(),$AH35,$AI35)"
         },
         {
           "sheet": "Figure 2",
           "cell": "BF35",
-          "original": 3.551639462088364,
-          "shrunk": 3.9565637133604,
+          "original": 3.9920476188915597,
+          "shrunk": 3.699930783732949,
           "original_formula": "=NORM.INV(RAND(),$AH35,$AI35)",
           "shrunk_formula": "=NORM.INV(RAND(),$AH35,$AI35)"
         },
         {
           "sheet": "Figure 2",
           "cell": "BG35",
-          "original": 5.66944262867363,
-          "shrunk": 3.581278892879252,
+          "original": 4.550505044536145,
+          "shrunk": 3.6822997687686683,
           "original_formula": "=NORM.INV(RAND(),$AH35,$AI35)",
           "shrunk_formula": "=NORM.INV(RAND(),$AH35,$AI35)"
         },
         {
           "sheet": "Figure 2",
           "cell": "BH35",
-          "original": 3.402500480224052,
-          "shrunk": 3.975094136483996,
+          "original": 3.9921670471882544,
+          "shrunk": 3.359289837318836,
           "original_formula": "=NORM.INV(RAND(),$AH35,$AI35)",
           "shrunk_formula": "=NORM.INV(RAND(),$AH35,$AI35)"
         },
         {
           "sheet": "Figure 2",
           "cell": "BI35",
-          "original": 5.084077459205203,
-          "shrunk": 3.439597588959171,
+          "original": 5.285392175328733,
+          "shrunk": 5.093972689151479,
           "original_formula": "=NORM.INV(RAND(),$AH35,$AI35)",
           "shrunk_formula": "=NORM.INV(RAND(),$AH35,$AI35)"
         },
         {
           "sheet": "Figure 2",
           "cell": "BJ35",
-          "original": 4.107265983346245,
-          "shrunk": 5.06363234803918,
+          "original": 5.004198200514806,
+          "shrunk": 4.538170489273758,
           "original_formula": "=NORM.INV(RAND(),$AH35,$AI35)",
           "shrunk_formula": "=NORM.INV(RAND(),$AH35,$AI35)"
         },
         {
           "sheet": "Figure 2",
           "cell": "BK35",
-          "original": 2.770966345303314,
-          "shrunk": 3.763742072836518,
+          "original": 3.4466861078226225,
+          "shrunk": 2.5262011934674087,
           "original_formula": "=NORM.INV(RAND(),$AJ35,$AK35)",
           "shrunk_formula": "=NORM.INV(RAND(),$AJ35,$AK35)"
         },
         {
           "sheet": "Figure 2",
           "cell": "BL35",
-          "original": 2.5546482423475165,
-          "shrunk": 3.565863714354454,
+          "original": 1.8339221247153166,
+          "shrunk": 2.391775506843588,
           "original_formula": "=NORM.INV(RAND(),$AJ35,$AK35)",
           "shrunk_formula": "=NORM.INV(RAND(),$AJ35,$AK35)"
         },
         {
           "sheet": "Figure 2",
           "cell": "BM35",
-          "original": 3.8409800880516833,
-          "shrunk": 3.4001276984925157,
+          "original": 4.2730220267777295,
+          "shrunk": 3.491932249727361,
           "original_formula": "=NORM.INV(RAND(),$AJ35,$AK35)",
           "shrunk_formula": "=NORM.INV(RAND(),$AJ35,$AK35)"
         },
         {
           "sheet": "Figure 2",
           "cell": "BN35",
-          "original": 2.91859995837176,
-          "shrunk": 3.8663445883088503,
+          "original": 2.021438373938268,
+          "shrunk": 3.5660020279929032,
           "original_formula": "=NORM.INV(RAND(),$AJ35,$AK35)",
           "shrunk_formula": "=NORM.INV(RAND(),$AJ35,$AK35)"
         },
         {
           "sheet": "Figure 2",
           "cell": "BO35",
-          "original": 0.8326705195834978,
-          "shrunk": 1.9285561731199619,
+          "original": 2.77838147798575,
+          "shrunk": 3.394484404783739,
           "original_formula": "=NORM.INV(RAND(),$AJ35,$AK35)",
           "shrunk_formula": "=NORM.INV(RAND(),$AJ35,$AK35)"
         },
         {
           "sheet": "Figure 2",
           "cell": "BP35",
-          "original": 2.4617319396021764,
-          "shrunk": 3.1224636435590667,
+          "original": 2.9439639528577186,
+          "shrunk": 4.635720227481139,
           "original_formula": "=NORM.INV(RAND(),$AJ35,$AK35)",
           "shrunk_formula": "=NORM.INV(RAND(),$AJ35,$AK35)"
         },
         {
           "sheet": "Figure 2",
           "cell": "BQ35",
-          "original": 4.483447218673177,
-          "shrunk": 3.4186314801568254,
+          "original": 1.7862103819624893,
+          "shrunk": 3.5115827045823687,
           "original_formula": "=NORM.INV(RAND(),$AJ35,$AK35)",
           "shrunk_formula": "=NORM.INV(RAND(),$AJ35,$AK35)"
         },
         {
           "sheet": "Figure 2",
           "cell": "BR35",
-          "original": 2.1060431469507104,
-          "shrunk": 3.9630973249130728,
+          "original": 3.4275469605221884,
+          "shrunk": 1.6033328925919663,
           "original_formula": "=NORM.INV(RAND(),$AJ35,$AK35)",
           "shrunk_formula": "=NORM.INV(RAND(),$AJ35,$AK35)"
         },
         {
           "sheet": "Figure 2",
           "cell": "BS35",
-          "original": 2.4158873171871376,
-          "shrunk": 3.1274566368755923,
+          "original": 2.569804048088169,
+          "shrunk": 1.8690018450088948,
           "original_formula": "=NORM.INV(RAND(),$AJ35,$AK35)",
           "shrunk_formula": "=NORM.INV(RAND(),$AJ35,$AK35)"
         },
         {
           "sheet": "Figure 2",
           "cell": "BT35",
-          "original": 1.9255830129116909,
-          "shrunk": 0.5495869812266254,
+          "original": 3.509793010022543,
+          "shrunk": 4.025794876417444,
           "original_formula": "=NORM.INV(RAND(),$AJ35,$AK35)",
           "shrunk_formula": "=NORM.INV(RAND(),$AJ35,$AK35)"
         },
         {
           "sheet": "Figure 2",
           "cell": "BU35",
-          "original": 2.5043173736894717,
-          "shrunk": 1.9542278560778172,
+          "original": 2.6844823905351882,
+          "shrunk": 3.1312333877985488,
           "original_formula": "=NORM.INV(RAND(),$AJ35,$AK35)",
           "shrunk_formula": "=NORM.INV(RAND(),$AJ35,$AK35)"
         },
         {
           "sheet": "Figure 2",
           "cell": "BV35",
-          "original": 2.9721135813994732,
-          "shrunk": 2.395441862908447,
+          "original": 4.512443693998289,
+          "shrunk": 4.784345233189905,
           "original_formula": "=NORM.INV(RAND(),$AJ35,$AK35)",
           "shrunk_formula": "=NORM.INV(RAND(),$AJ35,$AK35)"
         },
         {
           "sheet": "Figure 2",
           "cell": "BW35",
-          "original": -0.014067379236050398,
-          "shrunk": 0.5251638112693312,
+          "original": -0.06164367569741179,
+          "shrunk": -0.556532351090477,
           "original_formula": "=(AY35-AVERAGE($AY35:$BJ35))*(BK35-AVERAGE($BK35:$BV35))",
           "shrunk_formula": "=(AY35-AVERAGE($AY35:$BJ35))*(BK35-AVERAGE($BK35:$BV35))"
         },
         {
           "sheet": "Figure 2",
           "cell": "BX35",
-          "original": -0.05858931660987952,
-          "shrunk": -0.0017015698637588665,
+          "original": 1.8315164105555655,
+          "shrunk": 0.5609097484441269,
           "original_formula": "=(AZ35-AVERAGE($AY35:$BJ35))*(BL35-AVERAGE($BK35:$BV35))",
           "shrunk_formula": "=(AZ35-AVERAGE($AY35:$BJ35))*(BL35-AVERAGE($BK35:$BV35))"
         },
         {
           "sheet": "Figure 2",
           "cell": "BY35",
-          "original": 0.11429654022019582,
-          "shrunk": -0.3411613294094622,
+          "original": -0.9710500179901693,
+          "shrunk": -0.09825743198492944,
           "original_formula": "=(BA35-AVERAGE($AY35:$BJ35))*(BM35-AVERAGE($BK35:$BV35))",
           "shrunk_formula": "=(BA35-AVERAGE($AY35:$BJ35))*(BM35-AVERAGE($BK35:$BV35))"
         },
         {
           "sheet": "Figure 2",
           "cell": "BZ35",
-          "original": -0.12676628038740242,
-          "shrunk": -0.31869793909187116,
+          "original": -0.5234267470330364,
+          "shrunk": 0.33910051418163456,
           "original_formula": "=(BB35-AVERAGE($AY35:$BJ35))*(BN35-AVERAGE($BK35:$BV35))",
           "shrunk_formula": "=(BB35-AVERAGE($AY35:$BJ35))*(BN35-AVERAGE($BK35:$BV35))"
         },
         {
           "sheet": "Figure 2",
           "cell": "CA35",
-          "original": 0.8186353054134631,
-          "shrunk": 0.2291187805787251,
+          "original": -0.2833839512068247,
+          "shrunk": 0.11238990126082976,
           "original_formula": "=(BC35-AVERAGE($AY35:$BJ35))*(BO35-AVERAGE($BK35:$BV35))",
           "shrunk_formula": "=(BC35-AVERAGE($AY35:$BJ35))*(BO35-AVERAGE($BK35:$BV35))"
         },
         {
           "sheet": "Figure 2",
           "cell": "CB35",
-          "original": 0.025312082534068636,
-          "shrunk": 0.11758532442203296,
+          "original": -0.016121118320726123,
+          "shrunk": 0.16470032158453823,
           "original_formula": "=(BD35-AVERAGE($AY35:$BJ35))*(BP35-AVERAGE($BK35:$BV35))",
           "shrunk_formula": "=(BD35-AVERAGE($AY35:$BJ35))*(BP35-AVERAGE($BK35:$BV35))"
         },
         {
           "sheet": "Figure 2",
           "cell": "CC35",
-          "original": -0.944821210340675,
-          "shrunk": -0.01955062656696036,
+          "original": 0.748263693256145,
+          "shrunk": -0.0138775414926339,
           "original_formula": "=(BE35-AVERAGE($AY35:$BJ35))*(BQ35-AVERAGE($BK35:$BV35))",
           "shrunk_formula": "=(BE35-AVERAGE($AY35:$BJ35))*(BQ35-AVERAGE($BK35:$BV35))"
         },
         {
           "sheet": "Figure 2",
           "cell": "CD35",
-          "original": 0.3352610676777529,
-          "shrunk": -0.024748831430564184,
+          "original": -0.18818997651467667,
+          "shrunk": 1.1365442951321416,
           "original_formula": "=(BF35-AVERAGE($AY35:$BJ35))*(BR35-AVERAGE($BK35:$BV35))",
           "shrunk_formula": "=(BF35-AVERAGE($AY35:$BJ35))*(BR35-AVERAGE($BK35:$BV35))"
         },
         {
           "sheet": "Figure 2",
           "cell": "CE35",
-          "original": -0.3495972747282414,
-          "shrunk": -0.08226686320576057,
+          "original": -0.05601211621558979,
+          "shrunk": 0.9767860930122706,
           "original_formula": "=(BG35-AVERAGE($AY35:$BJ35))*(BS35-AVERAGE($BK35:$BV35))",
           "shrunk_formula": "=(BG35-AVERAGE($AY35:$BJ35))*(BS35-AVERAGE($BK35:$BV35))"
         },
         {
           "sheet": "Figure 2",
           "cell": "CF35",
-          "original": 0.5545846872514452,
-          "shrunk": 0.01239303143096745,
+          "original": -0.2228900605767597,
+          "shrunk": -0.8074994694739356,
           "original_formula": "=(BH35-AVERAGE($AY35:$BJ35))*(BT35-AVERAGE($BK35:$BV35))",
           "shrunk_formula": "=(BH35-AVERAGE($AY35:$BJ35))*(BT35-AVERAGE($BK35:$BV35))"
         },
         {
           "sheet": "Figure 2",
           "cell": "CG35",
-          "original": -0.13228860787505714,
-          "shrunk": 0.5229143935518116,
+          "original": -0.2593085574358245,
+          "shrunk": -0.07929686108996034,
           "original_formula": "=(BI35-AVERAGE($AY35:$BJ35))*(BU35-AVERAGE($BK35:$BV35))",
           "shrunk_formula": "=(BI35-AVERAGE($AY35:$BJ35))*(BU35-AVERAGE($BK35:$BV35))"
         },
         {
           "sheet": "Figure 2",
           "cell": "CH35",
-          "original": -0.020019551251651696,
-          "shrunk": -0.5696634636953095,
+          "original": 0.9019826902519067,
+          "shrunk": 0.22427377087144165,
           "original_formula": "=(BJ35-AVERAGE($AY35:$BJ35))*(BV35-AVERAGE($BK35:$BV35))",
           "shrunk_formula": "=(BJ35-AVERAGE($AY35:$BJ35))*(BV35-AVERAGE($BK35:$BV35))"
         },
         {
           "sheet": "Figure 2",
           "cell": "AR36",
-          "original": 0.29535308197053967,
-          "shrunk": 0.49162633052013227,
+          "original": 1.1459889188261014,
+          "shrunk": 0.5870900600769016,
           "original_formula": "=AVERAGE(AY36:BJ36)-AVERAGE(BK36:BV36)",
           "shrunk_formula": "=AVERAGE(AY36:BJ36)-AVERAGE(BK36:BV36)"
         },
         {
           "sheet": "Figure 2",
           "cell": "AS36",
-          "original": 0.009012673437022306,
-          "shrunk": -0.1824805260628894,
+          "original": -0.05594098610057774,
+          "shrunk": -0.016677480609704573,
           "original_formula": "=(1/(AQ36-1))*SUM(BW36:CH36)",
           "shrunk_formula": "=(1/(AQ36-1))*SUM(BW36:CH36)"
         },
         {
           "sheet": "Figure 2",
           "cell": "AT36",
-          "original": 0.7792483269286363,
-          "shrunk": 0.8235351809391338,
+          "original": 0.6052411123097906,
+          "shrunk": 0.9161361721504726,
           "original_formula": "=SQRT((STDEV.S(AY36:BJ36)^2)+(STDEV.S(BK36:BV36)^2))",
           "shrunk_formula": "=SQRT((STDEV.S(AY36:BJ36)^2)+(STDEV.S(BK36:BV36)^2))"
         },
         {
           "sheet": "Figure 2",
           "cell": "AU36",
-          "original": 0.7675953414052448,
-          "shrunk": 1.0213575506991812,
+          "original": 0.6915191799445247,
+          "shrunk": 0.9341629660513896,
           "original_formula": "=SQRT((STDEV.S(AY36:BJ36)^2)+(STDEV.S(BK36:BV36)^2)-2*AS36)",
           "shrunk_formula": "=SQRT((STDEV.S(AY36:BJ36)^2)+(STDEV.S(BK36:BV36)^2)-2*AS36)"
         },
         {
           "sheet": "Figure 2",
           "cell": "AW36",
-          "original": -0.986510415827067,
-          "shrunk": -0.8630890421247428,
+          "original": 0.15036728907649588,
+          "shrunk": -0.9199539431106258,
           "original_formula": "=AR36+AV36*AT36",
           "shrunk_formula": "=AR36+AV36*AT36"
         },
         {
           "sheet": "Figure 2",
           "cell": "AX36",
-          "original": -0.967341254641088,
-          "shrunk": -1.1885068403800207,
+          "original": 0.008439867817358282,
+          "shrunk": -0.9496080190776344,
           "original_formula": "=AR36+AV36*AU36",
           "shrunk_formula": "=AR36+AV36*AU36"
         },
         {
           "sheet": "Figure 2",
           "cell": "AY36",
-          "original": 3.2860014821448242,
-          "shrunk": 4.047579812780287,
+          "original": 3.4413145573797603,
+          "shrunk": 3.831107889402111,
           "original_formula": "=NORM.INV(RAND(),$AH36,$AI36)",
           "shrunk_formula": "=NORM.INV(RAND(),$AH36,$AI36)"
         },
         {
           "sheet": "Figure 2",
           "cell": "AZ36",
-          "original": 3.6476238340034697,
-          "shrunk": 4.009937553737438,
+          "original": 3.9453462142104394,
+          "shrunk": 3.1285256335823033,
           "original_formula": "=NORM.INV(RAND(),$AH36,$AI36)",
           "shrunk_formula": "=NORM.INV(RAND(),$AH36,$AI36)"
         },
         {
           "sheet": "Figure 2",
           "cell": "BA36",
-          "original": 4.393811908507599,
-          "shrunk": 3.620534336158297,
+          "original": 3.8788836127452058,
+          "shrunk": 4.120098110867657,
           "original_formula": "=NORM.INV(RAND(),$AH36,$AI36)",
           "shrunk_formula": "=NORM.INV(RAND(),$AH36,$AI36)"
         },
         {
           "sheet": "Figure 2",
           "cell": "BB36",
-          "original": 3.850166864649498,
-          "shrunk": 3.0641678117346545,
+          "original": 3.563259274989801,
+          "shrunk": 2.8308138114418955,
           "original_formula": "=NORM.INV(RAND(),$AH36,$AI36)",
           "shrunk_formula": "=NORM.INV(RAND(),$AH36,$AI36)"
         },
         {
           "sheet": "Figure 2",
           "cell": "BC36",
-          "original": 3.3984437512196575,
-          "shrunk": 4.051947584209364,
+          "original": 3.1204021036297642,
+          "shrunk": 4.210289351106427,
           "original_formula": "=NORM.INV(RAND(),$AH36,$AI36)",
           "shrunk_formula": "=NORM.INV(RAND(),$AH36,$AI36)"
         },
         {
           "sheet": "Figure 2",
           "cell": "BD36",
-          "original": 2.9795407903878597,
-          "shrunk": 3.272628226978776,
+          "original": 3.4257728606513864,
+          "shrunk": 4.561296867539084,
           "original_formula": "=NORM.INV(RAND(),$AH36,$AI36)",
           "shrunk_formula": "=NORM.INV(RAND(),$AH36,$AI36)"
         },
         {
           "sheet": "Figure 2",
           "cell": "BE36",
-          "original": 3.7374932527608045,
-          "shrunk": 4.240568562776038,
+          "original": 4.015695785242562,
+          "shrunk": 3.788633090049909,
           "original_formula": "=NORM.INV(RAND(),$AH36,$AI36)",
           "shrunk_formula": "=NORM.INV(RAND(),$AH36,$AI36)"
         },
         {
           "sheet": "Figure 2",
           "cell": "BF36",
-          "original": 3.59549105392669,
-          "shrunk": 3.3859479119003146,
+          "original": 3.1910617961415078,
+          "shrunk": 4.015160717211135,
           "original_formula": "=NORM.INV(RAND(),$AH36,$AI36)",
           "shrunk_formula": "=NORM.INV(RAND(),$AH36,$AI36)"
         },
         {
           "sheet": "Figure 2",
           "cell": "BG36",
-          "original": 4.022440545031256,
-          "shrunk": 3.1437226347422453,
+          "original": 3.63103873072169,
+          "shrunk": 3.3281882537072,
           "original_formula": "=NORM.INV(RAND(),$AH36,$AI36)",
           "shrunk_formula": "=NORM.INV(RAND(),$AH36,$AI36)"
         },
         {
           "sheet": "Figure 2",
           "cell": "BH36",
-          "original": 4.0192827174328,
-          "shrunk": 4.075278855156084,
+          "original": 2.9330340791276726,
+          "shrunk": 3.1072094534418673,
           "original_formula": "=NORM.INV(RAND(),$AH36,$AI36)",
           "shrunk_formula": "=NORM.INV(RAND(),$AH36,$AI36)"
         },
         {
           "sheet": "Figure 2",
           "cell": "BI36",
-          "original": 3.2022157858845697,
-          "shrunk": 3.251509201445491,
+          "original": 3.7422949765884947,
+          "shrunk": 2.661603392438443,
           "original_formula": "=NORM.INV(RAND(),$AH36,$AI36)",
           "shrunk_formula": "=NORM.INV(RAND(),$AH36,$AI36)"
         },
         {
           "sheet": "Figure 2",
           "cell": "BJ36",
-          "original": 3.599735089883991,
-          "shrunk": 3.277240144221578,
+          "original": 3.6913829954173827,
+          "shrunk": 3.0623343964255714,
           "original_formula": "=NORM.INV(RAND(),$AH36,$AI36)",
           "shrunk_formula": "=NORM.INV(RAND(),$AH36,$AI36)"
         },
         {
           "sheet": "Figure 2",
           "cell": "BK36",
-          "original": 1.5737800803443716,
-          "shrunk": 2.9912884825600714,
+          "original": 1.5472130045545958,
+          "shrunk": 3.752868712536564,
           "original_formula": "=NORM.INV(RAND(),$AJ36,$AK36)",
           "shrunk_formula": "=NORM.INV(RAND(),$AJ36,$AK36)"
         },
         {
           "sheet": "Figure 2",
           "cell": "BL36",
-          "original": 3.505452146834098,
-          "shrunk": 2.217654869437824,
+          "original": 2.267289116857314,
+          "shrunk": 3.733773310766918,
           "original_formula": "=NORM.INV(RAND(),$AJ36,$AK36)",
           "shrunk_formula": "=NORM.INV(RAND(),$AJ36,$AK36)"
         },
         {
           "sheet": "Figure 2",
           "cell": "BM36",
-          "original": 2.932151372404304,
-          "shrunk": 2.91038809467464,
+          "original": 2.3495810073129912,
+          "shrunk": 2.2434709842497327,
           "original_formula": "=NORM.INV(RAND(),$AJ36,$AK36)",
           "shrunk_formula": "=NORM.INV(RAND(),$AJ36,$AK36)"
         },
         {
           "sheet": "Figure 2",
           "cell": "BN36",
-          "original": 3.481377607900579,
-          "shrunk": 3.4103785808185587,
+          "original": 2.2189087704537456,
+          "shrunk": 1.654898683114446,
           "original_formula": "=NORM.INV(RAND(),$AJ36,$AK36)",
           "shrunk_formula": "=NORM.INV(RAND(),$AJ36,$AK36)"
         },
         {
           "sheet": "Figure 2",
           "cell": "BO36",
-          "original": 3.9244805276701635,
-          "shrunk": 1.948616365462692,
+          "original": 2.155427535271146,
+          "shrunk": 3.099139986513046,
           "original_formula": "=NORM.INV(RAND(),$AJ36,$AK36)",
           "shrunk_formula": "=NORM.INV(RAND(),$AJ36,$AK36)"
         },
         {
           "sheet": "Figure 2",
           "cell": "BP36",
-          "original": 3.902933148249681,
-          "shrunk": 3.616618279020505,
+          "original": 2.621424898350327,
+          "shrunk": 2.8963862682878996,
           "original_formula": "=NORM.INV(RAND(),$AJ36,$AK36)",
           "shrunk_formula": "=NORM.INV(RAND(),$AJ36,$AK36)"
         },
         {
           "sheet": "Figure 2",
           "cell": "BQ36",
-          "original": 4.242486207994933,
-          "shrunk": 2.7662873679332893,
+          "original": 1.9882963624654257,
+          "shrunk": 3.4823230900921733,
           "original_formula": "=NORM.INV(RAND(),$AJ36,$AK36)",
           "shrunk_formula": "=NORM.INV(RAND(),$AJ36,$AK36)"
         },
         {
           "sheet": "Figure 2",
           "cell": "BR36",
-          "original": 3.530860349142438,
-          "shrunk": 2.439080792284479,
+          "original": 3.5707875767650994,
+          "shrunk": 1.9585463515835337,
           "original_formula": "=NORM.INV(RAND(),$AJ36,$AK36)",
           "shrunk_formula": "=NORM.INV(RAND(),$AJ36,$AK36)"
         },
         {
           "sheet": "Figure 2",
           "cell": "BS36",
-          "original": 3.4574603760151827,
-          "shrunk": 4.288350701730096,
+          "original": 2.836612893501084,
+          "shrunk": 3.432601519738486,
           "original_formula": "=NORM.INV(RAND(),$AJ36,$AK36)",
           "shrunk_formula": "=NORM.INV(RAND(),$AJ36,$AK36)"
         },
         {
           "sheet": "Figure 2",
           "cell": "BT36",
-          "original": 3.369621859688661,
-          "shrunk": 3.639617689226922,
+          "original": 2.604879507478879,
+          "shrunk": 3.337755078411184,
           "original_formula": "=NORM.INV(RAND(),$AJ36,$AK36)",
           "shrunk_formula": "=NORM.INV(RAND(),$AJ36,$AK36)"
         },
         {
           "sheet": "Figure 2",
           "cell": "BU36",
-          "original": 3.059370621063948,
-          "shrunk": 3.6054113789111923,
+          "original": 2.5487146344935625,
+          "shrunk": 2.912984294582531,
           "original_formula": "=NORM.INV(RAND(),$AJ36,$AK36)",
           "shrunk_formula": "=NORM.INV(RAND(),$AJ36,$AK36)"
         },
         {
           "sheet": "Figure 2",
           "cell": "BV36",
-          "original": 3.2080357948781866,
-          "shrunk": 3.707854067538702,
+          "original": 2.118484653428276,
+          "shrunk": 3.0954319664142713,
           "original_formula": "=NORM.INV(RAND(),$AJ36,$AK36)",
           "shrunk_formula": "=NORM.INV(RAND(),$AJ36,$AK36)"
         },
         {
           "sheet": "Figure 2",
           "cell": "BW36",
-          "original": 0.6361546926185949,
-          "shrunk": -0.05864057488322998,
+          "original": 0.09147398562508899,
+          "shrunk": 0.21803807660541571,
           "original_formula": "=(AY36-AVERAGE($AY36:$BJ36))*(BK36-AVERAGE($BK36:$BV36))",
           "shrunk_formula": "=(AY36-AVERAGE($AY36:$BJ36))*(BK36-AVERAGE($BK36:$BV36))"
         },
         {
           "sheet": "Figure 2",
           "cell": "BX36",
-          "original": 0.000511581848580293,
-          "shrunk": -0.35507733645467326,
+          "original": -0.05360749199621329,
+          "shrunk": -0.32620273176640063,
           "original_formula": "=(AZ36-AVERAGE($AY36:$BJ36))*(BL36-AVERAGE($BK36:$BV36))",
           "shrunk_formula": "=(AZ36-AVERAGE($AY36:$BJ36))*(BL36-AVERAGE($BK36:$BV36))"
         },
         {
           "sheet": "Figure 2",
           "cell": "BY36",
-          "original": -0.3124111630110946,
-          "shrunk": -9.721377632732512e-05,
+          "original": -0.01742908146982663,
+          "shrunk": -0.4095732875131666,
           "original_formula": "=(BA36-AVERAGE($AY36:$BJ36))*(BM36-AVERAGE($BK36:$BV36))",
           "shrunk_formula": "=(BA36-AVERAGE($AY36:$BJ36))*(BM36-AVERAGE($BK36:$BV36))"
         },
         {
           "sheet": "Figure 2",
           "cell": "BZ36",
-          "original": 0.027244851800500614,
-          "shrunk": -0.15672315090611236,
+          "original": -0.00274515186769961,
+          "shrunk": 0.9483639328786176,
           "original_formula": "=(BB36-AVERAGE($AY36:$BJ36))*(BN36-AVERAGE($BK36:$BV36))",
           "shrunk_formula": "=(BB36-AVERAGE($AY36:$BJ36))*(BN36-AVERAGE($BK36:$BV36))"
         },
         {
           "sheet": "Figure 2",
           "cell": "CA36",
-          "original": -0.1415163085933271,
-          "shrunk": -0.509527088797757,
+          "original": 0.10563459509730004,
+          "shrunk": 0.08696120527951536,
           "original_formula": "=(BC36-AVERAGE($AY36:$BJ36))*(BO36-AVERAGE($BK36:$BV36))",
           "shrunk_formula": "=(BC36-AVERAGE($AY36:$BJ36))*(BO36-AVERAGE($BK36:$BV36))"
         },
         {
           "sheet": "Figure 2",
           "cell": "CB36",
-          "original": -0.36826147241968826,
-          "shrunk": -0.16961486255297556,
+          "original": -0.02684647949126131,
+          "shrunk": -0.07082440038476491,
           "original_formula": "=(BD36-AVERAGE($AY36:$BJ36))*(BP36-AVERAGE($BK36:$BV36))",
           "shrunk_formula": "=(BD36-AVERAGE($AY36:$BJ36))*(BP36-AVERAGE($BK36:$BV36))"
         },
         {
           "sheet": "Figure 2",
           "cell": "CC36",
-          "original": 0.08321862824397934,
-          "shrunk": -0.22472225728626416,
+          "original": -0.19350823173380477,
+          "shrunk": 0.12110423227944321,
           "original_formula": "=(BE36-AVERAGE($AY36:$BJ36))*(BQ36-AVERAGE($BK36:$BV36))",
           "shrunk_formula": "=(BE36-AVERAGE($AY36:$BJ36))*(BQ36-AVERAGE($BK36:$BV36))"
         },
         {
           "sheet": "Figure 2",
           "cell": "CD36",
-          "original": -0.008886177332810316,
-          "shrunk": 0.16141221001589615,
+          "original": -0.4174168043973162,
+          "shrunk": -0.4651425240593597,
           "original_formula": "=(BF36-AVERAGE($AY36:$BJ36))*(BR36-AVERAGE($BK36:$BV36))",
           "shrunk_formula": "=(BF36-AVERAGE($AY36:$BJ36))*(BR36-AVERAGE($BK36:$BV36))"
         },
         {
           "sheet": "Figure 2",
           "cell": "CE36",
-          "original": 0.04100709921660289,
-          "shrunk": -0.552531340485544,
+          "original": 0.035938450155999335,
+          "shrunk": -0.10510382354525472,
           "original_formula": "=(BG36-AVERAGE($AY36:$BJ36))*(BS36-AVERAGE($BK36:$BV36))",
           "shrunk_formula": "=(BG36-AVERAGE($AY36:$BJ36))*(BS36-AVERAGE($BK36:$BV36))"
         },
         {
           "sheet": "Figure 2",
           "cell": "CF36",
-          "original": 0.007731413671374471,
-          "shrunk": 0.2326730113701648,
+          "original": -0.12463733594863495,
+          "shrunk": -0.1657073847610983,
           "original_formula": "=(BH36-AVERAGE($AY36:$BJ36))*(BT36-AVERAGE($BK36:$BV36))",
           "shrunk_formula": "=(BH36-AVERAGE($AY36:$BJ36))*(BT36-AVERAGE($BK36:$BV36))"
         },
         {
           "sheet": "Figure 2",
           "cell": "CG36",
-          "original": 0.12805656589770134,
-          "shrunk": -0.17579361080048791,
+          "original": 0.028404759780047927,
+          "shrunk": 0.04790711442203392,
           "original_formula": "=(BI36-AVERAGE($AY36:$BJ36))*(BU36-AVERAGE($BK36:$BV36))",
           "shrunk_formula": "=(BI36-AVERAGE($AY36:$BJ36))*(BU36-AVERAGE($BK36:$BV36))"
         },
         {
           "sheet": "Figure 2",
           "cell": "CH36",
-          "original": 0.006289695866831829,
-          "shrunk": -0.19864357213447245,
+          "original": -0.040612060860034715,
+          "shrunk": -0.06327269614173132,
           "original_formula": "=(BJ36-AVERAGE($AY36:$BJ36))*(BV36-AVERAGE($BK36:$BV36))",
           "shrunk_formula": "=(BJ36-AVERAGE($AY36:$BJ36))*(BV36-AVERAGE($BK36:$BV36))"
         },
         {
           "sheet": "Figure 2",
           "cell": "AR37",
-          "original": 1.0625717097311385,
-          "shrunk": 0.7498068320350093,
+          "original": 0.708945395374895,
+          "shrunk": 0.4406834867689904,
           "original_formula": "=AVERAGE(AY37:BJ37)-AVERAGE(BK37:BV37)",
           "shrunk_formula": "=AVERAGE(AY37:BJ37)-AVERAGE(BK37:BV37)"
         },
         {
           "sheet": "Figure 2",
           "cell": "AS37",
-          "original": -0.3492803016704673,
-          "shrunk": 0.1946932278417716,
+          "original": 0.16829798195434031,
+          "shrunk": -0.4469208917978511,
           "original_formula": "=(1/(AQ37-1))*SUM(BW37:CH37)",
           "shrunk_formula": "=(1/(AQ37-1))*SUM(BW37:CH37)"
         },
         {
           "sheet": "Figure 2",
           "cell": "AT37",
-          "original": 1.3948960904330314,
-          "shrunk": 1.4505270676261413,
+          "original": 1.17760440910846,
+          "shrunk": 1.4328727240168135,
           "original_formula": "=SQRT((STDEV.S(AY37:BJ37)^2)+(STDEV.S(BK37:BV37)^2))",
           "shrunk_formula": "=SQRT((STDEV.S(AY37:BJ37)^2)+(STDEV.S(BK37:BV37)^2))"
         },
         {
           "sheet": "Figure 2",
           "cell": "AU37",
-          "original": 1.62612905590125,
-          "shrunk": 1.3094435147162893,
+          "original": 1.0247712820151649,
+          "shrunk": 1.7166729527860178,
           "original_formula": "=SQRT((STDEV.S(AY37:BJ37)^2)+(STDEV.S(BK37:BV37)^2)-2*AS37)",
           "shrunk_formula": "=SQRT((STDEV.S(AY37:BJ37)^2)+(STDEV.S(BK37:BV37)^2)-2*AS37)"
         },
         {
           "sheet": "Figure 2",
           "cell": "AW37",
-          "original": -1.2320323590311983,
-          "shrunk": -1.636310194209993,
+          "original": -1.228213857608522,
+          "shrunk": -1.9163921442386678,
           "original_formula": "=AR37+AV37*AT37",
           "shrunk_formula": "=AR37+AV37*AT37"
         },
         {
           "sheet": "Figure 2",
           "cell": "AX37",
-          "original": -1.6124105872264178,
-          "shrunk": -1.4042277496732867,
+          "original": -0.9768033635400513,
+          "shrunk": -2.383243520564009,
           "original_formula": "=AR37+AV37*AU37",
           "shrunk_formula": "=AR37+AV37*AU37"
         },
         {
           "sheet": "Figure 2",
           "cell": "AY37",
-          "original": 3.2756915897634213,
-          "shrunk": 3.0795867500397724,
+          "original": 4.723858430326741,
+          "shrunk": 3.213000666942923,
           "original_formula": "=NORM.INV(RAND(),$AH37,$AI37)",
           "shrunk_formula": "=NORM.INV(RAND(),$AH37,$AI37)"
         },
         {
           "sheet": "Figure 2",
           "cell": "AZ37",
-          "original": 4.165869422040719,
-          "shrunk": 3.88402207903689,
+          "original": 2.6136455958647575,
+          "shrunk": 3.3440718966261844,
           "original_formula": "=NORM.INV(RAND(),$AH37,$AI37)",
           "shrunk_formula": "=NORM.INV(RAND(),$AH37,$AI37)"
         },
         {
           "sheet": "Figure 2",
           "cell": "BA37",
-          "original": 4.9029638316052315,
-          "shrunk": 3.214746881658767,
+          "original": 3.9207346182736176,
+          "shrunk": 4.075314600857882,
           "original_formula": "=NORM.INV(RAND(),$AH37,$AI37)",
           "shrunk_formula": "=NORM.INV(RAND(),$AH37,$AI37)"
         },
         {
           "sheet": "Figure 2",
           "cell": "BB37",
-          "original": 3.4009035705964297,
-          "shrunk": 3.171638763999047,
+          "original": 4.866769328737396,
+          "shrunk": 5.38488727653336,
           "original_formula": "=NORM.INV(RAND(),$AH37,$AI37)",
           "shrunk_formula": "=NORM.INV(RAND(),$AH37,$AI37)"
         },
         {
           "sheet": "Figure 2",
           "cell": "BC37",
-          "original": 5.0677862808769305,
-          "shrunk": 5.321066391167078,
+          "original": 4.994635536871749,
+          "shrunk": 4.983215194956162,
           "original_formula": "=NORM.INV(RAND(),$AH37,$AI37)",
           "shrunk_formula": "=NORM.INV(RAND(),$AH37,$AI37)"
         },
         {
           "sheet": "Figure 2",
           "cell": "BD37",
-          "original": 4.470046238433003,
-          "shrunk": 4.07843351864003,
+          "original": 5.02931806203955,
+          "shrunk": 2.9144313013299663,
           "original_formula": "=NORM.INV(RAND(),$AH37,$AI37)",
           "shrunk_formula": "=NORM.INV(RAND(),$AH37,$AI37)"
         },
         {
           "sheet": "Figure 2",
           "cell": "BE37",
-          "original": 5.93561701868529,
-          "shrunk": 3.7743175603675128,
+          "original": 4.516129291389663,
+          "shrunk": 5.135402135527832,
           "original_formula": "=NORM.INV(RAND(),$AH37,$AI37)",
           "shrunk_formula": "=NORM.INV(RAND(),$AH37,$AI37)"
         },
         {
           "sheet": "Figure 2",
           "cell": "BF37",
-          "original": 2.742392996246329,
-          "shrunk": 5.476358839327065,
+          "original": 3.7688225499905235,
+          "shrunk": 4.852285600166355,
           "original_formula": "=NORM.INV(RAND(),$AH37,$AI37)",
           "shrunk_formula": "=NORM.INV(RAND(),$AH37,$AI37)"
         },
         {
           "sheet": "Figure 2",
           "cell": "BG37",
-          "original": 5.104350609284617,
-          "shrunk": 3.0555441947209143,
+          "original": 3.058308012577289,
+          "shrunk": 2.720918243512525,
           "original_formula": "=NORM.INV(RAND(),$AH37,$AI37)",
           "shrunk_formula": "=NORM.INV(RAND(),$AH37,$AI37)"
         },
         {
           "sheet": "Figure 2",
           "cell": "BH37",
-          "original": 4.883185261626609,
-          "shrunk": 3.875402000245572,
+          "original": 4.411536300422925,
+          "shrunk": 4.554281827022508,
           "original_formula": "=NORM.INV(RAND(),$AH37,$AI37)",
           "shrunk_formula": "=NORM.INV(RAND(),$AH37,$AI37)"
         },
         {
           "sheet": "Figure 2",
           "cell": "BI37",
-          "original": 4.14654626336913,
-          "shrunk": 3.929368671113299,
+          "original": 3.9480906250444026,
+          "shrunk": 3.832151769376996,
           "original_formula": "=NORM.INV(RAND(),$AH37,$AI37)",
           "shrunk_formula": "=NORM.INV(RAND(),$AH37,$AI37)"
         },
         {
           "sheet": "Figure 2",
           "cell": "BJ37",
-          "original": 4.247520125360853,
-          "shrunk": 4.655848799980705,
+          "original": 3.736982200106006,
+          "shrunk": 2.822458687537228,
           "original_formula": "=NORM.INV(RAND(),$AH37,$AI37)",
           "shrunk_formula": "=NORM.INV(RAND(),$AH37,$AI37)"
         },
         {
           "sheet": "Figure 2",
           "cell": "BK37",
-          "original": 2.6101748826270406,
-          "shrunk": 3.2840042399729916,
+          "original": 4.126923797517009,
+          "shrunk": 3.9880423645418324,
           "original_formula": "=NORM.INV(RAND(),$AJ37,$AK37)",
           "shrunk_formula": "=NORM.INV(RAND(),$AJ37,$AK37)"
         },
         {
           "sheet": "Figure 2",
           "cell": "BL37",
-          "original": 1.5866871717601851,
-          "shrunk": 3.1010301038057344,
+          "original": 3.2305317213591604,
+          "shrunk": 4.2003866703054955,
           "original_formula": "=NORM.INV(RAND(),$AJ37,$AK37)",
           "shrunk_formula": "=NORM.INV(RAND(),$AJ37,$AK37)"
         },
         {
           "sheet": "Figure 2",
           "cell": "BM37",
-          "original": 3.3611210477152706,
-          "shrunk": 2.8538983118332775,
+          "original": 2.0883825446768007,
+          "shrunk": 3.6001455269269704,
           "original_formula": "=NORM.INV(RAND(),$AJ37,$AK37)",
           "shrunk_formula": "=NORM.INV(RAND(),$AJ37,$AK37)"
         },
         {
           "sheet": "Figure 2",
           "cell": "BN37",
-          "original": 5.523378249072421,
-          "shrunk": 2.4660923279364253,
+          "original": 3.9504018366773055,
+          "shrunk": 3.928032913832709,
           "original_formula": "=NORM.INV(RAND(),$AJ37,$AK37)",
           "shrunk_formula": "=NORM.INV(RAND(),$AJ37,$AK37)"
         },
         {
           "sheet": "Figure 2",
           "cell": "BO37",
-          "original": 2.5182210576150705,
-          "shrunk": 3.0570219681559716,
+          "original": 2.2280359413850803,
+          "shrunk": 1.4870615168431143,
           "original_formula": "=NORM.INV(RAND(),$AJ37,$AK37)",
           "shrunk_formula": "=NORM.INV(RAND(),$AJ37,$AK37)"
         },
         {
           "sheet": "Figure 2",
           "cell": "BP37",
-          "original": 3.917440897479956,
-          "shrunk": 5.371815839122877,
+          "original": 3.984200518591721,
+          "shrunk": 4.662115794910286,
           "original_formula": "=NORM.INV(RAND(),$AJ37,$AK37)",
           "shrunk_formula": "=NORM.INV(RAND(),$AJ37,$AK37)"
         },
         {
           "sheet": "Figure 2",
           "cell": "BQ37",
-          "original": 2.8060763270013624,
-          "shrunk": 1.127200041353325,
+          "original": 4.6206853671110615,
+          "shrunk": 4.086582333093941,
           "original_formula": "=NORM.INV(RAND(),$AJ37,$AK37)",
           "shrunk_formula": "=NORM.INV(RAND(),$AJ37,$AK37)"
         },
         {
           "sheet": "Figure 2",
           "cell": "BR37",
-          "original": 4.356946925441747,
-          "shrunk": 3.194731805039484,
+          "original": 2.207083115167491,
+          "shrunk": 3.9967845758285723,
           "original_formula": "=NORM.INV(RAND(),$AJ37,$AK37)",
           "shrunk_formula": "=NORM.INV(RAND(),$AJ37,$AK37)"
         },
         {
           "sheet": "Figure 2",
           "cell": "BS37",
-          "original": 4.168396378223888,
-          "shrunk": 2.792523417463903,
+          "original": 3.4266628646589727,
+          "shrunk": 4.304573842242184,
           "original_formula": "=NORM.INV(RAND(),$AJ37,$AK37)",
           "shrunk_formula": "=NORM.INV(RAND(),$AJ37,$AK37)"
         },
         {
           "sheet": "Figure 2",
           "cell": "BT37",
-          "original": 2.3222234326628284,
-          "shrunk": 5.059330981334764,
+          "original": 4.309994408019171,
+          "shrunk": 1.5187412413070678,
           "original_formula": "=NORM.INV(RAND(),$AJ37,$AK37)",
           "shrunk_formula": "=NORM.INV(RAND(),$AJ37,$AK37)"
         },
         {
           "sheet": "Figure 2",
           "cell": "BU37",
-          "original": 3.3497542473272666,
-          "shrunk": 2.0268538856507554,
+          "original": 2.85094968309653,
+          "shrunk": 2.8356992251655497,
           "original_formula": "=NORM.INV(RAND(),$AJ37,$AK37)",
           "shrunk_formula": "=NORM.INV(RAND(),$AJ37,$AK37)"
         },
         {
           "sheet": "Figure 2",
           "cell": "BV37",
-          "original": 3.0715920741878526,
-          "shrunk": 4.184149544207035,
+          "original": 4.057634008885572,
+          "shrunk": 3.9360513541643214,
           "original_formula": "=NORM.INV(RAND(),$AJ37,$AK37)",
           "shrunk_formula": "=NORM.INV(RAND(),$AJ37,$AK37)"
         },
         {
           "sheet": "Figure 2",
           "cell": "BW37",
-          "original": 0.7485750582351369,
-          "shrunk": -0.06523053918013139,
+          "original": 0.4160694877701687,
+          "shrunk": -0.3422152490056917,
           "original_formula": "=(AY37-AVERAGE($AY37:$BJ37))*(BK37-AVERAGE($BK37:$BV37))",
           "shrunk_formula": "=(AY37-AVERAGE($AY37:$BJ37))*(BK37-AVERAGE($BK37:$BV37))"
         },
         {
           "sheet": "Figure 2",
           "cell": "BX37",
-          "original": 0.33574167248737424,
-          "shrunk": 0.008237522344515637,
+          "original": 0.2930068365047859,
+          "shrunk": -0.42050840138344175,
           "original_formula": "=(AZ37-AVERAGE($AY37:$BJ37))*(BL37-AVERAGE($BK37:$BV37))",
           "shrunk_formula": "=(AZ37-AVERAGE($AY37:$BJ37))*(BL37-AVERAGE($BK37:$BV37))"
         }
@@ -19581,101 +19586,101 @@
       "filename": "wastewater-treatment-plant-performance-data__e6584f01-c966-4e4d-acae-a2ae53bb6b02.xlsx",
       "reason": "value_mismatch",
       "diff_count": 12,
-      "elapsed_sec": 7.779071092605591,
+      "elapsed_sec": 7.557899236679077,
       "diffs": [
         {
           "sheet": "January 2025",
           "cell": "A2",
-          "original": "C:\\Users\\aue-johr\\AppData\\Local\\Temp\\xlsx_compare_85qesogt\\[ee0040dcaa8ce2fdb731a6b8696205566656097299b792243626ef2b786586c6.xlsx]January 2025",
-          "shrunk": "C:\\Users\\aue-johr\\AppData\\Local\\Temp\\xlsx_compare_85qesogt\\[a9a7938ad260d71cf499211af1ca512c8f6c40f7edd4a80fc23fd2d6595213e4.xlsx]January 2025",
+          "original": "C:\\Users\\aue-johr\\AppData\\Local\\Temp\\xlsx_compare_85n832lp\\[ee0040dcaa8ce2fdb731a6b8696205566656097299b792243626ef2b786586c6.xlsx]January 2025",
+          "shrunk": "C:\\Users\\aue-johr\\AppData\\Local\\Temp\\xlsx_compare_85n832lp\\[a9a7938ad260d71cf499211af1ca512c8f6c40f7edd4a80fc23fd2d6595213e4.xlsx]January 2025",
           "original_formula": "=CELL(\"filename\", A2)",
           "shrunk_formula": "=CELL(\"filename\", A2)"
         },
         {
           "sheet": "February 2025",
           "cell": "A2",
-          "original": "C:\\Users\\aue-johr\\AppData\\Local\\Temp\\xlsx_compare_85qesogt\\[ee0040dcaa8ce2fdb731a6b8696205566656097299b792243626ef2b786586c6.xlsx]February 2025",
-          "shrunk": "C:\\Users\\aue-johr\\AppData\\Local\\Temp\\xlsx_compare_85qesogt\\[a9a7938ad260d71cf499211af1ca512c8f6c40f7edd4a80fc23fd2d6595213e4.xlsx]February 2025",
+          "original": "C:\\Users\\aue-johr\\AppData\\Local\\Temp\\xlsx_compare_85n832lp\\[ee0040dcaa8ce2fdb731a6b8696205566656097299b792243626ef2b786586c6.xlsx]February 2025",
+          "shrunk": "C:\\Users\\aue-johr\\AppData\\Local\\Temp\\xlsx_compare_85n832lp\\[a9a7938ad260d71cf499211af1ca512c8f6c40f7edd4a80fc23fd2d6595213e4.xlsx]February 2025",
           "original_formula": "=CELL(\"filename\", A2)",
           "shrunk_formula": "=CELL(\"filename\", A2)"
         },
         {
           "sheet": "March 2025",
           "cell": "A2",
-          "original": "C:\\Users\\aue-johr\\AppData\\Local\\Temp\\xlsx_compare_85qesogt\\[ee0040dcaa8ce2fdb731a6b8696205566656097299b792243626ef2b786586c6.xlsx]March 2025",
-          "shrunk": "C:\\Users\\aue-johr\\AppData\\Local\\Temp\\xlsx_compare_85qesogt\\[a9a7938ad260d71cf499211af1ca512c8f6c40f7edd4a80fc23fd2d6595213e4.xlsx]March 2025",
+          "original": "C:\\Users\\aue-johr\\AppData\\Local\\Temp\\xlsx_compare_85n832lp\\[ee0040dcaa8ce2fdb731a6b8696205566656097299b792243626ef2b786586c6.xlsx]March 2025",
+          "shrunk": "C:\\Users\\aue-johr\\AppData\\Local\\Temp\\xlsx_compare_85n832lp\\[a9a7938ad260d71cf499211af1ca512c8f6c40f7edd4a80fc23fd2d6595213e4.xlsx]March 2025",
           "original_formula": "=CELL(\"filename\", A2)",
           "shrunk_formula": "=CELL(\"filename\", A2)"
         },
         {
           "sheet": "April 2025",
           "cell": "A2",
-          "original": "C:\\Users\\aue-johr\\AppData\\Local\\Temp\\xlsx_compare_85qesogt\\[ee0040dcaa8ce2fdb731a6b8696205566656097299b792243626ef2b786586c6.xlsx]April 2025",
-          "shrunk": "C:\\Users\\aue-johr\\AppData\\Local\\Temp\\xlsx_compare_85qesogt\\[a9a7938ad260d71cf499211af1ca512c8f6c40f7edd4a80fc23fd2d6595213e4.xlsx]April 2025",
+          "original": "C:\\Users\\aue-johr\\AppData\\Local\\Temp\\xlsx_compare_85n832lp\\[ee0040dcaa8ce2fdb731a6b8696205566656097299b792243626ef2b786586c6.xlsx]April 2025",
+          "shrunk": "C:\\Users\\aue-johr\\AppData\\Local\\Temp\\xlsx_compare_85n832lp\\[a9a7938ad260d71cf499211af1ca512c8f6c40f7edd4a80fc23fd2d6595213e4.xlsx]April 2025",
           "original_formula": "=CELL(\"filename\", A2)",
           "shrunk_formula": "=CELL(\"filename\", A2)"
         },
         {
           "sheet": "May 2025",
           "cell": "A2",
-          "original": "C:\\Users\\aue-johr\\AppData\\Local\\Temp\\xlsx_compare_85qesogt\\[ee0040dcaa8ce2fdb731a6b8696205566656097299b792243626ef2b786586c6.xlsx]May 2025",
-          "shrunk": "C:\\Users\\aue-johr\\AppData\\Local\\Temp\\xlsx_compare_85qesogt\\[a9a7938ad260d71cf499211af1ca512c8f6c40f7edd4a80fc23fd2d6595213e4.xlsx]May 2025",
+          "original": "C:\\Users\\aue-johr\\AppData\\Local\\Temp\\xlsx_compare_85n832lp\\[ee0040dcaa8ce2fdb731a6b8696205566656097299b792243626ef2b786586c6.xlsx]May 2025",
+          "shrunk": "C:\\Users\\aue-johr\\AppData\\Local\\Temp\\xlsx_compare_85n832lp\\[a9a7938ad260d71cf499211af1ca512c8f6c40f7edd4a80fc23fd2d6595213e4.xlsx]May 2025",
           "original_formula": "=CELL(\"filename\", A2)",
           "shrunk_formula": "=CELL(\"filename\", A2)"
         },
         {
           "sheet": "June 2025",
           "cell": "A2",
-          "original": "C:\\Users\\aue-johr\\AppData\\Local\\Temp\\xlsx_compare_85qesogt\\[ee0040dcaa8ce2fdb731a6b8696205566656097299b792243626ef2b786586c6.xlsx]June 2025",
-          "shrunk": "C:\\Users\\aue-johr\\AppData\\Local\\Temp\\xlsx_compare_85qesogt\\[a9a7938ad260d71cf499211af1ca512c8f6c40f7edd4a80fc23fd2d6595213e4.xlsx]June 2025",
+          "original": "C:\\Users\\aue-johr\\AppData\\Local\\Temp\\xlsx_compare_85n832lp\\[ee0040dcaa8ce2fdb731a6b8696205566656097299b792243626ef2b786586c6.xlsx]June 2025",
+          "shrunk": "C:\\Users\\aue-johr\\AppData\\Local\\Temp\\xlsx_compare_85n832lp\\[a9a7938ad260d71cf499211af1ca512c8f6c40f7edd4a80fc23fd2d6595213e4.xlsx]June 2025",
           "original_formula": "=CELL(\"filename\", A2)",
           "shrunk_formula": "=CELL(\"filename\", A2)"
         },
         {
           "sheet": "July 2025",
           "cell": "A2",
-          "original": "C:\\Users\\aue-johr\\AppData\\Local\\Temp\\xlsx_compare_85qesogt\\[ee0040dcaa8ce2fdb731a6b8696205566656097299b792243626ef2b786586c6.xlsx]July 2025",
-          "shrunk": "C:\\Users\\aue-johr\\AppData\\Local\\Temp\\xlsx_compare_85qesogt\\[a9a7938ad260d71cf499211af1ca512c8f6c40f7edd4a80fc23fd2d6595213e4.xlsx]July 2025",
+          "original": "C:\\Users\\aue-johr\\AppData\\Local\\Temp\\xlsx_compare_85n832lp\\[ee0040dcaa8ce2fdb731a6b8696205566656097299b792243626ef2b786586c6.xlsx]July 2025",
+          "shrunk": "C:\\Users\\aue-johr\\AppData\\Local\\Temp\\xlsx_compare_85n832lp\\[a9a7938ad260d71cf499211af1ca512c8f6c40f7edd4a80fc23fd2d6595213e4.xlsx]July 2025",
           "original_formula": "=CELL(\"filename\", A2)",
           "shrunk_formula": "=CELL(\"filename\", A2)"
         },
         {
           "sheet": "August 2024",
           "cell": "A2",
-          "original": "C:\\Users\\aue-johr\\AppData\\Local\\Temp\\xlsx_compare_85qesogt\\[ee0040dcaa8ce2fdb731a6b8696205566656097299b792243626ef2b786586c6.xlsx]August 2024",
-          "shrunk": "C:\\Users\\aue-johr\\AppData\\Local\\Temp\\xlsx_compare_85qesogt\\[a9a7938ad260d71cf499211af1ca512c8f6c40f7edd4a80fc23fd2d6595213e4.xlsx]August 2024",
+          "original": "C:\\Users\\aue-johr\\AppData\\Local\\Temp\\xlsx_compare_85n832lp\\[ee0040dcaa8ce2fdb731a6b8696205566656097299b792243626ef2b786586c6.xlsx]August 2024",
+          "shrunk": "C:\\Users\\aue-johr\\AppData\\Local\\Temp\\xlsx_compare_85n832lp\\[a9a7938ad260d71cf499211af1ca512c8f6c40f7edd4a80fc23fd2d6595213e4.xlsx]August 2024",
           "original_formula": "=CELL(\"filename\", A2)",
           "shrunk_formula": "=CELL(\"filename\", A2)"
         },
         {
           "sheet": "September 2024",
           "cell": "A2",
-          "original": "C:\\Users\\aue-johr\\AppData\\Local\\Temp\\xlsx_compare_85qesogt\\[ee0040dcaa8ce2fdb731a6b8696205566656097299b792243626ef2b786586c6.xlsx]September 2024",
-          "shrunk": "C:\\Users\\aue-johr\\AppData\\Local\\Temp\\xlsx_compare_85qesogt\\[a9a7938ad260d71cf499211af1ca512c8f6c40f7edd4a80fc23fd2d6595213e4.xlsx]September 2024",
+          "original": "C:\\Users\\aue-johr\\AppData\\Local\\Temp\\xlsx_compare_85n832lp\\[ee0040dcaa8ce2fdb731a6b8696205566656097299b792243626ef2b786586c6.xlsx]September 2024",
+          "shrunk": "C:\\Users\\aue-johr\\AppData\\Local\\Temp\\xlsx_compare_85n832lp\\[a9a7938ad260d71cf499211af1ca512c8f6c40f7edd4a80fc23fd2d6595213e4.xlsx]September 2024",
           "original_formula": "=CELL(\"filename\", A2)",
           "shrunk_formula": "=CELL(\"filename\", A2)"
         },
         {
           "sheet": "October 2024",
           "cell": "A2",
-          "original": "C:\\Users\\aue-johr\\AppData\\Local\\Temp\\xlsx_compare_85qesogt\\[ee0040dcaa8ce2fdb731a6b8696205566656097299b792243626ef2b786586c6.xlsx]October 2024",
-          "shrunk": "C:\\Users\\aue-johr\\AppData\\Local\\Temp\\xlsx_compare_85qesogt\\[a9a7938ad260d71cf499211af1ca512c8f6c40f7edd4a80fc23fd2d6595213e4.xlsx]October 2024",
+          "original": "C:\\Users\\aue-johr\\AppData\\Local\\Temp\\xlsx_compare_85n832lp\\[ee0040dcaa8ce2fdb731a6b8696205566656097299b792243626ef2b786586c6.xlsx]October 2024",
+          "shrunk": "C:\\Users\\aue-johr\\AppData\\Local\\Temp\\xlsx_compare_85n832lp\\[a9a7938ad260d71cf499211af1ca512c8f6c40f7edd4a80fc23fd2d6595213e4.xlsx]October 2024",
           "original_formula": "=CELL(\"filename\", A2)",
           "shrunk_formula": "=CELL(\"filename\", A2)"
         },
         {
           "sheet": "November 2024",
           "cell": "A2",
-          "original": "C:\\Users\\aue-johr\\AppData\\Local\\Temp\\xlsx_compare_85qesogt\\[ee0040dcaa8ce2fdb731a6b8696205566656097299b792243626ef2b786586c6.xlsx]November 2024",
-          "shrunk": "C:\\Users\\aue-johr\\AppData\\Local\\Temp\\xlsx_compare_85qesogt\\[a9a7938ad260d71cf499211af1ca512c8f6c40f7edd4a80fc23fd2d6595213e4.xlsx]November 2024",
+          "original": "C:\\Users\\aue-johr\\AppData\\Local\\Temp\\xlsx_compare_85n832lp\\[ee0040dcaa8ce2fdb731a6b8696205566656097299b792243626ef2b786586c6.xlsx]November 2024",
+          "shrunk": "C:\\Users\\aue-johr\\AppData\\Local\\Temp\\xlsx_compare_85n832lp\\[a9a7938ad260d71cf499211af1ca512c8f6c40f7edd4a80fc23fd2d6595213e4.xlsx]November 2024",
           "original_formula": "=CELL(\"filename\", A2)",
           "shrunk_formula": "=CELL(\"filename\", A2)"
         },
         {
           "sheet": "December 2024",
           "cell": "A2",
-          "original": "C:\\Users\\aue-johr\\AppData\\Local\\Temp\\xlsx_compare_85qesogt\\[ee0040dcaa8ce2fdb731a6b8696205566656097299b792243626ef2b786586c6.xlsx]December 2024",
-          "shrunk": "C:\\Users\\aue-johr\\AppData\\Local\\Temp\\xlsx_compare_85qesogt\\[a9a7938ad260d71cf499211af1ca512c8f6c40f7edd4a80fc23fd2d6595213e4.xlsx]December 2024",
+          "original": "C:\\Users\\aue-johr\\AppData\\Local\\Temp\\xlsx_compare_85n832lp\\[ee0040dcaa8ce2fdb731a6b8696205566656097299b792243626ef2b786586c6.xlsx]December 2024",
+          "shrunk": "C:\\Users\\aue-johr\\AppData\\Local\\Temp\\xlsx_compare_85n832lp\\[a9a7938ad260d71cf499211af1ca512c8f6c40f7edd4a80fc23fd2d6595213e4.xlsx]December 2024",
           "original_formula": "=CELL(\"filename\", A2)",
           "shrunk_formula": "=CELL(\"filename\", A2)"
         }
