@@ -10,10 +10,10 @@
     "missing_in_originals": []
   },
   "summary": {
-    "same": 1167,
+    "same": 1169,
     "skipped": 12,
     "different": 0,
-    "error": 2
+    "error": 0
   },
   "same_files": [
     "01011970_Auszug_GV.xlsx",
@@ -1125,6 +1125,7 @@
     "umweltnutzung-und-wirtschaft-energie-xlsx-5850014.xlsx",
     "umweltnutzung-und-wirtschaft-tabelle-5850008197006-teil-4.xlsx",
     "umweltschutzausgaben-xlsx-5854102.xlsx",
+    "unfaelle-gewalt-kinder-tabellenband-xlsx-5230001.xlsx",
     "unfall-wassergefaehrdender-stoff-2190230217005.xlsx",
     "unternehmen-personen-umsatz-2040720197005.xlsx",
     "unternehmensverflechtungen-5411402209005.xlsx",
@@ -1156,6 +1157,7 @@
     "waegungsschema-erzeugerpreise-2015-xlsx.xlsx",
     "waegungsschema-erzeugerpreise-2021-xlsx.xlsx",
     "waldgesamtrechnung-tabellenband-xlsx-5852102.xlsx",
+    "wanderungen-2010120217005.xlsx",
     "wasser-abwasser-nichtoeffentlich-2190220199005.xlsx",
     "wasser-oeffentlich-2190211199005.xlsx",
     "wassergefaehrdende-stoffe-5323301197005.xlsx",
@@ -1235,16 +1237,5 @@
     }
   ],
   "different_files": [],
-  "errors": [
-    {
-      "filename": "unfaelle-gewalt-kinder-tabellenband-xlsx-5230001.xlsx",
-      "reason": "com_error: (-2147023170, 'The remote procedure call failed.', None, None)",
-      "elapsed_sec": 1286.437091588974
-    },
-    {
-      "filename": "wanderungen-2010120217005.xlsx",
-      "reason": "com_error: (-2147023174, 'The RPC server is unavailable.', None, None)",
-      "elapsed_sec": 0.0034935474395751953
-    }
-  ]
+  "errors": []
 }

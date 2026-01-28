@@ -94,6 +94,10 @@ def clean_workbook(workbook_xml_bytes: bytes, params: CleanWorkbookParameters) -
         if local_sheet_id in xlnm_filter_database_nodes:
             defined_names_to_delete.add(filter_database_defined_name)
 
+    for local_sheet_id, database_defined_name in database_nodes.items():
+        if local_sheet_id in xlnm_database_nodes:
+            defined_names_to_delete.add(database_defined_name)
+
     if not defined_names_to_delete:
         return workbook_xml_bytes
 
