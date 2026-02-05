@@ -1,0 +1,7 @@
+File,Program,Shrink Time (s),Shrink Time on shrunk file (s),Original Peak Memory,Shrinked Peak Memory,Original Size (bytes),Shrinked Size (bytes),Shrinked Size after Second Shrinkage (bytes)
+QT_RR data_dobutamine challenge test_Hazari_Dec 2015.xlsx,Excel Shrink,14.015049599984195,8.50923560000956,1261813760,295882752,121949169,3223081,3223081
+QT_RR data_dobutamine challenge test_Hazari_Dec 2015.xlsx,Excel Shrink (single-core),95.68600259994855,6.295389799983241,164823040,40861696,121949169,3223081,3223081
+QT_RR data_dobutamine challenge test_Hazari_Dec 2015.xlsx,Excel Shrink (no-split-sheetdata),27.32208890002221,3.9023861999739893,3753164800,315215872,121949169,3223081,3223081
+statistischer-bericht-kernhaushalt-gemeinden.xlsx,Excel Shrink,19.741450900037307,5.319480400008615,844189696,319123456,89367137,2452074,2452042
+statistischer-bericht-kernhaushalt-gemeinden.xlsx,Excel Shrink (single-core),83.48747750004986,6.528548599977512,172699648,44810240,89367137,2452074,2452042
+statistischer-bericht-kernhaushalt-gemeinden.xlsx,Excel Shrink (no-split-sheetdata),39.93706809997093,4.183703500020783,3392151552,316895232,89367137,5143135,2452074
