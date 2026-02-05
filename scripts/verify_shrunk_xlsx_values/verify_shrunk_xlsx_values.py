@@ -169,7 +169,7 @@ def list_xlsx_files(folder: Path) -> Dict[str, Path]:
 # ----------------------------
 # Path length handling (Windows MAX_PATH workaround)
 # ----------------------------
-MAX_EXCEL_PATH_LEN = 200  # as requested
+MAX_EXCEL_PATH_LEN = 180  # as requested
 
 
 def _abs_path_str(p: Path) -> str:
