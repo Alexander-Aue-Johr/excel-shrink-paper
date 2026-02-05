@@ -300,12 +300,14 @@ TSWLatexianTemp*
 # Uncomment the next line to have this generated file ignored.
 #*Notes.bib
 
-scripts/loading_times_size_reduction/input/*
-scripts/loading_times_size_reduction/second_shrinkage_shrunk_files/*
-scripts/loading_times_size_reduction/shrunk_files/*
+
+scripts/loading_times_size_reduction/**/*.xlsx
 scripts/scrape_destatis_xlsx_files/downloaded/*
-scripts/scrape-data-gov-xlsx-files/downloaded/*
+scripts/analyze_destatis_xlsx_files/shrinked_by_excel_shrink_backup/*
+scripts/scrape_data_gov_xlsx_files/downloaded/*
 scripts/analyze_destatis_xlsx_files/shrinked_by_analyzer/*
 scripts/analyze_destatis_xlsx_files/shrinked_by_excel_shrink/*
+scripts/analyze_destatis_xlsx_files/fixed_original_corrupt_destatis_files/*
+scripts/analyze_data_gov_xlsx_files/shrinked_by_excel_shrink/*
 
 **/__pycache__/*
