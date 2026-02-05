@@ -30,7 +30,9 @@ from excel_shrink_workers import (
 verbose: bool = False
 
 
-def gather_xlsx_files_in_directory(path: str, recursive: bool = False) -> List[str]:
+def gather_xlsx_files_in_directory(
+    path: str, recursive: bool = False, force_overwrite: bool = False
+) -> List[str]:
     if os.path.isfile(path) and path.lower().endswith(".xlsx"):
         return [path]
 
@@ -719,6 +721,13 @@ def main(
     create_output_directory(output_path, force_overwrite=force_overwrite)
 
     xlsx_files = gather_xlsx_files_in_directory(path, recursive=recursive)
+
+    if not force_overwrite:
+        xlsx_files = [
+            f
+            for f in xlsx_files
+            if not os.path.exists(os.path.join(output_path, os.path.basename(f)))
+        ]
 
     if disable_mp:
         clean_xlsx_parameters_list = (
