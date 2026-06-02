@@ -20,10 +20,10 @@ from html import unescape
 BASE_URL: str = "https://www.destatis.de"
 FORM_URL: str = "SiteGlobals/Forms/Suche/Servicesuche_Formular.html"
 DOWNLOAD_FOLDER: str = os.path.join(
-    "scripts", "scrape-destatis-xlsx-files", "downloaded"
+    "scripts", "scrape_destatis_xlsx_files", "downloaded"
 )
 CSV_FILE: str = os.path.join(
-    "scripts", "scrape-destatis-xlsx-files", "downloaded_links.csv"
+    "scripts", "scrape_destatis_xlsx_files", "downloaded_links.csv"
 )
 
 
@@ -286,7 +286,7 @@ def scrape_urls(
 
 def download_files(file_records: List[FileRecord], crawl_delay: float) -> None:
     """
-    Download files based on the list of FileRecord objects,.
+    Download files based on the list of FileRecord objects.
 
     Args:
         file_records (List[FileRecord]): A list of FileRecord objects to download.
