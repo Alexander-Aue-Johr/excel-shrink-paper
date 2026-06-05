@@ -77,7 +77,7 @@ def replace_row(
             return generate_and_log_deleted_row(metrics, row_attributes)
 
         if became_empty_by_cleaning:
-            add_custom_height_if_absent(row_attr_str)
+            row_attr_str = add_custom_height_if_absent(row_attr_str)
         return generate_and_log_self_closing_row(
             row_attr_str, params, metrics, row_attributes
         )
