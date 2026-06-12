@@ -1,7 +1,7 @@
 File,Program,Shrink Time (s),Shrink Time on shrunk file (s),Original Peak Memory,Shrinked Peak Memory,Original Size (bytes),Shrinked Size (bytes),Shrinked Size after Second Shrinkage (bytes)
-QT_RR data_dobutamine challenge test_Hazari_Dec 2015.xlsx,Excel Shrink,15.214318599999956,5.0345821999999885,1198616576,362930176,121949169,3223081,3223081
-QT_RR data_dobutamine challenge test_Hazari_Dec 2015.xlsx,Excel Shrink (single-core),86.54224970000001,8.078678800000034,165748736,42307584,121949169,3223081,3223081
-QT_RR data_dobutamine challenge test_Hazari_Dec 2015.xlsx,Excel Shrink (no-split-sheetdata),30.117631099999983,4.974678600000004,3836891136,368467968,121949169,3223081,3223081
-statistischer-bericht-kernhaushalt-gemeinden.xlsx,Excel Shrink,19.518415600000026,5.294004199999563,936517632,368742400,89367137,2452088,2452056
-statistischer-bericht-kernhaushalt-gemeinden.xlsx,Excel Shrink (single-core),81.20627729999978,6.2698584999998275,178601984,52154368,89367137,2452067,2452042
-statistischer-bericht-kernhaushalt-gemeinden.xlsx,Excel Shrink (no-split-sheetdata),40.414791199999854,4.279828700000053,3330269184,363008000,89367137,5143113,2452088
+QT_RR data_dobutamine challenge test_Hazari_Dec 2015.xlsx,Excel Shrink Rust,9.016023499978473,0.7247351999976672,4073508864,294105088,121949169,4548403,4548403
+QT_RR data_dobutamine challenge test_Hazari_Dec 2015.xlsx,Excel Shrink Rust (single-core),51.754048900009366,2.930752600019332,1355542528,286502912,121949169,4548403,4548403
+QT_RR data_dobutamine challenge test_Hazari_Dec 2015.xlsx,Excel Shrink Rust (no-split-sheetdata),16.88581740000518,0.741123299987521,9485070336,289087488,121949169,4548403,4548403
+statistischer-bericht-kernhaushalt-gemeinden.xlsx,Excel Shrink Rust,7.450975099985953,0.9830175999959465,2063597568,235278336,89367137,3392141,3392091
+statistischer-bericht-kernhaushalt-gemeinden.xlsx,Excel Shrink Rust (single-core),32.03044279999449,2.3570571999880485,682209280,217022464,89367137,3392141,3392091
+statistischer-bericht-kernhaushalt-gemeinden.xlsx,Excel Shrink Rust (no-split-sheetdata),40.663376400014386,0.978354400023818,7839612928,234737664,89367137,3392141,3392091

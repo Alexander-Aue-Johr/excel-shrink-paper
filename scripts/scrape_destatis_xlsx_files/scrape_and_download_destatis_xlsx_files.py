@@ -11,11 +11,16 @@ import time
 import requests
 import csv
 import argparse
+import shutil
+import subprocess
 from dataclasses import dataclass
+from pathlib import Path
 from typing import List, Set
 from urllib.parse import urljoin, urlsplit, urlparse, urlunparse, parse_qsl, urlencode
 from lxml import etree
 from html import unescape
+
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
 
 BASE_URL: str = "https://www.destatis.de"
 FORM_URL: str = "SiteGlobals/Forms/Suche/Servicesuche_Formular.html"
@@ -24,6 +29,12 @@ DOWNLOAD_FOLDER: str = os.path.join(
 )
 CSV_FILE: str = os.path.join(
     "scripts", "scrape_destatis_xlsx_files", "downloaded_links.csv"
+)
+ORIGINAL_FILES_REPO_URL: str = (
+    "https://github.com/Alexander-Aue-Johr/original_destatis_xlsx_files"
+)
+ORIGINAL_FILES_REPO_DIR: str = os.path.join(
+    "external", "original_destatis_xlsx_files"
 )
 
 
@@ -110,6 +121,93 @@ def create_folder_if_not_exists(folder: str) -> None:
     """
     if not os.path.exists(folder):
         os.makedirs(folder)
+
+
+def run_command(command: List[str], cwd: Path) -> None:
+    print()
+    print("+", " ".join(command))
+    subprocess.run(command, cwd=str(cwd), check=True)
+
+
+def resolve_project_path(path_text: str) -> Path:
+    path = Path(path_text)
+    if path.is_absolute():
+        return path
+    return PROJECT_ROOT / path
+
+
+def ensure_original_files_repo(repo_url: str, repo_dir: str, update: bool) -> Path:
+    repo_path = resolve_project_path(repo_dir)
+
+    if not repo_path.exists():
+        repo_path.parent.mkdir(parents=True, exist_ok=True)
+        run_command(["git", "clone", repo_url, str(repo_path)], cwd=PROJECT_ROOT)
+        return repo_path
+
+    if update:
+        if (repo_path / ".git").exists():
+            run_command(["git", "pull", "--ff-only"], cwd=repo_path)
+        else:
+            print(f"Warning: {repo_path} exists, but is not a Git checkout.")
+
+    return repo_path
+
+
+def is_git_lfs_pointer(file_path: Path) -> bool:
+    try:
+        with file_path.open("rb") as file:
+            return file.read(64).startswith(
+                b"version https://git-lfs.github.com/spec/v1"
+            )
+    except OSError:
+        return False
+
+
+def seed_download_folder_from_original_repo(
+    repo_url: str, repo_dir: str, download_folder: str, update: bool
+) -> None:
+    """
+    Clone/update a repository with original XLSX files and copy missing files into
+    the normal download folder. Existing files are left untouched, so the CSV
+    download step can still fill any remaining gaps afterwards.
+    """
+    try:
+        repo_path = ensure_original_files_repo(repo_url, repo_dir, update)
+    except (OSError, subprocess.CalledProcessError) as error:
+        print(f"Warning: Could not load original Destatis files from Git: {error}")
+        return
+
+    download_path = resolve_project_path(download_folder)
+    download_path.mkdir(parents=True, exist_ok=True)
+
+    copied_count = 0
+    existing_count = 0
+    pointer_count = 0
+
+    for source_file in repo_path.rglob("*"):
+        if not source_file.is_file() or source_file.suffix.lower() != ".xlsx":
+            continue
+        if ".git" in source_file.relative_to(repo_path).parts:
+            continue
+
+        target_file = download_path / source_file.name
+        if target_file.exists():
+            existing_count += 1
+            continue
+
+        if is_git_lfs_pointer(source_file):
+            pointer_count += 1
+            continue
+
+        shutil.copy2(source_file, target_file)
+        copied_count += 1
+
+    print(
+        "Original Destatis seed complete: "
+        f"{copied_count} copied, {existing_count} already present"
+        + (f", {pointer_count} Git LFS pointer files skipped" if pointer_count else "")
+        + "."
+    )
 
 
 def download_file(url: str, folder: str, file_name: str) -> None:
@@ -332,11 +430,40 @@ def main() -> None:
         action="store_true",
         help="If set, skip scraping and download files from the CSV log only.",
     )
+    parser.add_argument(
+        "--seed_from_original_repo",
+        action="store_true",
+        help="Clone/copy original Destatis XLSX files before downloading missing CSV entries.",
+    )
+    parser.add_argument(
+        "--original_repo_url",
+        default=ORIGINAL_FILES_REPO_URL,
+        help="Git URL of the repository containing original Destatis XLSX files.",
+    )
+    parser.add_argument(
+        "--original_repo_dir",
+        default=ORIGINAL_FILES_REPO_DIR,
+        help="Local checkout directory for the original Destatis XLSX repository.",
+    )
+    parser.add_argument(
+        "--update_original_repo",
+        action="store_true",
+        help="Run git pull --ff-only before copying files from the original repository.",
+    )
     args = parser.parse_args()
 
     crawl_delay: float = args.crawl_delay
 
     create_folder_if_not_exists(DOWNLOAD_FOLDER)
+
+    if args.seed_from_original_repo:
+        seed_download_folder_from_original_repo(
+            args.original_repo_url,
+            args.original_repo_dir,
+            DOWNLOAD_FOLDER,
+            args.update_original_repo,
+        )
+
     cached_file_records: List[FileRecord] = load_file_records_from_csv(CSV_FILE)
 
     if args.skip_scraping:

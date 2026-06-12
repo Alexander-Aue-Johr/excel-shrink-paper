@@ -47,13 +47,23 @@ CHART_OUTPUT_PATH: Path = (
     SCRIPT_DIR / "charts" / "time_and_filesize_comparison_by_file.pdf"
 )
 
-EXCEL_SHRINK_SCRIPT: Path = SCRIPT_DIR.parent / "excel_shrink" / "excel_shrink.py"
+EXCEL_SHRINK_SCRIPT: Path = (
+    SCRIPT_DIR.parent / "excel_shrink_rust" / "run_excel_shrink_rust.py"
+)
+PYTHON_EXCEL_SHRINK_SCRIPT: Path = SCRIPT_DIR.parent / "excel_shrink" / "excel_shrink.py"
 OLD_ANALYSER_SCRIPT: Path = (
     SCRIPT_DIR.parent.parent / "excel_shrink_analyzer" / "excel_shrink_analyzer.py"
 )
 
 EXCEL_SHRINK_SINGLE_CORE_ARGS = ["--disable-multiprocessing"]
 EXCEL_SHRINK_NO_SPLIT_ARGS = ["--disable-sheetdata-splitting"]
+EXCEL_SHRINK_RUST_DEFAULT_ARGS = [
+    "--preprocess-hidden-rows",
+    "--preprocess-empty-cells",
+    "--remove-unreferenced-whitespace-cells",
+    "--remove-unreferenced-hidden-content-cells",
+]
+DEFAULT_SHRINK_LIBRARY = "Excel Shrink Rust"
 
 
 # ----------------------------
@@ -186,7 +196,7 @@ def benchmark_excel_com(
             subprocess.run(
                 [
                     sys.executable,
-                    str(EXCEL_SHRINK_SCRIPT),
+                    str(PYTHON_EXCEL_SHRINK_SCRIPT),
                     str(file_path),
                     str(shrink_dir),
                     "--only-clean-workbook",
@@ -420,12 +430,16 @@ class ShrinkVariant:
 
 
 SHRINK_VARIANTS: list[ShrinkVariant] = [
-    ShrinkVariant("Excel Shrink", [], "default"),
+    ShrinkVariant(DEFAULT_SHRINK_LIBRARY, [], "default"),
     ShrinkVariant(
-        "Excel Shrink (single-core)", EXCEL_SHRINK_SINGLE_CORE_ARGS, "single_core"
+        "Excel Shrink Rust (single-core)",
+        EXCEL_SHRINK_SINGLE_CORE_ARGS,
+        "single_core",
     ),
     ShrinkVariant(
-        "Excel Shrink (no-split-sheetdata)", EXCEL_SHRINK_NO_SPLIT_ARGS, "no_split"
+        "Excel Shrink Rust (no-split-sheetdata)",
+        EXCEL_SHRINK_NO_SPLIT_ARGS,
+        "no_split",
     ),
 ]
 
@@ -449,6 +463,7 @@ def run_excel_shrink_variant(
         str(chunk_size),
         "--force-overwrite",
     ]
+    cmd.extend(EXCEL_SHRINK_RUST_DEFAULT_ARGS)
     cmd.extend(variant.extra_args)
 
     log.info("Running %s on %s", variant.name, original_file.name)
@@ -499,6 +514,10 @@ def controller_main(args: argparse.Namespace) -> None:
         {
             "url": "https://pasteur.epa.gov/uploads/10.23719/1503098/QT_RR%20data_dobutamine%20challenge%20test_Hazari_Dec%202015.xlsx",
             "filename": "QT_RR data_dobutamine challenge test_Hazari_Dec 2015.xlsx",
+        },
+        {
+            "url": "https://www.destatis.de/DE/Themen/Gesellschaft-Umwelt/Bevoelkerung/Wanderungen/Publikationen/Downloads-Wanderungen/wanderungen-2010120217005.xlsx?__blob=publicationFile",
+            "filename": "wanderungen-2010120217005.xlsx",
         },
     ]
 
@@ -921,13 +940,13 @@ def _generate_complex_chart(df_lib: pd.DataFrame, df_shrink: pd.DataFrame) -> No
         ("Microsoft Excel", "darkgreen", "limegreen"),
         ("R openxlsx", "red", "firebrick"),
         ("R readxl+writexl", "chocolate", "sienna"),
-        ("Excel Shrink", "mediumpurple", "purple"),
+        (DEFAULT_SHRINK_LIBRARY, "mediumpurple", "purple"),
     ]
     n_libs = len(library_info)
 
     extra_run_info: list[tuple[str, str]] = [
-        ("Excel Shrink (single-core)", "slateblue"),
-        ("Excel Shrink (no-split-sheetdata)", "teal"),
+        ("Excel Shrink Rust (single-core)", "slateblue"),
+        ("Excel Shrink Rust (no-split-sheetdata)", "teal"),
     ]
     n_extra = len(extra_run_info)
 
@@ -958,7 +977,7 @@ def _generate_complex_chart(df_lib: pd.DataFrame, df_shrink: pd.DataFrame) -> No
 
     # Precompute once (used repeatedly)
     libraries_no_shrink = [
-        (n, co, cs) for (n, co, cs) in library_info if n != "Excel Shrink"
+        (n, co, cs) for (n, co, cs) in library_info if n != DEFAULT_SHRINK_LIBRARY
     ]
 
     # -----------------
@@ -966,7 +985,7 @@ def _generate_complex_chart(df_lib: pd.DataFrame, df_shrink: pd.DataFrame) -> No
     # -----------------
     for i, f in enumerate(files):
         base = float(y_positions_top[i])
-        shrink_t = shrink_value(f, "Excel Shrink", "Shrink Time (s)")
+        shrink_t = shrink_value(f, DEFAULT_SHRINK_LIBRARY, "Shrink Time (s)")
 
         # Original runs (libraries excluding Excel Shrink)
         for lib_index, (lib_name, c_open, c_save) in enumerate(libraries_no_shrink):
@@ -998,9 +1017,9 @@ def _generate_complex_chart(df_lib: pd.DataFrame, df_shrink: pd.DataFrame) -> No
             else:
                 shrink_label = ""
 
-            if lib_name == "Excel Shrink":
+            if lib_name == DEFAULT_SHRINK_LIBRARY:
                 shrink_t2 = shrink_value(
-                    f, "Excel Shrink", "Shrink Time on shrunk file (s)"
+                    f, DEFAULT_SHRINK_LIBRARY, "Shrink Time on shrunk file (s)"
                 )
                 draw_stacked_barh(
                     ax_time,
@@ -1069,8 +1088,11 @@ def _generate_complex_chart(df_lib: pd.DataFrame, df_shrink: pd.DataFrame) -> No
     pairs = [(h, l) for h, l in zip(handles, labels) if l]
     seen: "OrderedDict[str, Any]" = OrderedDict()
     for h, l in pairs:
-        if "Excel Shrink" in l and "shrunk" in l:
-            l = l.replace("Excel Shrink shrunk save", "Second Excel Shrink run")
+        if DEFAULT_SHRINK_LIBRARY in l and "shrunk" in l:
+            l = l.replace(
+                f"{DEFAULT_SHRINK_LIBRARY} shrunk save",
+                "Second Excel Shrink Rust run",
+            )
         if "shrunk" in l:
             continue
         if l not in seen:
@@ -1080,7 +1102,7 @@ def _generate_complex_chart(df_lib: pd.DataFrame, df_shrink: pd.DataFrame) -> No
     # -----------------
     # SIZE section
     # -----------------
-    default_sizes = df_shrink[df_shrink["Library"] == "Excel Shrink"].copy()
+    default_sizes = df_shrink[df_shrink["Library"] == DEFAULT_SHRINK_LIBRARY].copy()
     size_by_file = default_sizes.set_index("File")[
         ["Original Size (bytes)", "Shrinked Size (bytes)"]
     ]
@@ -1179,9 +1201,9 @@ def _generate_complex_chart(df_lib: pd.DataFrame, df_shrink: pd.DataFrame) -> No
         "Microsoft Excel",
         "R openxlsx",
         "R readxl+writexl",
-        "Excel Shrink",
-        "Excel Shrink (single-core)",
-        "Excel Shrink (no-split-sheetdata)",
+        DEFAULT_SHRINK_LIBRARY,
+        "Excel Shrink Rust (single-core)",
+        "Excel Shrink Rust (no-split-sheetdata)",
     ]
 
     if not df_lib.empty:
@@ -1210,9 +1232,10 @@ def _generate_complex_chart(df_lib: pd.DataFrame, df_shrink: pd.DataFrame) -> No
 
     def pretty_mem_label(lib: str) -> str:
         return lib.replace(
-            "Excel Shrink (single-core)", "Excel Shrink\n(single-core)"
+            "Excel Shrink Rust (single-core)", "Excel Shrink Rust\n(single-core)"
         ).replace(
-            "Excel Shrink (no-split-sheetdata)", "Excel Shrink\n(no-split-sheetdata)"
+            "Excel Shrink Rust (no-split-sheetdata)",
+            "Excel Shrink Rust\n(no-split-sheetdata)",
         )
 
     for ax, file_name in zip(mem_axes, files):

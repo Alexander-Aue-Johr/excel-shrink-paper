@@ -15,7 +15,8 @@ Behaviours requested:
     -> Scrape CKAN and append new URLs even if CSV exists.
 - No max-files limit, no size threshold.
 - Reject HTML masquerading as xlsx, reject non-zip, reject Excel-open failures.
-- Handle duplicate filenames by renaming with (2), (3), ...
+- Handle duplicate filenames by reusing identical content or suffixing different
+  content with a short content hash.
 - Record invalid downloads in CSV (and delete unless --keep-invalid).
 
 Windows requirement:
@@ -44,6 +45,7 @@ CKAN_BASE = "https://catalog.data.gov/api/3/action"
 PACKAGE_SEARCH = f"{CKAN_BASE}/package_search"
 
 UA = "xlsx-bulk-downloader/2.1 (+research; contact: none)"
+PROXY_ENV_VARS = ("HTTP_PROXY", "HTTPS_PROXY", "ALL_PROXY")
 
 
 @dataclass(frozen=True)
@@ -60,6 +62,32 @@ class ResourceHit:
 
 def ensure_dir(p: Path) -> None:
     p.mkdir(parents=True, exist_ok=True)
+
+
+def configured_proxy_env_vars() -> Dict[str, str]:
+    return {
+        name: value
+        for name in PROXY_ENV_VARS
+        if (value := os.environ.get(name) or os.environ.get(name.lower()))
+    }
+
+
+def response_diagnostic_headers(response: requests.Response | None) -> str:
+    if response is None:
+        return ""
+    interesting = (
+        "X-Cache",
+        "X-Amz-Cf-Pop",
+        "X-Amz-Cf-Id",
+        "X-Vcap-Request-Id",
+        "Via",
+    )
+    parts = [
+        f"{name}={value}"
+        for name in interesting
+        if (value := response.headers.get(name))
+    ]
+    return "; ".join(parts)
 
 
 def safe_filename(name: str, max_len: int = 180) -> str:
@@ -108,6 +136,42 @@ def sha256_file(path: Path, chunk_size: int = 1024 * 1024) -> str:
     return h.hexdigest()
 
 
+def filename_with_content_hash(name: str, digest: str, hash_len: int = 12) -> str:
+    p = Path(name)
+    return safe_filename(f"{p.stem}_{digest[:hash_len]}{p.suffix}")
+
+
+def content_hash_filename(download_dir: Path, original_name: str, digest: str) -> str:
+    candidate = filename_with_content_hash(original_name, digest)
+    candidate_path = download_dir / candidate
+    if not candidate_path.exists():
+        return candidate
+    try:
+        if sha256_file(candidate_path) == digest:
+            return candidate
+    except Exception:
+        pass
+
+    p = Path(candidate)
+    i = 2
+    while True:
+        next_candidate = safe_filename(f"{p.stem}_{i}{p.suffix}")
+        next_path = download_dir / next_candidate
+        if not next_path.exists():
+            return next_candidate
+        try:
+            if sha256_file(next_path) == digest:
+                return next_candidate
+        except Exception:
+            pass
+        i += 1
+
+
+def temp_download_path(download_dir: Path, url: str) -> Path:
+    digest = hashlib.sha256(f"{url}\0{time.time_ns()}".encode("utf-8")).hexdigest()
+    return download_dir / f".download-{digest[:16]}.xlsx"
+
+
 def validate_xlsx_is_zip(path: Path) -> Tuple[bool, str]:
     try:
         with zipfile.ZipFile(path, "r") as zf:
@@ -147,9 +211,53 @@ def iter_ckan_xlsx_hits(
     start = 0
     fq = 'res_format:("XLSX" OR "xlsx" OR "EXCEL" OR "Excel")'
     for _ in range(max_pages):
-        params = {"q": query, "fq": fq, "rows": page_size, "start": start}
-        r = session.get(PACKAGE_SEARCH, params=params, timeout=60)
-        r.raise_for_status()
+        search_attempts = []
+
+        filtered_params = {"fq": fq, "rows": page_size, "start": start}
+        if query:
+            filtered_params["q"] = query
+        search_attempts.append(("format-filtered query", filtered_params))
+
+        if query:
+            search_attempts.append(
+                ("query without fq", {"q": query, "rows": page_size, "start": start})
+            )
+        else:
+            search_attempts.append(
+                ("xlsx query without fq", {"q": "xlsx", "rows": page_size, "start": start})
+            )
+
+        search_attempts.append(("unfiltered query", {"rows": page_size, "start": start}))
+
+        r = None
+        for attempt_name, params in search_attempts:
+            r = session.get(PACKAGE_SEARCH, params=params, timeout=60)
+            try:
+                r.raise_for_status()
+                if attempt_name != "format-filtered query":
+                    print(
+                        "CKAN package_search succeeded with fallback "
+                        f"{attempt_name} at start={start}. url={r.url}"
+                    )
+                break
+            except requests.HTTPError as exc:
+                if r.status_code == 404:
+                    print(
+                        "CKAN package_search returned HTTP 404 for "
+                        f"{attempt_name} at start={start}. url={r.url}"
+                    )
+                    continue
+                raise exc
+        else:
+            print(
+                "SKIP CKAN scrape: package_search returned HTTP 404 for all "
+                f"fallback queries at start={start}."
+            )
+            diagnostic = response_diagnostic_headers(r)
+            if diagnostic:
+                print(f"Last 404 response headers: {diagnostic}")
+            return
+
         data = r.json()
         if not data.get("success"):
             raise RuntimeError(f"CKAN API returned success=false: {data}")
@@ -362,10 +470,14 @@ def should_retry_row(
     - Else: retry failures/invalids + missing
     """
     status = (row.get("status") or "").strip()
+    http_status = (row.get("http_status") or "").strip()
     final_name = (row.get("final_filename") or "").strip()
     url = (row.get("url") or "").strip()
 
     if not url:
+        return False
+
+    if status == "failed" and http_status == "404":
         return False
 
     if status in {"downloaded", "downloaded_renamed"} and final_name:
@@ -412,15 +524,16 @@ def process_one_url(
     if not original_name.lower().endswith(".xlsx"):
         original_name = original_name + ".xlsx"
 
-    final_name = original_name
     comment = ""
-    if final_name in used_file_names or (download_dir / final_name).exists():
-        final_name, comment = uniquify_filename(download_dir, final_name)
-
-    dest = download_dir / final_name
+    dest = temp_download_path(download_dir, url)
 
     ok, dl_note, http_status = download_file(sess, url, dest)
     if not ok:
+        if http_status == 404:
+            print(f"SKIP HTTP 404: {url}", flush=True)
+        else:
+            print(f"SKIP download failed ({dl_note}): {url}", flush=True)
+
         append_csv_row(
             csv_path,
             {
@@ -440,13 +553,82 @@ def process_one_url(
         time.sleep(sleep_s)
         return False, ""
 
+    size = dest.stat().st_size
+    digest = sha256_file(dest)
+    reused_existing_file = False
+
+    final_name = original_name
+    final_path = download_dir / final_name
+    if final_path.exists():
+        existing_digest = sha256_file(final_path)
+        if existing_digest == digest:
+            comment = (
+                f'duplicate_filename_same_content (reused="{final_name}", '
+                f'sha256="{digest}")'
+            )
+            try:
+                dest.unlink(missing_ok=True)
+            except Exception:
+                pass
+            append_csv_row(
+                csv_path,
+                {
+                    "timestamp_utc": ts,
+                    "status": "downloaded",
+                    "note": comment,
+                    "http_status": http_status if http_status != -1 else "",
+                    **meta,
+                    "url": url,
+                    "original_filename": original_name,
+                    "final_filename": final_name,
+                    "relative_path": str(final_path.relative_to(out_dir)),
+                    "bytes": size,
+                    "sha256": digest,
+                },
+            )
+            used_file_names.add(final_name)
+            time.sleep(sleep_s)
+            return True, final_name
+
+        final_name = content_hash_filename(download_dir, original_name, digest)
+        final_path = download_dir / final_name
+        comment = (
+            f'renamed_due_to_duplicate_filename_different_content '
+            f'(original="{original_name}", sha256="{digest}")'
+        )
+    elif final_name in used_file_names:
+        final_name = content_hash_filename(download_dir, original_name, digest)
+        final_path = download_dir / final_name
+        comment = (
+            f'renamed_due_to_duplicate_filename_without_local_file '
+            f'(original="{original_name}", sha256="{digest}")'
+        )
+
+    if final_path.exists():
+        existing_digest = sha256_file(final_path)
+        if existing_digest == digest:
+            try:
+                dest.unlink(missing_ok=True)
+            except Exception:
+                pass
+            dest = final_path
+            size = dest.stat().st_size
+            reused_existing_file = True
+        else:
+            final_name, extra_comment = uniquify_filename(download_dir, final_name)
+            final_path = download_dir / final_name
+            comment = f"{comment}; {extra_comment}" if comment else extra_comment
+            dest.replace(final_path)
+            dest = final_path
+    else:
+        dest.replace(final_path)
+        dest = final_path
+
     zip_ok, zip_note = validate_xlsx_is_zip(dest)
     if not zip_ok:
         note = f"not_a_real_xlsx_container: {zip_note}"
         if comment:
             note = f"{note}; {comment}"
-        size = dest.stat().st_size
-        digest = sha256_file(dest)
         append_csv_row(
             csv_path,
             {
@@ -463,7 +645,7 @@ def process_one_url(
                 "sha256": digest,
             },
         )
-        if not keep_invalid:
+        if not keep_invalid and not reused_existing_file:
             try:
                 dest.unlink(missing_ok=True)
             except Exception:
@@ -476,8 +658,6 @@ def process_one_url(
         note = f"not_openable_in_excel (treated_as_corrupt_or_not_real_excel): {excel_note}"
         if comment:
             note = f"{note}; {comment}"
-        size = dest.stat().st_size
-        digest = sha256_file(dest)
         append_csv_row(
             csv_path,
             {
@@ -494,7 +674,7 @@ def process_one_url(
                 "sha256": digest,
             },
         )
-        if not keep_invalid:
+        if not keep_invalid and not reused_existing_file:
             try:
                 dest.unlink(missing_ok=True)
             except Exception:
@@ -503,9 +683,6 @@ def process_one_url(
         return False, ""
 
     # Passed all checks -> keep
-    size = dest.stat().st_size
-    digest = sha256_file(dest)
-
     status = "downloaded"
     note = "ok"
     if comment:
@@ -561,6 +738,11 @@ def main() -> int:
         action="store_true",
         help="When CSV exists and not scraping: only download entries whose local file is missing.",
     )
+    ap.add_argument(
+        "--use-env-proxies",
+        action="store_true",
+        help="Use HTTP_PROXY/HTTPS_PROXY/ALL_PROXY from the environment.",
+    )
     args = ap.parse_args()
 
     out_dir = Path(args.out).resolve()
@@ -572,7 +754,15 @@ def main() -> int:
     csv_path = out_dir / "downloaded_links.csv"
 
     sess = requests.Session()
+    sess.trust_env = args.use_env_proxies
     sess.headers.update({"User-Agent": UA})
+    proxy_env = configured_proxy_env_vars()
+    if proxy_env and not args.use_env_proxies:
+        formatted = ", ".join(f"{name}={value}" for name, value in proxy_env.items())
+        print(
+            "Ignoring proxy environment variables for HTTP requests "
+            f"({formatted}). Pass --use-env-proxies to enable them."
+        )
 
     excel = ExcelValidator()
 
