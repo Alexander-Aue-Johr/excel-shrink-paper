@@ -362,10 +362,14 @@ def should_retry_row(
     - Else: retry failures/invalids + missing
     """
     status = (row.get("status") or "").strip()
+    http_status = (row.get("http_status") or "").strip()
     final_name = (row.get("final_filename") or "").strip()
     url = (row.get("url") or "").strip()
 
     if not url:
+        return False
+
+    if status == "failed" and http_status == "404":
         return False
 
     if status in {"downloaded", "downloaded_renamed"} and final_name:
@@ -421,6 +425,11 @@ def process_one_url(
 
     ok, dl_note, http_status = download_file(sess, url, dest)
     if not ok:
+        if http_status == 404:
+            print(f"SKIP HTTP 404: {url}", flush=True)
+        else:
+            print(f"SKIP download failed ({dl_note}): {url}", flush=True)
+
         append_csv_row(
             csv_path,
             {

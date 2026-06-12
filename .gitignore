@@ -309,5 +309,11 @@ scripts/analyze_destatis_xlsx_files/shrinked_by_analyzer/*
 scripts/analyze_destatis_xlsx_files/shrinked_by_excel_shrink/*
 scripts/analyze_destatis_xlsx_files/fixed_original_corrupt_destatis_files/*
 scripts/analyze_data_gov_xlsx_files/shrinked_by_excel_shrink/*
+/external/excel-shrink-rust/
+/external/original_destatis_xlsx_files/
+/scripts/analyze_destatis_xlsx_files/shrinked_by_excel_shrink_rust/
+/scripts/analyze_destatis_xlsx_files/report_rust.json
+/scripts/analyze_destatis_xlsx_files/*.log
+/scripts/analyze_destatis_xlsx_files/*.tmp
 
 **/__pycache__/*

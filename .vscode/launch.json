@@ -42,6 +42,8 @@
             "args": [
                 "--crawl_delay",
                 "30",
+                "--seed_from_original_repo",
+                "--update_original_repo",
                 "--skip_scraping"
             ]
         },
@@ -69,6 +71,14 @@
             "preLaunchTask": "py:bootstrap"
         },
         {
+            "name": "Generate Distribution of Size Reduction Chart (excel-shrink-rust)",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "scripts/analyze_destatis_xlsx_files/generate_distribution_of_size_reduction_chart_rust.py",
+            "python": "${workspaceFolder}/.venv/Scripts/python",
+            "preLaunchTask": "py:bootstrap"
+        },
+        {
             "name": "Shrink Destatis XLSX Files (excel-shrink)",
             "type": "debugpy",
             "request": "launch",
@@ -81,6 +91,27 @@
                 "--recursive",
                 "--chunk-size",
                 "2097152",
+            ]
+        },
+        {
+            "name": "Shrink Destatis XLSX Files (excel-shrink-rust)",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "scripts/excel_shrink_rust/run_excel_shrink_rust.py",
+            "python": "${workspaceFolder}/.venv/Scripts/python",
+            "preLaunchTask": "py:bootstrap",
+            "args": [
+                "scripts/scrape_destatis_xlsx_files/downloaded",
+                "scripts/analyze_destatis_xlsx_files/shrinked_by_excel_shrink_rust",
+                "--recursive",
+                "--force-overwrite",
+                "--analysis-mode",
+                "--analysis-csv",
+                "scripts/analyze_destatis_xlsx_files/excel_shrink_rust_analysis.csv",
+                "--preprocess-hidden-rows",
+                "--preprocess-empty-cells",
+                "--remove-unreferenced-whitespace-cells",
+                "--remove-unreferenced-hidden-content-cells"
             ]
         },
         {
@@ -112,6 +143,36 @@
             ]
         },
         {
+            "name": "Verify same values of shrunk Destatis files with original (excel-shrink-rust)",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "scripts/verify_shrunk_xlsx_values/verify_shrunk_xlsx_values.py",
+            "python": "${workspaceFolder}/.venv/Scripts/python",
+            "preLaunchTask": "py:bootstrap",
+            "args": [
+                "scripts\\analyze_destatis_xlsx_files\\fixed_original_corrupt_destatis_files",
+                "scripts\\analyze_destatis_xlsx_files\\shrinked_by_excel_shrink_rust",
+                "--out",
+                "scripts\\analyze_destatis_xlsx_files\\report_rust.json"
+            ]
+        },
+        {
+            "name": "Compare Excel File Sizes (Destatis excel-shrink-rust)",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/scripts/compare_filesizes.py",
+            "python": "${workspaceFolder}/.venv/Scripts/python",
+            "preLaunchTask": "py:bootstrap",
+            "args": [
+                "scripts/scrape_destatis_xlsx_files/downloaded",
+                "scripts/analyze_destatis_xlsx_files/shrinked_by_excel_shrink_rust",
+                "--abs-count",
+                "100",
+                "--rel-count",
+                "100"
+            ]
+        },
+        {
             "name": "Scrape and Download Data.gov XLSX Files",
             "type": "debugpy",
             "request": "launch",
@@ -131,7 +192,10 @@
             "program": "scripts\\scrape_data_gov_xlsx_files\\scrape_and_download_data_gov_xlsx_files.py",
             "python": "${workspaceFolder}/.venv/Scripts/python",
             "preLaunchTask": "py:bootstrap",
-            "args": []
+            "args": [
+                "--out",
+                "scripts\\scrape_data_gov_xlsx_files\\"
+            ]
         },
         {
             "name": "Verify same values of shrunk data.gov files with original",
