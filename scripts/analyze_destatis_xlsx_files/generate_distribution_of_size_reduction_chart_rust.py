@@ -35,6 +35,12 @@ FILE_CHART_OUTPUT_PATH = Path(
 
 FILE_CHART_PREVIEW_OUTPUT_PATH = FILE_CHART_OUTPUT_PATH.with_suffix(".png")
 
+BLOATIEST_EXAMPLES_OUTPUT_PATH = Path(
+    "scripts",
+    "analyze_destatis_xlsx_files",
+    "bloatiest_reduction_examples_rust.csv",
+)
+
 
 @dataclass(frozen=True)
 class CausePanel:
@@ -283,6 +289,263 @@ def build_file_distribution_data(data: pd.DataFrame) -> pd.DataFrame:
     return result
 
 
+def build_sheet_example_data(data: pd.DataFrame) -> pd.DataFrame:
+    group_keys = ["input_file", "sheet_file"]
+    long_data = build_long_format_reductions(data)
+
+    result = (
+        long_data.groupby(group_keys, as_index=False)
+        .agg(
+            original_size=("original_sheet_xml_bytes", "max"),
+            cleaned_size=("cleaned_sheet_xml_bytes", "min"),
+        )
+    )
+
+    cause_bytes = (
+        long_data.pivot_table(
+            index=group_keys,
+            columns="cause",
+            values="cause_reduction_bytes",
+            aggfunc="sum",
+            fill_value=0,
+        )
+        .reset_index()
+    )
+    result = result.merge(cause_bytes, on=group_keys, how="left")
+
+    result["overall_reduction_bytes"] = (
+        result["original_size"] - result["cleaned_size"]
+    ).clip(lower=0)
+    original_size = result["original_size"]
+    result["overall_reduction_ratio"] = (
+        result["overall_reduction_bytes"] / original_size
+    ).where(original_size > 0, 0)
+
+    for panel in CAUSE_PANELS:
+        present_causes = [cause for cause in panel.causes if cause in result.columns]
+        byte_column = f"{panel.title} bytes"
+        ratio_column = f"{panel.title} ratio"
+        if present_causes:
+            result[byte_column] = result[present_causes].sum(axis=1).clip(lower=0)
+            result[ratio_column] = (result[byte_column] / original_size).where(
+                original_size > 0, 0
+            )
+        else:
+            result[byte_column] = 0
+            result[ratio_column] = 0
+
+    result["File"] = result["input_file"].map(lambda value: Path(value).name)
+    result["Sheet / Workbook"] = result["sheet_file"].map(
+        lambda value: "Workbook" if value == "xl/workbook.xml" else value
+    )
+
+    return result
+
+
+def build_file_example_data(data: pd.DataFrame) -> pd.DataFrame:
+    sheet_data = build_sheet_example_data(data)
+
+    file_sizes = (
+        sheet_data.groupby("input_file", as_index=False)
+        .agg(
+            original_size=("original_size", "sum"),
+            cleaned_size=("cleaned_size", "sum"),
+            sheet_or_workbook_count=("sheet_file", "size"),
+            mean_sheet_original_size=("original_size", "mean"),
+            mean_sheet_cleaned_size=("cleaned_size", "mean"),
+            mean_sheet_reduction_bytes=("overall_reduction_bytes", "mean"),
+            mean_sheet_reduction_ratio=("overall_reduction_ratio", "mean"),
+        )
+    )
+
+    long_data = build_long_format_reductions(data)
+    cause_bytes = (
+        long_data.pivot_table(
+            index="input_file",
+            columns="cause",
+            values="cause_reduction_bytes",
+            aggfunc="sum",
+            fill_value=0,
+        )
+        .reset_index()
+    )
+    result = file_sizes.merge(cause_bytes, on="input_file", how="left")
+
+    result["overall_reduction_bytes"] = (
+        result["original_size"] - result["cleaned_size"]
+    ).clip(lower=0)
+    original_size = result["original_size"]
+    result["overall_reduction_ratio"] = (
+        result["overall_reduction_bytes"] / original_size
+    ).where(original_size > 0, 0)
+
+    for panel in CAUSE_PANELS:
+        present_causes = [cause for cause in panel.causes if cause in result.columns]
+        byte_column = f"{panel.title} bytes"
+        ratio_column = f"{panel.title} ratio"
+        if present_causes:
+            result[byte_column] = result[present_causes].sum(axis=1).clip(lower=0)
+            result[ratio_column] = (result[byte_column] / original_size).where(
+                original_size > 0, 0
+            )
+        else:
+            result[byte_column] = 0
+            result[ratio_column] = 0
+
+    result["File"] = result["input_file"].map(lambda value: Path(value).name)
+    result["Sheet / Workbook"] = ""
+
+    return result
+
+
+def _example_row(
+    *,
+    scope: str,
+    category: str,
+    category_causes: tuple[str, ...],
+    metric: str,
+    row: pd.Series,
+    bytes_column: str,
+    ratio_column: str,
+) -> dict[str, object]:
+    output = {
+        "scope": scope,
+        "category": category,
+        "category_causes": ";".join(category_causes),
+        "metric": metric,
+        "input_file": row.get("input_file", ""),
+        "file": row.get("File", ""),
+        "sheet_file": row.get("sheet_file", ""),
+        "sheet_or_workbook": row.get("Sheet / Workbook", ""),
+        "original_size_bytes": row.get("original_size", 0),
+        "cleaned_size_bytes": row.get("cleaned_size", 0),
+        "reduction_bytes": row.get(bytes_column, 0),
+        "reduction_ratio": row.get(ratio_column, 0),
+        "reduction_percent": row.get(ratio_column, 0) * 100,
+    }
+
+    optional_columns = [
+        "sheet_or_workbook_count",
+        "mean_sheet_original_size",
+        "mean_sheet_cleaned_size",
+        "mean_sheet_reduction_bytes",
+        "mean_sheet_reduction_ratio",
+    ]
+    for column in optional_columns:
+        output[column] = row.get(column, "")
+
+    return output
+
+
+def _append_top_examples(
+    rows: list[dict[str, object]],
+    data: pd.DataFrame,
+    *,
+    scope: str,
+    category: str,
+    category_causes: tuple[str, ...],
+    bytes_column: str,
+    ratio_column: str,
+) -> None:
+    if data.empty:
+        return
+
+    absolute_data = data[data[bytes_column] > 0]
+    if not absolute_data.empty:
+        absolute_row = absolute_data.sort_values(
+            [bytes_column, ratio_column, "original_size"],
+            ascending=[False, False, False],
+        ).iloc[0]
+        rows.append(
+            _example_row(
+                scope=scope,
+                category=category,
+                category_causes=category_causes,
+                metric="absolute_bytes",
+                row=absolute_row,
+                bytes_column=bytes_column,
+                ratio_column=ratio_column,
+            )
+        )
+
+    relative_data = data[data[ratio_column] > PANEL_RATIO_THRESHOLD]
+    if not relative_data.empty:
+        relative_row = relative_data.sort_values(
+            [ratio_column, bytes_column, "original_size"],
+            ascending=[False, False, False],
+        ).iloc[0]
+        rows.append(
+            _example_row(
+                scope=scope,
+                category=category,
+                category_causes=category_causes,
+                metric="relative_ratio",
+                row=relative_row,
+                bytes_column=bytes_column,
+                ratio_column=ratio_column,
+            )
+        )
+
+
+def build_bloatiest_examples(data: pd.DataFrame) -> pd.DataFrame:
+    sheet_data = build_sheet_example_data(data)
+    file_data = build_file_example_data(data)
+    rows: list[dict[str, object]] = []
+
+    categories: list[tuple[str, tuple[str, ...], str, str]] = [
+        (
+            "Overall Reduction",
+            (),
+            "overall_reduction_bytes",
+            "overall_reduction_ratio",
+        ),
+        *(
+            (
+                panel.title,
+                panel.causes,
+                f"{panel.title} bytes",
+                f"{panel.title} ratio",
+            )
+            for panel in CAUSE_PANELS
+        ),
+    ]
+
+    for category, category_causes, bytes_column, ratio_column in categories:
+        _append_top_examples(
+            rows,
+            sheet_data,
+            scope="sheet_or_workbook",
+            category=category,
+            category_causes=category_causes,
+            bytes_column=bytes_column,
+            ratio_column=ratio_column,
+        )
+        _append_top_examples(
+            rows,
+            file_data,
+            scope="excel_file",
+            category=category,
+            category_causes=category_causes,
+            bytes_column=bytes_column,
+            ratio_column=ratio_column,
+        )
+
+    result = pd.DataFrame(rows)
+    if "mean_sheet_reduction_ratio" in result.columns:
+        result["mean_sheet_reduction_percent"] = pd.to_numeric(
+            result["mean_sheet_reduction_ratio"], errors="coerce"
+        ) * 100
+
+    return result
+
+
+def save_bloatiest_examples(data: pd.DataFrame, output_path: Path) -> pd.DataFrame:
+    examples = build_bloatiest_examples(data)
+    os.makedirs(output_path.parent, exist_ok=True)
+    examples.to_csv(output_path, index=False)
+    return examples
+
+
 def report_cause_overview(data: pd.DataFrame) -> None:
     long_data = build_long_format_reductions(data)
     overview = (
@@ -463,9 +726,13 @@ def main() -> None:
         x_axis_label="Excel Files (Index)",
     )
 
+    bloatiest_examples = save_bloatiest_examples(data, BLOATIEST_EXAMPLES_OUTPUT_PATH)
+
     print(f"Read rows: {len(data)}")
     print(f"Plotted sheet/workbook entries: {len(distribution_data)}")
     print(f"Plotted file entries: {len(file_distribution_data)}")
+    print(f"Saved bloatiest examples: {BLOATIEST_EXAMPLES_OUTPUT_PATH}")
+    print(f"Bloatiest example rows: {len(bloatiest_examples)}")
     print(f"Saved chart: {CHART_OUTPUT_PATH}")
     print(f"Saved preview: {CHART_PREVIEW_OUTPUT_PATH}")
     print(f"Saved file chart: {FILE_CHART_OUTPUT_PATH}")

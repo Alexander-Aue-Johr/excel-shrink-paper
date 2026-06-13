@@ -27,6 +27,9 @@ chart.FILE_CHART_OUTPUT_PATH = (
     / "combined_chart_distribution_of_size_reduction_by_file_rust.pdf"
 )
 chart.FILE_CHART_PREVIEW_OUTPUT_PATH = chart.FILE_CHART_OUTPUT_PATH.with_suffix(".png")
+chart.BLOATIEST_EXAMPLES_OUTPUT_PATH = (
+    DATA_GOV_ANALYSIS_DIR / "bloatiest_reduction_examples_rust.csv"
+)
 
 
 if __name__ == "__main__":
