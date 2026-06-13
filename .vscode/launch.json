@@ -42,8 +42,7 @@
             "args": [
                 "--crawl_delay",
                 "30",
-                "--seed_from_original_repo",
-                "--update_original_repo",
+                "--seed_from_zenodo",
                 "--skip_scraping"
             ]
         },
@@ -63,7 +62,7 @@
             ]
         },
         {
-            "name": "Generate Distribution of Size Reduction Chart",
+            "name": "Generate Destatis Distribution of Size Reduction Chart",
             "type": "debugpy",
             "request": "launch",
             "program": "scripts/analyze_destatis_xlsx_files/generate_distribution_of_size_reduction_chart.py",
@@ -71,7 +70,7 @@
             "preLaunchTask": "py:bootstrap"
         },
         {
-            "name": "Generate Distribution of Size Reduction Chart (excel-shrink-rust)",
+            "name": "Generate Destatis Distribution of Size Reduction Chart (excel-shrink-rust)",
             "type": "debugpy",
             "request": "launch",
             "program": "scripts/analyze_destatis_xlsx_files/generate_distribution_of_size_reduction_chart_rust.py",
@@ -103,15 +102,19 @@
             "args": [
                 "scripts/scrape_destatis_xlsx_files/downloaded",
                 "scripts/analyze_destatis_xlsx_files/shrinked_by_excel_shrink_rust",
-                "--recursive",
                 "--force-overwrite",
-                "--analysis-mode",
+                "--recursive",
+                "--max-active-workbooks",
+                "32",
+                "--writer-workers",
+                "64",
+                "--remove-unreferenced-hidden-content-cells",
                 "--analysis-csv",
                 "scripts/analyze_destatis_xlsx_files/excel_shrink_rust_analysis.csv",
-                "--preprocess-hidden-rows",
-                "--preprocess-empty-cells",
-                "--remove-unreferenced-whitespace-cells",
-                "--remove-unreferenced-hidden-content-cells"
+                "--console-log-level",
+                "info",
+                "--file-log-level",
+                "info"
             ]
         },
         {
@@ -136,10 +139,14 @@
             "python": "${workspaceFolder}/.venv/Scripts/python",
             "preLaunchTask": "py:bootstrap",
             "args": [
-                "scripts\\analyze_destatis_xlsx_files\\fixed_original_corrupt_destatis_files",
+                "scripts\\scrape_destatis_xlsx_files\\downloaded",
                 "scripts\\analyze_destatis_xlsx_files\\shrinked_by_excel_shrink",
                 "--out",
                 "scripts\\analyze_destatis_xlsx_files\\report.json",
+                "--log-file",
+                "scripts\\analyze_destatis_xlsx_files\\verify_destatis.log",
+                "--repair-originals-dir",
+                "scripts\\analyze_destatis_xlsx_files\\fixed_original_corrupt_destatis_files",
             ]
         },
         {
@@ -150,10 +157,38 @@
             "python": "${workspaceFolder}/.venv/Scripts/python",
             "preLaunchTask": "py:bootstrap",
             "args": [
-                "scripts\\analyze_destatis_xlsx_files\\fixed_original_corrupt_destatis_files",
+                "scripts\\scrape_destatis_xlsx_files\\downloaded",
                 "scripts\\analyze_destatis_xlsx_files\\shrinked_by_excel_shrink_rust",
                 "--out",
-                "scripts\\analyze_destatis_xlsx_files\\report_rust.json"
+                "scripts\\analyze_destatis_xlsx_files\\report_rust.json",
+                "--log-file",
+                "scripts\\analyze_destatis_xlsx_files\\verify_destatis_rust.log",
+                "--repair-originals-dir",
+                "scripts\\analyze_destatis_xlsx_files\\fixed_original_corrupt_destatis_files"
+            ]
+        },
+        {
+            "name": "Verify Rust Destatis then data.gov with visual compare",
+            "type": "PowerShell",
+            "request": "launch",
+            "script": "${workspaceFolder}/scripts/verify_shrunk_xlsx_values/run_verify_rust_destatis_then_data_gov_visual.ps1",
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "name": "Verify Rust Destatis and data.gov with per-file shrink visual compare",
+            "type": "PowerShell",
+            "request": "launch",
+            "script": "${workspaceFolder}/scripts/verify_shrunk_xlsx_values/run_shrink_then_verify_rust_visual.ps1",
+            "cwd": "${workspaceFolder}",
+            "args": [
+                "-DestatisOut",
+                "scripts\\analyze_destatis_xlsx_files\\report_rust_visual_launch.json",
+                "-DataGovOut",
+                "scripts\\analyze_data_gov_xlsx_files\\report_rust_visual_launch.json",
+                "-DestatisLog",
+                "scripts\\analyze_destatis_xlsx_files\\verify_destatis_rust_visual_launch.log",
+                "-DataGovLog",
+                "scripts\\analyze_data_gov_xlsx_files\\verify_data_gov_rust_visual_launch.log"
             ]
         },
         {
@@ -197,7 +232,7 @@
                 "scripts\\scrape_data_gov_xlsx_files\\"
             ]
         },
-         {
+        {
             "name": "Shrink data.gov XLSX Files (excel-shrink)",
             "type": "debugpy",
             "request": "launch",
@@ -220,21 +255,21 @@
             "python": "${workspaceFolder}/.venv/Scripts/python",
             "preLaunchTask": "py:bootstrap",
             "args": [
-                "K:/original_data_gov_xlsx_files",
-                "K:/shrunk_data_gov_xlsx_files_rust",
+                "scripts/scrape_data_gov_xlsx_files/downloaded",
+                "scripts/analyze_data_gov_xlsx_files/shrinked_by_excel_shrink_rust",
                 "--recursive",
                 "--force-overwrite",
-                "--analysis-mode",
                 "--analysis-csv",
-                "K:/shrunk_data_gov_xlsx_files_rust/excel_shrink_rust_analysis.csv",
-                "--preprocess-hidden-rows",
-                "--preprocess-empty-cells",
-                "--remove-unreferenced-whitespace-cells",
-                "--remove-unreferenced-hidden-content-cells"
+                "scripts/analyze_data_gov_xlsx_files/excel_shrink_rust_analysis.csv",
+                "--remove-unreferenced-hidden-content-cells",
+                "--console-log-level",
+                "info",
+                "--file-log-level",
+                "info"
             ]
         },
         {
-            "name": "Generate Distribution of Size Reduction Chart data.gov (excel-shrink-rust)",
+            "name": "Generate data.gov Distribution of Size Reduction Chart (excel-shrink-rust)",
             "type": "debugpy",
             "request": "launch",
             "program": "scripts/analyze_data_gov_xlsx_files/generate_distribution_of_size_reduction_chart_rust.py",
@@ -253,6 +288,8 @@
                 "scripts\\analyze_data_gov_xlsx_files\\shrinked_by_excel_shrink",
                 "--out",
                 "scripts\\analyze_data_gov_xlsx_files\\report.json",
+                "--log-file",
+                "scripts\\analyze_data_gov_xlsx_files\\verify_data_gov.log",
             ]
         },
         {

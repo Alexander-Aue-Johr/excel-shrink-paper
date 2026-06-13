@@ -1,0 +1,261 @@
+{
+  "meta": {
+    "originals_folder": "scripts\\verify_shrunk_xlsx_values\\_visual_fix_01011970_20260614_232615\\input",
+    "originals_for_compare_folder": "scripts\\verify_shrunk_xlsx_values\\_visual_fix_01011970_20260614_232615\\input",
+    "repair_originals_dir": null,
+    "shrunk_folder": "scripts\\verify_shrunk_xlsx_values\\_visual_fix_01011970_20260614_232615\\shrunk",
+    "row_chunk": 2000,
+    "col_chunk": 256,
+    "max_diffs_per_file": 200,
+    "log_file": "scripts\\verify_shrunk_xlsx_values\\_visual_fix_01011970_20260614_232615\\verify.log",
+    "workbook_timeout_sec": 300.0,
+    "workbook_timeout_max_sec": 600.0,
+    "workbook_timeout_attempts": 1,
+    "kill_hung_excel_processes": true,
+    "excel_baseline_pids": [],
+    "visual_compare": true,
+    "visual_rows": 60,
+    "visual_cols": 20,
+    "visual_max_sheets": 0,
+    "visual_pixel_tolerance": 0,
+    "visual_screenshot_dir": "scripts\\verify_shrunk_xlsx_values\\_visual_fix_01011970_20260614_232615\\screenshots",
+    "common_files": 1,
+    "missing_in_shrunk": [],
+    "missing_in_originals": []
+  },
+  "summary": {
+    "same": 1,
+    "skipped": 0,
+    "different": 0,
+    "error": 0,
+    "cleanup_changed_files": 0,
+    "volatile_only_files": 0,
+    "volatile_baseline_files": 0,
+    "hidden_ignored_files": 0,
+    "cleanup_diff_cells": 0,
+    "volatile_repeated_diff_cells": 0,
+    "volatile_baseline_diff_cells": 0,
+    "hidden_ignored_diff_cells": 0,
+    "visual_same": 1,
+    "visual_different": 0,
+    "visual_error": 0
+  },
+  "same_files": [
+    "01011970_Auszug_GV.xlsx"
+  ],
+  "skipped_files": [],
+  "different_files": [],
+  "errors": [],
+  "visual_files": [
+    {
+      "filename": "01011970_Auszug_GV.xlsx",
+      "enabled": true,
+      "status": "same",
+      "same": true,
+      "scope": {
+        "top_left_rows": 60,
+        "top_left_cols": 20,
+        "zoom": 100,
+        "sheets_compared": 4,
+        "max_sheets": 0,
+        "pixel_tolerance": 0
+      },
+      "summary": {
+        "different_pixels": 0,
+        "different_pixel_ratio": 0.0,
+        "errors": 0,
+        "skipped_hidden_sheets": 0,
+        "elapsed_sec": 3.2604174613952637
+      },
+      "sheets": [
+        {
+          "sheet": "Inhalt",
+          "status": "ok",
+          "same": true,
+          "size_original": [
+            1676,
+            1175
+          ],
+          "size_shrunk": [
+            1676,
+            1175
+          ],
+          "compared_size": [
+            1676,
+            1175
+          ],
+          "different_pixels": 0,
+          "different_pixel_ratio": 0.0,
+          "mean_abs_channel_diff": 0.0,
+          "max_channel_diff": 0,
+          "bbox": null,
+          "screenshot_original": "scripts\\verify_shrunk_xlsx_values\\_visual_fix_01011970_20260614_232615\\screenshots\\01011970_Auszug_GV.xlsx_Inhalt_original.png",
+          "screenshot_shrunk": "scripts\\verify_shrunk_xlsx_values\\_visual_fix_01011970_20260614_232615\\screenshots\\01011970_Auszug_GV.xlsx_Inhalt_shrunk.png"
+        },
+        {
+          "sheet": "Gemeindedaten",
+          "status": "ok",
+          "same": true,
+          "size_original": [
+            1228,
+            1231
+          ],
+          "size_shrunk": [
+            1228,
+            1231
+          ],
+          "compared_size": [
+            1228,
+            1231
+          ],
+          "different_pixels": 0,
+          "different_pixel_ratio": 0.0,
+          "mean_abs_channel_diff": 0.0,
+          "max_channel_diff": 0,
+          "bbox": null,
+          "screenshot_original": "scripts\\verify_shrunk_xlsx_values\\_visual_fix_01011970_20260614_232615\\screenshots\\01011970_Auszug_GV.xlsx_Gemeindedaten_original.png",
+          "screenshot_shrunk": "scripts\\verify_shrunk_xlsx_values\\_visual_fix_01011970_20260614_232615\\screenshots\\01011970_Auszug_GV.xlsx_Gemeindedaten_shrunk.png"
+        },
+        {
+          "sheet": "Gemeindeverbandsdaten",
+          "status": "ok",
+          "same": true,
+          "size_original": [
+            1582,
+            1213
+          ],
+          "size_shrunk": [
+            1582,
+            1213
+          ],
+          "compared_size": [
+            1582,
+            1213
+          ],
+          "different_pixels": 0,
+          "different_pixel_ratio": 0.0,
+          "mean_abs_channel_diff": 0.0,
+          "max_channel_diff": 0,
+          "bbox": null,
+          "screenshot_original": "scripts\\verify_shrunk_xlsx_values\\_visual_fix_01011970_20260614_232615\\screenshots\\01011970_Auszug_GV.xlsx_Gemeindeverbandsdaten_original.png",
+          "screenshot_shrunk": "scripts\\verify_shrunk_xlsx_values\\_visual_fix_01011970_20260614_232615\\screenshots\\01011970_Auszug_GV.xlsx_Gemeindeverbandsdaten_shrunk.png"
+        },
+        {
+          "sheet": "Erläuterungen",
+          "status": "ok",
+          "same": true,
+          "size_original": [
+            1601,
+            1201
+          ],
+          "size_shrunk": [
+            1601,
+            1201
+          ],
+          "compared_size": [
+            1601,
+            1201
+          ],
+          "different_pixels": 0,
+          "different_pixel_ratio": 0.0,
+          "mean_abs_channel_diff": 0.0,
+          "max_channel_diff": 0,
+          "bbox": null,
+          "screenshot_original": "scripts\\verify_shrunk_xlsx_values\\_visual_fix_01011970_20260614_232615\\screenshots\\01011970_Auszug_GV.xlsx_Erl_uterungen_original.png",
+          "screenshot_shrunk": "scripts\\verify_shrunk_xlsx_values\\_visual_fix_01011970_20260614_232615\\screenshots\\01011970_Auszug_GV.xlsx_Erl_uterungen_shrunk.png"
+        }
+      ]
+    }
+  ],
+  "performance_files": [
+    {
+      "filename": "01011970_Auszug_GV.xlsx",
+      "status": "same",
+      "enabled": true,
+      "timings_sec": {
+        "open_original_a": 0.31104,
+        "open_original_b": 0.314298,
+        "recalc_original_a": 0.002011,
+        "recalc_original_b": 0.001153,
+        "open_shrunk_b": 0.281174,
+        "recalc_shrunk_b": 0.00065
+      },
+      "memory": {
+        "original_app_before_open": {
+          "pid": 109476,
+          "working_set_mb": 145.488,
+          "peak_working_set_mb": 169.418,
+          "private_usage_mb": 128.156,
+          "pagefile_usage_mb": 128.156,
+          "peak_pagefile_usage_mb": 152.777
+        },
+        "comparison_app_before_open": {
+          "pid": 94320,
+          "working_set_mb": 161.973,
+          "peak_working_set_mb": 163.789,
+          "private_usage_mb": 137.047,
+          "pagefile_usage_mb": 137.047,
+          "peak_pagefile_usage_mb": 139.262
+        },
+        "original_app_after_open_original_a": {
+          "pid": 109476,
+          "working_set_mb": 223.637,
+          "peak_working_set_mb": 233.137,
+          "private_usage_mb": 187.949,
+          "pagefile_usage_mb": 187.949,
+          "peak_pagefile_usage_mb": 203.438
+        },
+        "comparison_app_after_open_original_b": {
+          "pid": 94320,
+          "working_set_mb": 225.738,
+          "peak_working_set_mb": 231.473,
+          "private_usage_mb": 184.145,
+          "pagefile_usage_mb": 184.145,
+          "peak_pagefile_usage_mb": 194.867
+        },
+        "original_app_after_recalc_original_a": {
+          "pid": 109476,
+          "working_set_mb": 212.445,
+          "peak_working_set_mb": 233.137,
+          "private_usage_mb": 178.023,
+          "pagefile_usage_mb": 178.023,
+          "peak_pagefile_usage_mb": 203.438
+        },
+        "comparison_app_after_recalc_original_b": {
+          "pid": 94320,
+          "working_set_mb": 227.488,
+          "peak_working_set_mb": 231.473,
+          "private_usage_mb": 188.016,
+          "pagefile_usage_mb": 188.016,
+          "peak_pagefile_usage_mb": 194.867
+        },
+        "comparison_app_after_open_shrunk_b": {
+          "pid": 94320,
+          "working_set_mb": 253.801,
+          "peak_working_set_mb": 276.172,
+          "private_usage_mb": 207.145,
+          "pagefile_usage_mb": 207.145,
+          "peak_pagefile_usage_mb": 235.453
+        },
+        "comparison_app_after_recalc_shrunk_b": {
+          "pid": 94320,
+          "working_set_mb": 254.523,
+          "peak_working_set_mb": 276.172,
+          "private_usage_mb": 207.742,
+          "pagefile_usage_mb": 207.742,
+          "peak_pagefile_usage_mb": 235.453
+        }
+      },
+      "excel_pids": {
+        "original_app": 109476,
+        "comparison_app": 94320
+      }
+    }
+  ],
+  "value_difference_categories": {
+    "cleanup_changed_files": [],
+    "volatile_only_files": [],
+    "volatile_baseline_files": [],
+    "hidden_ignored_files": []
+  }
+}

@@ -307,15 +307,24 @@ scripts/analyze_destatis_xlsx_files/shrinked_by_excel_shrink_backup/*
 scripts/scrape_data_gov_xlsx_files/downloaded/*
 scripts/analyze_destatis_xlsx_files/shrinked_by_analyzer/*
 scripts/analyze_destatis_xlsx_files/shrinked_by_excel_shrink/*
+scripts/analyze_destatis_xlsx_files/shrinked_by_excel_shrink_rust/*
 scripts/analyze_destatis_xlsx_files/fixed_original_corrupt_destatis_files/*
 scripts/analyze_data_gov_xlsx_files/shrinked_by_excel_shrink/*
+scripts/analyze_data_gov_xlsx_files/shrinked_by_excel_shrink_rust/*
+
 /external/excel-shrink-rust/
 /external/original_destatis_xlsx_files/
-/scripts/analyze_destatis_xlsx_files/shrinked_by_excel_shrink_rust/
+
+
 /scripts/analyze_destatis_xlsx_files/report_rust.json
-/scripts/analyze_destatis_xlsx_files/*.log
 /scripts/analyze_destatis_xlsx_files/*.tmp
 /scripts/analyze_destatis_xlsx_files/excel_shrink_rust_analysis.csv
 /scripts/analyze_data_gov_xlsx_files/excel_shrink_rust_analysis.csv
 
 **/__pycache__/*
+scripts/analyze_data_gov_xlsx_files/shrinked_by_excel_shrink_rust/1_Table 1 VOCs detailed exposure data_51cc4b5cde6c.xlsx
+/scripts/analyze_destatis_xlsx_files/visual_screenshots_*
+/scripts/verify_shrunk_xlsx_values/_child_results/*
+scripts/verify_shrunk_xlsx_values/_cargo_target_revert_layout_attrs/debug/.fingerprint/cfg-if-50da2642d7d10359/lib-cfg_if
+/tmp
+/external

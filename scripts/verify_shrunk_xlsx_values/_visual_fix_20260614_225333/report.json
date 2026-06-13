@@ -1,0 +1,215 @@
+{
+  "meta": {
+    "originals_folder": "scripts\\verify_shrunk_xlsx_values\\_visual_fix_20260614_225333\\input",
+    "originals_for_compare_folder": "scripts\\verify_shrunk_xlsx_values\\_visual_fix_20260614_225333\\input",
+    "repair_originals_dir": null,
+    "shrunk_folder": "scripts\\verify_shrunk_xlsx_values\\_visual_fix_20260614_225333\\shrunk",
+    "row_chunk": 2000,
+    "col_chunk": 256,
+    "max_diffs_per_file": 200,
+    "log_file": "scripts\\verify_shrunk_xlsx_values\\_visual_fix_20260614_225333\\verify.log",
+    "workbook_timeout_sec": 300.0,
+    "workbook_timeout_max_sec": 600.0,
+    "workbook_timeout_attempts": 1,
+    "kill_hung_excel_processes": true,
+    "excel_baseline_pids": [
+      116576
+    ],
+    "visual_compare": true,
+    "visual_rows": 60,
+    "visual_cols": 20,
+    "visual_max_sheets": 0,
+    "visual_pixel_tolerance": 0,
+    "visual_screenshot_dir": "scripts\\verify_shrunk_xlsx_values\\_visual_fix_20260614_225333\\screenshots",
+    "common_files": 1,
+    "missing_in_shrunk": [],
+    "missing_in_originals": []
+  },
+  "summary": {
+    "same": 1,
+    "skipped": 0,
+    "different": 0,
+    "error": 0,
+    "cleanup_changed_files": 0,
+    "volatile_only_files": 0,
+    "volatile_baseline_files": 0,
+    "hidden_ignored_files": 0,
+    "cleanup_diff_cells": 0,
+    "volatile_repeated_diff_cells": 0,
+    "volatile_baseline_diff_cells": 0,
+    "hidden_ignored_diff_cells": 0,
+    "visual_same": 1,
+    "visual_different": 0,
+    "visual_error": 0
+  },
+  "same_files": [
+    "02_BundeslaenderVorjahr.xlsx"
+  ],
+  "skipped_files": [],
+  "different_files": [],
+  "errors": [],
+  "visual_files": [
+    {
+      "filename": "02_BundeslaenderVorjahr.xlsx",
+      "enabled": true,
+      "status": "same",
+      "same": true,
+      "scope": {
+        "top_left_rows": 60,
+        "top_left_cols": 20,
+        "zoom": 100,
+        "sheets_compared": 2,
+        "max_sheets": 0,
+        "pixel_tolerance": 0
+      },
+      "summary": {
+        "different_pixels": 0,
+        "different_pixel_ratio": 0.0,
+        "errors": 0,
+        "skipped_hidden_sheets": 0,
+        "elapsed_sec": 1.466468095779419
+      },
+      "sheets": [
+        {
+          "sheet": "Deckblatt",
+          "status": "ok",
+          "same": true,
+          "size_original": [
+            1676,
+            1205
+          ],
+          "size_shrunk": [
+            1676,
+            1205
+          ],
+          "compared_size": [
+            1676,
+            1205
+          ],
+          "different_pixels": 0,
+          "different_pixel_ratio": 0.0,
+          "mean_abs_channel_diff": 0.0,
+          "max_channel_diff": 0,
+          "bbox": null,
+          "screenshot_original": "scripts\\verify_shrunk_xlsx_values\\_visual_fix_20260614_225333\\screenshots\\02_BundeslaenderVorjahr.xlsx_Deckblatt_original.png",
+          "screenshot_shrunk": "scripts\\verify_shrunk_xlsx_values\\_visual_fix_20260614_225333\\screenshots\\02_BundeslaenderVorjahr.xlsx_Deckblatt_shrunk.png"
+        },
+        {
+          "sheet": "Bundesländer_mit_Hauptstädten",
+          "status": "ok",
+          "same": true,
+          "size_original": [
+            1664,
+            1197
+          ],
+          "size_shrunk": [
+            1664,
+            1197
+          ],
+          "compared_size": [
+            1664,
+            1197
+          ],
+          "different_pixels": 0,
+          "different_pixel_ratio": 0.0,
+          "mean_abs_channel_diff": 0.0,
+          "max_channel_diff": 0,
+          "bbox": null,
+          "screenshot_original": "scripts\\verify_shrunk_xlsx_values\\_visual_fix_20260614_225333\\screenshots\\02_BundeslaenderVorjahr.xlsx_Bundesl_nder_mit_Hauptst_dten_original.png",
+          "screenshot_shrunk": "scripts\\verify_shrunk_xlsx_values\\_visual_fix_20260614_225333\\screenshots\\02_BundeslaenderVorjahr.xlsx_Bundesl_nder_mit_Hauptst_dten_shrunk.png"
+        }
+      ]
+    }
+  ],
+  "performance_files": [
+    {
+      "filename": "02_BundeslaenderVorjahr.xlsx",
+      "status": "same",
+      "enabled": true,
+      "timings_sec": {
+        "open_original_a": 0.118196,
+        "open_original_b": 0.121212,
+        "recalc_original_a": 0.001841,
+        "recalc_original_b": 0.001173,
+        "open_shrunk_b": 0.063543,
+        "recalc_shrunk_b": 0.000265
+      },
+      "memory": {
+        "original_app_before_open": {
+          "pid": 20104,
+          "working_set_mb": 137.496,
+          "peak_working_set_mb": 157.742,
+          "private_usage_mb": 75.152,
+          "pagefile_usage_mb": 75.152,
+          "peak_pagefile_usage_mb": 94.352
+        },
+        "comparison_app_before_open": {
+          "pid": 141188,
+          "working_set_mb": 131.895,
+          "peak_working_set_mb": 152.875,
+          "private_usage_mb": 70.074,
+          "pagefile_usage_mb": 70.074,
+          "peak_pagefile_usage_mb": 92.129
+        },
+        "original_app_after_open_original_a": {
+          "pid": 20104,
+          "working_set_mb": 223.047,
+          "peak_working_set_mb": 231.594,
+          "private_usage_mb": 113.848,
+          "pagefile_usage_mb": 113.848,
+          "peak_pagefile_usage_mb": 139.684
+        },
+        "comparison_app_after_open_original_b": {
+          "pid": 141188,
+          "working_set_mb": 228.219,
+          "peak_working_set_mb": 232.027,
+          "private_usage_mb": 120.574,
+          "pagefile_usage_mb": 120.574,
+          "peak_pagefile_usage_mb": 136.941
+        },
+        "original_app_after_recalc_original_a": {
+          "pid": 20104,
+          "working_set_mb": 212.738,
+          "peak_working_set_mb": 231.594,
+          "private_usage_mb": 107.312,
+          "pagefile_usage_mb": 107.312,
+          "peak_pagefile_usage_mb": 139.684
+        },
+        "comparison_app_after_recalc_original_b": {
+          "pid": 141188,
+          "working_set_mb": 220.992,
+          "peak_working_set_mb": 232.027,
+          "private_usage_mb": 113.223,
+          "pagefile_usage_mb": 113.223,
+          "peak_pagefile_usage_mb": 136.941
+        },
+        "comparison_app_after_open_shrunk_b": {
+          "pid": 141188,
+          "working_set_mb": 256.312,
+          "peak_working_set_mb": 273.445,
+          "private_usage_mb": 146.332,
+          "pagefile_usage_mb": 146.332,
+          "peak_pagefile_usage_mb": 167.82
+        },
+        "comparison_app_after_recalc_shrunk_b": {
+          "pid": 141188,
+          "working_set_mb": 256.758,
+          "peak_working_set_mb": 273.445,
+          "private_usage_mb": 146.645,
+          "pagefile_usage_mb": 146.645,
+          "peak_pagefile_usage_mb": 167.82
+        }
+      },
+      "excel_pids": {
+        "original_app": 20104,
+        "comparison_app": 141188
+      }
+    }
+  ],
+  "value_difference_categories": {
+    "cleanup_changed_files": [],
+    "volatile_only_files": [],
+    "volatile_baseline_files": [],
+    "hidden_ignored_files": []
+  }
+}

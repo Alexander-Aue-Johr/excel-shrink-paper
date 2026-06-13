@@ -13,10 +13,18 @@ import csv
 import argparse
 import shutil
 import subprocess
+import zipfile
 from dataclasses import dataclass
 from pathlib import Path
 from typing import List, Set
-from urllib.parse import urljoin, urlsplit, urlparse, urlunparse, parse_qsl, urlencode
+from urllib.parse import (
+    urljoin,
+    urlsplit,
+    urlparse,
+    urlunparse,
+    parse_qsl,
+    urlencode,
+)
 from lxml import etree
 from html import unescape
 
@@ -35,6 +43,14 @@ ORIGINAL_FILES_REPO_URL: str = (
 )
 ORIGINAL_FILES_REPO_DIR: str = os.path.join(
     "external", "original_destatis_xlsx_files"
+)
+ZENODO_ORIGINAL_FILES_URL: str = (
+    "https://zenodo.org/api/records/20681684/draft/files/"
+    "original_destatis_xlsx_files.zip/content"
+)
+ZENODO_ORIGINAL_FILES_MD5: str = ""
+ZENODO_ARCHIVE_PATH: str = os.path.join(
+    "external", "zenodo", "original_destatis_xlsx_files.zip"
 )
 
 
@@ -161,6 +177,89 @@ def is_git_lfs_pointer(file_path: Path) -> bool:
             )
     except OSError:
         return False
+
+
+def download_large_file(url: str, target_path: Path) -> None:
+    target_path.parent.mkdir(parents=True, exist_ok=True)
+    partial_path = target_path.with_suffix(target_path.suffix + ".part")
+
+    with requests.get(url, stream=True, timeout=120) as response:
+        response.raise_for_status()
+        total_size = int(response.headers.get("content-length") or 0)
+        downloaded_size = 0
+        next_report_size = 512 * 1024 * 1024
+
+        with partial_path.open("wb") as file:
+            for chunk in response.iter_content(chunk_size=1024 * 1024):
+                if not chunk:
+                    continue
+                file.write(chunk)
+                downloaded_size += len(chunk)
+                if downloaded_size >= next_report_size:
+                    if total_size:
+                        percent = downloaded_size / total_size * 100
+                        print(
+                            f"Downloaded {downloaded_size / 1024**3:.1f} GiB "
+                            f"of {total_size / 1024**3:.1f} GiB ({percent:.1f}%).",
+                            flush=True,
+                        )
+                    else:
+                        print(
+                            f"Downloaded {downloaded_size / 1024**3:.1f} GiB.",
+                            flush=True,
+                        )
+                    next_report_size += 512 * 1024 * 1024
+
+    partial_path.replace(target_path)
+
+
+def seed_download_folder_from_zenodo(
+    archive_url: str,
+    archive_path: str,
+    expected_md5: str,
+    download_folder: str,
+    keep_archive: bool,
+) -> None:
+    archive = resolve_project_path(archive_path)
+    download_path = resolve_project_path(download_folder)
+    download_path.mkdir(parents=True, exist_ok=True)
+
+    if not archive.exists():
+        print(f"Downloading Zenodo archive: {archive_url}")
+        download_large_file(archive_url, archive)
+    else:
+        print(f"Using existing Zenodo archive: {archive}")
+
+    if expected_md5:
+        print("Skipping Zenodo archive MD5 check; local test archives are allowed.")
+
+    copied_count = 0
+    existing_count = 0
+    replaced_count = 0
+    with zipfile.ZipFile(archive) as zip_file:
+        for member in zip_file.infolist():
+            if member.is_dir() or not member.filename.lower().endswith(".xlsx"):
+                continue
+            target_file = download_path / Path(member.filename).name
+            if target_file.exists():
+                if target_file.stat().st_size == member.file_size:
+                    existing_count += 1
+                    continue
+                replaced_count += 1
+
+            with zip_file.open(member) as source, target_file.open("wb") as target:
+                shutil.copyfileobj(source, target)
+            copied_count += 1
+
+    if not keep_archive:
+        archive.unlink(missing_ok=True)
+
+    print(
+        "Zenodo Destatis seed complete: "
+        f"{copied_count} extracted, {existing_count} already present"
+        + (f", {replaced_count} replaced" if replaced_count else "")
+        + "."
+    )
 
 
 def seed_download_folder_from_original_repo(
@@ -436,6 +535,31 @@ def main() -> None:
         help="Clone/copy original Destatis XLSX files before downloading missing CSV entries.",
     )
     parser.add_argument(
+        "--seed_from_zenodo",
+        action="store_true",
+        help="Download/extract the Zenodo original Destatis XLSX archive before scraping.",
+    )
+    parser.add_argument(
+        "--zenodo_url",
+        default=ZENODO_ORIGINAL_FILES_URL,
+        help="Zenodo ZIP URL containing original Destatis XLSX files.",
+    )
+    parser.add_argument(
+        "--zenodo_archive_path",
+        default=ZENODO_ARCHIVE_PATH,
+        help="Local cache path for the Zenodo ZIP archive.",
+    )
+    parser.add_argument(
+        "--zenodo_md5",
+        default=ZENODO_ORIGINAL_FILES_MD5,
+        help="Ignored; Zenodo ZIP checksum verification is disabled.",
+    )
+    parser.add_argument(
+        "--keep_zenodo_archive",
+        action="store_true",
+        help="Keep the downloaded Zenodo ZIP after extraction.",
+    )
+    parser.add_argument(
         "--original_repo_url",
         default=ORIGINAL_FILES_REPO_URL,
         help="Git URL of the repository containing original Destatis XLSX files.",
@@ -455,6 +579,15 @@ def main() -> None:
     crawl_delay: float = args.crawl_delay
 
     create_folder_if_not_exists(DOWNLOAD_FOLDER)
+
+    if args.seed_from_zenodo:
+        seed_download_folder_from_zenodo(
+            args.zenodo_url,
+            args.zenodo_archive_path,
+            args.zenodo_md5,
+            DOWNLOAD_FOLDER,
+            args.keep_zenodo_archive,
+        )
 
     if args.seed_from_original_repo:
         seed_download_folder_from_original_repo(

@@ -31,6 +31,7 @@ import csv
 import hashlib
 import os
 import re
+import shutil
 import time
 import zipfile
 from dataclasses import dataclass
@@ -46,6 +47,12 @@ PACKAGE_SEARCH = f"{CKAN_BASE}/package_search"
 
 UA = "xlsx-bulk-downloader/2.1 (+research; contact: none)"
 PROXY_ENV_VARS = ("HTTP_PROXY", "HTTPS_PROXY", "ALL_PROXY")
+ZENODO_ORIGINAL_FILES_URL = (
+    "https://zenodo.org/api/records/20681684/draft/files/"
+    "original_data_gov_xlsx_files.zip/content"
+)
+ZENODO_ORIGINAL_FILES_MD5 = ""
+ZENODO_ARCHIVE_PATH = Path("external") / "zenodo" / "original_data_gov_xlsx_files.zip"
 
 
 @dataclass(frozen=True)
@@ -134,6 +141,89 @@ def sha256_file(path: Path, chunk_size: int = 1024 * 1024) -> str:
                 break
             h.update(b)
     return h.hexdigest()
+
+
+def download_large_file(session: requests.Session, url: str, target_path: Path) -> None:
+    ensure_dir(target_path.parent)
+    partial_path = target_path.with_suffix(target_path.suffix + ".part")
+
+    with session.get(url, stream=True, allow_redirects=True, timeout=120) as response:
+        response.raise_for_status()
+        total_size = int(response.headers.get("content-length") or 0)
+        downloaded_size = 0
+        next_report_size = 512 * 1024 * 1024
+
+        with partial_path.open("wb") as f:
+            for chunk in response.iter_content(chunk_size=1024 * 1024):
+                if not chunk:
+                    continue
+                f.write(chunk)
+                downloaded_size += len(chunk)
+                if downloaded_size >= next_report_size:
+                    if total_size:
+                        percent = downloaded_size / total_size * 100
+                        print(
+                            f"Downloaded {downloaded_size / 1024**3:.1f} GiB "
+                            f"of {total_size / 1024**3:.1f} GiB ({percent:.1f}%).",
+                            flush=True,
+                        )
+                    else:
+                        print(
+                            f"Downloaded {downloaded_size / 1024**3:.1f} GiB.",
+                            flush=True,
+                        )
+                    next_report_size += 512 * 1024 * 1024
+
+    partial_path.replace(target_path)
+
+
+def seed_download_folder_from_zenodo(
+    *,
+    session: requests.Session,
+    archive_url: str,
+    archive_path: Path,
+    expected_md5: str,
+    download_dir: Path,
+    keep_archive: bool,
+) -> None:
+    archive_path = archive_path.resolve()
+
+    if not archive_path.exists():
+        print(f"Downloading Zenodo archive: {archive_url}")
+        download_large_file(session, archive_url, archive_path)
+    else:
+        print(f"Using existing Zenodo archive: {archive_path}")
+
+    if expected_md5:
+        print("Skipping Zenodo archive MD5 check; local test archives are allowed.")
+
+    extracted_count = 0
+    existing_count = 0
+    replaced_count = 0
+    with zipfile.ZipFile(archive_path) as zip_file:
+        for member in zip_file.infolist():
+            if member.is_dir() or not member.filename.lower().endswith(".xlsx"):
+                continue
+            target_path = download_dir / Path(member.filename).name
+            if target_path.exists():
+                if target_path.stat().st_size == member.file_size:
+                    existing_count += 1
+                    continue
+                replaced_count += 1
+
+            with zip_file.open(member) as source, target_path.open("wb") as target:
+                shutil.copyfileobj(source, target)
+            extracted_count += 1
+
+    if not keep_archive:
+        archive_path.unlink(missing_ok=True)
+
+    print(
+        "Zenodo Data.gov seed complete: "
+        f"{extracted_count} extracted, {existing_count} already present"
+        + (f", {replaced_count} replaced" if replaced_count else "")
+        + "."
+    )
 
 
 def filename_with_content_hash(name: str, digest: str, hash_len: int = 12) -> str:
@@ -743,6 +833,31 @@ def main() -> int:
         action="store_true",
         help="Use HTTP_PROXY/HTTPS_PROXY/ALL_PROXY from the environment.",
     )
+    ap.add_argument(
+        "--seed-from-zenodo",
+        action="store_true",
+        help="Download/extract the Zenodo original Data.gov XLSX archive before scraping/resume.",
+    )
+    ap.add_argument(
+        "--zenodo-url",
+        default=ZENODO_ORIGINAL_FILES_URL,
+        help="Zenodo ZIP URL containing original Data.gov XLSX files.",
+    )
+    ap.add_argument(
+        "--zenodo-archive-path",
+        default=str(ZENODO_ARCHIVE_PATH),
+        help="Local cache path for the Zenodo ZIP archive.",
+    )
+    ap.add_argument(
+        "--zenodo-md5",
+        default=ZENODO_ORIGINAL_FILES_MD5,
+        help="Ignored; Zenodo ZIP checksum verification is disabled.",
+    )
+    ap.add_argument(
+        "--keep-zenodo-archive",
+        action="store_true",
+        help="Keep the downloaded Zenodo ZIP after extraction.",
+    )
     args = ap.parse_args()
 
     out_dir = Path(args.out).resolve()
@@ -762,6 +877,16 @@ def main() -> int:
         print(
             "Ignoring proxy environment variables for HTTP requests "
             f"({formatted}). Pass --use-env-proxies to enable them."
+        )
+
+    if args.seed_from_zenodo:
+        seed_download_folder_from_zenodo(
+            session=sess,
+            archive_url=args.zenodo_url,
+            archive_path=Path(args.zenodo_archive_path),
+            expected_md5=args.zenodo_md5,
+            download_dir=download_dir,
+            keep_archive=args.keep_zenodo_archive,
         )
 
     excel = ExcelValidator()

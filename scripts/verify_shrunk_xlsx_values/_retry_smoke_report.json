@@ -1,0 +1,53 @@
+{
+  "meta": {
+    "originals_folder": "scripts\\verify_shrunk_xlsx_values\\_retry_smoke_original",
+    "originals_for_compare_folder": "scripts\\verify_shrunk_xlsx_values\\_retry_smoke_original",
+    "repair_originals_dir": null,
+    "shrunk_folder": "scripts\\verify_shrunk_xlsx_values\\_retry_smoke_shrunk",
+    "row_chunk": 2000,
+    "col_chunk": 256,
+    "max_diffs_per_file": 200,
+    "log_file": "scripts\\verify_shrunk_xlsx_values\\_retry_smoke.log",
+    "workbook_timeout_sec": 60.0,
+    "workbook_timeout_max_sec": 120.0,
+    "workbook_timeout_attempts": 3,
+    "visual_compare": false,
+    "visual_rows": 60,
+    "visual_cols": 20,
+    "visual_max_sheets": 0,
+    "visual_pixel_tolerance": 0,
+    "visual_screenshot_dir": null,
+    "common_files": 1,
+    "missing_in_shrunk": [],
+    "missing_in_originals": [
+      "31121973_no_calcChain.xlsx"
+    ]
+  },
+  "summary": {
+    "same": 1,
+    "skipped": 0,
+    "different": 0,
+    "error": 0,
+    "cleanup_changed_files": 0,
+    "volatile_only_files": 0,
+    "volatile_baseline_files": 0,
+    "cleanup_diff_cells": 0,
+    "volatile_repeated_diff_cells": 0,
+    "volatile_baseline_diff_cells": 0,
+    "visual_same": 0,
+    "visual_different": 0,
+    "visual_error": 0
+  },
+  "same_files": [
+    "31121973_Auszug_GV.xlsx"
+  ],
+  "skipped_files": [],
+  "different_files": [],
+  "errors": [],
+  "visual_files": [],
+  "value_difference_categories": {
+    "cleanup_changed_files": [],
+    "volatile_only_files": [],
+    "volatile_baseline_files": []
+  }
+}

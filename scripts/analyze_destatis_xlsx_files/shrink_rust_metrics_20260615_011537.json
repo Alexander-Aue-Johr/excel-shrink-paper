@@ -1,0 +1,38 @@
+﻿{
+    "name":  "Destatis rust shrink",
+    "input_dir":  "scripts\\scrape_destatis_xlsx_files\\downloaded",
+    "output_dir":  "scripts\\analyze_destatis_xlsx_files\\shrinked_by_excel_shrink_rust",
+    "analysis_csv":  "scripts\\analyze_destatis_xlsx_files\\excel_shrink_rust_analysis.csv",
+    "started_at":  "2026-06-15T01:15:37.4567906+02:00",
+    "finished_at":  "2026-06-15T01:19:27.9984632+02:00",
+    "elapsed_sec":  230.542,
+    "exit_code":  null,
+    "peak_working_set_mb":  14299.312,
+    "peak_private_memory_mb":  16538.582,
+    "peak_process_sample":  [
+                                {
+                                    "pid":  60092,
+                                    "process_name":  "cargo",
+                                    "working_set_mb":  19.93,
+                                    "private_memory_mb":  5.617
+                                },
+                                {
+                                    "pid":  138800,
+                                    "process_name":  "cargo",
+                                    "working_set_mb":  10.957,
+                                    "private_memory_mb":  3.371
+                                },
+                                {
+                                    "pid":  124388,
+                                    "process_name":  "excel-shrink-cli",
+                                    "working_set_mb":  14257.719,
+                                    "private_memory_mb":  16410.281
+                                },
+                                {
+                                    "pid":  101228,
+                                    "process_name":  "python",
+                                    "working_set_mb":  10.707,
+                                    "private_memory_mb":  1.723
+                                }
+                            ]
+}

@@ -1,8 +1,10 @@
 from __future__ import annotations
 
+import gzip
 import os
 import re
 import math
+import shutil
 from dataclasses import dataclass
 from pathlib import Path
 
@@ -123,7 +125,19 @@ def find_column(data: pd.DataFrame, candidates: list[str]) -> str | None:
     return None
 
 
+def refresh_gzip_from_csv(gzip_path: Path) -> Path:
+    csv_path = gzip_path.with_suffix("")
+    if csv_path.exists():
+        os.makedirs(gzip_path.parent, exist_ok=True)
+        with csv_path.open("rb") as source, gzip.open(gzip_path, "wb") as target:
+            shutil.copyfileobj(source, target)
+        print(f"Updated compressed analysis CSV: {gzip_path}")
+
+    return gzip_path
+
+
 def read_rust_analysis(path: Path) -> pd.DataFrame:
+    path = refresh_gzip_from_csv(path)
     data = pd.read_csv(path)
 
     numeric_columns = [
