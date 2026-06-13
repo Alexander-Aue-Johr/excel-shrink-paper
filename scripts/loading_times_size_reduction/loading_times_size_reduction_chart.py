@@ -436,11 +436,6 @@ SHRINK_VARIANTS: list[ShrinkVariant] = [
         EXCEL_SHRINK_SINGLE_CORE_ARGS,
         "single_core",
     ),
-    ShrinkVariant(
-        "Excel Shrink Rust (no-split-sheetdata)",
-        EXCEL_SHRINK_NO_SPLIT_ARGS,
-        "no_split",
-    ),
 ]
 
 
@@ -811,6 +806,19 @@ def _generate_complex_chart(df_lib: pd.DataFrame, df_shrink: pd.DataFrame) -> No
             v = v.iloc[0]
         return _to_float(v)
 
+    def _text_value(idx: Optional[pd.DataFrame], f: str, lib: str, col: str) -> str:
+        if idx is None or col not in idx.columns:
+            return ""
+        key = (f, lib)
+        if key not in idx.index:
+            return ""
+        v = idx.loc[key, col]
+        if isinstance(v, pd.Series):
+            v = v.iloc[0]
+        if pd.isna(v):
+            return ""
+        return str(v)
+
     files = sorted(
         set(df_lib.get("File", pd.Series([], dtype=str)).dropna().unique()).union(
             set(df_shrink.get("File", pd.Series([], dtype=str)).dropna().unique())
@@ -866,6 +874,7 @@ def _generate_complex_chart(df_lib: pd.DataFrame, df_shrink: pd.DataFrame) -> No
         width: float
         color: str
         label: str  # legend label (can be "")
+        hatch: str = ""
 
     def draw_stacked_barh(
         ax: plt.Axes,
@@ -890,7 +899,14 @@ def _generate_complex_chart(df_lib: pd.DataFrame, df_shrink: pd.DataFrame) -> No
                 labels_ok.append(False)
                 continue
             ax.barh(
-                y, seg.width, height=height, left=x, color=seg.color, label=seg.label
+                y,
+                seg.width,
+                height=height,
+                left=x,
+                color=seg.color,
+                label=seg.label,
+                hatch=seg.hatch,
+                edgecolor="black" if seg.hatch else None,
             )
             ok = bool(seg_label) and can_fit_inside(ax, seg.width, seg_label)
             labels_ok.append(ok)
@@ -917,6 +933,31 @@ def _generate_complex_chart(df_lib: pd.DataFrame, df_shrink: pd.DataFrame) -> No
             if parts:
                 right_label(ax, start + sum(s.width for s in segments), y, parts)
 
+    def draw_failure_barh(
+        ax: plt.Axes,
+        *,
+        y: float,
+        duration: float,
+        height: float,
+        label: str,
+        legend_label: str = "",
+        start: float = 0.0,
+    ) -> None:
+        if duration <= 0:
+            duration = 0.01
+        ax.barh(
+            y,
+            duration,
+            height=height,
+            left=start,
+            color="#D62728",
+            edgecolor="black",
+            hatch="////",
+            label=legend_label,
+            alpha=0.92,
+        )
+        right_label(ax, start + duration, y, [label])
+
     def _can_fit_inside_vertical(
         ax: plt.Axes, bar_height_data: float, font_size_pts: int = 7, fudge: float = 1.1
     ) -> bool:
@@ -929,6 +970,9 @@ def _generate_complex_chart(df_lib: pd.DataFrame, df_shrink: pd.DataFrame) -> No
 
     def lib_value(f: str, lib: str, col: str) -> float:
         return _value(lib_idx, f, lib, col)
+
+    def lib_text(f: str, lib: str, col: str) -> str:
+        return _text_value(lib_idx, f, lib, col)
 
     def shrink_value(f: str, lib: str, col: str) -> float:
         return _value(shr_idx, f, lib, col)
@@ -946,7 +990,6 @@ def _generate_complex_chart(df_lib: pd.DataFrame, df_shrink: pd.DataFrame) -> No
 
     extra_run_info: list[tuple[str, str]] = [
         ("Excel Shrink Rust (single-core)", "slateblue"),
-        ("Excel Shrink Rust (no-split-sheetdata)", "teal"),
     ]
     n_extra = len(extra_run_info)
 
@@ -992,6 +1035,19 @@ def _generate_complex_chart(df_lib: pd.DataFrame, df_shrink: pd.DataFrame) -> No
             pos = base + float(offsets_orig[lib_index])
             open_t = lib_value(f, lib_name, "Original Open Time (s)")
             save_t = lib_value(f, lib_name, "Original Save Time (s)")
+            original_status = lib_text(f, lib_name, "Original Status")
+            original_failure_t = lib_value(f, lib_name, "Original Failure Time (s)")
+
+            if original_status and original_status != "ok":
+                draw_failure_barh(
+                    ax_time,
+                    y=pos,
+                    height=bar_height,
+                    duration=original_failure_t,
+                    label=f"{lib_name} failed/OOM after {original_failure_t:.1f}s",
+                    legend_label="Failed / OOM",
+                )
+                continue
 
             draw_stacked_barh(
                 ax_time,
@@ -1041,6 +1097,28 @@ def _generate_complex_chart(df_lib: pd.DataFrame, df_shrink: pd.DataFrame) -> No
             else:
                 shr_open = lib_value(f, lib_name, "Shrinked Open Time (s)")
                 shr_save = lib_value(f, lib_name, "Shrinked Save Time (s)")
+                shr_status = lib_text(f, lib_name, "Shrinked Status")
+                shr_failure_t = lib_value(f, lib_name, "Shrinked Failure Time (s)")
+
+                if shr_status and shr_status != "ok":
+                    draw_stacked_barh(
+                        ax_time,
+                        y=pos,
+                        height=bar_height,
+                        segments=[Segment(shrink_t, "mediumorchid", shrink_label)],
+                        inside_labels=[f"{shrink_t:.1f}" if shrink_t > 0 else ""],
+                    )
+                    draw_failure_barh(
+                        ax_time,
+                        y=pos,
+                        height=bar_height,
+                        duration=shr_failure_t,
+                        start=shrink_t,
+                        label=f"{lib_name} failed/OOM after {shr_failure_t:.1f}s",
+                        legend_label="Failed / OOM",
+                    )
+                    continue
+
                 draw_stacked_barh(
                     ax_time,
                     y=pos,
@@ -1203,7 +1281,6 @@ def _generate_complex_chart(df_lib: pd.DataFrame, df_shrink: pd.DataFrame) -> No
         "R readxl+writexl",
         DEFAULT_SHRINK_LIBRARY,
         "Excel Shrink Rust (single-core)",
-        "Excel Shrink Rust (no-split-sheetdata)",
     ]
 
     if not df_lib.empty:
@@ -1233,9 +1310,6 @@ def _generate_complex_chart(df_lib: pd.DataFrame, df_shrink: pd.DataFrame) -> No
     def pretty_mem_label(lib: str) -> str:
         return lib.replace(
             "Excel Shrink Rust (single-core)", "Excel Shrink Rust\n(single-core)"
-        ).replace(
-            "Excel Shrink Rust (no-split-sheetdata)",
-            "Excel Shrink Rust\n(no-split-sheetdata)",
         )
 
     for ax, file_name in zip(mem_axes, files):
