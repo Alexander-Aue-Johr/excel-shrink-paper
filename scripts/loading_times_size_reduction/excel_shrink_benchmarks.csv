@@ -1,7 +1,7 @@
 File,Program,Shrink Time (s),Shrink Time on shrunk file (s),Original Peak Memory,Shrinked Peak Memory,Original Size (bytes),Shrinked Size (bytes),Shrinked Size after Second Shrinkage (bytes)
 QT_RR data_dobutamine challenge test_Hazari_Dec 2015.xlsx,Excel Shrink Rust,9.016023499978473,0.7247351999976672,4073508864,294105088,121949169,4548403,4548403
 QT_RR data_dobutamine challenge test_Hazari_Dec 2015.xlsx,Excel Shrink Rust (single-core),51.754048900009366,2.930752600019332,1355542528,286502912,121949169,4548403,4548403
-QT_RR data_dobutamine challenge test_Hazari_Dec 2015.xlsx,Excel Shrink Rust (no-split-sheetdata),16.88581740000518,0.741123299987521,9485070336,289087488,121949169,4548403,4548403
 statistischer-bericht-kernhaushalt-gemeinden.xlsx,Excel Shrink Rust,7.450975099985953,0.9830175999959465,2063597568,235278336,89367137,3392141,3392091
 statistischer-bericht-kernhaushalt-gemeinden.xlsx,Excel Shrink Rust (single-core),32.03044279999449,2.3570571999880485,682209280,217022464,89367137,3392141,3392091
-statistischer-bericht-kernhaushalt-gemeinden.xlsx,Excel Shrink Rust (no-split-sheetdata),40.663376400014386,0.978354400023818,7839612928,234737664,89367137,3392141,3392091
+wanderungen-2010120217005.xlsx,Excel Shrink Rust,2.85,0.22,619236556,33407631,16926818,729092,729024
+wanderungen-2010120217005.xlsx,Excel Shrink Rust (single-core),6.52,0.44,371856506,63281561,16926818,729092,729024
