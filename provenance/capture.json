@@ -1,0 +1,597 @@
+{
+  "paper_head": "6388dd46b74602c141e3016dae75c4608eecfbea",
+  "paper_remote_head_verified": "1822b55cfb94f5fadeaca11c8b57f5584d13df0f",
+  "captured_utc": "2026-11-07T19:44:27.677198+00:00",
+  "files": [
+    {
+      "path": "code/bootstrap.py",
+      "source": "F:\\corpora\\preparation-pipeline-20261031\\code\\bootstrap.py",
+      "sha256": "02f4052e8747aaad62a89ad84d0ed9a2ce188d1b604561aff32a1b3902f61633"
+    },
+    {
+      "path": "code/containers.py",
+      "source": "F:\\corpora\\preparation-pipeline-20261031\\code\\containers.py",
+      "sha256": "6b8a646addf4b9bd83e6b53c9447217326f8c008f3ebffcdeadd6933e729e9b1"
+    },
+    {
+      "path": "code/conversion_pool.py",
+      "source": "F:\\corpora\\preparation-pipeline-20261031\\code\\conversion_pool.py",
+      "sha256": "be48659950306af60b1920fa22f307e356bf467dd2dcff5d3e005280b27060dc"
+    },
+    {
+      "path": "code/excel_shrink_research/__init__.py",
+      "source": "F:\\corpora\\preparation-pipeline-20261031\\code\\excel_shrink_research\\__init__.py",
+      "sha256": "c0f7a05958bbd882b2ba8886ae74089213968ff31f463b21f91f37a4e5b333bf"
+    },
+    {
+      "path": "code/excel_shrink_research/convert_workbooks.py",
+      "source": "F:\\corpora\\preparation-pipeline-20261031\\code\\excel_shrink_research\\convert_workbooks.py",
+      "sha256": "d6542bf9dd9bda81dd5e55baa87765e30c5567e6bcf2292f8518cb7fd05f74d8"
+    },
+    {
+      "path": "code/excel_shrink_research/enron/__init__.py",
+      "source": "F:\\corpora\\preparation-pipeline-20261031\\code\\excel_shrink_research\\enron\\__init__.py",
+      "sha256": "91c9d610f90c274e111a069699fdae2ac1912f21f1f673a1896dc862fbb69dc4"
+    },
+    {
+      "path": "code/excel_shrink_research/enron/benchmark.py",
+      "source": "F:\\corpora\\preparation-pipeline-20261031\\code\\excel_shrink_research\\enron\\benchmark.py",
+      "sha256": "b8a70db16d033e6059b8852709c945cd9acaf3ebf49149430f660587c59b1702"
+    },
+    {
+      "path": "code/excel_shrink_research/enron/cli.py",
+      "source": "F:\\corpora\\preparation-pipeline-20261031\\code\\excel_shrink_research\\enron\\cli.py",
+      "sha256": "f8f8866b6d85efd8122b48f2128f564a5bcfbb4a22d6d3b00b0154351cba037a"
+    },
+    {
+      "path": "code/excel_shrink_research/enron/common.py",
+      "source": "F:\\corpora\\preparation-pipeline-20261031\\code\\excel_shrink_research\\enron\\common.py",
+      "sha256": "d7b374b270dae8ced5399fe694eeee58b085e7ad624cdfe96b9f30b94f51fe6b"
+    },
+    {
+      "path": "code/excel_shrink_research/enron/compare.py",
+      "source": "F:\\corpora\\preparation-pipeline-20261031\\code\\excel_shrink_research\\enron\\compare.py",
+      "sha256": "fb92af2fe7dc9db36871568f0987a31fd9934739ac46914a9d5ded454353e2db"
+    },
+    {
+      "path": "code/excel_shrink_research/enron/container_embeddings.py",
+      "source": "F:\\corpora\\preparation-pipeline-20261031\\code\\excel_shrink_research\\enron\\container_embeddings.py",
+      "sha256": "c4b7766693d1050cb2d60b9fbac99158736df13ff98329ccf2764c939c717f3a"
+    },
+    {
+      "path": "code/excel_shrink_research/enron/difference_export.py",
+      "source": "F:\\corpora\\preparation-pipeline-20261031\\code\\excel_shrink_research\\enron\\difference_export.py",
+      "sha256": "06e5f7bd45719e142bfcb0d57f460ebd49fd73949d16e20a91c00bc51ea3d5ef"
+    },
+    {
+      "path": "code/excel_shrink_research/enron/embedded_workbooks.py",
+      "source": "F:\\corpora\\preparation-pipeline-20261031\\code\\excel_shrink_research\\enron\\embedded_workbooks.py",
+      "sha256": "3ef3cf85c60a22aa03a33bfb2da7d71ec0033f0d470744f4823e7ba0dd78502a"
+    },
+    {
+      "path": "code/excel_shrink_research/enron/excel.py",
+      "source": "F:\\corpora\\preparation-pipeline-20261031\\code\\excel_shrink_research\\enron\\excel.py",
+      "sha256": "03522206516d15c8d30c406ad8ef5e5a6914f7e0d5cc739d9b60e45447b56c85"
+    },
+    {
+      "path": "code/excel_shrink_research/enron/excel_benchmark.py",
+      "source": "F:\\corpora\\preparation-pipeline-20261031\\code\\excel_shrink_research\\enron\\excel_benchmark.py",
+      "sha256": "0ba6ae6e0b9a3e930b20a2ca83048d5cac66e5ebb39c93e2c5f5c0e9214391a8"
+    },
+    {
+      "path": "code/excel_shrink_research/enron/excel_worker.ps1",
+      "source": "F:\\corpora\\preparation-pipeline-20261031\\code\\excel_shrink_research\\enron\\excel_worker.ps1",
+      "sha256": "cc05472bdad4edaa4dba5ec95516ee77e15e9e84914e795238669cb326343397"
+    },
+    {
+      "path": "code/excel_shrink_research/enron/ingest.py",
+      "source": "F:\\corpora\\preparation-pipeline-20261031\\code\\excel_shrink_research\\enron\\ingest.py",
+      "sha256": "baf7107fff64fb207c6d3325e26d9740f8664fa9b5ad84c4c2a45d7670c0b802"
+    },
+    {
+      "path": "code/excel_shrink_research/enron/match_old_missing.py",
+      "source": "F:\\corpora\\preparation-pipeline-20261031\\code\\excel_shrink_research\\enron\\match_old_missing.py",
+      "sha256": "eaa7dfb7c39a207044bfbf6eefae12b83dcce1e0ad871367448dae32466b0e83"
+    },
+    {
+      "path": "code/excel_shrink_research/enron/ole_recovery.py",
+      "source": "F:\\corpora\\preparation-pipeline-20261031\\code\\excel_shrink_research\\enron\\ole_recovery.py",
+      "sha256": "a215b7466c3b58c5714aad93e913abcc0161895b4df15dc51c427f4535469471"
+    },
+    {
+      "path": "code/excel_shrink_research/enron/OwnedExcel.cs",
+      "source": "F:\\corpora\\preparation-pipeline-20261031\\code\\excel_shrink_research\\enron\\OwnedExcel.cs",
+      "sha256": "262b7b4d581f70c4e6910fac36764b587c5fd1b9f204c958a717cde16184101c"
+    },
+    {
+      "path": "code/excel_shrink_research/enron/pst_download.py",
+      "source": "F:\\corpora\\preparation-pipeline-20261031\\code\\excel_shrink_research\\enron\\pst_download.py",
+      "sha256": "f1b0cc30e886f96511652ce5f6fb455cb8b16489831c415afca94662ee9f9a1a"
+    },
+    {
+      "path": "code/excel_shrink_research/enron/pst_probe.py",
+      "source": "F:\\corpora\\preparation-pipeline-20261031\\code\\excel_shrink_research\\enron\\pst_probe.py",
+      "sha256": "b3ee65da30a8b79ef5963f349d8069ad1983ddb8a3c36eb162df4c07feef6a50"
+    },
+    {
+      "path": "code/excel_shrink_research/enron/release.py",
+      "source": "F:\\corpora\\preparation-pipeline-20261031\\code\\excel_shrink_research\\enron\\release.py",
+      "sha256": "46222463fdf8437b07f98b1a8f8aba271e284aa780a997f5b7a92ca5629e9ae2"
+    },
+    {
+      "path": "code/excel_shrink_research/enron/reuse.py",
+      "source": "F:\\corpora\\preparation-pipeline-20261031\\code\\excel_shrink_research\\enron\\reuse.py",
+      "sha256": "9e6d0d58c23f9acf62f9f9eaec0f7ea84e71698b0505519084300a2c1990c3ac"
+    },
+    {
+      "path": "code/excel_shrink_research/enron/study_export.py",
+      "source": "F:\\corpora\\preparation-pipeline-20261031\\code\\excel_shrink_research\\enron\\study_export.py",
+      "sha256": "966a6bbc03ffbf0b932fb6932eab9dd3b1be27f8bd7e1614c046e838cd2abd8c"
+    },
+    {
+      "path": "code/excel_shrink_research/enron/trace_missing_origins.py",
+      "source": "F:\\corpora\\preparation-pipeline-20261031\\code\\excel_shrink_research\\enron\\trace_missing_origins.py",
+      "sha256": "e78c5e76da34449af7b3cae106fd45c7253a272f61d31c41e13a78bf26019746"
+    },
+    {
+      "path": "code/excel_shrink_research/enron/workflow.py",
+      "source": "F:\\corpora\\preparation-pipeline-20261031\\code\\excel_shrink_research\\enron\\workflow.py",
+      "sha256": "5a5383684d662c843cd1fa30c44cce6f51c2cbcba7ecb200f89fcb1580e2a0ac"
+    },
+    {
+      "path": "code/excel_shrink_research/euses.py",
+      "source": "F:\\corpora\\preparation-pipeline-20261031\\code\\excel_shrink_research\\euses.py",
+      "sha256": "a4925c776a855c770859baf6ebd6700751ee5003761fa3ae4da89546d281e8ce"
+    },
+    {
+      "path": "code/excel_shrink_research/fuse_download.py",
+      "source": "F:\\corpora\\preparation-pipeline-20261031\\code\\excel_shrink_research\\fuse_download.py",
+      "sha256": "1a02dfaa1f3f4acc825729285a6e4cbb41779aba67ffc6e12faef37815cee6aa"
+    },
+    {
+      "path": "code/excel_shrink_research/fuse_workflow.py",
+      "source": "F:\\corpora\\preparation-pipeline-20261031\\code\\excel_shrink_research\\fuse_workflow.py",
+      "sha256": "a7f3aac6e5e0468d9f6299888c88f0f6b3a5ee12ae63d3047710dc4c78d9997a"
+    },
+    {
+      "path": "code/excel_shrink_research/preparation_queue.py",
+      "source": "F:\\corpora\\preparation-pipeline-20261031\\code\\excel_shrink_research\\preparation_queue.py",
+      "sha256": "1593b830e9917f46a5b7bda5336024372ba16e4517b07be7619131d08150d24a"
+    },
+    {
+      "path": "code/excel_shrink_research/preparation_transfer.py",
+      "source": "F:\\corpora\\preparation-pipeline-20261031\\code\\excel_shrink_research\\preparation_transfer.py",
+      "sha256": "875b2c550d10a6bd107e09e80d2e278c0060838c0b830b86486abed7b8e65bac"
+    },
+    {
+      "path": "code/fetch_sources.py",
+      "source": "F:\\corpora\\preparation-pipeline-20261031\\code\\fetch_sources.py",
+      "sha256": "527daa237b383e87d1fa6be07e670aeaff5a17253b56f12b90aaef6fd87eed26"
+    },
+    {
+      "path": "code/inspection_process.py",
+      "source": "F:\\corpora\\preparation-pipeline-20261031\\code\\inspection_process.py",
+      "sha256": "840e2d9eed7c775ac3925d9927dab06ff9712d8c2aef83d556ae86dd8f506575"
+    },
+    {
+      "path": "code/inspection_reuse.py",
+      "source": "F:\\corpora\\preparation-pipeline-20261031\\code\\inspection_reuse.py",
+      "sha256": "fe7573cf368b766ca856255d34e57ba6f9d41184b72260f32573eaa5528f9262"
+    },
+    {
+      "path": "code/ledger.py",
+      "source": "F:\\corpora\\preparation-pipeline-20261031\\code\\ledger.py",
+      "sha256": "759e43ffe6a254c131fc18a3b54c67b326e6625691f59ca645da1d8ed43a7722"
+    },
+    {
+      "path": "code/partitioned.py",
+      "source": "F:\\corpora\\preparation-pipeline-20261031\\code\\partitioned.py",
+      "sha256": "d683672a1b58c210878e0f730f5367af35b5f2959f4d27317ff1da7f9fc08b68"
+    },
+    {
+      "path": "code/prepare_inspection.py",
+      "source": "F:\\corpora\\preparation-pipeline-20261031\\code\\prepare_inspection.py",
+      "sha256": "0ae80891e4184e07f3a7b38bafe1b8ab413eab266ff58d1cde81330ada060fd0"
+    },
+    {
+      "path": "code/processes.py",
+      "source": "F:\\corpora\\preparation-pipeline-20261031\\code\\processes.py",
+      "sha256": "2f0518379310962fcc00a649ff7d9c6a3403e6608ab787fa17fd1e50e3d18c7c"
+    },
+    {
+      "path": "code/read_pst_attachments.cjs",
+      "source": "F:\\corpora\\preparation-pipeline-20261031\\code\\read_pst_attachments.cjs",
+      "sha256": "b6a746f668536d0b5af9ed988b73b5a25833206cf6aa6f0e060ba6bb91f32762"
+    },
+    {
+      "path": "code/seeding.py",
+      "source": "F:\\corpora\\preparation-pipeline-20261031\\code\\seeding.py",
+      "sha256": "6a22471166acb7f12259f1537091f0d6480dd8dede440cdc420301d898980b45"
+    },
+    {
+      "path": "code/supervisor.py",
+      "source": "F:\\corpora\\preparation-pipeline-20261031\\code\\supervisor.py",
+      "sha256": "36bdb8b314c2f5d2fc304dcb3563669e73b4e145cf2c2b188b1631ae90f08a2d"
+    },
+    {
+      "path": "code/test_ledger_transactions.py",
+      "source": "F:\\corpora\\preparation-pipeline-20261031\\code\\test_ledger_transactions.py",
+      "sha256": "c0f785eb91e4f935617024813dc16d639b57d1c5289c1809f8541b8aedfda1dc"
+    },
+    {
+      "path": "code/workers.py",
+      "source": "F:\\corpora\\preparation-pipeline-20261031\\code\\workers.py",
+      "sha256": "c3e86af51062305d6a2e33e9872bd33542f539270268c39a9915c18984a10df6"
+    },
+    {
+      "path": "paper-reference/README.md",
+      "source": "F:\\repos\\excel-shrink-paper\\README.md",
+      "sha256": "7801ff022e71c563cbb710dc42deb48ea5b1e60a9d1914c8759a730bd56c5eea"
+    },
+    {
+      "path": "paper-reference/experiments/enron/README.md",
+      "source": "F:\\repos\\excel-shrink-paper\\experiments\\enron\\README.md",
+      "sha256": "233299293d6c9e84e4792c1dfec4dd2b605d192c64087117c28a3f8952a29382"
+    },
+    {
+      "path": "paper-reference/experiments/enron/config.json",
+      "source": "F:\\repos\\excel-shrink-paper\\experiments\\enron\\config.json",
+      "sha256": "f9c5b9e2049f58a7f5885822b2c96abb64aeb41091560f442eb60b2e14132c91"
+    },
+    {
+      "path": "paper-reference/experiments/euses/README.md",
+      "source": "F:\\repos\\excel-shrink-paper\\experiments\\euses\\README.md",
+      "sha256": "f15cd8a1833ed7832beb221a79ca9090a105d205698eaff82a18dedd7dbf44c8"
+    },
+    {
+      "path": "paper-reference/experiments/fuse/README.md",
+      "source": "F:\\repos\\excel-shrink-paper\\experiments\\fuse\\README.md",
+      "sha256": "eded9af727a8253edeca05a70652f902fb2ce7bf0b2cc868c82f71bacb4851c2"
+    },
+    {
+      "path": "paper-reference/scripts/compare_pst_attachments.py",
+      "source": "F:\\repos\\excel-shrink-paper\\scripts\\compare_pst_attachments.py",
+      "sha256": "7e2cb2d9742533ba29d23f12f7f134f39354978665d37c9b1d925168a1cda82d"
+    },
+    {
+      "path": "paper-reference/scripts/enron.py",
+      "source": "F:\\repos\\excel-shrink-paper\\scripts\\enron.py",
+      "sha256": "6dac54bce68c89f0e69cea0ce2cc128739633d3c524f28df5235b949977ccdd6"
+    },
+    {
+      "path": "paper-reference/scripts/process_full_pst.py",
+      "source": "F:\\repos\\excel-shrink-paper\\scripts\\process_full_pst.py",
+      "sha256": "daccba6add08edb6825058a706811e8d99076b7739d7d47217a987623215498e"
+    },
+    {
+      "path": "paper-reference/scripts/read_pst_attachments.cjs",
+      "source": "F:\\repos\\excel-shrink-paper\\scripts\\read_pst_attachments.cjs",
+      "sha256": "b6a746f668536d0b5af9ed988b73b5a25833206cf6aa6f0e060ba6bb91f32762"
+    },
+    {
+      "path": "paper-reference/scripts/run_fuse.py",
+      "source": "F:\\repos\\excel-shrink-paper\\scripts\\run_fuse.py",
+      "sha256": "2e7777a8e663d674629163f7a4cc9ddfc2b1fac2fb0ff548cd3b6b0ed97dd568"
+    },
+    {
+      "path": "paper-reference/scripts/run_preparation_job.ps1",
+      "source": "F:\\repos\\excel-shrink-paper\\scripts\\run_preparation_job.ps1",
+      "sha256": "99eb28fe195e39af5bacafa60b9fa5ad47a0fa6de98358000088b97d0c0ea03a"
+    },
+    {
+      "path": "paper-reference/scripts/run_preparation_queue.py",
+      "source": "F:\\repos\\excel-shrink-paper\\scripts\\run_preparation_queue.py",
+      "sha256": "66cdf8e3c5aadda9b4dcca7d58a5e53ebf0102b9dd33b45d21ec5ad74da35565"
+    },
+    {
+      "path": "paper-reference/scripts/start_enron.ps1",
+      "source": "F:\\repos\\excel-shrink-paper\\scripts\\start_enron.ps1",
+      "sha256": "7c69218ab1adc977b75c41158550380ae58a60f73130da92ee748c4808465f15"
+    },
+    {
+      "path": "paper-reference/src/excel_shrink_research/__init__.py",
+      "source": "F:\\repos\\excel-shrink-paper\\src\\excel_shrink_research\\__init__.py",
+      "sha256": "c0f7a05958bbd882b2ba8886ae74089213968ff31f463b21f91f37a4e5b333bf"
+    },
+    {
+      "path": "paper-reference/src/excel_shrink_research/convert_workbooks.py",
+      "source": "F:\\repos\\excel-shrink-paper\\src\\excel_shrink_research\\convert_workbooks.py",
+      "sha256": "d6542bf9dd9bda81dd5e55baa87765e30c5567e6bcf2292f8518cb7fd05f74d8"
+    },
+    {
+      "path": "paper-reference/src/excel_shrink_research/enron/OwnedExcel.cs",
+      "source": "F:\\repos\\excel-shrink-paper\\src\\excel_shrink_research\\enron\\OwnedExcel.cs",
+      "sha256": "262b7b4d581f70c4e6910fac36764b587c5fd1b9f204c958a717cde16184101c"
+    },
+    {
+      "path": "paper-reference/src/excel_shrink_research/enron/__init__.py",
+      "source": "F:\\repos\\excel-shrink-paper\\src\\excel_shrink_research\\enron\\__init__.py",
+      "sha256": "91c9d610f90c274e111a069699fdae2ac1912f21f1f673a1896dc862fbb69dc4"
+    },
+    {
+      "path": "paper-reference/src/excel_shrink_research/enron/benchmark.py",
+      "source": "F:\\repos\\excel-shrink-paper\\src\\excel_shrink_research\\enron\\benchmark.py",
+      "sha256": "b8a70db16d033e6059b8852709c945cd9acaf3ebf49149430f660587c59b1702"
+    },
+    {
+      "path": "paper-reference/src/excel_shrink_research/enron/cli.py",
+      "source": "F:\\repos\\excel-shrink-paper\\src\\excel_shrink_research\\enron\\cli.py",
+      "sha256": "f8f8866b6d85efd8122b48f2128f564a5bcfbb4a22d6d3b00b0154351cba037a"
+    },
+    {
+      "path": "paper-reference/src/excel_shrink_research/enron/common.py",
+      "source": "F:\\repos\\excel-shrink-paper\\src\\excel_shrink_research\\enron\\common.py",
+      "sha256": "d7b374b270dae8ced5399fe694eeee58b085e7ad624cdfe96b9f30b94f51fe6b"
+    },
+    {
+      "path": "paper-reference/src/excel_shrink_research/enron/compare.py",
+      "source": "F:\\repos\\excel-shrink-paper\\src\\excel_shrink_research\\enron\\compare.py",
+      "sha256": "fb92af2fe7dc9db36871568f0987a31fd9934739ac46914a9d5ded454353e2db"
+    },
+    {
+      "path": "paper-reference/src/excel_shrink_research/enron/container_embeddings.py",
+      "source": "F:\\repos\\excel-shrink-paper\\src\\excel_shrink_research\\enron\\container_embeddings.py",
+      "sha256": "c4b7766693d1050cb2d60b9fbac99158736df13ff98329ccf2764c939c717f3a"
+    },
+    {
+      "path": "paper-reference/src/excel_shrink_research/enron/difference_export.py",
+      "source": "F:\\repos\\excel-shrink-paper\\src\\excel_shrink_research\\enron\\difference_export.py",
+      "sha256": "06e5f7bd45719e142bfcb0d57f460ebd49fd73949d16e20a91c00bc51ea3d5ef"
+    },
+    {
+      "path": "paper-reference/src/excel_shrink_research/enron/embedded_workbooks.py",
+      "source": "F:\\repos\\excel-shrink-paper\\src\\excel_shrink_research\\enron\\embedded_workbooks.py",
+      "sha256": "3ef3cf85c60a22aa03a33bfb2da7d71ec0033f0d470744f4823e7ba0dd78502a"
+    },
+    {
+      "path": "paper-reference/src/excel_shrink_research/enron/excel.py",
+      "source": "F:\\repos\\excel-shrink-paper\\src\\excel_shrink_research\\enron\\excel.py",
+      "sha256": "54d0638cc4cdc4dd2754a6119893c0df9d46b21c16bf1d9eb83ad8d36aad2ef7"
+    },
+    {
+      "path": "paper-reference/src/excel_shrink_research/enron/excel_benchmark.py",
+      "source": "F:\\repos\\excel-shrink-paper\\src\\excel_shrink_research\\enron\\excel_benchmark.py",
+      "sha256": "0ba6ae6e0b9a3e930b20a2ca83048d5cac66e5ebb39c93e2c5f5c0e9214391a8"
+    },
+    {
+      "path": "paper-reference/src/excel_shrink_research/enron/excel_worker.ps1",
+      "source": "F:\\repos\\excel-shrink-paper\\src\\excel_shrink_research\\enron\\excel_worker.ps1",
+      "sha256": "e383b84260e8568ff05ea0f39161a58c924a04dfb3a62c9f69957c8ba95f8cf6"
+    },
+    {
+      "path": "paper-reference/src/excel_shrink_research/enron/ingest.py",
+      "source": "F:\\repos\\excel-shrink-paper\\src\\excel_shrink_research\\enron\\ingest.py",
+      "sha256": "baf7107fff64fb207c6d3325e26d9740f8664fa9b5ad84c4c2a45d7670c0b802"
+    },
+    {
+      "path": "paper-reference/src/excel_shrink_research/enron/match_old_missing.py",
+      "source": "F:\\repos\\excel-shrink-paper\\src\\excel_shrink_research\\enron\\match_old_missing.py",
+      "sha256": "eaa7dfb7c39a207044bfbf6eefae12b83dcce1e0ad871367448dae32466b0e83"
+    },
+    {
+      "path": "paper-reference/src/excel_shrink_research/enron/ole_recovery.py",
+      "source": "F:\\repos\\excel-shrink-paper\\src\\excel_shrink_research\\enron\\ole_recovery.py",
+      "sha256": "a215b7466c3b58c5714aad93e913abcc0161895b4df15dc51c427f4535469471"
+    },
+    {
+      "path": "paper-reference/src/excel_shrink_research/enron/pst_download.py",
+      "source": "F:\\repos\\excel-shrink-paper\\src\\excel_shrink_research\\enron\\pst_download.py",
+      "sha256": "f1b0cc30e886f96511652ce5f6fb455cb8b16489831c415afca94662ee9f9a1a"
+    },
+    {
+      "path": "paper-reference/src/excel_shrink_research/enron/pst_probe.py",
+      "source": "F:\\repos\\excel-shrink-paper\\src\\excel_shrink_research\\enron\\pst_probe.py",
+      "sha256": "b3ee65da30a8b79ef5963f349d8069ad1983ddb8a3c36eb162df4c07feef6a50"
+    },
+    {
+      "path": "paper-reference/src/excel_shrink_research/enron/release.py",
+      "source": "F:\\repos\\excel-shrink-paper\\src\\excel_shrink_research\\enron\\release.py",
+      "sha256": "46222463fdf8437b07f98b1a8f8aba271e284aa780a997f5b7a92ca5629e9ae2"
+    },
+    {
+      "path": "paper-reference/src/excel_shrink_research/enron/reuse.py",
+      "source": "F:\\repos\\excel-shrink-paper\\src\\excel_shrink_research\\enron\\reuse.py",
+      "sha256": "9e6d0d58c23f9acf62f9f9eaec0f7ea84e71698b0505519084300a2c1990c3ac"
+    },
+    {
+      "path": "paper-reference/src/excel_shrink_research/enron/study_export.py",
+      "source": "F:\\repos\\excel-shrink-paper\\src\\excel_shrink_research\\enron\\study_export.py",
+      "sha256": "966a6bbc03ffbf0b932fb6932eab9dd3b1be27f8bd7e1614c046e838cd2abd8c"
+    },
+    {
+      "path": "paper-reference/src/excel_shrink_research/enron/trace_missing_origins.py",
+      "source": "F:\\repos\\excel-shrink-paper\\src\\excel_shrink_research\\enron\\trace_missing_origins.py",
+      "sha256": "e78c5e76da34449af7b3cae106fd45c7253a272f61d31c41e13a78bf26019746"
+    },
+    {
+      "path": "paper-reference/src/excel_shrink_research/enron/workflow.py",
+      "source": "F:\\repos\\excel-shrink-paper\\src\\excel_shrink_research\\enron\\workflow.py",
+      "sha256": "5a5383684d662c843cd1fa30c44cce6f51c2cbcba7ecb200f89fcb1580e2a0ac"
+    },
+    {
+      "path": "paper-reference/src/excel_shrink_research/euses.py",
+      "source": "F:\\repos\\excel-shrink-paper\\src\\excel_shrink_research\\euses.py",
+      "sha256": "a4925c776a855c770859baf6ebd6700751ee5003761fa3ae4da89546d281e8ce"
+    },
+    {
+      "path": "paper-reference/src/excel_shrink_research/fuse_download.py",
+      "source": "F:\\repos\\excel-shrink-paper\\src\\excel_shrink_research\\fuse_download.py",
+      "sha256": "1a02dfaa1f3f4acc825729285a6e4cbb41779aba67ffc6e12faef37815cee6aa"
+    },
+    {
+      "path": "paper-reference/src/excel_shrink_research/fuse_workflow.py",
+      "source": "F:\\repos\\excel-shrink-paper\\src\\excel_shrink_research\\fuse_workflow.py",
+      "sha256": "a7f3aac6e5e0468d9f6299888c88f0f6b3a5ee12ae63d3047710dc4c78d9997a"
+    },
+    {
+      "path": "paper-reference/src/excel_shrink_research/preparation_queue.py",
+      "source": "F:\\repos\\excel-shrink-paper\\src\\excel_shrink_research\\preparation_queue.py",
+      "sha256": "1593b830e9917f46a5b7bda5336024372ba16e4517b07be7619131d08150d24a"
+    },
+    {
+      "path": "paper-reference/src/excel_shrink_research/preparation_transfer.py",
+      "source": "F:\\repos\\excel-shrink-paper\\src\\excel_shrink_research\\preparation_transfer.py",
+      "sha256": "875b2c550d10a6bd107e09e80d2e278c0060838c0b830b86486abed7b8e65bac"
+    },
+    {
+      "path": "paper-reference/tests/test_conversion_recovery.py",
+      "source": "F:\\repos\\excel-shrink-paper\\tests\\test_conversion_recovery.py",
+      "sha256": "7a0f16d7c5b417ea8be1ca751d3d31e691bd0bb461f5f22bfc094af32914b3b9"
+    },
+    {
+      "path": "paper-reference/tests/test_difference_export.py",
+      "source": "F:\\repos\\excel-shrink-paper\\tests\\test_difference_export.py",
+      "sha256": "b86bf0f86d9bc6e6431baefaf262975362bc49113a2a7491266b04e90cfb3821"
+    },
+    {
+      "path": "paper-reference/tests/test_enron_compare.py",
+      "source": "F:\\repos\\excel-shrink-paper\\tests\\test_enron_compare.py",
+      "sha256": "356e3d39bc4ca8d8b3e50452bd3e11baf0b82e10f5d47361e8d1d2cfd8bc5ba9"
+    },
+    {
+      "path": "paper-reference/tests/test_enron_container_embeddings.py",
+      "source": "F:\\repos\\excel-shrink-paper\\tests\\test_enron_container_embeddings.py",
+      "sha256": "84a4942fd65f53fea3d9a58628da63b89ad86b7babb7c92ad7e2be08714662bd"
+    },
+    {
+      "path": "paper-reference/tests/test_enron_embedded_workbooks.py",
+      "source": "F:\\repos\\excel-shrink-paper\\tests\\test_enron_embedded_workbooks.py",
+      "sha256": "6cfe9d559932fbb1598dfca6ce48c25ca977232a89aab6ad8f7ac8acb08cb516"
+    },
+    {
+      "path": "paper-reference/tests/test_enron_excel.py",
+      "source": "F:\\repos\\excel-shrink-paper\\tests\\test_enron_excel.py",
+      "sha256": "df3495c7dfc7a03b57461801d47509dc4051fe5adface6864e69dd16540568d2"
+    },
+    {
+      "path": "paper-reference/tests/test_enron_ingest.py",
+      "source": "F:\\repos\\excel-shrink-paper\\tests\\test_enron_ingest.py",
+      "sha256": "f9f50c529ffa0c97be60ecbeda55aeac849b1a8569e76f8af4393fa72e287bf9"
+    },
+    {
+      "path": "paper-reference/tests/test_enron_match_old_missing.py",
+      "source": "F:\\repos\\excel-shrink-paper\\tests\\test_enron_match_old_missing.py",
+      "sha256": "5ae50e21b63e1200ab7eae941c9504f56817d66c33f1d2c20e37a2ab38d32671"
+    },
+    {
+      "path": "paper-reference/tests/test_enron_ole_recovery.py",
+      "source": "F:\\repos\\excel-shrink-paper\\tests\\test_enron_ole_recovery.py",
+      "sha256": "6857337f15a4e539a3e9aff502bcd3b7ee93681128e181af0ebb25b5733a5eb6"
+    },
+    {
+      "path": "paper-reference/tests/test_enron_pst_download.py",
+      "source": "F:\\repos\\excel-shrink-paper\\tests\\test_enron_pst_download.py",
+      "sha256": "4e08946d3ec204e4c39aff1f431242ae9b3b77cb752bfe45df3610e1095f9254"
+    },
+    {
+      "path": "paper-reference/tests/test_enron_pst_probe.py",
+      "source": "F:\\repos\\excel-shrink-paper\\tests\\test_enron_pst_probe.py",
+      "sha256": "c440516ea21f4f60429f4b3af8493c082e7dfba21be6fe4db6a949cee6e532a9"
+    },
+    {
+      "path": "paper-reference/tests/test_enron_release.py",
+      "source": "F:\\repos\\excel-shrink-paper\\tests\\test_enron_release.py",
+      "sha256": "13ccd7c7d93efc0ca8cd1e5b13fe445396173bd21083b6474e7dc9a1c3f937bd"
+    },
+    {
+      "path": "paper-reference/tests/test_enron_reuse.py",
+      "source": "F:\\repos\\excel-shrink-paper\\tests\\test_enron_reuse.py",
+      "sha256": "0d9880abc52cd58c4c8401a0e4550de3594e42eec38691ebbddc17cde8a11581"
+    },
+    {
+      "path": "paper-reference/tests/test_enron_study_export.py",
+      "source": "F:\\repos\\excel-shrink-paper\\tests\\test_enron_study_export.py",
+      "sha256": "86ff61d5d5459c21c8442957e0d416aba6c409e6c2be85ce8fa28efcae54a8da"
+    },
+    {
+      "path": "paper-reference/tests/test_enron_trace_missing_origins.py",
+      "source": "F:\\repos\\excel-shrink-paper\\tests\\test_enron_trace_missing_origins.py",
+      "sha256": "21b38c3e8560c286f1ed24346a0f6d74002dc994c48f3a07f70981dd4aef3cb8"
+    },
+    {
+      "path": "paper-reference/tests/test_enron_workflow.py",
+      "source": "F:\\repos\\excel-shrink-paper\\tests\\test_enron_workflow.py",
+      "sha256": "ddee8948a41602a5cfd358cf6fee944c298626197332793743aa781cee54ddb6"
+    },
+    {
+      "path": "paper-reference/tests/test_euses.py",
+      "source": "F:\\repos\\excel-shrink-paper\\tests\\test_euses.py",
+      "sha256": "1727ad0c12ddeb71b4044ec675f2932e10c915338156f5923e81ef15ab69ca0e"
+    },
+    {
+      "path": "paper-reference/tests/test_full_pst_reader.cjs",
+      "source": "F:\\repos\\excel-shrink-paper\\tests\\test_full_pst_reader.cjs",
+      "sha256": "6d3a2d83e9629dd90b4ba63a3beec03940778e46e4c1311f605623f999676e01"
+    },
+    {
+      "path": "paper-reference/tests/test_fuse_workflow.py",
+      "source": "F:\\repos\\excel-shrink-paper\\tests\\test_fuse_workflow.py",
+      "sha256": "f85c419e78f83751f5283dcd83fbdfab03d1a6f862efb8a40253ac70b20f23ec"
+    },
+    {
+      "path": "paper-reference/tests/test_preparation_job.py",
+      "source": "F:\\repos\\excel-shrink-paper\\tests\\test_preparation_job.py",
+      "sha256": "6988ca78e8db1eba91ec5bda74f76042a155af28b7ecefb0e5cf14dd161ad755"
+    },
+    {
+      "path": "paper-reference/tests/test_preparation_queue.py",
+      "source": "F:\\repos\\excel-shrink-paper\\tests\\test_preparation_queue.py",
+      "sha256": "ee550d886a6f90d44bc8675135082a7bf4c1a156ea51f0ce50aa25c5017c4a45"
+    },
+    {
+      "path": "paper-reference/tests/test_preparation_transfer.py",
+      "source": "F:\\repos\\excel-shrink-paper\\tests\\test_preparation_transfer.py",
+      "sha256": "9be01f96c1d7681affcbad683130223c48335738d3ccb87ceae41c11511eaaa1"
+    },
+    {
+      "path": "paper-reference/tests/test_pst_attachment_reader.cjs",
+      "source": "F:\\repos\\excel-shrink-paper\\tests\\test_pst_attachment_reader.cjs",
+      "sha256": "ed058d111ccaf208329fdac02c483468166e5fed80832ad3b3dfcec083a84405"
+    },
+    {
+      "path": "receipts/config.json",
+      "source": "F:\\corpora\\preparation-pipeline-20261031\\config.json",
+      "sha256": "e0d54b275c1043ff29bf8a65f84b4b5f2e62e3ecf27de3880c96169b6a91f59d"
+    },
+    {
+      "path": "receipts/dependencies.json",
+      "source": "F:\\corpora\\preparation-pipeline-20261031\\dependencies.json",
+      "sha256": "381e391e504ce4f147166a7a4ac7b760e1ad81b514461a8f87fd8e9da6960755"
+    },
+    {
+      "path": "receipts/binaries.json",
+      "source": "F:\\corpora\\preparation-pipeline-20261031\\binaries.json",
+      "sha256": "ee578000cfe96814e237ff993bfa3731f83cc98f44686b93d0764a6d2536b1b8"
+    },
+    {
+      "path": "receipts/code-files.json",
+      "source": "F:\\corpora\\preparation-pipeline-20261031\\code-files.json",
+      "sha256": "42437fc9c6c407120fe6d2faaa2055870219a6d4aff8f7c5aaffa35eff5caa89"
+    },
+    {
+      "path": "receipts/README.md",
+      "source": "F:\\corpora\\preparation-pipeline-20261031\\README.md",
+      "sha256": "8de0ce08f1eb9fa5fe0fb98e0a002b8509e94689c5157d0692a8c79720bab16e"
+    },
+    {
+      "path": "receipts/enron-xml-config.json",
+      "source": "F:\\corpora\\preparation-pipeline-20261031\\corpora\\enron-xml\\config.json",
+      "sha256": "6210932b30b6c7855107d3fa03a589961b2e535eab89b96712e163fde340a576"
+    },
+    {
+      "path": "receipts/enron-pst-config.json",
+      "source": "F:\\corpora\\preparation-pipeline-20261031\\corpora\\enron-pst\\config.json",
+      "sha256": "792489c23ce8d87bd57b2631159b3848e9a02101272134021addc1a9b5feb96f"
+    },
+    {
+      "path": "receipts/pst-reader/package.json",
+      "source": "F:\\corpora\\enron-v2\\pst-investigation\\runtime\\reader\\package.json",
+      "sha256": "7a51e0195c236708d63c1fb9df2e05dd2c2d6d48dd307b019f3479ca3c17ea63"
+    },
+    {
+      "path": "receipts/pst-reader/package-lock.json",
+      "source": "F:\\corpora\\enron-v2\\pst-investigation\\runtime\\reader\\package-lock.json",
+      "sha256": "a9bd9b7d18bda460fb7d1b6b52742e3488070d4570cbca5cd71d9edc79a65927"
+    }
+  ]
+}

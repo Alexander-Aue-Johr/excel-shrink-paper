@@ -1,0 +1,73 @@
+{
+  "reserve_bytes": 21474836480,
+  "maximum_container_depth": 128,
+  "seven_zip": "D:/Alex/Programs/7-Zip/7z.exe",
+  "shrink_executable": "F:\\corpora\\preparation-pipeline-20261031\\bin\\excel-shrink-cli.exe",
+  "node": "F:/corpora/enron-v2/pst-investigation/runtime/node-v22.23.4-win-x64/node.exe",
+  "fuse_tar": "F:/corpora/fuse/unpacked/payload-000/fuse-cc-binaries.tar/fuse-cc-binaries.tar",
+  "fuse_existing_output": "F:/corpora/fuse/unpacked/payload-000/fuse-cc-binaries.tar/fuse-cc-binaries",
+  "fuse_wait": {},
+  "old_missing": "F:/corpora/enron-v2/comparison/old-not-found.csv",
+  "old_stream_index": "F:/corpora/enron-v2/embedded-workbooks-v2/old-stream-index.jsonl",
+  "reuse_runs": [
+    "F:\\repos\\excel-shrink-rust\\.tmp\\regression\\study",
+    "F:\\repos\\excel-shrink-rust\\.tmp\\regression\\euses"
+  ],
+  "conversion_manifests": [
+    "F:/corpora/euses/conversion-retry/conversions.jsonl",
+    "F:/corpora/euses/after-settings-check/conversions.jsonl",
+    "F:\\corpora\\preparation-pipeline-20261031\\pilot\\conversions.jsonl"
+  ],
+  "previous_pst_root": "F:/corpora/enron-v2/pst-full",
+  "previous_pst_journal": "F:/corpora/enron-v2/pst-full/attachments.jsonl",
+  "sources": [
+    {
+      "name": "enron-xml-archives",
+      "corpus": "enron-xml",
+      "path": "F:/corpora/enron-v2/raw",
+      "archives_only": true
+    }
+  ],
+  "downloads": [
+    {
+      "corpus": "destatis",
+      "path": "F:\\corpora\\preparation-pipeline-20261031\\downloads\\destatis.zip",
+      "repository": "Alexander-Aue-Johr/original_destatis_xlsx_files",
+      "local_fallback": "D:/corpora/destatis.zip"
+    },
+    {
+      "corpus": "datagov",
+      "path": "F:\\corpora\\preparation-pipeline-20261031\\downloads\\datagov.zip",
+      "repository": "Alexander-Aue-Johr/original_data_gov_xlsx_files",
+      "local_fallback": "D:/corpora/datagov.zip"
+    }
+  ],
+  "statistics_interval_seconds": 1800,
+  "database_reserve_bytes": 6442450944,
+  "corpus": "enron-xml",
+  "database_path": "D:\\corpus-ledgers\\preparation-20261031\\enron-xml.sqlite",
+  "sibling_databases": [
+    "D:\\corpus-ledgers\\preparation-20261031\\datagov.sqlite",
+    "D:\\corpus-ledgers\\preparation-20261031\\destatis.sqlite",
+    "D:\\corpus-ledgers\\preparation-20261031\\enron-old.sqlite",
+    "D:\\corpus-ledgers\\preparation-20261031\\enron-pst.sqlite",
+    "D:\\corpus-ledgers\\preparation-20261031\\enron-xml.sqlite",
+    "D:\\corpus-ledgers\\preparation-20261031\\euses.sqlite",
+    "D:\\corpus-ledgers\\preparation-20261031\\fuse.sqlite"
+  ],
+  "pst_reader_root": "F:\\corpora\\preparation-pipeline-20261031\\pst-all",
+  "stop_file": "F:\\corpora\\preparation-pipeline-20261031\\stop.request",
+  "required_feeds": [
+    "enron-xml-archives"
+  ],
+  "reuse_index_migrated": true,
+  "legacy_artifact_root": "F:\\corpora\\preparation-pipeline-20261031",
+  "inspection_reuse_sources": [
+    "D:\\corpus-ledgers\\preparation-20261031\\enron-pst.sqlite",
+    "D:\\corpus-ledgers\\preparation-20261031\\enron-old.sqlite"
+  ],
+  "reuse_inspection_process": true,
+  "retain_archive_mail_text": true,
+  "archive_io_lock": "F:\\corpora\\preparation-pipeline-20261031\\locks\\large-archive-read",
+  "inspection_workers": 2
+}

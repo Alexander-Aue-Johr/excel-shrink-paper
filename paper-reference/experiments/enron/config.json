@@ -1,0 +1,7 @@
+{
+  "source_item": "edrm.enron.email.data.set.v2.xml",
+  "expected_archives": 159,
+  "conversion_workers": 1,
+  "stage_timeout_seconds": 120,
+  "file_timeout_seconds": 420
+}
