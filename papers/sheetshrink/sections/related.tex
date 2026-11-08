@@ -5,6 +5,15 @@ loading costs and memory while providing a different output contract. SheetShrin
 produces a transformed workbook and must account for retained layout effects.
 The evaluation should measure whether cleanup also benefits downstream readers.
 
+\subsection{Specialized semi-structured execution}
+Mison combines structural indexing with speculative access to queried JSON
+fields~\cite{mison}. Simdjson uses SIMD operations in a validating JSON
+parser~\cite{simdjson}. These systems establish specialized parsing as a
+substantial data-management topic. SheetShrink adds a document-rewriting
+obligation involving workbook dependencies and native layout. Its evaluation
+must account for decompression, output construction and subsequent use of the
+cleaned workbook, alongside byte-processing cost.
+
 \subsection{Spreadsheet analysis and testing}
 Spreadsheet slicing integrates dependencies with testing and debugging feedback
 in a spreadsheet environment~\cite{slicing}. Its treatment of indirect effects

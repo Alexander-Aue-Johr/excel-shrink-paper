@@ -18,5 +18,18 @@ recording the renderer and environment when reusing observations. The analogy
 does not transfer database test adequacy guarantees to spreadsheet rendering.
 SheetReader's specialized parsing work~\cite{sheetreader} is relevant to efficient
 package inspection, whose cost must be separated from native rendering cost.
-Further work will examine change-impact analysis and visual regression testing
-with verified primary sources.
+
+
+\subsection{Selective regression testing and visual models}
+Ekstazi selects regression tests through recorded file dependencies~\cite{ekstazi}.
+Its separation of analysis, execution and dependency collection motivates
+measuring selection overhead together with avoided work. DeltaSieve's
+spreadsheet dependency model and native image observations require their own
+coverage evaluation.
+
+ReDeCheck compares responsive web layout models and reports diagnostic
+screenshots~\cite{redecheck}. It samples viewport widths and refines layout
+transitions. DeltaSieve instead follows workbook-state changes and supported
+spreadsheet dependencies. Both settings motivate distinguishing a model-level
+warning, an observed visual effect and a confirmed defect. Their models and
+validation subjects require separate experimental oracles.
