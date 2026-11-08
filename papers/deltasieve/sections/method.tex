@@ -1,0 +1,59 @@
+\subsection{Observe an explicit state pair}
+The fast production strategy opens Original and transformed Default in separate
+owned Excel processes and rebuilds them in place. It compares their rebuilt
+states. Saved-input and pre-rebuild controls can explain changes introduced by
+Excel's own save or calculation behavior. Enabling additional controls incurs
+separate cost and must be recorded in the run configuration. A cached control
+is reusable only under its source and environment compatibility requirements.
+
+Legacy XLS conversion precedes the XLSX comparison subject. A workbook requiring
+repair, inaccessible protected content or an unsuccessful save receives its own
+outcome. Missing evidence cannot yield equality. A host process existing in the
+operating system and an Office.js add-in responding are separate liveness signals.
+Neither proves that calculation or capture work has advanced.
+
+\subsection{Select potentially affected regions}
+The XML analysis compares cell values and formulas together with their effective
+style context. A style index is local to a package. The same index can identify
+changed properties, while different indices can identify equivalent properties.
+The planner resolves that context before interpreting cell differences.
+
+Layout analysis includes row, column and default-format effects. Stored row-height
+attributes alone do not establish native effective heights. The native stage
+therefore measures the relevant geometry. Content bounds include values,
+formulas, visible fills and borders, and supported object extents. The union of
+both states is important when an operation removes content.
+
+Conditional-formatting analysis follows supported references. When a referenced
+input changes, its dependent application region becomes a candidate regardless
+of whether a particular rule outcome might remain the same. Unchanged supported
+rules and inputs can exclude a region. Unknown formulas, namespaces or extensions
+retain the documented fallback. Chart selection similarly considers supported
+formulas, referenced inputs and caches, with conservative handling of unresolved
+cases. The rule inventory and its unsupported cases are versioned with the tool.
+
+\subsection{Measure and render}
+Candidate regions are clipped to the justified content envelope. Connected regions
+are subdivided according to native measured image size. A fixed row count cannot
+predict the visible size of hidden or irregular rows. Zero-area regions have an
+explicit non-rendered outcome. Geometry and image batches have separate controls,
+allowing measurement overhead and rendering memory to be tuned independently.
+
+Office.js image results become available after synchronization. Hash calculation
+therefore follows synchronization of the requested image batch. Compatible equal
+hashes can avoid transmitting and retaining equal images under the recorded
+transport policy. Actual unequal images remain evidence. Hash transport, image
+retention and scientific coverage are separate choices.
+
+\subsection{Retain outcomes and explain uncertainty}
+The report records selected regions, compared states, configuration, timings and
+failures. Pixel diagnostics provide changed-pixel counts, channel deltas and
+magnified regions. They do not assign a regression verdict on their own. Formula
+dependency traces can identify a supported path to a volatile function without
+explaining every changed pixel in the surrounding image.
+
+Portable reports retain images using relative paths and integrity manifests.
+Their static viewer needs no Excel installation or running control API. Run
+metadata must be reviewed for local paths and publication-sensitive content
+before public release. Historical replay requires recorded event history and
+cannot reconstruct observations that were never retained.

@@ -1,1 +1,37 @@
-The introduction is being developed from the primary-source design study and the measured behavior of the implementation. This initial project verifies the manuscript build before the complete research-based draft is written.
+Spreadsheet files are both data containers and executable visual documents. A
+user can store a compact table in a workbook whose worksheet parts contain large
+numbers of otherwise empty cells. Such records can increase the work required
+to decompress and interpret the package. Removing every empty-looking record is
+unsafe. An empty cell can preserve a border, override an inherited fill, or
+influence automatic row height through its font. A whitespace value can prevent
+text from extending into its neighbour. Cleanup therefore requires a model of
+the effects that stored structures have on the document.
+
+Specialized spreadsheet parsing has demonstrated the importance of decompression,
+parsing, memory use and parallel execution for data loading~\cite{sheetreader}.
+Our problem adds a transformation obligation. The output remains an editable XLSX
+workbook and must retain required data, dependencies and visible presentation
+under a stated contract. File size alone is an inadequate measure of success.
+A smaller file that changes an important row height has failed that obligation.
+
+SheetShrink combines byte-oriented worksheet processing with compact preservation
+of necessary effects. It reuses existing styles and retains representative cells
+where those representatives preserve layout. Its production Default policy
+keeps whitespace blockers and applies dependency guards to eligible hidden
+constant tails. It leaves style and shared-string table compaction to a separate
+Excel save operation. This boundary keeps cleanup independent of the installed
+Excel application and makes its decisions inspectable in the package.
+
+The performance objective includes the complete user operation. For a sufficiently
+bloated workbook, we seek to make cleanup followed by opening the cleaned file
+faster than directly opening its original. This objective must be measured,
+including the cases where cleanup adds overhead. A single-thread comparison
+separates improvements in work performed from gains due to extra processing
+resources. Parallel corpus experiments then examine throughput and memory.
+
+The paper develops the preservation model, the small-footprint mechanisms that
+implement it, and an evaluation combining structural checks with native visual
+observations. The evaluation distinguishes completed observations, unsupported
+inputs and unresolved differences. Historical Python implementations provide
+context for the engineering progression. Their different cleanup rules require
+separate output and correctness accounting in any timing comparison.

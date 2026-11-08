@@ -1,0 +1,58 @@
+\subsection{Package-level analysis}
+An XLSX file contains related ZIP members. SheetShrink first checks the supported
+serialization and reads the metadata needed to interpret worksheet decisions.
+The production parser targets unprefixed Transitional SpreadsheetML in its normal
+default namespace. Explicit prefixes on core cell structures, unsupported
+encodings and ambiguous representations can exclude an input. Exclusion retains
+a reason and does not establish that the workbook lacks redundant data.
+
+The analysis resolves cell styles, shared strings, merged regions and dependency
+sources before applying the relevant removal rules. Worksheet cells are processed
+as byte ranges. This avoids constructing a document object model for every cell.
+It still requires correct recognition of attributes, hierarchy and relevant
+namespace boundaries. Unsupported syntax follows the documented fallback or
+eligibility path. Byte-oriented execution is an implementation strategy and does
+not itself prove semantic preservation.
+
+\subsection{Classify effects before removing records}
+A value, formula or inline-string payload is content. Numeric zero and shared
+formula followers require explicit treatment. For a candidate empty cell, the
+cleaner considers explicit formatting together with its row and column context.
+An apparently default style can cancel a visible inherited format. Removing it
+would expose that format, so the effective effect matters.
+
+A font can affect automatic row height without producing visible text. The
+cleaner therefore retains font representatives under Default. Where guards
+permit, an existing row style can replace repeated per-cell representations.
+This promotion must preserve other inherited components, gaps and merged cells.
+Dominance decisions include otherwise unsuitable styles, and ties have a fixed
+ordering. Ignoring an unsuitable majority would change the algorithm rather than
+merely accelerate it.
+
+Whitespace cleanup is disabled in the production Default policy. A neighbour's
+text overflow and row sizing can depend on such values. Hidden constant-tail
+cleanup is separately guarded by references and layout conditions. Ordinary
+nonempty hidden tables remain outside that admitted tail policy. Protection and
+dependency decisions take precedence over a requested deletion.
+
+\subsection{Execution and output}
+The implementation distributes worksheet work and can subdivide large work.
+Scheduling and chunk size must preserve cleanup decisions. Workbook-level
+concurrency also determines how many decompression buffers, analysis contexts
+and pending outputs coexist. Consequently, throughput experiments include mixed
+workbook sizes and single-sheet workbooks, alongside large multi-sheet inputs.
+
+The writer copies unaffected package members and can reuse compressed entries
+where supported. It does not generally renumber style or shared-string tables.
+The output writer must preserve input bytes and existing outputs on a rejected
+operation. A partially processed package is not published as a successful cleanup.
+These invariants are checked separately from compressed file size.
+
+\subsection{Native validation}
+We use native Excel rendering to investigate selected potentially affected
+regions. Original and cleaned copies are rebuilt in the same renderer environment.
+A separate validation methodology identifies value, effective-style, layout and
+dependency candidates. Its selection scope and failure accounting are part of
+the reported evidence. Independent reference samples and injected changes are
+required to evaluate that selector. Equality of its selected images alone cannot
+establish equality of every possible spreadsheet observation.

@@ -1,0 +1,20 @@
+\subsection{Spreadsheet loading and parsing}
+SheetReader studies specialized spreadsheet ingestion and the coupling of parsing,
+decompression and parallel execution~\cite{sheetreader}. It motivates evaluating
+loading costs and memory while providing a different output contract. SheetShrink
+produces a transformed workbook and must account for retained layout effects.
+The evaluation should measure whether cleanup also benefits downstream readers.
+
+\subsection{Spreadsheet analysis and testing}
+Spreadsheet slicing integrates dependencies with testing and debugging feedback
+in a spreadsheet environment~\cite{slicing}. Its treatment of indirect effects
+helps motivate dependency guards, while the preservation task here additionally
+includes native layout and graphical presentation. Workbook difference tools
+such as Spreadsheet Compare offer formula and format categories~\cite{spreadsheetcompare}.
+Their documented capabilities are evaluated as distinct observations rather than
+assumed to constitute a pixel-rendering oracle.
+
+A fuller literature review will position package cleanup, spreadsheet quality,
+representation redundancy and document transformation. The current bibliography
+contains primary sources inspected during draft construction. Tool capabilities
+require direct version-specific testing before comparative claims are finalized.

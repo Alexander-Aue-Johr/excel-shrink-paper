@@ -1,0 +1,22 @@
+\subsection{Spreadsheet dependencies and testing}
+Spreadsheet slicing connects dependency analysis with integrated testing and
+fault localization~\cite{slicing}. DeltaSieve uses supported dependencies to
+select native observation regions. The two methods have different adequacy
+obligations. Formula-dependency coverage alone does not cover every visual effect.
+
+\subsection{Workbook comparison and native evidence}
+Spreadsheet Compare documents workbook comparison reports with formula and
+cell-format categories, including hidden sheets~\cite{spreadsheetcompare}.
+This is an important existing capability. DeltaSieve's comparison must examine
+native rendered effects, candidate selection and corpus execution explicitly,
+using common test inputs where the installed tools support them.
+
+\subsection{Cross-system testing and parsing}
+SQuaLity examines barriers to reusing database test suites across systems,
+including configuration and execution dependencies~\cite{squality}. This suggests
+recording the renderer and environment when reusing observations. The analogy
+does not transfer database test adequacy guarantees to spreadsheet rendering.
+SheetReader's specialized parsing work~\cite{sheetreader} is relevant to efficient
+package inspection, whose cost must be separated from native rendering cost.
+Further work will examine change-impact analysis and visual regression testing
+with verified primary sources.

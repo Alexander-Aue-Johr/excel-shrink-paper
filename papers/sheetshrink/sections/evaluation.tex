@@ -1,0 +1,61 @@
+The evaluation asks three questions. RQ1 examines compressed package reduction
+and the remaining preservation footprint. RQ2 measures cleanup time, memory and
+the combined cleanup-plus-opening operation. RQ3 examines structural preservation
+and observed native presentation under the stated validation scope.
+
+\subsection{Corpus identity and outcome accounting}
+The evaluation treats Data.gov, Destatis and Enron as distinct populations.
+Archive checksums, member names and duplicate occurrences identify each selected
+corpus version. Legacy XLS conversion is reported separately from XLSX cleanup.
+The ongoing Enron fallback selection contains 20,872 inputs, of which 20,503 have
+prepared artifacts and 369 have unsuccessful preparation outcomes. Its visual
+scope contains 16,799 workbooks. These are preparation counts for the current
+selection, not final visual-validation results.
+
+A dated evaluation cutoff will report compared workbooks, differences, failures,
+unsupported representations and unfinished work. Repeated attempts have their own
+counts. An unchanged package can bypass visual work under an exact input-identity
+check, but a failed capture cannot contribute an equality observation. The full
+recursive Enron XML-derived corpus is a separately identified population.
+
+\subsection{Sampling and reference controls}
+The random evaluation sample is selected from a frozen eligible frame with a
+recorded seed before inspecting visual findings. Strata use corpus identity,
+package size and structural features available before validation. Low-reduction
+and unchanged files remain represented. A separately labelled development stress
+set contains large and historically problematic workbooks.
+
+Feasible sampled files receive full native reference captures over the relevant
+visual area using a capture plan independent of the candidate selector. A
+full-reference timeout remains in the denominator. It is not replaced silently
+by an easier workbook. Mutations with known visible effects cover cell values,
+styles, geometry, conditional dependencies and objects. Mutations that Excel
+normalizes away are reported separately.
+
+\subsection{Performance and comparison subjects}
+For each input, report the original and cleaned compressed sizes and their ratio.
+Report distributions and corpus totals, including inputs with no reduction.
+Opening time uses a documented readiness signal and fresh owned Excel processes.
+Single-thread cleanup, cleanup with parallelism and corpus throughput are separate
+experiments. RAM measurements specify the sampling interval and whether they
+refer to startup, steady state or peak use.
+
+Microsoft Check Performance is an optional cleanup comparison subject. Its Excel
+save-only control is necessary to distinguish optimization from serialization and
+recalculation effects. Its availability does not guarantee that all selected files
+can be processed. Historical DOM and regular-expression Python implementations
+have different cleanup decisions. A timing comparison must therefore include
+output differences and preservation outcomes for each version.
+
+\subsection{Present verified evidence and remaining measurements}
+Focused implementation verification includes 292 passing Core library tests and
+one ignored benchmark at the recorded development revision. A separate exploratory
+comparison of an attribute-scan proposal found identical decompressed outputs on
+seven hash-matched review inputs, over two alternating-order repetitions. The two
+large cases showed essentially unchanged wall time. The proposal was not adopted.
+These observations establish a bounded engineering result and do not estimate
+corpus-wide speedup or visual correctness.
+
+\textit{Evaluation freeze pending.} Populate the corpus reduction, end-to-end
+opening, resource and independent-reference result tables from frozen manifests.
+The currently running corpus is not used to claim an absence of regressions.

@@ -1,0 +1,60 @@
+RQ1 asks whether the selector captures the known visible effects in the tested
+mutation classes and independent reference sample. RQ2 measures how much native
+capture work and elapsed time it avoids. RQ3 examines the reproducibility and
+investigability of retained findings, including failures and rendering variation.
+
+\subsection{Corpus identity and outcome accounting}
+The evaluation treats Data.gov, Destatis and Enron as distinct populations.
+Archive checksums, member names and duplicate occurrences identify each selected
+corpus version. Legacy XLS conversion is reported separately from XLSX cleanup.
+The ongoing Enron fallback selection contains 20,872 inputs, of which 20,503 have
+prepared artifacts and 369 have unsuccessful preparation outcomes. Its visual
+scope contains 16,799 workbooks. These are preparation counts for the current
+selection, not final visual-validation results.
+
+A dated evaluation cutoff will report compared workbooks, differences, failures,
+unsupported representations and unfinished work. Repeated attempts have their own
+counts. An unchanged package can bypass visual work under an exact input-identity
+check, but a failed capture cannot contribute an equality observation. The full
+recursive Enron XML-derived corpus is a separately identified population.
+
+\subsection{Sampling and reference controls}
+The random evaluation sample is selected from a frozen eligible frame with a
+recorded seed before inspecting visual findings. Strata use corpus identity,
+package size and structural features available before validation. Low-reduction
+and unchanged files remain represented. A separately labelled development stress
+set contains large and historically problematic workbooks.
+
+Feasible sampled files receive full native reference captures over the relevant
+visual area using a capture plan independent of the candidate selector. A
+full-reference timeout remains in the denominator. It is not replaced silently
+by an easier workbook. Mutations with known visible effects cover cell values,
+styles, geometry, conditional dependencies and objects. Mutations that Excel
+normalizes away are reported separately.
+
+\subsection{Detection and cost metrics}
+A selector miss is a native reference difference outside the selected coverage.
+Report detection by mutation class and by completed reference workbook. A changed
+capture is counted separately from a confirmed transformation regression.
+Unsupported references, failed geometry reads and missing partner images retain
+explicit coverage outcomes.
+
+Cost measurements separate XML planning, geometry, native rendering, transfer,
+image comparison and persistence where instrumentation permits. Report image
+count, compared pixels and retained bytes alongside elapsed time. Batch and
+concurrency experiments use matched inputs and repeated runs. A changing
+production queue does not identify the causal benefit of a tuning parameter.
+Full-corpus cost estimates use measured visible geometry and stratified samples,
+with uncertainty and assumptions about hidden regions and object extents.
+
+\subsection{Current verification boundary}
+The portable-viewer smoke experiment retained a deliberately different pair,
+loaded its images through relative static assets and displayed its diagnostics
+without a running control API. An empty-partition test verified explicit selected
+and excluded counts without opening Excel. These tests verify execution and
+reporting boundaries. They do not establish selector recall.
+
+\textit{Evaluation freeze pending.} Complete the independent mutation matrix,
+seeded native reference sample and matched cost tables before making detection
+or speedup claims. Retain unresolved development cases and the original pixel
+observations when a later retry or software fix changes their classification.

@@ -1,1 +1,38 @@
-The introduction is being developed from the primary-source design study and the measured behavior of the implementation. This initial project verifies the manuscript build before the complete research-based draft is written.
+A spreadsheet transformation can preserve cell values and still change the
+visible document. Removing an empty formatted cell can expose a background or
+alter automatic row height. Changing a referenced input can affect a distant
+conditional-formatting region or chart. Checking only edited cell payloads
+therefore leaves important transformation effects unobserved.
+
+Native rendering supplies an operational way to observe these effects in the
+spreadsheet application that users employ. Exhaustive rendering, however, can
+be expensive for large sheets and corpora. Stored worksheet extents may also
+include empty or uniformly formatted tails. Dividing these extents by a fixed
+cell grid can create many images despite very little finite visible content.
+The challenge is to select useful rendering work while retaining explicit
+uncertainty about unsupported features and incomplete comparisons.
+
+DeltaSieve combines package-level change analysis with native visual comparison.
+It follows effective style identities across table renumbering, considers
+layout and dependency effects, and records the reasons for its capture choices.
+Supported conditional-formatting and chart dependencies can establish that an
+unchanged input cannot have changed the associated presentation under the
+supported model. Changed or unresolved dependencies remain capture candidates.
+The native stage measures geometry, renders bounded image batches, and compares
+retained evidence under a recorded state-pair policy.
+
+The scientific question concerns the detection and cost of this selection.
+A dependency-aware planner is useful only if its reduced work retains the
+relevant effects in the evaluated domain. We therefore separate selector
+coverage, pixel observation and defect attribution. Independent full-reference
+samples and mutations test detection. Repeated same-input observations test
+rendering variability. A changed image remains an observation whose cause may
+require further evidence.
+
+Existing spreadsheet dependency slicing motivates careful treatment of indirect
+effects~\cite{slicing}. Existing workbook comparison tools also provide reports
+of structural and cell-level changes~\cite{spreadsheetcompare}. DeltaSieve's
+evaluation must establish the additional contribution of its native-rendering
+selection and evidence workflow. An interactive Observatory and portable report
+make those observations inspectable. They support the method's evaluation without
+replacing its independent detection tests.
