@@ -1,0 +1,19 @@
+\begin{figure}[!ht]
+\centering
+\begin{tikzpicture}[x=1cm,y=1cm, font=\scriptsize,
+  cell/.style={draw, minimum width=1.45cm, minimum height=.65cm, align=center},
+  witness/.style={cell, fill=blue!12, line width=.8pt}]
+\node[anchor=west,font=\footnotesize\bfseries] at (-.7,1.5) {Stored cell records before cleanup};
+\node[cell] at (0, .8) {A103\\value};
+\node[witness] at (1.75,.8) {S103\\large font};
+\node[witness] at (3.5,.8) {T103\\same font};
+\node[cell,dashed,text=black!65] at (5.25,.8) {U103\\empty};
+\draw[-{Stealth},thick] (2.6,.32) -- (2.6,-.3);
+\node[anchor=west,font=\footnotesize\bfseries] at (-.7,-.65) {Stored cell records after cleanup};
+\node[cell] at (0,-1.35) {A103\\value};
+\node[witness] at (1.75,-1.35) {S103\\witness};
+\node[align=left,anchor=west] at (2.8,-1.35) {Required automatic height\\retained with one representative};
+\end{tikzpicture}
+\caption{Illustrative local cleanup. Numeric content and one required font witness remain. Redundant empty records are omitted while cell coordinates remain fixed. The preservation decision also depends on workbook context.}
+\label{fig:cleanup-overview}
+\end{figure}
