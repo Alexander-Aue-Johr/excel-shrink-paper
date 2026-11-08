@@ -1,0 +1,58 @@
+% Working prose derived from the paired-rebuild validation contract.
+\subsection{Inputs, states, and observations}
+DeltaSieve validates a pair of spreadsheet states produced by a transformation.
+The package representation supplies evidence about where visible changes could
+occur. Native Excel rendering supplies the image observations for selected
+regions. The two sources of evidence serve different roles. A candidate is a
+reason to inspect a region; pixel inequality is an observation that still needs
+attribution.
+
+The fast comparison uses Original and transformed workbooks after a full rebuild
+and save in their existing, separately owned Excel processes. This gives both
+partners the native recalculation step. Stored and ordinary-saved XML controls
+remain available for follow-up. Their changes explain potential causes without
+automatically enlarging the rebuilt-pair capture plan. An independently requested
+Check Performance comparison has its own transformed state and coverage.
+
+\subsection{Relevant visual area and candidate coverage}
+The relevant area includes values, formulas, effective visible formatting, text
+overflow, and objects. A union across relevant input states is needed to cover
+content removed by a transformation. Empty trailing geometry has a separate
+contract. The capture plan must retain enough evidence to distinguish a change
+inside the relevant area from a larger or smaller exterior canvas.
+
+Candidate selection considers changed cell properties and layout, as well as
+regions affected through conditional formatting and graphical dependencies.
+Style and shared-string references require comparison of their effective
+contents because saving can renumber the corresponding tables. Supported
+reference reasoning can exclude a dependent region when its rule and inputs are
+unchanged. A changed dependency makes its affected region a candidate. Unresolved
+reference semantics require explicit fallback coverage.
+
+A selected-region comparison does not by itself demonstrate that every relevant
+change in the workbook was selected. We evaluate that property using independently
+rendered reference areas and controlled mutations. The evaluation must record
+which reference cases completed and which exceeded their budgets. The paper's
+coverage claims are bounded by these observations and the supported dependency
+model.
+
+\subsection{Verdicts, failures, and reusable evidence}
+A successful comparison requires usable evidence from both partners. Missing
+hashes, failed native commands, and timeouts remain unsuccessful outcomes.
+Heartbeats establish add-in reachability and do not establish calculation or
+capture progress. Durable operation receipts and phase measurements support
+investigation of stalls.
+
+The raw pixel and geometry observations remain attached to a finding after
+review. Product regressions, rendering variation, environment-dependent values,
+and verified capture-extent differences have separate classifications. A volatile
+formula path explains a possible cell-value change while other changed pixels
+in the same image can require further analysis. No global pixel tolerance is
+assumed.
+
+Reusable observations bind the input states, relevant configuration, producing
+validation implementation, and declared rendering environment. Package-content
+identity is evaluated independently of ZIP entry order and compression. Reusing
+a completed study preserves its source manifest and compatibility checks.
+Portable reports retain the observations and their provenance for inspection
+without rerunning Excel.

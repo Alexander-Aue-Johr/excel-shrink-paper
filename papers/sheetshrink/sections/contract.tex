@@ -1,0 +1,54 @@
+% Working prose derived from the versioned preservation contract; evaluation is pending.
+\subsection{Observable spreadsheet behavior}
+A spreadsheet package contains more than the populated table that a user sees.
+Individual cell records can carry formatting, protection, references, or values
+that affect other cells. Conversely, the presence of a stored record does not
+establish that it contributes to the intended presentation. SheetShrink targets
+Default cleanup of such packages while retaining the structures needed by its
+preservation contract. Aggressive historical configurations are separate test
+artifacts and are excluded from the production subject of this paper.
+
+The relevant visual area includes cells with meaningful values or formulas,
+empty cells with effective visible fills or borders, and graphical objects.
+Formatting inherited from rows or columns can contribute to this area. Conditional
+formatting and text extending into adjacent cells can also affect what is visible.
+The union of the original and transformed relevant areas is required when checking
+removed content. Layout changes in otherwise empty trailing rows or columns are
+permitted by the contract. Changes that move or alter relevant content remain
+subject to validation.
+
+\subsection{Removal decisions and compact preservation}
+A record can be eligible for removal only after accounting for its required
+contribution. An empty cell may still influence automatic row height through its
+font. A whitespace-only value may stop text from extending from an adjacent cell.
+Referenced hidden content can influence displayed values and charts. These cases
+require different reasoning from a test for an absent payload.
+
+The preservation strategy retains a small representative when that representative
+can preserve a required effect. Row-font sentinels and guarded promotion of an
+existing style into a row format are examples. Their applicability depends on
+inherited formatting, gaps, merges, protection, and the available style records.
+An unresolved case retains the required source representation. The objective is
+to remove eligible bloat throughout the package while keeping the preservation
+footprint small.
+
+The contract permits removal of unreferenced hidden content under the configured
+dependency rules. It therefore distinguishes required data and dependencies from
+all physically stored cell values. A future Excel-hosted cleanup stage could
+measure native layout before replacing additional sentinels or whitespace
+blockers. Such a stage is outside the implementation evaluated here.
+
+\subsection{Validation and attribution boundaries}
+Our fast visual validation compares independently rebuilt Original and Default
+states using the same installed Excel environment. Ordinary-save and rebuild
+controls retain information for attributing differences introduced by Excel.
+For XLS sources, conversion precedes the XLSX cleanup subject and has its own
+failure accounting. A file requiring repair or inaccessible protected content
+receives an explicit unsuccessful outcome.
+
+Targeted visual equality is an observation over the selected regions. We evaluate
+the selection mechanism separately with native reference captures and mutations.
+Unequal pixels are retained for investigation. Repeated rendering controls,
+volatile dependencies, and capture geometry help classify their cause. The
+results section must report the completed coverage and unresolved findings at
+its fixed evaluation cutoff.
