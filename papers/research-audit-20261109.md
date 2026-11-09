@@ -45,31 +45,33 @@ not prove the server-side time of its last push.
 
 ## Checklist
 
-- [ ] Verify project names and the current development branch.
+- [x] Verify project names and the current development branch.
 - [x] Locate existing literature-review prompts.
 - [x] Determine whether DeltaSieve uses MCP or general-purpose APIs.
 - [ ] Inventory troubleshooting across documentation, tests, commits and issues.
 - [x] Verify WebSocket, JSON Patch and other transport mechanisms in code.
-- [ ] Reconstruct registry, orphaned WebView, resource and unattended-run issues.
+- [x] Reconstruct registry, orphaned WebView, resource and unattended-run issues.
 - [x] Research the publication role of engineering hurdles and negative findings.
-- [ ] Inventory experiments across all relevant software branches, including WPF.
-- [ ] Reconstruct VBA, VSTO, Excel-DNA, COM, Rust COM and Office.js alternatives.
-- [ ] Trace CopyPicture, clipboard, GDI and disk-based comparison experiments.
-- [ ] Trace COM geometry findings and limits of parallel execution.
-- [ ] Trace workbook opening costs and Office.js batching evidence.
-- [ ] Assess the publication suitability and limits of these experiments.
-- [ ] Map SheetShrink rules, regressions and source-workbook provenance.
-- [ ] Map DeltaSieve selection, capture, fallback and expensive-case evidence.
-- [ ] Inspect historical manuscripts and XML, regex and byte-based implementations.
-- [ ] Assess historical comparisons without claiming feature-equivalent baselines.
-- [ ] Inspect earlier size, opening and cleanup-plus-opening figures.
-- [ ] Assess download, extraction and preparation scripts for reuse.
-- [ ] Assess chart improvements and the censored Wanderungen observation.
+- [x] Inventory experiments across all relevant software branches, including WPF.
+- [x] Reconstruct VBA, VSTO, Excel-DNA, COM, Rust COM and Office.js alternatives.
+- [x] Trace CopyPicture, clipboard, GDI and disk-based comparison experiments.
+- [x] Trace COM geometry findings and limits of parallel execution.
+- [x] Trace workbook opening costs and Office.js batching evidence.
+- [x] Assess the publication suitability and limits of these experiments.
+- [x] Map SheetShrink rules, regressions and source-workbook provenance.
+- [x] Map DeltaSieve selection, capture, fallback and expensive-case evidence.
+- [x] Inspect historical manuscripts and XML, regex and byte-based implementations.
+- [x] Assess historical comparisons without claiming feature-equivalent baselines.
+- [x] Inspect earlier size, opening and cleanup-plus-opening figures.
+- [x] Assess download, extraction and preparation scripts for reuse.
+- [x] Assess chart improvements and the censored Wanderungen observation.
 - [x] Verify the forbidden original-workbook Pandas test remains unexecuted.
 - [x] Document the abstraction and review rules for subsequent source changes.
-- [ ] Establish a fast, reproducible LaTeX build within the allowed directory.
-- [ ] Research minted/Pygments, vector code figures and ICDE/IEEE constraints.
-- [ ] Research related concurrent submissions, disclosure and supplementary papers.
+- [x] Establish a fast, reproducible LaTeX build within the allowed directory.
+- [x] Research minted/Pygments, vector code figures and ICDE/IEEE constraints.
+  No verified accepted-paper precedent or specific permission was established.
+- [x] Research related concurrent submissions, disclosure and supplementary papers.
+  Actual CMT companion-upload options remain unverified.
 - [x] Incorporate only established research-relevant findings into working drafts.
 - [x] Record remaining literature-review inputs and evidence gaps.
 - [ ] Low priority, after submission preparation: review published commit messages
@@ -201,16 +203,17 @@ tails/drawings, references, names/calculation-chain handling and output failures
 `docs/methodology/reference-protection.md` supplements dependency policy.
 Examples of executable regression sources are
 `excel-shrink-core/src/sheet/{cells,rows,ranges,tail_fill}_regression_tests.rs`
-and `src/reference_scanner_regression_tests.rs`. A complete rule-by-rule and
-source-workbook provenance matrix remains pending.
+and `src/reference_scanner_regression_tests.rs`. A rule-family, regression and retained-workbook map is now retained in
+`research-audit/method-and-experiment-map.md`. Individual provenance links remain
+uneven. The map does not assert source-workbook coverage for every test.
 
 DeltaSieve has a specification and source map in
 `docs/behavior/targeted-validation.md`, including V5--V11, and execution semantics
 in `docs/behavior/execution-and-evidence.md`. `resident-events.md` supplies the
 transport and buffering details. Tall-sheet guards live in
 `src/regression/office_capture/tall_sheet_{analysis,selection}.rs`. The recalled
-five-hour fallback and external Rust-COM geometry defect have not yet been
-uniquely identified. They remain leads, not manuscript results.
+five-hour fallback and external Rust-COM geometry defect are now identified in
+`research-audit/method-and-experiment-map.md`, with source revisions and limits.
 
 ### Historical code, charts and the forbidden workload
 
@@ -251,8 +254,9 @@ experimental environments. Neither source certifies acceptance of these papers.
 
 The current ICDE instructions specify single-blind review and a 12-page body,
 excluding references and the AI-content acknowledgment, with no appendix.
-The one-year resubmission interval runs from the **last submission**, not the
-decision date. Public artifact URLs are expected. The inspected instructions do
+The guidelines page measures the interval from the last submission; the CFP
+instead says rejection. This discrepancy between official pages was rechecked
+on 2026-11-09. Public artifact URLs are expected. The inspected instructions do
 not explicitly establish a confidential companion-manuscript upload procedure.
 The submission planning record appears below.
 The actual CMT options remain unverified.
@@ -293,8 +297,8 @@ original-workbook Pandas workload.
 1. Locate the machine/setup and retained report for the earlier more-than-48-hour
    Wanderungen/Pandas attempt when available. Add a provenance note before using
    it as a measured manuscript result.
-2. Provide completed Deep Research reports if any exist. Their availability has
-   not yet been established. The two existing prompts can be used separately.
+2. Deep Research reports are pending and will be supplied separately. Continue
+   independent evidence and submission preparation in the meantime.
 
 The confidential-companion-paper route and a verified accepted-paper minted
 precedent remain open research items. Unchecked entries identify outstanding work.
@@ -302,9 +306,61 @@ precedent remain open research items. Unchecked entries identify outstanding wor
 ## Working-draft verification
 
 Both manuscripts were rebuilt with the local minimal TeX Live installation.
-SheetShrink has four pages and DeltaSieve six. Final compilation logs contain
-no warnings or overfull boxes. All ten pages were rendered and inspected.
+The earlier checkpoint contained four and six pages. The expanded drafts now
+have five and seven pages. Compilation has no undefined references or overfull
+boxes. Underfull-box diagnostics remain, including long bibliography URLs.
+All twelve pages were rendered and inspected at the expanded checkpoint.
 The recorder output paths stay under C:/texlive. These are working drafts.
 
 The working drafts and remaining evidence requirements are retained together
 for the next research and submission-preparation checkpoint.
+
+## Expanded checkpoint
+
+`research-audit/method-and-experiment-map.md` records rule families, regression
+sources, retained workbook examples, historical alternative protocols and their
+measurement limits. `submission-readiness.md` separates prepared draft material
+from final author, artifact, measurement and disclosure inputs.
+
+The DeltaSieve draft now includes the retained geometry/capture batch experiment
+and the two still-progressing whole-grid object fallbacks. SheetShrink's method
+now explains masking blanks, font witnesses, cross-coordinate visual anchors
+and the admitted hidden integer-tail structure. Both compiled drafts were
+rendered and inspected after these changes.
+
+The chart-only script reads historical CSV rows without importing a workbook
+loader or old benchmark module. Matplotlib 3.11.2 and its dependencies are
+installed under `C:/texlive/python-packages`; its configuration and generated
+assets remain within `C:/texlive`. The preview remains separate from the paper
+pending historical producer/environment reconciliation.
+
+Repository documentation, regression sources and commit history were searched
+for operational failures. The GitHub issues collection returned HTTP 404 through
+the available connector. Issue coverage is therefore unverified, and the
+troubleshooting inventory checkbox remains open. This response does not establish
+that the repository has no issues. The branch inventory covers all 17 fetched
+references; selected retained experimental protocols have been inspected in
+depth, with full semantic reconciliation of branch-only code still outstanding.
+
+Deep Research results and the earlier Wanderungen report remain pending external
+inputs. Published-history wording review retains its lower priority. Final
+evaluation freezes, paper finalization and submission have not been performed.
+
+### Published wording search
+
+An exact-phrase search of published paper history and tracked Markdown/TeX found
+no occurrences of `the author requested`, `the user requested`,
+`the user instructed` or `the actor requested`. The same search of software
+remote commit subjects found no matches. The current software documentation
+contains six matching lines, retained at `a7eef1a`:
+
+- `docs/planning/sheetshrink-deltasieve-roadmap.md`, lines 71, 117, 178 and 996.
+- `docs/visual-validation/experiments/comparator-pilot/README.md`, line 181.
+- `docs/visual-validation/investigations/enron-capture-idle-recovery-20261104.md`,
+  line 35.
+
+These are already published software documents. The current unpublished paper
+changes contain no matching phrasing. This bounded phrase search does not cover
+every possible paraphrase. The lower-priority cleanup checkbox remains open for
+a broader editorial pass after submission preparation. Existing published Git
+history has not been rewritten.
