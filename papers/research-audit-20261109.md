@@ -364,3 +364,23 @@ changes contain no matching phrasing. This bounded phrase search does not cover
 every possible paraphrase. The lower-priority cleanup checkbox remains open for
 a broader editorial pass after submission preparation. Existing published Git
 history has not been rewritten.
+
+### Algorithm presentation checkpoint
+
+Both method sections now include a numbered logical-stage summary using
+`algpseudocode` from algorithmicx. Ordinary IEEEtran figure environments retain
+the class's captions and numbering. The summaries describe method-level
+operations and do not assert literal implementation call order or replace the
+detailed guards. The IEEEtran HOWTO recommends algorithmicx-compatible content
+inside standard figures.
+[IEEEtran HOWTO](https://ctan.math.illinois.edu/macros/latex/contrib/IEEEtran/IEEEtran_HOWTO.pdf)
+
+The local TeX installation gained algorithmicx and the AMS Type 1 fonts required
+for its mathematical input notation, installed from the verified ISO. Both
+drafts rebuilt successfully with resolved references and no overfull boxes.
+The two algorithm pages were rendered and inspected. Page counts remain five
+and seven. All build output remains under `C:/texlive`.
+
+CMT companion-paper entries are handled during submission. No public companion
+PDF publication path has been selected. The local manuscript PDFs remain at
+`C:/texlive/builds/sheetshrink.pdf` and `C:/texlive/builds/deltasieve.pdf`.

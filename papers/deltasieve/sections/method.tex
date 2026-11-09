@@ -1,4 +1,8 @@
 \subsection{Observe an explicit state pair}
+Figure~\ref{fig:comparison-algorithm} summarizes the logical stages. Capture
+selection, native observation and outcome accounting remain separate operations.
+\input{figures/comparison-algorithm}
+
 The fast production strategy opens original and transformed workbooks in separate
 owned Excel processes and rebuilds them in place. A configured worker pool may
 lease existing processes across file pairs. Measurements must distinguish

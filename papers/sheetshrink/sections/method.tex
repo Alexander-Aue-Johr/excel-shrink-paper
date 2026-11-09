@@ -1,4 +1,8 @@
 \subsection{Package-level analysis}
+Figure~\ref{fig:cleanup-algorithm} summarizes the logical stages. Each line
+denotes a guarded operation whose preservation conditions are detailed below.
+\input{figures/cleanup-algorithm}
+
 An XLSX file contains related ZIP members. SheetShrink first checks the supported
 serialization and reads the metadata needed to interpret worksheet decisions.
 The production parser targets unprefixed Transitional SpreadsheetML in its normal

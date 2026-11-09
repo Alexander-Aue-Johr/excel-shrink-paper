@@ -1,0 +1,22 @@
+\begin{figure}[t]
+\footnotesize
+\begin{algorithmic}[1]
+\Require Workbook package $W$, cleanup policy $P$
+\Ensure Cleaned package or explicit unsuccessful outcome
+\State Check supported serialization of $W$
+\State Resolve styles, strings, layout and references
+\ForAll{worksheets in $W$}
+  \State Classify content and effective formatting
+  \State Identify protected references and layout anchors
+  \State Select guarded removals under $P$
+  \State Retain compact font and geometry witnesses
+  \State Rewrite admitted records and retain other effects
+\EndFor
+\State Reconcile names and calculation-chain changes
+\State Assemble output with unaffected package members
+\State Publish only a successfully completed package
+\end{algorithmic}
+\caption{SheetShrink's logical cleanup stages. Guards are resolved before
+removal. Worksheet scheduling and chunking preserve these decisions.}
+\label{fig:cleanup-algorithm}
+\end{figure}

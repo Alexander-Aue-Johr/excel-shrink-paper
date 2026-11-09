@@ -29,8 +29,8 @@ The companion paper's existence cannot discharge an independent evaluation duty.
   cost evidence before drafting aggregate detection or speedup claims.
 - [ ] Select an openly accessible standard-service artifact URL and review
   contents for sensitive workbook data and local paths before release.
-- [ ] Check the actual CMT fields for related-work disclosure and companion
-  manuscript handling. The public guidelines do not establish a confidential
+- [ ] Complete the CMT fields for related-work disclosure and companion
+  manuscript handling during submission. The public guidelines do not establish a confidential
   companion-PDF upload mechanism. Do not promise such reviewer access in either
   manuscript until the mechanism is verified.
 - [ ] Add the reciprocal citation with the final companion title and status.
@@ -54,8 +54,14 @@ Draft preparation follows the planned submission date.
 
 ## Code presentation and build
 
-Existing drafts require no minted or shell escape. Algorithm descriptions can be
-prepared using standard LaTeX structures. Minted remains technically plausible
+The drafts use algorithmicx's algpseudocode layout for logical method summaries,
+inside ordinary IEEEtran figure environments with native captions. This follows
+the IEEEtran HOWTO's algorithm guidance. Algorithm source files live under each
+paper's `figures/` directory. The package was installed from the verified local
+TeX Live ISO, with temporary and build files retained under `C:/texlive`.
+[IEEEtran HOWTO](https://ctan.math.illinois.edu/macros/latex/contrib/IEEEtran/IEEEtran_HOWTO.pdf)
+
+The drafts require no shell escape. Minted remains technically plausible
 for a later code figure, with a pre-rendered vector asset and embedded text fonts.
 No verified accepted ICDE/IEEE precedent or ICDE-specific permission was found in
 the bounded search. An accessible submission source alone does not establish
