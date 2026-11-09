@@ -11,6 +11,15 @@ This is an important existing capability. DeltaSieve's comparison must examine
 native rendered effects, candidate selection and corpus execution explicitly,
 using common test inputs where the installed tools support them.
 
+xlCompare documents command-line comparison and exported difference reports~\cite{xlcompare}.
+DiffEngineX documents whole-workbook and folder comparisons, report workbooks,
+and comparisons of formulas and constants. Its help explicitly excludes chart
+comparison~\cite{diffenginex}. These documented capabilities motivate a shared
+input pilot with exported reports. A report of edited cell inputs and an
+observation of their dependent rendered consequences answer different questions.
+The pilot must therefore record the tested options and report coverage instead
+of treating every comparator as an interchangeable visual oracle.
+
 \subsection{Cross-system testing and parsing}
 SQuaLity examines barriers to reusing database test suites across systems,
 including configuration and execution dependencies~\cite{squality}. This suggests

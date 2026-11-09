@@ -7,10 +7,13 @@ investigability of retained findings, including failures and rendering variation
 The evaluation treats Data.gov, Destatis and Enron as distinct populations.
 Archive checksums, member names and duplicate occurrences identify each selected
 corpus version. Legacy XLS conversion is reported separately from XLSX cleanup.
-The ongoing Enron fallback selection contains 20,872 inputs, of which 20,503 have
-prepared artifacts and 369 have unsuccessful preparation outcomes. Its visual
-scope contains 16,799 workbooks. These are preparation counts for the current
-selection, not final visual-validation results.
+A historical Enron development selection contains 20,872 inputs, with 20,503
+prepared artifacts and 369 unsuccessful preparation outcomes at its recorded
+preparation checkpoint. Its selected visual scope contains 16,799 workbooks.
+The author intentionally stopped this run after the worker-pool investigation.
+These counts describe a development selection and do not establish completed
+visual coverage. The replacement EDRM Enron v2 XML population requires a separate
+extraction manifest before its workbook count can be stated.
 
 A dated evaluation cutoff will report compared workbooks, differences, failures,
 unsupported representations and unfinished work. Repeated attempts have their own
@@ -58,3 +61,24 @@ reporting boundaries. They do not establish selector recall.
 seeded native reference sample and matched cost tables before making detection
 or speedup claims. Retain unresolved development cases and the original pixel
 observations when a later retry or software fix changes their classification.
+
+\subsection{Bounded comparator pilot}
+A development pilot supplied five frozen synthetic workbook pairs to xlCompare
+12.5.0.0 and DiffEngineX 3.18.0.0 through their report commands. Both exports
+contained an edit at B2000 beyond the initial viewport. Neither tested export
+listed the hidden B3000 edit. Direct-presentation and sparse-formatting pairs
+produced no exported cell differences under these commands. For the dependent
+presentation pair, both exported the edited B1 precedent without a separate
+conditional-formatting or chart-rendering finding. The xlCompare trial reported
+a first-ten-rows export limit. These observations describe the tested reports
+and options, with incomplete edition and option coverage.
+
+Two separately prepared large Destatis pairs contained 107 and 215 worksheets.
+The observed xlCompare wall times were 53.748 and 21.711 seconds, respectively.
+DiffEngineX required 131.692 and 161.221 seconds. Its reports represented every
+source worksheet and reported zero cell differences in formula-comparison mode.
+These were single trials under concurrent development load. Companion Excel
+process resources were not measured over their full lifetime, and no matched
+DeltaSieve cost trial was completed. These measurements therefore establish
+bounded execution feasibility and report coverage, leaving comparative cost
+and rendered-equivalence claims open.

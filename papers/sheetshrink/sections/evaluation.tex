@@ -7,10 +7,13 @@ and observed native presentation under the stated validation scope.
 The evaluation treats Data.gov, Destatis and Enron as distinct populations.
 Archive checksums, member names and duplicate occurrences identify each selected
 corpus version. Legacy XLS conversion is reported separately from XLSX cleanup.
-The ongoing Enron fallback selection contains 20,872 inputs, of which 20,503 have
-prepared artifacts and 369 have unsuccessful preparation outcomes. Its visual
-scope contains 16,799 workbooks. These are preparation counts for the current
-selection, not final visual-validation results.
+A historical Enron development selection contains 20,872 inputs, with 20,503
+prepared artifacts and 369 unsuccessful preparation outcomes at its recorded
+preparation checkpoint. Its selected visual scope contains 16,799 workbooks.
+The author intentionally stopped this run after the worker-pool investigation.
+These counts describe that development selection and do not establish completed
+visual coverage. The replacement EDRM Enron v2 XML population requires a separate
+extraction manifest before its workbook count can be stated.
 
 A dated evaluation cutoff will report compared workbooks, differences, failures,
 unsupported representations and unfinished work. Repeated attempts have their own
@@ -58,4 +61,4 @@ corpus-wide speedup or visual correctness.
 
 \textit{Evaluation freeze pending.} Populate the corpus reduction, end-to-end
 opening, resource and independent-reference result tables from frozen manifests.
-The currently running corpus is not used to claim an absence of regressions.
+Development-run counters are not used to claim an absence of regressions.
