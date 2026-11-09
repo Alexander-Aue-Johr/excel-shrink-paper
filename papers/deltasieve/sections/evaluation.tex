@@ -10,7 +10,7 @@ corpus version. Legacy XLS conversion is reported separately from XLSX cleanup.
 A historical Enron development selection contains 20,872 inputs, with 20,503
 prepared artifacts and 369 unsuccessful preparation outcomes at its recorded
 preparation checkpoint. Its selected visual scope contains 16,799 workbooks.
-The author intentionally stopped this run after the worker-pool investigation.
+This run ended after the worker-pool investigation.
 These counts describe a development selection and do not establish completed
 visual coverage. The replacement EDRM Enron v2 XML handover contains 34,065 distinct
 content-addressed candidates totaling 8.470 decimal GB of uncompressed payload.
@@ -119,6 +119,42 @@ Staging, teardown and launch barriers are excluded, while caches and concurrent
 background work remain potential influences. This bounded observation supports
 overlapping startup; it does not measure arbitrary COM-command parallelism or
 full-corpus comparison throughput.
+
+\subsection{Geometry and capture batching}
+A warmed-up development experiment measured 64 ranges in one isolated Excel
+instance~\cite{capturebatching}. The two scalar passes each took 16.094 seconds.
+The two intervening batch passes each took 0.250 seconds. All returned
+geometries matched.
+A subsequent capture sequence used twelve regions, including four zero-area
+regions. Requested package sizes of 1, 2, 3, 4 and 8 took 3.125, 1.579, 1.093,
+0.828 and 0.579 seconds, respectively. Every visible image matched the baseline
+dimensions and decoded RGBA hash, and all zero-area outcomes agreed.
+
+Opening was excluded. The probe used 250-millisecond response polling, so the
+times include command observation and are quantized by that mechanism. Capture
+sizes were tested sequentially under concurrent background load. These bounded
+observations motivate batching in the measured pipeline. They do not isolate
+Office.js execution time or predict corpus throughput. A shared pixel budget
+can further reduce the actual number of images in a package.
+
+\subsection{Cost of conservative object fallback}
+Two retained Destatis attempts illustrate the cost of an unresolved object
+envelope~\cite{legacyobjectbounds}. The Elterngeld workbook's explanatory sheet
+accounted for 104,833 of 104,836 planned regions. At 5.29 elapsed hours, each
+state had completed 60,864 captures. The Abwasser workbook's contents sheet
+accounted for 185,856 of 185,942 regions, with 60,696 captures per state after
+5.26 hours. Both attempts were still progressing. These are censored runtime
+observations, with no completed full-capture duration.
+
+The planner selected the whole worksheet grid despite content envelopes of
+A3:A6 and A1:B47. Unsupported objects prevented the finite-background-tail
+proof. In the Abwasser case, two zero-height horizontal lines had explicit
+stroke width. Removing them in an independently supplied A1:H50 native control
+changed 1,042 RGBA pixels. Geometric zero height therefore did not justify
+discarding their visible ink. A later bounded-line rule reduced the retained
+row bound to 50 in planning tests, while retaining a distant column boundary.
+It had not replaced either long-running attempt at the evidence checkpoint.
+The planning result consequently establishes no measured runtime reduction.
 
 \subsection{Current verification boundary}
 The portable-viewer smoke experiment retained a deliberately different pair,

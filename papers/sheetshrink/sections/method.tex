@@ -35,6 +35,27 @@ cleanup is separately guarded by references and layout conditions. Ordinary
 nonempty hidden tables remain outside that admitted tail policy. Protection and
 dependency decisions take precedence over a requested deletion.
 
+\subsection{Preservation structures at empty coordinates}
+The retained regression cases distinguish empty payloads from absent visual
+effects~\cite{sheetshrinkcontract}. A default-format cell can mask a filled
+row or column. A font-only cell can determine automatic row height, including
+when a protection attribute accompanies the font. Merged text can require a
+local font representative even when no separate apply-font flag is present.
+These cases require resolving inheritance before classifying removable cells.
+
+Preservation can also depend on several coordinates together. Center-across-
+selection formatting requires the contiguous blank span following its content
+cell. Keeping only the last blank loses the intended span. Row-level borders
+can require widths at empty column boundaries. A chart's linked number format
+can depend on the first, empty series cell. The guards therefore preserve
+specific layout and dependency anchors beyond the nonempty-cell envelope.
+
+The hidden constant-tail rule admits only a dense horizontal sequence of at
+least 4,096 identical signed-integer cells, hidden and ending at column XFD,
+subject to reference and layout guards. Gaps, formulas, text and vertical runs
+remain outside this rule. The threshold identifies an admitted structural case;
+it does not establish that arbitrary repeated data are unintended.
+
 \subsection{Execution and output}
 The implementation distributes worksheet work and can subdivide large work.
 Scheduling and chunk size must preserve cleanup decisions. Workbook-level
