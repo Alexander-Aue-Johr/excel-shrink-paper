@@ -1,0 +1,238 @@
+[
+  {
+    "file": "statistischer-bericht-rechnungsergebnis-kernhaushalt-gemeinden-2140331217005.xlsx",
+    "tool": "nxpowerlite",
+    "input_bytes": 89367137,
+    "bytes": 2603146,
+    "sha256": "842f1388217b1d305e6b993192563c06fc5ab40fcc679db5c927a3754f35daa2",
+    "zip_crc_valid": true,
+    "reduction_percent": 97.08713282378064
+  },
+  {
+    "file": "statistischer-bericht-rechnungsergebnis-kernhaushalt-gemeinden-2140331217005.xlsx",
+    "tool": "check-performance",
+    "input_bytes": 89367137,
+    "bytes": 2817444,
+    "sha256": "53b914219e92623d05244997619e4f860c89a82b697dc2af5f5ed96af359dd30",
+    "zip_crc_valid": true,
+    "reduction_percent": 96.84733774116542
+  },
+  {
+    "file": "statistischer-bericht-rechnungsergebnis-kernhaushalt-gemeinden-2140331217005.xlsx",
+    "tool": "xlstyles",
+    "input_bytes": 89367137,
+    "bytes": 89362149,
+    "sha256": "9d1811f8c56c4ff874fe5bb7b74af7f3379deb68ae2fc096363d44e01d87a00a",
+    "zip_crc_valid": true,
+    "reduction_percent": 0.005581470065441074
+  },
+  {
+    "file": "statistischer-bericht-rechnungsergebnis-kernhaushalt-gemeinden-2140331217005.xlsx",
+    "tool": "sheetshrink",
+    "input_bytes": 89367137,
+    "bytes": 4602649,
+    "sha256": "efd9fa91ba87735f160cb7a9ab555b69824f9ed7ae2e9d1943c75119106b9b6b",
+    "zip_crc_valid": true,
+    "reduction_percent": 94.84972982853866
+  },
+  {
+    "file": "verkehrsunfaelle-zeitreihen-xlsx-5462403.xlsx",
+    "tool": "nxpowerlite",
+    "input_bytes": 37207883,
+    "bytes": 12714367,
+    "sha256": "889742bbd9fd0f2701eaf50dc0b33a019e7fee117aa2b949add0f91155a8316c",
+    "zip_crc_valid": true,
+    "reduction_percent": 65.82883524977758
+  },
+  {
+    "file": "verkehrsunfaelle-zeitreihen-xlsx-5462403.xlsx",
+    "tool": "check-performance",
+    "input_bytes": 37207883,
+    "bytes": 2217507,
+    "sha256": "68e94c84fb7f15a6e1e8837b1ebe4f8d79553bd80f76f5ed93132ac9e41f02a9",
+    "zip_crc_valid": true,
+    "reduction_percent": 94.04022260551615
+  },
+  {
+    "file": "verkehrsunfaelle-zeitreihen-xlsx-5462403.xlsx",
+    "tool": "xlstyles",
+    "input_bytes": 37207883,
+    "bytes": 37200944,
+    "sha256": "3db247dae6ecb050da4d2ef88ae9e73e6fd373e20ecb2d6d8ae2be2ef94c67fa",
+    "zip_crc_valid": true,
+    "reduction_percent": 0.018649273864890237
+  },
+  {
+    "file": "verkehrsunfaelle-zeitreihen-xlsx-5462403.xlsx",
+    "tool": "sheetshrink",
+    "input_bytes": 37207883,
+    "bytes": 2608628,
+    "sha256": "00397cf88a84bcec11f6d5b9980568f108686c6bb614b76e24e09575021b6a5e",
+    "zip_crc_valid": true,
+    "reduction_percent": 92.98904482149656
+  },
+  {
+    "file": "wanderungen-2010120217005.xlsx",
+    "tool": "nxpowerlite",
+    "input_bytes": 16926818,
+    "bytes": 11740768,
+    "sha256": "2835c47012383e64e16510471f6986733e65505c85c3d5427107b9b370999f0f",
+    "zip_crc_valid": true,
+    "reduction_percent": 30.638067946379522,
+    "zero_tail": {
+      "worksheet_part": "xl/worksheets/sheet31.xml",
+      "cells": 361086,
+      "numeric_zero_constants": 343833
+    }
+  },
+  {
+    "file": "wanderungen-2010120217005.xlsx",
+    "tool": "check-performance",
+    "input_bytes": 16926818,
+    "bytes": 1816566,
+    "sha256": "b5d5b6a623a37ff24dd04a671eef5f857c8651e521ffbc3cd9f23fbaafcbf76c",
+    "zip_crc_valid": true,
+    "reduction_percent": 89.26811879232116,
+    "zero_tail": {
+      "worksheet_part": "xl/worksheets/sheet31.xml",
+      "cells": 344672,
+      "numeric_zero_constants": 343833
+    }
+  },
+  {
+    "file": "wanderungen-2010120217005.xlsx",
+    "tool": "xlstyles",
+    "input_bytes": 16926818,
+    "bytes": 16923122,
+    "sha256": "aac5759f51696c9eedc950c55c01b65d84bc1e21de9dfe6624a7a8bf0b74aa61",
+    "zip_crc_valid": true,
+    "reduction_percent": 0.02183517303724347,
+    "zero_tail": {
+      "worksheet_part": "xl/worksheets/sheet31.xml",
+      "cells": 361086,
+      "numeric_zero_constants": 343833
+    }
+  },
+  {
+    "file": "wanderungen-2010120217005.xlsx",
+    "tool": "sheetshrink",
+    "input_bytes": 16926818,
+    "bytes": 1579059,
+    "sha256": "8c352aa15235b39f67ad662ff96e7c9c68f62155b7d59e1bc39c8aed2733ec13",
+    "zip_crc_valid": true,
+    "reduction_percent": 90.67125906357592,
+    "zero_tail": {
+      "worksheet_part": "xl/worksheets/sheet31.xml",
+      "cells": 787,
+      "numeric_zero_constants": 0
+    }
+  },
+  {
+    "file": "statistischer-bericht-stromsteuerstatistik-2140970237005.xlsx",
+    "tool": "nxpowerlite",
+    "input_bytes": 1432587,
+    "bytes": 115733,
+    "sha256": "bebf166e9fc18d6e4fe339dfc446b27f739c7f39e035627058411b1cd0cab850",
+    "zip_crc_valid": true,
+    "reduction_percent": 91.92139814196277
+  },
+  {
+    "file": "statistischer-bericht-stromsteuerstatistik-2140970237005.xlsx",
+    "tool": "check-performance",
+    "input_bytes": 1432587,
+    "bytes": 516309,
+    "sha256": "b82963acaa106af7e396516539259ea9f1041113f4b9531ad7cc29578631ffea",
+    "zip_crc_valid": true,
+    "reduction_percent": 63.95967574744152
+  },
+  {
+    "file": "statistischer-bericht-stromsteuerstatistik-2140970237005.xlsx",
+    "tool": "xlstyles",
+    "input_bytes": 1432587,
+    "bytes": 1430950,
+    "sha256": "2693bbb4d268c3fcc15d2c9c2114a1f8da6736d9c7bd9d66870fd50df5e933bf",
+    "zip_crc_valid": true,
+    "reduction_percent": 0.11426880182494603
+  },
+  {
+    "file": "statistischer-bericht-stromsteuerstatistik-2140970237005.xlsx",
+    "tool": "sheetshrink",
+    "input_bytes": 1432587,
+    "bytes": 145225,
+    "sha256": "aeec7bef34fa92f6924193cdeee10de25984f7c60e4d0891a69975ee4e73c69f",
+    "zip_crc_valid": true,
+    "reduction_percent": 89.86274481061184
+  },
+  {
+    "file": "kostenstruktur-aerzte-2020161199005.xlsx",
+    "tool": "nxpowerlite",
+    "input_bytes": 15237103,
+    "bytes": 3120277,
+    "sha256": "cec799211df4204e85cbffdea6924dbd347b488857f4c59edb42b7e435475bb7",
+    "zip_crc_valid": true,
+    "reduction_percent": 79.52184873988185
+  },
+  {
+    "file": "kostenstruktur-aerzte-2020161199005.xlsx",
+    "tool": "check-performance",
+    "input_bytes": 15237103,
+    "bytes": 2743012,
+    "sha256": "c1fa097ab07d330993bc50bb8ba099131cd79e708feb6a3bbbbc9a4a27c5c00e",
+    "zip_crc_valid": true,
+    "reduction_percent": 81.99781152624617
+  },
+  {
+    "file": "kostenstruktur-aerzte-2020161199005.xlsx",
+    "tool": "xlstyles",
+    "input_bytes": 15237103,
+    "bytes": 15234318,
+    "sha256": "9b851bb5f224cd05943e5dca816c638c529ac1babc95e10610eb1fce74f26162",
+    "zip_crc_valid": true,
+    "reduction_percent": 0.01827775266728393
+  },
+  {
+    "file": "kostenstruktur-aerzte-2020161199005.xlsx",
+    "tool": "sheetshrink",
+    "input_bytes": 15237103,
+    "bytes": 3318914,
+    "sha256": "9e0e756a930582a0387fe6bad1e114a1843cf7cb0bbc69b14183eb0b4f07eb65",
+    "zip_crc_valid": true,
+    "reduction_percent": 78.21820854003546
+  },
+  {
+    "file": "statistischer-bericht-zeitverwendung-priv-haushalte-5639102229005.xlsx",
+    "tool": "nxpowerlite",
+    "input_bytes": 3840894,
+    "bytes": 647373,
+    "sha256": "d909503e384bb6e1f9e55c845a73bb93396f90de28c341221aaeee28b3166d7b",
+    "zip_crc_valid": true,
+    "reduction_percent": 83.14525212099058
+  },
+  {
+    "file": "statistischer-bericht-zeitverwendung-priv-haushalte-5639102229005.xlsx",
+    "tool": "check-performance",
+    "input_bytes": 3840894,
+    "bytes": 704572,
+    "sha256": "e7e0ce8d9bc59641ff66f654ff004f982cac387aa2a90cce7e05bf7cfecab6a7",
+    "zip_crc_valid": true,
+    "reduction_percent": 81.65604153616319
+  },
+  {
+    "file": "statistischer-bericht-zeitverwendung-priv-haushalte-5639102229005.xlsx",
+    "tool": "xlstyles",
+    "input_bytes": 3840894,
+    "bytes": 3828607,
+    "sha256": "cddb9ea4f9bbbe3badca838a96a720daba0d0a5b5c2f86bc61a3e9772885c2fc",
+    "zip_crc_valid": true,
+    "reduction_percent": 0.31989948173524185
+  },
+  {
+    "file": "statistischer-bericht-zeitverwendung-priv-haushalte-5639102229005.xlsx",
+    "tool": "sheetshrink",
+    "input_bytes": 3840894,
+    "bytes": 715062,
+    "sha256": "3780a144d40d67c068c644f731d5e93cf3192224695b82b5fcf602c862e92d13",
+    "zip_crc_valid": true,
+    "reduction_percent": 81.38292803706636
+  }
+]
