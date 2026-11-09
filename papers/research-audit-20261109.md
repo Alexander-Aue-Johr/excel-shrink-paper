@@ -382,5 +382,20 @@ The two algorithm pages were rendered and inspected. Page counts remain five
 and seven. All build output remains under `C:/texlive`.
 
 CMT companion-paper entries are handled during submission. No public companion
-PDF publication path has been selected. The local manuscript PDFs remain at
+PDF service URL has been selected. The local manuscript PDFs remain at
 `C:/texlive/builds/sheetshrink.pdf` and `C:/texlive/builds/deltasieve.pdf`.
+
+### Companion-material policy checkpoint
+
+The researched local companion package now lives at `papers/supplementary/`,
+including both working PDFs under `related-manuscripts/`, a package index and
+a hash manifest. The two manuscripts cite each other and identify their
+respective methodological roles. Build intermediates remain under `C:/texlive`;
+the supplementary directory contains authorized distribution copies.
+
+`research-audit/companion-manuscripts-policy-20261109.md` records ICDE and IEEE
+guidance, the explicit ICML procedure, relevant PVLDB practice and two community
+accounts. Its conclusion distinguishes a supported submission practice from
+an explicit ICDE approval. Companion PDFs provide optional detail; each main
+manuscript retains its own necessary method and evidence. Working snapshots and
+preparation status must be updated to the actual submission versions at freeze.

@@ -30,11 +30,12 @@ The companion paper's existence cannot discharge an independent evaluation duty.
 - [ ] Select an openly accessible standard-service artifact URL and review
   contents for sensitive workbook data and local paths before release.
 - [ ] Complete the CMT fields for related-work disclosure and companion
-  manuscript handling during submission. The public guidelines do not establish a confidential
-  companion-PDF upload mechanism. Do not promise such reviewer access in either
-  manuscript until the mechanism is verified.
-- [ ] Add the reciprocal citation with the final companion title and status.
-  Clearly identify simultaneous submission and separate contributions.
+  manuscript handling during submission. The local companion snapshots live in
+  `papers/supplementary/related-manuscripts/`, with a package index and hashes.
+  The final uploaded or linked package must preserve the cited paths.
+- [x] Add reciprocal working-manuscript citations and explain the contributions.
+- [ ] Confirm author metadata, update companion status after submission and
+  replace working snapshots with the corresponding submitted PDFs.
 - [ ] Verify the required content-generation acknowledgment against the official
   ICDE policy and the material included in the final submission. Routine editing
   and grammar assistance have a different stated scope in that policy.
@@ -46,6 +47,12 @@ The artifact instructions require a publicly accessible standard-service URL.
 Their wording does not establish approval for overlapping companion submissions.
 These requirements were rechecked on 2026-11-09.
 [Official submission guidelines](https://icde2027.github.io/submission-guidelines.html)
+
+The companion-material policy investigation found no explicit ICDE prohibition
+on the prepared approach. A documented concurrent-PDF procedure exists at ICML,
+and database-venue guidance supports explicit related-submission disclosure.
+The source-specific findings and their limits are retained in
+`research-audit/companion-manuscripts-policy-20261109.md`.
 
 The announced second-round deadline is November 11, 2026, at 5 PM Pacific Time.
 Submission eligibility has a separately recorded policy discrepancy in the audit.
