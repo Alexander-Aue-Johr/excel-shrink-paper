@@ -1,29 +1,60 @@
-\subsection{Spreadsheet loading and parsing}
-SheetReader studies specialized spreadsheet ingestion and the coupling of parsing,
-decompression and parallel execution~\cite{sheetreader}. It motivates evaluating
-loading costs and memory while providing a different output contract. SheetShrink
-produces a transformed workbook and must account for retained layout effects.
-The evaluation should measure whether cleanup also benefits downstream readers.
+\subsection{Workbook bloat and cleanup tools}
+Microsoft Check Performance removes cells associated with unnecessary formatting
+and other stored information from a loaded workbook~\cite{checkperformance}.
+Its documentation warns that optimization can remove pixel-art cells. Inquire's
+Clean Excess Cell Formatting command removes excess cells beyond the last
+nonblank cell and can change conditional-formatting coverage~\cite{inquirecleanup}.
+These documented policies motivate comparing both reduction and preservation
+outcomes under explicit contracts.
 
-\subsection{Specialized semi-structured execution}
+Package-level cleanup also predates SheetShrink. XLStylesTool's developer
+describes an Open-XML-based cleaner for excessive and corrupted styles that
+operates independently of Excel's object model~\cite{xlstylestool}.
+NXPowerLite Desktop 10 lists excess XLSX cell-format cleanup among its
+features~\cite{nxpowerlite10}. Its engine description discusses formatted blank
+cells as a source of large worksheet parts~\cite{nxengine}. These are relevant
+comparison subjects. Their available descriptions do not establish the
+guarded removal rules, compact row-font witnesses or native preservation
+outcomes examined here. Those properties require version-specific evidence.
+SheetShrink's positioning therefore includes its effect-aware rules, retained
+representatives and measured costs alongside its execution before native loading.
+
+\subsection{Spreadsheet loading and specialized parsing}
+SheetReader studies specialized spreadsheet ingestion and the coupling of
+parsing, decompression and parallel execution~\cite{sheetreader}. It motivates
+evaluating loading cost and memory. SheetShrink produces an editable workbook
+whose required layout and dependencies must survive package rewriting. Its
+evaluation measures cleanup together with subsequent use of the output.
+
 Mison combines structural indexing with speculative access to queried JSON
 fields~\cite{mison}. Simdjson uses SIMD operations in a validating JSON
-parser~\cite{simdjson}. These systems establish specialized parsing as a
-substantial data-management topic. SheetShrink adds a document-rewriting
-obligation involving workbook dependencies and native layout. Its evaluation
-must account for decompression, output construction and subsequent use of the
-cleaned workbook, alongside byte-processing cost.
+parser~\cite{simdjson}. These systems motivate efficient processing of
+semi-structured representations. SheetShrink's document-rewriting obligation
+additionally accounts for inheritance, references and native layout effects.
 
-\subsection{Spreadsheet analysis and testing}
-Spreadsheet slicing integrates dependencies with testing and debugging feedback
-in a spreadsheet environment~\cite{slicing}. Its treatment of indirect effects
-helps motivate dependency guards, while the preservation task here additionally
-includes native layout and graphical presentation. Workbook difference tools
-such as Spreadsheet Compare offer formula and format categories~\cite{spreadsheetcompare}.
-Their documented capabilities are evaluated as distinct observations rather than
-assumed to constitute a pixel-rendering oracle.
+\subsection{Data transformation and spreadsheet refactoring}
+Harris and Gulwani synthesize table transformations from example input/output
+pairs~\cite{tableprog}. Potter's Wheel integrates interactive transformation and
+discrepancy detection~\cite{potterswheel}. HoloClean repairs data through
+probabilistic inference combining constraints and statistical evidence~\cite{holoclean}.
+These systems infer or specify intended changes to data. SheetShrink's target
+is removal of admitted package redundancy under a preservation contract.
+Their data-repair accuracy measures therefore require a different ground truth
+from our reduction, cost and preservation measurements.
 
-A fuller literature review will position package cleanup, spreadsheet quality,
-representation redundancy and document transformation. The current bibliography
-contains primary sources inspected during draft construction. Tool capabilities
-require direct version-specific testing before comparative claims are finalized.
+Hermans et al. detect formula smells and suggest refactorings to improve
+spreadsheet maintainability~\cite{formulasmells}. This is relevant to reasoning
+about workbook structure and behavioral obligations. Formula readability and
+refactoring objectives do not establish that empty cell records are removable
+while retaining native layout. Execution outside Excel alone likewise leaves
+the required effect analysis to be specified.
+
+\subsection{Validation and dependency analysis}
+Spreadsheet slicing integrates dependency reasoning with testing and
+debugging~\cite{slicing}. Dependencies also constrain removal when retained
+formulas or graphical objects refer to candidate content. Workbook comparison
+tools provide observations about cell and format differences~\cite{spreadsheetcompare}.
+Our native validation protocol uses DeltaSieve's region selection and capture
+workflow~\cite{deltasievecompanion}, with independent references and mutation
+controls to evaluate selected coverage. These validation mechanisms provide
+evidence about cleanup outcomes after the package transformation.

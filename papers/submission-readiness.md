@@ -4,7 +4,7 @@
 
 The two IEEEtran working drafts contain separate preservation contracts,
 methodology, evidence boundaries and evaluation plans. The expanded checkpoint
-contains five SheetShrink pages and eight DeltaSieve pages including references.
+contains six SheetShrink pages and eight DeltaSieve pages including references.
 Neither draft is a completed twelve-page submission. The source and experiment
 maps identify established results that can be used during further writing.
 
@@ -22,8 +22,12 @@ The companion paper's existence cannot discharge an independent evaluation duty.
 - [x] Review the DeltaSieve literature input, verify primary sources and update
   related work and evaluation definitions. The disposition is retained in
   `research-audit/deltasieve-literature-review-disposition.md`.
-- [ ] Review the SheetShrink literature input when available and reconcile its
-  primary sources before expanding related work or asserting novelty.
+- [x] Review the SheetShrink literature input against pre-native-loading cleanup
+  and verify its sources. The disposition is retained in
+  `research-audit/sheetshrink-literature-review-disposition.md`.
+- [ ] Once manuscript methods and results are sufficiently settled, perform
+  another related-work search using the manuscript as the primary attachment
+  and checking close approaches against its explicit transformation contract.
 - [ ] Freeze current corpus outcomes and independent-reference denominators,
   with attempt identities, software versions and unfinished outcomes.
 - [ ] Complete matched cleanup, size and end-to-end cost measurements for

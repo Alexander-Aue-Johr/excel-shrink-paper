@@ -10,7 +10,7 @@ corpus version. Legacy XLS conversion is reported separately from XLSX cleanup.
 A historical Enron development selection contains 20,872 inputs, with 20,503
 prepared artifacts and 369 unsuccessful preparation outcomes at its recorded
 preparation checkpoint. Its selected visual scope contains 16,799 workbooks.
-The author intentionally stopped this run after the worker-pool investigation.
+This run ended after the worker-pool investigation.
 These counts describe that development selection and do not establish completed
 visual coverage. The replacement EDRM Enron v2 XML handover contains 34,065 distinct
 content-addressed candidates totaling 8.470 decimal GB of uncompressed payload.
@@ -89,6 +89,24 @@ styles, geometry, conditional dependencies and objects. Mutations that Excel
 normalizes away are reported separately.
 
 \subsection{Performance and comparison subjects}
+The comparison records each method's input representation, Excel dependency,
+use of native layout observations, removal policy and resulting workbook
+properties. The first-opening objective measures cleanup followed by loading
+the resulting workbook against direct loading of the source. An Excel-hosted
+cleaner includes its required source opening in the corresponding workflow.
+Cleanup, opening, saving and any required reopening have separate phase timings
+under a common readiness endpoint. Repeated-use experiments report preparation
+cost and subsequent opening cost separately.
+
+Production cleanup time covers package analysis and output construction.
+Native preservation-validation cost has its own accounting. A corpus workbook
+supplies an observed source state. Establishing preservation requires structural
+checks and independently prepared native controls. Synthetic stress cases vary
+eligible redundant records, inheritance masks, font witnesses, merged spans and
+protected references, with fixed-height and automatic-height rows distinguished.
+Report removed records and bytes together with retained witnesses, exclusions
+and preservation outcomes under each cleanup configuration.
+
 For each input, report the original and cleaned compressed sizes and their ratio.
 Report distributions and corpus totals, including inputs with no reduction.
 Opening time uses a documented readiness signal and fresh owned Excel processes.

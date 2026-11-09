@@ -1,18 +1,18 @@
 {
   "snapshot_date": "2026-11-09",
   "status": "working drafts prepared for ICDE 2027; not a submission freeze",
-  "source_base_commit": "d5560f51d29325fb8445cb67d1834f2b3f5dd9e3",
+  "source_base_commit": "6bd84774845786ea391decf99a15a7d78c18ed24",
   "source_hashes": {
     "papers/sheetshrink/figures/cleanup-algorithm.tex": "c2153194f0c6958b391ec7f0de515edabf28a9987052ef5d6c5787fe355a1bf3",
     "papers/sheetshrink/figures/overview.tex": "3b0931c17333e79be1f11ddbea02221bbc53dc5b546b79589d4b0072d4e7663c",
-    "papers/sheetshrink/main.tex": "f47d8c766eb4bf242b1fa5401d822df3e0617e34a419fb5d781bd77906144519",
-    "papers/sheetshrink/references.bib": "13b66a7e2c5699d0284ec32fedb82fb2b194e324ab3096ed63023cd56dea16d4",
-    "papers/sheetshrink/sections/contract.tex": "560f256a422c8302e392cb988ade7a9f70f6868ccd893a7542c80e617e6e01a1",
+    "papers/sheetshrink/main.tex": "cc275e8ed86e343297a21f3b3f5a4e46ebe1257a95295fc061fad0387228ec86",
+    "papers/sheetshrink/references.bib": "8d76c34aed57e38c56c5f43822cb34ae460b0a396ec49f79316bd0d62266605c",
+    "papers/sheetshrink/sections/contract.tex": "3c285b7066ffcef4f04eff3334b0b8aee8826806000c25c7e3e8058db2bfc1f2",
     "papers/sheetshrink/sections/discussion.tex": "0a6c1f366779c0e19d51c5a41ff69c753f8bca68b6a6a20c33e71a8e4ef216da",
-    "papers/sheetshrink/sections/evaluation.tex": "f7cbcb44754f7428db6090351a66ccccccb0f0147d73a49d556e28d1fe02a00e",
-    "papers/sheetshrink/sections/introduction.tex": "af619c619ca7024f632d66a0adf6e70dd5d762b7971e20387b4630cae904992b",
+    "papers/sheetshrink/sections/evaluation.tex": "698100dca7346dd7e3159699be8b0ecbf1433907a67bd2c22806acafb3192860",
+    "papers/sheetshrink/sections/introduction.tex": "2156358a51c246043bb2287297f3826f1f2427f7d99955a92f3ab0d2622413fd",
     "papers/sheetshrink/sections/method.tex": "8e3536b9b17f4e7e9d07e471dd5c9552593180213e236bb15e676b87949c2412",
-    "papers/sheetshrink/sections/related.tex": "724b739c7cdcddad1509e23d5b7a5820346f2d5dcfb2d6eb26b4b40658e4d614",
+    "papers/sheetshrink/sections/related.tex": "ee068a47c7f15faf5b057efb83e5be7c3ec2a6e6dafc9daf6936e43f04786086",
     "papers/deltasieve/figures/comparison-algorithm.tex": "abd522426ee900b6210b3ea885e42b9013f69d5bd1c5e9de214543d25337bea1",
     "papers/deltasieve/figures/overview.tex": "97d5d557d4307431a94397008d0e63bbed81fafbfec6ba0636351957408dbf41",
     "papers/deltasieve/main.tex": "e352474db3daadac0dc4a6de7c766ff5b4934b09a6573575e29baae7dc412ab0",
@@ -27,13 +27,13 @@
   "files": [
     {
       "path": "related-manuscripts/sheetshrink.pdf",
-      "sha256": "251928f5b92794004cd42785fa2d8373900e0860e09decd90564c4f62a5182b1",
-      "bytes": 86288,
-      "pages": 5
+      "sha256": "2ffb8313a81f85505c1bffe6be9f8260f739174722ea76325fcb70ebb0bc87f7",
+      "bytes": 92439,
+      "pages": 6
     },
     {
       "path": "related-manuscripts/deltasieve.pdf",
-      "sha256": "2b5cbae9531e4fde6c3fe4125ee3394cb94c9b363169e96fc36ac6a644fe429d",
+      "sha256": "e9abd17b5e6de9e67a70937f41a3585284df4d5186e923faa1d13a620f68fe63",
       "bytes": 150717,
       "pages": 8
     }

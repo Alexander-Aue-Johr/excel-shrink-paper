@@ -297,9 +297,9 @@ original-workbook Pandas workload.
 1. Locate the machine/setup and retained report for the earlier more-than-48-hour
    Wanderungen/Pandas attempt when available. Add a provenance note before using
    it as a measured manuscript result.
-2. The DeltaSieve report has been reviewed at the literature checkpoint below.
-   The SheetShrink report remains pending. Continue independent evidence and
-   submission preparation in the meantime.
+2. Both literature reports have been reviewed at the checkpoints below. A
+   subsequent search using the more complete manuscripts remains planned before
+   the final related-work pass.
 
 The confidential-companion-paper route and a verified accepted-paper minted
 precedent remain open research items. Unchecked entries identify outstanding work.
@@ -427,3 +427,36 @@ DeltaSieve rebuilt to eight pages. All eight pages were rendered and inspected.
 The build has resolved references and no overfull boxes. Underfull-box spacing
 diagnostics remain. Supplementary working snapshots and their hash manifest were
 updated to the rebuilt PDFs. The SheetShrink report remains pending.
+
+### SheetShrink literature and pre-native-loading checkpoint
+
+The SheetShrink report's problem definition treats cleanup as semantic repair,
+normalization and deduplication. Its sources were checked individually against
+the actual package-redundancy removal contract. The source matrix, corrected
+metadata and evaluation dispositions are retained in
+`research-audit/sheetshrink-literature-review-disposition.md`.
+
+The abstract, introduction and contract now state the information available
+before native loading. Stored package attributes support the cleanup decisions;
+native effective row heights and before/after captures belong to validation.
+The measured-height alternative has explicit prerequisites and a separate
+automatic-to-fixed-height policy. No universal complexity ranking follows.
+
+The related-work section prioritizes Check Performance, Inquire formatting
+cleanup, XLStylesTool and NXPowerLite. The latter two establish relevant prior
+package/file cleanup beyond the input report's semantic-repair taxonomy.
+Representative synthesis, probabilistic repair and formula-refactoring work
+remains as context with explicit objectives. Parsing and validation have their
+own methodological roles. Comparative capabilities and preservation outcomes
+still require matched product/version-specific experiments.
+
+The evaluation protocol now includes method input/host dependencies, first-open
+phase costs, retained witnesses, geometry cases and independent preservation
+controls. Semantic error-repair precision/recall was not adopted as a cleanup
+metric. A fresh review using the more complete manuscript as its primary input
+is recorded in the submission checklist.
+
+SheetShrink rebuilt to six pages. All six pages were rendered and inspected.
+The build has resolved references and no overfull boxes. Underfull spacing
+diagnostics remain. Supplementary working snapshots and their hashes were
+updated to the rebuilt files. Both initial literature inputs are now reviewed.

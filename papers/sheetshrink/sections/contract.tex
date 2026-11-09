@@ -17,6 +17,20 @@ removed content. Layout changes in otherwise empty trailing rows or columns are
 permitted by the contract. Changes that move or alter relevant content remain
 subject to validation.
 
+\subsection{Information available before native loading}
+The cleanup decision uses stored values, formulas, styles, references and layout
+attributes. Native effective row heights and candidate before/after images are
+available only in the separate validation workflow. Stored custom heights can
+be retained directly. For automatically sized rows, a font-bearing blank can
+still require a representative even when its payload is empty.
+
+An Excel-hosted alternative could measure a row, remove candidates and write the
+measured height as an explicit custom height. SpreadsheetML provides a
+\emph{customHeight} attribute for that policy~\cite{customheight}. Applying
+this technique requires a trusted height for the chosen renderer and a contract
+for replacing automatic sizing with a fixed height. The evaluated cleanup
+derives its compact preservation decisions from package context.
+
 \subsection{Removal decisions and compact preservation}
 A record can be eligible for removal only after accounting for its required
 contribution. An empty cell may still influence automatic row height through its

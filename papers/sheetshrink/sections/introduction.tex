@@ -7,6 +7,15 @@ influence automatic row height through its font. A whitespace value can prevent
 text from extending into its neighbour. Cleanup therefore requires a model of
 the effects that stored structures have on the document.
 
+For an XLSX input, SheetShrink makes these decisions from the stored package
+before loading the workbook in Excel. Its cleanup stage has no native rendering
+or calculated row-height observations. An Excel-hosted method can inspect the
+loaded layout and evaluate candidate edits against native observations. Our
+method instead retains compact source structures whose required effects follow
+from package analysis and the preservation rules. Native Excel is used later
+to evaluate the output. Legacy XLS conversion is a separately measured
+preparation stage.
+
 Specialized spreadsheet parsing has demonstrated the importance of decompression,
 parsing, memory use and parallel execution for data loading~\cite{sheetreader}.
 Our problem adds a transformation obligation. The output remains an editable XLSX
