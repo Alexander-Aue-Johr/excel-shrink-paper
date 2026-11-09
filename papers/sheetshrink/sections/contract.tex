@@ -32,9 +32,10 @@ An unresolved case retains the required source representation. The objective is
 to remove eligible bloat throughout the package while keeping the preservation
 footprint small.
 
-The contract permits removal of unreferenced hidden content under the configured
-dependency rules. It therefore distinguishes required data and dependencies from
-all physically stored cell values. A future Excel-hosted cleanup stage could
+The production policy admits separately guarded hidden constant tails and retains
+ordinary nonempty hidden tables, including unreferenced values. Tail admission
+depends on dependency and layout checks~\cite{sheetshrinkcontract}. Absence of a
+reference alone does not authorize general hidden-data removal. A future Excel-hosted cleanup stage could
 measure native layout before replacing additional sentinels or whitespace
 blockers. Such a stage is outside the implementation evaluated here.
 

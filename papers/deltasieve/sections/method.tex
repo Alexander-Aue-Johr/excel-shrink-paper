@@ -48,6 +48,23 @@ hashes can avoid transmitting and retaining equal images under the recorded
 transport policy. Actual unequal images remain evidence. Hash transport, image
 retention and scientific coverage are separate choices.
 
+\subsection{Bounded execution and recovery}
+Resident workers receive commands over session-scoped WebSockets, while image
+uploads use bounded HTTP requests~\cite{deltasieveexecution}. Durable commands,
+image receipts and results remain authoritative across reconnections. Duplicate
+delivery must preserve an in-progress command and acknowledge an identical
+completed result without running it again. Capture and upload overlap within
+bounded tile, pixel and encoded-memory windows. Office calls remain serial
+within an individual workbook.
+
+Each comparison group owns its Excel processes and an isolated WebView profile.
+Cleanup records requested termination separately from confirmed exit. A retained
+clean-desktop control reproduced a peer taskpane restart under shared-profile
+cleanup; per-group isolation passed the corresponding two-group control and a
+four-group sequence. This observation motivates resource ownership in the tested
+environment. It does not establish that every startup delay is caused by stale
+profiles or registrations.
+
 \subsection{Retain outcomes and explain uncertainty}
 The report records selected regions, compared states, configuration, timings and
 failures. Pixel diagnostics provide changed-pixel counts, channel deltas and

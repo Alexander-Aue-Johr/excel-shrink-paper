@@ -108,6 +108,18 @@ production queue does not identify the causal benefit of a tuning parameter.
 Full-corpus cost estimates use measured visible geometry and stratified samples,
 with uncertainty and assumptions about hidden regions and object extents.
 
+\subsection{Bounded opening experiment}
+A retained development experiment opened four copies of a synthetic workbook
+with eight sheets, each containing one million rows and three numeric columns.
+The same Windows 11 host used a Ryzen 7 7800X3D. Two reversed-order rounds compared
+sequential and simultaneous independent Excel processes on a shared private
+desktop~\cite{nativeopening}. Median batch times were 118.388 and 41.714 seconds,
+respectively. The measured endpoint includes verified Office.js add-in readiness.
+Staging, teardown and launch barriers are excluded, while caches and concurrent
+background work remain potential influences. This bounded observation supports
+overlapping startup; it does not measure arbitrary COM-command parallelism or
+full-corpus comparison throughput.
+
 \subsection{Current verification boundary}
 The portable-viewer smoke experiment retained a deliberately different pair,
 loaded its images through relative static assets and displayed its diagnostics
