@@ -103,13 +103,24 @@ produced 3,950 changed grid pixels and 36,505 changed chart pixels, including th
 conditional-fill and pie-chart changes. The sparse-formatting pair produced
 1,281 changed pixels. Equal images were discarded with retained hash evidence.
 
-These observations cover the selected regions and objects. The five pair reports
-retain explicit limitations, and this run did not provide an independent
-full-sheet reference. It therefore establishes detection of these known visible
-mutations without estimating selector recall, absence of differences elsewhere,
-or a comparative speedup over the other products. Source identities and mutation
-classes are shared with the bounded comparator pilot, while the measurement
-protocols and reported evidence remain distinct.
+An independent reference pass then rebuilt and rendered the same five input
+pairs over externally supplied rectangles, bypassing the candidate selector and
+content clipping. The three short pairs used Data!A1:N30, including the embedded
+pie chart. The offscreen and sparse pairs used continuous 256-row tiles through
+rows 3072 and 2304, respectively. All five reference comparisons completed. The
+identical control remained pixel-equal. Only the tile containing B2000 changed
+in the offscreen pair, while the tile containing hidden B3000 remained equal.
+Only the tile containing J2099 changed in the sparse pair. The direct and
+dependent pairs also differed in the broader reference rectangles.
+
+The reference observations agree with the selected run at pair level. They do
+not estimate corpus recall or pixel-union coverage. Reference coverage remains
+limited to the supplied rectangles. Pixel totals from different capture extents
+or standalone and embedded chart rendering are not directly interchangeable.
+No matched comparative speedup is established by these single runs under
+concurrent background load. Source identities and mutation classes are shared
+with the bounded comparator pilot, while the measurement protocols and reported
+evidence remain distinct.
 
 Two separately prepared large Destatis pairs contained 107 and 215 worksheets.
 The observed xlCompare wall times were 53.748 and 21.711 seconds, respectively.
