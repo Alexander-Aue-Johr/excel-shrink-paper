@@ -17,7 +17,7 @@ A smaller file that changes an important row height has failed that obligation.
 Figure~\ref{fig:cleanup-overview} illustrates the compact preservation approach.
 SheetShrink combines byte-oriented worksheet processing with compact preservation
 of necessary effects. It reuses existing styles and retains representative cells
-where those representatives preserve layout. Its production Default policy
+where those representatives preserve layout. Its production cleanup policy
 keeps whitespace blockers and applies dependency guards to eligible hidden
 constant tails. It leaves style and shared-string table compaction to a separate
 Excel save operation. This boundary keeps cleanup independent of the installed

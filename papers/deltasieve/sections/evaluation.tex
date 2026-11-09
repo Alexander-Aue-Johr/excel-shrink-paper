@@ -15,6 +15,26 @@ These counts describe a development selection and do not establish completed
 visual coverage. The replacement EDRM Enron v2 XML population requires a separate
 extraction manifest before its workbook count can be stated.
 
+
+\begin{table}[t]
+\caption{Frozen XLSX source inventories. Sizes are decimal GB of listed workbook files and do not measure completed native coverage.}
+\label{tab:source-inventories}
+\centering
+\begin{tabular}{lrr}
+\hline
+Corpus & XLSX members & XLSX total (GB) \\
+\hline
+Data.gov & 9,117 & 25.273 \\
+Destatis & 1,182 & 2.364 \\
+\hline
+\end{tabular}
+\end{table}
+
+The two frozen XLSX inventories in Table~\ref{tab:source-inventories} come from
+the versioned source profiles. Each listed archive member has an individual
+SHA-256 identity. Their source-frame sizes are separate from the eligible,
+completed and independently referenced subsets.
+
 A dated evaluation cutoff will report compared workbooks, differences, failures,
 unsupported representations and unfinished work. Repeated attempts have their own
 counts. An unchanged package can bypass visual work under an exact input-identity

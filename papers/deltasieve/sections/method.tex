@@ -1,6 +1,9 @@
 \subsection{Observe an explicit state pair}
-The fast production strategy opens Original and transformed Default in separate
-owned Excel processes and rebuilds them in place. It compares their rebuilt
+The fast production strategy opens original and transformed workbooks in separate
+owned Excel processes and rebuilds them in place. A configured worker pool may
+lease existing processes across file pairs. Measurements must distinguish
+per-workbook opening from process and add-in initialization, and record the
+reuse policy when reporting campaign throughput. It compares their rebuilt
 states. Saved-input and pre-rebuild controls can explain changes introduced by
 Excel's own save or calculation behavior. Enabling additional controls incurs
 separate cost and must be recorded in the run configuration. A cached control

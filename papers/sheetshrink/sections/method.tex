@@ -22,14 +22,14 @@ An apparently default style can cancel a visible inherited format. Removing it
 would expose that format, so the effective effect matters.
 
 A font can affect automatic row height without producing visible text. The
-cleaner therefore retains font representatives under Default. Where guards
+cleaner therefore retains font representatives in its production mode. Where guards
 permit, an existing row style can replace repeated per-cell representations.
 This promotion must preserve other inherited components, gaps and merged cells.
 Dominance decisions include otherwise unsuitable styles, and ties have a fixed
 ordering. Ignoring an unsuitable majority would change the algorithm rather than
 merely accelerate it.
 
-Whitespace cleanup is disabled in the production Default policy. A neighbour's
+Whitespace cleanup is disabled in the production cleanup policy. A neighbour's
 text overflow and row sizing can depend on such values. Hidden constant-tail
 cleanup is separately guarded by references and layout conditions. Ordinary
 nonempty hidden tables remain outside that admitted tail policy. Protection and
