@@ -1,0 +1,921 @@
+{
+  "selection": "Alternating historical absolute and relative worksheet-XML reduction ranks; 100 distinct inputs plus Wanderungen if absent",
+  "population_role": "Purposive historical stress selection",
+  "historical_csv_sha256": "b5c57e2f278176014435afd09c3adf48b8f768d88abb814372e603c43ca1abb4",
+  "source_profile_sha256": "b9fb2c8eb085f1a7f7b1108c3b848065db262f6195b264f71deeb30e398a828d",
+  "source_archive": {
+    "url": "https://zenodo.org/records/20681684/files/original_destatis_xlsx_files.zip",
+    "sha256": "f0b39b1a30778a80227b01ae64109db964c6f71f83e6ccb3097e2f9e26f4ac45",
+    "bytes": 1772589057
+  },
+  "software_commit": "a7eef1ae8d9a2c2ed03720eb0433ce2a8bf7e216",
+  "binary_sha256": "d7bddcd49c7df9bda92038f106fa2772ab67c10707a41583d4c95c1b01290f47",
+  "configuration": {
+    "rayon_threads": 1,
+    "writer_workers": 1,
+    "max_active_workbooks": 1,
+    "cleanup_policy": "ordinary production defaults; analysis CSV adds statistics"
+  },
+  "inputs": [
+    {
+      "name": "statistischer-bericht-rechnungsergebnis-kernhaushalt-gemeinden-2140331217005.xlsx",
+      "historical_worksheet_xml": {
+        "original": 953484764,
+        "cleaned": 19461201
+      },
+      "input_bytes": 89367137,
+      "input_sha256": "b4a3dd77023756e06c3b7c9b04a55a8d3fbf4334f8803f44460a8dc8cd4dc603"
+    },
+    {
+      "name": "statistischer-bericht-stromsteuerstatistik-2140970227005.xlsx",
+      "historical_worksheet_xml": {
+        "original": 10345062,
+        "cleaned": 96661
+      },
+      "input_bytes": 1452093,
+      "input_sha256": "345f741311aa5a4fa39aedf89774b6b5d8ded2b0925bb2be1ddd83efd1a63506"
+    },
+    {
+      "name": "verkehrsunfaelle-zeitreihen-xlsx-5462403.xlsx",
+      "historical_worksheet_xml": {
+        "original": 774340891,
+        "cleaned": 14955478
+      },
+      "input_bytes": 37207883,
+      "input_sha256": "b320dc4f614eec1a1251efc5ca5041948761283ef33e29a5939652eab1fee806"
+    },
+    {
+      "name": "statistischer-bericht-stromsteuerstatistik-2140970237005.xlsx",
+      "historical_worksheet_xml": {
+        "original": 10343885,
+        "cleaned": 96681
+      },
+      "input_bytes": 1432587,
+      "input_sha256": "aa0bfbdaf21313926547a909ff491ecabce021c4ab2134d6a4d3c7201e4dc054"
+    },
+    {
+      "name": "wanderungen-2010120217005.xlsx",
+      "historical_worksheet_xml": {
+        "original": 243242127,
+        "cleaned": 21517922
+      },
+      "input_bytes": 16926818,
+      "input_sha256": "bedf8677328fb15ffd967d03ebdf860ae4b1d0942d38091b4b4bef90e574f712"
+    },
+    {
+      "name": "kostenstruktur-aerzte-2020161199005.xlsx",
+      "historical_worksheet_xml": {
+        "original": 136747532,
+        "cleaned": 6482411
+      },
+      "input_bytes": 15237103,
+      "input_sha256": "65348a52d3c691d39f7f2e5511942a55097e6cb2be04b51fef600465d84011ed"
+    },
+    {
+      "name": "statistischer-bericht-diagnosedaten-5231301227015.xlsx",
+      "historical_worksheet_xml": {
+        "original": 331738773,
+        "cleaned": 270030260
+      },
+      "input_bytes": 32494401,
+      "input_sha256": "de514d15c64d58f7807d2eaed6afd919292b16b27ab4824b8bcc53f4cab7ae40"
+    },
+    {
+      "name": "kulturfinanzbericht-gesamtmaterial-1023003229005.xlsx",
+      "historical_worksheet_xml": {
+        "original": 38268729,
+        "cleaned": 1128443
+      },
+      "input_bytes": 4985994,
+      "input_sha256": "d10859ec86892e62ab5078b3c557c4f7a5493ee29855b1e31345192456b1501a"
+    },
+    {
+      "name": "unfaelle-gewalt-kinder-tabellenband-xlsx-5230001.xlsx",
+      "historical_worksheet_xml": {
+        "original": 84816877,
+        "cleaned": 32643051
+      },
+      "input_bytes": 8488771,
+      "input_sha256": "0eb3da279dadd4a8a566e0cb0aff96b16939b6dcad7a78b86d2ae211fa963c9e"
+    },
+    {
+      "name": "kostenstruktur-gesundheitswesen-2020166189005.xlsx",
+      "historical_worksheet_xml": {
+        "original": 6684257,
+        "cleaned": 203341
+      },
+      "input_bytes": 1839789,
+      "input_sha256": "ac5b3a4597c61c49eb3c73e6c187ba8a5ec8cb7dfe2d4df31b8c2c9de8f40821"
+    },
+    {
+      "name": "sonderauswertung-kse-vg.xlsx",
+      "historical_worksheet_xml": {
+        "original": 56876035,
+        "cleaned": 5717972
+      },
+      "input_bytes": 6943556,
+      "input_sha256": "d9016e2fb72f4beeafd420668ccc647c486028e7cebefbf52de8ec49b8f8ee0b"
+    },
+    {
+      "name": "duengemittelversorgung-vierteljahr-2040820213225.xlsx",
+      "historical_worksheet_xml": {
+        "original": 4962326,
+        "cleaned": 152036
+      },
+      "input_bytes": 777551,
+      "input_sha256": "4d0f0df268f8d2240351c28d3887993af85f34137f0618764296eec2f34ce65b"
+    },
+    {
+      "name": "statistischer-bericht-pflegevorausberechnung-5124209229005.xlsx",
+      "historical_worksheet_xml": {
+        "original": 65196608,
+        "cleaned": 17566101
+      },
+      "input_bytes": 7751062,
+      "input_sha256": "f8ea40059566e8b90115329739e9576731ff6e347e3e6a90bf7360b9b7d63222"
+    },
+    {
+      "name": "21_PostleitregionenVorjahr.xlsx",
+      "historical_worksheet_xml": {
+        "original": 6110703,
+        "cleaned": 238966
+      },
+      "input_bytes": 806322,
+      "input_sha256": "e47d807d6847e0f71075bd263f70c3d9cafb906355c3a2dda36c5f2e5212875d"
+    },
+    {
+      "name": "statistischer-bericht-operationen-prozeduren-5231401227015.xlsx",
+      "historical_worksheet_xml": {
+        "original": 90051550,
+        "cleaned": 46321170
+      },
+      "input_bytes": 9763627,
+      "input_sha256": "4ea25f9cb26b1f7056d57e90e406f7ad351db9d523fe8df2f7b3575a277e5d07"
+    },
+    {
+      "name": "21-postleit-regionen.xlsx",
+      "historical_worksheet_xml": {
+        "original": 6116390,
+        "cleaned": 239290
+      },
+      "input_bytes": 807112,
+      "input_sha256": "3baadd441eff95299965be16fef73e7c215d885f1f317a417fa7d8f328e9a1c3"
+    },
+    {
+      "name": "statistischer-bericht-operationen-prozeduren-5231401237015.xlsx",
+      "historical_worksheet_xml": {
+        "original": 89829740,
+        "cleaned": 46523077
+      },
+      "input_bytes": 7925008,
+      "input_sha256": "e83556549c2371964ee8e48e16896f0794e55775ce60aa7ca590e830dcb7a6e8"
+    },
+    {
+      "name": "statistischer-bericht-schaumweinsteuer-2140950227005.xlsx",
+      "historical_worksheet_xml": {
+        "original": 3041876,
+        "cleaned": 141241
+      },
+      "input_bytes": 536156,
+      "input_sha256": "0ee645d4889d5850214f8478da6c67f38347f2685990024c2ce0e8cc5d497984"
+    },
+    {
+      "name": "statistischer-bericht-finanzvermoegen-2140510227005.xlsx",
+      "historical_worksheet_xml": {
+        "original": 48707243,
+        "cleaned": 11643255
+      },
+      "input_bytes": 6007180,
+      "input_sha256": "9576eb085d4d2506d0e0fe01f1f33e0890ffa1c938ea56a828c786a860440527"
+    },
+    {
+      "name": "statistischer-bericht-alkoholsteuerstatistik-5734401227005.xlsx",
+      "historical_worksheet_xml": {
+        "original": 1385813,
+        "cleaned": 67950
+      },
+      "input_bytes": 295618,
+      "input_sha256": "cafe1ad8e4b3037ed49d323c09ab40c2a4cf62fca02d6808a076b4faafec910b"
+    },
+    {
+      "name": "statistischer-bericht-finanzvermoegen-2140510237005.xlsx",
+      "historical_worksheet_xml": {
+        "original": 48712685,
+        "cleaned": 11648918
+      },
+      "input_bytes": 6016728,
+      "input_sha256": "ce1abb122b840a45998944735896e4788aa0808a32dc261dfb6afb4af50c87d5"
+    },
+    {
+      "name": "abfallerzeugung-5321601149005.xlsx",
+      "historical_worksheet_xml": {
+        "original": 4835530,
+        "cleaned": 244801
+      },
+      "input_bytes": 1632501,
+      "input_sha256": "8cb092a612c442c657c4e468f26515189f50e0f5f55952f846926b01743a784e"
+    },
+    {
+      "name": "statistischer-bericht-finanzvermoegen-2140510217005.xlsx",
+      "historical_worksheet_xml": {
+        "original": 48637321,
+        "cleaned": 11574333
+      },
+      "input_bytes": 6081394,
+      "input_sha256": "01149bf8b76f4219e303bdf7f911a853ae1f9e25bf429566a9898ccdb3c76586"
+    },
+    {
+      "name": "statistischer-bericht-alkoholsteuerstatistik-5734401237005.xlsx",
+      "historical_worksheet_xml": {
+        "original": 1389826,
+        "cleaned": 72064
+      },
+      "input_bytes": 297046,
+      "input_sha256": "28b21845f95295c65e6ae0d45696f80799cab3e333c54c149ec550135fb767f3"
+    },
+    {
+      "name": "statistischer-bericht-kostenstruktur-med-bereich-2020161227005.xlsx",
+      "historical_worksheet_xml": {
+        "original": 38712226,
+        "cleaned": 3161052
+      },
+      "input_bytes": 3244844,
+      "input_sha256": "45a39aed6cb2f25abf7170327b0165f7c02713b4a9c9ad9ce914956db47925bc"
+    },
+    {
+      "name": "statistischer-bericht-schaumweinsteuer-2140950237005.xlsx",
+      "historical_worksheet_xml": {
+        "original": 3072696,
+        "cleaned": 160247
+      },
+      "input_bytes": 540006,
+      "input_sha256": "cc72630498c6444602e7b6ce56df5be393a521202f309acc8365ee4d602d8d52"
+    },
+    {
+      "name": "statistischer-bericht-kostenstruktur-med-bereich-2020161217005.xlsx",
+      "historical_worksheet_xml": {
+        "original": 38103122,
+        "cleaned": 3168906
+      },
+      "input_bytes": 4514028,
+      "input_sha256": "b3746e1476c730d0667d75ed58d1f501f6c68b7545496b1563465d7c67f0135f"
+    },
+    {
+      "name": "statistischer-bericht-brauwirtschaft-2140922227005.xlsx",
+      "historical_worksheet_xml": {
+        "original": 4869872,
+        "cleaned": 276163
+      },
+      "input_bytes": 777582,
+      "input_sha256": "1ba38ce99abf728d660f59676a69e2de147dd794edeb395c32bd86de4f845f9e"
+    },
+    {
+      "name": "statistischer-bericht-schulden-2140500217005.xlsx",
+      "historical_worksheet_xml": {
+        "original": 56897502,
+        "cleaned": 23576409
+      },
+      "input_bytes": 7047349,
+      "input_sha256": "dab23e54ed0c4ff33043957bff89cb03c4b17e71470e49f9d29f986bcdda2742"
+    },
+    {
+      "name": "statistischer-bericht-absatz-bier-2140921241015.xlsx",
+      "historical_worksheet_xml": {
+        "original": 3950163,
+        "cleaned": 234372
+      },
+      "input_bytes": 659285,
+      "input_sha256": "7e8c02993cd3102ab408fdca1da7ee48d508449540d74ba6dd3c8d75322d201d"
+    },
+    {
+      "name": "statistischer-bericht-schulden-2140500237005.xlsx",
+      "historical_worksheet_xml": {
+        "original": 58070691,
+        "cleaned": 25341332
+      },
+      "input_bytes": 6729282,
+      "input_sha256": "ac662538e84e274d8db1384a37aeeb604aef434c8f7db3c06367d40746ca5062"
+    },
+    {
+      "name": "statistischer-bericht-brauwirtschaft-2140922237005.xlsx",
+      "historical_worksheet_xml": {
+        "original": 4893474,
+        "cleaned": 299461
+      },
+      "input_bytes": 782697,
+      "input_sha256": "d2c61f628100a6f0c35237d2d7c0fbe4b270dd3ba77c7ae49a1465f58a9b9ae1"
+    },
+    {
+      "name": "statistischer-bericht-schulden-2140500227005.xlsx",
+      "historical_worksheet_xml": {
+        "original": 57641095,
+        "cleaned": 24912752
+      },
+      "input_bytes": 6735805,
+      "input_sha256": "a5befe86fa187509bf590ffd704472715eb8e3a4f1d41daf3c0dd769bff57576"
+    },
+    {
+      "name": "jahresbericht-5422701207005.xlsx",
+      "historical_worksheet_xml": {
+        "original": 19015494,
+        "cleaned": 1246031
+      },
+      "input_bytes": 1700535,
+      "input_sha256": "d714d9b55149d3bda27fac09790cb8afb629604ce42c70d5ac270524b796a45a"
+    },
+    {
+      "name": "vorausberechnung-deutschland.xlsx",
+      "historical_worksheet_xml": {
+        "original": 41259567,
+        "cleaned": 12760960
+      },
+      "input_bytes": 5510686,
+      "input_sha256": "0fc52b8331f181af5ceb86254debd2e63045ac012f5b22caacfc20b804ce048f"
+    },
+    {
+      "name": "statistischer-bericht-verkehrsunfaelle-zeitreihen-5462403.xlsx",
+      "historical_worksheet_xml": {
+        "original": 17676553,
+        "cleaned": 1247169
+      },
+      "input_bytes": 2445970,
+      "input_sha256": "56854d677913cea6264831beffc953a96e4f29aae0c078ed2a4bf3cfc86dcdea"
+    },
+    {
+      "name": "integrierte-schulden-tabellenband-5713201229005.xlsx",
+      "historical_worksheet_xml": {
+        "original": 40242027,
+        "cleaned": 12652810
+      },
+      "input_bytes": 8154984,
+      "input_sha256": "66b407917f25da59f1b671c06259c43c6c612ad445c6ce7be416a06ea867f6f1"
+    },
+    {
+      "name": "statistischer-bericht-zeitverwendung-priv-haushalte-5639102229005.xlsx",
+      "historical_worksheet_xml": {
+        "original": 26553001,
+        "cleaned": 1908900
+      },
+      "input_bytes": 3840894,
+      "input_sha256": "63da0fce4a44506b902b794d84ffb50f09a1f6a733066c8883e559209a14e5ca"
+    },
+    {
+      "name": "statistischer-bericht-ikt-privater-haushalte-2150400237005.xlsx",
+      "historical_worksheet_xml": {
+        "original": 8562230,
+        "cleaned": 637336
+      },
+      "input_bytes": 1306460,
+      "input_sha256": "9d22249d9ee0a557b5e962a646456040b23f0c47f76293ed9f0f927912738d47"
+    },
+    {
+      "name": "statistischer-bericht-migrationshintergrund-erst-2010220237005.xlsx",
+      "historical_worksheet_xml": {
+        "original": 117717876,
+        "cleaned": 94389150
+      },
+      "input_bytes": 11260348,
+      "input_sha256": "960f270be6e77a8e29681c66fd4c6f4eb68cafa3695affdbfb8b0b84f5ee24f7"
+    },
+    {
+      "name": "statistischer-bericht-sm-einschulungen-5211101248005.xlsx",
+      "historical_worksheet_xml": {
+        "original": 3832426,
+        "cleaned": 298071
+      },
+      "input_bytes": 810835,
+      "input_sha256": "5f1f763a164448d44d7297f02df509f3a4a5b02f28ad917d833aced456caf6bf"
+    },
+    {
+      "name": "statistischer-bericht-verkehr-2080110241065.xlsx",
+      "historical_worksheet_xml": {
+        "original": 30088490,
+        "cleaned": 7442097
+      },
+      "input_bytes": 3728616,
+      "input_sha256": "f7df70f1ad4f4e8139927ee7d3ab76fcdaddc076d1348f1accd462094d54db6a"
+    },
+    {
+      "name": "weinerzeugung-2030322227005.xlsx",
+      "historical_worksheet_xml": {
+        "original": 1900656,
+        "cleaned": 150955
+      },
+      "input_bytes": 737239,
+      "input_sha256": "78c08deb51fc65f07042b152db0fa8e2d5908b643f3e1767428f1419bb16ffd6"
+    },
+    {
+      "name": "statistischer-bericht-verkehr-2080110231075.xlsx",
+      "historical_worksheet_xml": {
+        "original": 30092407,
+        "cleaned": 7457200
+      },
+      "input_bytes": 3810401,
+      "input_sha256": "f4a47305b39f5a25e32232fd763d5cce75bd81b82666c8cfe0f216044b4f0ee7"
+    },
+    {
+      "name": "foerderprogramme-5411206209005.xlsx",
+      "historical_worksheet_xml": {
+        "original": 6710420,
+        "cleaned": 535257
+      },
+      "input_bytes": 826940,
+      "input_sha256": "90083c13bff03b55050277bfbe305d3800f876af51d5c90a0ea152586f3ae352"
+    },
+    {
+      "name": "statistischer-bericht-verkehr-2080110231115.xlsx",
+      "historical_worksheet_xml": {
+        "original": 30883415,
+        "cleaned": 8254832
+      },
+      "input_bytes": 3907515,
+      "input_sha256": "cbcb95b9f4f5a1ef9d554f975e6987d43e5dad031a3b47b0ae9c9e9f2289fae0"
+    },
+    {
+      "name": "statistischer-bericht-verkehr-2080110231085.xlsx",
+      "historical_worksheet_xml": {
+        "original": 30369397,
+        "cleaned": 7744196
+      },
+      "input_bytes": 3853896,
+      "input_sha256": "4f702ff2c58fd31debd7f01d0fcc3ceca115e68ca12874576063ae1b07f7810d"
+    },
+    {
+      "name": "statistischer-bericht-verkehr-2080110231095.xlsx",
+      "historical_worksheet_xml": {
+        "original": 30541116,
+        "cleaned": 7916583
+      },
+      "input_bytes": 3868790,
+      "input_sha256": "4246bc1850300f8e095f3331f2f7227c49dcde5e5d70ebaf3530c86240785762"
+    },
+    {
+      "name": "statistischer-bericht-absatz-bier-2140921241035.xlsx",
+      "historical_worksheet_xml": {
+        "original": 5031253,
+        "cleaned": 421968
+      },
+      "input_bytes": 840180,
+      "input_sha256": "d14ceb050cc8e3f9787bba4ca265232667c0001efc743cdb67a34b55ae3bd5e5"
+    },
+    {
+      "name": "statistischer-bericht-verkehr-2080110231105.xlsx",
+      "historical_worksheet_xml": {
+        "original": 30691272,
+        "cleaned": 8067075
+      },
+      "input_bytes": 3894846,
+      "input_sha256": "f74fa677095066b080877ef6840e25baf1d374cd1fa7b67f3021c4a03c05ea8a"
+    },
+    {
+      "name": "statistischer-bericht-absatz-bier-2140921241085.xlsx",
+      "historical_worksheet_xml": {
+        "original": 5031209,
+        "cleaned": 421985
+      },
+      "input_bytes": 831566,
+      "input_sha256": "8bd60ec3a9d3d17945729a485b4c6fda2126151b923041fc7cb7637377406efe"
+    },
+    {
+      "name": "statistischer-bericht-verkehr-2080110241055.xlsx",
+      "historical_worksheet_xml": {
+        "original": 29914254,
+        "cleaned": 7291950
+      },
+      "input_bytes": 3722915,
+      "input_sha256": "fe8726f7b8ab9bd05f8deeca865d490368eda35a419b9536f811b86b5225ec2d"
+    },
+    {
+      "name": "statistischer-bericht-absatz-bier-2140921241025.xlsx",
+      "historical_worksheet_xml": {
+        "original": 5031455,
+        "cleaned": 422246
+      },
+      "input_bytes": 838995,
+      "input_sha256": "10006e0bc9a8d0b72a0421abe91189489b42f915cc6ae56fda99d2fe341c4f2a"
+    },
+    {
+      "name": "statistischer-bericht-verkehr-2080110231125.xlsx",
+      "historical_worksheet_xml": {
+        "original": 29076833,
+        "cleaned": 6454767
+      },
+      "input_bytes": 3692925,
+      "input_sha256": "14f89451bee66152e1a1f8425cfcad590369f4f5d0dc516566e18bf8a3625066"
+    },
+    {
+      "name": "statistischer-bericht-absatz-bier-2140921241045.xlsx",
+      "historical_worksheet_xml": {
+        "original": 5032404,
+        "cleaned": 422392
+      },
+      "input_bytes": 807836,
+      "input_sha256": "92d19a8c401f43ef3d086fb93202178356601659cf672d03ea8ad47db40ecb8a"
+    },
+    {
+      "name": "statistischer-bericht-verkehr-2080110241015.xlsx",
+      "historical_worksheet_xml": {
+        "original": 29218247,
+        "cleaned": 6596977
+      },
+      "input_bytes": 3708379,
+      "input_sha256": "b9c692efdfc41328e2efc244b394e4707522c2e6ed9973b67f080e2daadfdcf8"
+    },
+    {
+      "name": "statistischer-bericht-absatz-bier-2140921241055.xlsx",
+      "historical_worksheet_xml": {
+        "original": 5032315,
+        "cleaned": 423067
+      },
+      "input_bytes": 830609,
+      "input_sha256": "6feb59037e9ebf92e854060c79c60b816348808a9669420408de81675e2471fa"
+    },
+    {
+      "name": "statistischer-bericht-verkehr-2080110241035.xlsx",
+      "historical_worksheet_xml": {
+        "original": 29516163,
+        "cleaned": 6896770
+      },
+      "input_bytes": 3777224,
+      "input_sha256": "f2628063702e15093848828574cff224e36ef46664501e66735c437884e703b3"
+    },
+    {
+      "name": "statistischer-bericht-absatz-bier-2140921241065.xlsx",
+      "historical_worksheet_xml": {
+        "original": 5032396,
+        "cleaned": 423109
+      },
+      "input_bytes": 832720,
+      "input_sha256": "89137f1cd70f0e8ed9426119ede313ae111a8b50026868f1bcb3911fb3666a61"
+    },
+    {
+      "name": "statistischer-bericht-verkehr-2080110241025.xlsx",
+      "historical_worksheet_xml": {
+        "original": 29387585,
+        "cleaned": 6771686
+      },
+      "input_bytes": 3759784,
+      "input_sha256": "6ef811c749902f4e598932839e4f3020d9c6ca80b986d41807192969ed8236ad"
+    },
+    {
+      "name": "statistischer-bericht-absatz-bier-2140921241075.xlsx",
+      "historical_worksheet_xml": {
+        "original": 5032411,
+        "cleaned": 423124
+      },
+      "input_bytes": 832727,
+      "input_sha256": "a01e91c44643c035ec0d18bcda6f0dcfff2d66c7d987a394f395449aec0fa01f"
+    },
+    {
+      "name": "statistischer-bericht-verkehr-2080110231065.xlsx",
+      "historical_worksheet_xml": {
+        "original": 29861061,
+        "cleaned": 7548629
+      },
+      "input_bytes": 3795029,
+      "input_sha256": "450923d70928667a5f6bef54467099ab0bbb8ffa1e973fd04b1612baa685bc38"
+    },
+    {
+      "name": "statistischer-bericht-migrationshintergrund-erst-2010220227005.xlsx",
+      "historical_worksheet_xml": {
+        "original": 97210527,
+        "cleaned": 75073993
+      },
+      "input_bytes": 10501933,
+      "input_sha256": "567048d0d6da5af6ce24a9312a773f911929dda6dcedb4a66362c73a322aa3dc"
+    },
+    {
+      "name": "statistischer-bericht-steuerhaushalt-2140400223245.xlsx",
+      "historical_worksheet_xml": {
+        "original": 1801845,
+        "cleaned": 170589
+      },
+      "input_bytes": 351220,
+      "input_sha256": "0d003bf699d3a7142dd86ad564d449a435b0772abe16b0d0b850197ce6a5bb77"
+    },
+    {
+      "name": "statistischer-bericht-migrationshintergrund-end-2010220227005.xlsx",
+      "historical_worksheet_xml": {
+        "original": 96329670,
+        "cleaned": 74205111
+      },
+      "input_bytes": 10338143,
+      "input_sha256": "24a5fe8e9b142419661ca08134c9ac4080a00bad65042ad7b4bf0005e9b4e5e5"
+    },
+    {
+      "name": "feldfruechte-jahr-2030321227165.xlsx",
+      "historical_worksheet_xml": {
+        "original": 6255905,
+        "cleaned": 600841
+      },
+      "input_bytes": 1869053,
+      "input_sha256": "253e6fee58f882f615b17f40408dac48ee16cf343c1d3d9bdd014db102bb45d6"
+    },
+    {
+      "name": "vorausberechnung-gebietsstand-bundesland.xlsx",
+      "historical_worksheet_xml": {
+        "original": 28700308,
+        "cleaned": 8559742
+      },
+      "input_bytes": 3839847,
+      "input_sha256": "afe053fa859260df551e10367e3c7964cb68c30500afde91d752f52525d31f12"
+    },
+    {
+      "name": "auslaendische-bevoelkerung-laender-xls.xlsx",
+      "historical_worksheet_xml": {
+        "original": 255803,
+        "cleaned": 24639
+      },
+      "input_bytes": 123506,
+      "input_sha256": "ad9038adc192bf191d69ba861dc6d814b10794d90a68a114cb50bc05719e2142"
+    },
+    {
+      "name": "maschinenlesbarer_haushaltsplan_bund_2019-2024.xlsx",
+      "historical_worksheet_xml": {
+        "original": 56936059,
+        "cleaned": 36934562
+      },
+      "input_bytes": 8913320,
+      "input_sha256": "9350b82da69c4452d14a956f2ca90d833e4dc4af9aad166e5d2a9128477a80d6"
+    },
+    {
+      "name": "statistischer-bericht-steuerhaushalt-2140400233215.xlsx",
+      "historical_worksheet_xml": {
+        "original": 1806837,
+        "cleaned": 175426
+      },
+      "input_bytes": 350353,
+      "input_sha256": "ae5c8edebc046cc716d08946ce7cb95ca2cc7eb11909fd10e87bb2c582a24663"
+    },
+    {
+      "name": "statistischer-bericht-mikrozensus-haushalte-familien-2010300237005-erstergebnisse.xlsx",
+      "historical_worksheet_xml": {
+        "original": 34859710,
+        "cleaned": 14972499
+      },
+      "input_bytes": 4284058,
+      "input_sha256": "b5c9f03ba80b479be17ee24ba725dd7298ec30ad100a24fc181ef0c131e123c2"
+    },
+    {
+      "name": "statistischer-bericht-steuerhaushalt-2140400233225.xlsx",
+      "historical_worksheet_xml": {
+        "original": 1808127,
+        "cleaned": 176231
+      },
+      "input_bytes": 348878,
+      "input_sha256": "b966d26cd24a1f7c45e91686ad4c234ee213c8b6bbf9c44e44b86571d3435b4e"
+    },
+    {
+      "name": "operationen-prozeduren-5231401217015.xlsx",
+      "historical_worksheet_xml": {
+        "original": 24310712,
+        "cleaned": 4431493
+      },
+      "input_bytes": 3098434,
+      "input_sha256": "177f27eb4dac0c6eb5e6689e9d6909c2b81abbfda9df67601b118d5c50cac8ef"
+    },
+    {
+      "name": "statistischer-bericht-steuerhaushalt-2140400233245.xlsx",
+      "historical_worksheet_xml": {
+        "original": 1810349,
+        "cleaned": 176593
+      },
+      "input_bytes": 318059,
+      "input_sha256": "e7288786fdeb9393c44c0c9ae0804ee530ab141c85151d5b03950edb47b9ff48"
+    },
+    {
+      "name": "statistischer-bericht-mikrozensus-haushalte-familien-vorabergebnisse-2010300238005.xlsx",
+      "historical_worksheet_xml": {
+        "original": 33284724,
+        "cleaned": 13984342
+      },
+      "input_bytes": 4173809,
+      "input_sha256": "6042fddbeac4d27aab9df0de84ad25503ee70969b6df86f60db539c2a3b2613d"
+    },
+    {
+      "name": "statistischer-bericht-steuerhaushalt-2140400233235.xlsx",
+      "historical_worksheet_xml": {
+        "original": 1810227,
+        "cleaned": 176770
+      },
+      "input_bytes": 318027,
+      "input_sha256": "2cac4e0455647c4f73a4a8d9788f52c71cf27445ca94b5557d94e0ea8d073dc3"
+    },
+    {
+      "name": "statistischer-bericht-mikrozensus-haushalte-familien-2010300227005-erstergebnisse.xlsx",
+      "historical_worksheet_xml": {
+        "original": 33056996,
+        "cleaned": 13758601
+      },
+      "input_bytes": 4215358,
+      "input_sha256": "627e55dccc07ad20b79ba1342f747d619bceab8576efd25dd020e64aeb606b54"
+    },
+    {
+      "name": "statistischer-bericht-steuerhaushalt-2140400223235.xlsx",
+      "historical_worksheet_xml": {
+        "original": 1810568,
+        "cleaned": 179313
+      },
+      "input_bytes": 349514,
+      "input_sha256": "21808524efc30452a6c743d0d4985d9250cc1709070c5fe456a544e899343fb6"
+    },
+    {
+      "name": "statistischer-bericht-mikrozensus-haushalte-familien-2010300227005-endergebnisse.xlsx",
+      "historical_worksheet_xml": {
+        "original": 33092718,
+        "cleaned": 13798936
+      },
+      "input_bytes": 4145361,
+      "input_sha256": "d4374bca1c44c78769acf066260665ece6333b97c065579ca8707b446d6711a3"
+    },
+    {
+      "name": "statistischer-bericht-mikrozensus-haushalte-familien-2010300217005-endergebnisse.xlsx",
+      "historical_worksheet_xml": {
+        "original": 32822919,
+        "cleaned": 13530181
+      },
+      "input_bytes": 4192985,
+      "input_sha256": "97c828d8c032da887023b69f777b48611ad22545dcdf167de1653e0aaaa41d77"
+    },
+    {
+      "name": "statistischer-bericht-elterngeld-leistungsbezuege-j-5229210227005.xlsx",
+      "historical_worksheet_xml": {
+        "original": 2177298,
+        "cleaned": 227982
+      },
+      "input_bytes": 389677,
+      "input_sha256": "1307fbba593b608071c06f2137cd3b1efbef5e61c26cf3a93cd153c6a7f46c09"
+    },
+    {
+      "name": "statistischer-bericht-mikrozensus-haushalte-familien-2010300217005.xlsx",
+      "historical_worksheet_xml": {
+        "original": 34242315,
+        "cleaned": 14965826
+      },
+      "input_bytes": 4240742,
+      "input_sha256": "727e56b75dd8f9c974d799d5444095453e579efc634b84d25e9e5c02935762f9"
+    },
+    {
+      "name": "statistischer-bericht-energiesteuerstatistik-2140930227005.xlsx",
+      "historical_worksheet_xml": {
+        "original": 6144861,
+        "cleaned": 643735
+      },
+      "input_bytes": 928405,
+      "input_sha256": "d22dddb4fde719aecc2fd6340899597ac7b93ef494b27efa898be3521fc62874"
+    },
+    {
+      "name": "statistischer-bericht-vj-schulden-oeffentl-gesamthaushalt-2140520243215.xlsx",
+      "historical_worksheet_xml": {
+        "original": 35428883,
+        "cleaned": 16305810
+      },
+      "input_bytes": 4323548,
+      "input_sha256": "da479fe9f4bb769e17685451372bde08755909ea99b6720d90bc312002ccd4de"
+    },
+    {
+      "name": "statistischer-bericht-elterngeld-geburten-j-5229201207005.xlsx",
+      "historical_worksheet_xml": {
+        "original": 2907643,
+        "cleaned": 305787
+      },
+      "input_bytes": 489920,
+      "input_sha256": "90aae8c6fea41b8874cabcd175e1711a50837887964c454ff0618c1a8be93c9b"
+    },
+    {
+      "name": "statistischer-bericht-vj-schulden-oeffentl-gesamthaushalt-2140520233225.xlsx",
+      "historical_worksheet_xml": {
+        "original": 34743216,
+        "cleaned": 15644723
+      },
+      "input_bytes": 4484143,
+      "input_sha256": "a954f595832a4793116952017aeac3aba59b16b897f08d390c734e0ba7c9376e"
+    },
+    {
+      "name": "statistischer-bericht-energiesteuerstatistik-2140930237005.xlsx",
+      "historical_worksheet_xml": {
+        "original": 6159780,
+        "cleaned": 654885
+      },
+      "input_bytes": 901396,
+      "input_sha256": "d78d0a62f96d469344760b1a4944c158142fa25569a4d74056e4ca42e9eb31e4"
+    },
+    {
+      "name": "statistischer-bericht-vj-schulden-oeffentl-gesamthaushalt-2140520233215.xlsx",
+      "historical_worksheet_xml": {
+        "original": 34524652,
+        "cleaned": 15464392
+      },
+      "input_bytes": 4448261,
+      "input_sha256": "133982f110c45ff8fee30cebb67909c4833431cbf97ee2f37848e5818e4ac71e"
+    },
+    {
+      "name": "statistischer-bericht-elterngeld-leistungsbezuege-vj-5229210233215.xlsx",
+      "historical_worksheet_xml": {
+        "original": 2181132,
+        "cleaned": 232604
+      },
+      "input_bytes": 389698,
+      "input_sha256": "5112809ab8fc30532b1eb79a45a3f0e52caeb639e660b431ad9d90a94fa237eb"
+    },
+    {
+      "name": "statistischer-bericht-vj-schulden-oeffentl-gesamthaushalt-2140520223245.xlsx",
+      "historical_worksheet_xml": {
+        "original": 34712144,
+        "cleaned": 15700310
+      },
+      "input_bytes": 4431095,
+      "input_sha256": "87fb327e9d0659e370fc8ae32b950eaff2a1dba97081778d09d3207ebf9ebded"
+    },
+    {
+      "name": "statistischer-bericht-elterngeld-leistungsbezuege-j-5229210237005.xlsx",
+      "historical_worksheet_xml": {
+        "original": 2184567,
+        "cleaned": 234941
+      },
+      "input_bytes": 391608,
+      "input_sha256": "a80a35b3897c1de83603664c4d9a5debdcdca4b0978d06288085112e431c48d7"
+    },
+    {
+      "name": "statistischer-bericht-vj-schulden-oeffentl-gesamthaushalt-2140520233235.xlsx",
+      "historical_worksheet_xml": {
+        "original": 34825700,
+        "cleaned": 15814377
+      },
+      "input_bytes": 4260301,
+      "input_sha256": "e179c8e71bfa474917688f43580a5aa80c6f932b63ce29800bab1c90ad258ca0"
+    },
+    {
+      "name": "statistischer-bericht-elterngeld-geburten-j-5229201217005.xlsx",
+      "historical_worksheet_xml": {
+        "original": 2922618,
+        "cleaned": 320435
+      },
+      "input_bytes": 479519,
+      "input_sha256": "621c42588d93779f663f04fd5d5d6428921ba46f154d6dd3d5a97fd1090064c5"
+    },
+    {
+      "name": "statistischer-bericht-vj-schulden-oeffentl-gesamthaushalt-2140520233245.xlsx",
+      "historical_worksheet_xml": {
+        "original": 35005696,
+        "cleaned": 15995739
+      },
+      "input_bytes": 4285240,
+      "input_sha256": "fe13415ff72bde234e2814f0fb1c8b4e6175249b66aaaa0d1c9685342c60d9ec"
+    },
+    {
+      "name": "nettoverdienste-modellrechnung-2160250217005.xlsx",
+      "historical_worksheet_xml": {
+        "original": 3541730,
+        "cleaned": 401546
+      },
+      "input_bytes": 547410,
+      "input_sha256": "a1611490b30cbdac08b1b7e20fbde784fe860a6b29c80a8b45d30af3842201d1"
+    },
+    {
+      "name": "statistischer-bericht-vj-schulden-oeffentl-gesamthaushalt-2140520243225.xlsx",
+      "historical_worksheet_xml": {
+        "original": 35469567,
+        "cleaned": 16461937
+      },
+      "input_bytes": 4332459,
+      "input_sha256": "0d22808b278e5426040b74841621c4581ba00c659eee5f4f645722dce3f04f2e"
+    },
+    {
+      "name": "grunddaten-krankenhaeuser-2120611217005.xlsx",
+      "historical_worksheet_xml": {
+        "original": 21153850,
+        "cleaned": 2413587
+      },
+      "input_bytes": 3787797,
+      "input_sha256": "4ca0fdfa17e191395dded4d572886a2f0aeddc81030af9d036f9759d5af774eb"
+    },
+    {
+      "name": "statistischer-bericht-einkommen-lebensbedingungen-erstergebnisse-2150300227005.xlsx",
+      "historical_worksheet_xml": {
+        "original": 11555704,
+        "cleaned": 1329562
+      },
+      "input_bytes": 1722374,
+      "input_sha256": "e682064cbfd52224931acbcff22e49188cff934b6a87feb8df5160e4aaa8690e"
+    },
+    {
+      "name": "krankenhausverzeichnis-3500100227005.xlsx",
+      "historical_worksheet_xml": {
+        "original": 22548617,
+        "cleaned": 4061901
+      },
+      "input_bytes": 2499876,
+      "input_sha256": "acba1b6424496d9281aadf0a7ced67d9cccc62145f40cbd4ace019badfdce40c"
+    },
+    {
+      "name": "abfallbilanz-xlsx-5321001.xlsx",
+      "historical_worksheet_xml": {
+        "original": 5628942,
+        "cleaned": 648619
+      },
+      "input_bytes": 2809096,
+      "input_sha256": "e91287036dde68913ab698aff0ee62ae3735c68b8e0003d9c280b12d94ff56a6"
+    }
+  ]
+}

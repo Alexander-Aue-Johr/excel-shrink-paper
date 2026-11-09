@@ -1,0 +1,57 @@
+{
+  "original": {
+    "cells": 361086,
+    "literal_zero_constants": 343833,
+    "hidden_zero_constants": 343833,
+    "zero_rows": {
+      "11": 16373,
+      "12": 16373,
+      "13": 16373,
+      "14": 16373,
+      "15": 16373,
+      "16": 16373,
+      "17": 16373,
+      "18": 16373,
+      "19": 16373,
+      "20": 16373,
+      "21": 16373,
+      "22": 16373,
+      "23": 16373,
+      "24": 16373,
+      "25": 16373,
+      "26": 16373,
+      "27": 16373,
+      "28": 16373,
+      "29": 16373,
+      "30": 16373,
+      "32": 16373
+    },
+    "zero_column_min": 12,
+    "zero_column_max": 16384,
+    "hidden_columns": [
+      [
+        12,
+        16384
+      ]
+    ],
+    "worksheet_xml_bytes": 11725919
+  },
+  "cleaned": {
+    "cells": 787,
+    "literal_zero_constants": 0,
+    "hidden_zero_constants": 0,
+    "zero_rows": {},
+    "zero_column_min": 16385,
+    "zero_column_max": 0,
+    "hidden_columns": [
+      [
+        12,
+        16384
+      ]
+    ],
+    "worksheet_xml_bytes": 32423
+  },
+  "sheet": "Tabelle 3.4 ",
+  "part": "xl/worksheets/sheet31.xml",
+  "removed_literal_zero_constants": 343833
+}

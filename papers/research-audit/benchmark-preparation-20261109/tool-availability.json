@@ -1,0 +1,51 @@
+{
+  "observed_date": "2026-11-09",
+  "nxpowerlite": {
+    "version": "11.0.1",
+    "installed": true,
+    "launch_verified": true,
+    "trial_days_remaining_observed": 14,
+    "trial_batch_limit_documented": 20,
+    "documented_total_file_quota": null,
+    "optimization_executed": false,
+    "save_mode_observed": "create optimized copies",
+    "profile_observed": "Balanced",
+    "installer_sha256": "eecfcb16282465bd6c4c38094e1514f0c95541643c73ecdc4a1d6828c4e4c322",
+    "installer_signature": "Valid; Neuxpower Solutions Ltd",
+    "installation_exit_code": 0,
+    "excluded_integrations": [
+      "Explorer",
+      "Outlook",
+      "PowerPoint",
+      "Word",
+      "Excel",
+      "Desktop shortcut"
+    ]
+  },
+  "xlstylestool": {
+    "package": "6764XLGeekCoder.XLStylesTool",
+    "version": "3.0.1.0",
+    "publisher": "XLGeekCoder",
+    "installed": true,
+    "launch_verified": true,
+    "file_selected": false,
+    "processing_executed": false
+  },
+  "excel": {
+    "version": "16.0.20527.20150",
+    "architecture": "x64",
+    "product": "O365HomePremRetail",
+    "check_performance_command_visible": true,
+    "command_id": "CheckPerformance",
+    "availability_observation": "new blank workbook, Review ribbon",
+    "corpus_optimization_executed": false,
+    "inquire_com_addin_present": false,
+    "inquire_component_files_found": false,
+    "inquire_status": "requires supported Office edition on benchmark host"
+  },
+  "sources": [
+    "https://support.neuxpower.com/hc/en-us/articles/360026595053-NXPowerLite-Desktop-FAQ",
+    "https://support.neuxpower.com/hc/en-us/articles/115002535913-NXPowerLite-Deployment-Guide-Windows-only",
+    "https://support.microsoft.com/en-us/excel/turn-on-the-inquire-add-in"
+  ]
+}

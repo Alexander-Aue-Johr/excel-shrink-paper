@@ -1,0 +1,17 @@
+{
+  "source_ref": "origin/codex/datagov-validation-watch",
+  "source_commit": "a7eef1ae8d9a2c2ed03720eb0433ce2a8bf7e216",
+  "binary_sha256": "d7bddcd49c7df9bda92038f106fa2772ab67c10707a41583d4c95c1b01290f47",
+  "cargo_lock_sha256": "975cb55042f613d1496b92397de201886b89f6d5eeac5154e1cba2b980d28ec2",
+  "preparation_script_sha256": "2ddaba853b9198826ddf9549a1b4f971951f2402a318f3df84f79ca611722f21",
+  "rustc": "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+  "cargo": "cargo 1.99.1 (5f94df478 2026-08-27)",
+  "os": "Windows-11-10.0.26200-SP0",
+  "policy": "ordinary defaults with statistics enabled",
+  "execution": {
+    "rayon_threads": 1,
+    "writer_workers": 1,
+    "max_active_workbooks": 1
+  },
+  "reproduction_script_sha256": "4fbe70e6f3fce37b07e627c11e38c353e927f1e0053153e4d3c26b92f663f1ca"
+}
