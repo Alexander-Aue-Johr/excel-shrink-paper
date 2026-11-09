@@ -297,8 +297,9 @@ original-workbook Pandas workload.
 1. Locate the machine/setup and retained report for the earlier more-than-48-hour
    Wanderungen/Pandas attempt when available. Add a provenance note before using
    it as a measured manuscript result.
-2. Deep Research reports are pending and will be supplied separately. Continue
-   independent evidence and submission preparation in the meantime.
+2. The DeltaSieve report has been reviewed at the literature checkpoint below.
+   The SheetShrink report remains pending. Continue independent evidence and
+   submission preparation in the meantime.
 
 The confidential-companion-paper route and a verified accepted-paper minted
 precedent remain open research items. Unchecked entries identify outstanding work.
@@ -399,3 +400,30 @@ accounts. Its conclusion distinguishes a supported submission practice from
 an explicit ICDE approval. Companion PDFs provide optional detail; each main
 manuscript retains its own necessary method and evidence. Working snapshots and
 preparation status must be updated to the actual submission versions at freeze.
+
+### DeltaSieve literature checkpoint
+
+The supplied DeltaSieve report was inspected in Markdown, PDF and DOCX forms.
+Input hashes, verified sources, corrected claims and manuscript changes are
+retained in `research-audit/deltasieve-literature-review-disposition.md`.
+Private source copies remain with the audit inputs outside the paper artifact.
+The report's unresolved numbered references required independent primary-source
+verification.
+
+Related work now covers SheetDiff and RowColAlign, and identifies Synkronizer
+and SpreadsheetsDiff as further vendor-documented comparator candidates. The
+existing Ekstazi and ReDeCheck references correctly use ISSTA 2015 and 2017.
+The report's alternative venue/year and mechanism descriptions were corrected
+in the disposition. No exhaustive priority or universal soundness claim follows
+from this search.
+
+The evaluation now defines pair-level detection, partial coverage, usable native
+reference fractions, selection overhead, mutation strata, repeated-state
+controls, cluster-aware uncertainty and matched end-to-end cost accounting.
+The illustrative zero-miss binomial bounds are calculations under stated
+sampling assumptions, separate from measured results.
+
+DeltaSieve rebuilt to eight pages. All eight pages were rendered and inspected.
+The build has resolved references and no overfull boxes. Underfull-box spacing
+diagnostics remain. Supplementary working snapshots and their hash manifest were
+updated to the rebuilt PDFs. The SheetShrink report remains pending.

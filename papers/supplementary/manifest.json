@@ -1,7 +1,7 @@
 {
   "snapshot_date": "2026-11-09",
   "status": "working drafts prepared for ICDE 2027; not a submission freeze",
-  "source_base_commit": "ea551f4a19f8439a2fcb6c9e1a252024ae4304c9",
+  "source_base_commit": "d5560f51d29325fb8445cb67d1834f2b3f5dd9e3",
   "source_hashes": {
     "papers/sheetshrink/figures/cleanup-algorithm.tex": "c2153194f0c6958b391ec7f0de515edabf28a9987052ef5d6c5787fe355a1bf3",
     "papers/sheetshrink/figures/overview.tex": "3b0931c17333e79be1f11ddbea02221bbc53dc5b546b79589d4b0072d4e7663c",
@@ -16,26 +16,26 @@
     "papers/deltasieve/figures/comparison-algorithm.tex": "abd522426ee900b6210b3ea885e42b9013f69d5bd1c5e9de214543d25337bea1",
     "papers/deltasieve/figures/overview.tex": "97d5d557d4307431a94397008d0e63bbed81fafbfec6ba0636351957408dbf41",
     "papers/deltasieve/main.tex": "e352474db3daadac0dc4a6de7c766ff5b4934b09a6573575e29baae7dc412ab0",
-    "papers/deltasieve/references.bib": "08155e1dec5e5ee5bf27cc04db30300d187428f1331f2cb26d1317f59af9f75b",
+    "papers/deltasieve/references.bib": "6d1bfb81eea3c916cacc2c314480d67e29ac7b49daf7fad4aca64ad95d6b7073",
     "papers/deltasieve/sections/contract.tex": "e7e0ec8cc3ebbe79a33562bc2f3fc03db2e3c4292df6d81abb3923f8b2e0112c",
     "papers/deltasieve/sections/discussion.tex": "0f9a7b9499256aa5abed041288b79a16c417581569e5fef333f1632db01e83f6",
-    "papers/deltasieve/sections/evaluation.tex": "1728d011f020f40dc53bb5e82de0f32662e58792fc7dfa428764163ed2c5677a",
+    "papers/deltasieve/sections/evaluation.tex": "8412214fedbac00571f001f27b520c7e21810482ecad16ffcdc1ea3d5dd7c0c8",
     "papers/deltasieve/sections/introduction.tex": "67d8cd5a10d43fea29d74270b447838e0eb079d410582b45be71b9c3b12c449c",
     "papers/deltasieve/sections/method.tex": "21fcab5785899a9079bcad19506eed89e0cb060b6dfa04b75c64530dac024395",
-    "papers/deltasieve/sections/related.tex": "0a9a85eba8dd91910c608398b83092d1e954f38eb05589bc90429e6a18596af0"
+    "papers/deltasieve/sections/related.tex": "3cb4f91f93991cbe74fb32ba431f1cf5c3c743139760e392de7fd4b4de01ca9f"
   },
   "files": [
     {
       "path": "related-manuscripts/sheetshrink.pdf",
-      "sha256": "5c35d0d9e4923b227b7c931467605a6697a750427aac3e97a629dadd996e38e9",
+      "sha256": "251928f5b92794004cd42785fa2d8373900e0860e09decd90564c4f62a5182b1",
       "bytes": 86288,
       "pages": 5
     },
     {
       "path": "related-manuscripts/deltasieve.pdf",
-      "sha256": "4958d9ac9cdfc0409482afaf0925cf89597285ee47dd1947aea42cb030e79086",
-      "bytes": 104111,
-      "pages": 7
+      "sha256": "2b5cbae9531e4fde6c3fe4125ee3394cb94c9b363169e96fc36ac6a644fe429d",
+      "bytes": 150717,
+      "pages": 8
     }
   ]
 }

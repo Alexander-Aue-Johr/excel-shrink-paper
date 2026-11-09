@@ -94,17 +94,62 @@ with explicit rejection of unsupported types and out-of-area objects. It does
 not certify decorative ink beyond those rectangles or establish corpus recall.
 
 \subsection{Detection and cost metrics}
-A selector miss is a native reference difference outside the selected coverage.
-Report detection by mutation class and by completed reference workbook. A changed
-capture is counted separately from a confirmed transformation regression.
-Unsupported references, failed geometry reads and missing partner images retain
-explicit coverage outcomes.
+A completed independent reference determines whether a mutation has a visible
+effect under the recorded observation policy. A selector miss occurs when such
+an effect falls outside selected coverage. Detection is measured per mutated
+workbook pair and per mutation class. A partially covered effect retains a
+separate outcome even when another difference makes the pair detectable.
+Pixel coverage requires a documented mapping between reference and selected
+capture coordinates, including extent differences.
+
+Selection overhead counts candidates whose completed paired images are equal.
+This measures avoidable work within the tested policy. Pixel findings retain
+their attribution as transformation effects, rendering variation or unresolved
+differences. Failed references, missing partner images and timeouts retain
+explicit outcomes. Report both completed-reference detection and the fraction
+of all selected cases with usable reference evidence.
+
+\subsection{Mutation strata and statistical scope}
+The mutation matrix covers direct values and formulas, effective styles,
+conditional dependencies, chart inputs and objects, row/column geometry and
+visibility, and unresolved references. Serialization-only controls exercise
+equivalent package representations. Supported cases and fallback cases have
+separate expectations. Workbook identities, generator seeds, intended edits,
+reference areas and observed native effects identify every case. Spreadsheet
+errors such as division by zero are valid calculation outcomes and need their
+own fixtures alongside malformed or unopenable packages.
+
+Repeated identical-input native controls characterize renderer variation.
+Volatile-function cases include NOW and RAND, with INDIRECT and OFFSET also
+requiring reference-policy controls~\cite{excelrecalculation}. The full rebuild
+and save policy applies to both states. An unchanged formula can therefore
+produce different rebuilt values. Such observations retain their raw pixels
+and calculation context for attribution.
+
+Report sample counts and binomial uncertainty for independently sampled units
+within each declared population~\cite{binomialintervals}. For zero misses in
+$n$ independent trials with common miss probability, the exact one-sided
+95\% upper bound is $1-0.05^{1/n}$. This is approximately 9.5\% for 30 trials
+and 5.8\% for 50. Multiple mutations of one workbook share a cluster and do
+not establish that many independent workbook observations. Development stress
+cases remain separately labelled. Population estimates must account for the
+sampling strata and inclusion probabilities.
+
+\subsection{Matched cost accounting}
 
 Cost measurements separate XML planning, geometry, native rendering, transfer,
 image comparison and persistence where instrumentation permits. Report image
-count, compared pixels and retained bytes alongside elapsed time. Batch and
+count, rendered pixels in each state, compared pixels and retained bytes
+alongside elapsed time. Overlapping captures count as repeated rendering work;
+coverage-union size is reported separately. Matched selective and independent
+reference runs use the same state-preparation policy, environment, image budget
+and reuse configuration. Analysis, opening, rebuild and save remain part of the
+declared end-to-end timing even when capture-phase timings are also reported.
+Batch and
 concurrency experiments use matched inputs and repeated runs. A changing
 production queue does not identify the causal benefit of a tuning parameter.
+Matched timing summaries report paired distributions and repeated-run variation.
+Full-reference timeouts remain censored observations alongside completion counts.
 Full-corpus cost estimates use measured visible geometry and stratified samples,
 with uncertainty and assumptions about hidden regions and object extents.
 

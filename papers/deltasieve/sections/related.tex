@@ -1,3 +1,14 @@
+\subsection{Spreadsheet change inference}
+SheetDiff infers changes between spreadsheet versions and presents them in a
+single contextual view~\cite{sheetdiff}. This establishes spreadsheet change
+inference as prior work. RowColAlign extends longest-common-subsequence reasoning
+to two-dimensional alignment and evaluates edit recovery using generated pairs
+with planted changes~\cite{rowcolalign}. Its known edit history provides a
+methodological precedent for controlled mutations. Our evaluation additionally
+requires native observations of which mutations produce visible effects under
+the chosen state-preparation policy. Edit recovery and rendered-effect coverage
+have different observation units.
+
 \subsection{Spreadsheet dependencies and testing}
 Spreadsheet slicing connects dependency analysis with integrated testing and
 fault localization~\cite{slicing}. DeltaSieve uses supported dependencies to
@@ -20,6 +31,13 @@ observation of their dependent rendered consequences answer different questions.
 The pilot must therefore record the tested options and report coverage instead
 of treating every comparator as an interchangeable visual oracle.
 
+Synkronizer's edition documentation lists content, formatting and Excel-name
+comparison features~\cite{synkronizer}. SpreadsheetsDiff advertises two- and
+three-way comparison, key-column matching, and workbook/VBA comparison
+features~\cite{spreadsheetsdiff}. These vendor descriptions identify further
+comparison candidates. A native pixel-observation contract and its tested
+coverage require separate verification for each product and version.
+
 \subsection{Cross-system testing and parsing}
 SQuaLity examines barriers to reusing database test suites across systems,
 including configuration and execution dependencies~\cite{squality}. This suggests
@@ -31,6 +49,7 @@ package inspection, whose cost must be separated from native rendering cost.
 
 \subsection{Selective regression testing and visual models}
 Ekstazi selects regression tests through recorded file dependencies~\cite{ekstazi}.
+It tracks dynamically used files and their checksums.
 Its separation of analysis, execution and dependency collection motivates
 measuring selection overhead together with avoided work. DeltaSieve's
 spreadsheet dependency model and native image observations require their own
