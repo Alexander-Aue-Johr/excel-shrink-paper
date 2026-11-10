@@ -128,6 +128,16 @@ metadata must be reviewed for local paths and publication-sensitive content
 before public release. Historical replay requires recorded event history and
 cannot reconstruct observations that were never retained.
 
+New configurations retain equal captures by default. Packaging can replace a
+verified-equal PNG with a smaller lossless encoding after checking exact decoded
+RGBA equality. Differing or unverified image references preserve their original
+encoding. Live inspection uses a bounded window of capture receipts and the same
+spatial Atlas renderer. Capture glyphs take precedence over nearby heartbeat
+pulses in the worker timeline. These display events establish image availability,
+while the comparison report separately records the pixel verdict. Publication
+maps retained receipt identifiers to packaged images so that completing a job
+does not invalidate its recent inspection links.
+
 \subsection{Collect independent runs in a static atlas}
 Each analysis can publish a static report with a compressed catalog, per-run
 detail and relative image assets~\cite{staticatlas}. A collection groups
