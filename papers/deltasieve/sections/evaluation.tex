@@ -363,6 +363,21 @@ failed reference case. Agreement between a selected plan and a reference over
 five deliberately constructed pairs supports those controls. It does not turn
 the same five pairs into a representative sample of three corpora.
 
+\subsection{A border difference inside the common capture}
+A developer-selected Enron control rendered \texttt{Tables!A1:I157}
+after inspecting a Check Performance finding. Four independent original
+captures were pixel-identical. SheetShrink and XLStylesTool preserved that
+reference exactly. Check Performance differed at 126,404 common pixels, while
+Inquire differed at 490 near the lower edge. Extending the reference through
+row 160 retained 127,256 and 916 changed common pixels, respectively.
+Inspection of the extended Inquire capture showed a missing lower horizontal
+table border inside the shared rectangle. Its rebuilt worksheet lacked original
+row 157 and its styled blank cells. The added context therefore separates this
+finding from a capture clipped at the table edge. NXPowerLite had no available
+output for this input. This post-hoc illustration covers one declared area and
+does not measure recall or establish whole-workbook preservation. The matching
+XLStylesTool result is retained alongside SheetShrink's result.
+
 \subsection{Operational outcomes and evaluation limits}
 A Check Performance preparation campaign attempted 1,182 Destatis inputs and
 retained 1,016 outputs and 166 failures. Recovery diagnostics identified Name
