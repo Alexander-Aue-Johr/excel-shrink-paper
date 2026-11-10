@@ -382,35 +382,34 @@ failed reference case. Agreement between a selected plan and a reference over
 five deliberately constructed pairs supports those controls. It does not turn
 the same five pairs into a representative sample of three corpora.
 
-\subsection{Recorded coverage of the Enron comparison stage}
-The first stage uses the nine Enron workbooks with the largest absolute
-SheetShrink file-size reductions in the frozen selection. Each workbook
-contributes one comparison slot per tool. Table~\ref{tab:enron-stage-coverage}
-counts completed comparisons under the recorded coverage limits and keeps
-unavailable variants and failed comparisons in the denominator. The
-versioned ledger records the outcomes and baseline identities~\cite{enronstagecoverage}.
+\subsection{Recorded coverage of the first comparison stage}
+The first stage uses the nine workbooks with the largest absolute
+SheetShrink file-size reductions per corpus in the frozen selection.
+Each workbook contributes one slot per tool. Table~\ref{tab:stage-coverage}
+reports a timestamped snapshot of all 135 slots. The versioned snapshot
+identifies each rank and tool~\cite{stagenearestcoverage}. The separate
+Enron ledger retains the detailed outcomes and baseline identities~\cite{enronstagecoverage}.
 
 \begin{table}[t]
 \centering
-\caption{Enron stage coverage across nine selected workbooks per tool.
-Raw and repaired count completed comparisons by baseline.}
-\label{tab:enron-stage-coverage}
-\begin{tabular}{lrrrr}
+\caption{First-stage coverage snapshot on 11 November 2026. Each corpus
+has 45 slots. Raw and normalized count completed comparisons with limited
+coverage. Unavailable counts missing variants. No eligible counts slots
+without a qualifying whole-workbook result.}
+\label{tab:stage-coverage}
+\setlength{\tabcolsep}{5pt}
+\begin{tabular}{lrrrrrr}
 \hline
-Tool & Raw & Repaired & Unavailable & Failed \\
+Corpus & Raw & Norm. & Unavail. & Failed & No eligible & Active \\
 \hline
-SheetShrink & 8 & 1 & 0 & 0 \\
-Check Performance & 8 & 0 & 1 & 0 \\
-Inquire & 7 & 0 & 1 & 1 \\
-XLStylesTool & 8 & 0 & 0 & 1 \\
-NXPowerLite & 6 & 0 & 2 & 1 \\
-\hline
-Total & 37 & 1 & 4 & 3 \\
+Destatis & 27 & 2 & 1 & 14 & 1 & 0 \\
+Data.gov & 38 & 0 & 0 & 4 & 1 & 2 \\
+Enron & 37 & 1 & 4 & 3 & 0 & 0 \\
 \hline
 \end{tabular}
 \end{table}
 
-Two failures followed Excel repair prompts and one required unresolved
+Of the three Enron failures, two followed Excel repair prompts and one required unresolved
 whole-grid coverage. The repaired Check Performance preparation and the
 completed SheetShrink comparison at rank two use different baseline hashes.
 The repaired preparation therefore provides no matched visual observation
