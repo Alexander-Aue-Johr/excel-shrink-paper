@@ -245,6 +245,16 @@ respectively. Neither comparison found a difference within its selected
 scope. The two transformed inputs and region sets differ, so these times
 describe distinct validator workloads.
 
+An inherited border can extend past every populated cell. In the Data.gov
+QT/RR workbook, the rebuilt dimensions of eleven affected sheets end
+at column L, but Inquire removes an inherited bottom border on row 1.
+An explicit reference at \texttt{XFB1:XFD3} found a 193-pixel line missing
+at the far edge, with equal measured geometry. Of 90,112 rectangles in
+the ordinary capture plan, 2,101 intersect columns A:L or row 1.
+This count describes a potential reduction in capture work. The two
+regions alone do not qualify a smaller plan because other layout
+and inherited appearance changes may remain.
+
 Conversely, unsupported objects can dominate a conservative plan. Two retained
 attempts contained explanatory sheets responsible for 104,833 and 185,856 regions.
 After approximately 5.3 hours, neither full capture had completed. Removing two
