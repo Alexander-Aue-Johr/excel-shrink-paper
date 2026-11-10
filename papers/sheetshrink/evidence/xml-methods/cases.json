@@ -230,7 +230,8 @@
       "width": "column",
       "before": [
         "<row r=\"1\" ht=\"9\"",
-        " customHeight=\"1\">",
+        " customHeight=\"1\"",
+        ">",
         " <c r=\"A1\" s=\"3\"><v>7</v></c>",
         " <c r=\"B1\" s=\"2\"/>",
         " <!-- repeated through XFD1 -->",
@@ -240,7 +241,8 @@
       "after": [
         "<row r=\"1\" ht=\"9\"",
         " customHeight=\"1\"",
-        " s=\"2\" customFormat=\"1\">",
+        " s=\"2\" customFormat=\"1\"",
+        ">",
         " <c r=\"A1\" s=\"3\"><v>7</v></c>",
         "</row>"
       ],
@@ -263,7 +265,8 @@
       "width": "column",
       "before": [
         "<row r=\"1\" ht=\"9\"",
-        " customHeight=\"1\">",
+        " customHeight=\"1\"",
+        ">",
         " <c r=\"A1\" s=\"3\"><v>7</v></c>",
         " <!-- repeated s=2 cells -->",
         " <!-- E1 was absent -->",
@@ -272,7 +275,8 @@
       "after": [
         "<row r=\"1\" ht=\"9\"",
         " customHeight=\"1\"",
-        " s=\"2\" customFormat=\"1\">",
+        " s=\"2\" customFormat=\"1\"",
+        ">",
         " <c r=\"A1\" s=\"3\"><v>7</v></c>",
         " <c r=\"E1\" s=\"3\"/>",
         "</row>"
@@ -494,7 +498,8 @@
       "width": "column",
       "before": [
         "<row r=\"2\" ht=\"17.25\"",
-        " customHeight=\"1\"><c r=\"H2\" s=\"6\"/></row>",
+        " customHeight=\"1\">",
+        " <c r=\"H2\" s=\"6\"/></row>",
         "<row r=\"60\" ht=\"20\" customHeight=\"1\"/>",
         "<conditionalFormatting sqref=\"A5:B44\">",
         " ...",
@@ -587,8 +592,8 @@
         "</row>"
       ],
       "after": [
-        "<!-- Delete admitted suffix only after -->",
-        "<!-- reference and layout checks pass. -->"
+        "<!-- Admit suffix only after -->",
+        "<!-- reference and layout checks. -->"
       ],
       "guard": "Admit only a dense horizontal suffix of equal signed integers ending at XFD, with every source cell eligible. Any intersecting known reference retains the entire span.",
       "risk": "Arbitrary hidden tables, short runs, gaps, text, formulas and vertical repeats are not admitted.",

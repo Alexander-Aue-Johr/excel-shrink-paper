@@ -11,5 +11,11 @@
   "scope": "Behavior specification S1-S9, focused tests, implementation anchors and relevant commit history. S10 is future work and is not presented as an implemented transformation.",
   "native_font_control": "New constructed packages opened read-only in one owned Excel instance, rebuilt with CalculateFullRebuild and captured through CopyPicture and Chart.Export. No save was used.",
   "native_enron_control": "Historical PL-Consolidated captures reused unchanged. Their provenance records full rebuild and Save.",
-  "limits": "Core tests were run. CLI anchors were reviewed but the full CLI suite and whole-corpus native validation were not run for this figure task. The shortened snippets are illustrations, not executable replacements for the original fixtures."
+  "limits": "Core tests were run. CLI anchors were reviewed but the full CLI suite and whole-corpus native validation were not run for this figure task. The shortened snippets are illustrations, not executable replacements for the original fixtures.",
+  "native_vector_export": {
+    "date": "2026-11-10",
+    "receipt": "native-vector/receipt.json",
+    "method": "Read-only open of the retained controls, CalculateFullRebuild and native Excel fixed-format PDF export. Printed gridlines, 100 percent scale and zero page margins. No Save.",
+    "scope": "Print rendering is separate from the retained screen captures. Source/one-witness and Original/Default exported regions match at 600 dpi. No whole-workbook visual coverage is inferred."
+  }
 }

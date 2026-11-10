@@ -3,7 +3,7 @@
   "rule_count": 28,
   "code_font_size_points": 8.2,
   "column_width_points": 252.0,
-  "maximum_card_height_points": 345.6999999999999,
+  "maximum_card_height_points": 334.3599999999999,
   "native_control_packages_differ_only_in_stated_cells": true,
   "font_control_source_equals_one_witness_pixels": true,
   "enron_region_original_equals_default_pixels": true,
@@ -11,6 +11,12 @@
     "source": 23.25,
     "one-witness": 23.25,
     "no-witness": 12.75
+  },
+  "vector_export_control_pairs_equal_at_600_dpi": true,
+  "band_minimum_width_points": 1.2,
+  "band_sides": {
+    "removed": "right",
+    "added": "left"
   },
   "input_sha256": {
     "native-font/no-witness.png": "e1024a64b173a19ad6b6ebbb8a19cc5d7edf3590206b2b09f899520108bfb68d",
@@ -24,12 +30,29 @@
     "enron-fill/Default.png": "fd163e050d1fdc2f1f48fa82df7063a11361323bbfce4b076c26e6d8c4393ff5",
     "enron-fill/Original.png": "fd163e050d1fdc2f1f48fa82df7063a11361323bbfce4b076c26e6d8c4393ff5",
     "enron-fill/provenance.json": "3eb8e56fd45cea39438ad31bd6c61902aa0975c8c67aa170f21f0c61c4ab3d7a",
-    "enron-fill/README.md": "562525aa161de878a0b6e9dff76c19e0315a943958d9401cd1e26a2ae0d0255f"
+    "enron-fill/README.md": "562525aa161de878a0b6e9dff76c19e0315a943958d9401cd1e26a2ae0d0255f",
+    "native-vector/.gitattributes": "fdfa7b607b52326cb536a984c43634aaa9afd5fb2c3df583c525f68615a80fad",
+    "native-vector/receipt.json": "871556298eee0efcf09c4e9c90d3221c0fe4fb607d90b169a21f9c7a3b493f72",
+    "native-vector/enron/Check-Performance.pdf": "025862230356ad945930450f63da4b7f56ecc072aeee1b39d9abe12e05cd2daf",
+    "native-vector/enron/Check-Performance.png": "46e9cc8213a4dce44ee055d66631888744a2d2da0be76cc509ca1fcbf505290a",
+    "native-vector/enron/Default.pdf": "daa679e6324cef52c964ce695d8344aef98757d05005ca655605fae59f6c683b",
+    "native-vector/enron/Default.png": "d063c422c7bad752150ce4326d4d204d07185c516a3f019c365e76530543072d",
+    "native-vector/enron/Original.pdf": "daa679e6324cef52c964ce695d8344aef98757d05005ca655605fae59f6c683b",
+    "native-vector/enron/Original.png": "d063c422c7bad752150ce4326d4d204d07185c516a3f019c365e76530543072d",
+    "native-vector/font/no-witness.pdf": "117b49c601246ffead43aae9dc5e717e2d28815071edd8bf3fa6c54a5996b8af",
+    "native-vector/font/no-witness.png": "370261397ccc1ef30b09ae33df5e121b557af06e3bc0e82356f4d0a21cddc35b",
+    "native-vector/font/one-witness.pdf": "0e3c39d5d18010bb37f361c70d5a9024bbebe091894c304dbcc96d3aead481e4",
+    "native-vector/font/one-witness.png": "71607709c2559c9dec461f412eb3dacda19919e53b6ad87d5171162af47cfe8c",
+    "native-vector/font/source.pdf": "0e3c39d5d18010bb37f361c70d5a9024bbebe091894c304dbcc96d3aead481e4",
+    "native-vector/font/source.png": "71607709c2559c9dec461f412eb3dacda19919e53b6ad87d5171162af47cfe8c"
   },
   "pdf_checks": {
     "code_figures": 28,
     "code_text_preserved": true,
     "all_code_figure_fonts_embedded": true,
-    "code_figures_have_no_raster_objects": true
+    "code_figures_have_no_raster_objects": true,
+    "native_figures_and_atlas_have_no_raster_images": true,
+    "band_stroke_at_least_marker_width": true,
+    "band_and_marker_colors_match": true
   }
 }
