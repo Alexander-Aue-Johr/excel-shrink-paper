@@ -297,3 +297,16 @@ independent \texttt{A1:L916} reference area. The corpus's conflicting legacy
 print-name aliases were explicitly normalized for opening, with separate hashes
 and preserved name definitions. The core regression suite passed 297 tests
 with one fixture-dependent test skipped.
+
+\paragraph{Automatic height without an explicit font-application flag.}
+In \texttt{kulturfinanzbericht-}\allowbreak\texttt{gesamtmaterial-}\allowbreak\texttt{1023003229005.xlsx},
+removing the blank cell \texttt{Impressum!B16} reduced rebuilt row 16 from
+15 to 12.75 points. Its XF references Arial MT 12 without an explicit
+\texttt{applyFont}, whereas the text cell uses Arial 10. The stored
+\texttt{ht="15"} has no \texttt{customHeight} and does not freeze automatic
+sizing. The correction admits this non-default font to the existing per-row
+representative policy and still removes redundant representatives. A separate
+native control rebuilt both complete workbooks and captured the preselected
+\texttt{Impressum!A1:J43} area. The 832 by 743 images were byte-identical with
+equal geometry. This local control completed in 13.07 seconds. Other findings
+in that workbook remain separate validation obligations.
