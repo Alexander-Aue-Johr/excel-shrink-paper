@@ -1,6 +1,9 @@
 \documentclass[conference]{IEEEtran}
+% Enable the full-width opening figure through IEEEtran's after-title hook.
+\IEEEoverridecommandlockouts
 \usepackage[T1]{fontenc}
 \usepackage{graphicx}
+\usepackage{multicol}
 \usepackage{url}
 \usepackage{algpseudocode}
 \usepackage{tikz}
@@ -15,10 +18,30 @@ Braunschweig, Germany \\
 ORCID 0009-0001-8683-3630}
 }
 \begin{document}
+\IEEEaftertitletext{\input{figures/cover}}
 \maketitle
+% Balance the first-page abstract across the full text width.
+\noindent\makebox[\columnwidth][l]{%
+  \begin{minipage}[t]{\textwidth}
+  \setlength{\multicolsep}{0pt}
+  \begin{multicols}{2}
 \begin{abstract}
-Spreadsheet packages can contain large populations of empty or redundant cell records that increase storage and ingestion costs. Cleanup must distinguish this structural redundancy from small formatting or dependency witnesses that preserve required workbook behavior. We present SheetShrink, a byte-oriented OOXML cleanup system that rewrites stored XLSX packages before opening them in Excel. It combines workbook-context analysis, local rewrite decisions, compact formatting representatives, and bounded parallel execution. We define its preservation contract and separate intentional policy choices from defects. This working manuscript reports bounded implementation checks and an ongoing native-rendering validation workflow. Controlled end-to-end performance results and final corpus coverage remain to be established.
+Spreadsheet packages can contain large populations of empty or redundant cell
+records that increase storage and ingestion costs. Cleanup must distinguish
+this structural redundancy from small formatting or dependency witnesses that
+preserve required workbook behavior. We present SheetShrink, a byte-oriented
+OOXML cleanup system that rewrites stored XLSX packages before opening them in
+Excel. It combines workbook-context analysis, local rewrite decisions, compact
+formatting representatives, and bounded parallel execution. We define its
+preservation contract and separate intentional policy choices from defects.
+This working manuscript reports bounded implementation checks and an ongoing
+native-rendering validation workflow. Controlled end-to-end performance
+results and final corpus coverage remain to be established.
 \end{abstract}
+  \end{multicols}
+  \end{minipage}%
+}
+\clearpage
 \input{figures/overview}
 \section{Introduction}
 \input{sections/introduction}

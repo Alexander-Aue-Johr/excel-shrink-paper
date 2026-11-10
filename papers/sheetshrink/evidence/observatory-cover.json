@@ -1,0 +1,27 @@
+{
+  "run_id": "483c6e66-7aa5-47fd-ae78-31953d21a6c0",
+  "processing_base_commit": "738e8de",
+  "profile": "Default",
+  "workers": 12,
+  "max_active_workbooks": 12,
+  "counts": {
+    "after_bytes": 86140596,
+    "before_bytes": 337387587,
+    "failed": 0,
+    "prepared": 144,
+    "reused": 0,
+    "total": 144
+  },
+  "elapsed_ms": 17077,
+  "cohort": "144 Enron workbooks selected for the greatest absolute reductions in compressed XLSX bytes",
+  "event_log_sha256": "663dcb7256711d64d12b29d7d7cddf619f6c370504abc2981b5f8c4e1d8d7ed5",
+  "highlighted_workbook": "b2d0dfef6a1ce21cf3896241052a4a28ffdad659b6bbb6b1ea44f47e4d589c86.xlsx",
+  "highlighted_part": "xl/worksheets/sheet2.xml",
+  "links": 12,
+  "svg_sha256": "e035679865d8e3b640839e3182db25afeaf7bf091982e9085a957c8f3e3de653",
+  "labels": {
+    "b2d0dfef6a1ce21cf3896241052a4a28ffdad659b6bbb6b1ea44f47e4d589c86.xlsx": "B1",
+    "70a7994fc2a6ce011743a2868e81832bcf58c0e05c42b9d907cb6cc012e00921.xlsx": "B2",
+    "ef58bd71ed25f5fba28fdd2d5cddba39f8ee39961bf1030f983f3d9b3b00690b.xlsx": "B12"
+  }
+}
