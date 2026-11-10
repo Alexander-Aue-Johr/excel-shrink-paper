@@ -354,3 +354,27 @@ native-frame agreement and complete object accounting. The current reference
 guard retains the unsupported outcomes explicitly. These observations contribute
 to the declared mutation matrix; corpus-level detection coverage remains an
 independent evaluation obligation.
+
+
+\subsection{Repeated column widths in a uniform background}
+The retained Destatis workbook
+\texttt{anbau-gartenbaugewaechse-2030224169005.xlsx} exposed excessive background
+coverage. Its rebuilt original contains 128,912 column definitions, compared
+with 2,197 in the rebuilt SheetShrink output. In 166 worksheets, the column
+styles apply one uniform background across the full worksheet width. For
+example, sheet \texttt{1901.01} contains serialized cells only through
+\texttt{J166}, but the former plan also selected distant columns such as
+\texttt{ACO}. Of 16,101 measured regions across 164 selected sheets, 15,936 lay
+wholly outside the serialized-cell envelopes. That count alone is diagnostic,
+since empty cells can still have visible formatting effects.
+
+The uniform-background guard yields 164 coalesced XML-selected regions for the
+retained rebuilt partners. A fresh native comparison produces 165 measured
+regions, with identical images for all 165 pairs. Capture selection and transport
+took 41.371 seconds and image comparison took 1.379 seconds in this single trial.
+The earlier large-plan attempt remained active for more than 40 minutes before
+interruption. This is a development observation under concurrent load, rather
+than a matched end-to-end speedup experiment. Neither identical selected images
+nor the reduced plan establishes exhaustive workbook equivalence. Regression
+controls retain distant fill transitions, borders, unknown styles, explicit
+cell overrides and unsupported conditional-formatting contexts.

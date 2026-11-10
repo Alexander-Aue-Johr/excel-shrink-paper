@@ -152,3 +152,22 @@ markings expose recorded differences and incomplete evidence; they do not
 replace the scientific coverage statement. The atlas supports inspection of
 the same frozen outputs that can subsequently be revalidated with the native
 tool. It introduces no additional detection claim.
+
+
+\subsection{Bound uniform backgrounds across column-width changes}
+A solid inherited fill spanning every worksheet column has no finite right edge.
+Repeated column definitions can partition that same fill solely because their
+widths differ. The planner resolves the existing column-format map and excludes
+those width-only boundaries from the background envelope when every column
+applies the same supported solid fill without borders. The existing byte scan
+supplies the column and style records. This guard adds neither another package
+read nor an Office.js synchronization.
+
+Explicit cells, including blank overrides, remain in the envelope. Row-format
+transitions and finite content or merge extents remain bounded observations.
+Supported drawing bounds and conditional-formatting eligibility retain their
+independent checks. A differing fill, a border, an unknown style or unsupported
+worksheet context retains the applicable conservative extent. Column widths
+within the retained content still participate in layout comparison. The guard
+therefore removes redundant background boundaries while preserving the
+observations used to detect interior changes.
