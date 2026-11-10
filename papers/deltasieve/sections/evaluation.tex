@@ -378,3 +378,19 @@ than a matched end-to-end speedup experiment. Neither identical selected images
 nor the reduced plan establishes exhaustive workbook equivalence. Regression
 controls retain distant fill transitions, borders, unknown styles, explicit
 cell overrides and unsupported conditional-formatting contexts.
+
+
+A second retained Enron input,
+\texttt{5d98c82491876616a27c81387d370975402de30439051002d64c0c1f6e5f3d68.xlsx},
+contains one worksheet named \texttt{Feb}. Its rebuilt original has 545,958
+serialized cells through row 49,633, compared with 5,341 cells through row 486
+in the rebuilt transformed state. Both retain an empty AutoFilter over
+\texttt{A3:O485}. The former unsupported-filter fallback expanded background
+coverage to the full worksheet width and produced 65,664 measured regions per
+state. At an observed checkpoint after about 50 minutes, approximately ten
+percent of those regions had been captured. The attempt was interrupted with
+its evidence retained. The bounded-empty-filter guard reduces the XML-selected
+union to \texttt{A385:P49634}, represented by 385 internal grid tiles before
+native image-size partitioning. The full serialized-cell envelope remains in
+scope. Native completion and final partition counts for this correction are
+pending and must be reported separately from the XML-only planning observation.
