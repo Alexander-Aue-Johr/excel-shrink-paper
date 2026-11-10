@@ -89,6 +89,52 @@
       "source_sha256": "2a49ea8295cd29665e3843314c232b68bedd26574e677945044f75e457845b8e",
       "source_revision": "1b9ee98e3409c3584ffd12a661d0c19f8a5f0788",
       "notation": "Abbreviated illustration. Omitted helpers and guards remain part of the source contract."
+    },
+    {
+      "id": "05-conditional-input",
+      "title": "Follow the changed input",
+      "lexer": "xml",
+      "language_label": "Abbreviated dependency illustration",
+      "code": [
+        "<!-- Only B1 changes: 0 to 1. -->",
+        "<conditionalFormatting sqref=\"D2:D40\">",
+        " <cfRule type=\"expression\" dxfId=\"0\">",
+        "  <formula>$B$1&gt;0</formula>",
+        " </cfRule>",
+        "</conditionalFormatting>",
+        "<!-- The rule is unchanged. -->",
+        "<!-- D2:D40 still needs observation. -->"
+      ],
+      "explanation": "Changing B1 can change the rendered fill in D2:D40 even when all cells and rule XML in that area are unchanged. The application area becomes a native capture candidate.",
+      "boundary": "This illustration assumes a supported rule and unchanged differential style. Unknown formulas retain fallback coverage.",
+      "source": "excel-shrink-cli/src/regression/targeted_comparison/conditional_formatting/tests.rs",
+      "anchor": "cross_sheet_changes_and_uncertain_formulas_select_the_target_sheet",
+      "source_revision": "1b9ee98e3409c3584ffd12a661d0c19f8a5f0788",
+      "source_sha256": "9bb25976913c1e5a06693cb7366104ac82da129918d8e5f02257ac42862a215a",
+      "notation": "Illustrative abbreviated XML. This is not a native measurement or a literal test fixture."
+    },
+    {
+      "id": "06-cell-record",
+      "title": "Keep cell evidence outside the heap",
+      "lexer": "rust",
+      "language_label": "Abbreviated Rust serialization",
+      "code": [
+        "let mut record = [0u8; RECORD_BYTES];",
+        "record[..4].copy_from_slice(",
+        "    &cell.row.to_le_bytes());",
+        "record[4..6].copy_from_slice(",
+        "    &cell.column.to_le_bytes());",
+        "// Two flag bytes occupy positions 6-7.",
+        "record[8..].copy_from_slice(&cell.digest);",
+        "output.write_all(&record)?;"
+      ],
+      "explanation": "A 40-byte disk record stores row, column, two flag bytes and a 32-byte digest. Ordered records support a streaming comparison without retaining one heap object per cell.",
+      "boundary": "This is the serialized layout, not the Rust struct layout. Style tables, changed cells and native images still need separate memory.",
+      "source": "excel-shrink-cli/src/regression/targeted_comparison/cell_stream.rs",
+      "anchor": "fn write_cell",
+      "source_revision": "1b9ee98e3409c3584ffd12a661d0c19f8a5f0788",
+      "source_sha256": "ce8c2923fb56a10eda1c15e9123b32bdda6f7e51110c65c4f8b0b98e1fc3b573",
+      "notation": "Abbreviated implementation. Flag assignment and writer ownership are omitted."
     }
   ]
 }

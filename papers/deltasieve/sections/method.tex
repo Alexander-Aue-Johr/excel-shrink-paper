@@ -1,352 +1,317 @@
-\subsection{Observe an explicit state pair}
-Figure~\ref{fig:comparison-algorithm} summarizes the logical stages. Capture
-selection, native observation and outcome accounting remain separate operations.
+\subsection{Comparison subject and observation model}
+Figure~\ref{fig:comparison-algorithm} separates package analysis, native
+observation and outcome accounting. The input is an original/transformed pair,
+a state-preparation policy and a renderer environment. The principal comparison
+opens separate owned Excel processes and observes both partners after full
+rebuilding in place. Ordinary-save and pre-rebuild controls retain the effects
+of serialization and calculation. Conversion of a legacy XLS source precedes
+this subject and has its own failure outcome.
 \input{figures/comparison-algorithm}
 
-The fast production strategy opens original and transformed workbooks in separate
-owned Excel processes and rebuilds them in place. A configured worker pool may
-lease existing processes across file pairs. Measurements must distinguish
-per-workbook opening from process and add-in initialization, and record the
-reuse policy when reporting campaign throughput. It compares their rebuilt
-states. Saved-input and pre-rebuild controls can explain changes introduced by
-Excel's own save or calculation behavior. Enabling additional controls incurs
-separate cost and must be recorded in the run configuration. A cached control
-is reusable only under its source and environment compatibility requirements.
+Let $A$ and $B$ denote the compared states, $E$ their justified relevant visual
+area and $C$ the selected observation regions. The intended selector obligation
+is to include every transformation-induced visual difference inside $E$ in $C$.
+Pixel equality on $C$ tests the selected observations. It does not establish
+that the selector met that obligation. Independent reference captures and
+visible mutations evaluate this second question. Renderer variability and
+unsupported dependencies remain explicit boundaries of the model.
 
-Legacy XLS conversion precedes the XLSX comparison subject. A workbook requiring
-repair, inaccessible protected content or an unsuccessful save receives its own
-outcome. Missing evidence cannot yield equality. A host process existing in the
-operating system and an Office.js add-in responding are separate liveness signals.
-Neither proves that calculation or capture work has advanced.
+\subsection{State preparation and attribution controls}
+Opening a workbook can repair or normalize its stored representation, saving
+can remove structure, and recalculation can change cached results. The comparison
+therefore names the operations that produced each observed state. Let $W_0$ be
+the raw package, $W_s$ its ordinary-save control and $W_r$ the rebuilt saved
+control. A native optimization comparison additionally retains $W_{cp}$ after
+Check Performance and Save As, and $W_{cpr}$ after rebuilding that result.
+The transformed workbook has its own corresponding controls.
 
-\subsection{Select potentially affected regions}
-The XML analysis compares cell values and formulas together with their effective
-style context. A style index is local to a package. The same index can identify
-changed properties, while different indices can identify equivalent properties.
-The planner resolves that context before interpreting cell differences.
+The primary observation compares independently prepared rebuilt partners.
+Control differences explain which changes arose while opening, saving,
+optimizing or rebuilding. Ordinary Save and Save As remain distinct generation
+recipes. One cannot substitute a cheaper recipe under an existing control name
+and retain its evidence meaning. Legacy format conversion and explicit repair
+also produce separately identified artifacts.
 
-Figure~\ref{fig:capture-01-effective-style} shows why a coordinate with no value
-can still require native observation. Inheritance determines the selected effect.
-The same reasoning applies when an explicit no-fill cell masks a colored column,
-or when a row style changes while the stored cell records remain identical.
-\input{figures/capture-methods/01-effective-style}
+Each control records its parent identity, native environment and generation
+recipe. A reusable control artifact saves preparation work but supplies no new
+visual verdict. A comparison still needs compatible observations of both
+partners. If opening or a required operation fails, that state remains
+unavailable. The workflow does not manufacture its image from another state.
+This separation also permits attributing a reduced package to Excel's save
+behavior without crediting that reduction to the tested cleanup operation.
 
-Layout analysis includes row, column and default-format effects. Stored row-height
-attributes alone do not establish native effective heights. The native stage
-therefore measures the relevant geometry. Content bounds include values,
-formulas, visible fills and borders, and supported object extents. The union of
-both states is important when an operation removes content.
+\subsection{Streaming change evidence}
+The package analyzer uses borrowed XML byte views with bounded hierarchy and
+attribute state. It resolves shared strings, cell formats and relationships before
+interpreting a coordinate change. String and formula interpretation can require
+decoding, but worksheet analysis does not instantiate a general XML DOM or an
+Excel object per cell. This is important on bloated inputs with many empty
+formatting records.
 
-Consecutive changed inherited row formats are represented by one rectangle per
-contiguous run. Unchanged rows split these runs. Applying the same padding,
-clipping and capture grid preserves the tile union of individual row requests,
-while reducing intermediate candidate objects. This representation change does
-not establish a whole-workbook speedup or justify excluding a changed row.
+Cell evidence is written as fixed-size records containing coordinates, a
+SHA-256 fingerprint and classification flags. The current record is 40 bytes.
+The record stream resides in an owned scratch file instead of a heap map of
+cell objects. Sorted streams are merged by coordinate, distinguishing changed,
+added and removed cells. Equal stream digests avoid repeated cell comparison.
+The merge is linear in the combined record counts, excluding XML parsing,
+style resolution, hashing and selected dependency work. Scratch I/O is an explicit
+cost of this memory organization. Shared strings, styles, layout records,
+selected changes and native images remain additional memory consumers.
 
-Conditional-formatting analysis follows supported references. When a referenced
-input changes, its dependent application region becomes a candidate regardless
-of whether a particular rule outcome might remain the same. Unchanged supported
-rules and inputs can exclude a region. Unknown formulas, namespaces or extensions
-retain the documented fallback. Chart selection similarly considers supported
-formulas, referenced inputs and caches, with conservative handling of unresolved
-cases. The rule inventory and its unsupported cases are versioned with the tool.
+Figure~\ref{fig:cell-record} shows the serialized evidence layout. The writer
+requires unique ascending numeric coordinates, rejects nested or unclosed cells,
+and hashes a cell's text incrementally. A very large cell body therefore need
+not become one temporary string. Record readers require complete records. A
+truncated scratch file cannot become a shorter valid sheet. This strict stream
+contract permits a two-way merge without a separate sorting pass for supported
+ordered worksheets.
+\input{figures/capture-methods/06-cell-record}
 
-\subsection{Measure and render}
-Candidate regions are clipped to the justified content envelope. Connected regions
-are subdivided according to native measured image size. A fixed row count cannot
-predict the visible size of hidden or irregular rows. Zero-area regions have an
-explicit non-rendered outcome. Geometry and image batches have separate controls,
-allowing measurement overhead and rendering memory to be tuned independently.
+The fingerprint preserves distinctions that the model has not justified merging.
+Unsupported serialization can therefore produce conservative extra work rather
+than a semantic-equivalence claim. Canonicalizing style-table references is a
+specific supported operation, not a general normalization of arbitrary formulas,
+XML extensions or renderer behavior. The same byte-processing substrate serves
+content comparison, supported reference scans and rebuild-eligibility facts,
+while their decision predicates remain separate.
 
-Office.js image results become available after synchronization. Hash calculation
-therefore follows synchronization of the requested image batch. Compatible equal
-hashes can avoid transmitting and retaining equal images under the recorded
-transport policy. Actual unequal images remain evidence. Hash transport, image
-retention and scientific coverage are separate choices.
+A format index has no cross-package meaning. Style identity resolves fonts,
+fills, borders, number formats and base-format inheritance, so a permutation
+of format tables does not create a change at every cell. Changed shared context,
+including themes or unsupported style representations, retains the conservative
+path. A removed blank cell can expose an inherited row or column format even
+when values are unchanged. Conversely, an absent untyped blank and an empty
+untyped record can supply the same blank input to a conditional rule. The full
+visual fingerprint and the rule-input fingerprint therefore have different
+responsibilities.
 
-\subsection{Keep exclusion and capture geometry consistent}
-The content envelope is a union over the inspected raw, saved and rebuilt
-states. Supported visible formatting contributes alongside values and formulas.
-An operation that removes content therefore cannot reduce the plan merely by
-making the transformed package smaller. Native object observations and
-unsupported dependencies retain their own coverage rules.
+\subsection{Dependency-aware candidate selection}
+Direct value, formula, style and layout changes create candidates. Effects
+propagate beyond their edited coordinates. A row-height change can move later
+content, a column-width change can move content to its right, and a merged or
+centered span can extend the required text context. Changed inherited row
+formats are coalesced into contiguous runs, with unchanged rows splitting the
+runs. This reduces candidate objects while preserving the union of requested
+regions.
 
-Height dependencies stop at the last row in this union. Policy v12 applies the
-same lower boundary to cell capture rectangles~\cite{trailingrowvalidation}.
-Context above the content and on either side remains available. Empty rows below
-the union cannot move content above them, whereas an empty row preceding later
-content can change its position. The boundary is recomputed through the existing
-state analysis. A later relevant extent enlarges it before capture selection.
-The planner reuses its stored rectangle and substitutes its unpadded bottom
-coordinate, adding no Excel operation or second worksheet scan.
+Conditional-format selection resolves the supported rule formula, application
+area and referenced inputs. A changed precedent selects the affected application
+region even when its own appearance is unchanged. Local rules, area-wide inputs
+and explicitly referenced inputs require different dependency scopes. Exclusion
+requires unchanged supported rules, their relevant input fingerprints and layout.
+Unknown names, dynamic references, extensions or unresolved scope retain fallback
+coverage. DeltaSieve does not evaluate the rule to predict Excel's final color.
+The native renderer supplies that observation.
 
-This rule concerns the supported relevant-content envelope. It does not remove
-the need to model overflow, formatting or graphical objects correctly. Charts
-retain separate observations. A native zero-width or zero-height range has an
-explicit non-rendered outcome with geometry retained. A transition between
-visible and non-rendered states remains a difference. Agreement of two
-non-rendered ranges does not become a pixel-equality observation.
+Figure~\ref{fig:conditional-input} shows an unchanged rule whose precedent changes.
+Selection follows the dependency to its application region. It does not infer
+that unchanged serialized cells inside that region imply unchanged pixels.
+\input{figures/capture-methods/05-conditional-input}
 
-\subsection{Two boundaries in the native capture protocol}
-The planner and native adapter enforce different boundaries. The Rust planner
-preserves the selected cell union while partitioning it under measured image
-budgets. The Office.js adapter must then return a complete image for each
-positive-area request. Both stages are required. A valid partition cannot make
-a silently truncated image complete, and a complete image cannot repair a
-selection that omitted a relevant coordinate.
+\subsection{Invert supported rule references}
+Enumerating every target cell of a whole-column conditional rule would defeat
+the purpose of selective rendering. For supported A1 references, DeltaSieve
+instead maps each changed source coordinate back to dependent target intervals.
+A relative scalar reference at row $a$ in a rule anchored at row $h$ reads source
+row $a+t-h$ when applied at target row $t$. A changed source row $x$ therefore
+selects target row
+\[
+ t=x-a+h.
+\]
+An absolute reference to row $a$ selects all permitted target rows when $x=a$,
+and none otherwise. Columns follow the corresponding rule. Range endpoints
+can independently mix absolute and relative axes. The implementation solves the
+resulting axis intervals, combines row and column intervals and intersects them
+with the application and comparison extents. It includes both shared and per-area
+anchor interpretations conservatively for disjoint application areas.
 
-Figure~\ref{fig:capture-02-all-state-geometry} shows the batch cardinality and
-all-state checks. Coalescing preserves holes and worksheet identity. The measured
-largest extent controls splitting, and every resulting child is checked again.
-Hidden spans can produce zero-area leaves rather than thousands of redundant
-image requests. Geometric observations remain in the evidence ledger.
+This inversion avoids materializing the entire worksheet grid. Its work still
+depends on changed inputs, supported reference expressions and application areas.
+Cross-sheet references require a unique supported source sheet. Dynamic, external
+or ambiguous references retain fallback. Exhaustive small-grid regression
+controls compare the inverse result with direct forward reference evaluation,
+including mixed axes and reversed range endpoints. These tests verify the
+supported mapping, not arbitrary Excel formula semantics.
+
+Charts have a separate dependency closure. Equal chart XML and cached series
+values are insufficient because source cells can change independently of the
+cache. The exclusion gate requires unchanged chart parts, supported source
+references, source values and styles, source layout and visibility, conditional
+dependencies, shared package context and complete equal native placement.
+Chart sources are inspected beyond the worksheet capture envelope. A source
+outside the visible table cannot disappear from this dependency check. Missing
+partners, ambiguous names, user-shape dependencies and unsupported references
+retain chart capture. A conservative mode exports every chart.
+
+Graphical objects require both package identity and native geometry. Relationship
+mapping binds an object to its actual worksheet. Supported lines include their
+stroke envelope. Zero geometric height alone cannot exclude visible ink.
+Cached previews of embedded objects can render even when Excel labels their
+shape kind unsupported. Unsupported objects therefore prevent a finite-bound
+claim unless their own explicit qualification succeeds.
+
+\begin{table}[t]
+\caption{Selection obligations. An exclusion applies only within the supported
+representation and the recorded state pair.}
+\label{tab:selection-obligations}
+\centering\footnotesize
+\begin{tabular}{p{.24\columnwidth}p{.66\columnwidth}}
+\hline
+Effect & Required context \\
+\hline
+Cell formatting & Resolved cell, row and column components \\
+Row/column layout & Native effective geometry and later content \\
+Conditional rule & Rule, application region and supported input closure \\
+Chart & Source cells, package graph, formatting and live placement \\
+Drawing or OLE & Resolved owner, frame, ink or preview and native bounds \\
+Uniform tail & Complete transitions and a finite relevant envelope \\
+\hline
+\end{tabular}
+\end{table}
+
+\subsection{Finite observation envelopes}
+The relevant envelope includes values, formulas, supported visible formatting,
+text context and qualified object extents from both compared states. Removed
+content therefore remains in scope. Native-qualified drawing bounds refine the
+rebuilt-state envelope. Save-control changes retain their own attribution records
+without automatically enlarging that distinct rebuilt comparison.
+
+An empty exterior row cannot move earlier content. Effective-height selection
+and image selection use the same lower union boundary, while earlier empty rows
+remain relevant. Native zero-width and zero-height ranges keep their geometry
+and a non-rendered outcome. A transition to a visible range remains a finding.
+No white image is invented for a missing or zero-area observation.
+
+Repeated inherited backgrounds need a finite-bound argument. For supported
+borderless solid fills, the analyzer retains explicit cells, row and column
+transitions, contextual neighbors and supported conditional application areas.
+Uniform unfilled column styles beneath a solid row background introduce no
+additional horizontal fill edge. Fonts and widths alone do not create such an
+edge in an empty band. Visible column fills, borders, unknown styles and
+unsupported rules prevent that exclusion. Supported finite filters and
+conditional regions remain in the envelope with following context. Full-grid
+or unresolved application areas retain the conservative path.
+
+These conditions permit less rendering without sampling the selected union.
+They are relative to the supported model. An unresolved outlying object can
+still force a full-grid plan and exhaust the available rendering budget.
+
+\subsection{All-state adaptive geometry}
+Candidate coalescing preserves holes and worksheet identity. Independent ranges
+are measured in batches through the native adapter. Every live state contributes
+to image-size qualification. A range hidden in one state can be large in its
+partner, so any oversized state forces further splitting. Each child is checked
+again. Large hidden spans can yield zero-area leaves rather than thousands of
+identical image requests.
+Figure~\ref{fig:capture-02-all-state-geometry} shows the batch completeness and
+geometry checks.
 \input{figures/capture-methods/02-all-state-geometry}
 
-Figure~\ref{fig:capture-03-office-sync} shows the request/synchronization boundary.
-The implementation bounds both the number of queued images and their aggregate
-pixel cost. Queueing more work does not permit reading an unfinished result.
-After synchronization, expected dimensions and crop geometry are checked before
-hashing or publication. A pending synchronization can therefore retain a live
-heartbeat without advancing verified capture progress.
+The planner respects both area and edge budgets. A conservative point-to-pixel
+allowance guides partitioning, but returned image dimensions are independently
+validated. A single cell exceeding the budget fails instead of being omitted.
+Measured row and column geometry handles hidden or irregular spans that make
+a fixed cell-count tile unreliable. Later states can repartition an area and
+backfill earlier observations.
+
+Internal boundaries retain required neighboring context for overflow, merged
+text and other supported layout effects. The final interior is cropped without
+resampling. A context region can change rendering even when its own pixels are
+later cropped. The renderer controls therefore compare a whole region with
+contextual parts and check seam consistency. Agreement of one seam is a local
+control, not a monolithic oracle for the workbook.
+
+\subsection{Native image qualification}
+Office.js requests images through \texttt{Range.getImage()}. Batching amortizes
+cross-runtime synchronization. Image results are consumed only after the pending
+synchronization completes, as shown in Figure~\ref{fig:capture-03-office-sync}.
+The adapter bounds both queued image count and aggregate pixels. Geometry,
+encoding, transient buffers and upload windows have separate limits.
 \input{figures/capture-methods/03-office-sync}
 
-Figure~\ref{fig:capture-04-zero-area} records the visibility-transition control.
-No image is fabricated for its non-rendered state. A transition to positive area
-still produces a finding even though no paired pixels exist. This separates
-coverage, rendering presence and exact pixel comparison in the serialized result.
-The code panels abbreviate source contracts and omit orchestration mechanics.
-Their source revisions and hashes are retained in the supplementary evidence.
-\input{figures/capture-methods/04-zero-area}
+A successful API response does not prove complete capture. The worker verifies
+expected dimensions, budget compliance and crop geometry before accepting the
+image. Returned PNG bytes can first be hashed to avoid uploading identical
+payloads. Unequal encodings still require decoded-pixel comparison, because
+PNG serialization is not visual identity. Exact canonical RGBA pixels supply
+the comparison, with no registration, resampling or general color tolerance.
+Image receipts bind command, region, state and slot identity, preventing reordered
+or incomplete upload batches from becoming comparisons of unrelated images.
 
-For captured images, raw dimensions and content origins remain available.
-Eligible exterior-size changes can be distinguished from changed overlapping
-pixels through the documented containment rules. A shifted origin, missing
-measurement or changed content pixel retains the applicable difference or
-incomplete outcome. Extent exclusion and exact white-margin exclusion have
-separate receipt flags. A global tolerance would erase that distinction.
+Raw geometry and origins remain attached to the observation. An exterior-size
+classification can admit an unpaired right or bottom extension only when each
+pixel exactly repeats the common boundary. A zero-area counterpart requires
+an entirely opaque-white retained extent for the corresponding empty-extent
+classification. These derived classifications retain the original observations.
+They do not erase changed overlapping content or establish a global tolerance.
 
-\subsection{Bounded execution and recovery}
-Resident workers receive commands over session-scoped WebSockets, while image
-uploads use bounded HTTP requests~\cite{deltasieveexecution}. Durable commands,
-image receipts and results remain authoritative across reconnections. Duplicate
-delivery must preserve an in-progress command and acknowledge an identical
-completed result without running it again. Capture and upload overlap within
-bounded tile, pixel and encoded-memory windows. Office calls remain serial
-within an individual workbook.
+\subsection{Attribution after a finding}
+A native difference can originate in the transformation, calculation, capture
+context or the environment. DeltaSieve keeps the observation while diagnostics
+examine those hypotheses. The formula tracer follows supported A1 references,
+absolute axes, quoted sheet names, ranges and translated shared formulas from
+changed saved values. It searches for paths to random/time or environment-dependent
+functions. Cycles, unsupported expressions and bounded-search exhaustion remain
+explicit. The search budget limits explanation work, not capture coverage.
 
-Each comparison group owns its Excel processes and an isolated WebView profile.
-Cleanup records requested termination separately from confirmed exit. A retained
-clean-desktop control reproduced a peer taskpane restart under shared-profile
-cleanup; per-group isolation passed the corresponding two-group control and a
-four-group sequence. This observation motivates resource ownership in the tested
-environment. It does not establish that every startup delay is caused by stale
-profiles or registrations.
+A path to a volatile function establishes a dependency, not exclusive causation.
+Other changed pixels in the same region can have another cause. Source cached
+values also cannot stand in for values saved from the compared rebuilt states.
+The report distinguishes their provenance. Repeated original/original controls
+and unchanged-package controls test renderer behavior independently of the
+transformation. Counterfactual restoration of a suspected removed witness tests
+a narrower causal mechanism. None of these operations increases pixel tolerance
+or automatically clears an unrelated finding.
 
-\subsection{Separate control traffic from retained evidence}
-The resident command channel and the live status display have distinct roles.
-WebSocket delivery supports prompt command and completion notification, with
-durable records supporting reconciliation after disconnection. The Observatory
-status stream starts with a snapshot and sends a restricted JSON Patch subset
-over allowed paths. Sequence gaps require resynchronization. Image uploads and
-detailed evidence remain HTTP operations~\cite{livestreamprotocol}.
+\subsection{Execution, omission and evidence reuse}
+Each comparison group owns its Excel processes, private desktop and WebView
+profile. Office calls are serial within a workbook. Independent groups can
+progress concurrently under memory admission. Cleanup distinguishes requested
+termination from confirmed process exit. Setup, opening, geometry, capture,
+comparison and persistence have separate timing boundaries.
 
-A retained 100-card fixture records a 1,627,309-byte full status response,
-a 17,722-byte changed response and a 1,415-byte unchanged-comparison response.
-These measurements characterize status payloads for that fixture. They do not
-measure sustained comparison throughput. Bounded image queues and hash-based
-transport address separate costs and retain their own resource accounting.
-Neither a smaller status response nor a delivered heartbeat establishes that
-Excel has completed a pending render.
+A finite-work watchdog advances after verified work, including validated geometry
+responses and completed image comparisons. Heartbeats establish reachability
+while a native call is pending, but do not extend a deadline by themselves.
+Durable commands and receipts reconcile reconnects. Repeated delivery cannot
+restart an already completed operation or silently duplicate a pending one.
+Failed attempts retain produced evidence and receive no equality verdict.
 
-\subsection{Retain outcomes and explain uncertainty}
-The report records selected regions, compared states, configuration, timings and
-failures. Pixel diagnostics provide changed-pixel counts, channel deltas and
-magnified regions. They do not assign a regression verdict on their own. Formula
-dependency traces can identify a supported path to a volatile function without
-explaining every changed pixel in the surrounding image.
+Some observations can be omitted before native work. A direct byte comparison
+can establish that the original and transformed inputs are identical. ZIP
+metadata alone does not authorize that omission. A separate rebuild-eligibility
+check reuses dependency facts from the package scan and a strict part/feature
+allowlist. Formulas, refresh sources, unknown extensions, duplicate members and
+unresolved metadata keep rebuilding enabled. Cached values or an empty capture
+plan do not establish calculation independence.
 
-Portable reports retain images using relative paths and integrity manifests.
-Their static viewer needs no Excel installation or running control API. Run
-metadata must be reviewed for local paths and publication-sensitive content
-before public release. Historical replay requires recorded event history and
-cannot reconstruct observations that were never retained.
+Completed-result reuse requires compatible source identities, selected parts,
+implementation, state-preparation policy and rendering environment. Uncompressed
+member digests make identity independent of ZIP order and compression. A prior
+part selection must cover every newly requested component. User-selected weaker
+component policies remain explicit evaluation choices, with correspondingly
+bounded claims. Interrupted runs and missing image receipts cannot supply
+completed evidence.
 
-New configurations retain equal captures by default. Packaging can replace a
-verified-equal PNG with a smaller lossless encoding after checking exact decoded
-RGBA equality. Differing or unverified image references preserve their original
-encoding. Live inspection uses a bounded window of capture receipts and the same
-spatial Atlas renderer. Capture glyphs take precedence over nearby heartbeat
-pulses in the worker timeline. These display events establish image availability,
-while the comparison report separately records the pixel verdict. Publication
-maps retained receipt identifiers to packaged images so that completing a job
-does not invalidate its recent inspection links.
+The cache admission condition can be expressed as compatibility of four
+independent facts. The previous observation must be complete, its required
+package contents must match, its selected component set must cover the new
+request, and its renderer/preparation policy must remain compatible. Matching
+only a filename or producer binary is insufficient. Matching workbook bytes
+without the renderer contract is likewise insufficient for a native result.
+A changed compression level can preserve member identity, while a new ordinary
+save can change it and invalidate admission.
 
-\begin{figure}[t]
-\centering
-\includegraphics[width=\columnwidth]{figures/worker-capture-history.jpg}
-\caption{Saved worker history from a completed seven-region native control.
-Capture glyphs share the heartbeat timeline and link to the corresponding
-retained images in Sheet Atlas. The displayed startup and memory measurements
-belong to this control and are not aggregate performance results.}
-\label{fig:worker-capture-history}
-\end{figure}
+Generation caches, completed-comparison caches and partial working evidence
+have different roles. An interrupted attempt may retain useful images for
+inspection, but its missing coverage cannot be supplied by relabeling the attempt
+complete. Publication records retain the original result and later classification
+rather than overwriting the evidence after a retry. This is important in a
+corpus campaign where several machines or attempts contribute observations.
 
-Figure~\ref{fig:worker-capture-history} shows recorded image availability in the
-same inspection surface as liveness. Opening a capture selects its recorded
-worksheet and range in Sheet Atlas. Image availability and a completed pixel
-comparison remain separately recorded events.
-
-\subsection{Collect independent runs in a static atlas}
-Each analysis can publish a static report with a compressed catalog, per-run
-detail and relative image assets~\cite{staticatlas}. A collection groups
-workbooks by declared corpus, technical name and original content identity.
-Processor versions and source runs keep separate identities. Missing input
-identity prevents automatic grouping. A merge checks retained evidence and
-preserves source provenance rather than collapsing independent observations
-into one synthetic run.
-
-The viewer retains the full worksheet inventory, including hidden and empty
-sheets, while loading detail and images on demand. Zoom changes the view over
-the same workbook and sheet hierarchy. Uncaptured regions have no reconstructed
-image. Different processors share an inspection context only when the retained
-original image, range, state, geometry and validation signature match. Native
-image pixels are inspected without rescaling. A changed capture policy can
-therefore leave an older processor without a matching context even when both
-runs concern the same workbook.
-
-Compressed JSON is decoded in the browser, and the exported site needs static
-HTTP hosting. Integrity manifests retain report and image identities. Visual
-markings expose recorded differences and incomplete evidence; they do not
-replace the scientific coverage statement. The atlas supports inspection of
-the same frozen outputs that can subsequently be revalidated with the native
-tool. It introduces no additional detection claim.
-
-
-\subsection{Bound uniform backgrounds across column-width changes}
-A solid inherited fill spanning every worksheet column has no finite right edge.
-Repeated column definitions can partition that same fill solely because their
-widths differ. The planner resolves the existing column-format map and excludes
-those width-only boundaries from the background envelope when every column
-applies the same supported solid fill without borders. The existing byte scan
-supplies the column and style records. This guard adds neither another package
-read nor an Office.js synchronization.
-
-Explicit cells, including blank overrides, remain in the envelope. Row-format
-transitions and finite content or merge extents remain bounded observations.
-Supported drawing bounds and conditional-formatting eligibility retain their
-independent checks. A differing fill, a border, an unknown style or unsupported
-worksheet context retains the applicable conservative extent. Column widths
-within the retained content still participate in layout comparison. The guard
-therefore removes redundant background boundaries while preserving the
-observations used to detect interior changes.
-
-
-An empty native \texttt{autoFilter} declaration is bounded separately. With a
-valid explicit cell rectangle, no filter children and only supported reference
-and revision-identifier attributes, its drop-down buttons remain within that
-rectangle. The planner includes this rectangle before applying the background
-proof. Actual filter criteria, sort children, unknown attributes and unsupported
-namespace contexts retain the conservative path. Native row geometry remains
-an independent observation. This distinction prevents a bounded button region
-from expanding an otherwise uniform background to every column.
-
-
-The idle watchdog counts validated native row-height replies as geometry
-progress. The counter advances only after the returned height runs cover the
-requested spans and pass the numeric and ordering checks. Cached lookups and
-ordinary process or add-in heartbeats do not advance it. A workbook with many
-small sheets can therefore continue through a long measurement phase while a
-stalled native command remains bounded by its operation and idle deadlines.
-
-
-Legacy drawing colour metadata is admitted only within a supported RGB colour
-node. The accepted extension declares the Office 2010 drawing namespace,
-marks that namespace as ignorable, and supplies a spreadsheet palette index
-between 0 and 65. The RGB value remains the drawing colour. Unknown namespaces,
-other attributes and out-of-range indices retain conservative coverage. The
-existing native frame, line width, transform and effect checks still determine
-whether the line admits bounded capture coverage.
-
-Opening recovery retains explicit input provenance. Some converted Destatis
-workbooks contain both a legacy print-area or print-title name and the canonical
-built-in name in the same worksheet scope. Excel displays a name-conflict
-prompt. For a controlled recovery baseline, we rename the legacy alias only
-when exactly one canonical peer exists and package inspection finds no formula
-or relationship reference to that alias. Both definitions and their formulas
-remain present. Only the defined-name attribute in the workbook XML changes.
-Macro-bearing inputs and referenced aliases require separate review. Raw,
-normalized and transformed SHA-256 identities are retained with the changed
-member and alias mapping. Recovery results are labelled as comparisons against
-this normalized baseline.
-
-
-Confirmed setup-phase completions also advance the idle-progress counter.
-Opening, saving and XML inspection may together exceed the idle interval while
-each phase completes successfully. A transition to a completed phase advances
-the counter once. Repeating the same completed status leaves it unchanged.
-Running statuses and liveness samples retain their existing watchdog semantics.
-
-
-A supported horizontal line can have a different native vertical position from
-its serialized absolute transform after Excel resolves row anchors. Qualification
-requires a unique matching name, unrotated horizontal geometry, identical left
-coordinate and width, and a finite nonnegative native top coordinate. A single
-capture rectangle must contain the union of the native and stored positions,
-including half the stroke width and two points of rasterization context. A
-position outside that padded rectangle or a changed width retains the fallback.
-The resulting region is captured in both comparison states.
-
-
-Capture policy version 13 reconstructs the visual-content envelope from the
-states actually compared after rebuilding. Native-qualified drawing bounds
-therefore replace earlier unqualified control bounds in this envelope.
-Opening/saving and input-transformation controls retain their XML change
-records and input identities. Their formatting extents do not enlarge the
-rebuilt-state image plan. The coverage claim is relative to the compared rebuilt
-states and the recorded selected regions.
-
-
-Independent reference observations retain raw geometry and pixel outcomes.
-A derived extent classification compares exact RGBA pixels in the common
-rectangle. It admits an unpaired right or bottom extension only when every
-pixel exactly repeats the shared boundary column or row, respectively. A
-zero-area counterpart is classified as an empty extent only when every retained
-pixel on the other side is opaque white. This classification uses no pixel
-tolerance or image registration. The explicit plan and original observations
-remain available for review.
-
-
-Each completed worksheet image comparison advances verified work progress after
-its pixel verdict is available. The comparison phase is marked active before
-that loop begins. This extends the same finite-work watchdog semantics through
-image decoding and pixel comparison. If an attempt fails, its remaining working
-evidence is moved alongside the failure logs. A record links this directory,
-including captures that were produced before a final comparison report existed.
-Incomplete evidence remains ineligible for completed-result reuse.
-
-Capture policy version 14 also bounds repeating inherited backgrounds when
-conditional formatting has resolved finite application areas. The envelope
-includes every such area and a following context row before background-tail
-sampling is considered. Standard namespaces, resolved column information,
-supported worksheet features and the existing borderless solid-fill checks
-remain required. A rule that can affect the blank cells inside its application
-area is still captured there. Unresolved application references and application
-areas reaching the full worksheet boundary retain the conservative path.
-
-
-In paired in-place execution, legacy coordinate projection is skipped when no
-pre-rebuild original image state exists. Each legacy comparison requires that
-state, so projecting its coordinates cannot produce an image observation.
-Serialized opening/saving controls and attribution records remain available.
-The rebuilt-state candidate plan and its native comparisons are independent
-of this omitted projection. This guard avoids work with no possible consumer;
-its end-to-end cost reduction requires a separate matched experiment.
-
-
-Capture policy version 15 also recognizes unfilled column formats beneath
-supported solid row backgrounds. When every observed column style and the
-default style are known and borderless, and none has a visible fill, column
-width and font partitions add no horizontal edge to an empty row band.
-The finite envelope, every explicit cell, row transitions and a following
-column remain selected. Visible column fills, borders and unknown styles
-retain their existing transition or conservative fallback handling.
+Portable reports preserve input identities, observation regions, exclusions,
+raw findings, attribution and resource measurements. The Observatory supports
+inspection and replay without becoming a source of visual truth. Detailed
+transport schemas, UI controls, experiment launchers and historical failed
+attempts belong to the versioned artifact. They do not change the selection
+or pixel-observation contract described here.

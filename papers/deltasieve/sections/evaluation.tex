@@ -10,7 +10,6 @@ corpus version. Legacy XLS conversion is reported separately from XLSX cleanup.
 A historical Enron development selection contains 20,872 inputs, with 20,503
 prepared artifacts and 369 unsuccessful preparation outcomes at its recorded
 preparation checkpoint. Its selected visual scope contains 16,799 workbooks.
-This run ended after the worker-pool investigation.
 These counts describe a development selection and do not establish completed
 visual coverage. The replacement EDRM Enron v2 XML handover contains 34,065 distinct
 content-addressed candidates totaling 8.470 decimal GB of uncompressed payload.
@@ -153,582 +152,238 @@ Full-reference timeouts remain censored observations alongside completion counts
 Full-corpus cost estimates use measured visible geometry and stratified samples,
 with uncertainty and assumptions about hidden regions and object extents.
 
-\subsection{Bounded opening experiment}
-A retained development experiment opened four copies of a synthetic workbook
-with eight sheets, each containing one million rows and three numeric columns.
-The same Windows 11 host used a Ryzen 7 7800X3D. Two reversed-order rounds compared
-sequential and simultaneous independent Excel processes on a shared private
-desktop~\cite{nativeopening}. Median batch times were 118.388 and 41.714 seconds,
-respectively. The measured endpoint includes verified Office.js add-in readiness.
-Staging, teardown and launch barriers are excluded, while caches and concurrent
-background work remain potential influences. This bounded observation supports
-overlapping startup; it does not measure arbitrary COM-command parallelism or
-full-corpus comparison throughput.
+\subsection{Opening, batching and independent Excel pairs}
+A bounded opening experiment used four copies of a synthetic workbook with eight
+million-row, three-column sheets on one Windows host. Two reversed-order rounds
+measured median batch times of 118.388 seconds sequentially and 41.714 seconds
+in independent processes sharing a private desktop~\cite{nativeopening}.
+The endpoint includes Office.js readiness. Staging and teardown are excluded,
+and cache and background-load effects remain. This supports overlapping startup
+for that configuration, not arbitrary concurrent COM calls.
 
-\subsection{Geometry and capture batching}
-A warmed-up development experiment measured 64 ranges in one isolated Excel
-instance~\cite{capturebatching}. The two scalar passes each took 16.094 seconds.
-The two intervening batch passes each took 0.250 seconds. All returned
-geometries matched.
-A subsequent capture sequence used twelve regions, including four zero-area
-regions. Requested package sizes of 1, 2, 3, 4 and 8 took 3.125, 1.579, 1.093,
-0.828 and 0.579 seconds, respectively. Every visible image matched the baseline
-dimensions and decoded RGBA hash, and all zero-area outcomes agreed.
+A warmed-up 64-range geometry experiment returned identical measurements in
+scalar and batched modes. The scalar passes each took 16.094 seconds and the
+batch passes 0.250 seconds. Twelve-region image packages, including four zero-area
+regions, took 3.125 seconds at requested size one and 0.579 seconds at size eight,
+with identical decoded image dimensions and pixels. Opening was excluded and
+250-ms observation polling quantizes these timings~\cite{capturebatching}.
+The experiment establishes a transport-amortization opportunity under its
+recorded workload rather than a corpus throughput factor.
 
-Opening was excluded. The probe used 250-millisecond response polling, so the
-times include command observation and are quantized by that mechanism. Capture
-sizes were tested sequentially under concurrent background load. These bounded
-observations motivate batching in the measured pipeline. They do not isolate
-Office.js execution time or predict corpus throughput. A shared pixel budget
-can further reduce the actual number of images in a package.
+Earlier independent-capture trials repeatedly lost one concurrent add-in to its
+120-second startup deadline. A later paired experiment used one host and shared
+inactive desktop with independently owned pair states. Over three repetitions
+per completed configuration, moving from one pair to two increased capture-only
+throughput from 3.752 to 7.030 pairs/minute with binary PNG transport and from
+7.590 to 12.312 with hash-first transport. Peak observed job memory rose from
+1,525 to 2,685 MiB and from 1,472 to 2,666 MiB, respectively. Every tile in this
+selection was equal, favoring the hash-first path. Requested configurations
+for three through eight pairs were rejected before launch by RAM admission.
+Those rejections are not zero-throughput measurements or an Excel scaling
+ceiling~\cite{pairdevelopment,pairstartupdevelopment}.
 
-\subsection{Cost of conservative object fallback}
-Two retained Destatis attempts illustrate the cost of an unresolved object
-envelope~\cite{legacyobjectbounds}. The Elterngeld workbook's explanatory sheet
-accounted for 104,833 of 104,836 planned regions. At 5.29 elapsed hours, each
-state had completed 60,864 captures. The Abwasser workbook's contents sheet
-accounted for 185,856 of 185,942 regions, with 60,696 captures per state after
-5.26 hours. Both attempts were still progressing. These are censored runtime
-observations, with no completed full-capture duration.
+The historical image-budget protocol selected the smallest budget within 5\% of
+the fastest eligible sum of per-scope median workloads. Both 18-case trials
+selected 32 MP. The replication sums were 245.14, 235.70 and 230.59 seconds for
+16, 32 and 64 MP. Thus 64 MP was fastest and had no observed budget-block
+failures. Historical local-host, VBA/GDI+ and VSTO/Excel-DNA probes answer
+separate transport, rasterization or geometry questions. They do not rank
+interchangeable screenshot engines~\cite{capturedecisiondevelopment,nativealternatives}.
 
-The planner selected the whole worksheet grid despite content envelopes of
-A3:A6 and A1:B47. Unsupported objects prevented the finite-background-tail
-proof. In the Abwasser case, two zero-height horizontal lines had explicit
-stroke width. Removing them in an independently supplied A1:H50 native control
-changed 1,042 RGBA pixels. Geometric zero height therefore did not justify
-discarding their visible ink. A later bounded-line rule reduced the retained
-row bound to 50 in planning tests, while retaining a distant column boundary.
-It had not replaced either long-running attempt at the evidence checkpoint.
-The planning result consequently establishes no measured runtime reduction.
+\subsection{Coverage qualification before speed}
+A synthetic million-row request returned an Office.js PNG without an API error
+in 2.58 seconds. It contained only $85\times32{,}766$ pixels against the required
+20,971,521-pixel height. The boundary probe found 1,638 rows complete and 1,639
+incomplete on that installation~\cite{imagelimitdevelopment}. This demonstrates
+why completion and dimensional qualification are separate conditions.
+An original-only one-column Lysimeter sweep subsequently covered its requested
+978,624 rows in 576 images and 814.6 seconds after readiness. It supplied hashes
+and dimensions, not an original/transformed visual verdict.
 
-A separate Verkehrsunf\"alle diagnostic exposed 5,192,711 requested candidates
-before grid expansion across 208 worksheets. Combining contiguous changed row
-formats reduced this intermediate count to 603,267 in a fresh native repeat.
-All 208 content envelopes remained identical. Both diagnostics stopped after
-recording selection inputs, before completing rasterization. This observation
-supports reduced intermediate representation size, while leaving the unresolved
-drawing fallback and whole-workbook visual verdict open.
+The historical 62-case protocol completed 48 cases and retained 14 failures.
+Four unresolved drawing-bound worksheet outcomes account for repeated failures.
+They are not 14 independent crashes. Six of eight coverage workbooks completed,
+covering 462 of 466 requested worksheets. The failed observations remained
+incomplete instead of receiving a smaller undocumented range or an equality
+classification~\cite{capturedecisiondevelopment}.
 
-\subsection{Empty context rows and a false geometry finding}
-A Migration development case exposed disagreement between height selection and
-capture selection. Worksheet \texttt{Tabelle 2.6.1} has a relevant envelope
-ending at row 84. The previous capture included row 85 as context. That empty
-row measures 12.75 points in the original and becomes hidden after cleanup.
-The selected \texttt{IG1:JL85} region has zero width in both states, so it yields
-no image. Its raw height nevertheless changes from 1,098.75 to 1,086 points,
-creating a geometry finding outside the relevant lower boundary.
+\subsection{Reducing work while retaining the selected union}
+The FRPP workbook has 307,920 rows, including 304,140 hidden rows. Of 19,248
+original grid requests, 18,872 have zero area. A read-only geometry probe drove
+the Rust adaptive planner to 64 leaves after 710 probes in 2.815 seconds.
+This is a planner observation, not a completed paired Office.js comparison.
+A separate native visibility-transition control exposed a row only in the
+transformed state. It retained the original's zero-area observation and reported
+rendering and geometry differences without claiming paired-pixel comparison
+there~\cite{adaptivedevelopment}.
 
-Policy v12 clips that region to \texttt{IG1:JL84}. A fresh paired native rebuild
-measures 1,086 points on each side and reports no geometry or rendering
-difference there. The same workbook run completes 38 regions, including 37
-pixel comparisons, with no capture-region differences. Separate height
-observations in \texttt{Tabelle 1.1} and \texttt{Tabelle 1.6} remain recorded.
-The control therefore resolves the identified exterior-context false finding
-without establishing whole-workbook equality~\cite{trailingrowvalidation}.
+A 208-worksheet diagnostic exposed 5,192,711 intermediate candidates. Grouping
+contiguous changed row formats reduced that count to 603,267 with identical
+content envelopes. Both diagnostics stopped before complete rasterization.
+This establishes reduced intermediate representation size and no measured
+end-to-end speedup. It motivates representing shared layout effects as intervals.
 
-The regression test also supplies a content envelope extending to row 96.
-Selection retains that lower extent, showing that the correction follows the
-union boundary rather than hard-coding row 84 or ignoring zero-area geometry.
-Historical reports keep their original policy and observations. The static
-collection exposes the new repeat as a separate variant. The change also
-demonstrates why a geometry flag and an absent image require an explanation
-before a finding is attributed to the transformation.
+Uniform inherited backgrounds exposed a related native-work amplification.
+One Destatis pair had 128,912 versus 2,197 column definitions. The former plan
+measured 16,101 regions, although most were outside the explicit-cell envelopes.
+The guarded finite-background plan produced 165 image pairs, all identical in a
+fresh comparison. Selection and transport took 41.371 seconds and comparison
+1.379 seconds. The earlier attempt was interrupted after more than 40 minutes.
+A second Enron pair reduced a former 65,664-region plan to 73 measured regions,
+all with identical images. Its selection and transport took 28.114 seconds.
+The latter case retained an empty finite AutoFilter and all serialized-cell
+extent. These are selected development observations with censored earlier
+attempts, not matched speedup estimates. Regressions retain distant fill
+transitions, borders, overrides and unsupported rule contexts.
 
-\subsection{Capture-engine development}
-\subsubsection{Image success without complete coverage}
-A synthetic million-row worksheet exercised \texttt{Range.getImage()} directly.
-Excel returned a PNG without an Office.js error in 2.58 seconds, but its size
-was only $85\times32{,}766$ pixels. The requested 15-point rows required
-20,971,521 pixels of height. A boundary probe found 1,638 rows complete and
-1,639 incomplete on that installation. This observation motivates validation
-of expected dimensions rather than treating successful API completion as full
-coverage~\cite{imagelimitdevelopment}.
+Conversely, unsupported objects can dominate a conservative plan. Two retained
+attempts contained explanatory sheets responsible for 104,833 and 185,856 regions.
+After approximately 5.3 hours, neither full capture had completed. Removing two
+zero-height lines in a separately supplied reference area changed 1,042 RGBA
+pixels because their strokes remained visible. The long-running fallback
+therefore cannot be removed merely because an object's geometric height is zero.
 
-The related original-only Lysimeter sweep covered all 978,624 requested rows
-of \texttt{J70953:J1048576} in 576 images, taking 814.6 seconds after readiness.
-Only hashes and dimensions were retained. This was a complete one-column
-capture workload, not an original/transformed visual comparison. Its cost
-illustrates why native selection and image completeness must be evaluated
-separately.
+\subsection{Comparator pilot with independent native controls}
+Five frozen synthetic pairs were supplied to xlCompare 12.5.0.0 and DiffEngineX
+3.18.0.0 through their report commands. Both exports included an offscreen B2000
+edit. Neither listed a hidden B3000 edit under the tested commands. Direct visual
+and sparse-formatting changes produced no exported cell differences. A dependent
+pair exported the changed B1 precedent without a separate conditional-fill or
+chart-rendering finding. Edition and option coverage remains incomplete, including
+xlCompare's reported first-ten-rows export limit.
 
-\subsubsection{Historical method selection and failed alternatives}
-The earlier experiment suite remains on its own versioned branch. It exposes
-individual CLI experiments as well as a GUI and retains a declared 62-case
-protocol. Table~\ref{tab:development-adapters} separates the questions answered
-by its adapters. They cannot all be ranked as interchangeable screenshot
-engines~\cite{nativealternatives,capturedecisiondevelopment}.
+DeltaSieve completed the same five pairs using their ten hash-verified inputs.
+The identical pair was excluded by byte identity. Four pairs produced native
+pixel findings. The offscreen edit changed 47 overlapping pixels. Direct,
+dependent and sparse-formatting pairs changed 7,057, 3,950 and 1,281 grid pixels,
+respectively. The dependent pair also changed 36,505 chart pixels. The region
+containing hidden B3000 rendered equally. These observations distinguish edited
+cell inputs from their dependent visual effects.
+
+An independently supplied reference plan bypassed candidate selection and content
+clipping. It used Data!A1:N30 for the short pairs, and continuous 256-row tiles
+through rows 3072 and 2304 for offscreen and sparse pairs. All five comparisons
+completed. The identical control remained equal. Only the B2000 and J2099 tiles
+changed in their respective long pairs, while the direct and dependent pairs
+also differed in their broader reference areas. Pair-level outcomes agree with
+the selected run. This is a bounded control, not an estimate of corpus recall
+or pixel-union coverage. Different chart and capture extents prevent pooling
+their raw pixel counts. No matched cross-tool speedup follows from these trials.
+
+Two additional comparator pairs contained 107 and 215 worksheets. The observed
+xlCompare times were 53.748 and 21.711 seconds. DiffEngineX required 131.692 and
+161.221 seconds and represented every worksheet in its formula-mode reports.
+These single observations establish execution feasibility and report scope.
+No matched DeltaSieve cost trial was completed for those pairs.
+
+\subsection{Chart dependency controls}
+A workbook created in Excel supplies three controlled chart cases. The unchanged
+pair differs only in document-description metadata. Deterministic selection
+excludes its one chart, while conservative mode renders both partners. A third
+pair changes a source value and retains chart capture. Table~\ref{tab:chart-controls}
+records the observed outcomes~\cite{chartdependencycontrols}.
 \begin{table}[t]
-\caption{Scope of the historical native-adapter experiments.}
-\label{tab:development-adapters}
+\caption{Native chart controls. Image count includes both states. An excluded
+chart supplies no new paired-pixel observation.}
+\label{tab:chart-controls}
 \centering\footnotesize
-\begin{tabular}{p{0.23\columnwidth}p{0.67\columnwidth}}
+\begin{tabular}{lrrr}
 \hline
-Adapter & Observed responsibility \\
+Control & Images & Exclusions & Differences \\
 \hline
-VBA / GDI+ & Clipboard pictures, bitmap/EMF conversion and owned-buffer pixel comparison, with optional PNG persistence \\
-VSTO / Excel-DNA & Native drawing geometry and interoperability \\
-Rust COM & Geometry and numeric COM property representations \\
-Office.js & Range images, geometry and synchronization through a local host \\
+Unchanged, deterministic & 0 & 1 & 0 \\
+Unchanged, conservative & 2 & 0 & 0 \\
+Changed source, deterministic & 2 & 0 & 1 \\
 \hline
 \end{tabular}
 \end{table}
 
-In an earlier selective-overflow, 16-MP screen, five complete compatible pairs
-had a median Rust/.NET host workload ratio of approximately 3.34. This measures
-the implemented transport and telemetry paths. Six complete .NET pairs gave a
-median selective/heuristic overflow workload ratio of approximately 1.089. The
-historical decision accepted this cost for explicit intervention and restoration
-evidence. Neither ratio isolates a language runtime or ranks the later production
-pipeline.
+These controls test both sides of the exclusion gate. Equal caches alone are
+not the sufficient condition. The package and source-cell dependencies and
+native geometry must also agree. A separate rebuilt Lysimeter inventory contains
+69 charts. Its gate excludes 34 and retains 35. Eighteen fallbacks have ambiguous
+duplicate names and 17 reference additional user-shape dependencies. This
+inventory did not complete a replacement image comparison and supplies no
+end-to-end runtime reduction.
 
-The first controlled image-budget trial completed all 18 cases and selected
-32 MP as the smallest budget within 5\% of the fastest sum of per-scope median
-workloads. The sums were 254.45, 239.93 and 232.34 seconds for 16, 32 and 64 MP.
-The replication produced 245.14, 235.70 and 230.59 seconds and made the same
-choice. In both trials, 64 MP was fastest and had no observed budget-block
-failures. It was not classified as unstable. These trials used historical
-gridline and overflow policies, which remain part of their interpretation.
+\subsection{Attribution controls and retained counterexamples}
+Independent controls distinguish a transformation defect from capture or renderer
+behavior. In a fixed-height statistics sheet, the original-versus-original
+reference was pixel-identical, while the transformed pair repeatedly changed
+25,640 pixels. Restoring 87 removed font-bearing blanks recovered the original
+image hash. A corrected SheetShrink output also matched over the frozen
+A1:L916 reference area. The case demonstrates a real witness omission rather
+than an excuse to loosen pixel comparison.
 
-The complete replication attempted all 62 nominal cases, with 48 complete and
-14 failed. The repeated failures involved four unresolved worksheet drawing-bound
-outcomes. They do not represent 14 independent crashes. Six of eight coverage
-workbooks completed, with 462 of 466 requested worksheets captured. The unresolved
-cases were retained instead of forcing a smaller capture or accepting missing
-images as equality.
+A migration control instead exposed inconsistent exterior context. Its relevant
+content ended at row 84, but capture included an empty row 85. That row changed
+from 12.75 points to hidden. A zero-width region then produced a height finding
+without an image. Applying the same union-content boundary to geometry and
+capture removed this exterior-context finding. A fresh run completed 38 regions,
+including 37 pixel comparisons, with no capture-region difference there. Separate
+height observations remain recorded~\cite{trailingrowvalidation}.
 
-\subsubsection{Parallel capture pairs and memory admission}
-Earlier independent-capture trials on a synthetic 1,000-row workbook each
-completed one concurrent capture while the other add-in exceeded its 120-second
-startup deadline. The repeated failure persisted after a runtime update. Those
-trials supplied no valid parallel throughput result. The later pair experiment
-used a shared inactive desktop and one local host with separate owned pair
-states. Its successful observations therefore concern a different coordination
-configuration, without isolating which change resolved the earlier startup
-failure~\cite{pairstartupdevelopment}.
+Identical-content Enron controls changed only a ZIP comment between their inputs
+and forced conservative chart capture. Two controls reproduced two and seven
+changed chart pixels despite unchanged rebuilt worksheet, style and chart parts
+and equal geometry. They demonstrate native rendering variability without
+SheetShrink. They justify neither a global color tolerance nor automatic
+dismissal of another chart's differences. Raw findings and their controls remain
+separate evidence.
 
-A separate historical hospital selection compared one and two independent
-Excel pairs, each pair owning two Excel processes. With three repetitions per
-completed configuration, median capture-only throughput rose from 3.752 to
-7.030 pairs/minute for binary PNG transport, and from 7.590 to 12.312 for
-hash-first transport. Peak measured job memory rose from 1,525 to 2,685 MiB
-and from 1,472 to 2,666 MiB, respectively~\cite{pairdevelopment}.
+Embedded-object mutations test another boundary. Moving a PDF-icon frame changed
+6,473 RGBA pixels in a fixed reference area. Changing only its cached preview
+changed 5,242. Separately enlarging three zero-size text shapes produced 1,531,
+1,737 and 1,487 changed pixels on three sheets, while removal controls were
+pixel-identical in their supplied areas. These cases show why package anchors,
+previews and visible ink need distinct treatment. They do not establish coverage
+for arbitrary OLE formats.
 
-Every selected tile was equal in that workload, favoring hash-first transport,
-which uploaded no PNG bytes. All 36 observations requested for three through
-eight pairs were rejected before Excel launch by RAM admission. They establish
-neither zero throughput nor an Excel scaling ceiling. Setup and capture were
-separate endpoints. One completed run spent 71.8 seconds in startup and only
-7.9 seconds in capture, so capture-only rates do not predict campaign duration.
+\subsection{What the measurements establish}
+Package bytes, candidate counts, native rectangles, rendered pixels and compared
+pixels are different units. A reduction in intermediate candidates can lower
+planner memory without changing the native image count. Adaptive partitioning
+can reduce images over hidden rows while preserving the same selected cell
+union. Hash-first transport can reduce transmitted PNG bytes without avoiding
+Excel's image generation. The experiment ledger records these stages separately.
 
-\subsubsection{Adaptive geometry and hidden regions}
-The FRPP development workbook contains 307,920 rows, of which 304,140 are
-hidden. Among 19,248 original grid requests, 18,872 have zero area. A read-only
-COM geometry probe drove the Rust adaptive planner to 64 leaves after 710 probes
-in 2.815 seconds. This verifies the planner against the observed geometry. It
-was not a completed multi-state Office.js comparison~\cite{adaptivedevelopment}.
+Similarly, process memory is not a single interchangeable counter. Native Excel,
+WebView2, the local host and the analysis process can hold different buffers.
+A sampled private-byte maximum can miss a short allocation peak, and a working-set
+maximum is not private commit. Scope and sampling interval accompany the reported
+memory. Phase durations can overlap and are not added as if they were independent.
+A claim about total campaign throughput includes startup, preparation and failed
+attempt costs under a declared reuse policy.
 
-A separate two-sheet native control exercised visible splitting and hidden
-regions. It retained one zero-area observation per state without inventing an
-image. A second control made a row visible only in the transformed state and
-reported rendering and geometry differences with \texttt{pixels\_compared=false}.
-These controls support the execution and outcome contracts in the method
-panels, while leaving corpus-wide selector recall to independent reference tests.
+The independent reference plan remains distinct from those optimizations. It
+renders externally supplied areas without candidate selection, conditional-rule
+exclusion or production content clipping. Its author is responsible for the
+asserted coverage of those areas. A failed or oversized reference remains a
+failed reference case. Agreement between a selected plan and a reference over
+five deliberately constructed pairs supports those controls. It does not turn
+the same five pairs into a representative sample of three corpora.
 
-\subsection{Operational failure controls}
-Long-run execution has failure modes outside pixel comparison. One investigation
-retained 3,085 add-in registrations, and a separate checkpoint retained 617.
-A backed-up removal control was followed by a successful small workload.
-However, restoring removed registrations also produced fast startup in the later
-countercheck~\cite{startupcontrols}. The sequence establishes an operational
-investigation and a counterexample to a simple accumulation explanation. It
-does not identify registry cleanup as the cause of a general speed improvement.
-Profile ownership and registration maintenance therefore retain separate
-mechanisms and evidence.
+\subsection{Operational outcomes and evaluation limits}
+A Check Performance preparation campaign attempted 1,182 Destatis inputs and
+retained 1,016 outputs and 166 failures. Recovery diagnostics identified Name
+Conflict dialogs for 165 former opening timeouts, while one automation-property
+failure recurred. A separately retained manual success on another workbook
+shows that an automation failure does not establish tool incapability. These
+preparation outcomes remain separate from completed visual observations.
 
-Historical native-adapter experiments also have bounded scope. Retained VBA
-adapters exercise clipboard-based picture capture and memory or persisted-image
-comparison. VSTO and Excel-DNA trials concern drawing geometry. The Rust-COM
-adapter required support for single-precision numeric shape properties in
-addition to double-precision and integer variants~\cite{nativealternatives}.
-These findings explain interoperability constraints. They do not rank complete
-capture engines under a matched workload. No retained trace establishes the
-recalled clipboard-corruption and reboot sequence, so it supplies no empirical
-result here. Office.js batching and independent-process opening have their
-separately reported measured endpoints.
+Resource ownership and progress accounting also affect achieved coverage.
+A peer taskpane restart reproduced under shared-profile cleanup, whereas isolated
+profiles passed the corresponding bounded controls. In a long geometry phase,
+verified responses initially failed to advance the watchdog; a corrected repeat
+completed 741 equal image pairs. These controls motivate isolated resources and
+finite-work progress without attributing every startup delay to one cause.
+Historical failure receipts are retained alongside later successful attempts.
 
-\subsection{Current verification boundary}
-The portable-viewer smoke experiment retained a deliberately different pair,
-loaded its images through relative static assets and displayed its diagnostics
-without a running control API. An empty-partition test verified explicit selected
-and excluded counts without opening Excel. These tests verify execution and
-reporting boundaries. They do not establish selector recall.
-
-\textit{Evaluation freeze pending.} Complete the independent mutation matrix,
-seeded native reference sample and matched cost tables before making detection
-or speedup claims. Retain unresolved development cases and the original pixel
-observations when a later retry or software fix changes their classification.
-
-\subsection{Bounded comparator pilot}
-A development pilot supplied five frozen synthetic workbook pairs to xlCompare
-12.5.0.0 and DiffEngineX 3.18.0.0 through their report commands. Both exports
-contained an edit at B2000 beyond the initial viewport. Neither tested export
-listed the hidden B3000 edit. Direct-presentation and sparse-formatting pairs
-produced no exported cell differences under these commands. For the dependent
-presentation pair, both exported the edited B1 precedent without a separate
-conditional-formatting or chart-rendering finding. The xlCompare trial reported
-a first-ten-rows export limit. These observations describe the tested reports
-and options, with incomplete edition and option coverage.
-
-A subsequent DeltaSieve run used the same ten hash-verified input files and
-completed all five pairs under the paired in-place rebuild policy. The identical
-pair was excluded by byte identity. Four pairs produced native pixel differences.
-The offscreen pair captured two regions, detecting the B2000 edit with 47 changed
-pixels while the region containing hidden B3000 rendered equally. The direct
-presentation pair produced 7,057 changed overlapping pixels. The dependent pair
-produced 3,950 changed grid pixels and 36,505 changed chart pixels, including the
-conditional-fill and pie-chart changes. The sparse-formatting pair produced
-1,281 changed pixels. Equal images were discarded with retained hash evidence.
-
-An independent reference pass then rebuilt and rendered the same five input
-pairs over externally supplied rectangles, bypassing the candidate selector and
-content clipping. The three short pairs used Data!A1:N30, including the embedded
-pie chart. The offscreen and sparse pairs used continuous 256-row tiles through
-rows 3072 and 2304, respectively. All five reference comparisons completed. The
-identical control remained pixel-equal. Only the tile containing B2000 changed
-in the offscreen pair, while the tile containing hidden B3000 remained equal.
-Only the tile containing J2099 changed in the sparse pair. The direct and
-dependent pairs also differed in the broader reference rectangles.
-
-The reference observations agree with the selected run at pair level. They do
-not estimate corpus recall or pixel-union coverage. Reference coverage remains
-limited to the supplied rectangles. Pixel totals from different capture extents
-or standalone and embedded chart rendering are not directly interchangeable.
-No matched comparative speedup is established by these single runs under
-concurrent background load. Source identities and mutation classes are shared
-with the bounded comparator pilot, while the measurement protocols and reported
-evidence remain distinct.
-
-Two separately prepared large Destatis pairs contained 107 and 215 worksheets.
-The observed xlCompare wall times were 53.748 and 21.711 seconds, respectively.
-DiffEngineX required 131.692 and 161.221 seconds. Its reports represented every
-source worksheet and reported zero cell differences in formula-comparison mode.
-These were single trials under concurrent development load. Companion Excel
-process resources were not measured over their full lifetime, and no matched
-DeltaSieve cost trial was completed. These measurements therefore establish
-bounded execution feasibility and report coverage, leaving comparative cost
-and rendered-equivalence claims open.
-
-\subsection{Check Performance preparation checkpoint}
-A completed Destatis preparation campaign attempted all 1,182 source inputs and
-retained 1,016 prepared outputs and 166 failures. Its raw failure reasons contain
-165 opening timeouts and one automation failure when setting Excel's Interactive
-property. These are preparation outcomes. Visual validation of the outputs and
-matched baseline cost measurements remain open.
-
-Recovery checks of the same 166 frozen failure inputs used an owned
-opening-dialog monitor. The first three inputs completed in 13.213 seconds and
-the remaining 163 in 442.761 seconds, each batch with two workers. The checks
-identified Name Conflict dialogs for all 165 former opening timeouts. The
-Interactive-property failure recurred. A separate known-positive input produced
-its prepared output in 8.114 seconds. Source-identity reconciliation accounts
-for every original failure, while conflicting-name contents remain unresolved.
-Worker count changed during the first campaign, so its aggregate elapsed time
-is observational. Original and recovery receipts remain separately versioned
-alongside the 1,016 successful preparation artifacts.
-
-\subsection{Bounded graphical-object controls}
-Embedded objects expose a distinct coverage boundary. Excel reports the retained
-Word preview and PDF icon as Unsupported shapes, while range images render their
-cached previews. Two explicit PDF-icon mutation controls used the same fixed
-883-by-429-pixel reference area. Moving the frame changed 6,473 RGBA pixels;
-replacing only its cached EMF preview changed 5,242. The captures completed in
-10.769 and 10.395 seconds, respectively. Package-member checks confirmed exactly
-the intended mutations, and the rendered images were inspected.
-
-A separate retained workbook contains three rectangular Text 1 shapes with
-identical from/to anchors, zero-size transforms and clipped text overflow.
-Removing those three anchors yielded identical full-area images on Deutschland,
-West and Ost VZ. Enlarging the same shapes yielded 1,531, 1,737 and 1,487 changed
-pixels, respectively, with identical dimensions within each pair. The removal
-and expansion batches completed in 12.728 and 12.862 seconds. Their independently
-supplied areas and relationship-resolved sheet/drawing mapping remain frozen.
-An initial ordinal-based fixture mapping was corrected and retained as an
-incomplete setup attempt.
-
-These development controls establish renderer sensitivity for the stated
-mutations and areas. A bounded OLE coverage rule still requires supported
-namespace and property checks, consistent package identities, anchor agreement,
-native-frame agreement and complete object accounting. The current reference
-guard retains the unsupported outcomes explicitly. These observations contribute
-to the declared mutation matrix; corpus-level detection coverage remains an
-independent evaluation obligation.
-
-
-\subsection{Repeated column widths in a uniform background}
-The retained Destatis workbook
-\texttt{anbau-}\allowbreak\texttt{gartenbaugewaechse-}\allowbreak\texttt{2030224169005.xlsx} exposed excessive background
-coverage. Its rebuilt original contains 128,912 column definitions, compared
-with 2,197 in the rebuilt SheetShrink output. In 166 worksheets, the column
-styles apply one uniform background across the full worksheet width. For
-example, sheet \texttt{1901.01} contains serialized cells only through
-\texttt{J166}, but the former plan also selected distant columns such as
-\texttt{ACO}. Of 16,101 measured regions across 164 selected sheets, 15,936 lay
-wholly outside the serialized-cell envelopes. That count alone is diagnostic,
-since empty cells can still have visible formatting effects.
-
-The uniform-background guard yields 164 coalesced XML-selected regions for the
-retained rebuilt partners. A fresh native comparison produces 165 measured
-regions, with identical images for all 165 pairs. Capture selection and transport
-took 41.371 seconds and image comparison took 1.379 seconds in this single trial.
-The earlier large-plan attempt remained active for more than 40 minutes before
-interruption. This is a development observation under concurrent load, rather
-than a matched end-to-end speedup experiment. Neither identical selected images
-nor the reduced plan establishes exhaustive workbook equivalence. Regression
-controls retain distant fill transitions, borders, unknown styles, explicit
-cell overrides and unsupported conditional-formatting contexts.
-
-
-A second retained Enron input,
-\texttt{5d98c82491876616}\allowbreak\texttt{a27c81387d370975}\allowbreak\texttt{402de30439051002}\allowbreak\texttt{d64c0c1f6e5f3d68.xlsx},
-contains one worksheet named \texttt{Feb}. Its rebuilt original has 545,958
-serialized cells through row 49,633, compared with 5,341 cells through row 486
-in the rebuilt transformed state. Both retain an empty AutoFilter over
-\texttt{A3:O485}. The former unsupported-filter fallback expanded background
-coverage to the full worksheet width and produced 65,664 measured regions per
-state. At an observed checkpoint after about 50 minutes, approximately ten
-percent of those regions had been captured. The attempt was interrupted with
-its evidence retained. The bounded-empty-filter guard reduces the XML-selected
-union to \texttt{A385:P49634}, represented by 385 internal grid tiles before
-native image-size partitioning. The full serialized-cell envelope remains in
-scope. A fresh native run yields 73 measured regions per state, all with identical
-images. Capture selection and transport take 28.114 seconds and image comparison
-takes 0.212 seconds. The native partition depends on measured geometry and is
-therefore distinct from the 385 XML grid tiles. These single development runs
-retain the full serialized-cell envelope and do not establish corpus recall or
-a matched end-to-end speedup.
-
-
-\subsection{Distinguish geometry work from an idle worker}
-The Destatis workbook
-\texttt{gestorbene-}\allowbreak\texttt{alters-}\allowbreak\texttt{und-}\allowbreak\texttt{geburtsjahre-}\allowbreak\texttt{2010193039005.xlsx} exposed a watchdog
-accounting defect. The retained interrupted attempt was receiving successful
-native height replies, including one for sheet \texttt{AJ 1955 O-1}, but the
-capture-progress counter did not include those replies. The 120-second idle
-watchdog consequently interrupted active measurement work before image capture.
-The correction advances progress after height-run validation. This changes
-failure detection and preserves the selected visual evidence contract. The native repeat completed in 408.453 seconds with 741 identical image pairs.
-Capture selection and transport took 219.786 seconds, and image comparison took
-8.863 seconds. The original interrupted observation and successful repeat remain
-separate records. This case demonstrates active measurement beyond the former
-idle deadline without extending it on heartbeat-only activity.
-
-
-\subsection{Repeat a small native chart discrepancy}
-One Enron workbook,
-\texttt{00f8fb769c305d91}\allowbreak\texttt{14647758f3c38cfa}\allowbreak\texttt{2cbbcc18dc5bb9ad}\allowbreak\texttt{7b254b2b5949506b.xlsx},
-initially produced 26 changed RGB pixels with maximum channel difference 36 in
-the embedded \texttt{Chart 1} on \texttt{Hedge Example}. The corresponding
-worksheet image was identical. A package inspection found no worksheet
-formulas in this workbook. A separate native control compared two inputs with
-identical uncompressed package members and a different ZIP comment, avoiding
-the byte-identity shortcut. Conservative chart capture produced identical images
-for both the embedded chart and chart sheet \texttt{Chart3}; that control took
-20.604 seconds. A fresh original-versus-SheetShrink comparison also produced
-identical worksheet and chart images. The earlier discrepancy remains retained
-as an unreproduced native rendering observation. These controls justify neither
-a global pixel tolerance nor exclusion of another chart's differences.
-
-
-Additional same-content controls for Enron inputs
-\texttt{106bb183b73704d6...} and \texttt{806f1a068f4e9ca4...} reproduced two
-changed pixels in \texttt{Run Query}, \texttt{Diagramm 4}, and seven in
-\texttt{Results}, \texttt{Chart 1}, respectively. Maximum channel differences
-were 35 and 36 out of 255. Each control changes only a ZIP comment between its
-inputs and verifies SHA-256 equality of every uncompressed member. Conservative
-chart mode forces native chart exports. After rebuilding, worksheet, style and
-chart parts remain byte-identical across the two states, and chart geometry is
-equal. Remaining package differences concern workbook metadata, core properties
-and, in the first case, the calculation chain. These controls demonstrate native
-path variability without applying SheetShrink. They do not establish that every
-small chart discrepancy has the same cause or justify a pixel tolerance.
-
-
-\subsection{Controlled opening recovery}
-Six selected Destatis workbooks displayed conflicts between legacy print names
-and canonical built-in definitions. Controlled copies preserve both definitions
-under distinct names after checking for alias references. Five comparisons
-completed in the initial recovery batch. Four had identical captured regions.
-The workbook \texttt{pruefungen-hochschulen-2110420217005.xlsx} retained one
-pixel discrepancy on \texttt{TAB-04}, requiring subsequent investigation.
-The sixth workbook,
-\texttt{bevoelkerungsbewegung-2010110157005.xlsx}, exposed a conservative drawing
-fallback on sheet \texttt{2.11}. Its stored line top was approximately 960.5
-points, while Excel reported approximately 917.529 points. Both observations
-fit within the measured \texttt{A1:K64} rectangle, with the required stroke
-margin. These recovered-baseline observations retain separate input identities.
-
-Five selected Enron workbooks also displayed native repair prompts when tested
-with their original input as the sole opened comparison input. Their SHA-256
-identities and prompt evidence are retained. Such incomplete opening attempts
-provide no image-equivalence verdict.
-
-
-The repeated \texttt{TAB-04} discrepancy affected 25,640 pixels in a
-784-by-11,727-pixel image. A same-original reference control reproduced the
-original image hash exactly. Repeating original versus SheetShrink reproduced
-both earlier image hashes. Restoring 87 removed empty cells carrying the
-explicit default font and no-fill metadata made the full reference image
-pixel-identical. After extending font-representative eligibility for this
-metadata combination, a newly generated SheetShrink output also reproduced the
-original image hash. The independent reference plan was \texttt{TAB-04!A1:L916}.
-The successful fixed-output reference check took 12.798 seconds. Failed
-intermediate counterfactual packages were rejected during XML validation and
-were excluded from these observations.
-
-A separate Binnenschifffahrt case,
-\texttt{statistischer-}\allowbreak\texttt{bericht-}\allowbreak\texttt{binnenschifffahrt-}\allowbreak\texttt{2080400231025.xlsx}, completed in
-143.709 seconds after setup-phase progress was included in watchdog accounting.
-Its original opening/saving control recorded 4,422,761 XML change entries,
-compared with 3,088 input transformation changes. The direct rebuilt comparison
-selected 13 image pairs, all identical. Selection and transport took 3.004
-seconds and image comparison took 0.235 seconds.
-
-
-The remaining Bevoelkerungsbewegung selector fallback involved two legacy
-textboxes on \texttt{3.13} with zero native width and height. Their XML falls
-outside the closed line recognizer. An independently frozen reference plan
-therefore rendered 622 finite areas across all 96 worksheets in 227.099 seconds.
-The plan used the union of the serialized input/output dimensions, four context
-rows and two context columns, partitioned independently into at most 16 columns
-by 128 rows. In 529 areas every common RGBA pixel was identical and any unpaired
-pixels exactly repeated the shared boundary row or column. In the other 93
-areas, one state had zero renderable height while the retained counterpart was
-entirely opaque white. No changed overlapping pixels or nonrepeating retained
-edge content remained. These observations cover the stated finite plan. The
-unsupported automatic textbox qualification and its rejected full-grid plan
-remain recorded separately.
-
-A controlled Enron opening experiment isolated a metadata inconsistency in one
-converted workbook. Renumbering duplicate sheet identifiers alone still failed,
-as did removal of its calculation chain alone. A copy combining unique sheet
-identifiers with removal of the optional calculation chain opened in 0.841
-seconds. The original XLS input itself opened in 0.693 seconds, but its freshly
-saved XLSX also reproduced the reopening failure. This establishes a conversion
-baseline issue for that case. Controlled recovery copies preserve worksheet,
-style, shared-string and drawing parts byte-for-byte and require native rebuild
-before visual comparison. Their identifiers and changed package members are
-retained explicitly.
-
-
-\subsection{Observe post-capture comparison progress}
-The Data.gov workbook \texttt{38hospitaldata\_5d43543005e1.xlsx} reached all
-3,546 captures in both rebuilt lanes before an earlier attempt exceeded its
-120-second idle deadline during image comparison. The full interrupted attempt
-lasted 1,645.739 seconds. Its original rebuilt lane recorded 1,349.828 seconds
-in capture phases. The comparison phase lacked per-image work notifications.
-The correction marks that phase active and advances verified progress after each
-completed image-pair verdict. The interrupted attempt has no completed visual
-verdict. The failure-retention change was separately exercised through the
-normal runner on a known native opening failure. Its failed record retained a
-working-evidence directory and the native blocking-dialog receipt, while the
-existing partial-report test confirmed that incomplete observations cannot be
-reused as completed comparisons.
-
-The repeat with verified per-image comparison progress completed all 3,546
-selected image pairs without a pixel difference. It lasted 1,767.483 seconds,
-including 1,335.191 seconds for capture selection and transport and 245.093
-seconds for image comparison. The latter exceeds the earlier 120-second idle
-deadline even though comparison work was advancing. This repeat establishes
-successful completion of the selected plan and quantifies the remaining image
-processing cost. It does not claim that the entire capture plan is minimal.
-The rebuilt input also has a genuinely broad serialized value footprint.
-\texttt{Cost Allocation Data} contains 402,582 cells with value elements through
-column 4,315, and \texttt{Financial and Utilization Data} contains 1,263,626
-through column 12,816. Both extend through row 452 and contain no cell formulas.
-These counts describe serialized values, including any stored empty strings.
-They distinguish this wide-table cost case from a plan expanded solely into an
-empty full-grid background. Safe further selection reduction remains open.
-
-The current study cohort freezes the 49 whole workbooks with greatest absolute
-compressed-file byte reduction in each of Destatis, Data.gov and Enron. This is
-a stress selection of 147 workbook identities. The cohort uses workbook-level
-ranking. Individual worksheet reductions do not select additional inputs.
-Every processor uses the same selected original identities. Earlier observations
-from the larger development selection remain provenance. A missing processor
-output is recorded as unavailable, separately from a failed visual comparison.
-
-\subsection{Finite conditional formatting within a repeating background}
-In \texttt{kulturfinanzbericht-}\allowbreak\texttt{gesamtmaterial-}\allowbreak\texttt{1023003229005.xlsx}, worksheet
-\texttt{Tabelle 4.8-1} contains four finite color-scale application areas and
-borderless inherited solid fills. Requiring every rule to be inactive on blank
-cells previously expanded the potential background extent to the full grid.
-An XML-only retained-input check of the revised enclosure produced
-\texttt{A1:P79}, while retaining all four conditional-format blocks and without
-classifying their blank cells as inactive. Focused regression cases distinguish
-an application inside the content envelope, one extending beyond the content,
-and a full-grid application. The XML enclosure is a planning observation. Its
-native comparison outcome is reported separately when available.
-
-
-\subsection{Inspect retained chart-pixel observations}
-Figure~\ref{fig:chart-pixel-observation} illustrates a retained development
-finding from the Data.gov Leachate workbook, worksheet \texttt{Fig. S2},
-\texttt{Chart4}. The report records 20 changed pixels, a maximum channel
-change of 47 out of 255 and an absolute channel-difference sum of 1,251.
-The small affected regions are visible in the magnified diagnostics.
-Their size alone does not identify their cause. Rendering variation remains
-a hypothesis for this example until supported by independent repeated native
-controls. The finding and its image evidence remain available in the report.
-This historical illustration is separate from final 49-workbook cohort counts.
-
-\begin{figure*}[t]
-\centering
-\includegraphics[width=0.88\textwidth,trim=22bp 1230bp 22bp 365bp,clip]{figures/chart-pixel-observation.jpg}
-\caption{Retained native chart comparison with 20 changed pixels. The two chart
-images, pixel metrics and magnified diagnostics allow inspection of a small
-observed discrepancy. A small discrepancy is insufficient evidence to attribute
-the change to rendering or to exclude it from the report. The screenshot is
-cropped for legibility; the original image evidence is retained.}
-\label{fig:chart-pixel-observation}
-\end{figure*}
-
-
-\subsection{Separate save-control volume from capture count}
-The Data.gov workbook \texttt{MORB\_Data\_b2b3bf4db76f.xlsx} initially exceeded
-a 120-second idle deadline during pre-capture XML inspection. Its provisional
-237,733 candidates were not the final native image plan. A bounded single-input
-repeat with a 600-second idle deadline completed in about 1,032 seconds.
-It retained 514 worksheet regions and one chart per rebuilt state, with no
-reported image difference. Capture selection and transport took 246.189 seconds,
-and image comparison took 33.852 seconds.
-
-The two ordinary-save controls contained 14,274,504 and 14,274,497 serialized
-XML changes. Their measured audit stages took 84.984 and 70.627 seconds,
-respectively. These control counts explain substantial non-rendering work;
-they must not be presented as requested captures. A subsequent guard omits
-legacy coordinate projection when the paired execution has no pre-rebuild
-original image state. A focused no-Excel regression exercises that absent-state
-case. The retained native repeat predates the guard and establishes neither
-a measured speedup from it nor exhaustive worksheet coverage.
-
-
-\subsection{Unfilled columns beneath a repeating row band}
-The Kulturfinanzbericht worksheet \texttt{Tabelle 8.2-1} produced 127 selected
-regions under policy version 14. Of these, 125 far-tail findings depicted a
-horizontal grey row band with different capture widths. Column records changed
-widths and font styles, but introduced no visible column fill or border.
-The revised XML rule bounds the retained rebuilt states to
-\texttt{A1:BO114} and \texttt{A1:BO61}. Every explicit cell remains included.
-Focused cases preserve distant explicit cells and finite fill transitions and
-reject border or unknown-style qualification.
-
-An independent native \texttt{A1:BP114} comparison covers the finite union and
-context. Both images have 4,625 by 2,080 pixels, identical SHA-256 identities
-and equal measured geometry. This reference completed in 14.585 seconds.
-The subsequent complete version-15 workbook comparison completed 350 selected
-regions without a pixel, geometry or rendering difference. This worksheet
-contributes one region, compared with 127 previously. Whole-workbook capture
-selection and transport took 119.009 seconds, compared with 624.755 seconds in
-the retained version-14 run. Producer versions and concurrent workloads differ,
-so these observations are not a matched performance experiment. The original
-125 far-tail observations and their images remain retained.
+The current evidence consists of bounded controls, selected stress cases and
+partial campaigns. It does not establish population-wide recall, corpus-wide
+visual equivalence or a matched end-to-end speedup. Independent seeded reference
+samples, the completed visible-mutation matrix and common-endpoint cost trials
+remain the empirical obligations. Complete, different, unsupported, failed and
+unfinished outcomes retain distinct denominators. Supplementary manifests and
+source-linked reports retain exact input names, revisions, settings and repeated
+attempts without making their chronology part of the method.
