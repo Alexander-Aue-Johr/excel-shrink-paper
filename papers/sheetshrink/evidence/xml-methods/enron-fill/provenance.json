@@ -1,0 +1,35 @@
+{
+  "case_id": "ccde4294bab9094d7d73",
+  "source": {
+    "case_id": "ccde4294bab9094d7d73",
+    "source_member": "enron_xls-5b73fc395cbe4727a986ab02a5028c1c1585617f/edrm/native_000%2F3.312426.K1RX5UNVPLR3WFFBVUSKKQUM5SS25VTTB.2.xls",
+    "source_archive": "enron.zip",
+    "raw_xlsx_sources": {
+      "Original": "F:\\corpora\\enron-default-extremes-20261103\\main\\ccde4294bab9094d7d73\\eba5d925\\inputs\\original.xlsx",
+      "Default": "F:\\repos\\excel-shrink-rust\\.tmp\\enron-current-default-5e0e688-20261104\\default\\ccde4294bab9094d7d73\\original.xlsx",
+      "Check-Performance": "F:\\corpora\\enron-default-extremes-20261103\\main\\ccde4294bab9094d7d73\\eba5d925\\artifacts\\check-performance.optimized.saved.xlsx"
+    }
+  },
+  "method": {
+    "excel_version": "16.0",
+    "excel_build": "20326",
+    "operation": "CalculateFullRebuild, wait for CalculationState=Done, Workbook.Save",
+    "input_handling": "Filesystem copies of each raw XLSX",
+    "external_links": "UpdateLinks=0, cached values retained",
+    "macros": "disabled",
+    "zoom": 100,
+    "gridlines": true
+  },
+  "regions": [
+    {
+      "sheet": "PL-Consolidated",
+      "range": "A25:H37",
+      "original_default_pixel_equal": true
+    },
+    {
+      "sheet": "PL-Houston",
+      "range": "A30:H42",
+      "original_default_pixel_equal": true
+    }
+  ]
+}

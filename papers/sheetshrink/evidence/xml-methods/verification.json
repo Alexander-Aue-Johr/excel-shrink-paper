@@ -1,0 +1,35 @@
+{
+  "source_revision": "e6ae437a2d72d1d26ede5e1f272b53d06fc3660c",
+  "rule_count": 28,
+  "code_font_size_points": 8.2,
+  "column_width_points": 252.0,
+  "maximum_card_height_points": 345.6999999999999,
+  "native_control_packages_differ_only_in_stated_cells": true,
+  "font_control_source_equals_one_witness_pixels": true,
+  "enron_region_original_equals_default_pixels": true,
+  "font_row_2_height_points": {
+    "source": 23.25,
+    "one-witness": 23.25,
+    "no-witness": 12.75
+  },
+  "input_sha256": {
+    "native-font/no-witness.png": "e1024a64b173a19ad6b6ebbb8a19cc5d7edf3590206b2b09f899520108bfb68d",
+    "native-font/no-witness.xlsx": "ca4f82727ed08277d0292c9ba7c4d0d96122359063842a3b29b482367c449ae7",
+    "native-font/one-witness.png": "874601e330db7e16d3aebcbb865cd930f8809cec255482be8feaa119078270cf",
+    "native-font/one-witness.xlsx": "a80a8ee08d85b5ccf6f061d083b8f7521dd4410621b83dc084a9f145c0b74693",
+    "native-font/receipt.json": "920ba0db24e36701fc1a993f248ea674ee9fb01c37ff4f8fe1b6ac87af8b0a71",
+    "native-font/source.png": "874601e330db7e16d3aebcbb865cd930f8809cec255482be8feaa119078270cf",
+    "native-font/source.xlsx": "cd30bc7879a6654c72f0416fbe75d44359c88eebdc171c8c99367d6d89380e1b",
+    "enron-fill/Check-Performance.png": "fe826c5dabc3db200c7513ac764daa26691b66755f823b3981aee1b198743370",
+    "enron-fill/Default.png": "fd163e050d1fdc2f1f48fa82df7063a11361323bbfce4b076c26e6d8c4393ff5",
+    "enron-fill/Original.png": "fd163e050d1fdc2f1f48fa82df7063a11361323bbfce4b076c26e6d8c4393ff5",
+    "enron-fill/provenance.json": "3eb8e56fd45cea39438ad31bd6c61902aa0975c8c67aa170f21f0c61c4ab3d7a",
+    "enron-fill/README.md": "562525aa161de878a0b6e9dff76c19e0315a943958d9401cd1e26a2ae0d0255f"
+  },
+  "pdf_checks": {
+    "code_figures": 28,
+    "code_text_preserved": true,
+    "all_code_figure_fonts_embedded": true,
+    "code_figures_have_no_raster_objects": true
+  }
+}

@@ -46,6 +46,11 @@ row or column. A font-only cell can determine automatic row height, including
 when a protection attribute accompanies the font. Merged text can require a
 local font representative even when no separate apply-font flag is present.
 These cases require resolving inheritance before classifying removable cells.
+Figure~\ref{fig:font-witness-native} pairs a reduced XML example with a native
+Excel control. Retaining one font witness preserves the observed row height.
+Removing both changes the position of later visible content. The control is
+constructed independently of the corpus case and isolates this local effect.
+\input{figures/xml-methods/font-witness}
 
 Preservation can also depend on several coordinates together. Center-across-
 selection formatting requires the contiguous blank span following its content
@@ -53,6 +58,11 @@ cell. Keeping only the last blank loses the intended span. Row-level borders
 can require widths at empty column boundaries. A chart's linked number format
 can depend on the first, empty series cell. The guards therefore preserve
 specific layout and dependency anchors beyond the nonempty-cell envelope.
+Figure~\ref{fig:fill-override-native} shows a retained Enron counterexample.
+The smaller Check Performance artifact exposes a different inherited fill.
+This observation concerns the pictured rebuilt region, with the historical
+producer identities retained alongside the captures.
+\input{figures/xml-methods/fill-override}
 
 The hidden constant-tail rule admits only a dense horizontal sequence of at
 least 4,096 identical signed-integer cells, hidden and ending at column XFD,
@@ -74,9 +84,12 @@ The dominant empty-cell style must occur at least twice. The dense route require
 at least 1,024 occurrences. A bounded-gap route admits at most 64 missing columns
 and restores required original formats only when the inheritance checks permit.
 Sparse promotion requires equivalent inheritance at every absent position and
-excludes merged sparse rows. Style-count ties select the smaller existing style
+excludes merged sparse rows.
+Figure~\ref{fig:row-style-promotion} shows the compact full-width representation.
+Style-count ties select the smaller existing style
 index. These thresholds choose a compact representation within the preservation
 conditions. They do not establish that arbitrary repeated values are redundant.
+\input{figures/xml-methods/row-style-promotion}
 
 Automatic rows retain the ordinary representative rules. A column font can
 contribute to their height even when its cells contain no text. Representative
@@ -140,3 +153,10 @@ dependency candidates. Its selection scope and failure accounting are part of
 the reported evidence. Independent reference samples and injected changes are
 required to evaluate that selector. Equality of its selected images alone cannot
 establish equality of every possible spreadsheet observation.
+
+The companion figure atlas, \url{figures/xml-methods/xml-cleanup-atlas.pdf},
+provides 28 abbreviated source/result examples, negative cases and a pinned
+source index. Its code is drawn at 8.2 points for a 252-point column. XML
+wrappers, irrelevant attributes and repeated payloads are omitted. Style
+indices are local to each example. Schematic effects are labeled separately
+from native Excel captures.

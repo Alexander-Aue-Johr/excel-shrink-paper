@@ -1,0 +1,15 @@
+{
+  "reviewed_revision": "e6ae437a2d72d1d26ede5e1f272b53d06fc3660c",
+  "date": "2026-11-10",
+  "core_verification": {
+    "command": "cargo test -p excel-shrink-core --lib",
+    "passed": 298,
+    "failed": 0,
+    "ignored": 1,
+    "ignored_scope": "manual timing test"
+  },
+  "scope": "Behavior specification S1-S9, focused tests, implementation anchors and relevant commit history. S10 is future work and is not presented as an implemented transformation.",
+  "native_font_control": "New constructed packages opened read-only in one owned Excel instance, rebuilt with CalculateFullRebuild and captured through CopyPicture and Chart.Export. No save was used.",
+  "native_enron_control": "Historical PL-Consolidated captures reused unchanged. Their provenance records full rebuild and Save.",
+  "limits": "Core tests were run. CLI anchors were reviewed but the full CLI suite and whole-corpus native validation were not run for this figure task. The shortened snippets are illustrations, not executable replacements for the original fixtures."
+}

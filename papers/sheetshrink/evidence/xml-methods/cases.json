@@ -1,0 +1,832 @@
+{
+  "source_revision": "e6ae437a2d72d1d26ede5e1f272b53d06fc3660c",
+  "notation": "Illustrative abbreviated XML. Style IDs are local to each example. Comments and ellipses omit irrelevant payloads, repeated cells and wrappers. These excerpts are not complete executable OOXML packages.",
+  "cases": [
+    {
+      "id": "01-content",
+      "title": "Content is not formatting",
+      "width": "column",
+      "before": [
+        "<row r=\"1\">",
+        " <c r=\"A1\"><v>0</v></c>",
+        " <c r=\"B1\"><f t=\"shared\" si=\"0\"/></c>",
+        " <c r=\"C1\">",
+        "  <v xml:space=\"preserve\">7</v></c>",
+        "</row>"
+      ],
+      "after": [
+        "<row r=\"1\">",
+        " <c r=\"A1\"><v>0</v></c>",
+        " <c r=\"B1\"><f t=\"shared\" si=\"0\"/></c>",
+        " <c r=\"C1\">",
+        "  <v xml:space=\"preserve\">7</v></c>",
+        "</row>"
+      ],
+      "guard": "Keep zero, shared-formula followers and attributed value elements. Empty cached display is insufficient.",
+      "risk": "Deleting a zero or a formula changes workbook data.",
+      "source": {
+        "path": "excel-shrink-core/src/sheet/rows_regression_tests.rs",
+        "test": "preserves_value_and_inline_string_elements_with_attributes",
+        "kind": "regression test",
+        "sha256": "d9444af9392144abf552d808bcf73942c0975bdb8229a6f00d3c74ba25d5f363",
+        "line": 1559,
+        "commit": "88c77f9557cd63d6ed887c5389ebb7e4a55452fc"
+      },
+      "note": "S4. Content tags are matched at their element-name boundary.",
+      "bad": ""
+    },
+    {
+      "id": "02-font-witness",
+      "title": "Keep one font witness",
+      "width": "column",
+      "before": [
+        "<row r=\"2\">",
+        " <c r=\"A2\">...</c>",
+        " <c r=\"B2\" s=\"1\"/>",
+        " <c r=\"C2\" s=\"1\"/>",
+        "</row>"
+      ],
+      "after": [
+        "<row r=\"2\">",
+        " <c r=\"A2\">...</c>",
+        " <c r=\"B2\" s=\"1\"/>",
+        "</row>"
+      ],
+      "guard": "A2 uses Arial 10. B2 and C2 carry Arial 18. Keep one needed font representative in this row.",
+      "risk": "Removing both witnesses shortens this controlled Excel row from 23.25 to 12.75 points.",
+      "source": {
+        "path": "excel-shrink-core/src/sheet/rows_regression_tests.rs",
+        "test": "automatic_height_keeps_font_without_apply_font_or_row_style",
+        "kind": "regression test",
+        "sha256": "d9444af9392144abf552d808bcf73942c0975bdb8229a6f00d3c74ba25d5f363",
+        "line": 628,
+        "commit": "6e4847a08984ba46c5a67e88096091b64597d527"
+      },
+      "note": "Native control uses a reduced 18 pt fixture. The corpus regression is Kulturfinanzbericht, Impressum!B16, Arial MT 12 and no applyFont flag. Its documented heights are 15 and 12.75 pt.",
+      "bad": "Delete B2 and C2: the following visible row moves upward."
+    },
+    {
+      "id": "03-merged-font",
+      "title": "A witness is local to a merge",
+      "width": "column",
+      "before": [
+        "<row r=\"6\" ht=\"177\"",
+        " customHeight=\"1\">",
+        " <c r=\"A6\" s=\"237\">...</c>",
+        " <c r=\"B6\" s=\"238\"/>",
+        " <c r=\"C6\" s=\"238\"/>",
+        " <c r=\"H6\" s=\"238\"/>",
+        "</row>",
+        "<mergeCell ref=\"A6:H6\"/>"
+      ],
+      "after": [
+        "<row r=\"6\" ht=\"177\"",
+        " customHeight=\"1\">",
+        " <c r=\"A6\" s=\"237\">...</c>",
+        " <c r=\"B6\" s=\"238\"/>",
+        "</row>",
+        "<mergeCell ref=\"A6:H6\"/>"
+      ],
+      "guard": "Retain one representative per encountered font in each merged area and row, even at fixed height.",
+      "risk": "Deleting B6:H6 changed justified paragraph spacing. A witness in another merge is insufficient.",
+      "source": {
+        "path": "excel-shrink-core/src/sheet/rows_regression_tests.rs",
+        "test": "merged_text_keeps_one_local_font_even_without_apply_font",
+        "kind": "regression test",
+        "sha256": "d9444af9392144abf552d808bcf73942c0975bdb8229a6f00d3c74ba25d5f363",
+        "line": 425,
+        "commit": "1d869562db26514f24257f7679baf7a097ee7197"
+      },
+      "note": "Destatis Informationen zur Statistik!A6:H6. Native controls reported 43,767 changed pixels with all blanks removed, zero with B6 retained. Original images are retained on another machine.",
+      "bad": "Keep only the text cell: paragraph layout changes."
+    },
+    {
+      "id": "04-no-fill",
+      "title": "No fill can be a visible override",
+      "width": "column",
+      "before": [
+        "<row r=\"6\" s=\"2\"",
+        " customFormat=\"1\" ht=\"18\"",
+        " customHeight=\"1\">",
+        " <c r=\"K6\"/>",
+        " <c r=\"L6\"/>",
+        "</row>"
+      ],
+      "after": [
+        "<row r=\"6\" s=\"2\"",
+        " customFormat=\"1\" ht=\"18\"",
+        " customHeight=\"1\">",
+        " <c r=\"K6\"/>",
+        " <c r=\"L6\"/>",
+        "</row>"
+      ],
+      "guard": "Row style 2 has a blue fill. The explicit styleless cells clear it. Keep every local mask, not one font representative.",
+      "risk": "Deleting K6 exposes blue at K6, even if L6 remains.",
+      "source": {
+        "path": "excel-shrink-core/src/sheet/rows_regression_tests.rs",
+        "test": "unstyled_visual_masks_are_not_tentative_font_sentinels",
+        "kind": "regression test",
+        "sha256": "d9444af9392144abf552d808bcf73942c0975bdb8229a6f00d3c74ba25d5f363",
+        "line": 153,
+        "commit": "6e7c0c9987286958f9cd6d42c6921c8f57c99ee8"
+      },
+      "note": "PnP Sector Boilers, Fig 4 - SCR. An explicit XF with applyFill=1 and fillId=0 has the same guarded masking role.",
+      "bad": "Delete K6: inherited blue replaces the unfilled cell."
+    },
+    {
+      "id": "05-redundant-no-fill",
+      "title": "Remove an override with nothing to clear",
+      "width": "column",
+      "before": [
+        "<row r=\"2\" ht=\"12.75\"",
+        " customHeight=\"1\">",
+        " <c r=\"A2\" s=\"5\"/>",
+        " <c r=\"B2\" s=\"5\"/>",
+        "</row>"
+      ],
+      "after": [
+        "<!-- Content-free tail removed -->"
+      ],
+      "guard": "Style 5 applies fillId=0. No visible inherited fill or border exists and no other retention rule applies.",
+      "risk": "The same attributes must survive when a white or colored parent fill is present.",
+      "source": {
+        "path": "excel-shrink-core/src/sheet/tail_fill_regression_tests.rs",
+        "test": "enron_august_no_fill_overrides_do_not_anchor_an_empty_sheet",
+        "kind": "regression test",
+        "sha256": "f8c00a95c405e8e49ba795f0193308a638d5936aa1c5d41729ebdc2687115e78",
+        "line": 175,
+        "commit": "51b0905391a32df7566cc9f0dfda5e800f710b96"
+      },
+      "note": "Enron AUGUST, bundle 44ad86f1d9f249470fc6. The corpus case retained 21,947 unnecessary overrides before the fix.",
+      "bad": ""
+    },
+    {
+      "id": "06-row-xf-zero",
+      "title": "An implicit row style still overrides",
+      "width": "column",
+      "before": [
+        "<col min=\"6\" max=\"6\" style=\"17\"/>",
+        "<row r=\"187\" customFormat=\"1\">",
+        " <c r=\"F187\" s=\"17\"/>",
+        "</row>"
+      ],
+      "after": [
+        "<col min=\"6\" max=\"6\" style=\"17\"/>",
+        "<row r=\"187\" customFormat=\"1\">",
+        " <c r=\"F187\" s=\"17\"/>",
+        "</row>"
+      ],
+      "guard": "customFormat=1 without s applies row XF 0. A gray cell may restore a column fill that the row format cancels.",
+      "risk": "Removing F187 because it matches the column exposes the row no-fill format.",
+      "source": {
+        "path": "excel-shrink-core/src/sheet/cells_regression_tests.rs",
+        "test": "custom_format_without_style_uses_default_row_style",
+        "kind": "regression test",
+        "sha256": "d3a7408e51d7c3313bc1b32ad9288cfc7ff44363b2f2c60e1382dab3b02b8f65",
+        "line": 1269,
+        "commit": "710b583fd6e8ba7164463cd83822f2d2afcea21c"
+      },
+      "note": "Raw Data F187:F190 is an independently restored Enron control. The AFFF manual Data rows 124-128 motivated the current row-format guard.",
+      "bad": "Compare only against the column: gray becomes unfilled."
+    },
+    {
+      "id": "07-column-font-mask",
+      "title": "Font witnesses cannot replace local masks",
+      "width": "column",
+      "before": [
+        "<col min=\"6\" max=\"8\"",
+        " hidden=\"1\" style=\"13\"/>",
+        "<row r=\"14\">",
+        " <c r=\"A14\" s=\"26\">...</c>",
+        " <c r=\"F14\" s=\"26\"/>",
+        " <c r=\"G14\" s=\"26\"/>",
+        "</row>"
+      ],
+      "after": [
+        "<col min=\"6\" max=\"8\"",
+        " hidden=\"1\" style=\"13\"/>",
+        "<row r=\"14\">",
+        " <c r=\"A14\" s=\"26\">...</c>",
+        " <c r=\"F14\" s=\"26\"/>",
+        " <c r=\"G14\" s=\"26\"/>",
+        "</row>"
+      ],
+      "guard": "Hidden columns can affect automatic height. Preserve each mask that would expose a font absent from the original row.",
+      "risk": "A matching visible witness cannot stop a larger inherited font at F14 from affecting the row.",
+      "source": {
+        "path": "excel-shrink-core/src/sheet/rows_regression_tests.rs",
+        "test": "automatic_row_keeps_each_mask_of_an_unrepresented_hidden_column_font",
+        "kind": "regression test",
+        "sha256": "d9444af9392144abf552d808bcf73942c0975bdb8229a6f00d3c74ba25d5f363",
+        "line": 1682,
+        "commit": "ade975dcca7afe753a6df3073d8413faae6daf6a"
+      },
+      "note": "Data.gov LCOE model, Installed Cost Overview. Documented row 14 changed from 14.25 to 15 pt before the correction.",
+      "bad": ""
+    },
+    {
+      "id": "08-row-promotion",
+      "title": "Move repeated formatting into the row",
+      "width": "column",
+      "before": [
+        "<row r=\"1\" ht=\"9\"",
+        " customHeight=\"1\">",
+        " <c r=\"A1\" s=\"3\"><v>7</v></c>",
+        " <c r=\"B1\" s=\"2\"/>",
+        " <!-- repeated through XFD1 -->",
+        " <c r=\"XFD1\" s=\"2\"/>",
+        "</row>"
+      ],
+      "after": [
+        "<row r=\"1\" ht=\"9\"",
+        " customHeight=\"1\"",
+        " s=\"2\" customFormat=\"1\">",
+        " <c r=\"A1\" s=\"3\"><v>7</v></c>",
+        "</row>"
+      ],
+      "guard": "Reuse an existing XF. Require a visible fixed-height, unprotected row and proved inheritance. Dense route needs at least 1,024 occurrences.",
+      "risk": "A newly inherited fill, border, protection or font at a gap can change the workbook.",
+      "source": {
+        "path": "excel-shrink-core/src/sheet/rows_regression_tests.rs",
+        "test": "dense_full_width_row_compacts_identical_empty_styles_into_row_header",
+        "kind": "regression test",
+        "sha256": "d9444af9392144abf552d808bcf73942c0975bdb8229a6f00d3c74ba25d5f363",
+        "line": 1157,
+        "commit": "6955d9a5db4d4f60617e1e97776a9cd7c56bbf00"
+      },
+      "note": "The full-width test removes 16,383 empty cells. No new style index is allocated.",
+      "bad": ""
+    },
+    {
+      "id": "09-promotion-gap",
+      "title": "Restore necessary exceptions at gaps",
+      "width": "column",
+      "before": [
+        "<row r=\"1\" ht=\"9\"",
+        " customHeight=\"1\">",
+        " <c r=\"A1\" s=\"3\"><v>7</v></c>",
+        " <!-- repeated s=2 cells -->",
+        " <!-- E1 was absent -->",
+        "</row>"
+      ],
+      "after": [
+        "<row r=\"1\" ht=\"9\"",
+        " customHeight=\"1\"",
+        " s=\"2\" customFormat=\"1\">",
+        " <c r=\"A1\" s=\"3\"><v>7</v></c>",
+        " <c r=\"E1\" s=\"3\"/>",
+        "</row>"
+      ],
+      "guard": "The bounded dense-gap route admits at most 64 missing columns and restores original formats only when the inheritance proof succeeds.",
+      "risk": "Promoting the row without an E1 exception exposes a new inherited font or fill.",
+      "source": {
+        "path": "excel-shrink-core/src/sheet/rows_regression_tests.rs",
+        "test": "dense_row_preserves_internal_and_trailing_column_styles_on_repeat_cleanup",
+        "kind": "regression test",
+        "sha256": "d9444af9392144abf552d808bcf73942c0975bdb8229a6f00d3c74ba25d5f363",
+        "line": 1222,
+        "commit": "60bef0a120b662f765840e9500efc4982f959280"
+      },
+      "note": "The regression uses gaps at E1, AD1, XFC1 and XFD1. It also checks a second cleanup pass.",
+      "bad": ""
+    },
+    {
+      "id": "10-automatic-promotion",
+      "title": "A cached height is not a fixed height",
+      "width": "column",
+      "before": [
+        "<row r=\"105\">",
+        " <c r=\"A105\" s=\"2\">...</c>",
+        " <!-- many s=2 blanks -->",
+        "</row>"
+      ],
+      "after": [
+        "<row r=\"105\">",
+        " <c r=\"A105\" s=\"2\">...</c>",
+        " <!-- many s=2 blanks -->",
+        "</row>"
+      ],
+      "guard": "Do not promote an automatic row. Both ht and customHeight=1 are required, even when the proposed font is already present.",
+      "risk": "A historical promotion shortened Destatis row 105 from 12.75 to 9 points and moved the footer.",
+      "source": {
+        "path": "excel-shrink-core/src/sheet/rows_regression_tests.rs",
+        "test": "dense_row_promotion_requires_an_explicit_fixed_height",
+        "kind": "regression test",
+        "sha256": "d9444af9392144abf552d808bcf73942c0975bdb8229a6f00d3c74ba25d5f363",
+        "line": 1621,
+        "commit": "e5e4fe8f9ff8d47075f43f6cb64e8753f5bbe7e0"
+      },
+      "note": "verkehrsunfaelle-zeitreihen, 3.8_(1). Native repair matched the 1,358 by 1,327 original capture. This drawing is a guard summary, not exact output XML. The excerpt shows the absence of row promotion. It does not enumerate ordinary cell cleanup.",
+      "bad": "Add a row style on an automatic row: footer moves by 3.75 pt."
+    },
+    {
+      "id": "11-center-span",
+      "title": "A centering span needs every blank",
+      "width": "column",
+      "before": [
+        "<row r=\"2\">",
+        " <c r=\"D2\" s=\"9\">...</c>",
+        " <c r=\"E2\" s=\"9\"/>",
+        " <c r=\"F2\" s=\"9\"/>",
+        " <c r=\"G2\" s=\"9\"/>",
+        "</row>"
+      ],
+      "after": [
+        "<row r=\"2\">",
+        " <c r=\"D2\" s=\"9\">...</c>",
+        " <c r=\"E2\" s=\"9\"/>",
+        " <c r=\"F2\" s=\"9\"/>",
+        " <c r=\"G2\" s=\"9\"/>",
+        "</row>"
+      ],
+      "guard": "Style 9 has horizontal=centerContinuous. A value or formula seeds a contiguous same-alignment span.",
+      "risk": "Keeping only G2 does not restore centering after F2 is deleted. A gap ends the span.",
+      "source": {
+        "path": "excel-shrink-core/src/sheet/output.rs",
+        "test": "centered_text_keeps_only_its_contiguous_alignment_span",
+        "kind": "regression test",
+        "sha256": "31a7655cedb427d09519d8f1bd96526ecb1e5f4084bc99da679f93507a620390",
+        "line": 1718,
+        "commit": "7741cf6391d4017f34dbd79254d00fd44f38948a"
+      },
+      "note": "Data.gov Fig 10_New 10-29-19. The native counterfactual restored D2:G2, not a single sentinel.",
+      "bad": "Keep one blank instead of the span: the heading shifts."
+    },
+    {
+      "id": "12-protected-font",
+      "title": "Protection does not erase a font effect",
+      "width": "column",
+      "before": [
+        "<row r=\"2\">",
+        " <c r=\"A2\">...</c>",
+        " <c r=\"B2\" s=\"7\"/>",
+        " <c r=\"C2\" s=\"7\"/>",
+        "</row>"
+      ],
+      "after": [
+        "<row r=\"2\">",
+        " <c r=\"A2\">...</c>",
+        " <c r=\"B2\" s=\"7\"/>",
+        "</row>"
+      ],
+      "guard": "Style 7 contains a font and protection metadata. Outside the protection-retention area it may still supply required automatic height.",
+      "risk": "Treating protection-only eligibility as permission to remove its font can shift later content.",
+      "source": {
+        "path": "excel-shrink-core/src/sheet/rows_regression_tests.rs",
+        "test": "exterior_protection_style_can_still_supply_a_required_font_sentinel",
+        "kind": "regression test",
+        "sha256": "d9444af9392144abf552d808bcf73942c0975bdb8229a6f00d3c74ba25d5f363",
+        "line": 1988,
+        "commit": "21fe0d4051fc1994b14f62ade46c109b5f623e51"
+      },
+      "note": "Enron 005d034f18d6dc340a2c had five one-pixel row-height changes. Active and inactive protection are covered by focused controls.",
+      "bad": ""
+    },
+    {
+      "id": "13-white-tail",
+      "title": "Prune only a genuinely redundant fill",
+      "width": "column",
+      "before": [
+        "<col min=\"1\" max=\"16384\" style=\"1\"/>",
+        "<row r=\"486\"><c r=\"E486\">...</c></row>",
+        "<row r=\"487\" s=\"2\" customFormat=\"1\"/>",
+        "<!-- same tail through row 49633 -->"
+      ],
+      "after": [
+        "<col min=\"1\" max=\"16384\" style=\"1\"/>",
+        "<row r=\"486\"><c r=\"E486\">...</c></row>"
+      ],
+      "guard": "Column style 1 covers A:XFD with white. Tail row style 2 repeats that fill and has no remaining anchor. Check exact column overrides and gaps.",
+      "risk": "A blue tail on the same white columns remains visible. White fills also hide gridlines.",
+      "source": {
+        "path": "excel-shrink-core/src/sheet/tail_fill_regression_tests.rs",
+        "test": "redundant_white_fill_and_font_override_do_not_anchor_an_empty_tail",
+        "kind": "regression test",
+        "sha256": "f8c00a95c405e8e49ba795f0193308a638d5936aa1c5d41729ebdc2687115e78",
+        "line": 246,
+        "commit": "65ba8cd9ac3194a4245085f10956f2e8098dcee9"
+      },
+      "note": "Two Enron Feb cases ended at rows 486 and 485 after cleanup. Native white and blue controls matched selected original regions.",
+      "bad": ""
+    },
+    {
+      "id": "14-content-free",
+      "title": "A font alone need not anchor a tail",
+      "width": "column",
+      "before": [
+        "<row r=\"1424\" s=\"6\"",
+        " customFormat=\"1\">",
+        " <c r=\"A1424\"/>",
+        " <c r=\"B1424\" s=\"5\"/>",
+        "</row>"
+      ],
+      "after": [
+        "<!-- Empty sheetData -->"
+      ],
+      "guard": "There are no values, visible fills, borders, merges, drawings or later anchors. Font-only representatives do not retain an otherwise content-free sheet.",
+      "risk": "The same row before later visible content can be needed for layout and must be reconsidered in context.",
+      "source": {
+        "path": "excel-shrink-core/src/sheet/tail_fill_regression_tests.rs",
+        "test": "enron_nov_styleless_representatives_do_not_anchor_a_content_free_sheet",
+        "kind": "regression test",
+        "sha256": "f8c00a95c405e8e49ba795f0193308a638d5936aa1c5d41729ebdc2687115e78",
+        "line": 106,
+        "commit": "5e0e68812c1f9d7c409e0867c9d8d479cfc7347e"
+      },
+      "note": "Enron NOV, bundles 44ad86f1d9f249470fc6 and a8bd950dff33454721b5. Exterior blank-grid geometry is outside this pruning contract.",
+      "bad": ""
+    },
+    {
+      "id": "15-border-mask",
+      "title": "A row header can clear column borders",
+      "width": "column",
+      "before": [
+        "<col min=\"6\" max=\"6\" style=\"4\"/>",
+        "<row r=\"2\" s=\"7\" customFormat=\"1\"/>"
+      ],
+      "after": [
+        "<col min=\"6\" max=\"6\" style=\"4\"/>",
+        "<row r=\"2\" s=\"7\" customFormat=\"1\"/>"
+      ],
+      "guard": "Column style 4 has a border. Row style 7 has explicit borderId=0. Keep the masking row header, including when applyBorder is absent.",
+      "risk": "Deleting the empty header exposes vertical column borders across that row.",
+      "source": {
+        "path": "excel-shrink-core/src/sheet/tail_fill_regression_tests.rs",
+        "test": "borderless_tail_row_masks_a_visible_column_border_without_retaining_cells",
+        "kind": "regression test",
+        "sha256": "f8c00a95c405e8e49ba795f0193308a638d5936aa1c5d41729ebdc2687115e78",
+        "line": 83,
+        "commit": "677449fca011973e1477f8608f95595d6e70cb7b"
+      },
+      "note": "Santavy Table Sup E motivated the initial-tail-range guard. No full row of cells is added.",
+      "bad": ""
+    },
+    {
+      "id": "16-border-height",
+      "title": "Empty row heights position visible borders",
+      "width": "column",
+      "before": [
+        "<col min=\"6\" max=\"6\" style=\"4\"/>",
+        "<row r=\"20\" ht=\"24\"/>",
+        "<row r=\"21\" ht=\"12.75\"/>"
+      ],
+      "after": [
+        "<col min=\"6\" max=\"6\" style=\"4\"/>",
+        "<row r=\"20\" ht=\"24\"/>",
+        "<row r=\"21\" ht=\"12.75\"/>"
+      ],
+      "guard": "Visible column borders make stored heights of nonhidden tail rows observable. Preserve them even without customHeight.",
+      "risk": "Removing an empty height record changes the extent and segmentation of the visible borders.",
+      "source": {
+        "path": "excel-shrink-core/src/sheet/output.rs",
+        "test": "inherited_column_borders_keep_visible_tail_heights_only",
+        "kind": "regression test",
+        "sha256": "31a7655cedb427d09519d8f1bd96526ecb1e5f4084bc99da679f93507a620390",
+        "line": 1997,
+        "commit": "11e651b46cc235b7648aadf09cafafc60f41eb6f"
+      },
+      "note": "The ordinary tail scan and content-boundary shortcut share this guard. Heightless and hidden redundant headers retain normal pruning.",
+      "bad": ""
+    },
+    {
+      "id": "17-conditional-layout",
+      "title": "Conditional ranges protect row layout",
+      "width": "column",
+      "before": [
+        "<row r=\"2\" ht=\"17.25\"",
+        " customHeight=\"1\"><c r=\"H2\" s=\"6\"/></row>",
+        "<row r=\"60\" ht=\"20\" customHeight=\"1\"/>",
+        "<conditionalFormatting sqref=\"A5:B44\">",
+        " ...",
+        "</conditionalFormatting>"
+      ],
+      "after": [
+        "<row r=\"2\" ht=\"17.25\"",
+        " customHeight=\"1\"/>",
+        "<conditionalFormatting sqref=\"A5:B44\">",
+        " ...",
+        "</conditionalFormatting>"
+      ],
+      "guard": "Keep layout through the conditional region. Remove unnecessary font-only cell payloads and unrelated later tail headers separately.",
+      "risk": "Deleting preceding row heights shifts the end of a conditional fill, even with no ordinary cell fill.",
+      "source": {
+        "path": "excel-shrink-core/src/sheet/tail_fill_regression_tests.rs",
+        "test": "conditional_regions_preserve_empty_row_heights_without_restoring_cells",
+        "kind": "regression test",
+        "sha256": "f8c00a95c405e8e49ba795f0193308a638d5936aa1c5d41729ebdc2687115e78",
+        "line": 45,
+        "commit": "447acba0265f0b4809d7ed62cd619c6719ff5068"
+      },
+      "note": "RN17B-RN30 Volatiles. Unknown conditional scope conservatively protects existing layout through the final Excel row.",
+      "bad": ""
+    },
+    {
+      "id": "18-drawing-anchor",
+      "title": "Objects extend the layout boundary",
+      "width": "column",
+      "before": [
+        "<row r=\"1\"><c r=\"A1\"><v>7</v></c></row>",
+        "<row r=\"50\" ht=\"30\" customHeight=\"1\"/>",
+        "<drawing r:id=\"rId1\"/>",
+        "<!-- drawing anchor ends at row 60 -->"
+      ],
+      "after": [
+        "<row r=\"1\"><c r=\"A1\"><v>7</v></c></row>",
+        "<row r=\"50\" ht=\"30\" customHeight=\"1\"/>",
+        "<drawing r:id=\"rId1\"/>"
+      ],
+      "guard": "Resolve supported drawing relationships and anchors before trimming row layout beyond the last data cell.",
+      "risk": "Deleting row 50 because A1 is the last value can move or resize the later object.",
+      "source": {
+        "path": "excel-shrink-core/src/sheet/output.rs",
+        "test": "drawing_text_box_anchor_preserves_layout_row_after_last_cell",
+        "kind": "regression test",
+        "sha256": "31a7655cedb427d09519d8f1bd96526ecb1e5f4084bc99da679f93507a620390",
+        "line": 1634,
+        "commit": "4e86b5dc4d1935b544a247f58419099993f995c4"
+      },
+      "note": "Missing or unsupported drawing information is a remaining review concern, not proof that no object exists.",
+      "bad": ""
+    },
+    {
+      "id": "19-column-font",
+      "title": "Merge tail columns with font witnesses",
+      "width": "column",
+      "before": [
+        "<col min=\"10\" max=\"20\" style=\"1\"/>",
+        "<col min=\"21\" max=\"16384\" style=\"2\"/>"
+      ],
+      "after": [
+        "<col min=\"10\" max=\"20\" style=\"1\"/>",
+        "<col min=\"21\" max=\"21\" style=\"2\"/>",
+        "<col min=\"22\" max=\"16384\" style=\"1\"/>"
+      ],
+      "guard": "This is a schematic equal-fill tail merge. Keep one original empty-tail column per font identity that replacement would otherwise erase.",
+      "risk": "Replacing every Calibri 11 column with Arial 10 shortened NLA data rows from 15.75 to 15 pt.",
+      "source": {
+        "path": "excel-shrink-core/src/sheet/cols.rs",
+        "test": "tail_font_sentinels",
+        "kind": "implementation anchor",
+        "sha256": "e240275ec94076fd37f3fc212cdd4d6b04af7f0ac5dd091323e90bd4fa2b0774",
+        "line": 369,
+        "commit": "44e9537c0a584a55c55b1aa089c895f246f625ca"
+      },
+      "note": "Unknown styles, overlap, hidden columns, borders, uncovered gaps and crossing data boundaries restrict merging. Visible row borders also expose column widths.",
+      "bad": ""
+    },
+    {
+      "id": "20-hidden-tail",
+      "title": "Hidden constants need deferred approval",
+      "width": "column",
+      "before": [
+        "<row r=\"8\" hidden=\"1\">",
+        " <!-- >=4096 contiguous integer 0s -->",
+        " <c r=\"A8\"><v>0</v></c>",
+        " ...",
+        " <c r=\"XFD8\"><v>0</v></c>",
+        "</row>"
+      ],
+      "after": [
+        "<!-- Delete admitted suffix only after -->",
+        "<!-- reference and layout checks pass. -->"
+      ],
+      "guard": "Admit only a dense horizontal suffix of equal signed integers ending at XFD, with every source cell eligible. Any intersecting known reference retains the entire span.",
+      "risk": "Arbitrary hidden tables, short runs, gaps, text, formulas and vertical repeats are not admitted.",
+      "source": {
+        "path": "excel-shrink-core/src/sheet/hidden_content.rs",
+        "test": "MIN_TAIL_CELLS",
+        "kind": "implementation anchor",
+        "sha256": "679cf082efc1ea42e969ad286c1650f2d101e29a5b5ffcd8d6cef3277025aa59",
+        "line": 9,
+        "commit": "34fe2058a4edc20cd6c7898038e83039032a56cf"
+      },
+      "note": "4,096 is a conservative admission threshold, not proof of user intent. Deferred deletion re-cleans touched rows and invalidates stale tail anchors.",
+      "bad": "",
+      "comparison": "decision"
+    },
+    {
+      "id": "21-shared-formula",
+      "title": "Translate shared references by axis",
+      "width": "column",
+      "before": [
+        "<c r=\"D166\"><f t=\"shared\" si=\"0\"",
+        " ref=\"D166:J166\">D91/D64*100-100</f></c>",
+        "<c r=\"E166\"><f t=\"shared\" si=\"0\"/></c>",
+        "<!-- hidden E64 = 4232.35 -->"
+      ],
+      "after": [
+        "<c r=\"D166\"><f t=\"shared\" si=\"0\"",
+        " ref=\"D166:J166\">D91/D64*100-100</f></c>",
+        "<c r=\"E166\"><f t=\"shared\" si=\"0\"/></c>",
+        "<!-- hidden E64 = 4232.35 -->"
+      ],
+      "guard": "Translate relative axes over the follower range. Absolute axes remain fixed. Protect enclosing rectangles without enumerating every formula. In this example the protected input rectangles include D91:J91 and D64:J64.",
+      "risk": "Scanning only the anchor misses E64 and can produce DIV/0 errors after rebuilding.",
+      "source": {
+        "path": "excel-shrink-core/src/reference_scanner_sheet_scope_tests.rs",
+        "test": "shared_formula_protects_shifted_hidden_inputs",
+        "kind": "regression test",
+        "sha256": "1a9be4b595630f22136ae1c9c50589aa2c43257603ee845f12196bc5c8c31d9d",
+        "line": 13,
+        "commit": "f7f84053e3eabbaaf560ecb1b136a052e7611bb8"
+      },
+      "note": "Destatis verkehr-aktuell, 1.1.5. Unresolved groups, dynamic references or unknown scope disable reference-sensitive deletion.",
+      "bad": ""
+    },
+    {
+      "id": "22-chart-format",
+      "title": "A blank chart-source cell carries format",
+      "width": "column",
+      "before": [
+        "<c r=\"A1\" s=\"4\"/>",
+        "<c r=\"A2\"><v>0.25</v></c>",
+        "<!-- chart series references A1:A2 -->",
+        "<!-- axis format is source-linked -->"
+      ],
+      "after": [
+        "<c r=\"A1\" s=\"4\"/>",
+        "<c r=\"A2\"><v>0.25</v></c>"
+      ],
+      "guard": "Retain the first explicit cell of a directly resolved chart series, including its original number format. Do not retain every blank in the series.",
+      "risk": "Deleting A1 can change a source-linked chart axis even though A1 has no value.",
+      "source": {
+        "path": "excel-shrink-core/src/reference_scanner/object_references.rs",
+        "test": "chart_format_anchors_keep_only_the_first_source_cell",
+        "kind": "regression test",
+        "sha256": "4d98109276adaca8fe9864ad782da9d9fee191a7a022b0cf2e4dd424030ad6d4",
+        "line": 190,
+        "commit": "f4e3b02e9bca2bef78e80bc40105ecd2c7d36518"
+      },
+      "note": "Current format-anchor discovery resolves direct worksheet references, not named or dynamic chart sources.",
+      "bad": ""
+    },
+    {
+      "id": "23-whitespace",
+      "title": "Whitespace can block text overflow",
+      "width": "column",
+      "before": [
+        "<c r=\"A1\" t=\"inlineStr\">",
+        " <is><t>Long heading</t></is>",
+        "</c>",
+        "<c r=\"B1\" t=\"s\"><v>4</v></c>",
+        "<!-- shared string 4 is one space -->"
+      ],
+      "after": [
+        "<c r=\"A1\" t=\"inlineStr\">",
+        " <is><t>Long heading</t></is>",
+        "</c>",
+        "<c r=\"B1\" t=\"s\"><v>4</v></c>"
+      ],
+      "guard": "Default leaves optional whitespace-value deletion disabled. A space is a value and can stop neighboring text overflow.",
+      "risk": "Removing B1 can expose text in the next column or affect dependencies and row sizing.",
+      "source": {
+        "path": "excel-shrink-core/src/shared_strings_tests.rs",
+        "test": "detects_rich_text_shared_string_as_whitespace_only_when_all_runs_are_whitespace",
+        "kind": "regression test",
+        "sha256": "598255d416b776f7458bbe3ad96300a6181bd6771460b31aaf369c066058a3b4",
+        "line": 45,
+        "commit": "12bd0c861d3ad9e2b561fe73ac36acb512ffa6f5"
+      },
+      "note": "Optional profiles have separate reference, protection and layout guards. ASCII whitespace classification does not cover every Unicode representation.",
+      "bad": ""
+    },
+    {
+      "id": "24-metadata",
+      "title": "Metadata has its own predicates",
+      "width": "column",
+      "before": [
+        "<definedName name=\"Print_Area\"",
+        " localSheetId=\"0\">S!$A$1</definedName>",
+        "<definedName name=\"_xlnm.Print_Area\"",
+        " localSheetId=\"0\">S!$A$1</definedName>"
+      ],
+      "after": [
+        "<definedName name=\"_xlnm.Print_Area\"",
+        " localSheetId=\"0\">S!$A$1</definedName>"
+      ],
+      "guard": "Match a built-in alias and its prefixed counterpart in the same raw local scope. Keep names on different sheets distinct.",
+      "risk": "The current predicate does not compare formula bodies. This example must not imply general semantic equivalence.",
+      "source": {
+        "path": "excel-shrink-core/src/workbook.rs",
+        "test": "equivalent_alias_scope_is_independent_of_attribute_order_and_quotes",
+        "kind": "regression test",
+        "sha256": "61d6fec073a7a1f6064b81980029c187d621b066c9e6a492312ba6a55a6bdb8e",
+        "line": 221,
+        "commit": "582280043a56a0346cb891fb0b9bbf23b4a3a875"
+      },
+      "note": "Calculation-chain cleanup separately removes entries for removed cells only when sheet mappings resolve. Unaffected styles, shared strings and binary assets retain their indices and content.",
+      "bad": ""
+    },
+    {
+      "id": "25-border-width",
+      "title": "Column widths position repeated borders",
+      "width": "column",
+      "before": [
+        "<col min=\"8\" max=\"8\" width=\"4\"/>",
+        "<col min=\"9\" max=\"9\" width=\"20\"/>",
+        "<row r=\"2\" s=\"1\" customFormat=\"1\"/>"
+      ],
+      "after": [
+        "<col min=\"8\" max=\"8\" width=\"4\"/>",
+        "<col min=\"9\" max=\"9\" width=\"20\"/>",
+        "<row r=\"2\" s=\"1\" customFormat=\"1\"/>"
+      ],
+      "guard": "A surviving row border repeats at column boundaries. Preserve existing widths even at empty positions.",
+      "risk": "Merging the empty columns moves the repeated border boundaries.",
+      "source": {
+        "path": "excel-shrink-core/src/sheet/output.rs",
+        "test": "visible_row_borders_preserve_empty_column_widths",
+        "kind": "regression test",
+        "sha256": "31a7655cedb427d09519d8f1bd96526ecb1e5f4084bc99da679f93507a620390",
+        "line": 1489,
+        "commit": "15ef168002dd33125e0cabad7e5eda6f9385b45c"
+      },
+      "note": "This guard adds no cells and is propagated across parallel sheet chunks.",
+      "bad": ""
+    },
+    {
+      "id": "26-font-identity",
+      "title": "Compare font records, not just IDs",
+      "width": "column",
+      "before": [
+        "<c r=\"A1\" s=\"1\"><v>7</v></c>",
+        "<c r=\"B1\" s=\"1\"/>",
+        "<c r=\"C1\" s=\"1\"/>",
+        "<!-- column uses another font ID -->"
+      ],
+      "after": [
+        "<c r=\"A1\" s=\"1\"><v>7</v></c>",
+        "<c r=\"B1\" s=\"1\"/>"
+      ],
+      "guard": "Byte-identical font records share an internal identity. Retain the required representative without preserving duplicates merely for different font IDs.",
+      "risk": "Different font records retain their independent masks. Other XF components still matter.",
+      "source": {
+        "path": "excel-shrink-core/src/sheet/rows_regression_tests.rs",
+        "test": "removes_repeated_empty_cells_when_column_font_records_are_identical",
+        "kind": "regression test",
+        "sha256": "d9444af9392144abf552d808bcf73942c0975bdb8229a6f00d3c74ba25d5f363",
+        "line": 1393,
+        "commit": "3127ff5d2810706c82902ef54295d3ad4607955d"
+      },
+      "note": "Style and font indices in the package are not renumbered. No general visual-equivalence test is inferred.",
+      "bad": ""
+    },
+    {
+      "id": "27-eligibility",
+      "title": "Unsupported input is an exclusion",
+      "width": "column",
+      "before": [
+        "<worksheet xmlns:s=\"...\">",
+        " <s:sheetData>...</s:sheetData>",
+        "</worksheet>"
+      ],
+      "after": [
+        "<!-- Excluded with part and reason. -->",
+        "<!-- No cleaned workbook published. -->"
+      ],
+      "guard": "The fast parser targets unprefixed Transitional SpreadsheetML. Check bounded root headers, then namespace declarations during the normal stream.",
+      "risk": "An unsupported or malformed representation cannot be treated as empty and rewritten.",
+      "source": {
+        "path": "excel-shrink-cli/src/pipeline_namespace_tests.rs",
+        "test": "late_namespaces_abort_output_without_replacing_prior_results",
+        "kind": "regression test",
+        "sha256": "572b3c2b567f4dbdbc22a3369ebd64e12aea8c79580b36f64e5955e4434be6d6",
+        "line": 175,
+        "commit": "033885b28695a3e1b2574b9a8f8414311a4f87a9"
+      },
+      "note": "Ordinary default namespaces and drawing extension prefixes are allowed. Strict SpreadsheetML, UTF-16 and explicit core prefixes have separate exclusion guards. The namespace URI is abbreviated in the drawing.",
+      "bad": "",
+      "comparison": "decision"
+    },
+    {
+      "id": "28-calculation-chain",
+      "title": "Prune stale chain entries by sheet",
+      "width": "column",
+      "before": [
+        "<calcChain>",
+        " <c r=\"A1\" i=\"1\"/>",
+        " <c r=\"C1\" i=\"1\"/>",
+        " <c r=\"C1\" i=\"2\"/>",
+        "</calcChain>"
+      ],
+      "after": [
+        "<calcChain>",
+        " <c r=\"A1\" i=\"1\"/>",
+        " <c r=\"C1\" i=\"2\"/>",
+        "</calcChain>"
+      ],
+      "guard": "Only sheet 1 was processed and its C1 record was removed. Resolve chain sheet IDs through workbook relationships.",
+      "risk": "Do not delete a same-coordinate entry on an unprocessed sheet or when its mapping is unknown.",
+      "source": {
+        "path": "excel-shrink-cli/src/pipeline_regression_tests.rs",
+        "test": "calc_chain_removes_missing_cells_for_processed_sheet_only",
+        "kind": "regression test",
+        "sha256": "79e36843244bf57c0ea575b1b1fd8f48aee086de7fa2f90956898634defd897d",
+        "line": 1255,
+        "commit": "4d47a7e0aeb823583138449d3acd99bbd66ff9d1"
+      },
+      "note": "This is structural chain maintenance. Formula evaluation and replacement calculation caches remain Excel operations.",
+      "bad": ""
+    }
+  ]
+}
