@@ -10,7 +10,6 @@ corpus version. Legacy XLS conversion is reported separately from XLSX cleanup.
 A historical Enron development selection contains 20,872 inputs, with 20,503
 prepared artifacts and 369 unsuccessful preparation outcomes at its recorded
 preparation checkpoint. Its selected visual scope contains 16,799 workbooks.
-This run ended after the worker-pool investigation.
 These counts describe that development selection and do not establish completed
 visual coverage. The replacement EDRM Enron v2 XML handover contains 34,065 distinct
 content-addressed candidates totaling 8.470 decimal GB of uncompressed payload.
@@ -29,51 +28,6 @@ original identities. All processor baselines use those same identities. Earlier
 development observations outside this reduced cohort remain retained history.
 Availability of an optimized variant and completion of its visual comparison
 are reported separately.
-
-\subsection{Recovered chart-data workbooks}
-Recursive extraction also discovers Microsoft Graph OLE objects that Excel
-rejects as chart gallery files. An optional preparation stage embeds each object
-in a temporary PowerPoint presentation, requests native chart conversion, and
-extracts the generated XLSX data workbook. These derived chart-data workbooks
-form a separate population from the original Excel workbooks.
-
-A subsequent diagnostic run retained slide exports from ten additional
-conversions after a three-second rendering delay. Inspection revealed outputs
-with large black regions and fragmented chart geometry, including the example
-in Figure~\ref{fig:graph-conversion-artifact}. These observations motivate
-excluding Graph-derived workbooks from the main preservation evaluation pending
-source-to-output fidelity validation. The original objects remain available for
-inspection. The cause of the observed rendering remains unresolved because a
-verified rendering of the source object has not yet been established.
-
-\begin{figure}[t]
-\centering
-\includegraphics[width=\columnwidth,trim=36bp 204bp 510bp 24bp,clip]{figures/graph-conversion-artifact.png}
-\caption{PowerPoint rendering after converting an extracted legacy Microsoft
-Graph object. Large black regions obscure fragmented chart geometry. The image
-is a cropped native slide export produced three seconds after conversion with
-PowerPoint 16.0. Source rendering fidelity remains unverified.}
-\label{fig:graph-conversion-artifact}
-\end{figure}
-
-An exploratory checkpoint on November 10, 2026 included all 969 successful
-recoveries available at that point, without random sampling. SheetShrink's
-default policy left 884 packages byte-identical and changed worksheet XML in
-85 packages (8.8\%). The cleanup counters recorded 368 empty cells without
-content, 153 empty hidden cells, and 48 trailing layout-only rows removed.
-Aggregate worksheet XML decreased from 3,515,260 to 3,499,682 bytes. Compressed
-package size decreased from 8,831,892 to 8,671,550 bytes (1.82\%), which also
-reflects package recompression. Cell-value and formula payloads matched before
-and after cleanup in all 969 files, and all changed package parts were worksheets.
-Native visual equivalence has not been evaluated for this subset.
-
-This checkpoint establishes that native-generated chart-data workbooks can
-retain removable structure. It does not estimate its prevalence among failed,
-unconverted or remaining Graph objects. The modest aggregate reduction motivates
-keeping this recovery stage optional. Per-input identities, binary identity,
-configuration and measurements are retained in
-\path{evidence/graph-recovery-pilot-20261110.json} and the accompanying CSV.
-
 
 \begin{table}[t]
 \caption{Frozen XLSX source inventories. Sizes are decimal GB of listed workbook files and do not measure completed native coverage.}
@@ -148,19 +102,6 @@ have different cleanup decisions. A timing comparison must therefore include
 output differences and preservation outcomes for each version.
 
 \input{sections/comparator-performance}
-
-\subsection{Present verified evidence and remaining measurements}
-Focused implementation verification includes 292 passing Core library tests and
-one ignored benchmark at the recorded development revision. A separate exploratory
-comparison of an attribute-scan proposal found identical decompressed outputs on
-seven hash-matched review inputs, over two alternating-order repetitions. The two
-large cases showed essentially unchanged wall time. The proposal was not adopted.
-These observations establish a bounded engineering result and do not estimate
-corpus-wide speedup or visual correctness.
-
-\textit{Evaluation freeze pending.} Complete the full-corpus reduction,
-matched cleanup-plus-opening and independent-reference tables from frozen manifests.
-Development-run counters are not used to claim an absence of regressions.
 
 \subsection{Six-file cleanup stress panel}
 A separate stress panel selects six Destatis workbooks from a 100-file
@@ -257,45 +198,16 @@ observations on two other sheets remain in the report. Consequently this repeat
 supports the recorded image scope and the corrected exclusion, with those
 remaining observations explicitly retained~\cite{trailingrowvalidation}.
 
-\subsection{Check Performance preparation checkpoint}
-A completed Destatis preparation campaign attempted all 1,182 source inputs and
-retained 1,016 prepared outputs and 166 failures. Its raw failure reasons contain
-165 opening timeouts and one automation failure when setting Excel's Interactive
-property. These are preparation outcomes. Visual validation of the outputs and
-matched baseline cost measurements remain open.
-
-Recovery checks of the same 166 frozen failure inputs used an owned
-opening-dialog monitor. The first three inputs completed in 13.213 seconds and
-the remaining 163 in 442.761 seconds, each batch with two workers. The checks
-identified Name Conflict dialogs for all 165 former opening timeouts. The
-Interactive-property failure recurred. A separate known-positive input produced
-its prepared output in 8.114 seconds. Source-identity reconciliation accounts
-for every original failure, while conflicting-name contents remain unresolved.
-Worker count changed during the first campaign, so its aggregate elapsed time
-is observational. Original and recovery receipts remain separately versioned
-alongside the 1,016 successful preparation artifacts.
-
-A later eleven-input retry on the selected stress panel again produced only
-automation failures. One Enron workbook nevertheless completed Check Performance
-in the author's manual session. Its source SHA-256 matched the frozen input,
-and the saved output reduced serialized cells from 1,315,602 to 1,094,514.
-The automated pane had reported ``Something went wrong'' for the same input,
-including in a fresh Excel process. Subsequent visible GUI interaction recovered
-the other ten outputs, with unchanged frozen source hashes. Seven required no
-structural normalization. Two Enron inputs required Excel repair, and one
-Destatis input required resolution of a conflicting defined name. We retained
-repair-only baselines and classified these three separately. All thirteen saved
-output and baseline archives passed ZIP integrity checks. These checks establish
-artifact availability. Visual validation remains pending.
-
-Five recovered Enron cases succeeded with an ordinary worksheet selected. One
-first failed on a chart sheet, then succeeded after switching to a worksheet.
-This observation motivates a targeted automation control. It does not establish
-a general cause for every preparation failure. A Data.gov input also completed
-after a multi-minute suggestion scan, showing that an earlier timeout alone
-does not establish unsupported workbook contents. Interactive recovery costs
-remain separate from automated preparation measurements.
-
+\subsection{Preparation and recovered inputs}
+Eleven initially unsuccessful native preparation cases later completed through
+visible interaction. Eight used their frozen original inputs. Two required Excel
+repair and one required resolution of a conflicting defined name. Repair-only
+baselines identify these three separately. All thirteen retained output and
+baseline archives passed ZIP integrity checks, while visual validation remains
+pending. One input first failed on a chart sheet and succeeded after selecting
+a worksheet. Another completed after a multi-minute suggestion scan. These
+bounded recovery observations prevent attributing an automation failure to tool
+incapability. Interactive recovery costs remain separate from automated timings.
 
 \subsection{Validation cost of redundant background definitions}
 The Destatis workbook
@@ -320,8 +232,7 @@ existing per-row font representative, including fixed-height rows with content.
 A fresh output from the corrected cleaner matched the original over the
 independent \texttt{A1:L916} reference area. The corpus's conflicting legacy
 print-name aliases were explicitly normalized for opening, with separate hashes
-and preserved name definitions. The core regression suite passed 297 tests
-with one fixture-dependent test skipped.
+and preserved name definitions.
 
 \paragraph{Automatic height without an explicit font-application flag.}
 In \texttt{kulturfinanzbericht-}\allowbreak\texttt{gesamtmaterial-}\allowbreak\texttt{1023003229005.xlsx},
@@ -339,49 +250,20 @@ complete targeted comparison under capture policy version 15 completed all
 Historical findings remain retained with their original planning policy.
 
 
-\subsection{Repeated process measurements with historical Inquire observations}
-An additional experiment covers the 46 previously missing Inquire cases from
-the frozen top-49 selection. It includes 17 Data.gov, 28 Enron and one Destatis
-workbook. This missing-result subset is not a representative corpus sample.
-The recorded machine is an HP EliteBook 645 G11 with an AMD Ryzen 5 PRO 7535U,
-six physical cores, 12 logical processors, 32 GiB RAM and local NVMe storage.
-It runs 64-bit Windows 11 Enterprise 25H2. Excel Professional Plus 2024 has file
-version 16.0.17932.21056 and Inquire version 16.0.16626.20076.
+\subsection{Historical Inquire workflow observations}
+A separate 46-input subset fills missing historical Inquire observations from the
+same stress selection. All 46 repeated SheetShrink process measurements completed.
+The retained Inquire outcomes comprise 24 complete, three partial, 18 failed and
+one unsupported attempt. Its complete workflows include startup, opening, cleanup,
+saving and termination. They are compared descriptively with repeated SheetShrink
+process times and have different endpoints and repetition counts. Their median
+ratio is 13.38 over the 24 complete pairs. Partial and failed attempts receive no
+ratio. These measurements cannot isolate algorithm execution cost.
 
-SheetShrink commit \texttt{75e85035} was built in release mode for
-\texttt{x86\_64-pc-windows-gnu} and executed natively on Windows. The experiment
-uses 12 Rayon threads, 12 writer workers and one active workbook. Each workbook
-receives one warmup and seven measured process invocations. Four additional
-measurements are taken when the initial interquartile range exceeds 10\% of the
-median. One case meets this rule, giving 46 warmups and 326 measured trials.
-File order is deterministically shuffled between rounds. Inputs and outputs use
-a warm filesystem cache without forced cache flushing. Process timing includes
-startup and file I/O and excludes subsequent hashing, verification and database
-writes. The controller samples process resources at approximately 20 ms.
-
-All 46 SheetShrink cases completed. Per-file process-time medians range from
-0.399 to 28.218 seconds. Independently recomputing medians from the retained
-trial table reproduces the reported values. Each retained output's uncompressed
-member fingerprint agrees with its repeated trials and with the corresponding
-output from the current cleaner build. Visual validation remains a separate
-requirement.
-
-The historical Inquire observations were not repeated. They include 24 complete
-successes, three partial cleanups with warnings, 18 failed attempts and one
-explicitly unsupported outcome. An Inquire workflow time includes worker
-startup, copying and hashing, Excel opening, cleanup, saving, validation and
-process termination. For the 24 complete successes, the median across files of
-single Inquire workflow time divided by SheetShrink process-time median is
-13.38, with a range of 3.72 to 31.67. These are descriptive ratios with different
-measurement boundaries and repetition counts. They are not an isolated
-algorithm-speedup estimate. Partial or failed Inquire attempts receive no ratio.
-Inquire's approximately 250-ms sampled memory maxima also differ from
-SheetShrink's OS-reported lifetime peaks.
-
-Fifteen Inquire failures were dialog-appearance timeouts. Fourteen of these
-inputs store a chart sheet as their active tab, and the supplied harness does
-not activate a worksheet before invoking cleanup. These observations leave an
-invocation hypothesis unresolved. The timeouts do not establish that Inquire
-cannot clean the workbooks. Two other attempts failed during opening,
-and one unexpectedly opened read-only. The original attempts and errors remain
-part of the evidence.
+\subsection{Evidence boundary}
+The selected controls demonstrate concrete preservation conditions and recorded
+failures. They do not estimate corpus-wide defect prevalence. Final corpus
+reduction, matched cleanup-plus-opening cost and independent-reference coverage
+remain open. Detailed development attempts, input hashes, native images and
+producer versions remain in the source-linked artifact. The main comparison
+separates those receipts from the reported completed observations.

@@ -1,292 +1,186 @@
-\subsection{Package-level analysis}
-Figure~\ref{fig:cleanup-algorithm} summarizes the logical stages. Each line
-denotes a guarded operation whose preservation conditions are detailed below.
+\subsection{Representation and analysis stages}
+Figure~\ref{fig:cleanup-algorithm} summarizes the cleanup pipeline. The input is
+an XLSX ZIP package. The output retains its workbook structure and cell
+coordinates while removing records admitted by the preservation policy.
+Package metadata supplies style components, shared strings, relationships,
+merged regions and dependency sources. These contexts are prepared before
+cell-local decisions, so an index or an empty payload is never sufficient by
+itself to establish redundancy.
 \input{figures/cleanup-algorithm}
 
-An XLSX file contains related ZIP members. SheetShrink first checks the supported
-serialization and reads the metadata needed to interpret worksheet decisions.
-The production parser targets unprefixed Transitional SpreadsheetML in its normal
-default namespace. Explicit prefixes on core cell structures, unsupported
-encodings and ambiguous representations can exclude an input. Exclusion retains
-a reason and does not establish that the workbook lacks redundant data.
+Worksheet analysis consumes decompressed byte buffers without constructing an
+XML object for every cell. A state machine separates worksheet headers, column
+records, sheet data, merge information and the remaining suffix. In cell and
+row regions, bounded tag and attribute readers track hierarchy and quoting.
+Thus text resembling a coordinate inside a quoted metadata value cannot become
+a cell address. Small overlap state recognizes markers spanning input-buffer
+boundaries. Parsed metadata is retained only where later decisions require it.
+Names, references and other interpreted values can still require decoding.
+The implementation does not assume that arbitrary worksheet text is ASCII.
 
-The analysis resolves cell styles, shared strings, merged regions and dependency
-sources before applying the relevant removal rules. Worksheet cells are processed
-as byte ranges. This avoids constructing a document object model for every cell.
-It still requires correct recognition of attributes, hierarchy and relevant
-namespace boundaries. Unsupported syntax follows the documented fallback or
-eligibility path. Byte-oriented execution is an implementation strategy and does
-not itself prove semantic preservation.
+This organization reduces per-record allocation, but does not imply constant
+memory in worksheet size. The current implementation retains the sheet-data
+bytes, contexts and candidate metrics needed by subsequent passes. Decompression,
+rewriting, compression and retained analysis structures all contribute to peak
+memory. The supported input domain is normal unprefixed Transitional
+SpreadsheetML. Unsupported namespaces, encodings and ambiguous core structures
+follow explicit preservation or exclusion paths~\cite{sheetshrinkcontract}.
 
-\subsection{Classify effects before removing records}
-A value, formula or inline-string payload is content. Numeric zero and shared
-formula followers require explicit treatment. For a candidate empty cell, the
-cleaner considers explicit formatting together with its row and column context.
-An apparently default style can cancel a visible inherited format. Removing it
-would expose that format, so the effective effect matters.
+\subsection{Effects and compact preservation witnesses}
+A numeric value, formula or inline string is content. In particular, zero and a
+shared-formula follower with no independent formula text remain content.
+An empty cell is classified by its effective formatting in the cell, row and
+column context. An explicit no-fill or borderless style can suppress a visible
+inherited effect. It remains necessary whenever deletion would expose that
+effect. Conversely, an explicit no-fill with nothing to clear can be redundant.
+Style components and application flags are therefore interpreted together.
 
-A font can affect automatic row height without producing visible text. The
-cleaner therefore retains font representatives in its production mode. Where guards
-permit, an existing row style can replace repeated per-cell representations.
-This promotion must preserve other inherited components, gaps and merged cells.
-Dominance decisions include otherwise unsuitable styles, and ties have a fixed
-ordering. Ignoring an unsuitable majority would change the algorithm rather than
-merely accelerate it.
-
-Whitespace cleanup is disabled in the production cleanup policy. A neighbour's
-text overflow and row sizing can depend on such values. Hidden constant-tail
-cleanup is separately guarded by references and layout conditions. Ordinary
-nonempty hidden tables remain outside that admitted tail policy. Protection and
-dependency decisions take precedence over a requested deletion.
-
-\subsection{Preservation structures at empty coordinates}
-The retained regression cases distinguish empty payloads from absent visual
-effects~\cite{sheetshrinkcontract}. A default-format cell can mask a filled
-row or column. A font-only cell can determine automatic row height, including
-when a protection attribute accompanies the font. Merged text can require a
-local font representative even when no separate apply-font flag is present.
-These cases require resolving inheritance before classifying removable cells.
-Figure~\ref{fig:font-witness-native} pairs a reduced XML example with a native
-Excel control. Retaining one font witness preserves the observed row height.
-Removing both changes the position of later visible content. The control is
-constructed independently of the corpus case and isolates this local effect.
+Automatic row height introduces a different dependency. An empty cell's font
+can determine row height and move later content. SheetShrink retains a required
+font representative instead of every repeated occurrence. Equivalent font
+records can share an identity even when their style indices differ. Selection
+also respects local column-font masks and merged spans. A witness elsewhere in
+the row does not automatically replace a required local mask.
+Figure~\ref{fig:font-witness-native} isolates the mechanism in a constructed
+native Excel control. One witness preserves the observed height. Removing both
+moves the next visible row.
 \input{figures/xml-methods/font-witness}
 
-Preservation can also depend on several coordinates together. Center-across-
-selection formatting requires the contiguous blank span following its content
-cell. Keeping only the last blank loses the intended span. Row-level borders
-can require widths at empty column boundaries. A chart's linked number format
-can depend on the first, empty series cell. The guards therefore preserve
-specific layout and dependency anchors beyond the nonempty-cell envelope.
-Figure~\ref{fig:fill-override-native} shows a retained Enron counterexample.
-The smaller Check Performance artifact exposes a different inherited fill.
-This observation concerns the pictured rebuilt region, with the historical
-producer identities retained alongside the captures.
+A fixed height eliminates this automatic-height effect, but an empty font-bearing
+cell can still affect the text baseline in a row containing text. The cleaner
+therefore distinguishes an empty fixed-height row from a fixed-height text row.
+Protection metadata does not erase a required font contribution. Protection
+formats inside the retained data extent also preserve interaction semantics,
+while separately guarded exterior tails can be removed.
+
+Other witnesses preserve relationships between coordinates. Center-across-selection
+requires the contiguous blank span following the text cell. A borderless row can
+mask column borders, and an empty height-bearing row can determine their vertical
+extent. Column widths remain necessary when they support visible row borders.
+A chart can inherit a number format from an empty first series cell. These
+structures extend the preservation problem beyond the last nonempty value.
+Figure~\ref{fig:fill-override-native} shows an Enron counterexample in which
+Check Performance's smaller output exposes a different inherited fill. The
+observation concerns the pictured rebuilt region.
 \input{figures/xml-methods/fill-override}
 
-The hidden constant-tail rule admits only a dense horizontal sequence of at
-least 4,096 identical signed-integer cells, hidden and ending at column XFD,
-subject to reference and layout guards. Gaps, formulas, text and vertical runs
-remain outside this rule. The threshold identifies an admitted structural case;
-it does not establish that arbitrary repeated data are unintended.
-
-\subsection{Wanderungen as a motivating stress case}
-\label{sec:wanderungen}
-The 21 zero-filled tails occupy rows 11--30 and 32 in \texttt{Tabelle 3.4}
-(the stored sheet name has a trailing space). Each L:XFD suffix contains
-$16{,}384-12+1=16{,}373$ zero-valued cells. Inspection of the source ZIP member
-\texttt{sheet31.xml} confirms all 343,833 records. Figure~\ref{fig:wanderungen}
-reduces one such row for readability. The source hash and per-row counts are
-retained with the figure evidence.
-\input{figures/xml-methods/wanderungen}
-
-The detector observes source cells during the existing row traversal, before
-format cleanup. Its common zero path compares the value bytes directly with
-\texttt{0}. Gaps, formulas, unsupported numeric forms and differing values reject
-a candidate band. A fully eligible suffix becomes one row span for later
-reference filtering. This avoids a workbook-wide map entry for every admitted
-zero, although temporary row-local candidates still exist. Any known reference
-into the span protects the entire span.
-
-The retained cleanup investigation reports 376,573 removed zeros across two
-worksheets, including 32,740 in \texttt{Tabelle 2.1.1}. It also records 243
-nonzero values that survive, including \texttt{A65536=3} and the mixed numbers
-in \texttt{Tabelle 3.3}. A separate 237-zero tail in \texttt{Tabelle 2.8}
-remains below the admission threshold. The regression suite pairs the admitted
-full-width zero case with these preservation controls~\cite{hiddentailcase}.
-
-An earlier broader hidden-data policy removed mixed hidden tables. Its tighter
-successor reduced the historical whole-file size reduction to 90.8359\%, and
-the smoke threshold was lowered from 91\% to 90\% to reflect the preserved
-values. This is an intentional policy correction. Zero-valued cells remain
-content, and a deliberately constructed constant full-width matrix could also
-satisfy the structural heuristic. The presentation case demonstrates substantial
-removable repetition under the declared contract, while the retained exceptions
-expose its boundary.
-
-\subsection{Guarded row representation}
-Promotion replaces repeated cell formatting with an existing row style only
-after checking the row and its gaps. The row must be visible, unprotected and
-without an existing row format. The current implementation additionally requires
-both a stored height and an enabled \texttt{customHeight} flag. An automatic row
-can change height after promotion even when its cells originally share the
-proposed font. A stored \texttt{ht} value by itself does not authorize promotion.
-The implementation checks these parsed attributes before the promotion scan,
-so the additional guard requires no native layout measurement~\cite{rowpromotionfix}.
-
-The dominant empty-cell style must occur at least twice. The dense route requires
-at least 1,024 occurrences. A bounded-gap route admits at most 64 missing columns
-and restores required original formats only when the inheritance checks permit.
-Sparse promotion requires equivalent inheritance at every absent position and
-excludes merged sparse rows.
-Figure~\ref{fig:row-style-promotion} shows the compact full-width representation.
-Style-count ties select the smaller existing style
-index. These thresholds choose a compact representation within the preservation
-conditions. They do not establish that arbitrary repeated values are redundant.
+\subsection{Guarded promotion and tail pruning}
+A second compaction replaces repeated cell styles with an existing row format.
+The row must be visible, unprotected and without an existing row style. Both a
+stored height and an enabled \texttt{customHeight} flag are required. A stored
+\texttt{ht} alone does not freeze automatic sizing. Content cells, merged cells,
+missing positions and inherited column formats must remain compatible with the
+proposed row format. Figure~\ref{fig:row-style-promotion} illustrates the full-width
+case~\cite{rowpromotionfix}.
 \input{figures/xml-methods/row-style-promotion}
 
-Automatic rows retain the ordinary representative rules. A column font can
-contribute to their height even when its cells contain no text. Representative
-selection must account for the inherited font identities that would disappear
-with deleted cells. An explicit default-style blank may also be the only barrier
-to a visible column fill or border. Retaining one required font witness does not
-authorize deleting a different cell that masks such inherited formatting.
+The dominant empty-cell style occurs at least twice. Selection counts unsuitable
+styles too, then applies eligibility checks. Otherwise an eligible minority
+could incorrectly replace an unsuitable majority. Ties choose the smaller
+existing style index. Dense promotion requires at least 1,024 occurrences.
+A bounded-gap route admits at most 64 missing columns and restores required
+original formats only under its inheritance checks. Sparse promotion requires
+equivalent inheritance at every absent position and excludes merged sparse rows.
+Uniform-fill promotion additionally checks content-cell fills. Unknown metadata
+or style identities prevent promotion and retain the ordinary cleanup path.
 
-\subsection{Fixed height and local font witnesses}
-A fixed row height removes one reason to retain an empty font-bearing cell,
-but it does not eliminate all font effects. In a row containing text, the font
-of an empty cell can affect the text baseline even when the outer row height
-remains unchanged. The regression behind Figure~\ref{fig:fixed-baseline}
-uses a nine-point fixed row in a university statistics workbook. Its retained
-blank is a local baseline witness. An empty fixed-height row has no such text
-baseline, so a font-only blank can be removed when the other guards permit.
-This distinction prevents a height-only predicate from erasing a text-layout
-constraint.
-\input{figures/xml-methods/fixed-baseline}
+Tail pruning removes formatting-only structure beyond retained content and
+layout anchors. Font-only blanks after the last relevant anchor need not preserve
+the position of nonexistent later content. Visible fills, borders, conditional
+regions and drawing anchors can still extend that boundary. A white row fill is
+redundant only when compatible column fills cover every column through XFD.
+An uncovered column breaks that argument. Compatible extraneous column ranges
+can be coalesced, but local overrides and border-supporting geometry remain.
 
-A representative elsewhere in the row is insufficient when column inheritance
-creates a local gap. For example, two blank cells masking a column font can both
-be necessary even if a third cell already represents another font. The decision
-compares the effective styles at those coordinates. It does not infer local
-coverage from a row-wide set of font identifiers alone.
+\subsection{Hidden content and the Wanderungen case}
+\label{sec:wanderungen}
+Ordinary hidden nonempty tables remain intact. The separate constant-tail policy
+admits only a dense horizontal suffix of at least 4,096 identical signed integers,
+hidden and ending at XFD, subject to cell-level layout and dependency guards.
+Gaps, formulas, text, differing values and unsupported numeric forms reject the
+band. Source cells contribute before style cleanup. The common zero path compares
+value bytes directly, while one admitted row span replaces per-cell entries in
+the later reference map. Temporary row-local candidates still exist.
 
-\subsection{Promotion and complete inheritance coverage}
-Sparse promotion can reuse an existing font-equivalent style without moving
-unrelated rich cell formatting onto the row. Its gap checks therefore differ
-from simply counting repeated styles. Dense uniform-fill promotion also checks
-the content cells. Moving a fill onto the row would otherwise recolor a content
-cell whose original fill differs. Merged cells retain their required records.
-Figure~\ref{fig:uniform-fill} illustrates the admitted case with matching content
-fill and retained merged coordinates.
-\input{figures/xml-methods/uniform-fill}
+The motivating migration workbook contains 21 such zero tails in
+\texttt{Tabelle 3.4}: rows 11--30 and 32, from L through XFD. Each contains
+16,373 zeros, totaling 343,833. Source ZIP inspection confirms these counts and
+retains the source hash. The historical cleanup investigation records 376,573
+removed zeros across two worksheets, alongside 243 preserved nonzero values and
+a retained short 237-zero tail~\cite{hiddentailcase}. The full abbreviated XML
+example is included in the companion atlas. These are content removals under an
+explicit structural policy. A deliberate constant full-width matrix can meet
+the same heuristic, so repetition alone does not establish user intent.
 
-The count used to select a dominant style includes styles that subsequently
-fail the promotion guards. Filtering those styles before counting would allow
-an eligible minority to win and silently change the decision. A fixed tie-break
-on existing style indices makes selection deterministic. Unknown style indices,
-unsupported cell metadata and ambiguous attributes reject promotion and leave
-the ordinary cleanup path responsible for the row.
+\subsection{Workbook dependencies and deferred rewriting}
+Reference-sensitive candidates remain pending until workbook-level analysis has
+seen supported formulas, names, chart and object formulas, and pivot dependencies.
+A formula on a later worksheet can otherwise refer to content already removed.
+References resolve through workbook relationships and sheet scope. Shared-formula
+followers move relative axes while retaining absolute axes. The implementation
+protects enclosing source rectangles without expanding each follower cell.
+Dynamic addressing, unresolved scope and unsupported expressions prevent the
+required deletion argument~\cite{sheetshrinkcurrentcontract}.
 
-Redundant tail fills require complete column coverage. A white row fill can be
-redundant when every column through XFD already supplies the same fill. A gap
-of even one column breaks that argument. Column-tail coalescing likewise checks
-coverage and compatible effective formatting. Width differences beyond the
-retained content envelope can be irrelevant, while widths supporting visible
-row borders remain layout constraints. These are separate checks rather than a
-general rule that empty columns have no effect.
+A known reference intersecting an admitted hidden span protects the entire span.
+Only admitted candidates reach rewriting. Removing a payload need not remove its
+format if that format still masks an inherited effect. After deferred changes,
+affected rows lose their stale tail anchors and pass through cleanup again.
+Otherwise records retained solely because of the removed anchor would survive
+incorrectly. Whitespace removal is disabled in Default because whitespace can
+control text overflow and row layout.
 
-\subsection{Protection beyond the content envelope}
-Worksheet protection changes the meaning of an otherwise empty coordinate.
-An unlocked or hidden-formula format can define an intended interaction region.
-The cleanup bounds distinguish the occupied data extent from a visually empty
-tail. Figure~\ref{fig:protection-range} shows an empty protected coordinate inside
-the retained extent and a removable counterpart outside it. Keeping every
-protection-bearing blank would preserve large accidental tails. Removing every
-such blank would discard the interaction boundary inside the sheet.
-\input{figures/xml-methods/protection-range}
+Package metadata has separate predicates. Calculation-chain cleanup resolves
+removed cells by sheet identity and preserves unresolved mappings. The cleaner
+does not evaluate formulas or manufacture replacement caches. Built-in alias
+cleanup currently matches name and local scope without proving equality of the
+two formula bodies. This is a specific limitation of that policy.
 
-\subsection{Deferred decisions and dependency scope}
-Reference-sensitive deletion occurs after candidate discovery. Otherwise a
-formula on a later worksheet could refer to a value already removed. Admitted
-hidden tails are stored as row spans, filtered against the protected references,
-and rewritten through the existing cleanup path. An intersecting known reference
-retains the entire span. This avoids materializing each candidate coordinate in
-a separate set and requires no additional traversal to rediscover the cells.
+\subsection{Parallel work and output ownership}
+Workbook, worksheet and row-chunk work share the cleanup execution budget.
+A permit limits active workbooks and remains held through output finalization.
+Workers can process other workbooks while one long worksheet remains active.
+Large worksheets expose row-aligned chunks to Rayon, allowing idle workers to
+help without splitting a row's font, promotion or tail decisions.
+The chunk planner estimates byte-sized work, then adjusts boundaries to complete
+rows. Small ranges use the serial path. Each chunk receives isolated metrics,
+and results are assembled in source order.
 
-Reference protection includes supported formulas, names, chart and object
-formulas, and pivot dependencies. Shared-formula references move with relative
-axes while absolute axes remain fixed. The implementation can protect enclosing
-rectangles without expanding every follower. Conflicting anchors, unresolved
-scope, dynamic references and unsupported syntax prevent a deletion proof.
-Functions such as \texttt{INDIRECT} and \texttt{OFFSET} therefore require
-conservative handling~\cite{sheetshrinkcurrentcontract}.
+Ready chunks participate in admission decisions for new worksheets. A smaller
+sheet can yield admission while larger chunk work is pending. This priority is
+an implementation policy over the common work-stealing pool, not a distinct
+semantic rule. Batches retain only a bounded number of chunk results while the
+assembled output grows. Workbook contexts, the output buffer and deferred
+candidates remain additional memory consumers. Thread count, active-workbook
+count and writer count are separate experimental parameters.
 
-Figure~\ref{fig:absolute-axes} makes the shared-formula distinction explicit.
-The relative row or column expands with the follower range, while a fixed axis
-remains fixed. Sheet scope is equally important. An unqualified reference on
-another sheet does not protect the same coordinates on the candidate sheet.
-Chart source ranges and pivot source or output regions are resolved in their
-own scopes. Unresolved structured references and dynamic addressing prevent a
-safe negative reference result.
-\input{figures/xml-methods/absolute-axes}
+Changed worksheet members are precompressed in parallel and handed to a workbook
+writer. The writer owns ZIP mutation and publishes a completed partial output
+only after processing succeeds. Unaffected members can reuse compressed bytes.
+If all entries are original, the source workbook is copied byte for byte.
+A fast unchanged-entry classification can use CRC32 and uncompressed length.
+That shortcut is collision-prone, and exact byte verification is available.
+Preservation and timing experiments must record which identity policy was used.
+Cryptographic evidence reuse is a separate validation mechanism.
 
-Candidate deletion and format deletion are separate operations. A diagnostic
-whitespace candidate can lose its value while retaining a fill that masks an
-inherited format. Figure~\ref{fig:value-and-format} shows this phase-level test.
-Whitespace removal remains disabled in Default. The example documents the
-rewrite contract for an admitted candidate rather than broadening production
-eligibility.
-\input{figures/xml-methods/value-and-format}
+The method retains existing style and shared-string indices rather than globally
+renumbering their tables. This avoids unrelated rewrites and permits copy-through
+of unaffected members. It also leaves reductions requiring native save or global
+table compaction outside the cleanup subject. Work events retain the relation
+between workbook, worksheet and chunk jobs for diagnosis and replay. The UI is
+an observation tool, not evidence that unobserved regions are unchanged.
 
-After deferred deletion, affected rows are reconsidered because their earlier
-tail anchors may be stale. Row headers and column boundaries can still carry
-visible effects. In particular, an explicit borderless row can suppress column
-borders. A visible empty row with a stored height can determine the vertical
-extent of those borders. Preserving the row header is sufficient in these cases;
-the cleaner need not generate a full row of explicit cells.
+\subsection{Native validation and artifact scope}
+DeltaSieve compares selected potentially affected regions after native rebuilding
+of separate original and transformed copies~\cite{deltasievecompanion}.
+Save-only controls distinguish Excel serialization from the cleanup operation.
+Independent reference plans and visible mutations evaluate the selector separately.
+Agreement of selected images alone cannot establish whole-workbook preservation.
 
-The second cleanup of affected rows is consequential. An earlier candidate
-may have served as the last content anchor. Once it disappears, blanks retained
-solely because of that anchor can become removable. Reusing the stale bound
-would retain a tail that the final row no longer needs. The deferred regression
-checks this transition separately from initial candidate admission.
-
-A trailing run of empty hidden rows can retain its final boundary while dropping
-intermediate records. The same rewrite is unsafe before later visible content,
-where row removal would alter placement. This policy preserves the admitted
-layout boundary and does not promise to preserve every exterior blank-grid
-observation.
-
-\subsection{Package metadata and failure boundaries}
-Workbook metadata cleanup has separate predicates. Built-in name aliases are
-matched by name and local sheet scope when a corresponding prefixed name exists.
-The current predicate does not establish equality of the two formula bodies.
-This remains a specific limitation of that metadata policy. Calculation-chain
-cleanup resolves removed cells through workbook relationships and retains
-unresolved mappings. The cleaner does not compute replacement formula caches.
-
-\subsection{Execution and output}
-The implementation distributes worksheet work and can subdivide large work.
-Scheduling and chunk size must preserve cleanup decisions. Row-aligned chunk
-boundaries retain the context needed by row-local decisions. Attribute scanning
-also respects quoted values. Text resembling \texttt{r="Z99"} inside a metadata
-attribute must not be mistaken for the cell coordinate. These parser invariants
-are independent of whether the corresponding cell is ultimately removable. Workbook-level
-concurrency also determines how many decompression buffers, analysis contexts
-and pending outputs coexist. Consequently, throughput experiments include mixed
-workbook sizes and single-sheet workbooks, alongside large multi-sheet inputs.
-
-The writer copies unaffected package members and can reuse compressed entries
-where supported. It does not generally renumber style or shared-string tables.
-The output writer must preserve input bytes and existing outputs on a rejected
-operation. A partially processed package is not published as a successful cleanup.
-These invariants are checked separately from compressed file size.
-
-\subsection{Native validation}
-The companion DeltaSieve manuscript describes the selection and capture
-methodology~\cite{deltasievecompanion}. Its working PDF is included in the
-supplementary material at \url{related-manuscripts/deltasieve.pdf}.
-We use native Excel rendering to investigate selected potentially affected
-regions. Original and cleaned copies are rebuilt in the same renderer environment.
-A separate validation methodology identifies value, effective-style, layout and
-dependency candidates. Its selection scope and failure accounting are part of
-the reported evidence. Independent reference samples and injected changes are
-required to evaluate that selector. Equality of its selected images alone cannot
-establish equality of every possible spreadsheet observation.
-
-The companion figure atlas, \url{figures/xml-methods/xml-cleanup-atlas.pdf},
-provides 50 abbreviated source/result examples, negative cases and a pinned
-source index. Its code is drawn at 8.2 points for a 252-point column. XML
-wrappers, irrelevant attributes and repeated payloads are omitted. Style
-indices are local to each example. Schematic effects are labeled separately
-from native Excel captures.
-
-
-The coverage index accounts for all ten declared cleanup causes. This includes
-the disabled self-closing-cell preprocessing path and the currently inactive
-row-attribute cleanup helper. Their presence in an enumeration does not imply
-an active Default reduction. The atlas groups the 50 examples into seven rule
-families and labels internal candidate fixtures and optional policies. This
-coverage is an audit of the principal implemented decisions, with focused
-regression evidence. It is not an exhaustive proof over combinations of Excel
-features.
+The companion atlas provides 50 abbreviated source/result examples, negative
+cases and pinned implementation anchors at
+\url{figures/xml-methods/xml-cleanup-atlas.pdf}. It includes the Wanderungen XML
+and the fixed-height, protection and dependency cases summarized above. The
+examples omit irrelevant wrappers and repeated cells, with local style indices.
+Native controls are distinguished from schematic illustrations. Disabled optional
+paths and the inactive row-attribute helper are identified in its coverage index.
