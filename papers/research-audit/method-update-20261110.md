@@ -29,3 +29,11 @@ The troubleshooting inventory remains partial because issue coverage and the
 full reconciliation of branch-only experiments remain unverified. Recent method
 changes are covered by this checkpoint. The next writing pass still requires
 matched cost results, final corpus outcomes and evaluation denominators.
+
+## Integrated remote checkpoint
+
+Origin commit 54568c1 adds the recovered Graph chart-data population and its
+retained 969-file pilot. All thirteen local commits were rebased onto it without
+conflicts or merge commits. Rebuilt drafts contain eight SheetShrink pages and
+nine DeltaSieve pages including references, with resolved references and no
+overfull boxes. Companion copies and all source/PDF hashes were refreshed.
