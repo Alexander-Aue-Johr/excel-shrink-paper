@@ -48,6 +48,27 @@ initial output verification. SheetShrink's interval is CLI process lifetime.
 These boundaries and different cleanup policies must accompany interpretation.
 Visual validation is a separate eligibility result.
 
+`import_xlstyles.py` reads the earlier conversion database in read-only mode.
+It requires the first conversion attempt to contain both native confirmation
+and a per-attempt resource receipt. Hash-matched outputs pass a protected-part
+audit before entering the figure. The retained Top49 lane contributes 122 files.
+The other 25 files remain excluded from timing because their complete primary
+receipts are unavailable. Legacy resources stored only on the mutable job row
+are insufficient for this import.
+
+```powershell
+python import_xlstyles.py --database destatis.sqlite --selection selection.json --host-id LAPTOP-H86KBIH3 --output XLStylesTool-Top49-paired-receipts.json
+python export_pairs.py --sheetshrink experiment/SheetShrink-Top49-Medians.json --trials experiment/trials.jsonl --comparator XLStylesTool-Top49-paired-receipts.json --output top49-xlstyles-pairs.csv
+python plot_workflow_comparison.py --pairs paired-cleanup-workflows.csv top49-xlstyles-pairs.csv --common-inputs --output paired-cleanup-workflows.pdf
+```
+
+Tool names appear directly in the legend and beside every corpus group. Colors
+and marker shapes identify NXPowerLite, XLStylesTool and SheetShrink. The joint
+figure uses `--common-inputs`, retaining 110 shared originals across the three
+tools, with 21 Destatis, 41 Enron and 48 Data.gov workbooks. The larger individual
+receipt sets remain available. The same repeated SheetShrink baseline is paired
+with both external tools for each shared input.
+
 For Check Performance, Inquire and XLStylesTool on other hosts, generate a paired
 CSV with the same columns and match a SheetShrink baseline measured on that
 host. Pass multiple CSV paths after `--pairs`. Each plotted group retains the

@@ -39,7 +39,7 @@ def pair_observations(repeated, comparator):
             raise ValueError("A successful retry cannot replace the primary timing observation")
         resources = json.loads(primary["evidence"])["resources"]
         pairs.append({"host_id": repeated["protocol"]["host_id"],
-                      "comparator": "NXPowerLite", "corpus": row["corpus"], "rank": row["rank"],
+                      "comparator": comparator.get("tool_label", "NXPowerLite"), "corpus": row["corpus"], "rank": row["rank"],
                       "file": row["file"], "input_sha256": row["input_sha"],
                       "comparator_seconds": resources["wall_seconds"],
                       "sheetshrink_seconds": match["median_seconds"],
