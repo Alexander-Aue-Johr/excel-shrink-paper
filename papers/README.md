@@ -8,7 +8,11 @@ wording do not constrain these drafts.
 
 ## Build on this machine
 
-Keep generated PDFs and auxiliary files outside the source tree.
+Build PDFs and auxiliary files in an external build directory. After a successful
+build, copy the current manuscript PDF to `papers/sheetshrink/main.pdf` or
+`papers/deltasieve/main.pdf`. Commit and push the updated PDF with manuscript
+changes so the repository contains a readable version of each current draft.
+Auxiliary build files remain outside the source tree.
 
 ```powershell
 $project = 'V:\excel-shrink-paper\papers\sheetshrink'
