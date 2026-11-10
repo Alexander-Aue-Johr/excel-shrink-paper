@@ -496,3 +496,23 @@ baseline issue for that case. Controlled recovery copies preserve worksheet,
 style, shared-string and drawing parts byte-for-byte and require native rebuild
 before visual comparison. Their identifiers and changed package members are
 retained explicitly.
+
+
+\subsection{Observe post-capture comparison progress}
+The Data.gov workbook \texttt{38hospitaldata\_5d43543005e1.xlsx} reached all
+3,546 captures in both rebuilt lanes before an earlier attempt exceeded its
+120-second idle deadline during image comparison. The full interrupted attempt
+lasted 1,645.739 seconds. Its original rebuilt lane recorded 1,349.828 seconds
+in capture phases. The comparison phase lacked per-image work notifications.
+The correction marks that phase active and advances verified progress after each
+completed image-pair verdict. The interrupted attempt has no completed visual
+verdict. The failure-retention change was separately exercised through the
+normal runner on a known native opening failure. Its failed record retained a
+working-evidence directory and the native blocking-dialog receipt, while the
+existing partial-report test confirmed that incomplete observations cannot be
+reused as completed comparisons.
+
+The current study cohort freezes the 100 whole workbooks with greatest absolute
+compressed-file byte reduction in each of Destatis, Data.gov and Enron. This is
+a stress selection of 300 workbook identities. The cohort uses workbook-level
+ranking. Individual worksheet reductions do not select additional inputs.

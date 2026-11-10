@@ -246,3 +246,12 @@ zero-area counterpart is classified as an empty extent only when every retained
 pixel on the other side is opaque white. This classification uses no pixel
 tolerance or image registration. The explicit plan and original observations
 remain available for review.
+
+
+Each completed worksheet image comparison advances verified work progress after
+its pixel verdict is available. The comparison phase is marked active before
+that loop begins. This extends the same finite-work watchdog semantics through
+image decoding and pixel comparison. If an attempt fails, its remaining working
+evidence is moved alongside the failure logs. A record links this directory,
+including captures that were produced before a final comparison report existed.
+Incomplete evidence remains ineligible for completed-result reuse.
