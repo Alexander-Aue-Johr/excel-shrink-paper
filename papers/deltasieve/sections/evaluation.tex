@@ -519,6 +519,13 @@ seconds for image comparison. The latter exceeds the earlier 120-second idle
 deadline even though comparison work was advancing. This repeat establishes
 successful completion of the selected plan and quantifies the remaining image
 processing cost. It does not claim that the entire capture plan is minimal.
+The rebuilt input also has a genuinely broad serialized value footprint.
+\texttt{Cost Allocation Data} contains 402,582 cells with value elements through
+column 4,315, and \texttt{Financial and Utilization Data} contains 1,263,626
+through column 12,816. Both extend through row 452 and contain no cell formulas.
+These counts describe serialized values, including any stored empty strings.
+They distinguish this wide-table cost case from a plan expanded solely into an
+empty full-grid background. Safe further selection reduction remains open.
 
 The current study cohort freezes the 100 whole workbooks with greatest absolute
 compressed-file byte reduction in each of Destatis, Data.gov and Enron. This is
