@@ -315,3 +315,28 @@ inspection and replay without becoming a source of visual truth. Detailed
 transport schemas, UI controls, experiment launchers and historical failed
 attempts belong to the versioned artifact. They do not change the selection
 or pixel-observation contract described here.
+
+
+\subsection{Machine-Accessible Campaign Monitoring}
+The source inventories described in Section IV motivate monitoring across
+long-running campaigns. They contain 34,065 content-addressed Enron table
+candidates, 9,117 Data.gov XLSX files and 1,182 Destatis XLSX files. Candidate
+inventory size, successful preparation and completed comparison coverage remain
+separate quantities.
+
+The control room exposes a local HTTP/JSON interface for compact run summaries,
+worker and workbook state, comparison reports and retained evidence. Bounded
+summaries preserve active attempts while limiting completed-item detail. Run
+and attempt identities prevent observations from earlier executions from being
+reported as current work. Process liveness, heartbeats and the time of last
+verified progress are represented separately, allowing an external monitor to
+distinguish a reachable process from a progressing attempt. A WebSocket stream
+provides bounded snapshots and incremental status updates for live clients.
+
+These interfaces supported local agent workflows during overnight runs.
+Agents could inspect stalled attempts and record suspected visual differences
+for subsequent author review. Capture receipts, pixel comparisons and retained
+images supply the validation evidence. Agent annotations do not establish
+visual equality or convert incomplete coverage into a completed result.
+Explicit control requests and command-status queries support intervention
+without requiring an agent to infer state from the rendered dashboard.
