@@ -516,3 +516,15 @@ The current study cohort freezes the 100 whole workbooks with greatest absolute
 compressed-file byte reduction in each of Destatis, Data.gov and Enron. This is
 a stress selection of 300 workbook identities. The cohort uses workbook-level
 ranking. Individual worksheet reductions do not select additional inputs.
+
+\subsection{Finite conditional formatting within a repeating background}
+In \texttt{kulturfinanzbericht-gesamtmaterial-1023003229005.xlsx}, worksheet
+\texttt{Tabelle 4.8-1} contains four finite color-scale application areas and
+borderless inherited solid fills. Requiring every rule to be inactive on blank
+cells previously expanded the potential background extent to the full grid.
+An XML-only retained-input check of the revised enclosure produced
+\texttt{A1:P79}, while retaining all four conditional-format blocks and without
+classifying their blank cells as inactive. Focused regression cases distinguish
+an application inside the content envelope, one extending beyond the content,
+and a full-grid application. The XML enclosure is a planning observation. Its
+native comparison outcome is reported separately when available.

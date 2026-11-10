@@ -255,3 +255,12 @@ image decoding and pixel comparison. If an attempt fails, its remaining working
 evidence is moved alongside the failure logs. A record links this directory,
 including captures that were produced before a final comparison report existed.
 Incomplete evidence remains ineligible for completed-result reuse.
+
+Capture policy version 14 also bounds repeating inherited backgrounds when
+conditional formatting has resolved finite application areas. The envelope
+includes every such area and a following context row before background-tail
+sampling is considered. Standard namespaces, resolved column information,
+supported worksheet features and the existing borderless solid-fill checks
+remain required. A rule that can affect the blank cells inside its application
+area is still captured there. Unresolved application references and application
+areas reaching the full worksheet boundary retain the conservative path.
