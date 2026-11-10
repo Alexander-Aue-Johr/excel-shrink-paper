@@ -431,6 +431,20 @@ as an unreproduced native rendering observation. These controls justify neither
 a global pixel tolerance nor exclusion of another chart's differences.
 
 
+Additional same-content controls for Enron inputs
+\texttt{106bb183b73704d6...} and \texttt{806f1a068f4e9ca4...} reproduced two
+changed pixels in \texttt{Run Query}, \texttt{Diagramm 4}, and seven in
+\texttt{Results}, \texttt{Chart 1}, respectively. Maximum channel differences
+were 35 and 36 out of 255. Each control changes only a ZIP comment between its
+inputs and verifies SHA-256 equality of every uncompressed member. Conservative
+chart mode forces native chart exports. After rebuilding, worksheet, style and
+chart parts remain byte-identical across the two states, and chart geometry is
+equal. Remaining package differences concern workbook metadata, core properties
+and, in the first case, the calculation chain. These controls demonstrate native
+path variability without applying SheetShrink. They do not establish that every
+small chart discrepancy has the same cause or justify a pixel tolerance.
+
+
 \subsection{Controlled opening recovery}
 Six selected Destatis workbooks displayed conflicts between legacy print names
 and canonical built-in definitions. Controlled copies preserve both definitions
@@ -603,6 +617,10 @@ reject border or unknown-style qualification.
 An independent native \texttt{A1:BP114} comparison covers the finite union and
 context. Both images have 4,625 by 2,080 pixels, identical SHA-256 identities
 and equal measured geometry. This reference completed in 14.585 seconds.
-The original 125 far-tail observations remain retained. This finite control
-supports the selected envelope and is separate from a full version-15 workbook
-revalidation or a matched whole-run performance measurement.
+The subsequent complete version-15 workbook comparison completed 350 selected
+regions without a pixel, geometry or rendering difference. This worksheet
+contributes one region, compared with 127 previously. Whole-workbook capture
+selection and transport took 119.009 seconds, compared with 624.755 seconds in
+the retained version-14 run. Producer versions and concurrent workloads differ,
+so these observations are not a matched performance experiment. The original
+125 far-tail observations and their images remain retained.
