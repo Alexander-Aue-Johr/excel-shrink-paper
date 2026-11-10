@@ -201,6 +201,14 @@ row bound to 50 in planning tests, while retaining a distant column boundary.
 It had not replaced either long-running attempt at the evidence checkpoint.
 The planning result consequently establishes no measured runtime reduction.
 
+A separate Verkehrsunf\"alle diagnostic exposed 5,192,711 requested candidates
+before grid expansion across 208 worksheets. Combining contiguous changed row
+formats reduced this intermediate count to 603,267 in a fresh native repeat.
+All 208 content envelopes remained identical. Both diagnostics stopped after
+recording selection inputs, before completing rasterization. This observation
+supports reduced intermediate representation size, while leaving the unresolved
+drawing fallback and whole-workbook visual verdict open.
+
 \subsection{Empty context rows and a false geometry finding}
 A Migration development case exposed disagreement between height selection and
 capture selection. Worksheet \texttt{Tabelle 2.6.1} has a relevant envelope
