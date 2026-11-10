@@ -51,12 +51,18 @@ established.
 \input{sections/method}
 \section{Evaluation}
 \input{sections/evaluation}
+\ifdefined\withoutreferences
+\else
 \section{Related Work}
 \input{sections/related}
+\fi
 \section{Discussion and Limitations}
 \input{sections/discussion}
 \label{sec:main-text-end}
 \input{sections/ai-assistance}
+\ifdefined\withoutreferences
+\else
 \bibliographystyle{IEEEtran}
 \bibliography{references}
+\fi
 \end{document}
