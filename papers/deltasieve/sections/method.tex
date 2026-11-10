@@ -138,6 +138,21 @@ while the comparison report separately records the pixel verdict. Publication
 maps retained receipt identifiers to packaged images so that completing a job
 does not invalidate its recent inspection links.
 
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth]{figures/worker-capture-history.jpg}
+\caption{Saved worker history from a completed seven-region native control.
+Capture glyphs share the heartbeat timeline and link to the corresponding
+retained images in Sheet Atlas. The displayed startup and memory measurements
+belong to this control and are not aggregate performance results.}
+\label{fig:worker-capture-history}
+\end{figure}
+
+Figure~\ref{fig:worker-capture-history} shows recorded image availability in the
+same inspection surface as liveness. Opening a capture selects its recorded
+worksheet and range in Sheet Atlas. Image availability and a completed pixel
+comparison remain separately recorded events.
+
 \subsection{Collect independent runs in a static atlas}
 Each analysis can publish a static report with a compressed catalog, per-run
 detail and relative image assets~\cite{staticatlas}. A collection groups
