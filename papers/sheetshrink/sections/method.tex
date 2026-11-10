@@ -70,6 +70,40 @@ subject to reference and layout guards. Gaps, formulas, text and vertical runs
 remain outside this rule. The threshold identifies an admitted structural case;
 it does not establish that arbitrary repeated data are unintended.
 
+\subsection{Wanderungen as a motivating stress case}
+\label{sec:wanderungen}
+The 21 zero-filled tails occupy rows 11--30 and 32 in \texttt{Tabelle 3.4}
+(the stored sheet name has a trailing space). Each L:XFD suffix contains
+$16{,}384-12+1=16{,}373$ zero-valued cells. Inspection of the source ZIP member
+\texttt{sheet31.xml} confirms all 343,833 records. Figure~\ref{fig:wanderungen}
+reduces one such row for readability. The source hash and per-row counts are
+retained with the figure evidence.
+\input{figures/xml-methods/wanderungen}
+
+The detector observes source cells during the existing row traversal, before
+format cleanup. Its common zero path compares the value bytes directly with
+\texttt{0}. Gaps, formulas, unsupported numeric forms and differing values reject
+a candidate band. A fully eligible suffix becomes one row span for later
+reference filtering. This avoids a workbook-wide map entry for every admitted
+zero, although temporary row-local candidates still exist. Any known reference
+into the span protects the entire span.
+
+The retained cleanup investigation reports 376,573 removed zeros across two
+worksheets, including 32,740 in \texttt{Tabelle 2.1.1}. It also records 243
+nonzero values that survive, including \texttt{A65536=3} and the mixed numbers
+in \texttt{Tabelle 3.3}. A separate 237-zero tail in \texttt{Tabelle 2.8}
+remains below the admission threshold. The regression suite pairs the admitted
+full-width zero case with these preservation controls~\cite{hiddentailcase}.
+
+An earlier broader hidden-data policy removed mixed hidden tables. Its tighter
+successor reduced the historical whole-file size reduction to 90.8359\%, and
+the smoke threshold was lowered from 91\% to 90\% to reflect the preserved
+values. This is an intentional policy correction. Zero-valued cells remain
+content, and a deliberately constructed constant full-width matrix could also
+satisfy the structural heuristic. The presentation case demonstrates substantial
+removable repetition under the declared contract, while the retained exceptions
+expose its boundary.
+
 \subsection{Guarded row representation}
 Promotion replaces repeated cell formatting with an existing row style only
 after checking the row and its gaps. The row must be visible, unprotected and
@@ -241,7 +275,7 @@ required to evaluate that selector. Equality of its selected images alone cannot
 establish equality of every possible spreadsheet observation.
 
 The companion figure atlas, \url{figures/xml-methods/xml-cleanup-atlas.pdf},
-provides 49 abbreviated source/result examples, negative cases and a pinned
+provides 50 abbreviated source/result examples, negative cases and a pinned
 source index. Its code is drawn at 8.2 points for a 252-point column. XML
 wrappers, irrelevant attributes and repeated payloads are omitted. Style
 indices are local to each example. Schematic effects are labeled separately
@@ -251,7 +285,7 @@ from native Excel captures.
 The coverage index accounts for all ten declared cleanup causes. This includes
 the disabled self-closing-cell preprocessing path and the currently inactive
 row-attribute cleanup helper. Their presence in an enumeration does not imply
-an active Default reduction. The atlas groups the 49 examples into seven rule
+an active Default reduction. The atlas groups the 50 examples into seven rule
 families and labels internal candidate fixtures and optional policies. This
 coverage is an audit of the principal implemented decisions, with focused
 regression evidence. It is not an exhaustive proof over combinations of Excel

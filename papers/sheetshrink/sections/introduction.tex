@@ -7,6 +7,14 @@ influence automatic row height through its font. A whitespace value can prevent
 text from extending into its neighbour. Cleanup therefore requires a model of
 the effects that stored structures have on the document.
 
+A motivating case is the Destatis migration workbook
+\texttt{wanderungen-2010120217005.xlsx}. In worksheet \texttt{Tabelle 3.4},
+21 rows each contain numeric zeros from column L through Excel's final column
+XFD. Those tails alone contain 343,833 stored values. They are hidden content,
+so removing them requires a stated admission policy and dependency checks in
+addition to empty-format cleanup. Section~\ref{sec:wanderungen} describes the
+case and the values that the conservative policy deliberately retains.
+
 For an XLSX input, SheetShrink makes these decisions from the stored package
 before loading the workbook in Excel. Its cleanup stage has no native rendering
 or calculated row-height observations. An Excel-hosted method can inspect the

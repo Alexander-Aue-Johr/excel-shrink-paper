@@ -30,5 +30,12 @@
     "passed": 7,
     "failed": 0,
     "ignored": 0
+  },
+  "presentation_case_review": {
+    "case": 50,
+    "source_sha256": "bedf8677328fb15ffd967d03ebdf860ae4b1d0942d38091b4b4bef90e574f712",
+    "rows": 21,
+    "zero_records": 343833,
+    "verification": "Fresh source ZIP inspection and 11 focused hidden-tail tests passed. No new native capture or historical performance repeat."
   }
 }

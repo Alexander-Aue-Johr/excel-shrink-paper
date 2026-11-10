@@ -86,7 +86,8 @@
         42,
         43,
         44,
-        45
+        45,
+        50
       ],
       "specification": "S4, S7",
       "note": "Protection extent, conservative hidden admission, shared formulas, scoped object references and deferred re-cleaning."
@@ -158,7 +159,8 @@
         41,
         42,
         43,
-        45
+        45,
+        50
       ],
       "status": "Illustrated",
       "note": "Production admission is the conservative constant-tail rule. Example 45 is an injected-candidate phase test."

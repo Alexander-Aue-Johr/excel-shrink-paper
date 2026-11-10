@@ -1,8 +1,8 @@
 # XML method figures
 
 [Review atlas](../../papers/sheetshrink/figures/xml-methods/xml-cleanup-atlas.pdf)
-contains 49 column-width code comparisons, native controls, schematic failures
-and a source index. Eight selected figures are included in the manuscript.
+contains 50 column-width code comparisons, native controls, schematic failures
+and a source index. Nine selected figures are included in the manuscript.
 
 ## Rebuild
 
@@ -92,8 +92,21 @@ Tinos is a Times-compatible serif family from `https://github.com/googlefonts/ti
 
 ## Coverage audit
 
-`coverage.json` groups all 49 examples and accounts for all ten declared cleanup
+`coverage.json` groups all 50 examples and accounts for all ten declared cleanup
 causes, including disabled and inactive paths. Diagnostic fixtures are labeled
 separately from the Default policy. The audit covers the principal rule families,
 not every combination of Excel features. The core suite passed 298 tests with
 one ignored manual timing test. Seven selected deferred-cleanup tests also passed.
+
+## Wanderungen presentation case
+
+`wanderungen-source.json` records the source SHA-256 and all 21 L:XFD zero runs.
+To check the source again without opening Excel, run the following command.
+
+```powershell
+python scripts/xml-methods/inspect-wanderungen.py ORIGINAL.xlsx NEW_RECEIPT.json
+```
+
+The inspector verifies the exact column sequence and row identities. It makes no
+new visual-validation or cleanup-performance claim. The 11 focused hidden-tail
+regressions passed in the source revision recorded by the figure inventory.

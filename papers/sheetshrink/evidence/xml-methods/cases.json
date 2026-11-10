@@ -1488,6 +1488,45 @@
       },
       "note": "This is a parser-preservation guard supporting byte-oriented execution. It does not expand the declared XML eligibility to every valid serialization.",
       "bad": ""
+    },
+    {
+      "id": "50-wanderungen",
+      "title": "Wanderungen: 21 zero-filled tails",
+      "width": "column",
+      "before": [
+        "<cols>",
+        " <col min=\"12\" max=\"16384\" hidden=\"1\"/>",
+        "</cols>",
+        "<row r=\"11\">",
+        " <!-- visible cells retained -->",
+        " <c r=\"L11\"><v>0</v></c>",
+        " <!-- zero cells through XFD11 -->",
+        " <c r=\"XFD11\"><v>0</v></c>",
+        "</row>"
+      ],
+      "after": [
+        "<cols>",
+        " <col min=\"12\" max=\"16384\" hidden=\"1\"/>",
+        "</cols>",
+        "<row r=\"11\">",
+        " <!-- visible cells retained -->",
+        "</row>"
+      ],
+      "removed_placeholders": [
+        " <!-- zero cells through XFD11 -->"
+      ],
+      "guard": "Tabelle 3.4 has 21 dense zero tails, L:XFD, in rows 11-30 and 32. Each has 16,373 cells. Admit only after hidden, layout and reference guards.",
+      "risk": "A hidden zero is still data. Keep mixed tables, the short 237-zero tail and the documented nonzero exceptions. A deliberate full-width constant matrix can meet this heuristic.",
+      "source": {
+        "path": "excel-shrink-cli/src/pipeline_hidden_tail_tests.rs",
+        "test": "hidden_tail_still_removes_wanderungen_full_width_zero_tail",
+        "kind": "regression test",
+        "sha256": "510a96af38d2673577837baee809510d0a53bf73d38230c0805e84d0821b0184",
+        "line": 144,
+        "commit": "34fe2058a4edc20cd6c7898038e83039032a56cf"
+      },
+      "note": "Source inspection confirms 343,833 zero records in these 21 tails. The historical cleanup investigation reports 376,573 removed zeros over two sheets and 243 retained nonzero values. These are historical output observations, not a fresh full-workbook visual certificate.",
+      "bad": ""
     }
   ]
 }
