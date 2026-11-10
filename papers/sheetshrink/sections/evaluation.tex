@@ -308,5 +308,55 @@ sizing. The correction admits this non-default font to the existing per-row
 representative policy and still removes redundant representatives. A separate
 native control rebuilt both complete workbooks and captured the preselected
 \texttt{Impressum!A1:J43} area. The 832 by 743 images were byte-identical with
-equal geometry. This local control completed in 13.07 seconds. Other findings
-in that workbook remain separate validation obligations.
+equal geometry. This local control completed in 13.07 seconds. A subsequent
+complete targeted comparison under capture policy version 15 completed all
+350 selected workbook regions without a pixel, geometry or rendering difference.
+Historical findings remain retained with their original planning policy.
+
+
+\subsection{Repeated process measurements with historical Inquire observations}
+An additional experiment covers the 46 previously missing Inquire cases from
+the frozen top-49 selection. It includes 17 Data.gov, 28 Enron and one Destatis
+workbook. This missing-result subset is not a representative corpus sample.
+The recorded machine is an HP EliteBook 645 G11 with an AMD Ryzen 5 PRO 7535U,
+six physical cores, 12 logical processors, 32 GiB RAM and local NVMe storage.
+It runs 64-bit Windows 11 Enterprise 25H2. Excel Professional Plus 2024 has file
+version 16.0.17932.21056 and Inquire version 16.0.16626.20076.
+
+SheetShrink commit \texttt{75e85035} was built in release mode for
+\texttt{x86\_64-pc-windows-gnu} and executed natively on Windows. The experiment
+uses 12 Rayon threads, 12 writer workers and one active workbook. Each workbook
+receives one warmup and seven measured process invocations. Four additional
+measurements are taken when the initial interquartile range exceeds 10\% of the
+median. One case meets this rule, giving 46 warmups and 326 measured trials.
+File order is deterministically shuffled between rounds. Inputs and outputs use
+a warm filesystem cache without forced cache flushing. Process timing includes
+startup and file I/O and excludes subsequent hashing, verification and database
+writes. The controller samples process resources at approximately 20 ms.
+
+All 46 SheetShrink cases completed. Per-file process-time medians range from
+0.399 to 28.218 seconds. Independently recomputing medians from the retained
+trial table reproduces the reported values. Each retained output's uncompressed
+member fingerprint agrees with its repeated trials and with the corresponding
+output from the current cleaner build. Visual validation remains a separate
+requirement.
+
+The historical Inquire observations were not repeated. They include 24 complete
+successes, three partial cleanups with warnings, 18 failed attempts and one
+explicitly unsupported outcome. An Inquire workflow time includes worker
+startup, copying and hashing, Excel opening, cleanup, saving, validation and
+process termination. For the 24 complete successes, the median across files of
+single Inquire workflow time divided by SheetShrink process-time median is
+13.38, with a range of 3.72 to 31.67. These are descriptive ratios with different
+measurement boundaries and repetition counts. They are not an isolated
+algorithm-speedup estimate. Partial or failed Inquire attempts receive no ratio.
+Inquire's approximately 250-ms sampled memory maxima also differ from
+SheetShrink's OS-reported lifetime peaks.
+
+Fifteen Inquire failures were dialog-appearance timeouts. Fourteen of these
+inputs store a chart sheet as their active tab, and the supplied harness does
+not activate a worksheet before invoking cleanup. This is a concrete automation
+hypothesis requiring a controlled repeat. These timeouts do not establish that
+Inquire cannot clean the workbooks. Two other attempts failed during opening,
+and one unexpectedly opened read-only. The original attempts and errors remain
+part of the evidence.
