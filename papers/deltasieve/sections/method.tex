@@ -236,3 +236,13 @@ Opening/saving and input-transformation controls retain their XML change
 records and input identities. Their formatting extents do not enlarge the
 rebuilt-state image plan. The coverage claim is relative to the compared rebuilt
 states and the recorded selected regions.
+
+
+Independent reference observations retain raw geometry and pixel outcomes.
+A derived extent classification compares exact RGBA pixels in the common
+rectangle. It admits an unpaired right or bottom extension only when every
+pixel exactly repeats the shared boundary column or row, respectively. A
+zero-area counterpart is classified as an empty extent only when every retained
+pixel on the other side is opaque white. This classification uses no pixel
+tolerance or image registration. The explicit plan and original observations
+remain available for review.

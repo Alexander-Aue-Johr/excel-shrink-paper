@@ -470,3 +470,29 @@ Its original opening/saving control recorded 4,422,761 XML change entries,
 compared with 3,088 input transformation changes. The direct rebuilt comparison
 selected 13 image pairs, all identical. Selection and transport took 3.004
 seconds and image comparison took 0.235 seconds.
+
+
+The remaining Bevoelkerungsbewegung selector fallback involved two legacy
+textboxes on \texttt{3.13} with zero native width and height. Their XML falls
+outside the closed line recognizer. An independently frozen reference plan
+therefore rendered 622 finite areas across all 96 worksheets in 227.099 seconds.
+The plan used the union of the serialized input/output dimensions, four context
+rows and two context columns, partitioned independently into at most 16 columns
+by 128 rows. In 529 areas every common RGBA pixel was identical and any unpaired
+pixels exactly repeated the shared boundary row or column. In the other 93
+areas, one state had zero renderable height while the retained counterpart was
+entirely opaque white. No changed overlapping pixels or nonrepeating retained
+edge content remained. These observations cover the stated finite plan. The
+unsupported automatic textbox qualification and its rejected full-grid plan
+remain recorded separately.
+
+A controlled Enron opening experiment isolated a metadata inconsistency in one
+converted workbook. Renumbering duplicate sheet identifiers alone still failed,
+as did removal of its calculation chain alone. A copy combining unique sheet
+identifiers with removal of the optional calculation chain opened in 0.841
+seconds. The original XLS input itself opened in 0.693 seconds, but its freshly
+saved XLSX also reproduced the reopening failure. This establishes a conversion
+baseline issue for that case. Controlled recovery copies preserve worksheet,
+style, shared-string and drawing parts byte-for-byte and require native rebuild
+before visual comparison. Their identifiers and changed package members are
+retained explicitly.
