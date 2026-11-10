@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "experiment": "Enron Microsoft Graph derived-data cleanup pilot",
+  "date": "2026-11-10",
+  "selection": "All 969 successful Graph-to-XLSX recoveries available at the audit checkpoint; exploratory, not a random sample",
+  "source_revision": "8cd1f412849e7b83a986afd7382f189ccf374333",
+  "binary_sha256": "f1410b27d89e7b9d4d71a76407085da37073f1a87cf4b47ca6ed2cd1fa18aa49",
+  "build": "Rust dev profile, unoptimized with debug info",
+  "cleanup_profile": "default",
+  "execution": {
+    "multiprocessing": false,
+    "writer_workers": 1,
+    "max_active_workbooks": 1
+  },
+  "powerpoint_version": "16.0.20527.20150",
+  "input_count": 969,
+  "failed": 0,
+  "counts": {
+    "unchanged_packages": 884,
+    "input_bytes": 8831892,
+    "output_bytes": 8671550,
+    "worksheet_xml_bytes_before": 3515260,
+    "worksheet_xml_bytes_after": 3499682,
+    "value_formula_preservation_failures": 0,
+    "changes_outside_worksheets": 0,
+    "changed_packages": 85
+  },
+  "removed_items_by_cause": {
+    "TrailingLayoutOnlyRows": 48,
+    "EmptyCellsWithoutContent": 368,
+    "EmptyHiddenCells": 153
+  },
+  "compressed_reduction_ratio": 0.018154886857765007,
+  "native_visual_validation_performed": false,
+  "scope": "PowerPoint-generated chart-data workbooks; source charts and original XLS workbooks are separate populations"
+}

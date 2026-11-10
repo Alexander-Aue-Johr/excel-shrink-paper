@@ -23,6 +23,31 @@ describes the imported input frame, with workbook outcomes to be reported after
 processing. The upstream extraction provenance and local import identities are
 retained alongside the experiment.
 
+\subsection{Recovered chart-data workbooks}
+Recursive extraction also discovers Microsoft Graph OLE objects that Excel
+rejects as chart gallery files. An optional preparation stage embeds each object
+in a temporary PowerPoint presentation, requests native chart conversion, and
+extracts the generated XLSX data workbook. These derived chart-data workbooks
+form a separate population from the original Excel workbooks.
+
+An exploratory checkpoint on November 10, 2026 included all 969 successful
+recoveries available at that point, without random sampling. SheetShrink's
+default policy left 884 packages byte-identical and changed worksheet XML in
+85 packages (8.8\%). The cleanup counters recorded 368 empty cells without
+content, 153 empty hidden cells, and 48 trailing layout-only rows removed.
+Aggregate worksheet XML decreased from 3,515,260 to 3,499,682 bytes. Compressed
+package size decreased from 8,831,892 to 8,671,550 bytes (1.82\%), which also
+reflects package recompression. Cell-value and formula payloads matched before
+and after cleanup in all 969 files, and all changed package parts were worksheets.
+Native visual equivalence has not been evaluated for this subset.
+
+This checkpoint establishes that native-generated chart-data workbooks can
+retain removable structure. It does not estimate its prevalence among failed,
+unconverted or remaining Graph objects. The modest aggregate reduction motivates
+keeping this recovery stage optional. Per-input identities, binary identity,
+configuration and measurements are retained in
+\path{evidence/graph-recovery-pilot-20261110.json} and the accompanying CSV.
+
 
 \begin{table}[t]
 \caption{Frozen XLSX source inventories. Sizes are decimal GB of listed workbook files and do not measure completed native coverage.}

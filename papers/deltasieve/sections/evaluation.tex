@@ -23,6 +23,15 @@ describes the imported input frame, with workbook outcomes to be reported after
 processing. The upstream extraction provenance and local import identities are
 retained alongside the experiment.
 
+Microsoft Graph OLE objects require an additional eligibility distinction.
+Optional native PowerPoint conversion can recover their chart data into newly
+generated XLSX workbooks. Those workbooks have a different preparation history
+from successfully opened original Excel files and are reported as a separate
+derived-data population. Successful recovery or equality of cell values does
+not establish visual equivalence of the source Graph chart or coverage of its
+parent presentation. They do not contribute visual-equality observations
+without a separately executed native comparison.
+
 
 \begin{table}[t]
 \caption{Frozen XLSX source inventories. Sizes are decimal GB of listed workbook files and do not measure completed native coverage.}
