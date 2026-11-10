@@ -449,3 +449,24 @@ Five selected Enron workbooks also displayed native repair prompts when tested
 with their original input as the sole opened comparison input. Their SHA-256
 identities and prompt evidence are retained. Such incomplete opening attempts
 provide no image-equivalence verdict.
+
+
+The repeated \texttt{TAB-04} discrepancy affected 25,640 pixels in a
+784-by-11,727-pixel image. A same-original reference control reproduced the
+original image hash exactly. Repeating original versus SheetShrink reproduced
+both earlier image hashes. Restoring 87 removed empty cells carrying the
+explicit default font and no-fill metadata made the full reference image
+pixel-identical. After extending font-representative eligibility for this
+metadata combination, a newly generated SheetShrink output also reproduced the
+original image hash. The independent reference plan was \texttt{TAB-04!A1:L916}.
+The successful fixed-output reference check took 12.798 seconds. Failed
+intermediate counterfactual packages were rejected during XML validation and
+were excluded from these observations.
+
+A separate Binnenschifffahrt case,
+\texttt{statistischer-bericht-binnenschifffahrt-2080400231025.xlsx}, completed in
+143.709 seconds after setup-phase progress was included in watchdog accounting.
+Its original opening/saving control recorded 4,422,761 XML change entries,
+compared with 3,088 input transformation changes. The direct rebuilt comparison
+selected 13 image pairs, all identical. Selection and transport took 3.004
+seconds and image comparison took 0.235 seconds.

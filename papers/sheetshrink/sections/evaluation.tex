@@ -274,3 +274,19 @@ DeltaSieve background-envelope guard reduced the native selection from 16,101
 to 165 regions. All 165 image pairs were identical in the fresh comparison.
 This observation supports the recorded targeted scope. It does not replace the
 remaining corpus validation or establish exhaustive visual preservation.
+
+
+\paragraph{Explicit no-fill font representatives.}
+The Destatis workbook
+\texttt{pruefungen-hochschulen-2110420217005.xlsx} exposed a reproducible
+text-baseline regression on sheet \texttt{TAB-04}. An original-versus-original
+reference control was pixel-identical, whereas the transformed output repeatedly
+changed 25,640 pixels despite equal capture geometry. Restoring 87 removed blank
+cells with an explicit default font and no-fill metadata recovered the original
+image hash. The correction allows this metadata combination to supply the
+existing per-row font representative, including fixed-height rows with content.
+A fresh output from the corrected cleaner matched the original over the
+independent \texttt{A1:L916} reference area. The corpus's conflicting legacy
+print-name aliases were explicitly normalized for opening, with separate hashes
+and preserved name definitions. The core regression suite passed 297 tests
+with one fixture-dependent test skipped.

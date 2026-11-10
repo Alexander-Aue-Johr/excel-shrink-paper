@@ -227,3 +227,12 @@ capture rectangle must contain the union of the native and stored positions,
 including half the stroke width and two points of rasterization context. A
 position outside that padded rectangle or a changed width retains the fallback.
 The resulting region is captured in both comparison states.
+
+
+Capture policy version 13 reconstructs the visual-content envelope from the
+states actually compared after rebuilding. Native-qualified drawing bounds
+therefore replace earlier unqualified control bounds in this envelope.
+Opening/saving and input-transformation controls retain their XML change
+records and input identities. Their formatting extents do not enlarge the
+rebuilt-state image plan. The coverage claim is relative to the compared rebuilt
+states and the recorded selected regions.
