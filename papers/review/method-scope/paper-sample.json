@@ -1,0 +1,50 @@
+{
+  "selection": "Five purposefully selected awarded IEEE/ACM conference works. This is an editorial comparison, not a systematic prevalence study or a publication rule.",
+  "papers": [
+    {
+      "title": "Photon",
+      "recognition": "SIGMOD 2022 industry best paper",
+      "url": "https://www-cs.stanford.edu/~matei/papers/2022/sigmod_photon.pdf",
+      "award_source": "https://www.sigmod.org/sigmod-awards/sigmod-best-paper-award/",
+      "reviewed_sections": "Sections 3-5",
+      "downloaded_pdf_sha256": "0d1c5a77986ede93eee5cfbac03bff0ef5984e4b28ad77988cae4595ffff8468",
+      "editorial_observation": "Organizes execution, representation and integration around consequential design alternatives. Keeps the task and memory models visible because they explain measured behavior."
+    },
+    {
+      "title": "Incremental Stream Query Placement",
+      "recognition": "ICDE 2025 best paper",
+      "url": "https://nebula.stream/paper/chaudhary_ICDE2025.pdf",
+      "award_source": "https://ieee-icde.org/2025/2025/05/13/awards/",
+      "reviewed_sections": "Sections II-VI",
+      "downloaded_pdf_sha256": "17807b66c160c434ae558fc6e9218e9c288317b1da1b2b65b5c3a87b8f9448cf",
+      "editorial_observation": "Introduces the model and component workflow, then explains state transitions and concurrent resource consistency. Examples illuminate the algorithm rather than repository organization."
+    },
+    {
+      "title": "Reverse Regret Query",
+      "recognition": "ICDE 2024 best paper",
+      "url": "https://home.cse.ust.hk/~raywong/paper/icde24-reverseRegretQuery.pdf",
+      "award_source": "https://icde2024.github.io/awards.html",
+      "reviewed_sections": "Sections III-VI",
+      "downloaded_pdf_sha256": "0a127c75dc047110f598e8ebbe9798aad1861929f3131348695615442df0b42a",
+      "editorial_observation": "Defines the problem before algorithms and separates exact and approximate obligations. Correctness arguments, pruning conditions and costs justify implementation choices."
+    },
+    {
+      "title": "SAGA",
+      "recognition": "SIGMOD 2024 best paper honorable mention",
+      "url": "https://mboehm7.github.io/resources/sigmod2024a.pdf",
+      "award_source": "https://www.sigmod.org/sigmod-awards/sigmod-best-paper-award/",
+      "reviewed_sections": "Sections 2-4",
+      "downloaded_pdf_sha256": "fe43552e2fb28abd3890ca43c93477a5890bf174e7afbfff432192d2dc6679c1",
+      "editorial_observation": "Connects the objective and API contract to logical/physical representations and optimization. Distinguishes the general method from the inventory of individual cleaning primitives."
+    },
+    {
+      "title": "Detecting Logic Bugs of Join Optimizations in DBMS",
+      "recognition": "SIGMOD 2023 best paper",
+      "url": "https://arxiv.org/pdf/2602.21955",
+      "award_source": "https://www.sigmod.org/sigmod-awards/sigmod-best-paper-award/",
+      "reviewed_sections": "Sections 2-4; later author preprint of the awarded work",
+      "downloaded_pdf_sha256": "dd1ee6b86493f521de4cb46699b004c76e1fe3e0a1f86db7aaba789828a24221",
+      "editorial_observation": "Prioritizes the testing oracle, generation and search mechanisms. Concrete defects support the method and its evaluation, without substituting a development diary for either."
+    }
+  ]
+}

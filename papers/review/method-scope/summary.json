@@ -1,0 +1,524 @@
+{
+  "scope": "Complete production and separate capture-experiment trees, every other non-ancestor remote head, and tracked paper scripts. File and lexical symbol inventory with editorial family review, not line-by-line correctness verification. Temporary untracked local files are outside scope.",
+  "revisions": {
+    "production": "1b9ee98e3409c3584ffd12a661d0c19f8a5f0788",
+    "capture_experiments": "ce0dc7b0c939cba2bb4d2cd157c35a9b2f27ebe1",
+    "paper_scripts": "6831043e06fbd51a44de29958e2b97f54b1e7c1c"
+  },
+  "remote_branches": [
+    {
+      "reference": "refs/remotes/origin/backup/officejs-before-process-cards-20261101",
+      "revision": "3451c41a1db08b9e1280371e5be5343d5c0c9841",
+      "ancestor_of_production": false
+    },
+    {
+      "reference": "refs/remotes/origin/chunk-preprocess-online",
+      "revision": "913cee839768b242927c10ea301f8846596a01cd",
+      "ancestor_of_production": false
+    },
+    {
+      "reference": "refs/remotes/origin/chunking-range-only-next-row",
+      "revision": "b4b18025acbab2b820bdc5546fd958e6c295a27a",
+      "ancestor_of_production": false
+    },
+    {
+      "reference": "refs/remotes/origin/codex/check-performance-analysis-archive",
+      "revision": "c402db516ea5738b92e6e26e9b2c249049b7f566",
+      "ancestor_of_production": false
+    },
+    {
+      "reference": "refs/remotes/origin/codex/datagov-validation-watch",
+      "revision": "1b9ee98e3409c3584ffd12a661d0c19f8a5f0788",
+      "ancestor_of_production": true
+    },
+    {
+      "reference": "refs/remotes/origin/codex/sheetscope-validation",
+      "revision": "a7445eb17949036ce492a7643cf8eb57c5250a2e",
+      "ancestor_of_production": false
+    },
+    {
+      "reference": "refs/remotes/origin/docs/enron-night-run-findings-20261103",
+      "revision": "9f32c2ad79e257426938077f442e13379c6917c3",
+      "ancestor_of_production": false
+    },
+    {
+      "reference": "refs/remotes/origin/experiment-post-planning-scheduling",
+      "revision": "99298539cc2a51873613b35d19261b631a5f0ad7",
+      "ancestor_of_production": false
+    },
+    {
+      "reference": "refs/remotes/origin/experiment/aggressive-first-hash-sweep",
+      "revision": "88035e472751f7d0edbfb5ccf26afad67aadaca7",
+      "ancestor_of_production": true
+    },
+    {
+      "reference": "refs/remotes/origin/experiment/check-performance-onedrive",
+      "revision": "77cdd098d8a7ce3119fd46cec9b0e1de6cb19f51",
+      "ancestor_of_production": false
+    },
+    {
+      "reference": "refs/remotes/origin/experiment/hidden-constant-tails",
+      "revision": "45349c152d3ebda64845f0c1908dd032929c4fd4",
+      "ancestor_of_production": true
+    },
+    {
+      "reference": "refs/remotes/origin/experiment/officejs-oversized-capture",
+      "revision": "2b79006e6691a9eb9209f354fe10f690673b6b8f",
+      "ancestor_of_production": false
+    },
+    {
+      "reference": "refs/remotes/origin/experiment/preparation-hash-screening",
+      "revision": "56adafcd7d7af6c0af302f8c03150f50effd3168",
+      "ancestor_of_production": true
+    },
+    {
+      "reference": "refs/remotes/origin/experiments/corpus-quartet-benchmark",
+      "revision": "68349cd508e3a29dc210032f2fb18fd4f712cb80",
+      "ancestor_of_production": false
+    },
+    {
+      "reference": "refs/remotes/origin/experiments/visual-validation",
+      "revision": "ce0dc7b0c939cba2bb4d2cd157c35a9b2f27ebe1",
+      "ancestor_of_production": false
+    },
+    {
+      "reference": "refs/remotes/origin/fix/excel-password-prompts",
+      "revision": "2109c51aea997352346878ec4f7dc856c4084fa2",
+      "ancestor_of_production": false
+    },
+    {
+      "reference": "refs/remotes/origin/main",
+      "revision": "fa19e0b76bd95efa0993808ad21f1711b00b6fb5",
+      "ancestor_of_production": true
+    },
+    {
+      "reference": "refs/remotes/origin/perf/rows-clean-cells-fast-path",
+      "revision": "0a208ceb40541a52be5c2ea3823f0bab8933cb22",
+      "ancestor_of_production": false
+    }
+  ],
+  "source_extensions": [
+    ".bas",
+    ".bat",
+    ".c",
+    ".cjs",
+    ".cmd",
+    ".cpp",
+    ".cs",
+    ".css",
+    ".h",
+    ".html",
+    ".js",
+    ".mjs",
+    ".ps1",
+    ".psd1",
+    ".psm1",
+    ".py",
+    ".rs",
+    ".sh",
+    ".ts",
+    ".tsx",
+    ".vb",
+    ".xaml"
+  ],
+  "unique_source_blobs": 1563,
+  "trees": {
+    "production": {
+      "files": 928,
+      "source_files": 719,
+      "source_lines": 355897,
+      "roles": {
+        "experiment": 77,
+        "implementation": 475,
+        "test-or-fixture": 162,
+        "third-party": 5
+      },
+      "families": {
+        "application-and-study-control": 136,
+        "byte-parser": 4,
+        "cleanup-context": 3,
+        "cleanup-dependencies": 5,
+        "cleanup-model-and-instrumentation": 11,
+        "cleanup-rules": 19,
+        "cleanup-scheduling-and-output": 2,
+        "conditional-dependencies": 10,
+        "corpus-preparation-and-scheduling": 54,
+        "development-experiments": 102,
+        "evidence-identity-and-reuse": 11,
+        "native-capture-protocol": 50,
+        "native-process-lifecycle": 17,
+        "portable-evidence-publication": 17,
+        "research-build-and-acquisition-tools": 54,
+        "shared-application-services": 12,
+        "targeted-selection-and-evidence": 47,
+        "third-party": 5,
+        "validation-orchestration-and-controls": 29,
+        "validation-package-analysis": 8,
+        "value-and-formula-attribution": 7,
+        "visualization-and-user-interface": 116
+      }
+    },
+    "capture-experiments": {
+      "files": 332,
+      "source_files": 247,
+      "source_lines": 65906,
+      "roles": {
+        "experiment": 126,
+        "generated": 4,
+        "implementation": 61,
+        "test-or-fixture": 56
+      },
+      "families": {
+        "application-and-study-control": 9,
+        "byte-parser": 2,
+        "cleanup-context": 3,
+        "cleanup-dependencies": 3,
+        "cleanup-model-and-instrumentation": 10,
+        "cleanup-rules": 16,
+        "cleanup-scheduling-and-output": 1,
+        "development-experiments": 160,
+        "evidence-identity-and-reuse": 2,
+        "portable-evidence-publication": 3,
+        "research-build-and-acquisition-tools": 13,
+        "validation-orchestration-and-controls": 23,
+        "value-and-formula-attribution": 2
+      }
+    },
+    "paper-scripts": {
+      "files": 155,
+      "source_files": 61,
+      "source_lines": 17636,
+      "roles": {
+        "implementation": 61
+      },
+      "families": {
+        "research-build-and-acquisition-tools": 61
+      }
+    },
+    "origin/backup/officejs-before-process-cards-20261101": {
+      "files": 372,
+      "source_files": 299,
+      "source_lines": 186262,
+      "roles": {
+        "experiment": 33,
+        "implementation": 191,
+        "test-or-fixture": 72,
+        "third-party": 3
+      },
+      "families": {
+        "application-and-study-control": 53,
+        "byte-parser": 4,
+        "cleanup-context": 3,
+        "cleanup-dependencies": 5,
+        "cleanup-model-and-instrumentation": 10,
+        "cleanup-rules": 17,
+        "cleanup-scheduling-and-output": 1,
+        "corpus-preparation-and-scheduling": 36,
+        "development-experiments": 39,
+        "evidence-identity-and-reuse": 4,
+        "native-capture-protocol": 35,
+        "portable-evidence-publication": 7,
+        "research-build-and-acquisition-tools": 29,
+        "targeted-selection-and-evidence": 1,
+        "third-party": 3,
+        "validation-orchestration-and-controls": 18,
+        "validation-package-analysis": 8,
+        "value-and-formula-attribution": 3,
+        "visualization-and-user-interface": 23
+      }
+    },
+    "origin/chunk-preprocess-online": {
+      "files": 57,
+      "source_files": 40,
+      "source_lines": 29665,
+      "roles": {
+        "implementation": 31,
+        "test-or-fixture": 9
+      },
+      "families": {
+        "application-and-study-control": 5,
+        "byte-parser": 1,
+        "cleanup-context": 3,
+        "cleanup-dependencies": 3,
+        "cleanup-model-and-instrumentation": 7,
+        "cleanup-rules": 16,
+        "cleanup-scheduling-and-output": 1,
+        "research-build-and-acquisition-tools": 2,
+        "validation-orchestration-and-controls": 2
+      }
+    },
+    "origin/chunking-range-only-next-row": {
+      "files": 39,
+      "source_files": 31,
+      "source_lines": 9532,
+      "roles": {
+        "implementation": 23,
+        "test-or-fixture": 8
+      },
+      "families": {
+        "application-and-study-control": 2,
+        "byte-parser": 1,
+        "cleanup-context": 3,
+        "cleanup-dependencies": 3,
+        "cleanup-model-and-instrumentation": 6,
+        "cleanup-rules": 15,
+        "cleanup-scheduling-and-output": 1
+      }
+    },
+    "origin/codex/check-performance-analysis-archive": {
+      "files": 524,
+      "source_files": 415,
+      "source_lines": 209115,
+      "roles": {
+        "experiment": 53,
+        "implementation": 263,
+        "test-or-fixture": 96,
+        "third-party": 3
+      },
+      "families": {
+        "application-and-study-control": 68,
+        "byte-parser": 4,
+        "cleanup-context": 3,
+        "cleanup-dependencies": 5,
+        "cleanup-model-and-instrumentation": 10,
+        "cleanup-rules": 17,
+        "cleanup-scheduling-and-output": 1,
+        "conditional-dependencies": 10,
+        "corpus-preparation-and-scheduling": 43,
+        "development-experiments": 68,
+        "evidence-identity-and-reuse": 4,
+        "native-capture-protocol": 41,
+        "portable-evidence-publication": 7,
+        "research-build-and-acquisition-tools": 41,
+        "targeted-selection-and-evidence": 26,
+        "third-party": 3,
+        "validation-orchestration-and-controls": 24,
+        "validation-package-analysis": 8,
+        "value-and-formula-attribution": 3,
+        "visualization-and-user-interface": 29
+      }
+    },
+    "origin/codex/sheetscope-validation": {
+      "files": 626,
+      "source_files": 498,
+      "source_lines": 224937,
+      "roles": {
+        "experiment": 56,
+        "implementation": 323,
+        "test-or-fixture": 116,
+        "third-party": 3
+      },
+      "families": {
+        "application-and-study-control": 96,
+        "byte-parser": 4,
+        "cleanup-context": 3,
+        "cleanup-dependencies": 5,
+        "cleanup-model-and-instrumentation": 10,
+        "cleanup-rules": 19,
+        "cleanup-scheduling-and-output": 1,
+        "conditional-dependencies": 10,
+        "corpus-preparation-and-scheduling": 43,
+        "development-experiments": 72,
+        "evidence-identity-and-reuse": 4,
+        "native-capture-protocol": 46,
+        "portable-evidence-publication": 11,
+        "research-build-and-acquisition-tools": 43,
+        "targeted-selection-and-evidence": 33,
+        "third-party": 3,
+        "validation-orchestration-and-controls": 24,
+        "validation-package-analysis": 8,
+        "value-and-formula-attribution": 7,
+        "visualization-and-user-interface": 56
+      }
+    },
+    "origin/docs/enron-night-run-findings-20261103": {
+      "files": 503,
+      "source_files": 396,
+      "source_lines": 205733,
+      "roles": {
+        "experiment": 53,
+        "implementation": 250,
+        "test-or-fixture": 90,
+        "third-party": 3
+      },
+      "families": {
+        "application-and-study-control": 65,
+        "byte-parser": 4,
+        "cleanup-context": 3,
+        "cleanup-dependencies": 5,
+        "cleanup-model-and-instrumentation": 10,
+        "cleanup-rules": 17,
+        "cleanup-scheduling-and-output": 1,
+        "conditional-dependencies": 10,
+        "corpus-preparation-and-scheduling": 41,
+        "development-experiments": 68,
+        "evidence-identity-and-reuse": 4,
+        "native-capture-protocol": 41,
+        "portable-evidence-publication": 7,
+        "research-build-and-acquisition-tools": 29,
+        "targeted-selection-and-evidence": 24,
+        "third-party": 3,
+        "validation-orchestration-and-controls": 24,
+        "validation-package-analysis": 8,
+        "value-and-formula-attribution": 3,
+        "visualization-and-user-interface": 29
+      }
+    },
+    "origin/experiment-post-planning-scheduling": {
+      "files": 39,
+      "source_files": 31,
+      "source_lines": 9524,
+      "roles": {
+        "implementation": 23,
+        "test-or-fixture": 8
+      },
+      "families": {
+        "application-and-study-control": 2,
+        "byte-parser": 1,
+        "cleanup-context": 3,
+        "cleanup-dependencies": 3,
+        "cleanup-model-and-instrumentation": 6,
+        "cleanup-rules": 15,
+        "cleanup-scheduling-and-output": 1
+      }
+    },
+    "origin/experiment/check-performance-onedrive": {
+      "files": 529,
+      "source_files": 423,
+      "source_lines": 212610,
+      "roles": {
+        "experiment": 58,
+        "implementation": 262,
+        "test-or-fixture": 100,
+        "third-party": 3
+      },
+      "families": {
+        "application-and-study-control": 64,
+        "byte-parser": 4,
+        "cleanup-context": 3,
+        "cleanup-dependencies": 5,
+        "cleanup-model-and-instrumentation": 10,
+        "cleanup-rules": 17,
+        "cleanup-scheduling-and-output": 1,
+        "conditional-dependencies": 10,
+        "corpus-preparation-and-scheduling": 40,
+        "development-experiments": 73,
+        "evidence-identity-and-reuse": 4,
+        "native-capture-protocol": 41,
+        "portable-evidence-publication": 7,
+        "research-build-and-acquisition-tools": 51,
+        "targeted-selection-and-evidence": 26,
+        "third-party": 3,
+        "validation-orchestration-and-controls": 24,
+        "validation-package-analysis": 8,
+        "value-and-formula-attribution": 3,
+        "visualization-and-user-interface": 29
+      }
+    },
+    "origin/experiment/officejs-oversized-capture": {
+      "files": 519,
+      "source_files": 412,
+      "source_lines": 208296,
+      "roles": {
+        "experiment": 53,
+        "implementation": 260,
+        "test-or-fixture": 96,
+        "third-party": 3
+      },
+      "families": {
+        "application-and-study-control": 68,
+        "byte-parser": 4,
+        "cleanup-context": 3,
+        "cleanup-dependencies": 5,
+        "cleanup-model-and-instrumentation": 10,
+        "cleanup-rules": 17,
+        "cleanup-scheduling-and-output": 1,
+        "conditional-dependencies": 10,
+        "corpus-preparation-and-scheduling": 43,
+        "development-experiments": 68,
+        "evidence-identity-and-reuse": 4,
+        "native-capture-protocol": 41,
+        "portable-evidence-publication": 7,
+        "research-build-and-acquisition-tools": 38,
+        "targeted-selection-and-evidence": 26,
+        "third-party": 3,
+        "validation-orchestration-and-controls": 24,
+        "validation-package-analysis": 8,
+        "value-and-formula-attribution": 3,
+        "visualization-and-user-interface": 29
+      }
+    },
+    "origin/experiments/corpus-quartet-benchmark": {
+      "files": 176,
+      "source_files": 136,
+      "source_lines": 46574,
+      "roles": {
+        "experiment": 13,
+        "implementation": 88,
+        "test-or-fixture": 35
+      },
+      "families": {
+        "application-and-study-control": 23,
+        "byte-parser": 2,
+        "cleanup-context": 3,
+        "cleanup-dependencies": 4,
+        "cleanup-model-and-instrumentation": 10,
+        "cleanup-rules": 16,
+        "cleanup-scheduling-and-output": 1,
+        "corpus-preparation-and-scheduling": 10,
+        "development-experiments": 23,
+        "evidence-identity-and-reuse": 2,
+        "native-capture-protocol": 8,
+        "portable-evidence-publication": 5,
+        "research-build-and-acquisition-tools": 9,
+        "validation-orchestration-and-controls": 15,
+        "validation-package-analysis": 3,
+        "value-and-formula-attribution": 2
+      }
+    },
+    "origin/fix/excel-password-prompts": {
+      "files": 170,
+      "source_files": 138,
+      "source_lines": 54019,
+      "roles": {
+        "implementation": 108,
+        "test-or-fixture": 30
+      },
+      "families": {
+        "application-and-study-control": 31,
+        "byte-parser": 3,
+        "cleanup-context": 3,
+        "cleanup-dependencies": 4,
+        "cleanup-model-and-instrumentation": 10,
+        "cleanup-rules": 16,
+        "cleanup-scheduling-and-output": 1,
+        "corpus-preparation-and-scheduling": 21,
+        "evidence-identity-and-reuse": 2,
+        "native-capture-protocol": 10,
+        "portable-evidence-publication": 7,
+        "research-build-and-acquisition-tools": 9,
+        "validation-orchestration-and-controls": 16,
+        "validation-package-analysis": 3,
+        "value-and-formula-attribution": 2
+      }
+    },
+    "origin/perf/rows-clean-cells-fast-path": {
+      "files": 40,
+      "source_files": 30,
+      "source_lines": 5822,
+      "roles": {
+        "implementation": 23,
+        "test-or-fixture": 7
+      },
+      "families": {
+        "application-and-study-control": 1,
+        "byte-parser": 1,
+        "cleanup-context": 3,
+        "cleanup-dependencies": 3,
+        "cleanup-model-and-instrumentation": 6,
+        "cleanup-rules": 15,
+        "cleanup-scheduling-and-output": 1
+      }
+    }
+  }
+}

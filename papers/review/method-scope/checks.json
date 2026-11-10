@@ -1,0 +1,26 @@
+{
+  "all_tree_paths_unique": true,
+  "all_tree_and_source_counts_reconciled": true,
+  "all_source_files_have_sha256": true,
+  "all_source_families_have_editorial_decisions": true,
+  "family_count": 22,
+  "inventory_rows": 5009,
+  "unique_source_blobs": 1563,
+  "native_experiments_repeated": false,
+  "regeneration_checked": true,
+  "code_tests": {
+    "cell_stream": {
+      "passed": 3
+    },
+    "conditional_reference_inversion": {
+      "passed": 3
+    },
+    "style_identity": {
+      "passed": 12
+    },
+    "adaptive_geometry": {
+      "passed": 8,
+      "ignored": 1
+    }
+  }
+}
