@@ -31,6 +31,12 @@ therefore measures the relevant geometry. Content bounds include values,
 formulas, visible fills and borders, and supported object extents. The union of
 both states is important when an operation removes content.
 
+Consecutive changed inherited row formats are represented by one rectangle per
+contiguous run. Unchanged rows split these runs. Applying the same padding,
+clipping and capture grid preserves the tile union of individual row requests,
+while reducing intermediate candidate objects. This representation change does
+not establish a whole-workbook speedup or justify excluding a changed row.
+
 Conditional-formatting analysis follows supported references. When a referenced
 input changes, its dependent application region becomes a candidate regardless
 of whether a particular rule outcome might remain the same. Unchanged supported
