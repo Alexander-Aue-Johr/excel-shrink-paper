@@ -363,6 +363,42 @@ failed reference case. Agreement between a selected plan and a reference over
 five deliberately constructed pairs supports those controls. It does not turn
 the same five pairs into a representative sample of three corpora.
 
+\subsection{Recorded coverage of the Enron comparison stage}
+The first stage uses the nine Enron workbooks with the largest absolute
+SheetShrink file-size reductions in the frozen selection. Each workbook
+contributes one comparison slot per tool. Table~\ref{tab:enron-stage-coverage}
+counts completed comparisons under the recorded coverage limits and keeps
+unavailable variants and failed comparisons in the denominator. The
+versioned ledger records the outcomes and baseline identities~\cite{enronstagecoverage}.
+
+\begin{table}[t]
+\centering
+\caption{Enron stage coverage across nine selected workbooks per tool.
+Raw and repaired count completed comparisons by baseline.}
+\label{tab:enron-stage-coverage}
+\begin{tabular}{lrrrr}
+\hline
+Tool & Raw & Repaired & Unavailable & Failed \\
+\hline
+SheetShrink & 8 & 1 & 0 & 0 \\
+Check Performance & 8 & 0 & 1 & 0 \\
+Inquire & 7 & 0 & 1 & 1 \\
+XLStylesTool & 8 & 0 & 0 & 1 \\
+NXPowerLite & 6 & 0 & 2 & 1 \\
+\hline
+Total & 37 & 1 & 4 & 3 \\
+\hline
+\end{tabular}
+\end{table}
+
+Two failures followed Excel repair prompts and one required unresolved
+whole-grid coverage. The repaired Check Performance preparation and the
+completed SheetShrink comparison at rank two use different baseline hashes.
+The repaired preparation therefore provides no matched visual observation
+for that tool slot. These counts describe coverage of the selected
+high-reduction workbooks. Detection recall requires the independent reference
+experiments.
+
 \subsection{A border difference inside the common capture}
 A developer-selected Enron control rendered \texttt{Tables!A1:I157}
 after inspecting a Check Performance finding. Four independent original
