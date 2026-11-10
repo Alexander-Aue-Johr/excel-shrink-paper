@@ -1,0 +1,84 @@
+diff --git a/excel-shrink-paper.tex b/excel-shrink-paper.tex
+index 9d78170..ed19832 100644
+--- a/excel-shrink-paper.tex
++++ b/excel-shrink-paper.tex
+@@ -1317,6 +1317,8 @@ Figure~\ref{fig:cover_sheet_check_performance} illustrates how \textit{Check Per
+   \label{fig:cover_sheet_check_performance}
+ \end{figure}
+ 
++\input{experiments/enron/case-studies/fill-override/case-study.tex}
++
+ %As another example, consider a form-like structure composed of several empty cells arranged to form a table, anticipating future data entry~\cite{destatis2023Rechnungsergebnisse}. \textit{Check Performance} removes all borders outside the active data region, resulting in the scenario shown in Figure~\ref{fig:table_no_table}, where the intended table layout is lost. Because Excel Shrink marks all cells as important if they are visible to the user, it does not delete them.
+ 
+ %\begin{figure}[ht]
+diff --git a/experiments/euses/README.md b/experiments/euses/README.md
+index 0ea8aa6..0a386b2 100644
+--- a/experiments/euses/README.md
++++ b/experiments/euses/README.md
+@@ -60,3 +60,30 @@ Rust regression runner; it does not rewrite that runner's cached results.
+ 
+ The seven EUSES revision-history cases are rerun with this converter under
+ `F:/corpora/euses/conversion-retry`, rather than imported as untracked temporary files.
++
++## Recovery of 30 File Block failures
++
++The follow-up opened legacy inputs in Protected View and used Windows UI
++Automation to invoke Enable Editing in the owned Excel process. Generic SaveAs
++errors persisted until the native Save As dialog revealed a separate restriction:
++Trust Center also blocked saving modern XLSX workbooks.
++
++At the user's request, the Excel 2007-and-later workbook/template restriction was
++cleared through the UI. Excel coupled Open and Save for this row; both were
++cleared, while all other File Block rows were verified unchanged. COM saving then
++worked. All 30 selected files passed XLSX saving and fresh-process reopening.
++This establishes conversion acceptance, not visual equivalence.
++
++The run, frozen code, selected input names, before/after settings and diagnostic
++evidence are under `F:/corpora/euses/after-settings-check`. Its
++`reproduction/README.md` gives the exact command and explains the distinction
++between the UI-assisted source opening and the unattended output check.
++The converter itself does not change global Trust Center settings.
++
++## Dialog review of remaining opening failures
++
++The separate recovery review under F:/corpora/euses/dialog-review records native
++Open and Repair interactions on copies, exact dialog text, COM errors and a short
++interpretation for each of 37 unresolved opening cases. Its method.md explains
++selection, consented repairs, timeouts and the distinction between recovery and
++verified conversion. Recovered workbooks are kept separate for visual review.
+diff --git a/src/excel_shrink_research/enron/excel_worker.ps1 b/src/excel_shrink_research/enron/excel_worker.ps1
+index 0e178e5..03e8d95 100644
+--- a/src/excel_shrink_research/enron/excel_worker.ps1
++++ b/src/excel_shrink_research/enron/excel_worker.ps1
+@@ -58,14 +58,25 @@ try {
+     Write-Json (Join-Path $directory 'process.json') @{
+         pid = $owned.Pid; created_filetime = $owned.CreatedFileTime
+     }
+-    while ($null -eq $native) {
++    # EXCEL7 can exist before its automation Application is ready.
++    # The Python supervisor enforces the startup deadline outside these COM calls.
++    while ($null -eq $excel) {
+         $native = $owned.FindNativeWindow()
+-        if ($null -eq $native) { Start-Sleep -Milliseconds 100 }
++        if ($null -ne $native) {
++            try {
++                $candidate = $native.Application
++                if ($null -ne $candidate -and $null -ne $candidate.Hwnd -and [long]$candidate.Hwnd -ne 0) {
++                    $attachedPid = [uint32]0
++                    [void][OwnedExcel]::GetWindowThreadProcessId([IntPtr]$candidate.Hwnd, [ref]$attachedPid)
++                    if ($attachedPid -ne $owned.Pid) { throw 'The Excel window does not belong to this worker.' }
++                    $excel = $candidate
++                }
++            } catch {
++                if ($_.Exception.Message -like '*does not belong*') { throw }
++            }
++        }
++        if ($null -eq $excel) { Start-Sleep -Milliseconds 100 }
+     }
+-    $excel = $native.Application
+-    $attachedPid = [uint32]0
+-    [void][OwnedExcel]::GetWindowThreadProcessId([IntPtr]$excel.Hwnd, [ref]$attachedPid)
+-    if ($attachedPid -ne $owned.Pid) { throw 'The Excel window does not belong to this worker.' }
+ 
+     Set-Stage 'configure'
+     $excel.Visible = $false

@@ -1,0 +1,262 @@
+[
+  {
+    "path": "README.md",
+    "sha256": "0ed426c1c16f904733fff4523be46edf4f26f1f01b63fd215e1f0e78f79f8954"
+  },
+  {
+    "path": "experiments/enron/README.md",
+    "sha256": "28edbdf00254ed5aa86d230d8b6696c6127fc1c90a1e5aa0ccfadf5e3124a103"
+  },
+  {
+    "path": "experiments/enron/config.json",
+    "sha256": "f9c5b9e2049f58a7f5885822b2c96abb64aeb41091560f442eb60b2e14132c91"
+  },
+  {
+    "path": "experiments/euses/README.md",
+    "sha256": "d911bb65f692d38cdca36fa8158041626a71d91e5eac0d5e6030a14828c87a58"
+  },
+  {
+    "path": "experiments/fuse/README.md",
+    "sha256": "e5117be2be19ae77e4fa0ae14fb4be5447b02d23edb849861be304419ffafe93"
+  },
+  {
+    "path": "scripts/compare_pst_attachments.py",
+    "sha256": "7e2cb2d9742533ba29d23f12f7f134f39354978665d37c9b1d925168a1cda82d"
+  },
+  {
+    "path": "scripts/enron.py",
+    "sha256": "6dac54bce68c89f0e69cea0ce2cc128739633d3c524f28df5235b949977ccdd6"
+  },
+  {
+    "path": "scripts/process_full_pst.py",
+    "sha256": "3143fac12263a2e1dcd5653ecae6e96239a409d5137a1b92aba5775ed56b3fd5"
+  },
+  {
+    "path": "scripts/read_pst_attachments.cjs",
+    "sha256": "b6a746f668536d0b5af9ed988b73b5a25833206cf6aa6f0e060ba6bb91f32762"
+  },
+  {
+    "path": "scripts/run_fuse.py",
+    "sha256": "2e7777a8e663d674629163f7a4cc9ddfc2b1fac2fb0ff548cd3b6b0ed97dd568"
+  },
+  {
+    "path": "scripts/run_preparation_job.ps1",
+    "sha256": "99eb28fe195e39af5bacafa60b9fa5ad47a0fa6de98358000088b97d0c0ea03a"
+  },
+  {
+    "path": "scripts/run_preparation_queue.py",
+    "sha256": "66cdf8e3c5aadda9b4dcca7d58a5e53ebf0102b9dd33b45d21ec5ad74da35565"
+  },
+  {
+    "path": "scripts/start_enron.ps1",
+    "sha256": "7c69218ab1adc977b75c41158550380ae58a60f73130da92ee748c4808465f15"
+  },
+  {
+    "path": "src/excel_shrink_research/__init__.py",
+    "sha256": "c0f7a05958bbd882b2ba8886ae74089213968ff31f463b21f91f37a4e5b333bf"
+  },
+  {
+    "path": "src/excel_shrink_research/convert_workbooks.py",
+    "sha256": "d6542bf9dd9bda81dd5e55baa87765e30c5567e6bcf2292f8518cb7fd05f74d8"
+  },
+  {
+    "path": "src/excel_shrink_research/enron/OwnedExcel.cs",
+    "sha256": "262b7b4d581f70c4e6910fac36764b587c5fd1b9f204c958a717cde16184101c"
+  },
+  {
+    "path": "src/excel_shrink_research/enron/__init__.py",
+    "sha256": "91c9d610f90c274e111a069699fdae2ac1912f21f1f673a1896dc862fbb69dc4"
+  },
+  {
+    "path": "src/excel_shrink_research/enron/benchmark.py",
+    "sha256": "b8a70db16d033e6059b8852709c945cd9acaf3ebf49149430f660587c59b1702"
+  },
+  {
+    "path": "src/excel_shrink_research/enron/cli.py",
+    "sha256": "f8f8866b6d85efd8122b48f2128f564a5bcfbb4a22d6d3b00b0154351cba037a"
+  },
+  {
+    "path": "src/excel_shrink_research/enron/common.py",
+    "sha256": "d7b374b270dae8ced5399fe694eeee58b085e7ad624cdfe96b9f30b94f51fe6b"
+  },
+  {
+    "path": "src/excel_shrink_research/enron/compare.py",
+    "sha256": "fb92af2fe7dc9db36871568f0987a31fd9934739ac46914a9d5ded454353e2db"
+  },
+  {
+    "path": "src/excel_shrink_research/enron/container_embeddings.py",
+    "sha256": "c4b7766693d1050cb2d60b9fbac99158736df13ff98329ccf2764c939c717f3a"
+  },
+  {
+    "path": "src/excel_shrink_research/enron/difference_export.py",
+    "sha256": "06e5f7bd45719e142bfcb0d57f460ebd49fd73949d16e20a91c00bc51ea3d5ef"
+  },
+  {
+    "path": "src/excel_shrink_research/enron/embedded_workbooks.py",
+    "sha256": "d9c4cc8117862d5c6f0f2a8998d4e67047e2a06331597d9da16670b6f6806b7e"
+  },
+  {
+    "path": "src/excel_shrink_research/enron/excel.py",
+    "sha256": "e3d3e7c3417c24dd5fc7ca243caf2796aab185d88c30d83eee46788a917a499c"
+  },
+  {
+    "path": "src/excel_shrink_research/enron/excel_benchmark.py",
+    "sha256": "0ba6ae6e0b9a3e930b20a2ca83048d5cac66e5ebb39c93e2c5f5c0e9214391a8"
+  },
+  {
+    "path": "src/excel_shrink_research/enron/excel_worker.ps1",
+    "sha256": "d6cca80b6d4253826a2f3dbffb38998ee4f5953382c21405b4c5ef5f565b7fc7"
+  },
+  {
+    "path": "src/excel_shrink_research/enron/ingest.py",
+    "sha256": "baf7107fff64fb207c6d3325e26d9740f8664fa9b5ad84c4c2a45d7670c0b802"
+  },
+  {
+    "path": "src/excel_shrink_research/enron/match_old_missing.py",
+    "sha256": "eaa7dfb7c39a207044bfbf6eefae12b83dcce1e0ad871367448dae32466b0e83"
+  },
+  {
+    "path": "src/excel_shrink_research/enron/ole_recovery.py",
+    "sha256": "a215b7466c3b58c5714aad93e913abcc0161895b4df15dc51c427f4535469471"
+  },
+  {
+    "path": "src/excel_shrink_research/enron/pst_download.py",
+    "sha256": "f1b0cc30e886f96511652ce5f6fb455cb8b16489831c415afca94662ee9f9a1a"
+  },
+  {
+    "path": "src/excel_shrink_research/enron/pst_probe.py",
+    "sha256": "b3ee65da30a8b79ef5963f349d8069ad1983ddb8a3c36eb162df4c07feef6a50"
+  },
+  {
+    "path": "src/excel_shrink_research/enron/release.py",
+    "sha256": "46222463fdf8437b07f98b1a8f8aba271e284aa780a997f5b7a92ca5629e9ae2"
+  },
+  {
+    "path": "src/excel_shrink_research/enron/reuse.py",
+    "sha256": "9e6d0d58c23f9acf62f9f9eaec0f7ea84e71698b0505519084300a2c1990c3ac"
+  },
+  {
+    "path": "src/excel_shrink_research/enron/study_export.py",
+    "sha256": "966a6bbc03ffbf0b932fb6932eab9dd3b1be27f8bd7e1614c046e838cd2abd8c"
+  },
+  {
+    "path": "src/excel_shrink_research/enron/trace_missing_origins.py",
+    "sha256": "e78c5e76da34449af7b3cae106fd45c7253a272f61d31c41e13a78bf26019746"
+  },
+  {
+    "path": "src/excel_shrink_research/enron/workflow.py",
+    "sha256": "5a5383684d662c843cd1fa30c44cce6f51c2cbcba7ecb200f89fcb1580e2a0ac"
+  },
+  {
+    "path": "src/excel_shrink_research/euses.py",
+    "sha256": "a4925c776a855c770859baf6ebd6700751ee5003761fa3ae4da89546d281e8ce"
+  },
+  {
+    "path": "src/excel_shrink_research/fuse_download.py",
+    "sha256": "1a02dfaa1f3f4acc825729285a6e4cbb41779aba67ffc6e12faef37815cee6aa"
+  },
+  {
+    "path": "src/excel_shrink_research/fuse_workflow.py",
+    "sha256": "7dbe59e76c458edf23a79ed3b04eaf77086d1d1864c8d5e0f1031610b7b23ee2"
+  },
+  {
+    "path": "src/excel_shrink_research/preparation_queue.py",
+    "sha256": "1593b830e9917f46a5b7bda5336024372ba16e4517b07be7619131d08150d24a"
+  },
+  {
+    "path": "src/excel_shrink_research/preparation_transfer.py",
+    "sha256": "875b2c550d10a6bd107e09e80d2e278c0060838c0b830b86486abed7b8e65bac"
+  },
+  {
+    "path": "tests/test_conversion_recovery.py",
+    "sha256": "7a0f16d7c5b417ea8be1ca751d3d31e691bd0bb461f5f22bfc094af32914b3b9"
+  },
+  {
+    "path": "tests/test_difference_export.py",
+    "sha256": "b86bf0f86d9bc6e6431baefaf262975362bc49113a2a7491266b04e90cfb3821"
+  },
+  {
+    "path": "tests/test_enron_compare.py",
+    "sha256": "356e3d39bc4ca8d8b3e50452bd3e11baf0b82e10f5d47361e8d1d2cfd8bc5ba9"
+  },
+  {
+    "path": "tests/test_enron_container_embeddings.py",
+    "sha256": "84a4942fd65f53fea3d9a58628da63b89ad86b7babb7c92ad7e2be08714662bd"
+  },
+  {
+    "path": "tests/test_enron_embedded_workbooks.py",
+    "sha256": "d817320cb0344de2f30a10deead2613879c29371f5a1e90d2ee9b7dac73fd452"
+  },
+  {
+    "path": "tests/test_enron_excel.py",
+    "sha256": "df3495c7dfc7a03b57461801d47509dc4051fe5adface6864e69dd16540568d2"
+  },
+  {
+    "path": "tests/test_enron_ingest.py",
+    "sha256": "f9f50c529ffa0c97be60ecbeda55aeac849b1a8569e76f8af4393fa72e287bf9"
+  },
+  {
+    "path": "tests/test_enron_match_old_missing.py",
+    "sha256": "5ae50e21b63e1200ab7eae941c9504f56817d66c33f1d2c20e37a2ab38d32671"
+  },
+  {
+    "path": "tests/test_enron_ole_recovery.py",
+    "sha256": "6857337f15a4e539a3e9aff502bcd3b7ee93681128e181af0ebb25b5733a5eb6"
+  },
+  {
+    "path": "tests/test_enron_pst_download.py",
+    "sha256": "4e08946d3ec204e4c39aff1f431242ae9b3b77cb752bfe45df3610e1095f9254"
+  },
+  {
+    "path": "tests/test_enron_pst_probe.py",
+    "sha256": "c440516ea21f4f60429f4b3af8493c082e7dfba21be6fe4db6a949cee6e532a9"
+  },
+  {
+    "path": "tests/test_enron_release.py",
+    "sha256": "13ccd7c7d93efc0ca8cd1e5b13fe445396173bd21083b6474e7dc9a1c3f937bd"
+  },
+  {
+    "path": "tests/test_enron_reuse.py",
+    "sha256": "0d9880abc52cd58c4c8401a0e4550de3594e42eec38691ebbddc17cde8a11581"
+  },
+  {
+    "path": "tests/test_enron_study_export.py",
+    "sha256": "86ff61d5d5459c21c8442957e0d416aba6c409e6c2be85ce8fa28efcae54a8da"
+  },
+  {
+    "path": "tests/test_enron_trace_missing_origins.py",
+    "sha256": "21b38c3e8560c286f1ed24346a0f6d74002dc994c48f3a07f70981dd4aef3cb8"
+  },
+  {
+    "path": "tests/test_enron_workflow.py",
+    "sha256": "ddee8948a41602a5cfd358cf6fee944c298626197332793743aa781cee54ddb6"
+  },
+  {
+    "path": "tests/test_euses.py",
+    "sha256": "1727ad0c12ddeb71b4044ec675f2932e10c915338156f5923e81ef15ab69ca0e"
+  },
+  {
+    "path": "tests/test_full_pst_reader.cjs",
+    "sha256": "6d3a2d83e9629dd90b4ba63a3beec03940778e46e4c1311f605623f999676e01"
+  },
+  {
+    "path": "tests/test_fuse_workflow.py",
+    "sha256": "c26c627cce61e37544b49cf116c43c683c37c373a1422b942b87eac4097c36cc"
+  },
+  {
+    "path": "tests/test_preparation_job.py",
+    "sha256": "6988ca78e8db1eba91ec5bda74f76042a155af28b7ecefb0e5cf14dd161ad755"
+  },
+  {
+    "path": "tests/test_preparation_queue.py",
+    "sha256": "ee550d886a6f90d44bc8675135082a7bf4c1a156ea51f0ce50aa25c5017c4a45"
+  },
+  {
+    "path": "tests/test_preparation_transfer.py",
+    "sha256": "9be01f96c1d7681affcbad683130223c48335738d3ccb87ceae41c11511eaaa1"
+  },
+  {
+    "path": "tests/test_pst_attachment_reader.cjs",
+    "sha256": "ed058d111ccaf208329fdac02c483468166e5fed80832ad3b3dfcec083a84405"
+  }
+]

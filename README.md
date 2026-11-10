@@ -193,3 +193,16 @@ Unrelated paper edits remain in the original checkout.
 This branch has no parent commit. It can be fetched into a new repository
 without merging paper history. Its deletion follows ordinary Git reference
 handling; another retained branch, tag or clone can still keep the snapshot.
+
+## Exact history archive from 10 November 2026
+
+`provenance/icde2026-20261110/local-history.bundle` preserves the original
+20 local commits and their ancestors, including exact commit IDs. Verify it
+with `git bundle verify` and fetch its named backup branch to restore history.
+`paper-commit-tip/` contains the 65 changed files exactly as committed at
+`6388dd4`. The older `paper-reference/` snapshot remains available separately.
+
+`paper-working-copy/` preserves the pending manuscript, case-study images,
+converter changes and local migration note. Its file receipt and binary patch
+are in the same provenance directory. These files are an archive, not an
+instruction to apply the older corpus tooling to the current paper branch.
