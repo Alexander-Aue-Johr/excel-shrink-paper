@@ -52,6 +52,36 @@ hashes can avoid transmitting and retaining equal images under the recorded
 transport policy. Actual unequal images remain evidence. Hash transport, image
 retention and scientific coverage are separate choices.
 
+\subsection{Keep exclusion and capture geometry consistent}
+The content envelope is a union over the inspected raw, saved and rebuilt
+states. Supported visible formatting contributes alongside values and formulas.
+An operation that removes content therefore cannot reduce the plan merely by
+making the transformed package smaller. Native object observations and
+unsupported dependencies retain their own coverage rules.
+
+Height dependencies stop at the last row in this union. Policy v12 applies the
+same lower boundary to cell capture rectangles~\cite{trailingrowvalidation}.
+Context above the content and on either side remains available. Empty rows below
+the union cannot move content above them, whereas an empty row preceding later
+content can change its position. The boundary is recomputed through the existing
+state analysis. A later relevant extent enlarges it before capture selection.
+The planner reuses its stored rectangle and substitutes its unpadded bottom
+coordinate, adding no Excel operation or second worksheet scan.
+
+This rule concerns the supported relevant-content envelope. It does not remove
+the need to model overflow, formatting or graphical objects correctly. Charts
+retain separate observations. A native zero-width or zero-height range has an
+explicit non-rendered outcome with geometry retained. A transition between
+visible and non-rendered states remains a difference. Agreement of two
+non-rendered ranges does not become a pixel-equality observation.
+
+For captured images, raw dimensions and content origins remain available.
+Eligible exterior-size changes can be distinguished from changed overlapping
+pixels through the documented containment rules. A shifted origin, missing
+measurement or changed content pixel retains the applicable difference or
+incomplete outcome. Extent exclusion and exact white-margin exclusion have
+separate receipt flags. A global tolerance would erase that distinction.
+
 \subsection{Bounded execution and recovery}
 Resident workers receive commands over session-scoped WebSockets, while image
 uploads use bounded HTTP requests~\cite{deltasieveexecution}. Durable commands,
@@ -69,6 +99,22 @@ four-group sequence. This observation motivates resource ownership in the tested
 environment. It does not establish that every startup delay is caused by stale
 profiles or registrations.
 
+\subsection{Separate control traffic from retained evidence}
+The resident command channel and the live status display have distinct roles.
+WebSocket delivery supports prompt command and completion notification, with
+durable records supporting reconciliation after disconnection. The Observatory
+status stream starts with a snapshot and sends a restricted JSON Patch subset
+over allowed paths. Sequence gaps require resynchronization. Image uploads and
+detailed evidence remain HTTP operations~\cite{livestreamprotocol}.
+
+A retained 100-card fixture records a 1,627,309-byte full status response,
+a 17,722-byte changed response and a 1,415-byte unchanged-comparison response.
+These measurements characterize status payloads for that fixture. They do not
+measure sustained comparison throughput. Bounded image queues and hash-based
+transport address separate costs and retain their own resource accounting.
+Neither a smaller status response nor a delivered heartbeat establishes that
+Excel has completed a pending render.
+
 \subsection{Retain outcomes and explain uncertainty}
 The report records selected regions, compared states, configuration, timings and
 failures. Pixel diagnostics provide changed-pixel counts, channel deltas and
@@ -81,3 +127,28 @@ Their static viewer needs no Excel installation or running control API. Run
 metadata must be reviewed for local paths and publication-sensitive content
 before public release. Historical replay requires recorded event history and
 cannot reconstruct observations that were never retained.
+
+\subsection{Collect independent runs in a static atlas}
+Each analysis can publish a static report with a compressed catalog, per-run
+detail and relative image assets~\cite{staticatlas}. A collection groups
+workbooks by declared corpus, technical name and original content identity.
+Processor versions and source runs keep separate identities. Missing input
+identity prevents automatic grouping. A merge checks retained evidence and
+preserves source provenance rather than collapsing independent observations
+into one synthetic run.
+
+The viewer retains the full worksheet inventory, including hidden and empty
+sheets, while loading detail and images on demand. Zoom changes the view over
+the same workbook and sheet hierarchy. Uncaptured regions have no reconstructed
+image. Different processors share an inspection context only when the retained
+original image, range, state, geometry and validation signature match. Native
+image pixels are inspected without rescaling. A changed capture policy can
+therefore leave an older processor without a matching context even when both
+runs concern the same workbook.
+
+Compressed JSON is decoded in the browser, and the exported site needs static
+HTTP hosting. Integrity manifests retain report and image identities. Visual
+markings expose recorded differences and incomplete evidence; they do not
+replace the scientific coverage statement. The atlas supports inspection of
+the same frozen outputs that can subsequently be revalidated with the native
+tool. It introduces no additional detection claim.

@@ -4,7 +4,7 @@
 
 The two IEEEtran working drafts contain separate preservation contracts,
 methodology, evidence boundaries and evaluation plans. The expanded checkpoint
-contains six SheetShrink pages and eight DeltaSieve pages including references.
+contains seven SheetShrink pages and nine DeltaSieve pages including references.
 Neither draft is a completed twelve-page submission. The source and experiment
 maps identify established results that can be used during further writing.
 

@@ -1,41 +1,42 @@
 {
-  "snapshot_date": "2026-11-09",
+  "snapshot_date": "2026-11-10",
   "status": "working drafts prepared for ICDE 2027; not a submission freeze",
-  "source_base_commit": "6bd84774845786ea391decf99a15a7d78c18ed24",
+  "source_base_commit": "31584ad6351aaa731506073d03ff4b1a6149734b",
   "source_hashes": {
     "papers/sheetshrink/figures/cleanup-algorithm.tex": "c2153194f0c6958b391ec7f0de515edabf28a9987052ef5d6c5787fe355a1bf3",
     "papers/sheetshrink/figures/overview.tex": "3b0931c17333e79be1f11ddbea02221bbc53dc5b546b79589d4b0072d4e7663c",
     "papers/sheetshrink/main.tex": "cc275e8ed86e343297a21f3b3f5a4e46ebe1257a95295fc061fad0387228ec86",
-    "papers/sheetshrink/references.bib": "8d76c34aed57e38c56c5f43822cb34ae460b0a396ec49f79316bd0d62266605c",
+    "papers/sheetshrink/references.bib": "dd38db79f2ddf2276eee088b33b24118a08ad357c941b8d5541980a0f49cfdc2",
     "papers/sheetshrink/sections/contract.tex": "3c285b7066ffcef4f04eff3334b0b8aee8826806000c25c7e3e8058db2bfc1f2",
-    "papers/sheetshrink/sections/discussion.tex": "0a6c1f366779c0e19d51c5a41ff69c753f8bca68b6a6a20c33e71a8e4ef216da",
-    "papers/sheetshrink/sections/evaluation.tex": "698100dca7346dd7e3159699be8b0ecbf1433907a67bd2c22806acafb3192860",
+    "papers/sheetshrink/sections/discussion.tex": "bd89dfc96ea88b68210cedac92083bf8eea8c2169039053c05d737244f066d74",
+    "papers/sheetshrink/sections/evaluation.tex": "e7f8280ae3689bb7ba4cf348bc03c76f6a5f3518ce4d4523b69edf07efebda56",
     "papers/sheetshrink/sections/introduction.tex": "2156358a51c246043bb2287297f3826f1f2427f7d99955a92f3ab0d2622413fd",
-    "papers/sheetshrink/sections/method.tex": "8e3536b9b17f4e7e9d07e471dd5c9552593180213e236bb15e676b87949c2412",
+    "papers/sheetshrink/sections/method.tex": "22fd55609a5bee3fddae1c0abb5f845a68eb24e35cf3699629a9dbd8486f0e56",
     "papers/sheetshrink/sections/related.tex": "ee068a47c7f15faf5b057efb83e5be7c3ec2a6e6dafc9daf6936e43f04786086",
     "papers/deltasieve/figures/comparison-algorithm.tex": "abd522426ee900b6210b3ea885e42b9013f69d5bd1c5e9de214543d25337bea1",
     "papers/deltasieve/figures/overview.tex": "97d5d557d4307431a94397008d0e63bbed81fafbfec6ba0636351957408dbf41",
     "papers/deltasieve/main.tex": "e352474db3daadac0dc4a6de7c766ff5b4934b09a6573575e29baae7dc412ab0",
-    "papers/deltasieve/references.bib": "6d1bfb81eea3c916cacc2c314480d67e29ac7b49daf7fad4aca64ad95d6b7073",
+    "papers/deltasieve/references.bib": "d002799bfd57ff5d19fa2c4544c4bc14f50f397c2853da774b9943caa0d547eb",
     "papers/deltasieve/sections/contract.tex": "e7e0ec8cc3ebbe79a33562bc2f3fc03db2e3c4292df6d81abb3923f8b2e0112c",
     "papers/deltasieve/sections/discussion.tex": "0f9a7b9499256aa5abed041288b79a16c417581569e5fef333f1632db01e83f6",
-    "papers/deltasieve/sections/evaluation.tex": "8412214fedbac00571f001f27b520c7e21810482ecad16ffcdc1ea3d5dd7c0c8",
+    "papers/deltasieve/sections/evaluation.tex": "999eb11f0be46051c383e1573a06361ac65acd54d7d30a700c7671a8d8c49ed3",
     "papers/deltasieve/sections/introduction.tex": "67d8cd5a10d43fea29d74270b447838e0eb079d410582b45be71b9c3b12c449c",
-    "papers/deltasieve/sections/method.tex": "21fcab5785899a9079bcad19506eed89e0cb060b6dfa04b75c64530dac024395",
+    "papers/deltasieve/sections/method.tex": "638b52086f3f12943e9d316c89f5144be5d30808c1e1e918732d311fe5e45a11",
     "papers/deltasieve/sections/related.tex": "3cb4f91f93991cbe74fb32ba431f1cf5c3c743139760e392de7fd4b4de01ca9f"
   },
   "files": [
     {
       "path": "related-manuscripts/sheetshrink.pdf",
-      "sha256": "2ffb8313a81f85505c1bffe6be9f8260f739174722ea76325fcb70ebb0bc87f7",
-      "bytes": 92439,
-      "pages": 6
+      "sha256": "f531e5ce474926923368afaeaddec954bca13aef721426e08ca60cef96d729e4",
+      "bytes": 114903,
+      "pages": 7
     },
     {
       "path": "related-manuscripts/deltasieve.pdf",
-      "sha256": "e9abd17b5e6de9e67a70937f41a3585284df4d5186e923faa1d13a620f68fe63",
-      "bytes": 150717,
-      "pages": 8
+      "sha256": "65cbc8c013b87819aa0c473c397e1c34858fda36226b3533e29c9a6fadf6df60",
+      "bytes": 166997,
+      "pages": 9
     }
-  ]
+  ],
+  "software_evidence_revision": "7ca7c2a6adce0692a665fae94d29d20f4b0e67c6"
 }

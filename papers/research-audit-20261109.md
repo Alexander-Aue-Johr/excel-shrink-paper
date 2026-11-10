@@ -460,3 +460,15 @@ SheetShrink rebuilt to six pages. All six pages were rendered and inspected.
 The build has resolved references and no overfull boxes. Underfull spacing
 diagnostics remain. Supplementary working snapshots and their hashes were
 updated to the rebuilt files. Both initial literature inputs are now reviewed.
+
+### Method and failure-evidence update on 2026-11-10
+
+The latest checkpoint is `research-audit/method-update-20261110.md`.
+SheetShrink now explains fixed-height promotion guards, deferred reference
+protection, tail masking and metadata limitations. DeltaSieve now explains the
+v12 lower capture boundary, transport roles and static multi-run Atlas. Native
+Traffic and Migration controls retain their exact scopes and version identities.
+Registry counterchecks and native-adapter limits are incorporated. Both drafts
+build to seven and nine pages including references, respectively. All pages
+were rendered and inspected. The two outstanding primary checklist entries
+remain open. Manuscript finalization and submission remain separate.

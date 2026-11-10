@@ -60,6 +60,62 @@ subject to reference and layout guards. Gaps, formulas, text and vertical runs
 remain outside this rule. The threshold identifies an admitted structural case;
 it does not establish that arbitrary repeated data are unintended.
 
+\subsection{Guarded row representation}
+Promotion replaces repeated cell formatting with an existing row style only
+after checking the row and its gaps. The row must be visible, unprotected and
+without an existing row format. The current implementation additionally requires
+both a stored height and an enabled \texttt{customHeight} flag. An automatic row
+can change height after promotion even when its cells originally share the
+proposed font. A stored \texttt{ht} value by itself does not authorize promotion.
+The implementation checks these parsed attributes before the promotion scan,
+so the additional guard requires no native layout measurement~\cite{rowpromotionfix}.
+
+The dominant empty-cell style must occur at least twice. The dense route requires
+at least 1,024 occurrences. A bounded-gap route admits at most 64 missing columns
+and restores required original formats only when the inheritance checks permit.
+Sparse promotion requires equivalent inheritance at every absent position and
+excludes merged sparse rows. Style-count ties select the smaller existing style
+index. These thresholds choose a compact representation within the preservation
+conditions. They do not establish that arbitrary repeated values are redundant.
+
+Automatic rows retain the ordinary representative rules. A column font can
+contribute to their height even when its cells contain no text. Representative
+selection must account for the inherited font identities that would disappear
+with deleted cells. An explicit default-style blank may also be the only barrier
+to a visible column fill or border. Retaining one required font witness does not
+authorize deleting a different cell that masks such inherited formatting.
+
+\subsection{Deferred decisions and dependency scope}
+Reference-sensitive deletion occurs after candidate discovery. Otherwise a
+formula on a later worksheet could refer to a value already removed. Admitted
+hidden tails are stored as row spans, filtered against the protected references,
+and rewritten through the existing cleanup path. An intersecting known reference
+retains the entire span. This avoids materializing each candidate coordinate in
+a separate set and requires no additional traversal to rediscover the cells.
+
+Reference protection includes supported formulas, names, chart and object
+formulas, and pivot dependencies. Shared-formula references move with relative
+axes while absolute axes remain fixed. The implementation can protect enclosing
+rectangles without expanding every follower. Conflicting anchors, unresolved
+scope, dynamic references and unsupported syntax prevent a deletion proof.
+Functions such as \texttt{INDIRECT} and \texttt{OFFSET} therefore require
+conservative handling~\cite{sheetshrinkcurrentcontract}.
+
+After deferred deletion, affected rows are reconsidered because their earlier
+tail anchors may be stale. Row headers and column boundaries can still carry
+visible effects. In particular, an explicit borderless row can suppress column
+borders. A visible empty row with a stored height can determine the vertical
+extent of those borders. Preserving the row header is sufficient in these cases;
+the cleaner need not generate a full row of explicit cells.
+
+\subsection{Package metadata and failure boundaries}
+Workbook metadata cleanup has separate predicates. Built-in name aliases are
+matched by name and local sheet scope when a corresponding prefixed name exists.
+The current predicate does not establish equality of the two formula bodies.
+This remains a specific limitation of that metadata policy. Calculation-chain
+cleanup resolves removed cells through workbook relationships and retains
+unresolved mappings. The cleaner does not compute replacement formula caches.
+
 \subsection{Execution and output}
 The implementation distributes worksheet work and can subdivide large work.
 Scheduling and chunk size must preserve cleanup decisions. Workbook-level

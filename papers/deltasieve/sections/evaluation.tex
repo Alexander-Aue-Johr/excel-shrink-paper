@@ -201,6 +201,53 @@ row bound to 50 in planning tests, while retaining a distant column boundary.
 It had not replaced either long-running attempt at the evidence checkpoint.
 The planning result consequently establishes no measured runtime reduction.
 
+\subsection{Empty context rows and a false geometry finding}
+A Migration development case exposed disagreement between height selection and
+capture selection. Worksheet \texttt{Tabelle 2.6.1} has a relevant envelope
+ending at row 84. The previous capture included row 85 as context. That empty
+row measures 12.75 points in the original and becomes hidden after cleanup.
+The selected \texttt{IG1:JL85} region has zero width in both states, so it yields
+no image. Its raw height nevertheless changes from 1,098.75 to 1,086 points,
+creating a geometry finding outside the relevant lower boundary.
+
+Policy v12 clips that region to \texttt{IG1:JL84}. A fresh paired native rebuild
+measures 1,086 points on each side and reports no geometry or rendering
+difference there. The same workbook run completes 38 regions, including 37
+pixel comparisons, with no capture-region differences. Separate height
+observations in \texttt{Tabelle 1.1} and \texttt{Tabelle 1.6} remain recorded.
+The control therefore resolves the identified exterior-context false finding
+without establishing whole-workbook equality~\cite{trailingrowvalidation}.
+
+The regression test also supplies a content envelope extending to row 96.
+Selection retains that lower extent, showing that the correction follows the
+union boundary rather than hard-coding row 84 or ignoring zero-area geometry.
+Historical reports keep their original policy and observations. The static
+collection exposes the new repeat as a separate variant. The change also
+demonstrates why a geometry flag and an absent image require an explanation
+before a finding is attributed to the transformation.
+
+\subsection{Operational failure controls}
+Long-run execution has failure modes outside pixel comparison. One investigation
+retained 3,085 add-in registrations, and a separate checkpoint retained 617.
+A backed-up removal control was followed by a successful small workload.
+However, restoring removed registrations also produced fast startup in the later
+countercheck~\cite{startupcontrols}. The sequence establishes an operational
+investigation and a counterexample to a simple accumulation explanation. It
+does not identify registry cleanup as the cause of a general speed improvement.
+Profile ownership and registration maintenance therefore retain separate
+mechanisms and evidence.
+
+Historical native-adapter experiments also have bounded scope. Retained VBA
+adapters exercise clipboard-based picture capture and memory or persisted-image
+comparison. VSTO and Excel-DNA trials concern drawing geometry. The Rust-COM
+adapter required support for single-precision numeric shape properties in
+addition to double-precision and integer variants~\cite{nativealternatives}.
+These findings explain interoperability constraints. They do not rank complete
+capture engines under a matched workload. No retained trace establishes the
+recalled clipboard-corruption and reboot sequence, so it supplies no empirical
+result here. Office.js batching and independent-process opening have their
+separately reported measured endpoints.
+
 \subsection{Current verification boundary}
 The portable-viewer smoke experiment retained a deliberately different pair,
 loaded its images through relative static assets and displayed its diagnostics
