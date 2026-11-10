@@ -1,14 +1,16 @@
 % IEEEtran's after-title hook places this full-width figure before the columns.
 \begin{minipage}{\textwidth}
 \centering
-\includegraphics[width=\textwidth,height=14.7cm,keepaspectratio]{figures/observatory-cover.pdf}
+\providecommand{\observatorycover}{figures/observatory-cover.pdf}
+\includegraphics[width=\textwidth,height=14.7cm,keepaspectratio]{\observatorycover}
 \makeatletter
 \def\@captype{figure}
 \makeatother
 \caption{Recorded development run on 144 Enron workbooks selected for large
 absolute XLSX reductions, using 12 workers. Work intervals follow workbook
-admission order. The lower view compares the three largest uncompressed packages
-on one linear byte scale. Curves connect worksheet S2 in B1 to its work items.
+admission order (WB denotes workbook, numbered by admission). Thread labels
+identify worker lanes. The lower view compares the three largest uncompressed packages
+on one linear byte scale. Curves connect worksheet S2 in WB 1 to its work items.
 Observed wall time was 17.077\,s.}
 \label{fig:observatory-cover}
 \end{minipage}

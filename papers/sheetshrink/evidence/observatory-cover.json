@@ -18,10 +18,17 @@
   "highlighted_workbook": "b2d0dfef6a1ce21cf3896241052a4a28ffdad659b6bbb6b1ea44f47e4d589c86.xlsx",
   "highlighted_part": "xl/worksheets/sheet2.xml",
   "links": 12,
-  "svg_sha256": "e035679865d8e3b640839e3182db25afeaf7bf091982e9085a957c8f3e3de653",
+  "svg_sha256": "e02e1ecbddb19f99979bb82c3bea5ab498869c0af06df4298b39ad8d1a22aef5",
   "labels": {
-    "b2d0dfef6a1ce21cf3896241052a4a28ffdad659b6bbb6b1ea44f47e4d589c86.xlsx": "B1",
-    "70a7994fc2a6ce011743a2868e81832bcf58c0e05c42b9d907cb6cc012e00921.xlsx": "B2",
-    "ef58bd71ed25f5fba28fdd2d5cddba39f8ee39961bf1030f983f3d9b3b00690b.xlsx": "B12"
+    "b2d0dfef6a1ce21cf3896241052a4a28ffdad659b6bbb6b1ea44f47e4d589c86.xlsx": "WB 1",
+    "70a7994fc2a6ce011743a2868e81832bcf58c0e05c42b9d907cb6cc012e00921.xlsx": "WB 2",
+    "ef58bd71ed25f5fba28fdd2d5cddba39f8ee39961bf1030f983f3d9b3b00690b.xlsx": "WB 12"
+  },
+  "dark_svg_sha256": "3efd2ff58f5c1055ce185e4cba7e7049bc6038ff8bfab61f63a84b8db9b4735d",
+  "label_convention": "WB numbers follow workbook admission order. Thread numbers identify worker lanes.",
+  "atlas_camera": {
+    "yaw_radians": 0.25,
+    "pitch_radians": 0.6,
+    "zoom": 0.8
   }
 }
