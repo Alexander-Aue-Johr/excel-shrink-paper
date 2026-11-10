@@ -280,10 +280,21 @@ automation failures. One Enron workbook nevertheless completed Check Performance
 in the author's manual session. Its source SHA-256 matched the frozen input,
 and the saved output reduced serialized cells from 1,315,602 to 1,094,514.
 The automated pane had reported ``Something went wrong'' for the same input,
-including in a fresh Excel process. This discrepancy remains an unresolved
-workflow difference. It cannot establish that Check Performance is unable to
-clean the workbook. The manual artifact has separate provenance and pending
-visual validation.
+including in a fresh Excel process. Subsequent visible GUI interaction recovered
+the other ten outputs, with unchanged frozen source hashes. Seven required no
+structural normalization. Two Enron inputs required Excel repair, and one
+Destatis input required resolution of a conflicting defined name. We retained
+repair-only baselines and classified these three separately. All thirteen saved
+output and baseline archives passed ZIP integrity checks. These checks establish
+artifact availability. Visual validation remains pending.
+
+Five recovered Enron cases succeeded with an ordinary worksheet selected. One
+first failed on a chart sheet, then succeeded after switching to a worksheet.
+This observation motivates a targeted automation control. It does not establish
+a general cause for every preparation failure. A Data.gov input also completed
+after a multi-minute suggestion scan, showing that an earlier timeout alone
+does not establish unsupported workbook contents. Interactive recovery costs
+remain separate from automated preparation measurements.
 
 
 \subsection{Validation cost of redundant background definitions}
