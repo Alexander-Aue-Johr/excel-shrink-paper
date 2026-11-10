@@ -30,6 +30,25 @@ in a temporary PowerPoint presentation, requests native chart conversion, and
 extracts the generated XLSX data workbook. These derived chart-data workbooks
 form a separate population from the original Excel workbooks.
 
+A subsequent diagnostic run retained slide exports from ten additional
+conversions after a three-second rendering delay. Inspection revealed outputs
+with large black regions and fragmented chart geometry, including the example
+in Figure~\ref{fig:graph-conversion-artifact}. These observations motivate
+excluding Graph-derived workbooks from the main preservation evaluation pending
+source-to-output fidelity validation. The original objects remain available for
+inspection. The cause of the observed rendering remains unresolved because a
+verified rendering of the source object has not yet been established.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth,trim=36bp 204bp 510bp 24bp,clip]{figures/graph-conversion-artifact.png}
+\caption{PowerPoint rendering after converting an extracted legacy Microsoft
+Graph object. Large black regions obscure fragmented chart geometry. The image
+is a cropped native slide export produced three seconds after conversion with
+PowerPoint 16.0. Source rendering fidelity remains unverified.}
+\label{fig:graph-conversion-artifact}
+\end{figure}
+
 An exploratory checkpoint on November 10, 2026 included all 969 successful
 recoveries available at that point, without random sampling. SheetShrink's
 default policy left 884 packages byte-identical and changed worksheet XML in

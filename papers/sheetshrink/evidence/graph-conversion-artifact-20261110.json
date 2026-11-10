@@ -1,0 +1,11 @@
+{
+  "source_sha256": "70562520ecad17984f33d22ed9856f0f08a2f1d30b96016f48d337cf279d0cac",
+  "slide_png_sha256": "7655d44745a650b282eeae96f7bd70ba3c3d80042d4d1875bbb83fc0f8b4f4f7",
+  "powerpoint_version": "16.0",
+  "diagnostic_delay_seconds": 3,
+  "diagnostic_attempts": 10,
+  "rendering": "native PowerPoint slide PNG export",
+  "crop": "white slide margins removed by LaTeX clipping; original PNG retained",
+  "source_rendering_verified": false,
+  "finding": "Large black regions and fragmented chart geometry; cause unresolved"
+}
