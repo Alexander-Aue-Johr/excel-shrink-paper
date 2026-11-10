@@ -381,7 +381,7 @@ cell overrides and unsupported conditional-formatting contexts.
 
 
 A second retained Enron input,
-\texttt{5d98c82491876616a27c81387d370975402de30439051002d64c0c1f6e5f3d68.xlsx},
+\texttt{5d98c82491876616}\allowbreak\texttt{a27c81387d370975}\allowbreak\texttt{402de30439051002}\allowbreak\texttt{d64c0c1f6e5f3d68.xlsx},
 contains one worksheet named \texttt{Feb}. Its rebuilt original has 545,958
 serialized cells through row 49,633, compared with 5,341 cells through row 486
 in the rebuilt transformed state. Both retain an empty AutoFilter over
@@ -417,7 +417,7 @@ idle deadline without extending it on heartbeat-only activity.
 
 \subsection{Repeat a small native chart discrepancy}
 One Enron workbook,
-\texttt{00f8fb769c305d9114647758f3c38cfa2cbbcc18dc5bb9ad7b254b2b5949506b.xlsx},
+\texttt{00f8fb769c305d91}\allowbreak\texttt{14647758f3c38cfa}\allowbreak\texttt{2cbbcc18dc5bb9ad}\allowbreak\texttt{7b254b2b5949506b.xlsx},
 initially produced 26 changed RGB pixels with maximum channel difference 36 in
 the embedded \texttt{Chart 1} on \texttt{Hedge Example}. The corresponding
 worksheet image was identical. A package inspection found no worksheet
@@ -429,3 +429,23 @@ for both the embedded chart and chart sheet \texttt{Chart3}; that control took
 identical worksheet and chart images. The earlier discrepancy remains retained
 as an unreproduced native rendering observation. These controls justify neither
 a global pixel tolerance nor exclusion of another chart's differences.
+
+
+\subsection{Controlled opening recovery}
+Six selected Destatis workbooks displayed conflicts between legacy print names
+and canonical built-in definitions. Controlled copies preserve both definitions
+under distinct names after checking for alias references. Five comparisons
+completed in the initial recovery batch. Four had identical captured regions.
+The workbook \texttt{pruefungen-hochschulen-2110420217005.xlsx} retained one
+pixel discrepancy on \texttt{TAB-04}, requiring subsequent investigation.
+The sixth workbook,
+\texttt{bevoelkerungsbewegung-2010110157005.xlsx}, exposed a conservative drawing
+fallback on sheet \texttt{2.11}. Its stored line top was approximately 960.5
+points, while Excel reported approximately 917.529 points. Both observations
+fit within the measured \texttt{A1:K64} rectangle, with the required stroke
+margin. These recovered-baseline observations retain separate input identities.
+
+Five selected Enron workbooks also displayed native repair prompts when tested
+with their original input as the sole opened comparison input. Their SHA-256
+identities and prompt evidence are retained. Such incomplete opening attempts
+provide no image-equivalence verdict.

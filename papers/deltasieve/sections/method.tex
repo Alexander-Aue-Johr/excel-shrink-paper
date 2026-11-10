@@ -189,3 +189,41 @@ requested spans and pass the numeric and ordering checks. Cached lookups and
 ordinary process or add-in heartbeats do not advance it. A workbook with many
 small sheets can therefore continue through a long measurement phase while a
 stalled native command remains bounded by its operation and idle deadlines.
+
+
+Legacy drawing colour metadata is admitted only within a supported RGB colour
+node. The accepted extension declares the Office 2010 drawing namespace,
+marks that namespace as ignorable, and supplies a spreadsheet palette index
+between 0 and 65. The RGB value remains the drawing colour. Unknown namespaces,
+other attributes and out-of-range indices retain conservative coverage. The
+existing native frame, line width, transform and effect checks still determine
+whether the line admits bounded capture coverage.
+
+Opening recovery retains explicit input provenance. Some converted Destatis
+workbooks contain both a legacy print-area or print-title name and the canonical
+built-in name in the same worksheet scope. Excel displays a name-conflict
+prompt. For a controlled recovery baseline, we rename the legacy alias only
+when exactly one canonical peer exists and package inspection finds no formula
+or relationship reference to that alias. Both definitions and their formulas
+remain present. Only the defined-name attribute in the workbook XML changes.
+Macro-bearing inputs and referenced aliases require separate review. Raw,
+normalized and transformed SHA-256 identities are retained with the changed
+member and alias mapping. Recovery results are labelled as comparisons against
+this normalized baseline.
+
+
+Confirmed setup-phase completions also advance the idle-progress counter.
+Opening, saving and XML inspection may together exceed the idle interval while
+each phase completes successfully. A transition to a completed phase advances
+the counter once. Repeating the same completed status leaves it unchanged.
+Running statuses and liveness samples retain their existing watchdog semantics.
+
+
+A supported horizontal line can have a different native vertical position from
+its serialized absolute transform after Excel resolves row anchors. Qualification
+requires a unique matching name, unrotated horizontal geometry, identical left
+coordinate and width, and a finite nonnegative native top coordinate. A single
+capture rectangle must contain the union of the native and stored positions,
+including half the stroke width and two points of rasterization context. A
+position outside that padded rectangle or a changed width retains the fallback.
+The resulting region is captured in both comparison states.
