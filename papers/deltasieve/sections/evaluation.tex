@@ -411,3 +411,19 @@ The correction advances progress after height-run validation. This changes
 failure detection and preserves the selected visual evidence contract. A native
 repeat is required to distinguish this repaired scheduling outcome from any
 subsequent workbook-opening, rendering or comparison failure.
+
+
+\subsection{Repeat a small native chart discrepancy}
+One Enron workbook,
+\texttt{00f8fb769c305d9114647758f3c38cfa2cbbcc18dc5bb9ad7b254b2b5949506b.xlsx},
+initially produced 26 changed RGB pixels with maximum channel difference 36 in
+the embedded \texttt{Chart 1} on \texttt{Hedge Example}. The corresponding
+worksheet image was identical. A package inspection found no worksheet
+formulas in this workbook. A separate native control compared two inputs with
+identical uncompressed package members and a different ZIP comment, avoiding
+the byte-identity shortcut. Conservative chart capture produced identical images
+for both the embedded chart and chart sheet \texttt{Chart3}; that control took
+20.604 seconds. A fresh original-versus-SheetShrink comparison also produced
+identical worksheet and chart images. The earlier discrepancy remains retained
+as an unreproduced native rendering observation. These controls justify neither
+a global pixel tolerance nor exclusion of another chart's differences.
