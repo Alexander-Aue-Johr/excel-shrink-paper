@@ -110,3 +110,9 @@ python scripts/xml-methods/inspect-wanderungen.py ORIGINAL.xlsx NEW_RECEIPT.json
 The inspector verifies the exact column sequence and row identities. It makes no
 new visual-validation or cleanup-performance claim. The 11 focused hidden-tail
 regressions passed in the source revision recorded by the figure inventory.
+
+The retained font PDF exports have their right frame at 288.98 points, beyond
+the logical range width reported by Excel. Their presentation crop is 289.5
+points wide. `--font-frame-width-points` overrides it for a new export setup.
+The crop receipt retains both widths. The preparer checks that every preview
+includes the complete right frame.

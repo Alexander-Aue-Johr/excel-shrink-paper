@@ -42,18 +42,41 @@ def verify_positive_pair(group: str, original: str, retained: str) -> None:
                 raise ValueError(f'{group} positive-control pixels differ')
 
 
+def verify_font_frames() -> None:
+    """Require the printed right border in all three 600-dpi control previews."""
+    for variant in ['source', 'one-witness', 'no-witness']:
+        with Image.open(OUTPUT / 'font' / (variant + '.png')) as image:
+            pixels = image.convert('RGB')
+            # Ignore the small white print margin at each end of the frame.
+            closed = any(
+                all(max(pixels.getpixel((x, y))) < 64
+                    for y in range(12, pixels.height - 14))
+                for x in range(pixels.width - 20, pixels.width)
+            )
+            if not closed:
+                raise ValueError(f'{variant} preview cuts off the printed right frame')
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--export-directory', type=Path,
                         default=ROOT / 'tmp/pdfs/xml-methods/vector-export')
+    parser.add_argument('--font-frame-width-points', type=float, default=289.5,
+                        help='Crop width enclosing the retained font controls printed frame')
     args = parser.parse_args()
     receipts = json.loads((args.export_directory / 'receipt.json').read_text(encoding='utf-8-sig'))
     for item in receipts:
         target = OUTPUT / item['group'] / (item['variant'] + '.pdf')
+        if item['group'] == 'font':
+            # The retained PDF frame ends at 288.98 pt. Excel reports a logical
+            # range width of 273 pt, which cuts through the final printed column.
+            item['crop_width_points'] = args.font_frame_width_points
+            item['crop_note'] = 'Include the complete printed A1:D4 right frame with a small margin.'
         crop_export(args.export_directory / item['pdf'], target,
-                    item['width_points'], item['height_points'])
+                    item.get('crop_width_points', item['width_points']), item['height_points'])
         subprocess.run(['pdftoppm', '-r', '600', '-png', '-singlefile', str(target),
                         str(target.with_suffix(''))], check=True)
+    verify_font_frames()
     verify_positive_pair('font', 'source', 'one-witness')
     verify_positive_pair('enron', 'Original', 'Default')
     (OUTPUT / 'receipt.json').write_text(json.dumps(receipts, indent=2) + '\n', encoding='utf-8')
