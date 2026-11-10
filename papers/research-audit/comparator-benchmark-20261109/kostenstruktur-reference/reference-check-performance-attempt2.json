@@ -1,0 +1,73 @@
+{
+  "default_rebuilt_sha256": "364d53e541475eee4ca436168d4459faeac7e1a8dd8f69b34aade6ae2af3c938",
+  "default_sha256": "c1fa097ab07d330993bc50bb8ba099131cd79e708feb6a3bbbbc9a4a27c5c00e",
+  "elapsed_seconds": 51.0575017,
+  "error": null,
+  "finished_at": "2026-11-09T23:24:01.653113600+00:00",
+  "limitations": [
+    "Coverage is exactly the supplied areas; the command does not establish their completeness.",
+    "Both workbooks are rebuilt and saved in the native renderer before reference captures.",
+    "Oversized images and failed commands remain failed reference cases."
+  ],
+  "original_rebuilt_sha256": "fc878f1bb56913ab68945fe8f7afee33505ab8edca60a18af554572bbca7da7d",
+  "original_sha256": "65348a52d3c691d39f7f2e5511942a55097e6cb2be04b51fef600465d84011ed",
+  "plan": [
+    {
+      "range": "A1:AC41",
+      "sheet": "10.2 T1"
+    }
+  ],
+  "plan_sha256": "4249f13c1acfc3872b21f4320f095682206793a736b22dd303d876d82eb822e4",
+  "producer_sha256": "72b6b6cc2d8071d9178e08a2ab22ecb7281bf7ec8ebf5c3dead42bbe9d295224",
+  "regions": [
+    {
+      "default_geometry": {
+        "height": 597.1875,
+        "left": 0.0,
+        "top": 0.0,
+        "width": 1863.0
+      },
+      "default_rendered": true,
+      "geometry_differs": true,
+      "image_dimensions": [
+        [
+          2485,
+          800
+        ],
+        [
+          2485,
+          796
+        ]
+      ],
+      "images": [
+        {
+          "bytes": 103546,
+          "file": "reference-0-O.png",
+          "sha256": "4045f4232b34414df39eb6160385eb48320c7d5c1ca3a01cbcb99665529d7452"
+        },
+        {
+          "bytes": 103227,
+          "file": "reference-0-SD.png",
+          "sha256": "9f24158b2f548ac4aeb483b019207628c0a8e2f568fe3edbb9ca5db5d244e585"
+        }
+      ],
+      "original_geometry": {
+        "height": 600.1875,
+        "left": 0.0,
+        "top": 0.0,
+        "width": 1863.0
+      },
+      "original_rendered": true,
+      "pixels_compared": true,
+      "pixels_differ": true,
+      "range": "A1:AC41",
+      "rendering_differs": false,
+      "sheet": "10.2 T1"
+    }
+  ],
+  "selection": "explicit_independent_reference_plan",
+  "started_at": "2026-11-09T23:23:10.595577200+00:00",
+  "status": "completed",
+  "verify_objects": false,
+  "version": 1
+}

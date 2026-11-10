@@ -1,0 +1,79 @@
+{
+  "version": 1,
+  "selection": "Six purposive Destatis stress cases selected after a 100-file historical-reduction screening",
+  "source_repository": "https://github.com/Alexander-Aue-Johr/excel-shrink-rust.git",
+  "source_commit": "a7eef1ae8d9a2c2ed03720eb0433ce2a8bf7e216",
+  "archive": {
+    "url": "https://zenodo.org/records/20681684/files/original_destatis_xlsx_files.zip",
+    "sha256": "f0b39b1a30778a80227b01ae64109db964c6f71f83e6ccb3097e2f9e26f4ac45",
+    "bytes": 1772589057
+  },
+  "workbooks": [
+    {
+      "file": "statistischer-bericht-rechnungsergebnis-kernhaushalt-gemeinden-2140331217005.xlsx",
+      "input_bytes": 89367137,
+      "output_bytes": 4602649,
+      "saved_bytes": 84764488,
+      "reduction_percent": 94.84972982853866,
+      "input_sha256": "b4a3dd77023756e06c3b7c9b04a55a8d3fbf4334f8803f44460a8dc8cd4dc603",
+      "output_sha256": "efd9fa91ba87735f160cb7a9ab555b69824f9ed7ae2e9d1943c75119106b9b6b",
+      "id": "finance",
+      "archive_member": "statistischer-bericht-rechnungsergebnis-kernhaushalt-gemeinden-2140331217005.xlsx"
+    },
+    {
+      "file": "verkehrsunfaelle-zeitreihen-xlsx-5462403.xlsx",
+      "input_bytes": 37207883,
+      "output_bytes": 2608628,
+      "saved_bytes": 34599255,
+      "reduction_percent": 92.98904482149656,
+      "input_sha256": "b320dc4f614eec1a1251efc5ca5041948761283ef33e29a5939652eab1fee806",
+      "output_sha256": "00397cf88a84bcec11f6d5b9980568f108686c6bb614b76e24e09575021b6a5e",
+      "id": "traffic",
+      "archive_member": "verkehrsunfaelle-zeitreihen-xlsx-5462403.xlsx"
+    },
+    {
+      "file": "wanderungen-2010120217005.xlsx",
+      "input_bytes": 16926818,
+      "output_bytes": 1579059,
+      "saved_bytes": 15347759,
+      "reduction_percent": 90.67125906357592,
+      "input_sha256": "bedf8677328fb15ffd967d03ebdf860ae4b1d0942d38091b4b4bef90e574f712",
+      "output_sha256": "8c352aa15235b39f67ad662ff96e7c9c68f62155b7d59e1bc39c8aed2733ec13",
+      "id": "migration",
+      "archive_member": "wanderungen-2010120217005.xlsx"
+    },
+    {
+      "file": "statistischer-bericht-stromsteuerstatistik-2140970237005.xlsx",
+      "input_bytes": 1432587,
+      "output_bytes": 145225,
+      "saved_bytes": 1287362,
+      "reduction_percent": 89.86274481061186,
+      "input_sha256": "aa0bfbdaf21313926547a909ff491ecabce021c4ab2134d6a4d3c7201e4dc054",
+      "output_sha256": "aeec7bef34fa92f6924193cdeee10de25984f7c60e4d0891a69975ee4e73c69f",
+      "id": "electricity",
+      "archive_member": "statistischer-bericht-stromsteuerstatistik-2140970237005.xlsx"
+    },
+    {
+      "file": "kostenstruktur-aerzte-2020161199005.xlsx",
+      "input_bytes": 15237103,
+      "output_bytes": 3318914,
+      "saved_bytes": 11918189,
+      "reduction_percent": 78.21820854003546,
+      "input_sha256": "65348a52d3c691d39f7f2e5511942a55097e6cb2be04b51fef600465d84011ed",
+      "output_sha256": "9e0e756a930582a0387fe6bad1e114a1843cf7cb0bbc69b14183eb0b4f07eb65",
+      "id": "doctors",
+      "archive_member": "kostenstruktur-aerzte-2020161199005.xlsx"
+    },
+    {
+      "file": "statistischer-bericht-zeitverwendung-priv-haushalte-5639102229005.xlsx",
+      "input_bytes": 3840894,
+      "output_bytes": 715062,
+      "saved_bytes": 3125832,
+      "reduction_percent": 81.38292803706636,
+      "input_sha256": "63da0fce4a44506b902b794d84ffb50f09a1f6a733066c8883e559209a14e5ca",
+      "output_sha256": "3780a144d40d67c068c644f731d5e93cf3192224695b82b5fcf602c862e92d13",
+      "id": "time-use",
+      "archive_member": "statistischer-bericht-zeitverwendung-priv-haushalte-5639102229005.xlsx"
+    }
+  ]
+}
