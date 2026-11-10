@@ -289,3 +289,21 @@ supported worksheet features and the existing borderless solid-fill checks
 remain required. A rule that can affect the blank cells inside its application
 area is still captured there. Unresolved application references and application
 areas reaching the full worksheet boundary retain the conservative path.
+
+
+In paired in-place execution, legacy coordinate projection is skipped when no
+pre-rebuild original image state exists. Each legacy comparison requires that
+state, so projecting its coordinates cannot produce an image observation.
+Serialized opening/saving controls and attribution records remain available.
+The rebuilt-state candidate plan and its native comparisons are independent
+of this omitted projection. This guard avoids work with no possible consumer;
+its end-to-end cost reduction requires a separate matched experiment.
+
+
+Capture policy version 15 also recognizes unfilled column formats beneath
+supported solid row backgrounds. When every observed column style and the
+default style are known and borderless, and none has a visible fill, column
+width and font partitions add no horizontal edge to an empty row band.
+The finite envelope, every explicit cell, row transitions and a following
+column remain selected. Visible column fills, borders and unknown styles
+retain their existing transition or conservative fallback handling.

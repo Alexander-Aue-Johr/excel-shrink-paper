@@ -569,3 +569,40 @@ the change to rendering or to exclude it from the report. The screenshot is
 cropped for legibility; the original image evidence is retained.}
 \label{fig:chart-pixel-observation}
 \end{figure*}
+
+
+\subsection{Separate save-control volume from capture count}
+The Data.gov workbook \texttt{MORB\_Data\_b2b3bf4db76f.xlsx} initially exceeded
+a 120-second idle deadline during pre-capture XML inspection. Its provisional
+237,733 candidates were not the final native image plan. A bounded single-input
+repeat with a 600-second idle deadline completed in about 1,032 seconds.
+It retained 514 worksheet regions and one chart per rebuilt state, with no
+reported image difference. Capture selection and transport took 246.189 seconds,
+and image comparison took 33.852 seconds.
+
+The two ordinary-save controls contained 14,274,504 and 14,274,497 serialized
+XML changes. Their measured audit stages took 84.984 and 70.627 seconds,
+respectively. These control counts explain substantial non-rendering work;
+they must not be presented as requested captures. A subsequent guard omits
+legacy coordinate projection when the paired execution has no pre-rebuild
+original image state. A focused no-Excel regression exercises that absent-state
+case. The retained native repeat predates the guard and establishes neither
+a measured speedup from it nor exhaustive worksheet coverage.
+
+
+\subsection{Unfilled columns beneath a repeating row band}
+The Kulturfinanzbericht worksheet \texttt{Tabelle 8.2-1} produced 127 selected
+regions under policy version 14. Of these, 125 far-tail findings depicted a
+horizontal grey row band with different capture widths. Column records changed
+widths and font styles, but introduced no visible column fill or border.
+The revised XML rule bounds the retained rebuilt states to
+\texttt{A1:BO114} and \texttt{A1:BO61}. Every explicit cell remains included.
+Focused cases preserve distant explicit cells and finite fill transitions and
+reject border or unknown-style qualification.
+
+An independent native \texttt{A1:BP114} comparison covers the finite union and
+context. Both images have 4,625 by 2,080 pixels, identical SHA-256 identities
+and equal measured geometry. This reference completed in 14.585 seconds.
+The original 125 far-tail observations remain retained. This finite control
+supports the selected envelope and is separate from a full version-15 workbook
+revalidation or a matched whole-run performance measurement.
