@@ -25,6 +25,12 @@ style context. A style index is local to a package. The same index can identify
 changed properties, while different indices can identify equivalent properties.
 The planner resolves that context before interpreting cell differences.
 
+Figure~\ref{fig:capture-01-effective-style} shows why a coordinate with no value
+can still require native observation. Inheritance determines the selected effect.
+The same reasoning applies when an explicit no-fill cell masks a colored column,
+or when a row style changes while the stored cell records remain identical.
+\input{figures/capture-methods/01-effective-style}
+
 Layout analysis includes row, column and default-format effects. Stored row-height
 attributes alone do not establish native effective heights. The native stage
 therefore measures the relevant geometry. Content bounds include values,
@@ -80,6 +86,37 @@ retain separate observations. A native zero-width or zero-height range has an
 explicit non-rendered outcome with geometry retained. A transition between
 visible and non-rendered states remains a difference. Agreement of two
 non-rendered ranges does not become a pixel-equality observation.
+
+\subsection{Two boundaries in the native capture protocol}
+The planner and native adapter enforce different boundaries. The Rust planner
+preserves the selected cell union while partitioning it under measured image
+budgets. The Office.js adapter must then return a complete image for each
+positive-area request. Both stages are required. A valid partition cannot make
+a silently truncated image complete, and a complete image cannot repair a
+selection that omitted a relevant coordinate.
+
+Figure~\ref{fig:capture-02-all-state-geometry} shows the batch cardinality and
+all-state checks. Coalescing preserves holes and worksheet identity. The measured
+largest extent controls splitting, and every resulting child is checked again.
+Hidden spans can produce zero-area leaves rather than thousands of redundant
+image requests. Geometric observations remain in the evidence ledger.
+\input{figures/capture-methods/02-all-state-geometry}
+
+Figure~\ref{fig:capture-03-office-sync} shows the request/synchronization boundary.
+The implementation bounds both the number of queued images and their aggregate
+pixel cost. Queueing more work does not permit reading an unfinished result.
+After synchronization, expected dimensions and crop geometry are checked before
+hashing or publication. A pending synchronization can therefore retain a live
+heartbeat without advancing verified capture progress.
+\input{figures/capture-methods/03-office-sync}
+
+Figure~\ref{fig:capture-04-zero-area} records the visibility-transition control.
+No image is fabricated for its non-rendered state. A transition to positive area
+still produces a finding even though no paired pixels exist. This separates
+coverage, rendering presence and exact pixel comparison in the serialized result.
+The code panels abbreviate source contracts and omit orchestration mechanics.
+Their source revisions and hashes are retained in the supplementary evidence.
+\input{figures/capture-methods/04-zero-area}
 
 For captured images, raw dimensions and content origins remain available.
 Eligible exterior-size changes can be distinguished from changed overlapping

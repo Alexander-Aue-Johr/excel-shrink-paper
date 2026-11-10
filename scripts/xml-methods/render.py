@@ -365,13 +365,18 @@ def save_figure(drawing: Drawing, stem: str) -> None:
     merge_native_insets(pdf_path, insets)
     svg_path = OUTPUT / f'{stem}.svg'
     renderSVG.drawToFile(drawing, str(svg_path))
+    embed_svg_fonts(svg_path, stem)
+
+
+def embed_svg_fonts(svg_path: Path, title: str) -> None:
+    """Keep editable SVG text portable with the same licensed fonts as the PDF."""
     svg = svg_path.read_text(encoding='utf-8')
     styles = []
     for family in sorted(set(re.findall(r'font-family: ([^;]+);', svg))):
         font_data = (Path(__file__).with_name('fonts') / FONT_FILES[family]).read_bytes()
         encoded = base64.b64encode(font_data).decode('ascii')
         styles.append(f'@font-face{{font-family:"{family}";src:url(data:font/ttf;base64,{encoded}) format("truetype");}}')
-    svg = svg.replace('<title>...</title>', '<title>' + stem + '</title><defs><style>' + ''.join(styles) + '</style></defs>')
+    svg = svg.replace('<title>...</title>', '<title>' + title + '</title><defs><style>' + ''.join(styles) + '</style></defs>')
     svg_path.write_text(svg, encoding='utf-8')
 
 

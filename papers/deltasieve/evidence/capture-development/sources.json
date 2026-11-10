@@ -1,0 +1,87 @@
+{
+  "review_date": "2026-11-10",
+  "production_revision": "1b9ee98e3409c3584ffd12a661d0c19f8a5f0788",
+  "experiment_revision": "ce0dc7b0c939cba2bb4d2cd157c35a9b2f27ebe1",
+  "experiment_branch": "origin/experiments/visual-validation",
+  "experiment_is_ancestor_of_production": false,
+  "sources": [
+    {
+      "revision": "ce0dc7b0c939cba2bb4d2cd157c35a9b2f27ebe1",
+      "path": "docs/visual-validation/experiments/README.md",
+      "sha256": "d50424728c62f8bee62347f2ed543fe7144783706e8a7ae6dc302a5745a2e8eb",
+      "url": "https://github.com/Alexander-Aue-Johr/excel-shrink-rust/blob/ce0dc7b0c939cba2bb4d2cd157c35a9b2f27ebe1/docs/visual-validation/experiments/README.md"
+    },
+    {
+      "revision": "ce0dc7b0c939cba2bb4d2cd157c35a9b2f27ebe1",
+      "path": "docs/visual-validation/experiments/PROTOCOL.md",
+      "sha256": "fa32d7198b7d52fcea1c41b1c3e9cad6b1ee6fa112417703dc4709d20d5f0dfe",
+      "url": "https://github.com/Alexander-Aue-Johr/excel-shrink-rust/blob/ce0dc7b0c939cba2bb4d2cd157c35a9b2f27ebe1/docs/visual-validation/experiments/PROTOCOL.md"
+    },
+    {
+      "revision": "ce0dc7b0c939cba2bb4d2cd157c35a9b2f27ebe1",
+      "path": "docs/visual-validation/decisions.md",
+      "sha256": "1e7e7d1a7ac60c70a05e487a23d403affd2eb3b4897575fb0c4439092a15f418",
+      "url": "https://github.com/Alexander-Aue-Johr/excel-shrink-rust/blob/ce0dc7b0c939cba2bb4d2cd157c35a9b2f27ebe1/docs/visual-validation/decisions.md"
+    },
+    {
+      "revision": "ce0dc7b0c939cba2bb4d2cd157c35a9b2f27ebe1",
+      "path": "docs/visual-validation/experiments/concurrent-office-capture/observations.md",
+      "sha256": "7bcd24a78396209f6bbbdfcb280ebe54873b3fa89d3b601c492465b89d3d2603",
+      "url": "https://github.com/Alexander-Aue-Johr/excel-shrink-rust/blob/ce0dc7b0c939cba2bb4d2cd157c35a9b2f27ebe1/docs/visual-validation/experiments/concurrent-office-capture/observations.md"
+    },
+    {
+      "revision": "ce0dc7b0c939cba2bb4d2cd157c35a9b2f27ebe1",
+      "path": "docs/visual-validation/experiments/range-image/vba/image-capture.bas",
+      "sha256": "0826dbd76269d4670a11f9604acd732576088731c0b33d4098c6976bfb9881f1",
+      "url": "https://github.com/Alexander-Aue-Johr/excel-shrink-rust/blob/ce0dc7b0c939cba2bb4d2cd157c35a9b2f27ebe1/docs/visual-validation/experiments/range-image/vba/image-capture.bas"
+    },
+    {
+      "revision": "ce0dc7b0c939cba2bb4d2cd157c35a9b2f27ebe1",
+      "path": "tools/excel-lab/vba/LabPixels.bas",
+      "sha256": "1122ac8413510a7c5d2783088ad9684255a714c115aa3f4ecb2253c73436852d",
+      "url": "https://github.com/Alexander-Aue-Johr/excel-shrink-rust/blob/ce0dc7b0c939cba2bb4d2cd157c35a9b2f27ebe1/tools/excel-lab/vba/LabPixels.bas"
+    },
+    {
+      "revision": "ce0dc7b0c939cba2bb4d2cd157c35a9b2f27ebe1",
+      "path": "docs/visual-validation/experiments/shape-bounds/vsto-addin/DrawingBoundsAutomation.cs",
+      "sha256": "af8de1962a007ba16c6da10836950ef12263540c57ec87a03f137a5c6264d1b1",
+      "url": "https://github.com/Alexander-Aue-Johr/excel-shrink-rust/blob/ce0dc7b0c939cba2bb4d2cd157c35a9b2f27ebe1/docs/visual-validation/experiments/shape-bounds/vsto-addin/DrawingBoundsAutomation.cs"
+    },
+    {
+      "revision": "1b9ee98e3409c3584ffd12a661d0c19f8a5f0788",
+      "path": "docs/visual-validation/experiments/officejs-image-limit/README.md",
+      "sha256": "def1cef588e2e7f1c36d96d83f7df90d9d0c51b9e53cc3c6aaff13024cae6166",
+      "url": "https://github.com/Alexander-Aue-Johr/excel-shrink-rust/blob/1b9ee98e3409c3584ffd12a661d0c19f8a5f0788/docs/visual-validation/experiments/officejs-image-limit/README.md"
+    },
+    {
+      "revision": "1b9ee98e3409c3584ffd12a661d0c19f8a5f0788",
+      "path": "docs/visual-validation/experiments/batched-capture-geometry/README.md",
+      "sha256": "2e5ab63621fd8a45b1ff3caf96a8c1a8b0077fb369151fcf65902de810b56db7",
+      "url": "https://github.com/Alexander-Aue-Johr/excel-shrink-rust/blob/1b9ee98e3409c3584ffd12a661d0c19f8a5f0788/docs/visual-validation/experiments/batched-capture-geometry/README.md"
+    },
+    {
+      "revision": "1b9ee98e3409c3584ffd12a661d0c19f8a5f0788",
+      "path": "docs/visual-validation/experiments/adaptive-capture/README.md",
+      "sha256": "2a49ea8295cd29665e3843314c232b68bedd26574e677945044f75e457845b8e",
+      "url": "https://github.com/Alexander-Aue-Johr/excel-shrink-rust/blob/1b9ee98e3409c3584ffd12a661d0c19f8a5f0788/docs/visual-validation/experiments/adaptive-capture/README.md"
+    },
+    {
+      "revision": "1b9ee98e3409c3584ffd12a661d0c19f8a5f0788",
+      "path": "docs/visual-validation/experiments/chart-dependency-captures/README.md",
+      "sha256": "e2319047ac560a019a6860b8fa337dad4460f04e8d606f434aca9ab10202f5a4",
+      "url": "https://github.com/Alexander-Aue-Johr/excel-shrink-rust/blob/1b9ee98e3409c3584ffd12a661d0c19f8a5f0788/docs/visual-validation/experiments/chart-dependency-captures/README.md"
+    },
+    {
+      "revision": "1b9ee98e3409c3584ffd12a661d0c19f8a5f0788",
+      "path": "docs/visual-validation/investigations/hidden-constant-tails-20261104.md",
+      "sha256": "0f750e75edefb823824e0303d3c0502253039de66296d71c6ded268ca67e2913",
+      "url": "https://github.com/Alexander-Aue-Johr/excel-shrink-rust/blob/1b9ee98e3409c3584ffd12a661d0c19f8a5f0788/docs/visual-validation/investigations/hidden-constant-tails-20261104.md"
+    },
+    {
+      "revision": "ce0dc7b0c939cba2bb4d2cd157c35a9b2f27ebe1",
+      "path": "docs/visual-validation/experiments/concurrent-office-capture/README.md",
+      "sha256": "ec4dee8a10a9a3a22a992e65b41225ef9acc588ad9a713f0b369884cd9de30aa",
+      "url": "https://github.com/Alexander-Aue-Johr/excel-shrink-rust/blob/ce0dc7b0c939cba2bb4d2cd157c35a9b2f27ebe1/docs/visual-validation/experiments/concurrent-office-capture/README.md"
+    }
+  ]
+}

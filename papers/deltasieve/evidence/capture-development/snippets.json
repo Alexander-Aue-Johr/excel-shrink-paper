@@ -1,0 +1,94 @@
+{
+  "cases": [
+    {
+      "id": "01-effective-style",
+      "title": "Resolve the style before selecting",
+      "lexer": "xml",
+      "language_label": "Abbreviated XML control",
+      "code": [
+        "<!-- Original package -->",
+        "<c r=\"B31\" s=\"98\"/>",
+        "<!-- Transformed package -->",
+        "<!-- B31 has no explicit cell record -->",
+        "<!-- Column B still supplies a fill -->"
+      ],
+      "explanation": "A removed empty cell can expose a column fill. Selection resolves the cell, row and column styles in both packages before deciding which region requires capture.",
+      "boundary": "Style indices are package-local. Equal values or different indices alone do not establish equal formatting.",
+      "source": "excel-shrink-cli/src/regression/targeted_comparison/cell_stream.rs",
+      "anchor": "pub fn event_with_styles",
+      "source_sha256": "ce8c2923fb56a10eda1c15e9123b32bdda6f7e51110c65c4f8b0b98e1fc3b573",
+      "source_revision": "1b9ee98e3409c3584ffd12a661d0c19f8a5f0788",
+      "notation": "Abbreviated illustration. Omitted helpers and guards remain part of the source contract."
+    },
+    {
+      "id": "02-all-state-geometry",
+      "title": "Every live state controls the split",
+      "lexer": "rust",
+      "language_label": "Abbreviated Rust implementation",
+      "code": [
+        "let measured = measure(&batch)?;",
+        "ensure!(",
+        "    measured.len() == batch.len(),",
+        "    \"Incomplete geometry batch coverage\"",
+        ");",
+        "for (candidate, geometries) in",
+        "    batch.into_iter().zip(measured)",
+        "{",
+        "    for geometry in geometries.values() {",
+        "        geometry.validate()?;",
+        "    }",
+        "    // Split if any live state is too large.",
+        "}"
+      ],
+      "explanation": "The planner measures the same candidate in every live state. A hidden range in one workbook can be visible in its partner. Any oversized state forces further partitioning.",
+      "boundary": "A missing measurement is an error. Zero-area leaves retain an observation. A single oversized cell fails instead of disappearing.",
+      "source": "excel-shrink-cli/src/regression/targeted_comparison/capture_layout.rs",
+      "anchor": "pub(super) fn plan_batched",
+      "source_sha256": "4f1ce1081251df176072f1cbb22e10bb19b02bf0aefaf06dba3eb01c94b1f35d",
+      "source_revision": "1b9ee98e3409c3584ffd12a661d0c19f8a5f0788",
+      "notation": "Abbreviated illustration. Omitted helpers and guards remain part of the source contract."
+    },
+    {
+      "id": "03-office-sync",
+      "title": "Queue, synchronize, then consume",
+      "lexer": "javascript",
+      "language_label": "Abbreviated JavaScript implementation",
+      "code": [
+        "const images = chunk.map(tile =>",
+        "  worksheet.getRange(",
+        "    CaptureGeometry.address(tile.raw)",
+        "  ).getImage()",
+        "));",
+        "await context.sync();",
+        "return images.map(image => image.value);"
+      ],
+      "explanation": "One synchronization completes the queued Office.js image requests. Returned images are then dimension-checked, cropped without resampling and finalized before another bounded batch.",
+      "boundary": "The batch pixel limit also applies. A heartbeat while synchronization is pending does not prove that a capture completed.",
+      "source": "excel-shrink-cli/office-capture/web/resident.js",
+      "anchor": "async function* sweepImages",
+      "source_sha256": "97632b2522014f45dbd1ccc71cac0a9a80bf0626f08d42a319bddf28bcf480d2",
+      "source_revision": "1b9ee98e3409c3584ffd12a661d0c19f8a5f0788",
+      "notation": "Abbreviated illustration. Omitted helpers and guards remain part of the source contract."
+    },
+    {
+      "id": "04-zero-area",
+      "title": "An absent image retains an outcome",
+      "lexer": "json",
+      "language_label": "Abbreviated visibility-transition receipt",
+      "code": [
+        "{",
+        "  \"geometry_differs\": true,",
+        "  \"rendering_differs\": true,",
+        "  \"pixels_compared\": false",
+        "}"
+      ],
+      "explanation": "In the synthetic visibility-transition control, only the transformed state exposes a row. The original has a zero-area observation and no invented white image.",
+      "boundary": "No paired pixels were compared. The rendering and geometry change remains a finding rather than an equality result.",
+      "source": "docs/visual-validation/experiments/adaptive-capture/README.md",
+      "anchor": "visibility-transition",
+      "source_sha256": "2a49ea8295cd29665e3843314c232b68bedd26574e677945044f75e457845b8e",
+      "source_revision": "1b9ee98e3409c3584ffd12a661d0c19f8a5f0788",
+      "notation": "Abbreviated illustration. Omitted helpers and guards remain part of the source contract."
+    }
+  ]
+}

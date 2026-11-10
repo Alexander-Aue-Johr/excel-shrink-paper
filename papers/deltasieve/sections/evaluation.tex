@@ -234,6 +234,106 @@ collection exposes the new repeat as a separate variant. The change also
 demonstrates why a geometry flag and an absent image require an explanation
 before a finding is attributed to the transformation.
 
+\subsection{Capture-engine development}
+\subsubsection{Image success without complete coverage}
+A synthetic million-row worksheet exercised \texttt{Range.getImage()} directly.
+Excel returned a PNG without an Office.js error in 2.58 seconds, but its size
+was only $85\times32{,}766$ pixels. The requested 15-point rows required
+20,971,521 pixels of height. A boundary probe found 1,638 rows complete and
+1,639 incomplete on that installation. This observation motivates validation
+of expected dimensions rather than treating successful API completion as full
+coverage~\cite{imagelimitdevelopment}.
+
+The related original-only Lysimeter sweep covered all 978,624 requested rows
+of \texttt{J70953:J1048576} in 576 images, taking 814.6 seconds after readiness.
+Only hashes and dimensions were retained. This was a complete one-column
+capture workload, not an original/transformed visual comparison. Its cost
+illustrates why native selection and image completeness must be evaluated
+separately.
+
+\subsubsection{Historical method selection and failed alternatives}
+The earlier experiment suite remains on its own versioned branch. It exposes
+individual CLI experiments as well as a GUI and retains a declared 62-case
+protocol. Table~\ref{tab:development-adapters} separates the questions answered
+by its adapters. They cannot all be ranked as interchangeable screenshot
+engines~\cite{nativealternatives,capturedecisiondevelopment}.
+\begin{table}[t]
+\caption{Scope of the historical native-adapter experiments.}
+\label{tab:development-adapters}
+\centering\footnotesize
+\begin{tabular}{p{0.23\columnwidth}p{0.67\columnwidth}}
+\hline
+Adapter & Observed responsibility \\
+\hline
+VBA / GDI+ & Clipboard pictures, bitmap/EMF conversion and owned-buffer pixel comparison, with optional PNG persistence \\
+VSTO / Excel-DNA & Native drawing geometry and interoperability \\
+Rust COM & Geometry and numeric COM property representations \\
+Office.js & Range images, geometry and synchronization through a local host \\
+\hline
+\end{tabular}
+\end{table}
+
+In an earlier selective-overflow, 16-MP screen, five complete compatible pairs
+had a median Rust/.NET host workload ratio of approximately 3.34. This measures
+the implemented transport and telemetry paths. Six complete .NET pairs gave a
+median selective/heuristic overflow workload ratio of approximately 1.089. The
+historical decision accepted this cost for explicit intervention and restoration
+evidence. Neither ratio isolates a language runtime or ranks the later production
+pipeline.
+
+The first controlled image-budget trial completed all 18 cases and selected
+32 MP as the smallest budget within 5\% of the fastest sum of per-scope median
+workloads. The sums were 254.45, 239.93 and 232.34 seconds for 16, 32 and 64 MP.
+The replication produced 245.14, 235.70 and 230.59 seconds and made the same
+choice. In both trials, 64 MP was fastest and had no observed budget-block
+failures. It was not classified as unstable. These trials used historical
+gridline and overflow policies, which remain part of their interpretation.
+
+The complete replication attempted all 62 nominal cases, with 48 complete and
+14 failed. The repeated failures involved four unresolved worksheet drawing-bound
+outcomes. They do not represent 14 independent crashes. Six of eight coverage
+workbooks completed, with 462 of 466 requested worksheets captured. The unresolved
+cases were retained instead of forcing a smaller capture or accepting missing
+images as equality.
+
+\subsubsection{Parallel capture pairs and memory admission}
+Earlier independent-capture trials on a synthetic 1,000-row workbook each
+completed one concurrent capture while the other add-in exceeded its 120-second
+startup deadline. The repeated failure persisted after a runtime update. Those
+trials supplied no valid parallel throughput result. The later pair experiment
+used a shared inactive desktop and one local host with separate owned pair
+states. Its successful observations therefore concern a different coordination
+configuration, without isolating which change resolved the earlier startup
+failure~\cite{pairstartupdevelopment}.
+
+A separate historical hospital selection compared one and two independent
+Excel pairs, each pair owning two Excel processes. With three repetitions per
+completed configuration, median capture-only throughput rose from 3.752 to
+7.030 pairs/minute for binary PNG transport, and from 7.590 to 12.312 for
+hash-first transport. Peak measured job memory rose from 1,525 to 2,685 MiB
+and from 1,472 to 2,666 MiB, respectively~\cite{pairdevelopment}.
+
+Every selected tile was equal in that workload, favoring hash-first transport,
+which uploaded no PNG bytes. All 36 observations requested for three through
+eight pairs were rejected before Excel launch by RAM admission. They establish
+neither zero throughput nor an Excel scaling ceiling. Setup and capture were
+separate endpoints. One completed run spent 71.8 seconds in startup and only
+7.9 seconds in capture, so capture-only rates do not predict campaign duration.
+
+\subsubsection{Adaptive geometry and hidden regions}
+The FRPP development workbook contains 307,920 rows, of which 304,140 are
+hidden. Among 19,248 original grid requests, 18,872 have zero area. A read-only
+COM geometry probe drove the Rust adaptive planner to 64 leaves after 710 probes
+in 2.815 seconds. This verifies the planner against the observed geometry. It
+was not a completed multi-state Office.js comparison~\cite{adaptivedevelopment}.
+
+A separate two-sheet native control exercised visible splitting and hidden
+regions. It retained one zero-area observation per state without inventing an
+image. A second control made a row visible only in the transformed state and
+reported rendering and geometry differences with \texttt{pixels\_compared=false}.
+These controls support the execution and outcome contracts in the method
+panels, while leaving corpus-wide selector recall to independent reference tests.
+
 \subsection{Operational failure controls}
 Long-run execution has failure modes outside pixel comparison. One investigation
 retained 3,085 add-in registrations, and a separate checkpoint retained 617.
