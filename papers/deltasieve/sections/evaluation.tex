@@ -398,3 +398,16 @@ takes 0.212 seconds. The native partition depends on measured geometry and is
 therefore distinct from the 385 XML grid tiles. These single development runs
 retain the full serialized-cell envelope and do not establish corpus recall or
 a matched end-to-end speedup.
+
+
+\subsection{Distinguish geometry work from an idle worker}
+The Destatis workbook
+\texttt{gestorbene-alters-und-geburtsjahre-2010193039005.xlsx} exposed a watchdog
+accounting defect. The retained interrupted attempt was receiving successful
+native height replies, including one for sheet \texttt{AJ 1955 O-1}, but the
+capture-progress counter did not include those replies. The 120-second idle
+watchdog consequently interrupted active measurement work before image capture.
+The correction advances progress after height-run validation. This changes
+failure detection and preserves the selected visual evidence contract. A native
+repeat is required to distinguish this repaired scheduling outcome from any
+subsequent workbook-opening, rendering or comparison failure.

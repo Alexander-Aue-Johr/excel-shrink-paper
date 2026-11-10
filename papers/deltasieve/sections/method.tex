@@ -181,3 +181,11 @@ proof. Actual filter criteria, sort children, unknown attributes and unsupported
 namespace contexts retain the conservative path. Native row geometry remains
 an independent observation. This distinction prevents a bounded button region
 from expanding an otherwise uniform background to every column.
+
+
+The idle watchdog counts validated native row-height replies as geometry
+progress. The counter advances only after the returned height runs cover the
+requested spans and pass the numeric and ordering checks. Cached lookups and
+ordinary process or add-in heartbeats do not advance it. A workbook with many
+small sheets can therefore continue through a long measurement phase while a
+stalled native command remains bounded by its operation and idle deadlines.
