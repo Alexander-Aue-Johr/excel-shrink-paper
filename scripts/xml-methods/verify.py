@@ -8,7 +8,7 @@ from reportlab.lib.colors import HexColor
 from pypdf import PdfReader
 from pypdf.generic import ContentStream
 
-from render import (ADDED_FILL, REMOVED_FILL, MARKER_WIDTH, Drawing, change_band)
+from render import (ADDED_FILL, REMOVED_FILL, MARKER_WIDTH, Drawing, change_band, changed_lines)
 
 PAPER = Path(__file__).resolve().parents[2] / 'papers/sheetshrink'
 EVIDENCE = PAPER / 'evidence/xml-methods'
@@ -70,6 +70,15 @@ def main() -> None:
     verify_bands()
     verify_vector_outputs()
     inventory = json.loads((EVIDENCE / 'cases.json').read_text(encoding='utf-8'))
+    coverage = json.loads((EVIDENCE / 'coverage.json').read_text(encoding='utf-8'))
+    covered = {number for family in coverage['families'] for number in family['cases']}
+    assert covered == {int(case['id'].split('-')[0]) for case in inventory['cases']}
+    assert len(coverage['cleanup_causes']) == 10
+    promotion = next(case for case in inventory['cases'] if case['id'] == '08-row-promotion')
+    removed, _, _ = changed_lines(promotion['before'], promotion['after'], tuple(promotion['removed_placeholders']))
+    for line in promotion['removed_placeholders']:
+        index = promotion['before'].index(line)
+        assert {index - 1, index, index + 1}.issubset(removed)
     problems = [
         problem
         for case in inventory['cases']
@@ -88,6 +97,8 @@ def main() -> None:
         'native_figures_and_atlas_have_no_raster_images': True,
         'band_stroke_at_least_marker_width': True,
         'band_and_marker_colors_match': True,
+        'every_example_has_a_rule_family': True,
+        'declared_cleanup_causes_accounted_for': 10,
     }
     receipt_path.write_text(json.dumps(receipt, indent=2) + '\n', encoding='utf-8')
 

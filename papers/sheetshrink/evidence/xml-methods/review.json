@@ -1,5 +1,5 @@
 {
-  "reviewed_revision": "e6ae437a2d72d1d26ede5e1f272b53d06fc3660c",
+  "reviewed_revision": "1b9ee98e3409c3584ffd12a661d0c19f8a5f0788",
   "date": "2026-11-10",
   "core_verification": {
     "command": "cargo test -p excel-shrink-core --lib",
@@ -17,5 +17,18 @@
     "receipt": "native-vector/receipt.json",
     "method": "Read-only open of the retained controls, CalculateFullRebuild and native Excel fixed-format PDF export. Printed gridlines, 100 percent scale and zero page margins. No Save.",
     "scope": "Print rendering is separate from the retained screen captures. Source/one-witness and Original/Default exported regions match at 600 dpi. No whole-workbook visual coverage is inferred."
+  },
+  "follow_up_audit": {
+    "date": "2026-11-10",
+    "examples": 49,
+    "added_families": "Protection bounds, sparse/uniform-fill promotion, majority/tie selection, fixed-height baselines, column gaps, hidden content sizing, dependency scope and deferred cleanup. Quoted attribute parsing and unknown-metadata fallback are explicit guards.",
+    "coverage": "coverage.json",
+    "selection": "Core tests, source predicates and relevant commits were rechecked. The optional preprocessor and the empty-row attribute no-op are explicitly accounted for."
+  },
+  "deferred_verification": {
+    "command": "cargo test -p excel-shrink-cli --lib phase3_",
+    "passed": 7,
+    "failed": 0,
+    "ignored": 0
   }
 }

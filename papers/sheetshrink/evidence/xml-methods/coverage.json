@@ -1,0 +1,244 @@
+{
+  "source_revision": "1b9ee98e3409c3584ffd12a661d0c19f8a5f0788",
+  "scope": "All ten declared CleanupCause variants are accounted for. The examples cover the reviewed Default rule families plus explicitly labeled diagnostic phases. This is a review inventory, not a claim to enumerate every combination of formatting, formulas and Excel behavior.",
+  "families": [
+    {
+      "name": "Payload and parser boundaries",
+      "cases": [
+        1,
+        27,
+        29,
+        49
+      ],
+      "specification": "S1-S2, S4",
+      "note": "Values, formulas, attributes, unchanged coordinates and explicit exclusions."
+    },
+    {
+      "name": "Inherited formatting and font layout",
+      "cases": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        11,
+        12,
+        26,
+        30,
+        31,
+        38,
+        47
+      ],
+      "specification": "S4-S5",
+      "note": "Font witnesses, local masks, fixed-height baselines, merges and centering spans."
+    },
+    {
+      "name": "Row representation proofs",
+      "cases": [
+        8,
+        9,
+        10,
+        32,
+        33,
+        34,
+        46
+      ],
+      "specification": "S5",
+      "note": "Dense and sparse promotion, gap restoration, dominant-style selection and fallback."
+    },
+    {
+      "name": "Tail rows and layout anchors",
+      "cases": [
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        48
+      ],
+      "specification": "S5-S6",
+      "note": "Content-free tails, visible masks, conditional scopes, drawing anchors and hidden boundaries."
+    },
+    {
+      "name": "Column coalescing",
+      "cases": [
+        19,
+        25,
+        36,
+        37
+      ],
+      "specification": "S6",
+      "note": "Compatible tails, font sentinels, visible border boundaries and uncovered gaps."
+    },
+    {
+      "name": "Admission and dependency-sensitive cleanup",
+      "cases": [
+        20,
+        21,
+        22,
+        23,
+        35,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45
+      ],
+      "specification": "S4, S7",
+      "note": "Protection extent, conservative hidden admission, shared formulas, scoped object references and deferred re-cleaning."
+    },
+    {
+      "name": "Workbook metadata and package identity",
+      "cases": [
+        24,
+        28
+      ],
+      "specification": "S1, S8-S9",
+      "note": "Scoped aliases and calculation-chain maintenance. Existing style/string indices and unrelated members retain their identity."
+    }
+  ],
+  "cleanup_causes": [
+    {
+      "name": "PreprocessEmptySelfClosingCells",
+      "cases": [],
+      "status": "Disabled by default",
+      "note": "The optional preprocessor is not presented as a production Default reduction."
+    },
+    {
+      "name": "EmptyCellsWithoutContent",
+      "cases": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        11,
+        12,
+        26,
+        29,
+        30,
+        31,
+        38,
+        47
+      ],
+      "status": "Illustrated",
+      "note": "Empty payloads are classified through their modeled formatting and layout effects."
+    },
+    {
+      "name": "EmptyHiddenCells",
+      "cases": [
+        38,
+        39,
+        48
+      ],
+      "status": "Illustrated",
+      "note": "Hidden state alone does not imply removable content."
+    },
+    {
+      "name": "UnreferencedWhitespaceCells",
+      "cases": [
+        23,
+        44
+      ],
+      "status": "Explicit diagnostic scope",
+      "note": "Default retains whitespace. Example 44 isolates the internal rewrite after candidate admission."
+    },
+    {
+      "name": "UnreferencedHiddenContentCells",
+      "cases": [
+        20,
+        21,
+        39,
+        40,
+        41,
+        42,
+        43,
+        45
+      ],
+      "status": "Illustrated",
+      "note": "Production admission is the conservative constant-tail rule. Example 45 is an injected-candidate phase test."
+    },
+    {
+      "name": "TrailingLayoutOnlyRows",
+      "cases": [
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        48
+      ],
+      "status": "Illustrated",
+      "note": "The empty tail is distinguished from rows that position a later visual anchor."
+    },
+    {
+      "name": "EmptyRowAttributeCleanup",
+      "cases": [],
+      "status": "Current helper is a no-op",
+      "note": "remove_irrelevant_attributes_for_empty_rows returns the original attributes. No attribute-stripping transformation is claimed."
+    },
+    {
+      "name": "SheetDataRangeTailPruning",
+      "cases": [
+        5,
+        14,
+        17,
+        18,
+        45
+      ],
+      "status": "Illustrated",
+      "note": "Range selection and later pruning must agree on the remaining anchors."
+    },
+    {
+      "name": "ExtraneousColumnRangeMerge",
+      "cases": [
+        19,
+        25,
+        36,
+        37
+      ],
+      "status": "Illustrated",
+      "note": "Equal-fill and ordinary tail routes have separate eligibility and replacement predicates."
+    },
+    {
+      "name": "WorkbookDefinedNameCleanup",
+      "cases": [
+        24
+      ],
+      "status": "Known limitation retained",
+      "note": "The current alias predicate matches name and scope, without proving equal formula bodies."
+    }
+  ],
+  "other_invariants": [
+    {
+      "name": "Execution equivalence",
+      "source": "excel-shrink-core/src/sheet/sheet_data.rs",
+      "anchor": "streaming_chunk_boundaries_match_materialized_reference",
+      "note": "Row-aligned work partitioning and thread counts do not authorize different cleanup decisions. hidden_tail_is_independent_of_parallel_row_chunks supplies a production-entry comparison."
+    },
+    {
+      "name": "Output publication",
+      "source": "excel-shrink-cli/src/pipeline_namespace_tests.rs",
+      "anchor": "late_namespaces_abort_output_without_replacing_prior_results",
+      "note": "Eligibility rejection preserves sources and prior results. Other local fallbacks remain visible in outcome accounting."
+    },
+    {
+      "name": "Package tables",
+      "source": "docs/behavior/shrinker.md",
+      "anchor": "S1.",
+      "note": "The shrinker does not generally compact or renumber shared strings, styles, fonts or binary assets."
+    },
+    {
+      "name": "Future native post-cleanup",
+      "source": "docs/behavior/shrinker.md",
+      "anchor": "S10.",
+      "note": "Excel-assisted height freezing and broader whitespace transactions remain proposed work and are excluded from implemented-rule figures."
+    }
+  ]
+}

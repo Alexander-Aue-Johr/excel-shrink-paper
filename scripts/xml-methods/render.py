@@ -126,12 +126,12 @@ def is_editorial(line: str) -> bool:
     return line.lstrip().startswith('<!--') or line.strip() == '...'
 
 
-def changed_lines(before: list[str], after: list[str]) -> tuple[set[int], set[int], list[tuple]]:
+def changed_lines(before: list[str], after: list[str], removed_placeholders: tuple[str, ...] = ()) -> tuple[set[int], set[int], list[tuple]]:
     opcodes = difflib.SequenceMatcher(a=before, b=after, autojunk=False).get_opcodes()
     removed, added = set(), set()
     for tag, a0, a1, b0, b1 in opcodes:
         if tag in ('replace', 'delete'):
-            removed.update(index for index in range(a0, a1) if not is_editorial(before[index]))
+            removed.update(index for index in range(a0, a1) if not is_editorial(before[index]) or before[index] in removed_placeholders)
         if tag in ('replace', 'insert'):
             added.update(index for index in range(b0, b1) if not is_editorial(after[index]))
     return removed, added, opcodes
@@ -199,7 +199,7 @@ def panel(drawing: Drawing, x: float, top: float, width: float, label: str,
 def code_diff(drawing: Drawing, case: dict, top: float, width=COLUMN) -> float:
     """Keep a complete before/after diff inside one column with folded bands."""
     before, after = case['before'], case['after']
-    removed, added, opcodes = changed_lines(before, after)
+    removed, added, opcodes = changed_lines(before, after, tuple(case.get('removed_placeholders', [])))
     decision = case.get('comparison') == 'decision'
     if decision:
         removed, added = set(), set()
@@ -232,7 +232,10 @@ def rule_card(case: dict) -> Drawing:
     drawing = Drawing(COLUMN, 400)
     text(drawing, 0, 0, case['id'].split('-')[0], 10, BLUE, 'PaperSerif-Bold')
     text(drawing, 23, 0, case['title'], 10, INK, 'PaperSerif-Bold')
-    end = code_diff(drawing, case, 23)
+    top = 23
+    if case.get('policy'):
+        top = paragraph(drawing, 0, top, case['policy'], COLUMN, size=7.8, color=BLUE) + 5
+    end = code_diff(drawing, case, top)
     end = paragraph(drawing, 0, end + 10, case['guard'], COLUMN, size=8.4)
     end = paragraph(drawing, 0, end + 5, 'Unsafe shortcut. ' + case['risk'], COLUMN,
                     size=8.4, color=RED)
@@ -384,6 +387,33 @@ def header(pdf: canvas.Canvas, title: str, page: int, subtitle: str = '') -> Non
     pdf.drawRightString(557, 23, str(page))
 
 
+def coverage_pages(pdf: canvas.Canvas, page: int) -> int:
+    """Show the reviewed rule families and account for every declared cleanup cause."""
+    coverage = json.loads((EVIDENCE / 'coverage.json').read_text(encoding='utf-8'))
+    for title, entries, family_page in [
+        ('Rule-family coverage', coverage['families'], True),
+        ('Declared cleanup causes and their status', coverage['cleanup_causes'], False),
+    ]:
+        page += 1
+        header(pdf, title, page, 'Coverage inventory. Disabled and no-op paths are explicitly distinguished.')
+        top = 760
+        for entry in entries:
+            drawing = Drawing(519, 90)
+            text(drawing, 0, 0, entry['name'], 10, INK, 'PaperSerif-Bold')
+            identifiers = ', '.join(f'{number:02d}' for number in entry['cases']) or 'No active Default transformation shown'
+            y = paragraph(drawing, 0, 17, 'Examples ' + identifiers, 519, 9, BLUE)
+            status = entry['specification'] if family_page else entry['status']
+            y = paragraph(drawing, 0, y + 3, status + '. ' + entry['note'], 519, 9)
+            draw_at(drawing, pdf, 38, top - 90)
+            top -= y + 19
+        if family_page:
+            drawing = Drawing(519, 170)
+            paragraph(drawing, 0, 0, coverage['scope'], 519, 9)
+            draw_at(drawing, pdf, 38, 45)
+        pdf.showPage()
+    return page
+
+
 def atlas(cases: list[dict], drawings: list[Drawing], font: Drawing, fill: Drawing,
           revision: str) -> None:
     """Lay out full-size column candidates, native evidence and navigable provenance."""
@@ -395,11 +425,11 @@ def atlas(cases: list[dict], drawings: list[Drawing], font: Drawing, fill: Drawi
            'Abbreviated source examples, negative cases and native rendering evidence')
     intro = Drawing(519, 690)
     y = paragraph(intro, 0, 0,
-        'This atlas follows the current Default policy. It groups the reviewed behavior specification, implementation, commit history and focused regression cases into 28 visual examples. Experimental Maximum and Too Aggressive settings have different preservation policies.', 519, 11)
+        f'This atlas groups the reviewed behavior specification, implementation, commit history and focused regressions into {len(cases)} visual examples. Production Default rules and explicitly labeled diagnostic fixtures have separate scopes. Experimental Maximum and Too Aggressive settings have different preservation policies.', 519, 11)
     y = paragraph(intro, 0, y + 15,
         'Read each source/result pair at its native one-column width. Red backgrounds and minus signs identify removed lines on the right. Green backgrounds and plus signs identify added lines on the left. An equals sign identifies a protected structure. Folded color bands connect edited ranges to thin markers at their exact gaps. These cues supplement syntax color.', 519, 10)
     y = paragraph(intro, 0, y + 15,
-        'The XML is illustrative. Namespace wrappers, irrelevant attributes, cached payloads and repeated cells are omitted. Style indices have meaning only within their own example. Comments describe omitted scope or an exclusion rather than literal output. The complete native font-control packages are retained separately.', 519, 10)
+        'The XML is illustrative. Namespace wrappers, irrelevant attributes, cached payloads and repeated cells are omitted. Style indices have meaning only within their own example. Comments describe omitted scope or an exclusion. A red omission label stands for deleted records. Explanatory comments are not literal output. The complete native font-control packages are retained separately.', 519, 10)
     y = paragraph(intro, 0, y + 15,
         'The source index pins each case to a file and a regression-test or implementation anchor. A matching unit test checks its own fixture. It does not prove that an abbreviated picture is a complete runnable workbook or that every possible Excel presentation is preserved.', 519, 10)
     y = paragraph(intro, 0, y + 15,
@@ -467,6 +497,7 @@ def atlas(cases: list[dict], drawings: list[Drawing], font: Drawing, fill: Drawi
            'Schematic illustrations | these are not Excel screenshots or measured coordinates')
     draw_at(schematic_effects(), pdf, 38, 765 - 318)
     pdf.showPage()
+    page = coverage_pages(pdf, page)
     for start in range(0, len(cases), 6):
         page += 1
         header(pdf, 'Source index and evidence limits', page,

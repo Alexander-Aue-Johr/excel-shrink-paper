@@ -1,8 +1,8 @@
 # XML method figures
 
 [Review atlas](../../papers/sheetshrink/figures/xml-methods/xml-cleanup-atlas.pdf)
-contains 28 column-width code comparisons, native controls, schematic failures
-and a source index. Three selected figures are included in the manuscript.
+contains 49 column-width code comparisons, native controls, schematic failures
+and a source index. Eight selected figures are included in the manuscript.
 
 ## Rebuild
 
@@ -52,7 +52,7 @@ They were reused unchanged. Their original workbooks remain in the local corpus
 case bundle identified by that provenance. No new whole-workbook validation is
 claimed. The four guard-effect drawings are labeled schematic illustrations.
 
-The source review used `e6ae437` and a passing core suite with 298 tests and one
+The source review used `1b9ee98` and a passing core suite with 298 tests and one
 ignored manual timing test. `verification.json` records native image comparisons,
 input hashes and PDF checks. The alias-name example explicitly retains the known
 limitation that the implementation does not compare the formula bodies.
@@ -73,7 +73,7 @@ controls. Their existing workbook and image evidence remains unchanged.
 
 The cropped PDF ranges retain native text and paths. `native_insets.py` replaces
 the declared preview-image draws with those PDF ranges before publishing the
-figure. The paper and atlas contain no rasterized cell pictures. SVGs retain
+figure. The native control figures and atlas contain no rasterized cell pictures. SVGs retain
 600-dpi raster previews of those same ranges alongside editable vector code.
 
 To repeat the exports, provide the retained Enron case directory and run.
@@ -89,3 +89,11 @@ Use `-CorpusCaseDirectory` to override the case-bundle location. The cropper use
 the recorded range geometry. It retains the export receipt, verifies both
 positive native pairs, and renders previews through Poppler at 600 dpi.
 Tinos is a Times-compatible serif family from `https://github.com/googlefonts/tinos`.
+
+## Coverage audit
+
+`coverage.json` groups all 49 examples and accounts for all ten declared cleanup
+causes, including disabled and inactive paths. Diagnostic fixtures are labeled
+separately from the Default policy. The audit covers the principal rule families,
+not every combination of Excel features. The core suite passed 298 tests with
+one ignored manual timing test. Seven selected deferred-cleanup tests also passed.

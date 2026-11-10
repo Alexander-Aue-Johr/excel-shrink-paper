@@ -1,9 +1,9 @@
 {
-  "source_revision": "e6ae437a2d72d1d26ede5e1f272b53d06fc3660c",
-  "rule_count": 28,
+  "source_revision": "1b9ee98e3409c3584ffd12a661d0c19f8a5f0788",
+  "rule_count": 49,
   "code_font_size_points": 8.2,
   "column_width_points": 252.0,
-  "maximum_card_height_points": 334.3599999999999,
+  "maximum_card_height_points": 380.3599999999999,
   "native_control_packages_differ_only_in_stated_cells": true,
   "font_control_source_equals_one_witness_pixels": true,
   "enron_region_original_equals_default_pixels": true,
@@ -47,12 +47,14 @@
     "native-vector/font/source.png": "71607709c2559c9dec461f412eb3dacda19919e53b6ad87d5171162af47cfe8c"
   },
   "pdf_checks": {
-    "code_figures": 28,
+    "code_figures": 49,
     "code_text_preserved": true,
     "all_code_figure_fonts_embedded": true,
     "code_figures_have_no_raster_objects": true,
     "native_figures_and_atlas_have_no_raster_images": true,
     "band_stroke_at_least_marker_width": true,
-    "band_and_marker_colors_match": true
+    "band_and_marker_colors_match": true,
+    "every_example_has_a_rule_family": true,
+    "declared_cleanup_causes_accounted_for": 10
   }
 }

@@ -1,5 +1,5 @@
 {
-  "source_revision": "e6ae437a2d72d1d26ede5e1f272b53d06fc3660c",
+  "source_revision": "1b9ee98e3409c3584ffd12a661d0c19f8a5f0788",
   "notation": "Illustrative abbreviated XML. Style IDs are local to each example. Comments and ellipses omit irrelevant payloads, repeated cells and wrappers. These excerpts are not complete executable OOXML packages.",
   "cases": [
     {
@@ -257,7 +257,10 @@
         "commit": "6955d9a5db4d4f60617e1e97776a9cd7c56bbf00"
       },
       "note": "The full-width test removes 16,383 empty cells. No new style index is allocated.",
-      "bad": ""
+      "bad": "",
+      "removed_placeholders": [
+        " <!-- repeated through XFD1 -->"
+      ]
     },
     {
       "id": "09-promotion-gap",
@@ -292,7 +295,10 @@
         "commit": "60bef0a120b662f765840e9500efc4982f959280"
       },
       "note": "The regression uses gaps at E1, AD1, XFC1 and XFD1. It also checks a second cleanup pass.",
-      "bad": ""
+      "bad": "",
+      "removed_placeholders": [
+        " <!-- repeated s=2 cells -->"
+      ]
     },
     {
       "id": "10-automatic-promotion",
@@ -831,6 +837,656 @@
         "commit": "4d47a7e0aeb823583138449d3acd99bbd66ff9d1"
       },
       "note": "This is structural chain maintenance. Formula evaluation and replacement calculation caches remain Excel operations.",
+      "bad": ""
+    },
+    {
+      "id": "29-row-spans",
+      "title": "Trim spans without moving coordinates",
+      "width": "column",
+      "before": [
+        "<row r=\"3\" spans=\"1:6\">",
+        " <c r=\"A3\" s=\"8\">...</c>",
+        " <c r=\"B3\" s=\"13\"/>",
+        " <c r=\"C3\" s=\"13\"/>",
+        " <c r=\"F3\" s=\"13\"/>",
+        "</row>"
+      ],
+      "after": [
+        "<row r=\"3\" spans=\"1:2\">",
+        " <c r=\"A3\" s=\"8\">...</c>",
+        " <c r=\"B3\" s=\"13\"/>",
+        "</row>"
+      ],
+      "guard": "Keep the value and required style representative. Reduce spans to this row's last retained column. Remaining cell coordinates stay unchanged.",
+      "risk": "Stale state from an earlier cleanup can leave an obsolete Z-column span. Deletion does not shift retained cells left.",
+      "source": {
+        "path": "excel-shrink-core/src/sheet/rows_regression_tests.rs",
+        "test": "keeps_one_empty_no_empty_cell_visible_style_footer_cell_after_content",
+        "kind": "regression test",
+        "sha256": "d9444af9392144abf552d808bcf73942c0975bdb8229a6f00d3c74ba25d5f363",
+        "line": 282,
+        "commit": "9c49d16725bee7282cb732e91aba870eff7c4bd2"
+      },
+      "note": "Reduced from the row-16108 footer fixture. spans_use_only_current_row_cells_after_recleaning separately checks stale-state reuse.",
+      "bad": ""
+    },
+    {
+      "id": "30-empty-fixed-row",
+      "title": "Remove cells from an empty fixed row",
+      "width": "column",
+      "before": [
+        "<row r=\"15\" s=\"429\"",
+        " customFormat=\"1\" ht=\"27\"",
+        " customHeight=\"1\">",
+        " <c r=\"A15\" s=\"427\"/>",
+        " <c r=\"B15\" s=\"429\"/>",
+        "</row>"
+      ],
+      "after": [
+        "<row r=\"15\" s=\"429\"",
+        " customFormat=\"1\" ht=\"27\"",
+        " customHeight=\"1\"/>"
+      ],
+      "guard": "The cells have only unneeded font formatting. The fixed row header already preserves its height and row format.",
+      "risk": "Fixed height does not authorize removal of a fill mask, merged-text witness or baseline-sensitive font.",
+      "source": {
+        "path": "excel-shrink-core/src/sheet/rows_regression_tests.rs",
+        "test": "removes_empty_no_empty_cell_visible_style_cells_when_row_already_has_custom_height",
+        "kind": "regression test",
+        "sha256": "d9444af9392144abf552d808bcf73942c0975bdb8229a6f00d3c74ba25d5f363",
+        "line": 373,
+        "commit": "9c49d16725bee7282cb732e91aba870eff7c4bd2"
+      },
+      "note": "This fixture retains the original row attributes, including spans when present. It does not demonstrate a general attribute-stripping pass.",
+      "bad": ""
+    },
+    {
+      "id": "31-fixed-baseline",
+      "title": "Fixed height still needs a font witness",
+      "width": "column",
+      "before": [
+        "<row r=\"134\" ht=\"9\"",
+        " customHeight=\"1\">",
+        " <c r=\"A134\" s=\"7\"><v>7896</v></c>",
+        " <c r=\"L134\" s=\"9\"/>",
+        " <c r=\"M134\" s=\"9\"/>",
+        "</row>"
+      ],
+      "after": [
+        "<row r=\"134\" ht=\"9\"",
+        " customHeight=\"1\">",
+        " <c r=\"A134\" s=\"7\"><v>7896</v></c>",
+        " <c r=\"L134\" s=\"9\"/>",
+        "</row>"
+      ],
+      "guard": "Keep one explicit default-font witness in this text row, even though the height is fixed. Style 9 also has an explicit no-fill component.",
+      "risk": "Removing both blanks changes the text baseline. A fixed height alone does not prove identical text positioning.",
+      "source": {
+        "path": "excel-shrink-core/src/sheet/rows_regression_tests.rs",
+        "test": "fixed_height_text_row_keeps_explicit_default_font_with_no_fill",
+        "kind": "regression test",
+        "sha256": "d9444af9392144abf552d808bcf73942c0975bdb8229a6f00d3c74ba25d5f363",
+        "line": 82,
+        "commit": "ce2b2205c241f89fe3b3ab77d451828ba8e943e6"
+      },
+      "note": "Pruefungen Hochschulen, TAB-04. This complements the automatic-height and merged-paragraph cases.",
+      "bad": ""
+    },
+    {
+      "id": "32-sparse-promotion",
+      "title": "Sparse promotion reuses a font-only XF",
+      "width": "column",
+      "before": [
+        "<row r=\"1\" ht=\"9\"",
+        " customHeight=\"1\"",
+        ">",
+        " <c r=\"A1\" s=\"2\">...</c>",
+        " <c r=\"B1\" s=\"2\"/>",
+        " <c r=\"C1\" s=\"2\"/>",
+        " <c r=\"D1\" s=\"2\"/>",
+        "</row>"
+      ],
+      "after": [
+        "<row r=\"1\" ht=\"9\"",
+        " customHeight=\"1\"",
+        " s=\"1\" customFormat=\"1\"",
+        ">",
+        " <c r=\"A1\" s=\"2\">...</c>",
+        "</row>"
+      ],
+      "guard": "All absent positions already inherit a compatible font. Promote to existing font-only XF 1 and retain A1's richer XF 2.",
+      "risk": "Copying XF 2 wholesale would leak its alignment or other components into the row. A different inherited gap font blocks sparse promotion.",
+      "source": {
+        "path": "excel-shrink-core/src/sheet/rows_regression_tests.rs",
+        "test": "row_font_promotion_reuses_existing_font_xf_and_preserves_text",
+        "kind": "regression test",
+        "sha256": "d9444af9392144abf552d808bcf73942c0975bdb8229a6f00d3c74ba25d5f363",
+        "line": 1079,
+        "commit": "6955d9a5db4d4f60617e1e97776a9cd7c56bbf00"
+      },
+      "note": "The fixture removes three empty cells and checks idempotency. Sparse promotion has different eligibility from the 1,024-occurrence dense routes.",
+      "bad": ""
+    },
+    {
+      "id": "33-uniform-fill",
+      "title": "Uniform fill promotion keeps merge cells",
+      "width": "column",
+      "before": [
+        "<row r=\"1\" ht=\"20.25\"",
+        " customHeight=\"1\"",
+        ">",
+        " <c r=\"A1\" s=\"2\">...</c>",
+        " <c r=\"C1\" s=\"1\"/>",
+        " <c r=\"D1\" s=\"1\"/>",
+        " <!-- other cells also use s=1 -->",
+        "</row>",
+        "<mergeCell ref=\"C1:D1\"/>"
+      ],
+      "after": [
+        "<row r=\"1\" ht=\"20.25\"",
+        " customHeight=\"1\"",
+        " s=\"1\" customFormat=\"1\"",
+        ">",
+        " <c r=\"A1\" s=\"2\">...</c>",
+        " <c r=\"C1\" s=\"1\"/>",
+        " <c r=\"D1\" s=\"1\"/>",
+        "</row>",
+        "<mergeCell ref=\"C1:D1\"/>"
+      ],
+      "guard": "The full row has the same applied fill, including its content cells. Reuse XF 1 while preserving the merge's required explicit cells.",
+      "risk": "A different content-cell fill, visible border, border override or protection hazard prevents this promotion.",
+      "source": {
+        "path": "excel-shrink-core/src/sheet/rows_regression_tests.rs",
+        "test": "full_width_row_promotes_uniform_fill_and_preserves_merged_cells",
+        "kind": "regression test",
+        "sha256": "d9444af9392144abf552d808bcf73942c0975bdb8229a6f00d3c74ba25d5f363",
+        "line": 1506,
+        "commit": "253587893b16a910b1c1ca1ed67aff1d04f3a6cf"
+      },
+      "note": "The full-width regression removes 16,381 cells and retains C1:D1. Companion tests reject mismatched content fills and border/protection hazards.",
+      "bad": "",
+      "removed_placeholders": [
+        " <!-- other cells also use s=1 -->"
+      ]
+    },
+    {
+      "id": "34-dominance",
+      "title": "An ineligible majority still wins",
+      "width": "column",
+      "before": [
+        "<row r=\"1\" ht=\"9\" customHeight=\"1\">",
+        " <c r=\"A1\" s=\"0\"/>",
+        " <c r=\"B1\" s=\"0\"/>",
+        " <c r=\"C1\" s=\"0\"/>",
+        " <c r=\"D1\" s=\"1\"/>",
+        " <c r=\"E1\" s=\"1\"/>",
+        "</row>"
+      ],
+      "after": [
+        "<!-- Dominant XF 0 wins 3:2. -->",
+        "<!-- No row promotion. -->"
+      ],
+      "guard": "Count all candidate styles before checking promotion eligibility. An unsuitable winning style does not make the smaller eligible group the winner.",
+      "risk": "Discarding XF 0 from the counts would incorrectly promote XF 1. Equal counts use the lower style ID, even when unsuitable.",
+      "source": {
+        "path": "excel-shrink-core/src/sheet/rows_regression_tests.rs",
+        "test": "row_font_promotion_does_not_substitute_a_promotable_minority_style",
+        "kind": "regression test",
+        "sha256": "d9444af9392144abf552d808bcf73942c0975bdb8229a6f00d3c74ba25d5f363",
+        "line": 1791,
+        "commit": "e18357b12c51d989852e8d6bb419d019795f79ab"
+      },
+      "note": "e18357b introduced explicit majority and tie counterexamples around the performance optimization. The panel shows the promotion decision, not the complete normal cleanup output.",
+      "bad": "",
+      "comparison": "decision"
+    },
+    {
+      "id": "35-protection-range",
+      "title": "Protection-only retention has a boundary",
+      "width": "column",
+      "before": [
+        "<row r=\"1\"><c r=\"B1\" s=\"7\"/></row>",
+        "<row r=\"2\"><c r=\"C2\"><v>1</v></c></row>",
+        "<row r=\"3\"><c r=\"D3\" s=\"7\"/></row>"
+      ],
+      "after": [
+        "<row r=\"1\"><c r=\"B1\" s=\"7\"/></row>",
+        "<row r=\"2\"><c r=\"C2\"><v>1</v></c></row>"
+      ],
+      "guard": "Default KeepInDataRange retains the protection-only B1 cell inside the later-established visible extent. D3 has no independent visual or dependency role.",
+      "risk": "Removing all protection-only cells loses in-range metadata. Keeping all of them can anchor a large irrelevant tail.",
+      "source": {
+        "path": "excel-shrink-core/src/sheet/output.rs",
+        "test": "keep_in_data_range_keeps_inactive_protection_cell_inside_visible_data_range_only",
+        "kind": "regression test",
+        "sha256": "31a7655cedb427d09519d8f1bd96526ecb1e5f4084bc99da679f93507a620390",
+        "line": 1742,
+        "commit": "6f38d41aa9fade28e6df33a71d68ff7d7dbfba32"
+      },
+      "note": "The extent must account for later content. Separate tests cover active protection and KeepAll. Font and inherited-fill effects remain independent barriers.",
+      "bad": ""
+    },
+    {
+      "id": "36-column-coalescing",
+      "title": "Coalesce a compatible equal-fill tail",
+      "width": "column",
+      "before": [
+        "<col min=\"1\" max=\"20\" style=\"39\"/>",
+        "<col min=\"21\" max=\"239\" style=\"39\"",
+        " width=\"8.77\"/>",
+        "<col min=\"240\" max=\"16148\" style=\"39\"",
+        " width=\"11.55\"/>",
+        "<col min=\"16149\" max=\"16384\" style=\"39\"",
+        " width=\"8.77\"/>"
+      ],
+      "after": [
+        "<col min=\"1\" max=\"20\" style=\"39\"/>",
+        "<col min=\"21\" max=\"16384\" style=\"39\"",
+        " width=\"8.77\"/>"
+      ],
+      "guard": "Beyond the used-column boundary 20, compatible visible fills and border-free formatting permit a compact tail declaration.",
+      "risk": "A visible row border can expose the removed widths. Hidden columns, gaps, unknown styles and incompatible components restrict the operation.",
+      "source": {
+        "path": "excel-shrink-core/src/sheet/cols.rs",
+        "test": "collapses_visible_equal_fill_column_tail_with_no_borders",
+        "kind": "regression test",
+        "sha256": "e240275ec94076fd37f3fc212cdd4d6b04af7f0ac5dd091323e90bd4fa2b0774",
+        "line": 683,
+        "commit": "09bb451a1e8241554f3ed19721b4dc781098df27"
+      },
+      "note": "Widths are shortened for display. Font identities have their separate sentinel guard. The ordinary default-tail route has a distinct replacement predicate.",
+      "bad": ""
+    },
+    {
+      "id": "37-column-gap",
+      "title": "Equal fill does not cover a gap",
+      "width": "column",
+      "before": [
+        "<col min=\"21\" max=\"30\" style=\"39\"/>",
+        "<!-- column 31 has no definition -->",
+        "<col min=\"32\" max=\"16384\" style=\"39\"/>"
+      ],
+      "after": [
+        "<col min=\"21\" max=\"30\" style=\"39\"/>",
+        "<!-- column 31 has no definition -->",
+        "<col min=\"32\" max=\"16384\" style=\"39\"/>"
+      ],
+      "guard": "The two defined intervals have the same visible fill. Their uncovered column 31 prevents an equal-fill merge across that gap.",
+      "risk": "A single 21:XFD definition would paint the previously uncovered column. Matching endpoints are insufficient.",
+      "source": {
+        "path": "excel-shrink-core/src/sheet/cols.rs",
+        "test": "equal_fill_does_not_paint_an_uncovered_gap",
+        "kind": "regression test",
+        "sha256": "e240275ec94076fd37f3fc212cdd4d6b04af7f0ac5dd091323e90bd4fa2b0774",
+        "line": 616,
+        "commit": "44e9537c0a584a55c55b1aa089c895f246f625ca"
+      },
+      "note": "Other counterexamples retain tails when an inherited visible border, a hidden column or an unknown font style prevents the proof.",
+      "bad": ""
+    },
+    {
+      "id": "38-hidden-height",
+      "title": "Hidden values can affect visible height",
+      "width": "column",
+      "before": [
+        "<col min=\"1\" max=\"1\" hidden=\"1\"/>",
+        "<row r=\"3\">",
+        " <c r=\"A3\" t=\"inlineStr\">",
+        "  <is><t>Heading",
+        "second line</t></is>",
+        " </c>",
+        "</row>"
+      ],
+      "after": [
+        "<col min=\"1\" max=\"1\" hidden=\"1\"/>",
+        "<row r=\"3\">",
+        " <c r=\"A3\" t=\"inlineStr\">",
+        "  <is><t>Heading",
+        "second line</t></is>",
+        " </c>",
+        "</row>"
+      ],
+      "guard": "A hidden column is not a sufficient deletion guard in a visible automatic-height row. Keep the content that can influence that height.",
+      "risk": "Reference checks alone do not protect this local layout effect. Hidden rows and fixed-height rows have separate admission checks.",
+      "source": {
+        "path": "excel-shrink-core/src/sheet/cells_regression_tests.rs",
+        "test": "hidden_column_content_preserves_automatic_row_height",
+        "kind": "regression test",
+        "sha256": "d3a7408e51d7c3313bc1b32ad9288cfc7ff44363b2f2c60e1382dab3b02b8f65",
+        "line": 1732,
+        "commit": "6955d9a5db4d4f60617e1e97776a9cd7c56bbf00"
+      },
+      "note": "The regression enables both optional hidden-content and whitespace switches and checks the local admission barrier before deferred filtering.",
+      "bad": ""
+    },
+    {
+      "id": "39-short-hidden",
+      "title": "Small hidden tables are retained",
+      "width": "column",
+      "before": [
+        "<row r=\"11\" hidden=\"1\">",
+        " <c r=\"XFC11\"><v>0</v></c>",
+        " <c r=\"XFD11\"><v>0</v></c>",
+        "</row>"
+      ],
+      "after": [
+        "<row r=\"11\" hidden=\"1\">",
+        " <c r=\"XFC11\"><v>0</v></c>",
+        " <c r=\"XFD11\"><v>0</v></c>",
+        "</row>"
+      ],
+      "guard": "Equal integers and an XFD endpoint do not suffice. This two-cell suffix is below the 4,096-cell admission threshold.",
+      "risk": "Treating any unreferenced hidden table as bloat would exceed the current Default policy. Formulas and mixed or changing values also block constant-tail admission.",
+      "source": {
+        "path": "excel-shrink-cli/src/pipeline_hidden_tail_tests.rs",
+        "test": "hidden_tail_keeps_short_constant_suffix",
+        "kind": "regression test",
+        "sha256": "510a96af38d2673577837baee809510d0a53bf73d38230c0805e84d0821b0184",
+        "line": 264,
+        "commit": "34fe2058a4edc20cd6c7898038e83039032a56cf"
+      },
+      "note": "The same module covers mixed hidden tables, nonzero details, full-width negative constants, gaps, formulas, text and value changes.",
+      "bad": ""
+    },
+    {
+      "id": "40-absolute-axes",
+      "title": "Shared formulas preserve absolute axes",
+      "width": "column",
+      "before": [
+        "<c r=\"B10\"><f t=\"shared\" si=\"7\"",
+        " ref=\"B10:D12\">",
+        "Inputs!$E5+Inputs!F$6+Inputs!$G$7",
+        "</f></c>",
+        "<c r=\"D12\"><f t=\"shared\" si=\"7\"/></c>"
+      ],
+      "after": [
+        "<c r=\"B10\"><f t=\"shared\" si=\"7\"",
+        " ref=\"B10:D12\">",
+        "Inputs!$E5+Inputs!F$6+Inputs!$G$7",
+        "</f></c>",
+        "<c r=\"D12\"><f t=\"shared\" si=\"7\"/></c>"
+      ],
+      "guard": "Resolve the Inputs sheet and protect E5:E7, F6:H6 and G7 as the anchor moves over B10:D12. Fixed axes do not move.",
+      "risk": "Expanding both axes or binding the references to the formula's own sheet gives the wrong protected cells.",
+      "source": {
+        "path": "excel-shrink-core/src/reference_scanner_sheet_scope_tests.rs",
+        "test": "shared_formula_preserves_absolute_axes_and_other_sheet_scope",
+        "kind": "regression test",
+        "sha256": "1a9be4b595630f22136ae1c9c50589aa2c43257603ee845f12196bc5c8c31d9d",
+        "line": 43,
+        "commit": "f7f84053e3eabbaaf560ecb1b136a052e7611bb8"
+      },
+      "note": "The scanner stores enclosing rectangles per reference. XML-escaped and apostrophe-containing sheet names have separate regression coverage.",
+      "bad": ""
+    },
+    {
+      "id": "41-sheet-scope",
+      "title": "Local references stay on their sheet",
+      "width": "column",
+      "before": [
+        "<!-- formulas on worksheet Other -->",
+        "<c r=\"T1\"><f>S41</f></c>",
+        "<c r=\"T2\"><f>Input!S41</f></c>"
+      ],
+      "after": [
+        "<!-- Protect Other!S41. -->",
+        "<!-- Protect Input!S41 separately. -->"
+      ],
+      "guard": "An unqualified S41 belongs to Other. Only the qualified formula protects Input!S41. Resolve local defined names in their own sheet scope too.",
+      "risk": "A global coordinate set would retain or delete the wrong sheet's candidate. Unknown scope needs conservative handling.",
+      "source": {
+        "path": "excel-shrink-core/src/reference_scanner_sheet_scope_tests.rs",
+        "test": "local_reference_on_other_sheet_does_not_keep_candidate",
+        "kind": "regression test",
+        "sha256": "1a9be4b595630f22136ae1c9c50589aa2c43257603ee845f12196bc5c8c31d9d",
+        "line": 189,
+        "commit": "2e88256b197275cbbd5ddda221574f041430952c"
+      },
+      "note": "Cross-sheet and local-name tests cover the positive direction. Selections, dimensions and print metadata are not automatically value consumers.",
+      "bad": "",
+      "comparison": "decision"
+    },
+    {
+      "id": "42-object-sources",
+      "title": "Charts and pivots have scoped consumers",
+      "width": "column",
+      "before": [
+        "<!-- chart source -->",
+        "<c:f>Input!$B$2:$D$9</c:f>",
+        "<!-- pivot cache source -->",
+        "<worksheetSource sheet=\"Input\"",
+        " ref=\"B2:D9\"/>",
+        "<!-- pivot result on Output -->",
+        "<location ref=\"A7:B94\"/>"
+      ],
+      "after": [
+        "<!-- Protect Input!B2:D9. -->",
+        "<!-- Protect Output!A7:B94. -->"
+      ],
+      "guard": "Extended dependency scanning resolves chart series, pivot inputs and separately mapped pivot output areas. Supported linked controls and drawing text are also consumers.",
+      "risk": "A chart format anchor alone does not cover these value dependencies. A pivot location without its owning sheet cannot be assigned globally.",
+      "source": {
+        "path": "excel-shrink-core/src/reference_scanner/object_references.rs",
+        "test": "pivot_results_are_scoped_to_the_owning_sheet",
+        "kind": "regression test",
+        "sha256": "4d98109276adaca8fe9864ad782da9d9fee191a7a022b0cf2e4dd424030ad6d4",
+        "line": 271,
+        "commit": "20b274df9af2f8082953ff751588ae6c5d43e6b2"
+      },
+      "note": "Companion tests isolate pivot source ranges, chart series, linked drawing text/control formulas and whole-column references without per-cell expansion.",
+      "bad": "",
+      "comparison": "decision"
+    },
+    {
+      "id": "43-dynamic-guard",
+      "title": "Unresolved sources block candidate deletion",
+      "width": "column",
+      "before": [
+        "<c:f>OFFSET(Input!A1,1,0)</c:f>",
+        "<worksheetSource name=\"Table1\"/>",
+        "<!-- Table1 cannot be resolved here -->"
+      ],
+      "after": [
+        "<!-- Reference scan is unsafe. -->",
+        "<!-- Keep deferred candidates. -->"
+      ],
+      "guard": "A dynamic object formula or unresolved named source prevents the required dependency proof. Retain reference-sensitive candidates.",
+      "risk": "A failed scan must not be interpreted as an empty reference set. Structural cleanup has its own independent guards.",
+      "source": {
+        "path": "excel-shrink-core/src/reference_scanner/object_references.rs",
+        "test": "dynamic_object_references_disable_reference_based_removal",
+        "kind": "regression test",
+        "sha256": "4d98109276adaca8fe9864ad782da9d9fee191a7a022b0cf2e4dd424030ad6d4",
+        "line": 292,
+        "commit": "82c3653cb936262dd2350eed34e86bcb963fceee"
+      },
+      "note": "unresolved_named_pivot_sources_keep_candidates exercises the second source. Cell formulas also detect unresolved structured references and dynamic functions.",
+      "bad": "",
+      "comparison": "decision"
+    },
+    {
+      "id": "44-value-and-format",
+      "title": "Delete a value, keep its visible format",
+      "width": "column",
+      "before": [
+        "<row r=\"4\">",
+        " <c r=\"W4\" s=\"91\"><v>118</v></c>",
+        " <c r=\"X4\" s=\"37\" t=\"s\">",
+        "  <v>15801</v>",
+        " </c>",
+        " <c r=\"Y4\" s=\"91\"><v>7</v></c>",
+        "</row>"
+      ],
+      "after": [
+        "<row r=\"4\">",
+        " <c r=\"W4\" s=\"91\"><v>118</v></c>",
+        " <c r=\"X4\" s=\"37\" t=\"s\"/>",
+        " <c r=\"Y4\" s=\"91\"><v>7</v></c>",
+        "</row>"
+      ],
+      "guard": "An already admitted, unprotected whitespace value is stripped. Re-cleaning retains the now-empty XF-37 cell because its fill is still visible.",
+      "risk": "Deleting the entire cell would conflate value removal with formatting removal. A font witness or dependency can prevent admission earlier.",
+      "source": {
+        "path": "excel-shrink-cli/src/pipeline_regression_tests.rs",
+        "test": "phase3_row_cleanup_preserves_stripped_whitespace_cell_with_visible_fill",
+        "kind": "regression test",
+        "sha256": "79e36843244bf57c0ea575b1b1fd8f48aee086de7fa2f90956898634defd897d",
+        "line": 963,
+        "commit": "ad38d0de3768c6c8b54e19f2bd19662cc084e18f"
+      },
+      "note": "The internal regression injects the candidate. It does not establish the broader future whitespace proof described in the specification.",
+      "bad": "",
+      "policy": "Diagnostic whitespace cleanup. Default keeps whitespace."
+    },
+    {
+      "id": "45-reclean-tail",
+      "title": "Reconsider the tail after deferred deletion",
+      "width": "column",
+      "before": [
+        "<row r=\"1\"><c r=\"A1\">...</c></row>",
+        "<row r=\"41\">",
+        " <c r=\"S41\">...</c>",
+        "</row>"
+      ],
+      "after": [
+        "<row r=\"1\"><c r=\"A1\">...</c></row>"
+      ],
+      "guard": "After an admitted candidate is removed, invalidate the old row-41 tail anchor and re-clean touched rows before trimming the newly empty tail.",
+      "risk": "Retaining stale anchors leaves avoidable rows. Trimming before dependency filtering could discard a still-protected value.",
+      "source": {
+        "path": "excel-shrink-cli/src/pipeline_regression_tests.rs",
+        "test": "phase3_trims_trailing_row_after_deferred_candidate_cleanup",
+        "kind": "regression test",
+        "sha256": "79e36843244bf57c0ea575b1b1fd8f48aee086de7fa2f90956898634defd897d",
+        "line": 1029,
+        "commit": "12bd0c861d3ad9e2b561fe73ac36acb512ffa6f5"
+      },
+      "note": "This phase-level test injects an approved candidate at S41. Ordinary Default hidden-table admission remains the stricter constant-tail rule.",
+      "bad": "",
+      "policy": "Internal deferred-candidate fixture. Admission is a separate step."
+    },
+    {
+      "id": "46-unknown-metadata",
+      "title": "Unfamiliar cell metadata blocks promotion",
+      "width": "column",
+      "before": [
+        "<row r=\"1\" ht=\"9\" customHeight=\"1\">",
+        " <c r=\"A1\" s=\"2\" cm=\"3\">",
+        "  <f>1+6</f><v>7</v>",
+        " </c>",
+        " <c r=\"B1\" s=\"2\"/>",
+        " <c r=\"C1\" s=\"2\"/>",
+        "</row>"
+      ],
+      "after": [
+        "<!-- No row promotion. -->",
+        "<!-- Use the normal cleanup path. -->"
+      ],
+      "guard": "Preserve the original formula/value cell and its nonstandard attributes. The row-promotion look-ahead accepts only its supported cell representation.",
+      "risk": "A cheap promotion scan must not silently erase cm/vm metadata, extension attributes or an unknown explicit XF.",
+      "source": {
+        "path": "excel-shrink-core/src/sheet/rows_regression_tests.rs",
+        "test": "row_font_promotion_leaves_nonstandard_cell_metadata_on_the_normal_path",
+        "kind": "regression test",
+        "sha256": "d9444af9392144abf552d808bcf73942c0975bdb8229a6f00d3c74ba25d5f363",
+        "line": 1730,
+        "commit": "e18357b12c51d989852e8d6bb419d019795f79ab"
+      },
+      "note": "A separate test covers malformed coordinates, missing coordinates, malformed attributes and unknown styles. Those cases retain the local fallback rather than claiming normalization.",
+      "bad": "",
+      "comparison": "decision"
+    },
+    {
+      "id": "47-local-font-gap",
+      "title": "A visible font cannot mask another column",
+      "width": "column",
+      "before": [
+        "<col min=\"1\" max=\"2\" style=\"2\"/>",
+        "<col min=\"5\" max=\"16384\" style=\"2\"/>",
+        "<row r=\"1\" ht=\"12.75\">",
+        " <c r=\"A1\" s=\"2\"><v>1</v></c>",
+        " <c r=\"C1\" s=\"2\"/>",
+        " <c r=\"D1\" s=\"2\"/>",
+        "</row>"
+      ],
+      "after": [
+        "<col min=\"1\" max=\"2\" style=\"2\"/>",
+        "<col min=\"5\" max=\"16384\" style=\"2\"/>",
+        "<row r=\"1\" ht=\"12.75\">",
+        " <c r=\"A1\" s=\"2\"><v>1</v></c>",
+        " <c r=\"C1\" s=\"2\"/>",
+        " <c r=\"D1\" s=\"2\"/>",
+        "</row>"
+      ],
+      "guard": "Only C:D inherit the default font. Their explicit XF-2 cells mask it locally. Keep both when removing them would introduce a previously absent font.",
+      "risk": "A1 already represents font 8, but cannot suppress a default font newly exposed at C1 or D1.",
+      "source": {
+        "path": "excel-shrink-core/src/sheet/rows_regression_tests.rs",
+        "test": "automatic_row_preserves_masks_without_retaining_redundant_font_bloat",
+        "kind": "regression test",
+        "sha256": "d9444af9392144abf552d808bcf73942c0975bdb8229a6f00d3c74ba25d5f363",
+        "line": 1595,
+        "commit": "1f9cee00bf8429e9feac953af4fe19112c9df90f"
+      },
+      "note": "With no column definitions, original unmasked gaps already supply the default font. The companion branch then allows redundant blank-font cleanup.",
+      "bad": ""
+    },
+    {
+      "id": "48-hidden-row-tail",
+      "title": "Collapse only the exterior hidden-row tail",
+      "width": "column",
+      "before": [
+        "<row r=\"1\"><c r=\"A1\"><v>1</v></c></row>",
+        "<row r=\"2\" hidden=\"1\"/>",
+        "<row r=\"3\" hidden=\"1\"/>",
+        "<row r=\"4\" hidden=\"1\"/>"
+      ],
+      "after": [
+        "<row r=\"1\"><c r=\"A1\"><v>1</v></c></row>",
+        "<row r=\"4\" hidden=\"1\"/>"
+      ],
+      "guard": "For a trailing, otherwise empty hidden-row run, keep the final boundary. Hidden rows before later content retain their original representation.",
+      "risk": "Applying tail collapse inside the data region can change layout. This rule does not promise to preserve exterior blank-grid geometry.",
+      "source": {
+        "path": "excel-shrink-core/src/sheet/output.rs",
+        "test": "trailing_hidden_tail_keeps_only_last_hidden_row",
+        "kind": "regression test",
+        "sha256": "31a7655cedb427d09519d8f1bd96526ecb1e5f4084bc99da679f93507a620390",
+        "line": 2167,
+        "commit": "837e47846315a90f9b55833f150d8971bd26a9a8"
+      },
+      "note": "non_trailing_hidden_rows_are_not_collapsed_by_tail_cleanup is the contrasting fixture. Empty-row attribute cleanup currently returns the original attributes unchanged.",
+      "bad": ""
+    },
+    {
+      "id": "49-quoted-attributes",
+      "title": "Quoted metadata is not another coordinate",
+      "width": "column",
+      "before": [
+        "<row r=\"3\">",
+        " <c s='7'",
+        "  data-note='r=\"Z99\" s=\"0\"'",
+        "  r='A3'/>",
+        "</row>"
+      ],
+      "after": [
+        "<row r=\"3\">",
+        " <c s='7'",
+        "  data-note='r=\"Z99\" s=\"0\"'",
+        "  r='A3'/>",
+        "</row>"
+      ],
+      "guard": "Scan attributes with quote awareness. The actual coordinate is A3 and the style is 7, independent of attribute order or embedded text.",
+      "risk": "A substring search can misread the quoted Z99 or s=0 text and remove a visibly formatted cell or move a bound.",
+      "source": {
+        "path": "excel-shrink-core/src/sheet/rows_regression_tests.rs",
+        "test": "cell_attributes_are_scanned_once_in_any_order_and_quoted_values_are_skipped",
+        "kind": "regression test",
+        "sha256": "d9444af9392144abf552d808bcf73942c0975bdb8229a6f00d3c74ba25d5f363",
+        "line": 921,
+        "commit": "00f3ef1ca410f25f65a65df53c30cdb85d9a9f86"
+      },
+      "note": "This is a parser-preservation guard supporting byte-oriented execution. It does not expand the declared XML eligibility to every valid serialization.",
       "bad": ""
     }
   ]

@@ -98,6 +98,59 @@ with deleted cells. An explicit default-style blank may also be the only barrier
 to a visible column fill or border. Retaining one required font witness does not
 authorize deleting a different cell that masks such inherited formatting.
 
+\subsection{Fixed height and local font witnesses}
+A fixed row height removes one reason to retain an empty font-bearing cell,
+but it does not eliminate all font effects. In a row containing text, the font
+of an empty cell can affect the text baseline even when the outer row height
+remains unchanged. The regression behind Figure~\ref{fig:fixed-baseline}
+uses a nine-point fixed row in a university statistics workbook. Its retained
+blank is a local baseline witness. An empty fixed-height row has no such text
+baseline, so a font-only blank can be removed when the other guards permit.
+This distinction prevents a height-only predicate from erasing a text-layout
+constraint.
+\input{figures/xml-methods/fixed-baseline}
+
+A representative elsewhere in the row is insufficient when column inheritance
+creates a local gap. For example, two blank cells masking a column font can both
+be necessary even if a third cell already represents another font. The decision
+compares the effective styles at those coordinates. It does not infer local
+coverage from a row-wide set of font identifiers alone.
+
+\subsection{Promotion and complete inheritance coverage}
+Sparse promotion can reuse an existing font-equivalent style without moving
+unrelated rich cell formatting onto the row. Its gap checks therefore differ
+from simply counting repeated styles. Dense uniform-fill promotion also checks
+the content cells. Moving a fill onto the row would otherwise recolor a content
+cell whose original fill differs. Merged cells retain their required records.
+Figure~\ref{fig:uniform-fill} illustrates the admitted case with matching content
+fill and retained merged coordinates.
+\input{figures/xml-methods/uniform-fill}
+
+The count used to select a dominant style includes styles that subsequently
+fail the promotion guards. Filtering those styles before counting would allow
+an eligible minority to win and silently change the decision. A fixed tie-break
+on existing style indices makes selection deterministic. Unknown style indices,
+unsupported cell metadata and ambiguous attributes reject promotion and leave
+the ordinary cleanup path responsible for the row.
+
+Redundant tail fills require complete column coverage. A white row fill can be
+redundant when every column through XFD already supplies the same fill. A gap
+of even one column breaks that argument. Column-tail coalescing likewise checks
+coverage and compatible effective formatting. Width differences beyond the
+retained content envelope can be irrelevant, while widths supporting visible
+row borders remain layout constraints. These are separate checks rather than a
+general rule that empty columns have no effect.
+
+\subsection{Protection beyond the content envelope}
+Worksheet protection changes the meaning of an otherwise empty coordinate.
+An unlocked or hidden-formula format can define an intended interaction region.
+The cleanup bounds distinguish the occupied data extent from a visually empty
+tail. Figure~\ref{fig:protection-range} shows an empty protected coordinate inside
+the retained extent and a removable counterpart outside it. Keeping every
+protection-bearing blank would preserve large accidental tails. Removing every
+such blank would discard the interaction boundary inside the sheet.
+\input{figures/xml-methods/protection-range}
+
 \subsection{Deferred decisions and dependency scope}
 Reference-sensitive deletion occurs after candidate discovery. Otherwise a
 formula on a later worksheet could refer to a value already removed. Admitted
@@ -114,12 +167,41 @@ scope, dynamic references and unsupported syntax prevent a deletion proof.
 Functions such as \texttt{INDIRECT} and \texttt{OFFSET} therefore require
 conservative handling~\cite{sheetshrinkcurrentcontract}.
 
+Figure~\ref{fig:absolute-axes} makes the shared-formula distinction explicit.
+The relative row or column expands with the follower range, while a fixed axis
+remains fixed. Sheet scope is equally important. An unqualified reference on
+another sheet does not protect the same coordinates on the candidate sheet.
+Chart source ranges and pivot source or output regions are resolved in their
+own scopes. Unresolved structured references and dynamic addressing prevent a
+safe negative reference result.
+\input{figures/xml-methods/absolute-axes}
+
+Candidate deletion and format deletion are separate operations. A diagnostic
+whitespace candidate can lose its value while retaining a fill that masks an
+inherited format. Figure~\ref{fig:value-and-format} shows this phase-level test.
+Whitespace removal remains disabled in Default. The example documents the
+rewrite contract for an admitted candidate rather than broadening production
+eligibility.
+\input{figures/xml-methods/value-and-format}
+
 After deferred deletion, affected rows are reconsidered because their earlier
 tail anchors may be stale. Row headers and column boundaries can still carry
 visible effects. In particular, an explicit borderless row can suppress column
 borders. A visible empty row with a stored height can determine the vertical
 extent of those borders. Preserving the row header is sufficient in these cases;
 the cleaner need not generate a full row of explicit cells.
+
+The second cleanup of affected rows is consequential. An earlier candidate
+may have served as the last content anchor. Once it disappears, blanks retained
+solely because of that anchor can become removable. Reusing the stale bound
+would retain a tail that the final row no longer needs. The deferred regression
+checks this transition separately from initial candidate admission.
+
+A trailing run of empty hidden rows can retain its final boundary while dropping
+intermediate records. The same rewrite is unsafe before later visible content,
+where row removal would alter placement. This policy preserves the admitted
+layout boundary and does not promise to preserve every exterior blank-grid
+observation.
 
 \subsection{Package metadata and failure boundaries}
 Workbook metadata cleanup has separate predicates. Built-in name aliases are
@@ -131,7 +213,11 @@ unresolved mappings. The cleaner does not compute replacement formula caches.
 
 \subsection{Execution and output}
 The implementation distributes worksheet work and can subdivide large work.
-Scheduling and chunk size must preserve cleanup decisions. Workbook-level
+Scheduling and chunk size must preserve cleanup decisions. Row-aligned chunk
+boundaries retain the context needed by row-local decisions. Attribute scanning
+also respects quoted values. Text resembling \texttt{r="Z99"} inside a metadata
+attribute must not be mistaken for the cell coordinate. These parser invariants
+are independent of whether the corresponding cell is ultimately removable. Workbook-level
 concurrency also determines how many decompression buffers, analysis contexts
 and pending outputs coexist. Consequently, throughput experiments include mixed
 workbook sizes and single-sheet workbooks, alongside large multi-sheet inputs.
@@ -155,8 +241,18 @@ required to evaluate that selector. Equality of its selected images alone cannot
 establish equality of every possible spreadsheet observation.
 
 The companion figure atlas, \url{figures/xml-methods/xml-cleanup-atlas.pdf},
-provides 28 abbreviated source/result examples, negative cases and a pinned
+provides 49 abbreviated source/result examples, negative cases and a pinned
 source index. Its code is drawn at 8.2 points for a 252-point column. XML
 wrappers, irrelevant attributes and repeated payloads are omitted. Style
 indices are local to each example. Schematic effects are labeled separately
 from native Excel captures.
+
+
+The coverage index accounts for all ten declared cleanup causes. This includes
+the disabled self-closing-cell preprocessing path and the currently inactive
+row-attribute cleanup helper. Their presence in an enumeration does not imply
+an active Default reduction. The atlas groups the 49 examples into seven rule
+families and labels internal candidate fixtures and optional policies. This
+coverage is an audit of the principal implemented decisions, with focused
+regression evidence. It is not an exhaustive proof over combinations of Excel
+features.
