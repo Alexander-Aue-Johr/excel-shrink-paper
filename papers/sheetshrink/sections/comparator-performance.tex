@@ -1,0 +1,91 @@
+\subsection{Distributed comparator measurements}
+The native comparison campaigns are distributed across Windows hosts to obtain
+coverage within the available experimental budget. Native opening, cleanup and
+saving can dominate the cost of large spreadsheet collections. Each observation
+therefore retains its host, source identity, configuration and measurement
+boundary. Raw times remain associated with that host. Cross-tool ratios pair the
+same original workbook with a SheetShrink measurement on the same host.
+Host-specific ratios retain differences in workload, tool policy and session
+conditions. Each host and tool remains a separate plotted group.
+The frozen selection contains the 49 workbooks with the largest absolute
+compressed XLSX byte savings under the earlier SheetShrink screening in each
+of Destatis, Enron and Data.gov. The timing and preservation outcomes of this
+extreme-case panel apply to its selected inputs.
+
+The present NXPowerLite lane uses a Lenovo 81YQ laptop with an AMD Ryzen 5 4500U
+(six physical cores and six logical processors), 8 GiB installed RAM
+(7.37 GiB OS-visible), a 512 GB Samsung MZALQ512HALU NVMe SSD and Windows 11 Home,
+build 26200.
+The recorded Windows power scheme is Energy Star. Other open Excel and validation
+processes are retained in the resource receipts. These observations characterize
+the recorded workstation workload, including any contention.
+
+\paragraph{Comparator configuration}
+NXPowerLite Desktop 11.0.1 x64 uses the custom profile
+\texttt{Cell formatting focused - Top49}. Excess cell-formatting cleanup is
+enabled. In the Excel profile, image resizing, JPEG conversion, cropped-area
+deletion, embedded-object flattening, PNG color-depth reduction and embedded
+chart-data removal are disabled. Lossy image modification conflicts with the
+objective of exact visible preservation and is deliberately excluded from the
+comparison policy. The interface retains a JPEG quality control, set to 9.
+Verification of unchanged images therefore requires the output-level audit.
+
+Consequently, every retained output is audited against the original bytes of
+media, drawings, charts and embedded objects. Of 147 attempted workbooks,
+129 produced reduced packages and ten explicitly remained unchanged. Eight
+Enron inputs reported an internal NXPowerLite error on both the primary attempt
+and a diagnostic repeat after restarting the application. Five outputs recompressed
+PNG images with identical decoded RGBA pixels and image dimensions. A sixth
+changed an embedded Word document. These six outputs are retained separately
+and excluded from the formatting-focused timing figure. The remaining 133
+outputs passed the protected-part audit. Native worksheet equivalence requires
+separate visual validation.
+
+\paragraph{Timing and resources}
+The GUI lane has one primary timing observation per input. Its operational cost
+limits replication, and its timing variability therefore remains unestimated.
+Diagnostic retries remain separate attempts. Elapsed time covers automated GUI
+orchestration through output confirmation and initial package verification.
+CPU measurements accumulate attributed process-tree user and kernel time.
+Working-set and private-byte peaks use a nominal 250 ms sampling interval. The existing warm
+application is reused, with one conversion worker and a 512 MiB RAM and commit
+reserve. The exact profile and per-attempt evidence accompany the results.
+
+The paired SheetShrink experiment uses an optimized release build from revision
+\texttt{765c480}, one active workbook, one Rayon worker and one writer, with the
+default cleanup policy. One complete warm-up round precedes nine measured rounds
+over the same 147 source identities. Each round independently shuffles workbook
+order with a recorded seed. Each file starts a fresh CLI process, and measured
+wall time ends at process exit. Output hashing is outside this timing boundary.
+Filesystem caches are left unflushed after warm-up. Direct-child CPU and OS peak-working-set counters
+are retained, with private usage sampled at a nominal 10 ms polling interval. These memory observations
+have different sampling semantics from the GUI lane and are reported separately.
+All 1,470 invocations completed successfully. Each input produced the same
+package hash across warm-up and measured repetitions, and all 147 final outputs
+preserved the original bytes of the audited media and object parts.
+Across inputs, the median relative within-input interquartile range,
+$(Q_3-Q_1)/\widetilde{t}$, was 0.84\% over the nine measured repetitions.
+
+Figure~\ref{fig:paired-cleanup-workflows} retains raw times and workbook-level
+same-host ratios. Each denominator is the median of nine SheetShrink trials,
+and each numerator is the primary comparator observation. Across-workbook quartiles
+describe heterogeneity in this deliberately selected stress panel. They are
+distinct from uncertainty over repeated trials~\cite{scientificbenchmarking}.
+The ratio includes the stated interface and confirmation costs, and the tools
+have different cleanup policies. It therefore measures the observed cleanup
+workflows. Opening-time improvements and cleanup-plus-opening costs require
+their own readiness endpoints, as in the separate historical opening experiment.
+
+\input{evidence/top49-performance-results}
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=\textwidth]{figures/paired-cleanup-workflows.pdf}
+\caption{Same-host cleanup workflow observations for the Top49 selection.
+Left, absolute times summarized across paired workbooks. Right, workbook-level
+comparator time divided by the median SheetShrink time, on a logarithmic scale.
+A ratio above one indicates a shorter observed SheetShrink workflow. Interval
+marks show the interquartile range across workbooks. Failures and changed
+protected payloads remain in the outcome accounting.}
+\label{fig:paired-cleanup-workflows}
+\end{figure*}

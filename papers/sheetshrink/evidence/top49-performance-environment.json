@@ -1,0 +1,83 @@
+{
+  "machine": {
+    "host_id": "LAPTOP-H86KBIH3",
+    "cpu": "AMD Ryzen 5 4500U with Radeon Graphics",
+    "physical_cores": 6,
+    "logical_processors": 6,
+    "os": "Microsoft Windows 11 Home",
+    "os_version": "10.0.26200",
+    "os_build": "26200",
+    "manufacturer": "LENOVO",
+    "model": "81YQ",
+    "storage": {
+      "Model": "SAMSUNG MZALQ512HALU-000L2",
+      "Size": 512105932800
+    },
+    "power_scheme": "GUID des Energieschemas: 8d264fcd-0aa9-49ac-b4e8-62aab04be7b9  (Energy Star)",
+    "captured_utc": "2026-11-10T16:55:09.7022981Z",
+    "os_visible_ram_bytes": 7909199872,
+    "installed_ram_bytes": 8589934592.0,
+    "memory_modules": [
+      {
+        "Capacity": 4294967296,
+        "Speed": 3200,
+        "ConfiguredClockSpeed": 3200
+      },
+      {
+        "Capacity": 4294967296,
+        "Speed": 3200,
+        "ConfiguredClockSpeed": 3200
+      }
+    ]
+  },
+  "storage": {
+    "FriendlyName": "SAMSUNG MZALQ512HALU-000L2",
+    "MediaType": "SSD",
+    "BusType": "NVMe",
+    "Size": 512110190592
+  },
+  "office-and-power": {
+    "excel_version": "16.0.20527.20150",
+    "battery": {
+      "BatteryStatus": 2,
+      "EstimatedChargeRemaining": 100
+    }
+  },
+  "build": {
+    "revision": "765c4802722d15fa6ce55281cde9880a50c73452",
+    "branch": "codex/datagov-validation-watch",
+    "build_command": "cargo build --release --locked -p sheetshrink",
+    "binary_sha256": "67837e2ed823a925a8321339a25a5875ab8ca280d0b6f3d2215cfb62b16cada4",
+    "cargo_lock_sha256": "2a6feb67bc1c775c717a1b7334894af0f8a8e448365503e618ef2d57fcb5fd90"
+  },
+  "python": {
+    "version": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+    "platform": "Windows-11-10.0.26200-SP0"
+  },
+  "protocol": {
+    "schema_version": 1,
+    "selection_sha256": "d36a38847b94da059b79f716f87248a71d9debe8c50b78cb9914c8c329f8e23a",
+    "binary_sha256": "67837e2ed823a925a8321339a25a5875ab8ca280d0b6f3d2215cfb62b16cada4",
+    "binary": "C:\\Users\\saue1\\ssh-transfer\\Top49-Missing-Variants-20261110\\sheetshrink-top49-repeated\\bin\\sheetshrink.exe",
+    "metrics_helper_sha256": "cfd743742def55e083e1407c95ddf7f050e398da3ca2d7fd937839f86920926e",
+    "warmup_rounds": 1,
+    "measured_rounds": 9,
+    "order": "independently shuffled rounds with seed 20261110 + round",
+    "cache": "warm filesystem cache, no cache eviction",
+    "wall_scope": "fresh CLI process creation through exit, output hashing excluded",
+    "parallelism": "one workbook, one Rayon worker, one writer",
+    "cleanup_policy": "default",
+    "timeout_seconds": 600,
+    "memory_sampling_seconds": 0.01,
+    "host_id": "LAPTOP-H86KBIH3"
+  },
+  "execution_script_sha256": "7c39829a47272f3f874b2afd2cc72d64470c70ffb8615d041f3c3c5c5b65ece4",
+  "metrics_helper_sha256": "cfd743742def55e083e1407c95ddf7f050e398da3ca2d7fd937839f86920926e",
+  "counts": {
+    "inputs": 147,
+    "warmup_invocations": 147,
+    "measured_invocations": 1323,
+    "successful_invocations": 1470,
+    "paired_workbooks": 133
+  }
+}

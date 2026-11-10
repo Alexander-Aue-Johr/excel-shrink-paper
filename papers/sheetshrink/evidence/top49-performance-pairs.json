@@ -1,0 +1,35 @@
+[
+  {
+    "corpus": "destatis",
+    "paired_workbooks": 44,
+    "comparator_median_seconds": 8.312000000005355,
+    "sheetshrink_median_seconds": 1.4934210999999777,
+    "median_paired_ratio": 6.0167333867094595,
+    "sheetshrink_cpu_seconds": 1.2421875,
+    "comparator_cpu_seconds": 5.453125,
+    "sheetshrink_peak_working_set_mib": 54.09375,
+    "comparator_sampled_working_set_mib": 247.630859375
+  },
+  {
+    "corpus": "enron",
+    "paired_workbooks": 41,
+    "comparator_median_seconds": 5.89100000000326,
+    "sheetshrink_median_seconds": 0.7131507000012789,
+    "median_paired_ratio": 7.982602738785405,
+    "sheetshrink_cpu_seconds": 0.703125,
+    "comparator_cpu_seconds": 4.1875,
+    "sheetshrink_peak_working_set_mib": 50.56640625,
+    "comparator_sampled_working_set_mib": 306.31640625
+  },
+  {
+    "corpus": "datagov",
+    "paired_workbooks": 48,
+    "comparator_median_seconds": 14.039499999998952,
+    "sheetshrink_median_seconds": 6.794179800002894,
+    "median_paired_ratio": 2.02378210750788,
+    "sheetshrink_cpu_seconds": 6.7265625,
+    "comparator_cpu_seconds": 10.4921875,
+    "sheetshrink_peak_working_set_mib": 414.767578125,
+    "comparator_sampled_working_set_mib": 146.482421875
+  }
+]

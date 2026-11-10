@@ -147,6 +147,8 @@ can be processed. Historical DOM and regular-expression Python implementations
 have different cleanup decisions. A timing comparison must therefore include
 output differences and preservation outcomes for each version.
 
+\input{sections/comparator-performance}
+
 \subsection{Present verified evidence and remaining measurements}
 Focused implementation verification includes 292 passing Core library tests and
 one ignored benchmark at the recorded development revision. A separate exploratory
@@ -156,8 +158,8 @@ large cases showed essentially unchanged wall time. The proposal was not adopted
 These observations establish a bounded engineering result and do not estimate
 corpus-wide speedup or visual correctness.
 
-\textit{Evaluation freeze pending.} Populate the corpus reduction, end-to-end
-opening, resource and independent-reference result tables from frozen manifests.
+\textit{Evaluation freeze pending.} Complete the full-corpus reduction,
+matched cleanup-plus-opening and independent-reference tables from frozen manifests.
 Development-run counters are not used to claim an absence of regressions.
 
 \subsection{Six-file cleanup stress panel}
@@ -171,6 +173,8 @@ style normalization, name unhiding and wholesale external-name removal disabled.
 All 18 external cleanup operations produced retained XLSX outputs with valid
 ZIP CRCs. Table~\ref{tab:cleanup-stress-panel} reports compressed package sizes.
 The artifact records full member names, input/output hashes and exact settings.
+This historical Balanced lane permits image changes. Its observations remain
+separate from the subsequent preservation-oriented Top49 profile.
 
 \begin{table}[t]
 \caption{Selected Destatis stress panel. Original size is decimal MB. Other columns give package reduction (\%). SS denotes SheetShrink, NX denotes NXPowerLite, CP denotes Check Performance, and XL denotes XLStylesTool.}
