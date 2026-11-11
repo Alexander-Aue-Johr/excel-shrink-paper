@@ -26,9 +26,7 @@ still require a representative even when its payload is empty.
 
 An Excel-hosted alternative could measure a row, remove candidates and write the
 measured height as an explicit custom height. SpreadsheetML provides a
-\emph{customHeight} attribute for that policy~\cite{customheight}. Applying
-this technique requires a trusted height for the chosen renderer and a contract
-for replacing automatic sizing with a fixed height. The evaluated cleanup
+\emph{customHeight} attribute for that policy~\cite{customheight}. The evaluated cleanup
 derives its compact preservation decisions from package context.
 
 \subsection{Removal decisions and compact preservation}
@@ -49,13 +47,15 @@ footprint small.
 The production policy admits separately guarded hidden constant tails and retains
 ordinary nonempty hidden tables, including unreferenced values. Tail admission
 depends on dependency and layout checks~\cite{sheetshrinkcontract}. Absence of a
-reference alone does not authorize general hidden-data removal. A future Excel-hosted cleanup stage could
+reference alone does not authorize general hidden-data removal. A future Excel-hosted
+cleanup stage could
 measure native layout before replacing additional sentinels or whitespace
 blockers. Such a stage is outside the implementation evaluated here.
 
 \subsection{Validation and attribution boundaries}
 DeltaSieve compares selected regions of independently rebuilt original and
-Sheet Shrink workbooks in the same installed Excel environment~\cite{deltasievecompanion}. Ordinary-save and rebuild
+Sheet Shrink workbooks in the same installed Excel
+environment~\cite{deltasievecompanion}. Ordinary-save and rebuild
 controls retain information for attributing differences introduced by Excel.
 Excel save-only controls distinguish cleanup effects from changes introduced
 by serialization and recalculation.

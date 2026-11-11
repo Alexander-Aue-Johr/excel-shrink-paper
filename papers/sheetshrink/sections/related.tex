@@ -6,21 +6,18 @@ Clean Excess Cell Formatting command removes excess cells beyond the last
 nonblank cell and can change conditional-formatting coverage~\cite{inquirecleanup}.
 O'Beirne's published analysis of Excel 2013 Inquire discusses this command and
 criticizes its lack of information about planned and completed
-removals~\cite{obeirne2013inquire}. This historical analysis establishes published
-attention to cleanup and its transparency. Current product behavior requires
-version-specific evidence. These documented policies motivate comparing both
-reduction and preservation outcomes under explicit contracts.
+removals~\cite{obeirne2013inquire}.
 
 Package-level cleanup also predates Sheet Shrink. XLStylesTool's developer
 describes an Open-XML-based cleaner for excessive and corrupted styles that
 operates independently of Excel's object model~\cite{xlstylestool}.
 NXPowerLite Desktop 10 lists excess XLSX cell-format cleanup among its
 features~\cite{nxpowerlite10}. Its engine description discusses formatted blank
-cells as a source of large worksheet parts~\cite{nxengine}. These are relevant
-comparison subjects. Their available descriptions do not establish the
+cells as a source of large worksheet parts~\cite{nxengine}. Their available
+descriptions do not establish the
 guarded removal rules, compact row-font witnesses or native preservation
-outcomes examined here. Those properties require version-specific evidence.
-Sheet Shrink's positioning therefore includes its effect-aware rules, retained
+outcomes examined here. Sheet Shrink's positioning therefore includes its
+effect-aware rules, retained
 representatives and measured costs alongside its execution before native loading.
 Its removal decisions use persisted OOXML properties and workbook context.
 The cleanup phase has no native rendering observations or measured automatic
@@ -34,8 +31,8 @@ Mack et al.'s CHI Extended Abstracts case study characterizes scalability
 problems reported in spreadsheet forums~\cite{mack2018scalability}. Rahman et al.
 benchmark Excel, LibreOffice Calc and Google Sheets on spreadsheet computations
 and examine indexing, data layout, incremental evaluation and shared
-computation~\cite{rahman2020benchmarking}. These studies motivate performance
-work on spreadsheets. Their workloads assess system responsiveness and
+computation~\cite{rahman2020benchmarking}. Their workloads assess system
+responsiveness and
 computation, while Sheet Shrink measures removable persisted representation and
 the cost of preparing workbooks for subsequent use.
 
@@ -45,14 +42,14 @@ asynchronous formula computation to retain interactivity during
 updates~\cite{bendre2019antifreeze}. Hillview distributes exploration of large
 datasets and uses compact visualization sketches~\cite{budiu2019hillview}.
 TACO exploits regular formula-reference patterns to compact dependency graphs
-and query them directly~\cite{tang2023taco}. These systems optimize storage,
-computation or exploration within a processing system. Sheet Shrink transforms
+and query them directly~\cite{tang2023taco}. Sheet Shrink transforms
 an existing XLSX package into another editable workbook under a stated
-preservation contract. These optimization layers can be used together.
+preservation contract.
 
 \subsection{Spreadsheet loading and specialized parsing}
 SheetReader studies specialized XML parsing for efficient spreadsheet ingestion,
-including the coupling of decompression, parsing and parallel execution~\cite{sheetreader}.
+including the coupling of decompression, parsing and parallel
+execution~\cite{sheetreader}.
 Specialized scanners assume syntax-recognition and state-transition obligations
 otherwise handled by established DOM or SAX implementations. Rare valid
 serializations can expose defects after many successful inputs. During baseline
@@ -70,8 +67,8 @@ reader's processing strategy and the representation supplied to it.
 
 \subsection{Spreadsheet refactoring and validation}
 Hermans et al. detect formula smells and suggest refactorings to improve
-spreadsheet maintainability~\cite{formulasmells}. Their work connects structural
-changes to behavioral obligations. Sheet Shrink's removal rules additionally
+spreadsheet maintainability~\cite{formulasmells}. Sheet Shrink's removal rules
+additionally
 account for formatting inheritance and native layout effects of stored cells.
 
 Spreadsheet slicing integrates dependency reasoning with testing and
@@ -80,5 +77,4 @@ formulas or graphical objects refer to candidate content. Workbook comparison
 tools provide observations about cell and format differences~\cite{spreadsheetcompare}.
 Our native validation protocol uses DeltaSieve's region selection and capture
 workflow~\cite{deltasievecompanion}, with independent references and mutation
-controls to evaluate selected coverage. These validation mechanisms provide
-evidence about cleanup outcomes after the package transformation.
+controls to evaluate selected coverage.
