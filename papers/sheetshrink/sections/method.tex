@@ -75,12 +75,11 @@ inherited effect. It remains necessary whenever deletion would expose that
 effect. Conversely, an explicit no-fill with nothing to clear can be redundant.
 Style components and application flags are therefore interpreted together.
 
-Automatic row height introduces a different dependency. An empty cell's font
-can determine row height and move later content. SheetShrink retains a required
-font representative instead of every repeated occurrence. Equivalent font
-records can share an identity even when their style indices differ. Selection
-also respects local column-font masks and merged spans. A witness elsewhere in
-the row does not automatically replace a required local mask.
+An empty cell's font can set automatic row height and shift later content.
+SheetShrink keeps a required representative for repeated font records. Equivalent
+fonts can share an identity despite different style indices. Column-font masks
+and merged spans also constrain removal. A record elsewhere in the row may not
+preserve a required local mask.
 Figure~\ref{fig:font-witness-native} isolates the mechanism in a constructed
 native Excel control. One witness preserves the observed height. Removing both
 moves the next visible row.
@@ -105,12 +104,12 @@ observation concerns the pictured rebuilt region.
 \input{figures/xml-methods/fill-override}
 
 \subsection{Guarded promotion and tail pruning}
-A second compaction replaces repeated cell styles with an existing row format.
-The row must be visible, unprotected and without an existing row style. Both a
-stored height and an enabled \texttt{customHeight} flag are required. A stored
-\texttt{ht} alone does not freeze automatic sizing. Content cells, merged cells,
-missing positions and inherited column formats must remain compatible with the
-proposed row format. Figure~\ref{fig:row-style-promotion} illustrates the full-width
+SheetShrink can replace repeated cell styles with an existing cell style applied
+to the row. The row must be visible, unprotected and have no row style. A stored
+height and enabled \texttt{customHeight} flag are required. The \texttt{ht}
+attribute alone permits automatic sizing. Content, merges, gaps and inherited
+column formats must remain compatible with the row format.
+Figure~\ref{fig:row-style-promotion} illustrates the full-width
 case~\cite{rowpromotionfix}.
 \input{figures/xml-methods/row-style-promotion}
 
@@ -124,13 +123,12 @@ equivalent inheritance at every absent position and excludes merged sparse rows.
 Uniform-fill promotion additionally checks content-cell fills. Unknown metadata
 or style identities prevent promotion and retain the ordinary cleanup path.
 
-Tail pruning removes formatting-only structure beyond retained content and
-layout anchors. Font-only blanks after the last relevant anchor need not preserve
-the position of nonexistent later content. Visible fills, borders, conditional
-regions and drawing anchors can still extend that boundary. A white row fill is
-redundant only when compatible column fills cover every column through XFD.
-An uncovered column breaks that argument. Compatible extraneous column ranges
-can be coalesced, but local overrides and border-supporting geometry remain.
+Pruning removes formatting-only records beyond the last required content or
+layout anchor. Font-only blanks beyond this boundary have no later content to
+shift. Fills, borders, conditional formatting and drawings can extend the boundary.
+A white row fill is redundant only if compatible column fills cover every column
+through XFD. Compatible column ranges can be merged while preserving local
+overrides and geometry needed for borders.
 
 \subsection{Hidden content and the Wanderungen case}
 \label{sec:wanderungen}
