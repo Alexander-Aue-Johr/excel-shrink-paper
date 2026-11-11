@@ -66,6 +66,8 @@ def transformation_table(cases, visuals):
     lines = table_start("Opening/memory case-study inputs and native visual evidence. Sizes are decimal MB. Payload is the sum of all uncompressed ZIP-member sizes. Reduction columns compare each output with its original. Pending identifies unavailable evidence. Paired bars show original (gray) and output (blue/orange), with original = 100\\%.", "lrrrccc", label="tab:case-study-transformations")
     lines.append(r"Variant & ZIP (reduction) & Payload (reduction) & Pixels $D/N$ & Sheets & Geom. & State \\")
     for case in cases:
+        if case["case_id"] == "finance":
+            continue
         original = case["variants"]["Original"]
         lines.extend([r"\hline", r"\multicolumn{7}{l}{\textbf{" + CASES[case["case_id"]] + r"}} \\"])
         zip_scale = max(v["zip_bytes"] / original["zip_bytes"] for v in case["variants"].values())
@@ -136,6 +138,8 @@ def resource_tables(cases, records):
     lines = table_start(caption, "lrrrrrr", label="tab:case-study-resources")
     lines.append(r"Endpoint & Original & Sheet Shrink & NXPowerLite & XLStylesTool & \shortstack{Check\\Performance} & Inquire \\")
     for case in cases[:3]:
+        if case["case_id"] == "finance":
+            continue
         lines.extend([r"\hline", r"\multicolumn{7}{l}{\textbf{" + CASES[case["case_id"]] + r"}} \\"])
         for library, title in LIBRARIES.items():
             group = [r for r in summaries if r["case"] == case["case_id"] and r["library"] == library]
@@ -163,7 +167,7 @@ def resource_tables(cases, records):
                     time_display += f" ({row['completed']}/{row['attempts']})"
                 values.append(r"\shortstack[r]{" + time_display + r"\\" + rss_display + "}")
             lines.append(" & ".join(values) + r" \\")
-    note = r"Sheet Shrink includes fresh cleanup through library exit. Other columns measure processing of prepared outputs, with their cleanup excluded. Completed cells have three successful attempts. M means all three attempts stopped at the memory limit, with reached library RSS retained below. Bars compare original (gray) and measured value (blue at or below, orange above) on a common linear scale per endpoint and metric, requiring completed originals. The Finance/Excel total increases from 42.46 to 69.76 s. RSS covers library phases, with nominal 20 ms sampling. Pipeline working sets, OS job-commit peaks, cleanup/open/save phases, stopped elapsed times, CPU, ranges and all 288 receipts remain in the artifact. Separate host results follow below."
+    note = r"Sheet Shrink includes fresh cleanup through library exit. Other columns measure processing of prepared outputs, with their cleanup excluded. Completed cells have three successful attempts. M means all three attempts stopped at the memory limit, with reached library RSS retained below. Bars compare original (gray) and measured value (blue at or below, orange above) on a common linear scale per endpoint and metric, requiring completed originals. RSS covers library phases, with nominal 20 ms sampling. Pipeline working sets, OS job-commit peaks, cleanup/open/save phases, stopped elapsed times, CPU, ranges and all 288 receipts remain in the artifact. Separate host results follow below."
     lines.extend(table_end(note))
     return "\n".join(lines) + "\n"
 
