@@ -1,37 +1,29 @@
 \subsection{Representation and analysis stages}
-The input is an XLSX ZIP package. The output retains its workbook structure and cell
-coordinates while removing records admitted by the preservation policy.
-Package metadata supplies style components, shared strings, relationships,
-merged regions and dependency sources. These contexts are prepared before
-cell-local decisions, so an index or an empty payload is never sufficient by
-itself to establish redundancy.
+SheetShrink removes redundant records from an XLSX ZIP package while preserving
+workbook structure and cell coordinates. Before evaluating individual cells, it
+reads styles, shared strings, relationships, merged regions and dependency sources.
+A style index or empty value alone cannot establish redundancy.
 
-Worksheet analysis consumes decompressed byte buffers without constructing an
-XML object for every cell. A state machine separates worksheet headers, column
-records, sheet data, merge information and the remaining suffix. In cell and
-row regions, bounded tag and attribute readers track hierarchy and quoting.
-Thus text resembling a coordinate inside a quoted metadata value cannot become
-a cell address. Small overlap state recognizes markers spanning input-buffer
-boundaries. Parsed metadata is retained only where later decisions require it.
-Names, references and other interpreted values can still require decoding.
-The implementation does not assume that arbitrary worksheet text is ASCII.
+Worksheet analysis reads decompressed bytes without creating an XML object for
+each cell. A state machine distinguishes headers, columns, sheet data, merges and
+the remaining XML. Tag and attribute readers track nesting and quotation marks,
+preventing coordinate-like text in attribute values from being interpreted as cell
+addresses. Partial markers are retained across buffer boundaries. Metadata is
+retained when later decisions need it. Names, references and other interpreted
+values may require decoding.
 
-This organization reduces per-record allocation, but does not imply constant
-memory in worksheet size. The current implementation retains the sheet-data
-bytes, contexts and candidate metrics needed by subsequent passes. Decompression,
-rewriting, compression and retained analysis structures all contribute to peak
-memory. The supported input domain is normal unprefixed Transitional
-SpreadsheetML. Unsupported namespaces, encodings and ambiguous core structures
-follow explicit preservation or exclusion paths~\cite{sheetshrinkcontract}.
-Eligibility checks inspect bounded package-root headers and declarations
-encountered during streaming to identify unsupported representations before
-native opening.
+Memory use grows with worksheet size. SheetShrink retains sheet-data bytes,
+analysis context and candidate metrics for later passes. Decompression, rewriting
+and compression also contribute to peak memory. The supported format is
+unprefixed Transitional SpreadsheetML. Unsupported namespaces, encodings and
+ambiguous structures trigger preservation or exclusion~\cite{sheetshrinkcontract}.
+Bounded package-header checks and declarations encountered during streaming
+identify unsupported representations before opening in Excel.
 
-Figure~\ref{fig:worksheet-states} makes the worksheet preprocessor's control
-states explicit. The dispatcher separates column, cell and merge contexts.
-Read boundaries preserve partial state, and complete row prefixes can progress
-without consuming an unfinished row. Reconstruction follows successful arrival
-at the worksheet end.
+Figure~\ref{fig:worksheet-states} shows how the worksheet parser dispatches column,
+cell and merge readers. It retains partial state across buffer boundaries and
+processes complete rows while retaining an unfinished row. Reconstruction requires
+the worksheet end.
 \input{figures/worksheet-states}
 
 \subsection{Parser correctness and regression controls}
