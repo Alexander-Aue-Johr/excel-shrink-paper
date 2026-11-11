@@ -30,34 +30,45 @@ def save_figure(figure, name):
 
 
 def draw_payload(native, cases):
-    figure, axes = plt.subplots(1, 3, figsize=(7.15, 2.25), sharex=True, sharey=True)
-    for axis, case_id, title in zip(axes, ["wanderungen", "qt-rr", "enron"],
-                                    ["Wanderungen", "Data.gov QT/RR", "Enron"]):
+    short_names = {"SheetShrink": "SheetShrink", "NXPowerLite": "NXPL",
+                   "XLStylesTool": "XLST", "CheckPerformance": "CP", "Inquire": "INQ"}
+    figure, axis = plt.subplots(figsize=(3.5, 4.35))
+    positions, labels = [], []
+    for group, (case_id, title) in enumerate(
+            [("wanderungen", "Wanderungen"), ("qt-rr", "Data.gov QT/RR"), ("enron", "Enron")]):
+        heading = group * 6
+        axis.text(-0.38, heading, title, transform=axis.get_yaxis_transform(),
+                  fontweight="bold", fontsize=7, va="center", clip_on=False)
         original = next(c for c in cases if c["case_id"] == case_id)["variants"]["Original"]
-        for position, tool in enumerate(TOOLS):
+        for index, tool in enumerate(TOOLS):
+            position = heading + index + 1
+            positions.append(position)
+            labels.append(short_names[tool])
             row = next(r for r in native if r["case_id"] == case_id and r["tool"] == tool)
             remaining = 100 * row["uncompressed_bytes"] / original["uncompressed_bytes"]
-            axis.plot([remaining, 100], [position] * 2, color="#d7dce0", linewidth=1.2, zorder=1)
-            axis.scatter(remaining, position, color=COLORS[tool], marker=MARKERS[tool], s=22, zorder=2)
+            axis.plot([remaining, 100], [position] * 2, color="#d7dce0", linewidth=0.8, zorder=1)
+            axis.scatter(remaining, position, color=COLORS[tool], marker=MARKERS[tool], s=14, zorder=2)
             label = f"{remaining:.2f}".rstrip("0").rstrip(".") + "%"
-            axis.annotate(label, (remaining, position), xytext=(0, 5),
-                          textcoords="offset points", ha="center", fontsize=6.5)
-        axis.axvline(100, color="#777777", linestyle="--", linewidth=0.6)
-        axis.set_xscale("log")
-        axis.set_xlim(0.5, 155)
-        axis.set_ylim(4.5, -0.8)
-        axis.set_title(title, fontsize=8)
-        axis.set_xticks([1, 10, 100], ["1%", "10%", "100%"])
-        axis.xaxis.set_minor_formatter(NullFormatter())
-        axis.set_yticks(range(len(TOOLS)), [NAMES[t] for t in TOOLS])
-        axis.tick_params(axis="y", length=0)
-        axis.tick_params(axis="both", labelsize=7)
-        axis.grid(axis="x", alpha=0.2)
-        axis.set_axisbelow(True)
-        for side in ["top", "right", "left"]:
-            axis.spines[side].set_visible(False)
-    figure.supxlabel("Remaining uncompressed payload (original = 100%)", fontsize=8)
-    figure.subplots_adjust(left=0.18, right=0.98, top=0.87, bottom=0.22, wspace=0.25)
+            label_on_left = remaining >= 50
+            axis.annotate(label, (remaining, position),
+                          xytext=(-4 if label_on_left else 4, 0),
+                          textcoords="offset points", va="center",
+                          ha="right" if label_on_left else "left", fontsize=5.5)
+    axis.axvline(100, color="#777777", linestyle="--", linewidth=0.6)
+    axis.set_xscale("log")
+    axis.set_xlim(0.5, 210)
+    axis.set_ylim(17.7, -0.7)
+    axis.set_xticks([1, 10, 100], ["1%", "10%", "100%"])
+    axis.xaxis.set_minor_formatter(NullFormatter())
+    axis.set_yticks(positions, labels)
+    axis.tick_params(axis="y", length=0)
+    axis.tick_params(axis="both", labelsize=6)
+    axis.grid(axis="x", alpha=0.2)
+    axis.set_axisbelow(True)
+    for side in ["top", "right", "left"]:
+        axis.spines[side].set_visible(False)
+    axis.set_xlabel("Remaining payload (original = 100%)", fontsize=6.5)
+    figure.subplots_adjust(left=0.29, right=0.98, top=0.97, bottom=0.10)
     save_figure(figure, "case-study-payload")
 
 
@@ -92,7 +103,7 @@ def draw_resources(resources):
               ("enron", "openpyxl", "Enron · openpyxl"),
               ("wanderungen", "excel", "Wanderungen · Excel"),
               ("qt-rr", "excel", "Data.gov QT/RR · Excel")]
-    figure, grid = plt.subplots(2, 3, figsize=(7.15, 3.9), sharex=True, sharey=True)
+    figure, grid = plt.subplots(5, 1, figsize=(3.5, 5.0), sharex=True, sharey=True)
     axes = grid.flatten()
     for axis, (case_id, library, title) in zip(axes, panels):
         stopped = []
@@ -115,7 +126,7 @@ def draw_resources(resources):
         if stopped:
             axis.text(0.04, 0.96, "4 GiB commit stop\n" + ", ".join(stopped),
                       transform=axis.transAxes, va="top", fontsize=6, color="#994400")
-        axis.set_title(title, fontsize=7.5)
+        axis.set_title(title, fontsize=7, loc="left", pad=3)
         axis.set_xscale("log")
         axis.set_yscale("log")
         axis.set_xlim(0.04, 4.5)
@@ -129,17 +140,15 @@ def draw_resources(resources):
         axis.set_axisbelow(True)
         for side in ["top", "right"]:
             axis.spines[side].set_visible(False)
-    # The upper-right panel has no lower neighbor with its own x-axis.
-    axes[2].tick_params(labelbottom=True)
-    axes[5].set_axis_off()
     handles = [plt.Line2D([], [], marker=MARKERS[t], linestyle="none",
                          markerfacecolor="none" if t == "Original" else COLORS[t],
                          markeredgecolor=COLORS[t], label=NAMES[t], markersize=5)
                for t in ["Original"] + TOOLS]
-    axes[5].legend(handles=handles, loc="center left", frameon=False, fontsize=7)
-    figure.supxlabel("Peak sampled library-process working set (GiB)", fontsize=8)
-    figure.supylabel("Library opening + saving time (s)", fontsize=8)
-    figure.subplots_adjust(left=0.09, right=0.99, bottom=0.13, top=0.93, hspace=0.38, wspace=0.25)
+    figure.legend(handles=handles, loc="lower center", bbox_to_anchor=(0.55, 0),
+                  ncol=3, frameon=False, fontsize=5.5, columnspacing=0.8, handletextpad=0.4)
+    figure.supxlabel("Peak library-process working set (GiB)", fontsize=6.5, y=0.09)
+    figure.supylabel("Library opening + saving time (s)", fontsize=7, x=0.02)
+    figure.subplots_adjust(left=0.18, right=0.98, bottom=0.18, top=0.96, hspace=0.45)
     save_figure(figure, "case-study-resources")
 
 
