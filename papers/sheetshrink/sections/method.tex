@@ -55,13 +55,12 @@ function counts once, including parameterized tests. The artifact documents the
 revision, test paths and counting criteria.
 
 \subsection{Effects and compact preservation witnesses}
-A numeric value, formula or inline string is content. In particular, zero and a
-shared-formula follower with no independent formula text remain content.
-An empty cell is classified by its effective formatting in the cell, row and
-column context. An explicit no-fill or borderless style can suppress a visible
-inherited effect. It remains necessary whenever deletion would expose that
-effect. Conversely, an explicit no-fill with nothing to clear can be redundant.
-Style components and application flags are therefore interpreted together.
+Numeric values, formulas and inline strings count as content, including zero and
+shared-formula followers without their own formula text. Empty-cell removal depends
+on cell, row and column formatting. A no-fill or borderless cell style must remain
+if removal would expose an inherited fill or border. Without an inherited effect
+to suppress, it can be redundant. Style components and their application flags are
+checked together.
 
 An empty cell's font can set automatic row height and shift later content.
 SheetShrink keeps a required representative for repeated font records. Equivalent
@@ -73,19 +72,18 @@ native Excel control. One witness preserves the observed height. Removing both
 moves the next visible row.
 \input{figures/xml-methods/font-witness}
 
-A fixed height eliminates this automatic-height effect, but an empty font-bearing
-cell can still affect the text baseline in a row containing text. The cleaner
-therefore distinguishes an empty fixed-height row from a fixed-height text row.
-Protection metadata does not erase a required font contribution. Protection
-formats inside the retained data extent also preserve interaction semantics,
-while separately guarded exterior tails can be removed.
+Even with a fixed row height, an empty cell's font can affect text alignment within
+the row. SheetShrink therefore distinguishes empty rows from rows containing text.
+Protection does not remove this font effect. Within the retained data area,
+protection formats also preserve editing restrictions. Separate checks govern
+removal beyond that area.
 
-Other witnesses preserve relationships between coordinates. Center-across-selection
-requires the contiguous blank span following the text cell. A borderless row can
-mask column borders, and an empty height-bearing row can determine their vertical
-extent. Column widths remain necessary when they support visible row borders.
-A chart can inherit a number format from an empty first series cell. These
-structures extend the preservation problem beyond the last nonempty value.
+Some empty records preserve layout relationships. Center-across-selection needs
+the consecutive blank cells after the text cell. A borderless row can suppress
+column borders, while an empty row's height can set their vertical extent. Column
+widths can support visible row borders. Charts can inherit number formats from
+empty first series cells. Required records can therefore extend beyond the last
+nonempty value.
 Figure~\ref{fig:fill-override-native} shows an Enron counterexample in which
 Check Performance's smaller output exposes a different inherited fill. The
 observation concerns the pictured rebuilt region.
