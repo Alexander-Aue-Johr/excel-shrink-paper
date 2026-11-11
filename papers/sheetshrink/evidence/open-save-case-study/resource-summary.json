@@ -1,0 +1,2306 @@
+[
+  {
+    "case": "wanderungen",
+    "library": "openpyxl",
+    "tool": "Original",
+    "completed": 3,
+    "attempts": 3,
+    "cleanup_median_seconds": null,
+    "open_median_seconds": 53.74405180000031,
+    "save_median_seconds": 53.59405830000014,
+    "end_to_end_median_seconds": 111.2989233999997,
+    "sampled_library_rss_max_mib": 2700.01953125,
+    "sampled_pipeline_rss_max_mib": 2700.01953125,
+    "peak_job_commit_max_mib": 2880.515625,
+    "cpu_median_seconds": 109.28125,
+    "wall_time_range_seconds": [
+      111.07090170000015,
+      111.59525359999952
+    ],
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ]
+  },
+  {
+    "case": "wanderungen",
+    "library": "openpyxl",
+    "tool": "SheetShrink",
+    "completed": 3,
+    "attempts": 3,
+    "cleanup_median_seconds": 1.4596854999999778,
+    "open_median_seconds": 3.8871528999989096,
+    "save_median_seconds": 3.2910644999992655,
+    "end_to_end_median_seconds": 9.668006199999581,
+    "sampled_library_rss_max_mib": 250.21484375,
+    "sampled_pipeline_rss_max_mib": 377.12890625,
+    "peak_job_commit_max_mib": 576.45703125,
+    "cpu_median_seconds": 11.84375,
+    "wall_time_range_seconds": [
+      9.585228800000095,
+      10.416617399999268
+    ],
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ]
+  },
+  {
+    "case": "wanderungen",
+    "library": "openpyxl",
+    "tool": "NXPowerLite",
+    "completed": 3,
+    "attempts": 3,
+    "cleanup_median_seconds": null,
+    "open_median_seconds": 39.990815700000894,
+    "save_median_seconds": 40.75279749999936,
+    "end_to_end_median_seconds": 83.57738459999973,
+    "sampled_library_rss_max_mib": 1996.44140625,
+    "sampled_pipeline_rss_max_mib": 1996.44140625,
+    "peak_job_commit_max_mib": 2175.41796875,
+    "cpu_median_seconds": 81.8125,
+    "wall_time_range_seconds": [
+      83.11497539999982,
+      83.65985510000064
+    ],
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ]
+  },
+  {
+    "case": "wanderungen",
+    "library": "openpyxl",
+    "tool": "XLStylesTool",
+    "completed": 3,
+    "attempts": 3,
+    "cleanup_median_seconds": null,
+    "open_median_seconds": 53.54126749999887,
+    "save_median_seconds": 53.128139100000226,
+    "end_to_end_median_seconds": 111.12601839999934,
+    "sampled_library_rss_max_mib": 2700.08984375,
+    "sampled_pipeline_rss_max_mib": 2700.08984375,
+    "peak_job_commit_max_mib": 2880.73828125,
+    "cpu_median_seconds": 108.96875,
+    "wall_time_range_seconds": [
+      110.59072040000001,
+      111.19788660000086
+    ],
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ]
+  },
+  {
+    "case": "wanderungen",
+    "library": "openpyxl",
+    "tool": "CheckPerformance",
+    "completed": 3,
+    "attempts": 3,
+    "cleanup_median_seconds": null,
+    "open_median_seconds": 4.252937799999927,
+    "save_median_seconds": 3.699007999999594,
+    "end_to_end_median_seconds": 9.108433299999888,
+    "sampled_library_rss_max_mib": 235.7265625,
+    "sampled_pipeline_rss_max_mib": 235.7265625,
+    "peak_job_commit_max_mib": 411.12890625,
+    "cpu_median_seconds": 8.171875,
+    "wall_time_range_seconds": [
+      8.772484099999929,
+      9.11169830000108
+    ],
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ]
+  },
+  {
+    "case": "wanderungen",
+    "library": "openpyxl",
+    "tool": "Inquire",
+    "completed": 3,
+    "attempts": 3,
+    "cleanup_median_seconds": null,
+    "open_median_seconds": 26.686267500001122,
+    "save_median_seconds": 25.51448309999978,
+    "end_to_end_median_seconds": 54.95981109999957,
+    "sampled_library_rss_max_mib": 1530.39453125,
+    "sampled_pipeline_rss_max_mib": 1530.39453125,
+    "peak_job_commit_max_mib": 1720.66796875,
+    "cpu_median_seconds": 53.859375,
+    "wall_time_range_seconds": [
+      54.6651167,
+      55.40701540000009
+    ],
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ]
+  },
+  {
+    "case": "wanderungen",
+    "library": "pandas",
+    "tool": "Original",
+    "completed": 0,
+    "attempts": 3,
+    "cleanup_median_seconds": null,
+    "open_median_seconds": null,
+    "save_median_seconds": null,
+    "end_to_end_median_seconds": null,
+    "sampled_library_rss_max_mib": 3899.875,
+    "sampled_pipeline_rss_max_mib": 3899.875,
+    "peak_job_commit_max_mib": 4096.1328125,
+    "cpu_median_seconds": 19.984375,
+    "wall_time_range_seconds": [
+      20.71294670000134,
+      21.028314000000137
+    ],
+    "statuses": [
+      "memory_limit",
+      "memory_limit",
+      "memory_limit"
+    ]
+  },
+  {
+    "case": "wanderungen",
+    "library": "pandas",
+    "tool": "SheetShrink",
+    "completed": 3,
+    "attempts": 3,
+    "cleanup_median_seconds": 1.418359799999962,
+    "open_median_seconds": 4.542689699999755,
+    "save_median_seconds": 27.922556099999838,
+    "end_to_end_median_seconds": 35.828008400000726,
+    "sampled_library_rss_max_mib": 855.96875,
+    "sampled_pipeline_rss_max_mib": 855.96875,
+    "peak_job_commit_max_mib": 1014.28515625,
+    "cpu_median_seconds": 37.765625,
+    "wall_time_range_seconds": [
+      35.84472830000004,
+      35.981312300000354
+    ],
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ]
+  },
+  {
+    "case": "wanderungen",
+    "library": "pandas",
+    "tool": "NXPowerLite",
+    "completed": 0,
+    "attempts": 3,
+    "cleanup_median_seconds": null,
+    "open_median_seconds": null,
+    "save_median_seconds": null,
+    "end_to_end_median_seconds": null,
+    "sampled_library_rss_max_mib": 3899.88671875,
+    "sampled_pipeline_rss_max_mib": 3899.88671875,
+    "peak_job_commit_max_mib": 4096.12890625,
+    "cpu_median_seconds": 19.953125,
+    "wall_time_range_seconds": [
+      20.564824699999917,
+      20.83172999999988
+    ],
+    "statuses": [
+      "memory_limit",
+      "memory_limit",
+      "memory_limit"
+    ]
+  },
+  {
+    "case": "wanderungen",
+    "library": "pandas",
+    "tool": "XLStylesTool",
+    "completed": 0,
+    "attempts": 3,
+    "cleanup_median_seconds": null,
+    "open_median_seconds": null,
+    "save_median_seconds": null,
+    "end_to_end_median_seconds": null,
+    "sampled_library_rss_max_mib": 3899.7734375,
+    "sampled_pipeline_rss_max_mib": 3899.7734375,
+    "peak_job_commit_max_mib": 4096.08984375,
+    "cpu_median_seconds": 19.984375,
+    "wall_time_range_seconds": [
+      20.721822200000133,
+      21.01452149999932
+    ],
+    "statuses": [
+      "memory_limit",
+      "memory_limit",
+      "memory_limit"
+    ]
+  },
+  {
+    "case": "wanderungen",
+    "library": "pandas",
+    "tool": "CheckPerformance",
+    "completed": 0,
+    "attempts": 3,
+    "cleanup_median_seconds": null,
+    "open_median_seconds": null,
+    "save_median_seconds": null,
+    "end_to_end_median_seconds": null,
+    "sampled_library_rss_max_mib": 3900.29296875,
+    "sampled_pipeline_rss_max_mib": 3900.29296875,
+    "peak_job_commit_max_mib": 4096.078125,
+    "cpu_median_seconds": 7.75,
+    "wall_time_range_seconds": [
+      8.489790499999799,
+      8.843397799999366
+    ],
+    "statuses": [
+      "memory_limit",
+      "memory_limit",
+      "memory_limit"
+    ]
+  },
+  {
+    "case": "wanderungen",
+    "library": "pandas",
+    "tool": "Inquire",
+    "completed": 0,
+    "attempts": 3,
+    "cleanup_median_seconds": null,
+    "open_median_seconds": null,
+    "save_median_seconds": null,
+    "end_to_end_median_seconds": null,
+    "sampled_library_rss_max_mib": 3900.2890625,
+    "sampled_pipeline_rss_max_mib": 3900.2890625,
+    "peak_job_commit_max_mib": 4096.10546875,
+    "cpu_median_seconds": 8.578125,
+    "wall_time_range_seconds": [
+      9.305112199999712,
+      9.34085260000029
+    ],
+    "statuses": [
+      "memory_limit",
+      "memory_limit",
+      "memory_limit"
+    ]
+  },
+  {
+    "case": "wanderungen",
+    "library": "pandas-csv",
+    "tool": "Original",
+    "completed": 0,
+    "attempts": 3,
+    "cleanup_median_seconds": null,
+    "open_median_seconds": null,
+    "save_median_seconds": null,
+    "end_to_end_median_seconds": null,
+    "sampled_library_rss_max_mib": 3899.8359375,
+    "sampled_pipeline_rss_max_mib": 3899.8359375,
+    "peak_job_commit_max_mib": 4096.1171875,
+    "cpu_median_seconds": 19.6875,
+    "wall_time_range_seconds": [
+      20.460124299999734,
+      20.600409599999693
+    ],
+    "statuses": [
+      "memory_limit",
+      "memory_limit",
+      "memory_limit"
+    ]
+  },
+  {
+    "case": "wanderungen",
+    "library": "pandas-csv",
+    "tool": "SheetShrink",
+    "completed": 3,
+    "attempts": 3,
+    "cleanup_median_seconds": 1.4167973000003258,
+    "open_median_seconds": 4.499807700000019,
+    "save_median_seconds": 4.72950899999887,
+    "end_to_end_median_seconds": 11.543794699999125,
+    "sampled_library_rss_max_mib": 214.015625,
+    "sampled_pipeline_rss_max_mib": 418.7578125,
+    "peak_job_commit_max_mib": 577.4609375,
+    "cpu_median_seconds": 14.109375,
+    "wall_time_range_seconds": [
+      11.668480099999215,
+      12.111972799999421
+    ],
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ]
+  },
+  {
+    "case": "wanderungen",
+    "library": "pandas-csv",
+    "tool": "NXPowerLite",
+    "completed": 0,
+    "attempts": 3,
+    "cleanup_median_seconds": null,
+    "open_median_seconds": null,
+    "save_median_seconds": null,
+    "end_to_end_median_seconds": null,
+    "sampled_library_rss_max_mib": 3899.92578125,
+    "sampled_pipeline_rss_max_mib": 3899.92578125,
+    "peak_job_commit_max_mib": 4096.109375,
+    "cpu_median_seconds": 19.90625,
+    "wall_time_range_seconds": [
+      20.568681799999467,
+      20.837990300000456
+    ],
+    "statuses": [
+      "memory_limit",
+      "memory_limit",
+      "memory_limit"
+    ]
+  },
+  {
+    "case": "wanderungen",
+    "library": "pandas-csv",
+    "tool": "XLStylesTool",
+    "completed": 0,
+    "attempts": 3,
+    "cleanup_median_seconds": null,
+    "open_median_seconds": null,
+    "save_median_seconds": null,
+    "end_to_end_median_seconds": null,
+    "sampled_library_rss_max_mib": 3899.70703125,
+    "sampled_pipeline_rss_max_mib": 3899.70703125,
+    "peak_job_commit_max_mib": 4096.0859375,
+    "cpu_median_seconds": 19.75,
+    "wall_time_range_seconds": [
+      20.399020400000154,
+      20.605292800000825
+    ],
+    "statuses": [
+      "memory_limit",
+      "memory_limit",
+      "memory_limit"
+    ]
+  },
+  {
+    "case": "wanderungen",
+    "library": "pandas-csv",
+    "tool": "CheckPerformance",
+    "completed": 0,
+    "attempts": 3,
+    "cleanup_median_seconds": null,
+    "open_median_seconds": null,
+    "save_median_seconds": null,
+    "end_to_end_median_seconds": null,
+    "sampled_library_rss_max_mib": 3900.203125,
+    "sampled_pipeline_rss_max_mib": 3900.203125,
+    "peak_job_commit_max_mib": 4096.1328125,
+    "cpu_median_seconds": 7.875,
+    "wall_time_range_seconds": [
+      8.461758999999802,
+      8.640641500000129
+    ],
+    "statuses": [
+      "memory_limit",
+      "memory_limit",
+      "memory_limit"
+    ]
+  },
+  {
+    "case": "wanderungen",
+    "library": "pandas-csv",
+    "tool": "Inquire",
+    "completed": 0,
+    "attempts": 3,
+    "cleanup_median_seconds": null,
+    "open_median_seconds": null,
+    "save_median_seconds": null,
+    "end_to_end_median_seconds": null,
+    "sampled_library_rss_max_mib": 3900.37109375,
+    "sampled_pipeline_rss_max_mib": 3900.37109375,
+    "peak_job_commit_max_mib": 4096.1328125,
+    "cpu_median_seconds": 8.515625,
+    "wall_time_range_seconds": [
+      9.268186299999797,
+      9.340355799999088
+    ],
+    "statuses": [
+      "memory_limit",
+      "memory_limit",
+      "memory_limit"
+    ]
+  },
+  {
+    "case": "wanderungen",
+    "library": "excel",
+    "tool": "Original",
+    "completed": 3,
+    "attempts": 3,
+    "cleanup_median_seconds": null,
+    "open_median_seconds": 8.690084300000308,
+    "save_median_seconds": 9.103574300001128,
+    "end_to_end_median_seconds": 20.344575500000246,
+    "sampled_library_rss_max_mib": 429.07421875,
+    "sampled_pipeline_rss_max_mib": 429.07421875,
+    "peak_job_commit_max_mib": 304.32421875,
+    "cpu_median_seconds": 22.65625,
+    "wall_time_range_seconds": [
+      20.241530400000556,
+      20.90009790000022
+    ],
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ]
+  },
+  {
+    "case": "wanderungen",
+    "library": "excel",
+    "tool": "SheetShrink",
+    "completed": 3,
+    "attempts": 3,
+    "cleanup_median_seconds": 1.4107520000002296,
+    "open_median_seconds": 1.9421351999990293,
+    "save_median_seconds": 4.15449069999886,
+    "end_to_end_median_seconds": 9.91973840000037,
+    "sampled_library_rss_max_mib": 309.0859375,
+    "sampled_pipeline_rss_max_mib": 418.7734375,
+    "peak_job_commit_max_mib": 606.12890625,
+    "cpu_median_seconds": 12.140625,
+    "wall_time_range_seconds": [
+      10.005332599999747,
+      10.063043099999959
+    ],
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ]
+  },
+  {
+    "case": "wanderungen",
+    "library": "excel",
+    "tool": "NXPowerLite",
+    "completed": 3,
+    "attempts": 3,
+    "cleanup_median_seconds": null,
+    "open_median_seconds": 7.160856700000295,
+    "save_median_seconds": 8.288803200000075,
+    "end_to_end_median_seconds": 17.935093699999925,
+    "sampled_library_rss_max_mib": 408.5703125,
+    "sampled_pipeline_rss_max_mib": 408.5703125,
+    "peak_job_commit_max_mib": 281.9765625,
+    "cpu_median_seconds": 19.1875,
+    "wall_time_range_seconds": [
+      17.659412200000588,
+      17.997129500000028
+    ],
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ]
+  },
+  {
+    "case": "wanderungen",
+    "library": "excel",
+    "tool": "XLStylesTool",
+    "completed": 3,
+    "attempts": 3,
+    "cleanup_median_seconds": null,
+    "open_median_seconds": 8.620698400000038,
+    "save_median_seconds": 9.018369200000052,
+    "end_to_end_median_seconds": 20.17256830000042,
+    "sampled_library_rss_max_mib": 428.0703125,
+    "sampled_pipeline_rss_max_mib": 428.0703125,
+    "peak_job_commit_max_mib": 303.5625,
+    "cpu_median_seconds": 22.625,
+    "wall_time_range_seconds": [
+      20.03707570000006,
+      20.986708200000066
+    ],
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ]
+  },
+  {
+    "case": "wanderungen",
+    "library": "excel",
+    "tool": "CheckPerformance",
+    "completed": 3,
+    "attempts": 3,
+    "cleanup_median_seconds": null,
+    "open_median_seconds": 2.0849974000002476,
+    "save_median_seconds": 0.6388076999992336,
+    "end_to_end_median_seconds": 5.338896199999908,
+    "sampled_library_rss_max_mib": 258.5625,
+    "sampled_pipeline_rss_max_mib": 258.5625,
+    "peak_job_commit_max_mib": 139.7890625,
+    "cpu_median_seconds": 3.703125,
+    "wall_time_range_seconds": [
+      4.9545593000002555,
+      5.341370199999801
+    ],
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ]
+  },
+  {
+    "case": "wanderungen",
+    "library": "excel",
+    "tool": "Inquire",
+    "completed": 3,
+    "attempts": 3,
+    "cleanup_median_seconds": null,
+    "open_median_seconds": 4.6633583000002545,
+    "save_median_seconds": 2.753030599998965,
+    "end_to_end_median_seconds": 9.987021200000072,
+    "sampled_library_rss_max_mib": 324.47265625,
+    "sampled_pipeline_rss_max_mib": 324.47265625,
+    "peak_job_commit_max_mib": 195.1328125,
+    "cpu_median_seconds": 10.84375,
+    "wall_time_range_seconds": [
+      9.945145199999388,
+      10.052427700000408
+    ],
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ]
+  },
+  {
+    "case": "wanderungen",
+    "library": "r-openxlsx",
+    "tool": "Original",
+    "completed": 3,
+    "attempts": 3,
+    "cleanup_median_seconds": null,
+    "open_median_seconds": 15.08,
+    "save_median_seconds": 28.78,
+    "end_to_end_median_seconds": 44.383305700000165,
+    "sampled_library_rss_max_mib": 824.109375,
+    "sampled_pipeline_rss_max_mib": 824.109375,
+    "peak_job_commit_max_mib": 835.1875,
+    "cpu_median_seconds": 40.625,
+    "wall_time_range_seconds": [
+      44.20541229999981,
+      44.81962659999999
+    ],
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ]
+  },
+  {
+    "case": "wanderungen",
+    "library": "r-openxlsx",
+    "tool": "SheetShrink",
+    "completed": 3,
+    "attempts": 3,
+    "cleanup_median_seconds": 1.4106182999998964,
+    "open_median_seconds": 4.41,
+    "save_median_seconds": 7.35,
+    "end_to_end_median_seconds": 13.698791999999685,
+    "sampled_library_rss_max_mib": 317.0,
+    "sampled_pipeline_rss_max_mib": 420.8125,
+    "peak_job_commit_max_mib": 605.7890625,
+    "cpu_median_seconds": 15.65625,
+    "wall_time_range_seconds": [
+      13.727462699998796,
+      13.871716900000138
+    ],
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ]
+  },
+  {
+    "case": "wanderungen",
+    "library": "r-openxlsx",
+    "tool": "NXPowerLite",
+    "completed": 3,
+    "attempts": 3,
+    "cleanup_median_seconds": null,
+    "open_median_seconds": 10.39,
+    "save_median_seconds": 19.14,
+    "end_to_end_median_seconds": 30.042442899999514,
+    "sampled_library_rss_max_mib": 683.58984375,
+    "sampled_pipeline_rss_max_mib": 683.58984375,
+    "peak_job_commit_max_mib": 697.31640625,
+    "cpu_median_seconds": 26.703125,
+    "wall_time_range_seconds": [
+      29.8940405000003,
+      30.423936700000013
+    ],
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ]
+  },
+  {
+    "case": "wanderungen",
+    "library": "r-openxlsx",
+    "tool": "XLStylesTool",
+    "completed": 3,
+    "attempts": 3,
+    "cleanup_median_seconds": null,
+    "open_median_seconds": 15.19,
+    "save_median_seconds": 29.2,
+    "end_to_end_median_seconds": 44.91816160000053,
+    "sampled_library_rss_max_mib": 831.45703125,
+    "sampled_pipeline_rss_max_mib": 831.45703125,
+    "peak_job_commit_max_mib": 848.06640625,
+    "cpu_median_seconds": 40.75,
+    "wall_time_range_seconds": [
+      44.64423259999967,
+      45.67062140000053
+    ],
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ]
+  },
+  {
+    "case": "wanderungen",
+    "library": "r-openxlsx",
+    "tool": "CheckPerformance",
+    "completed": 3,
+    "attempts": 3,
+    "cleanup_median_seconds": null,
+    "open_median_seconds": 3.95,
+    "save_median_seconds": 7.23,
+    "end_to_end_median_seconds": 11.698184299999866,
+    "sampled_library_rss_max_mib": 285.90234375,
+    "sampled_pipeline_rss_max_mib": 285.90234375,
+    "peak_job_commit_max_mib": 297.71875,
+    "cpu_median_seconds": 10.59375,
+    "wall_time_range_seconds": [
+      11.575384300000223,
+      11.724586000000272
+    ],
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ]
+  },
+  {
+    "case": "wanderungen",
+    "library": "r-openxlsx",
+    "tool": "Inquire",
+    "completed": 3,
+    "attempts": 3,
+    "cleanup_median_seconds": null,
+    "open_median_seconds": 10.5,
+    "save_median_seconds": 21.21,
+    "end_to_end_median_seconds": 32.21863619999931,
+    "sampled_library_rss_max_mib": 564.01171875,
+    "sampled_pipeline_rss_max_mib": 564.01171875,
+    "peak_job_commit_max_mib": 577.61328125,
+    "cpu_median_seconds": 29.828125,
+    "wall_time_range_seconds": [
+      32.16902029999983,
+      32.29706619999979
+    ],
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ]
+  },
+  {
+    "case": "wanderungen",
+    "library": "r-readxl",
+    "tool": "Original",
+    "completed": 0,
+    "attempts": 3,
+    "cleanup_median_seconds": null,
+    "open_median_seconds": null,
+    "save_median_seconds": null,
+    "end_to_end_median_seconds": null,
+    "sampled_library_rss_max_mib": 4069.8828125,
+    "sampled_pipeline_rss_max_mib": 4069.8828125,
+    "peak_job_commit_max_mib": 4096.2421875,
+    "cpu_median_seconds": 8.296875,
+    "wall_time_range_seconds": [
+      8.3879481999993,
+      8.500515600000199
+    ],
+    "statuses": [
+      "memory_limit",
+      "memory_limit",
+      "memory_limit"
+    ]
+  },
+  {
+    "case": "wanderungen",
+    "library": "r-readxl",
+    "tool": "SheetShrink",
+    "completed": 3,
+    "attempts": 3,
+    "cleanup_median_seconds": 1.40698650000013,
+    "open_median_seconds": 175.34,
+    "save_median_seconds": 0.87,
+    "end_to_end_median_seconds": 178.1674322000008,
+    "sampled_library_rss_max_mib": 261.90625,
+    "sampled_pipeline_rss_max_mib": 391.8359375,
+    "peak_job_commit_max_mib": 621.90234375,
+    "cpu_median_seconds": 180.390625,
+    "wall_time_range_seconds": [
+      177.61541989999932,
+      181.23180060000004
+    ],
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ]
+  },
+  {
+    "case": "wanderungen",
+    "library": "r-readxl",
+    "tool": "NXPowerLite",
+    "completed": 0,
+    "attempts": 3,
+    "cleanup_median_seconds": null,
+    "open_median_seconds": null,
+    "save_median_seconds": null,
+    "end_to_end_median_seconds": null,
+    "sampled_library_rss_max_mib": 4069.96875,
+    "sampled_pipeline_rss_max_mib": 4069.96875,
+    "peak_job_commit_max_mib": 4096.30859375,
+    "cpu_median_seconds": 8.296875,
+    "wall_time_range_seconds": [
+      8.26191800000015,
+      8.393801499999881
+    ],
+    "statuses": [
+      "memory_limit",
+      "memory_limit",
+      "memory_limit"
+    ]
+  },
+  {
+    "case": "wanderungen",
+    "library": "r-readxl",
+    "tool": "XLStylesTool",
+    "completed": 0,
+    "attempts": 3,
+    "cleanup_median_seconds": null,
+    "open_median_seconds": null,
+    "save_median_seconds": null,
+    "end_to_end_median_seconds": null,
+    "sampled_library_rss_max_mib": 4069.71484375,
+    "sampled_pipeline_rss_max_mib": 4069.71484375,
+    "peak_job_commit_max_mib": 4096.25,
+    "cpu_median_seconds": 8.28125,
+    "wall_time_range_seconds": [
+      8.31430680000085,
+      8.404310700000224
+    ],
+    "statuses": [
+      "memory_limit",
+      "memory_limit",
+      "memory_limit"
+    ]
+  },
+  {
+    "case": "wanderungen",
+    "library": "r-readxl",
+    "tool": "CheckPerformance",
+    "completed": 0,
+    "attempts": 3,
+    "cleanup_median_seconds": null,
+    "open_median_seconds": null,
+    "save_median_seconds": null,
+    "end_to_end_median_seconds": null,
+    "sampled_library_rss_max_mib": 4072.18359375,
+    "sampled_pipeline_rss_max_mib": 4072.18359375,
+    "peak_job_commit_max_mib": 4096.3359375,
+    "cpu_median_seconds": 7.421875,
+    "wall_time_range_seconds": [
+      7.503403599999729,
+      7.648243499999808
+    ],
+    "statuses": [
+      "memory_limit",
+      "memory_limit",
+      "memory_limit"
+    ]
+  },
+  {
+    "case": "wanderungen",
+    "library": "r-readxl",
+    "tool": "Inquire",
+    "completed": 0,
+    "attempts": 3,
+    "cleanup_median_seconds": null,
+    "open_median_seconds": null,
+    "save_median_seconds": null,
+    "end_to_end_median_seconds": null,
+    "sampled_library_rss_max_mib": 4071.98828125,
+    "sampled_pipeline_rss_max_mib": 4071.98828125,
+    "peak_job_commit_max_mib": 4096.44921875,
+    "cpu_median_seconds": 7.546875,
+    "wall_time_range_seconds": [
+      7.646045800000138,
+      7.672299899999416
+    ],
+    "statuses": [
+      "memory_limit",
+      "memory_limit",
+      "memory_limit"
+    ]
+  },
+  {
+    "case": "finance",
+    "library": "openpyxl",
+    "tool": "Original",
+    "completed": 0,
+    "attempts": 3,
+    "cleanup_median_seconds": null,
+    "open_median_seconds": null,
+    "save_median_seconds": null,
+    "end_to_end_median_seconds": null,
+    "sampled_library_rss_max_mib": 3913.90234375,
+    "sampled_pipeline_rss_max_mib": 3913.90234375,
+    "peak_job_commit_max_mib": 4096.69921875,
+    "cpu_median_seconds": 78.28125,
+    "wall_time_range_seconds": [
+      79.53666179999982,
+      80.27412730000106
+    ],
+    "statuses": [
+      "memory_limit",
+      "memory_limit",
+      "memory_limit"
+    ]
+  },
+  {
+    "case": "finance",
+    "library": "openpyxl",
+    "tool": "SheetShrink",
+    "completed": 3,
+    "attempts": 3,
+    "cleanup_median_seconds": 5.953392999999778,
+    "open_median_seconds": 7.975546200000281,
+    "save_median_seconds": 9.050378799999635,
+    "end_to_end_median_seconds": 24.39452220000021,
+    "sampled_library_rss_max_mib": 451.921875,
+    "sampled_pipeline_rss_max_mib": 1060.6640625,
+    "peak_job_commit_max_mib": 1445.8671875,
+    "cpu_median_seconds": 44.125,
+    "wall_time_range_seconds": [
+      23.86805540000023,
+      24.61918490000062
+    ],
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ]
+  },
+  {
+    "case": "finance",
+    "library": "openpyxl",
+    "tool": "NXPowerLite",
+    "completed": 3,
+    "attempts": 3,
+    "cleanup_median_seconds": null,
+    "open_median_seconds": 4.452656299999944,
+    "save_median_seconds": 6.09967350000079,
+    "end_to_end_median_seconds": 11.627250999999887,
+    "sampled_library_rss_max_mib": 227.46875,
+    "sampled_pipeline_rss_max_mib": 227.46875,
+    "peak_job_commit_max_mib": 403.9921875,
+    "cpu_median_seconds": 10.046875,
+    "wall_time_range_seconds": [
+      11.521272200000112,
+      11.645705599999928
+    ],
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ]
+  },
+  {
+    "case": "finance",
+    "library": "openpyxl",
+    "tool": "XLStylesTool",
+    "completed": 0,
+    "attempts": 3,
+    "cleanup_median_seconds": null,
+    "open_median_seconds": null,
+    "save_median_seconds": null,
+    "end_to_end_median_seconds": null,
+    "sampled_library_rss_max_mib": 3913.53515625,
+    "sampled_pipeline_rss_max_mib": 3913.53515625,
+    "peak_job_commit_max_mib": 4096.6796875,
+    "cpu_median_seconds": 78.515625,
+    "wall_time_range_seconds": [
+      79.23784599999999,
+      80.52551219999987
+    ],
+    "statuses": [
+      "memory_limit",
+      "memory_limit",
+      "memory_limit"
+    ]
+  },
+  {
+    "case": "finance",
+    "library": "openpyxl",
+    "tool": "CheckPerformance",
+    "completed": 3,
+    "attempts": 3,
+    "cleanup_median_seconds": null,
+    "open_median_seconds": 4.278707999999824,
+    "save_median_seconds": 6.041968100000304,
+    "end_to_end_median_seconds": 11.404600899999423,
+    "sampled_library_rss_max_mib": 227.4453125,
+    "sampled_pipeline_rss_max_mib": 227.4453125,
+    "peak_job_commit_max_mib": 403.5859375,
+    "cpu_median_seconds": 9.890625,
+    "wall_time_range_seconds": [
+      11.287017300000116,
+      11.476614100000006
+    ],
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ]
+  },
+  {
+    "case": "finance",
+    "library": "openpyxl",
+    "tool": "Inquire",
+    "completed": 0,
+    "attempts": 3,
+    "cleanup_median_seconds": null,
+    "open_median_seconds": null,
+    "save_median_seconds": null,
+    "end_to_end_median_seconds": null,
+    "sampled_library_rss_max_mib": 3913.203125,
+    "sampled_pipeline_rss_max_mib": 3913.203125,
+    "peak_job_commit_max_mib": 4096.87890625,
+    "cpu_median_seconds": 111.828125,
+    "wall_time_range_seconds": [
+      112.5741678000013,
+      113.07003329999952
+    ],
+    "statuses": [
+      "memory_limit",
+      "memory_limit",
+      "memory_limit"
+    ]
+  },
+  {
+    "case": "finance",
+    "library": "pandas",
+    "tool": "Original",
+    "completed": 3,
+    "attempts": 3,
+    "cleanup_median_seconds": null,
+    "open_median_seconds": 183.6724223000001,
+    "save_median_seconds": 8.021246299999802,
+    "end_to_end_median_seconds": 192.93774070000018,
+    "sampled_library_rss_max_mib": 668.2890625,
+    "sampled_pipeline_rss_max_mib": 668.2890625,
+    "peak_job_commit_max_mib": 835.59375,
+    "cpu_median_seconds": 189.40625,
+    "wall_time_range_seconds": [
+      190.83982090000018,
+      193.24756359999992
+    ],
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ]
+  },
+  {
+    "case": "finance",
+    "library": "pandas",
+    "tool": "SheetShrink",
+    "completed": 3,
+    "attempts": 3,
+    "cleanup_median_seconds": 5.381576999999652,
+    "open_median_seconds": 6.474142299999585,
+    "save_median_seconds": 7.750643400000627,
+    "end_to_end_median_seconds": 20.703373499999998,
+    "sampled_library_rss_max_mib": 231.43359375,
+    "sampled_pipeline_rss_max_mib": 1081.90234375,
+    "peak_job_commit_max_mib": 1451.69921875,
+    "cpu_median_seconds": 40.984375,
+    "wall_time_range_seconds": [
+      20.77394749999985,
+      20.985663899999963
+    ],
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ]
+  },
+  {
+    "case": "finance",
+    "library": "pandas",
+    "tool": "NXPowerLite",
+    "completed": 3,
+    "attempts": 3,
+    "cleanup_median_seconds": null,
+    "open_median_seconds": 3.3868984000000637,
+    "save_median_seconds": 7.654619299999467,
+    "end_to_end_median_seconds": 12.213403799999469,
+    "sampled_library_rss_max_mib": 210.01171875,
+    "sampled_pipeline_rss_max_mib": 210.01171875,
+    "peak_job_commit_max_mib": 374.80078125,
+    "cpu_median_seconds": 10.75,
+    "wall_time_range_seconds": [
+      12.196726399999534,
+      12.47120700000005
+    ],
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ]
+  },
+  {
+    "case": "finance",
+    "library": "pandas",
+    "tool": "XLStylesTool",
+    "completed": 3,
+    "attempts": 3,
+    "cleanup_median_seconds": null,
+    "open_median_seconds": 184.52238209999996,
+    "save_median_seconds": 7.727851300000111,
+    "end_to_end_median_seconds": 193.3902949000003,
+    "sampled_library_rss_max_mib": 667.71875,
+    "sampled_pipeline_rss_max_mib": 667.71875,
+    "peak_job_commit_max_mib": 834.5859375,
+    "cpu_median_seconds": 190.703125,
+    "wall_time_range_seconds": [
+      191.24597189999986,
+      194.25516679999964
+    ],
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ]
+  },
+  {
+    "case": "finance",
+    "library": "pandas",
+    "tool": "CheckPerformance",
+    "completed": 3,
+    "attempts": 3,
+    "cleanup_median_seconds": null,
+    "open_median_seconds": 3.4111666999997396,
+    "save_median_seconds": 7.770650399999795,
+    "end_to_end_median_seconds": 12.39378829999987,
+    "sampled_library_rss_max_mib": 210.0546875,
+    "sampled_pipeline_rss_max_mib": 210.0546875,
+    "peak_job_commit_max_mib": 375.06640625,
+    "cpu_median_seconds": 10.828125,
+    "wall_time_range_seconds": [
+      12.31933730000037,
+      12.42165009999917
+    ],
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ]
+  },
+  {
+    "case": "finance",
+    "library": "pandas",
+    "tool": "Inquire",
+    "completed": 3,
+    "attempts": 3,
+    "cleanup_median_seconds": null,
+    "open_median_seconds": 68.08927720000065,
+    "save_median_seconds": 7.612934400000086,
+    "end_to_end_median_seconds": 76.8929291000004,
+    "sampled_library_rss_max_mib": 620.90234375,
+    "sampled_pipeline_rss_max_mib": 620.90234375,
+    "peak_job_commit_max_mib": 787.95703125,
+    "cpu_median_seconds": 74.859375,
+    "wall_time_range_seconds": [
+      75.82634739999958,
+      77.54757519999839
+    ],
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ]
+  },
+  {
+    "case": "finance",
+    "library": "excel",
+    "tool": "Original",
+    "completed": 3,
+    "attempts": 3,
+    "cleanup_median_seconds": null,
+    "open_median_seconds": 27.738752399998702,
+    "save_median_seconds": 11.984080500000346,
+    "end_to_end_median_seconds": 42.46240900000021,
+    "sampled_library_rss_max_mib": 999.67578125,
+    "sampled_pipeline_rss_max_mib": 999.67578125,
+    "peak_job_commit_max_mib": 889.2734375,
+    "cpu_median_seconds": 54.90625,
+    "wall_time_range_seconds": [
+      42.330578299999615,
+      100.76301299999977
+    ],
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ]
+  },
+  {
+    "case": "finance",
+    "library": "excel",
+    "tool": "SheetShrink",
+    "completed": 3,
+    "attempts": 3,
+    "cleanup_median_seconds": 5.359317200000078,
+    "open_median_seconds": 2.396063199999844,
+    "save_median_seconds": 1.3243093999999473,
+    "end_to_end_median_seconds": 69.76211130000047,
+    "sampled_library_rss_max_mib": 412.10546875,
+    "sampled_pipeline_rss_max_mib": 1182.73046875,
+    "peak_job_commit_max_mib": 1450.03125,
+    "cpu_median_seconds": 33.71875,
+    "wall_time_range_seconds": [
+      11.796399499999097,
+      69.95486589999973
+    ],
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ]
+  },
+  {
+    "case": "finance",
+    "library": "excel",
+    "tool": "NXPowerLite",
+    "completed": 3,
+    "attempts": 3,
+    "cleanup_median_seconds": null,
+    "open_median_seconds": 2.0430682000005618,
+    "save_median_seconds": 0.6558913999997458,
+    "end_to_end_median_seconds": 63.04934510000021,
+    "sampled_library_rss_max_mib": 388.40625,
+    "sampled_pipeline_rss_max_mib": 388.40625,
+    "peak_job_commit_max_mib": 284.3984375,
+    "cpu_median_seconds": 4.859375,
+    "wall_time_range_seconds": [
+      63.028516899999886,
+      63.06227149999995
+    ],
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ]
+  },
+  {
+    "case": "finance",
+    "library": "excel",
+    "tool": "XLStylesTool",
+    "completed": 3,
+    "attempts": 3,
+    "cleanup_median_seconds": null,
+    "open_median_seconds": 27.911360699999932,
+    "save_median_seconds": 11.984787700000197,
+    "end_to_end_median_seconds": 100.27795379999952,
+    "sampled_library_rss_max_mib": 999.7890625,
+    "sampled_pipeline_rss_max_mib": 999.7890625,
+    "peak_job_commit_max_mib": 889.06640625,
+    "cpu_median_seconds": 55.328125,
+    "wall_time_range_seconds": [
+      40.581778300000224,
+      100.4846137999998
+    ],
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ]
+  },
+  {
+    "case": "finance",
+    "library": "excel",
+    "tool": "CheckPerformance",
+    "completed": 3,
+    "attempts": 3,
+    "cleanup_median_seconds": null,
+    "open_median_seconds": 1.5897039999999834,
+    "save_median_seconds": 0.549380100000235,
+    "end_to_end_median_seconds": 62.4708770999996,
+    "sampled_library_rss_max_mib": 251.62890625,
+    "sampled_pipeline_rss_max_mib": 251.62890625,
+    "peak_job_commit_max_mib": 138.60546875,
+    "cpu_median_seconds": 4.0625,
+    "wall_time_range_seconds": [
+      4.6274248999998235,
+      62.55544200000077
+    ],
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ]
+  },
+  {
+    "case": "finance",
+    "library": "excel",
+    "tool": "Inquire",
+    "completed": 3,
+    "attempts": 3,
+    "cleanup_median_seconds": null,
+    "open_median_seconds": 23.268514700000196,
+    "save_median_seconds": 10.700027200000477,
+    "end_to_end_median_seconds": 35.87281649999932,
+    "sampled_library_rss_max_mib": 616.34765625,
+    "sampled_pipeline_rss_max_mib": 616.34765625,
+    "peak_job_commit_max_mib": 501.625,
+    "cpu_median_seconds": 49.5625,
+    "wall_time_range_seconds": [
+      35.43755489999967,
+      37.71985700000005
+    ],
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ]
+  },
+  {
+    "case": "finance",
+    "library": "r-openxlsx",
+    "tool": "Original",
+    "completed": 3,
+    "attempts": 3,
+    "cleanup_median_seconds": null,
+    "open_median_seconds": 46.1,
+    "save_median_seconds": 55.99,
+    "end_to_end_median_seconds": 102.65936429999965,
+    "sampled_library_rss_max_mib": 2114.6015625,
+    "sampled_pipeline_rss_max_mib": 2114.6015625,
+    "peak_job_commit_max_mib": 2163.7734375,
+    "cpu_median_seconds": 97.90625,
+    "wall_time_range_seconds": [
+      100.10391179999988,
+      104.7146945000004
+    ],
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ]
+  },
+  {
+    "case": "finance",
+    "library": "r-openxlsx",
+    "tool": "SheetShrink",
+    "completed": 3,
+    "attempts": 3,
+    "cleanup_median_seconds": 5.442556800000602,
+    "open_median_seconds": 3.72,
+    "save_median_seconds": 8.87,
+    "end_to_end_median_seconds": 18.556066799999826,
+    "sampled_library_rss_max_mib": 269.453125,
+    "sampled_pipeline_rss_max_mib": 1117.16015625,
+    "peak_job_commit_max_mib": 1446.04296875,
+    "cpu_median_seconds": 40.15625,
+    "wall_time_range_seconds": [
+      18.636859600000207,
+      18.71481380000023
+    ],
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ]
+  },
+  {
+    "case": "finance",
+    "library": "r-openxlsx",
+    "tool": "NXPowerLite",
+    "completed": 3,
+    "attempts": 3,
+    "cleanup_median_seconds": null,
+    "open_median_seconds": 3,
+    "save_median_seconds": 8.2,
+    "end_to_end_median_seconds": 11.666341800000282,
+    "sampled_library_rss_max_mib": 272.57421875,
+    "sampled_pipeline_rss_max_mib": 272.57421875,
+    "peak_job_commit_max_mib": 285.73828125,
+    "cpu_median_seconds": 11.265625,
+    "wall_time_range_seconds": [
+      11.399895599999581,
+      11.958309900000131
+    ],
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ]
+  },
+  {
+    "case": "finance",
+    "library": "r-openxlsx",
+    "tool": "XLStylesTool",
+    "completed": 3,
+    "attempts": 3,
+    "cleanup_median_seconds": null,
+    "open_median_seconds": 46.03,
+    "save_median_seconds": 55.5,
+    "end_to_end_median_seconds": 102.16780990000007,
+    "sampled_library_rss_max_mib": 2012.24609375,
+    "sampled_pipeline_rss_max_mib": 2012.24609375,
+    "peak_job_commit_max_mib": 2030.125,
+    "cpu_median_seconds": 98.875,
+    "wall_time_range_seconds": [
+      100.95176950000041,
+      104.2554296999997
+    ],
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ]
+  },
+  {
+    "case": "finance",
+    "library": "r-openxlsx",
+    "tool": "CheckPerformance",
+    "completed": 3,
+    "attempts": 3,
+    "cleanup_median_seconds": null,
+    "open_median_seconds": 2.63,
+    "save_median_seconds": 7.35,
+    "end_to_end_median_seconds": 10.519553500000256,
+    "sampled_library_rss_max_mib": 268.3671875,
+    "sampled_pipeline_rss_max_mib": 268.3671875,
+    "peak_job_commit_max_mib": 285.078125,
+    "cpu_median_seconds": 10.03125,
+    "wall_time_range_seconds": [
+      10.461283899999216,
+      10.584734900000512
+    ],
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ]
+  },
+  {
+    "case": "finance",
+    "library": "r-openxlsx",
+    "tool": "Inquire",
+    "completed": 3,
+    "attempts": 3,
+    "cleanup_median_seconds": null,
+    "open_median_seconds": 19.17,
+    "save_median_seconds": 33.29,
+    "end_to_end_median_seconds": 53.09456750000027,
+    "sampled_library_rss_max_mib": 1245.9375,
+    "sampled_pipeline_rss_max_mib": 1245.9375,
+    "peak_job_commit_max_mib": 1256.828125,
+    "cpu_median_seconds": 45.578125,
+    "wall_time_range_seconds": [
+      52.55319269999927,
+      53.453380499999184
+    ],
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ]
+  },
+  {
+    "case": "finance",
+    "library": "r-readxl",
+    "tool": "Original",
+    "completed": 3,
+    "attempts": 3,
+    "cleanup_median_seconds": null,
+    "open_median_seconds": 21.35,
+    "save_median_seconds": 0.9,
+    "end_to_end_median_seconds": 22.70861459999969,
+    "sampled_library_rss_max_mib": 1906.12109375,
+    "sampled_pipeline_rss_max_mib": 1906.12109375,
+    "peak_job_commit_max_mib": 2114.89453125,
+    "cpu_median_seconds": 22.5625,
+    "wall_time_range_seconds": [
+      22.594404500001474,
+      22.72847340000044
+    ],
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ]
+  },
+  {
+    "case": "finance",
+    "library": "r-readxl",
+    "tool": "SheetShrink",
+    "completed": 3,
+    "attempts": 3,
+    "cleanup_median_seconds": 5.425046000000293,
+    "open_median_seconds": 14.83,
+    "save_median_seconds": 0.86,
+    "end_to_end_median_seconds": 21.623349899999994,
+    "sampled_library_rss_max_mib": 241.8671875,
+    "sampled_pipeline_rss_max_mib": 1058.9921875,
+    "peak_job_commit_max_mib": 1446.25,
+    "cpu_median_seconds": 43.6875,
+    "wall_time_range_seconds": [
+      21.564543599999524,
+      22.334771900001215
+    ],
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ]
+  },
+  {
+    "case": "finance",
+    "library": "r-readxl",
+    "tool": "NXPowerLite",
+    "completed": 3,
+    "attempts": 3,
+    "cleanup_median_seconds": null,
+    "open_median_seconds": 14.97,
+    "save_median_seconds": 0.85,
+    "end_to_end_median_seconds": 16.25586629999998,
+    "sampled_library_rss_max_mib": 222.83984375,
+    "sampled_pipeline_rss_max_mib": 222.83984375,
+    "peak_job_commit_max_mib": 248.78515625,
+    "cpu_median_seconds": 16.0625,
+    "wall_time_range_seconds": [
+      16.115431100000023,
+      16.282117500000822
+    ],
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ]
+  },
+  {
+    "case": "finance",
+    "library": "r-readxl",
+    "tool": "XLStylesTool",
+    "completed": 3,
+    "attempts": 3,
+    "cleanup_median_seconds": null,
+    "open_median_seconds": 21.36,
+    "save_median_seconds": 0.88,
+    "end_to_end_median_seconds": 22.64578580000034,
+    "sampled_library_rss_max_mib": 1905.953125,
+    "sampled_pipeline_rss_max_mib": 1905.953125,
+    "peak_job_commit_max_mib": 2114.734375,
+    "cpu_median_seconds": 22.5625,
+    "wall_time_range_seconds": [
+      22.48938989999988,
+      22.790633000000525
+    ],
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ]
+  },
+  {
+    "case": "finance",
+    "library": "r-readxl",
+    "tool": "CheckPerformance",
+    "completed": 3,
+    "attempts": 3,
+    "cleanup_median_seconds": null,
+    "open_median_seconds": 14.78,
+    "save_median_seconds": 0.86,
+    "end_to_end_median_seconds": 16.0796076000006,
+    "sampled_library_rss_max_mib": 221.1015625,
+    "sampled_pipeline_rss_max_mib": 221.1015625,
+    "peak_job_commit_max_mib": 246.98046875,
+    "cpu_median_seconds": 15.84375,
+    "wall_time_range_seconds": [
+      16.063870599999973,
+      16.16949999999997
+    ],
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ]
+  },
+  {
+    "case": "finance",
+    "library": "r-readxl",
+    "tool": "Inquire",
+    "completed": 3,
+    "attempts": 3,
+    "cleanup_median_seconds": null,
+    "open_median_seconds": 18.98,
+    "save_median_seconds": 0.89,
+    "end_to_end_median_seconds": 20.330047399999785,
+    "sampled_library_rss_max_mib": 667.68359375,
+    "sampled_pipeline_rss_max_mib": 667.68359375,
+    "peak_job_commit_max_mib": 756.6640625,
+    "cpu_median_seconds": 20.15625,
+    "wall_time_range_seconds": [
+      20.26770310000029,
+      20.363569299999654
+    ],
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ]
+  },
+  {
+    "case": "qt-rr",
+    "library": "openpyxl",
+    "tool": "Original",
+    "completed": 0,
+    "attempts": 3,
+    "cleanup_median_seconds": null,
+    "open_median_seconds": null,
+    "save_median_seconds": null,
+    "end_to_end_median_seconds": null,
+    "sampled_library_rss_max_mib": 3912.9375,
+    "sampled_pipeline_rss_max_mib": 3912.9375,
+    "peak_job_commit_max_mib": 4135.59375,
+    "cpu_median_seconds": 78.4375,
+    "wall_time_range_seconds": [
+      79.29474660000051,
+      80.22454900000048
+    ],
+    "statuses": [
+      "memory_limit",
+      "memory_limit",
+      "memory_limit"
+    ]
+  },
+  {
+    "case": "qt-rr",
+    "library": "openpyxl",
+    "tool": "SheetShrink",
+    "completed": 3,
+    "attempts": 3,
+    "cleanup_median_seconds": 7.64936200000011,
+    "open_median_seconds": 5.829854099999466,
+    "save_median_seconds": 5.191122999999607,
+    "end_to_end_median_seconds": 19.835326299999906,
+    "sampled_library_rss_max_mib": 317.91796875,
+    "sampled_pipeline_rss_max_mib": 1600.08984375,
+    "peak_job_commit_max_mib": 2078.97265625,
+    "cpu_median_seconds": 49.453125,
+    "wall_time_range_seconds": [
+      19.941004000000248,
+      20.18610670000089
+    ],
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ]
+  },
+  {
+    "case": "qt-rr",
+    "library": "openpyxl",
+    "tool": "NXPowerLite",
+    "completed": 3,
+    "attempts": 3,
+    "cleanup_median_seconds": null,
+    "open_median_seconds": 5.930966400001125,
+    "save_median_seconds": 5.175870299999588,
+    "end_to_end_median_seconds": 12.257218699999612,
+    "sampled_library_rss_max_mib": 299.48828125,
+    "sampled_pipeline_rss_max_mib": 299.48828125,
+    "peak_job_commit_max_mib": 474.640625,
+    "cpu_median_seconds": 11.6875,
+    "wall_time_range_seconds": [
+      12.179881699999896,
+      12.287713099998655
+    ],
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ]
+  },
+  {
+    "case": "qt-rr",
+    "library": "openpyxl",
+    "tool": "XLStylesTool",
+    "completed": 0,
+    "attempts": 3,
+    "cleanup_median_seconds": null,
+    "open_median_seconds": null,
+    "save_median_seconds": null,
+    "end_to_end_median_seconds": null,
+    "sampled_library_rss_max_mib": 3913.1796875,
+    "sampled_pipeline_rss_max_mib": 3913.1796875,
+    "peak_job_commit_max_mib": 4135.86328125,
+    "cpu_median_seconds": 77.875,
+    "wall_time_range_seconds": [
+      77.74783030000071,
+      78.90195589999985
+    ],
+    "statuses": [
+      "memory_limit",
+      "memory_limit",
+      "memory_limit"
+    ]
+  },
+  {
+    "case": "qt-rr",
+    "library": "openpyxl",
+    "tool": "CheckPerformance",
+    "completed": 3,
+    "attempts": 3,
+    "cleanup_median_seconds": null,
+    "open_median_seconds": 5.5493680999998105,
+    "save_median_seconds": 5.258194599999115,
+    "end_to_end_median_seconds": 12.07318209999994,
+    "sampled_library_rss_max_mib": 299.04296875,
+    "sampled_pipeline_rss_max_mib": 299.04296875,
+    "peak_job_commit_max_mib": 475.4140625,
+    "cpu_median_seconds": 11.5625,
+    "wall_time_range_seconds": [
+      11.850614799999676,
+      12.08378520000042
+    ],
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ]
+  },
+  {
+    "case": "qt-rr",
+    "library": "openpyxl",
+    "tool": "Inquire",
+    "completed": 3,
+    "attempts": 3,
+    "cleanup_median_seconds": null,
+    "open_median_seconds": 5.9075392000004285,
+    "save_median_seconds": 5.221875199998976,
+    "end_to_end_median_seconds": 12.39448210000046,
+    "sampled_library_rss_max_mib": 302.81640625,
+    "sampled_pipeline_rss_max_mib": 302.81640625,
+    "peak_job_commit_max_mib": 478.36328125,
+    "cpu_median_seconds": 11.84375,
+    "wall_time_range_seconds": [
+      12.315100600000733,
+      12.410031699999308
+    ],
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ]
+  },
+  {
+    "case": "qt-rr",
+    "library": "pandas",
+    "tool": "Original",
+    "completed": 3,
+    "attempts": 3,
+    "cleanup_median_seconds": null,
+    "open_median_seconds": 237.46666730000106,
+    "save_median_seconds": 10.196143099999972,
+    "end_to_end_median_seconds": 249.1335076000014,
+    "sampled_library_rss_max_mib": 327.26953125,
+    "sampled_pipeline_rss_max_mib": 327.26953125,
+    "peak_job_commit_max_mib": 492.77734375,
+    "cpu_median_seconds": 247.140625,
+    "wall_time_range_seconds": [
+      244.18815630000063,
+      250.8477899999998
+    ],
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ]
+  },
+  {
+    "case": "qt-rr",
+    "library": "pandas",
+    "tool": "SheetShrink",
+    "completed": 3,
+    "attempts": 3,
+    "cleanup_median_seconds": 7.031535400001303,
+    "open_median_seconds": 4.526090400000612,
+    "save_median_seconds": 10.142189099999996,
+    "end_to_end_median_seconds": 22.989510600000358,
+    "sampled_library_rss_max_mib": 346.03515625,
+    "sampled_pipeline_rss_max_mib": 1669.578125,
+    "peak_job_commit_max_mib": 2080.3984375,
+    "cpu_median_seconds": 52.78125,
+    "wall_time_range_seconds": [
+      23.113159900000028,
+      23.170075500000166
+    ],
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ]
+  },
+  {
+    "case": "qt-rr",
+    "library": "pandas",
+    "tool": "NXPowerLite",
+    "completed": 3,
+    "attempts": 3,
+    "cleanup_median_seconds": null,
+    "open_median_seconds": 4.507127700000638,
+    "save_median_seconds": 10.12610610000047,
+    "end_to_end_median_seconds": 15.791338500001075,
+    "sampled_library_rss_max_mib": 327.02734375,
+    "sampled_pipeline_rss_max_mib": 327.02734375,
+    "peak_job_commit_max_mib": 492.98046875,
+    "cpu_median_seconds": 15.0625,
+    "wall_time_range_seconds": [
+      15.737864199998512,
+      16.010254100000566
+    ],
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ]
+  },
+  {
+    "case": "qt-rr",
+    "library": "pandas",
+    "tool": "XLStylesTool",
+    "completed": 3,
+    "attempts": 3,
+    "cleanup_median_seconds": null,
+    "open_median_seconds": 235.06561169999986,
+    "save_median_seconds": 10.236069300000054,
+    "end_to_end_median_seconds": 246.67670510000062,
+    "sampled_library_rss_max_mib": 326.9375,
+    "sampled_pipeline_rss_max_mib": 326.9375,
+    "peak_job_commit_max_mib": 493.01953125,
+    "cpu_median_seconds": 244.96875,
+    "wall_time_range_seconds": [
+      246.4519411000001,
+      247.638000500001
+    ],
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ]
+  },
+  {
+    "case": "qt-rr",
+    "library": "pandas",
+    "tool": "CheckPerformance",
+    "completed": 3,
+    "attempts": 3,
+    "cleanup_median_seconds": null,
+    "open_median_seconds": 4.270782300000064,
+    "save_median_seconds": 10.150926599999366,
+    "end_to_end_median_seconds": 15.545922999999675,
+    "sampled_library_rss_max_mib": 327.12109375,
+    "sampled_pipeline_rss_max_mib": 327.12109375,
+    "peak_job_commit_max_mib": 493.10546875,
+    "cpu_median_seconds": 14.921875,
+    "wall_time_range_seconds": [
+      15.436287499998798,
+      15.822285499999452
+    ],
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ]
+  },
+  {
+    "case": "qt-rr",
+    "library": "pandas",
+    "tool": "Inquire",
+    "completed": 3,
+    "attempts": 3,
+    "cleanup_median_seconds": null,
+    "open_median_seconds": 4.5362277000003814,
+    "save_median_seconds": 10.31364719999874,
+    "end_to_end_median_seconds": 16.086728100000983,
+    "sampled_library_rss_max_mib": 326.984375,
+    "sampled_pipeline_rss_max_mib": 326.984375,
+    "peak_job_commit_max_mib": 493.03125,
+    "cpu_median_seconds": 15.34375,
+    "wall_time_range_seconds": [
+      15.989924399999836,
+      16.15671829999883
+    ],
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ]
+  },
+  {
+    "case": "qt-rr",
+    "library": "excel",
+    "tool": "Original",
+    "completed": 3,
+    "attempts": 3,
+    "cleanup_median_seconds": null,
+    "open_median_seconds": 32.42435990000013,
+    "save_median_seconds": 4.592044799999712,
+    "end_to_end_median_seconds": 39.788288399999146,
+    "sampled_library_rss_max_mib": 929.39453125,
+    "sampled_pipeline_rss_max_mib": 929.39453125,
+    "peak_job_commit_max_mib": 815.62890625,
+    "cpu_median_seconds": 57.515625,
+    "wall_time_range_seconds": [
+      37.26264710000032,
+      39.832706599999256
+    ],
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ]
+  },
+  {
+    "case": "qt-rr",
+    "library": "excel",
+    "tool": "SheetShrink",
+    "completed": 3,
+    "attempts": 3,
+    "cleanup_median_seconds": 7.096077800000785,
+    "open_median_seconds": 1.7429742999993323,
+    "save_median_seconds": 0.5707282000003033,
+    "end_to_end_median_seconds": 11.843873299999359,
+    "sampled_library_rss_max_mib": 271.98046875,
+    "sampled_pipeline_rss_max_mib": 1740.72265625,
+    "peak_job_commit_max_mib": 2092.44140625,
+    "cpu_median_seconds": 42.109375,
+    "wall_time_range_seconds": [
+      11.812600700000985,
+      12.053282099999706
+    ],
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ]
+  },
+  {
+    "case": "qt-rr",
+    "library": "excel",
+    "tool": "NXPowerLite",
+    "completed": 3,
+    "attempts": 3,
+    "cleanup_median_seconds": null,
+    "open_median_seconds": 1.6813590999990993,
+    "save_median_seconds": 0.558242699999937,
+    "end_to_end_median_seconds": 4.673978400000124,
+    "sampled_library_rss_max_mib": 253.2421875,
+    "sampled_pipeline_rss_max_mib": 253.2421875,
+    "peak_job_commit_max_mib": 136.26171875,
+    "cpu_median_seconds": 4.453125,
+    "wall_time_range_seconds": [
+      2.5220347000013135,
+      4.776896800000031
+    ],
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ]
+  },
+  {
+    "case": "qt-rr",
+    "library": "excel",
+    "tool": "XLStylesTool",
+    "completed": 3,
+    "attempts": 3,
+    "cleanup_median_seconds": null,
+    "open_median_seconds": 31.994962400000077,
+    "save_median_seconds": 4.501679400000285,
+    "end_to_end_median_seconds": 39.018571199998405,
+    "sampled_library_rss_max_mib": 930.63671875,
+    "sampled_pipeline_rss_max_mib": 930.63671875,
+    "peak_job_commit_max_mib": 816.2890625,
+    "cpu_median_seconds": 57.921875,
+    "wall_time_range_seconds": [
+      38.92747699999927,
+      39.64983029999985
+    ],
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ]
+  },
+  {
+    "case": "qt-rr",
+    "library": "excel",
+    "tool": "CheckPerformance",
+    "completed": 3,
+    "attempts": 3,
+    "cleanup_median_seconds": null,
+    "open_median_seconds": 1.622404199999437,
+    "save_median_seconds": 0.5296154999996361,
+    "end_to_end_median_seconds": 62.520910000000185,
+    "sampled_library_rss_max_mib": 245.9296875,
+    "sampled_pipeline_rss_max_mib": 245.9296875,
+    "peak_job_commit_max_mib": 133.40234375,
+    "cpu_median_seconds": 4.375,
+    "wall_time_range_seconds": [
+      4.570372599999246,
+      62.52712380000048
+    ],
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ]
+  },
+  {
+    "case": "qt-rr",
+    "library": "excel",
+    "tool": "Inquire",
+    "completed": 3,
+    "attempts": 3,
+    "cleanup_median_seconds": null,
+    "open_median_seconds": 1.707526999998663,
+    "save_median_seconds": 0.5305491999997685,
+    "end_to_end_median_seconds": 4.765705499999967,
+    "sampled_library_rss_max_mib": 246.6328125,
+    "sampled_pipeline_rss_max_mib": 246.6328125,
+    "peak_job_commit_max_mib": 133.06640625,
+    "cpu_median_seconds": 4.421875,
+    "wall_time_range_seconds": [
+      4.662128099998881,
+      4.802493799999866
+    ],
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ]
+  },
+  {
+    "case": "qt-rr",
+    "library": "r-openxlsx",
+    "tool": "Original",
+    "completed": 3,
+    "attempts": 3,
+    "cleanup_median_seconds": null,
+    "open_median_seconds": 63.19,
+    "save_median_seconds": 75.45,
+    "end_to_end_median_seconds": 140.85707920000004,
+    "sampled_library_rss_max_mib": 2453.47265625,
+    "sampled_pipeline_rss_max_mib": 2453.47265625,
+    "peak_job_commit_max_mib": 2592.62109375,
+    "cpu_median_seconds": 133.484375,
+    "wall_time_range_seconds": [
+      138.39078500000142,
+      141.20942819999982
+    ],
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ]
+  },
+  {
+    "case": "qt-rr",
+    "library": "r-openxlsx",
+    "tool": "SheetShrink",
+    "completed": 3,
+    "attempts": 3,
+    "cleanup_median_seconds": 7.027293299999656,
+    "open_median_seconds": 1.48,
+    "save_median_seconds": 2.32,
+    "end_to_end_median_seconds": 11.284513599999627,
+    "sampled_library_rss_max_mib": 242.46484375,
+    "sampled_pipeline_rss_max_mib": 1743.53125,
+    "peak_job_commit_max_mib": 2105.7265625,
+    "cpu_median_seconds": 41.015625,
+    "wall_time_range_seconds": [
+      11.375406099999964,
+      11.614817499999845
+    ],
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ]
+  },
+  {
+    "case": "qt-rr",
+    "library": "r-openxlsx",
+    "tool": "NXPowerLite",
+    "completed": 3,
+    "attempts": 3,
+    "cleanup_median_seconds": null,
+    "open_median_seconds": 1.44,
+    "save_median_seconds": 2.32,
+    "end_to_end_median_seconds": 4.256592499999897,
+    "sampled_library_rss_max_mib": 224.05078125,
+    "sampled_pipeline_rss_max_mib": 224.05078125,
+    "peak_job_commit_max_mib": 236.46875,
+    "cpu_median_seconds": 3.953125,
+    "wall_time_range_seconds": [
+      4.252154100000553,
+      4.263062900001387
+    ],
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ]
+  },
+  {
+    "case": "qt-rr",
+    "library": "r-openxlsx",
+    "tool": "XLStylesTool",
+    "completed": 3,
+    "attempts": 3,
+    "cleanup_median_seconds": null,
+    "open_median_seconds": 63.1,
+    "save_median_seconds": 76.7,
+    "end_to_end_median_seconds": 140.39609420000033,
+    "sampled_library_rss_max_mib": 2453.703125,
+    "sampled_pipeline_rss_max_mib": 2453.703125,
+    "peak_job_commit_max_mib": 2592.796875,
+    "cpu_median_seconds": 133.4375,
+    "wall_time_range_seconds": [
+      138.74914829999943,
+      140.4460446000012
+    ],
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ]
+  },
+  {
+    "case": "qt-rr",
+    "library": "r-openxlsx",
+    "tool": "CheckPerformance",
+    "completed": 3,
+    "attempts": 3,
+    "cleanup_median_seconds": null,
+    "open_median_seconds": 1.15,
+    "save_median_seconds": 1.87,
+    "end_to_end_median_seconds": 3.547059900000022,
+    "sampled_library_rss_max_mib": 210.43359375,
+    "sampled_pipeline_rss_max_mib": 210.43359375,
+    "peak_job_commit_max_mib": 222.76171875,
+    "cpu_median_seconds": 3.328125,
+    "wall_time_range_seconds": [
+      3.5013914999999542,
+      3.5562023000002227
+    ],
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ]
+  },
+  {
+    "case": "qt-rr",
+    "library": "r-openxlsx",
+    "tool": "Inquire",
+    "completed": 3,
+    "attempts": 3,
+    "cleanup_median_seconds": null,
+    "open_median_seconds": 1.47,
+    "save_median_seconds": 2.33,
+    "end_to_end_median_seconds": 4.321828000000096,
+    "sampled_library_rss_max_mib": 224.5234375,
+    "sampled_pipeline_rss_max_mib": 224.5234375,
+    "peak_job_commit_max_mib": 236.7734375,
+    "cpu_median_seconds": 3.96875,
+    "wall_time_range_seconds": [
+      4.313494899999569,
+      4.328056399999696
+    ],
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ]
+  },
+  {
+    "case": "qt-rr",
+    "library": "r-readxl",
+    "tool": "Original",
+    "completed": 3,
+    "attempts": 3,
+    "cleanup_median_seconds": null,
+    "open_median_seconds": 10.48,
+    "save_median_seconds": 1.02,
+    "end_to_end_median_seconds": 11.896588699999484,
+    "sampled_library_rss_max_mib": 1340.58984375,
+    "sampled_pipeline_rss_max_mib": 1340.58984375,
+    "peak_job_commit_max_mib": 1492.1953125,
+    "cpu_median_seconds": 11.984375,
+    "wall_time_range_seconds": [
+      11.846676300000581,
+      11.985251100000823
+    ],
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ]
+  },
+  {
+    "case": "qt-rr",
+    "library": "r-readxl",
+    "tool": "SheetShrink",
+    "completed": 3,
+    "attempts": 3,
+    "cleanup_median_seconds": 7.054285399999571,
+    "open_median_seconds": 1.57,
+    "save_median_seconds": 1.01,
+    "end_to_end_median_seconds": 10.060219099999813,
+    "sampled_library_rss_max_mib": 258.41796875,
+    "sampled_pipeline_rss_max_mib": 1730.1953125,
+    "peak_job_commit_max_mib": 2162.94140625,
+    "cpu_median_seconds": 40.53125,
+    "wall_time_range_seconds": [
+      10.067904000001363,
+      10.313240299999961
+    ],
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ]
+  },
+  {
+    "case": "qt-rr",
+    "library": "r-readxl",
+    "tool": "NXPowerLite",
+    "completed": 3,
+    "attempts": 3,
+    "cleanup_median_seconds": null,
+    "open_median_seconds": 1.53,
+    "save_median_seconds": 1,
+    "end_to_end_median_seconds": 2.937391800000114,
+    "sampled_library_rss_max_mib": 239.78515625,
+    "sampled_pipeline_rss_max_mib": 239.78515625,
+    "peak_job_commit_max_mib": 256.0,
+    "cpu_median_seconds": 2.859375,
+    "wall_time_range_seconds": [
+      2.9309817000003022,
+      2.956872199998543
+    ],
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ]
+  },
+  {
+    "case": "qt-rr",
+    "library": "r-readxl",
+    "tool": "XLStylesTool",
+    "completed": 3,
+    "attempts": 3,
+    "cleanup_median_seconds": null,
+    "open_median_seconds": 10.45,
+    "save_median_seconds": 1.02,
+    "end_to_end_median_seconds": 11.892560100000992,
+    "sampled_library_rss_max_mib": 1340.17578125,
+    "sampled_pipeline_rss_max_mib": 1340.17578125,
+    "peak_job_commit_max_mib": 1491.73046875,
+    "cpu_median_seconds": 11.953125,
+    "wall_time_range_seconds": [
+      11.855292599999302,
+      12.005856300000232
+    ],
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ]
+  },
+  {
+    "case": "qt-rr",
+    "library": "r-readxl",
+    "tool": "CheckPerformance",
+    "completed": 3,
+    "attempts": 3,
+    "cleanup_median_seconds": null,
+    "open_median_seconds": 1.49,
+    "save_median_seconds": 0.97,
+    "end_to_end_median_seconds": 2.878842199999781,
+    "sampled_library_rss_max_mib": 248.06640625,
+    "sampled_pipeline_rss_max_mib": 248.06640625,
+    "peak_job_commit_max_mib": 270.59765625,
+    "cpu_median_seconds": 2.78125,
+    "wall_time_range_seconds": [
+      2.8687685999993846,
+      2.943568800000321
+    ],
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ]
+  },
+  {
+    "case": "qt-rr",
+    "library": "r-readxl",
+    "tool": "Inquire",
+    "completed": 3,
+    "attempts": 3,
+    "cleanup_median_seconds": null,
+    "open_median_seconds": 1.55,
+    "save_median_seconds": 1.01,
+    "end_to_end_median_seconds": 2.962657699999909,
+    "sampled_library_rss_max_mib": 239.390625,
+    "sampled_pipeline_rss_max_mib": 239.390625,
+    "peak_job_commit_max_mib": 255.796875,
+    "cpu_median_seconds": 2.84375,
+    "wall_time_range_seconds": [
+      2.952357899999697,
+      2.9859105000005
+    ],
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ]
+  }
+]

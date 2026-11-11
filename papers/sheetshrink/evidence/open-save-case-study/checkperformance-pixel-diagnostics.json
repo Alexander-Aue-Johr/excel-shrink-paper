@@ -1,0 +1,6651 @@
+{
+  "source_report_sha256": "aa63523a2960c30bb3c57e345fc3326b588060aec1f9fb1b8a580593e14bbc37",
+  "capture_policy": "targeted-content-grid-v12",
+  "regions": [
+    {
+      "key": "0:findings:0",
+      "sheet": "71717-01",
+      "range": "A1:K17",
+      "geometry_differs": false,
+      "metrics": {
+        "changed_pixels": 287,
+        "hotspot_count": 5,
+        "hotspots": [
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 0,
+            "y": 344
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 64,
+            "y": 344
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 128,
+            "y": 344
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 192,
+            "y": 344
+          },
+          {
+            "delta_sum": 23715,
+            "height": 1,
+            "pixels": 31,
+            "unpaired": false,
+            "width": 31,
+            "x": 256,
+            "y": 344
+          }
+        ],
+        "left_height": 345,
+        "left_width": 1675,
+        "max_channel_delta": 255,
+        "overlap_height": 345,
+        "overlap_width": 1675,
+        "overlay_url": "evidence/24544b07a2e54df7c010296da6a5902846336f2af81512fb708f73d7f90ab015.png",
+        "right_height": 345,
+        "right_width": 1675,
+        "total_channel_delta": 219555,
+        "unmatched_nonwhite_pixels": 0,
+        "unmatched_pixels": 0,
+        "unmeasured_regions": 0
+      }
+    },
+    {
+      "key": "0:findings:126",
+      "sheet": "71717-08",
+      "range": "Q1:V68",
+      "geometry_differs": false,
+      "metrics": {
+        "changed_pixels": 85,
+        "hotspot_count": 2,
+        "hotspots": [
+          {
+            "delta_sum": 4420,
+            "height": 52,
+            "pixels": 52,
+            "unpaired": false,
+            "width": 1,
+            "x": 520,
+            "y": 76
+          },
+          {
+            "delta_sum": 2805,
+            "height": 33,
+            "pixels": 33,
+            "unpaired": false,
+            "width": 1,
+            "x": 520,
+            "y": 128
+          }
+        ],
+        "left_height": 1258,
+        "left_width": 681,
+        "max_channel_delta": 40,
+        "overlap_height": 1258,
+        "overlap_width": 681,
+        "overlay_url": "evidence/a5746faf32d4a5ed028c6a100cd5da028fd338f937696a230b361534a0f35285.png",
+        "right_height": 1258,
+        "right_width": 681,
+        "total_channel_delta": 7225,
+        "unmatched_nonwhite_pixels": 0,
+        "unmatched_pixels": 0,
+        "unmeasured_regions": 0
+      }
+    },
+    {
+      "key": "0:findings:127",
+      "sheet": "71717-09",
+      "range": "A1:Q19",
+      "geometry_differs": false,
+      "metrics": {
+        "changed_pixels": 6689,
+        "hotspot_count": 15,
+        "hotspots": [
+          {
+            "delta_sum": 343309,
+            "height": 39,
+            "pixels": 974,
+            "unpaired": false,
+            "width": 64,
+            "x": 192,
+            "y": 345
+          },
+          {
+            "delta_sum": 299818,
+            "height": 38,
+            "pixels": 880,
+            "unpaired": false,
+            "width": 64,
+            "x": 64,
+            "y": 345
+          },
+          {
+            "delta_sum": 297394,
+            "height": 38,
+            "pixels": 845,
+            "unpaired": false,
+            "width": 64,
+            "x": 128,
+            "y": 345
+          },
+          {
+            "delta_sum": 188922,
+            "height": 38,
+            "pixels": 565,
+            "unpaired": false,
+            "width": 64,
+            "x": 256,
+            "y": 345
+          },
+          {
+            "delta_sum": 155048,
+            "height": 12,
+            "pixels": 457,
+            "unpaired": false,
+            "width": 64,
+            "x": 128,
+            "y": 390
+          },
+          {
+            "delta_sum": 152552,
+            "height": 19,
+            "pixels": 462,
+            "unpaired": false,
+            "width": 64,
+            "x": 192,
+            "y": 384
+          },
+          {
+            "delta_sum": 139527,
+            "height": 13,
+            "pixels": 445,
+            "unpaired": false,
+            "width": 64,
+            "x": 320,
+            "y": 371
+          },
+          {
+            "delta_sum": 133839,
+            "height": 18,
+            "pixels": 437,
+            "unpaired": false,
+            "width": 64,
+            "x": 320,
+            "y": 384
+          },
+          {
+            "delta_sum": 132636,
+            "height": 12,
+            "pixels": 417,
+            "unpaired": false,
+            "width": 58,
+            "x": 387,
+            "y": 390
+          },
+          {
+            "delta_sum": 130046,
+            "height": 12,
+            "pixels": 393,
+            "unpaired": false,
+            "width": 64,
+            "x": 64,
+            "y": 390
+          },
+          {
+            "delta_sum": 126546,
+            "height": 12,
+            "pixels": 407,
+            "unpaired": false,
+            "width": 64,
+            "x": 256,
+            "y": 390
+          },
+          {
+            "delta_sum": 92238,
+            "height": 12,
+            "pixels": 292,
+            "unpaired": false,
+            "width": 42,
+            "x": 384,
+            "y": 371
+          },
+          {
+            "delta_sum": 35266,
+            "height": 38,
+            "pixels": 78,
+            "unpaired": false,
+            "width": 8,
+            "x": 56,
+            "y": 345
+          },
+          {
+            "delta_sum": 16658,
+            "height": 12,
+            "pixels": 37,
+            "unpaired": false,
+            "width": 5,
+            "x": 59,
+            "y": 390
+          },
+          {
+            "delta_sum": 0,
+            "height": 1,
+            "pixels": 6,
+            "unpaired": true,
+            "width": 6,
+            "x": 235,
+            "y": 403
+          }
+        ],
+        "left_height": 403,
+        "left_width": 1630,
+        "max_channel_delta": 255,
+        "overlap_height": 403,
+        "overlap_width": 1630,
+        "overlay_url": "evidence/8b3f66cef26d9a5b1278537aa507324a8083ad6b96e8bc72f5cd091a37221e53.png",
+        "right_height": 406,
+        "right_width": 1630,
+        "total_channel_delta": 2243799,
+        "unmatched_nonwhite_pixels": 6,
+        "unmatched_pixels": 4890,
+        "unmeasured_regions": 0
+      }
+    },
+    {
+      "key": "0:findings:128",
+      "sheet": "71717-10",
+      "range": "A1:I19",
+      "geometry_differs": false,
+      "metrics": {
+        "changed_pixels": 6689,
+        "hotspot_count": 13,
+        "hotspots": [
+          {
+            "delta_sum": 318513,
+            "height": 40,
+            "pixels": 959,
+            "unpaired": false,
+            "width": 64,
+            "x": 192,
+            "y": 384
+          },
+          {
+            "delta_sum": 297803,
+            "height": 39,
+            "pixels": 877,
+            "unpaired": false,
+            "width": 64,
+            "x": 128,
+            "y": 384
+          },
+          {
+            "delta_sum": 284254,
+            "height": 39,
+            "pixels": 882,
+            "unpaired": false,
+            "width": 64,
+            "x": 256,
+            "y": 384
+          },
+          {
+            "delta_sum": 275206,
+            "height": 39,
+            "pixels": 851,
+            "unpaired": false,
+            "width": 64,
+            "x": 64,
+            "y": 384
+          },
+          {
+            "delta_sum": 273366,
+            "height": 31,
+            "pixels": 882,
+            "unpaired": false,
+            "width": 64,
+            "x": 320,
+            "y": 392
+          },
+          {
+            "delta_sum": 224874,
+            "height": 31,
+            "pixels": 709,
+            "unpaired": false,
+            "width": 61,
+            "x": 384,
+            "y": 392
+          },
+          {
+            "delta_sum": 177348,
+            "height": 18,
+            "pixels": 477,
+            "unpaired": false,
+            "width": 64,
+            "x": 192,
+            "y": 366
+          },
+          {
+            "delta_sum": 154658,
+            "height": 18,
+            "pixels": 422,
+            "unpaired": false,
+            "width": 64,
+            "x": 64,
+            "y": 366
+          },
+          {
+            "delta_sum": 154639,
+            "height": 18,
+            "pixels": 425,
+            "unpaired": false,
+            "width": 64,
+            "x": 128,
+            "y": 366
+          },
+          {
+            "delta_sum": 37568,
+            "height": 39,
+            "pixels": 88,
+            "unpaired": false,
+            "width": 5,
+            "x": 59,
+            "y": 384
+          },
+          {
+            "delta_sum": 31214,
+            "height": 18,
+            "pixels": 90,
+            "unpaired": false,
+            "width": 16,
+            "x": 256,
+            "y": 366
+          },
+          {
+            "delta_sum": 14356,
+            "height": 18,
+            "pixels": 27,
+            "unpaired": false,
+            "width": 8,
+            "x": 56,
+            "y": 366
+          },
+          {
+            "delta_sum": 0,
+            "height": 1,
+            "pixels": 6,
+            "unpaired": true,
+            "width": 6,
+            "x": 235,
+            "y": 424
+          }
+        ],
+        "left_height": 424,
+        "left_width": 1170,
+        "max_channel_delta": 255,
+        "overlap_height": 424,
+        "overlap_width": 1170,
+        "overlay_url": "evidence/aba5728cd69e23c63043f1a2ec767658e2e9214c3accda944f14dbca57c3dff5.png",
+        "right_height": 427,
+        "right_width": 1170,
+        "total_channel_delta": 2243799,
+        "unmatched_nonwhite_pixels": 6,
+        "unmatched_pixels": 3510,
+        "unmeasured_regions": 0
+      }
+    },
+    {
+      "key": "0:findings:129",
+      "sheet": "71717-11",
+      "range": "A1:Q17",
+      "geometry_differs": false,
+      "metrics": {
+        "changed_pixels": 2943,
+        "hotspot_count": 8,
+        "hotspots": [
+          {
+            "delta_sum": 204008,
+            "height": 19,
+            "pixels": 521,
+            "unpaired": false,
+            "width": 64,
+            "x": 128,
+            "y": 345
+          },
+          {
+            "delta_sum": 198529,
+            "height": 20,
+            "pixels": 520,
+            "unpaired": false,
+            "width": 64,
+            "x": 192,
+            "y": 345
+          },
+          {
+            "delta_sum": 179816,
+            "height": 19,
+            "pixels": 495,
+            "unpaired": false,
+            "width": 64,
+            "x": 320,
+            "y": 345
+          },
+          {
+            "delta_sum": 175506,
+            "height": 19,
+            "pixels": 471,
+            "unpaired": false,
+            "width": 64,
+            "x": 256,
+            "y": 345
+          },
+          {
+            "delta_sum": 173902,
+            "height": 19,
+            "pixels": 444,
+            "unpaired": false,
+            "width": 64,
+            "x": 64,
+            "y": 345
+          },
+          {
+            "delta_sum": 167826,
+            "height": 19,
+            "pixels": 463,
+            "unpaired": false,
+            "width": 61,
+            "x": 384,
+            "y": 345
+          },
+          {
+            "delta_sum": 15108,
+            "height": 19,
+            "pixels": 29,
+            "unpaired": false,
+            "width": 8,
+            "x": 56,
+            "y": 345
+          },
+          {
+            "delta_sum": 0,
+            "height": 1,
+            "pixels": 6,
+            "unpaired": true,
+            "width": 6,
+            "x": 235,
+            "y": 365
+          }
+        ],
+        "left_height": 365,
+        "left_width": 1798,
+        "max_channel_delta": 255,
+        "overlap_height": 365,
+        "overlap_width": 1798,
+        "overlay_url": "evidence/abfe8590f2db29bf86fa44008cd5e330c2f2cf6e62d2a48a7b0e0c618210aeae.png",
+        "right_height": 368,
+        "right_width": 1798,
+        "total_channel_delta": 1114695,
+        "unmatched_nonwhite_pixels": 6,
+        "unmatched_pixels": 5394,
+        "unmeasured_regions": 0
+      }
+    },
+    {
+      "key": "0:findings:130",
+      "sheet": "71717-12",
+      "range": "A1:I17",
+      "geometry_differs": false,
+      "metrics": {
+        "changed_pixels": 2940,
+        "hotspot_count": 15,
+        "hotspots": [
+          {
+            "delta_sum": 181955,
+            "height": 18,
+            "pixels": 470,
+            "unpaired": false,
+            "width": 64,
+            "x": 128,
+            "y": 366
+          },
+          {
+            "delta_sum": 174698,
+            "height": 18,
+            "pixels": 471,
+            "unpaired": false,
+            "width": 64,
+            "x": 192,
+            "y": 366
+          },
+          {
+            "delta_sum": 163117,
+            "height": 18,
+            "pixels": 408,
+            "unpaired": false,
+            "width": 64,
+            "x": 64,
+            "y": 366
+          },
+          {
+            "delta_sum": 156784,
+            "height": 18,
+            "pixels": 431,
+            "unpaired": false,
+            "width": 64,
+            "x": 320,
+            "y": 366
+          },
+          {
+            "delta_sum": 153263,
+            "height": 18,
+            "pixels": 414,
+            "unpaired": false,
+            "width": 64,
+            "x": 256,
+            "y": 366
+          },
+          {
+            "delta_sum": 145359,
+            "height": 18,
+            "pixels": 412,
+            "unpaired": false,
+            "width": 58,
+            "x": 384,
+            "y": 366
+          },
+          {
+            "delta_sum": 22625,
+            "height": 1,
+            "pixels": 54,
+            "unpaired": false,
+            "width": 64,
+            "x": 128,
+            "y": 384
+          },
+          {
+            "delta_sum": 20465,
+            "height": 1,
+            "pixels": 52,
+            "unpaired": false,
+            "width": 62,
+            "x": 66,
+            "y": 384
+          },
+          {
+            "delta_sum": 20463,
+            "height": 2,
+            "pixels": 50,
+            "unpaired": false,
+            "width": 62,
+            "x": 194,
+            "y": 384
+          },
+          {
+            "delta_sum": 19609,
+            "height": 1,
+            "pixels": 46,
+            "unpaired": false,
+            "width": 63,
+            "x": 256,
+            "y": 384
+          },
+          {
+            "delta_sum": 18344,
+            "height": 1,
+            "pixels": 49,
+            "unpaired": false,
+            "width": 59,
+            "x": 322,
+            "y": 384
+          },
+          {
+            "delta_sum": 17877,
+            "height": 1,
+            "pixels": 45,
+            "unpaired": false,
+            "width": 58,
+            "x": 384,
+            "y": 384
+          },
+          {
+            "delta_sum": 17016,
+            "height": 18,
+            "pixels": 35,
+            "unpaired": false,
+            "width": 11,
+            "x": 53,
+            "y": 366
+          },
+          {
+            "delta_sum": 825,
+            "height": 1,
+            "pixels": 3,
+            "unpaired": false,
+            "width": 3,
+            "x": 59,
+            "y": 384
+          },
+          {
+            "delta_sum": 0,
+            "height": 1,
+            "pixels": 6,
+            "unpaired": true,
+            "width": 6,
+            "x": 232,
+            "y": 386
+          }
+        ],
+        "left_height": 386,
+        "left_width": 1332,
+        "max_channel_delta": 255,
+        "overlap_height": 386,
+        "overlap_width": 1332,
+        "overlay_url": "evidence/3b9e3e747793022135e71fa3a66fb5820ec9dfb888d5175b13e154210e4dfe30.png",
+        "right_height": 389,
+        "right_width": 1332,
+        "total_channel_delta": 1112400,
+        "unmatched_nonwhite_pixels": 6,
+        "unmatched_pixels": 3996,
+        "unmeasured_regions": 0
+      }
+    },
+    {
+      "key": "0:findings:131",
+      "sheet": "71717-13",
+      "range": "A1:K90",
+      "geometry_differs": false,
+      "metrics": {
+        "changed_pixels": 364,
+        "hotspot_count": 6,
+        "hotspots": [
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 0,
+            "y": 1625
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 64,
+            "y": 1625
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 128,
+            "y": 1625
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 192,
+            "y": 1625
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 256,
+            "y": 1625
+          },
+          {
+            "delta_sum": 33660,
+            "height": 1,
+            "pixels": 44,
+            "unpaired": false,
+            "width": 44,
+            "x": 320,
+            "y": 1625
+          }
+        ],
+        "left_height": 1626,
+        "left_width": 1308,
+        "max_channel_delta": 255,
+        "overlap_height": 1626,
+        "overlap_width": 1308,
+        "overlay_url": "evidence/805bfc1f66aa6b6688af6900d34e948314de0939a098beb655302821d7d45582.png",
+        "right_height": 1626,
+        "right_width": 1308,
+        "total_channel_delta": 278460,
+        "unmatched_nonwhite_pixels": 0,
+        "unmatched_pixels": 0,
+        "unmeasured_regions": 0
+      }
+    },
+    {
+      "key": "0:findings:132",
+      "sheet": "71717-14",
+      "range": "A1:K90",
+      "geometry_differs": false,
+      "metrics": {
+        "changed_pixels": 364,
+        "hotspot_count": 6,
+        "hotspots": [
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 0,
+            "y": 1625
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 64,
+            "y": 1625
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 128,
+            "y": 1625
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 192,
+            "y": 1625
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 256,
+            "y": 1625
+          },
+          {
+            "delta_sum": 33660,
+            "height": 1,
+            "pixels": 44,
+            "unpaired": false,
+            "width": 44,
+            "x": 320,
+            "y": 1625
+          }
+        ],
+        "left_height": 1626,
+        "left_width": 1304,
+        "max_channel_delta": 255,
+        "overlap_height": 1626,
+        "overlap_width": 1304,
+        "overlay_url": "evidence/59829bca2d33e4568233a5f5a2c142efb795e5b88c17398b9f0724742e5eab9a.png",
+        "right_height": 1626,
+        "right_width": 1304,
+        "total_channel_delta": 278460,
+        "unmatched_nonwhite_pixels": 0,
+        "unmatched_pixels": 0,
+        "unmeasured_regions": 0
+      }
+    },
+    {
+      "key": "0:findings:133",
+      "sheet": "71717-15",
+      "range": "A1:K90",
+      "geometry_differs": false,
+      "metrics": {
+        "changed_pixels": 364,
+        "hotspot_count": 6,
+        "hotspots": [
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 0,
+            "y": 1625
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 64,
+            "y": 1625
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 128,
+            "y": 1625
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 192,
+            "y": 1625
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 256,
+            "y": 1625
+          },
+          {
+            "delta_sum": 33660,
+            "height": 1,
+            "pixels": 44,
+            "unpaired": false,
+            "width": 44,
+            "x": 320,
+            "y": 1625
+          }
+        ],
+        "left_height": 1626,
+        "left_width": 1303,
+        "max_channel_delta": 255,
+        "overlap_height": 1626,
+        "overlap_width": 1303,
+        "overlay_url": "evidence/460aed711d50ef275c4376b2f3ba902c5b7f51f06c5c32fec898a85a913758e0.png",
+        "right_height": 1626,
+        "right_width": 1303,
+        "total_channel_delta": 278460,
+        "unmatched_nonwhite_pixels": 0,
+        "unmatched_pixels": 0,
+        "unmeasured_regions": 0
+      }
+    },
+    {
+      "key": "0:findings:134",
+      "sheet": "71717-16",
+      "range": "A1:K91",
+      "geometry_differs": false,
+      "metrics": {
+        "changed_pixels": 502,
+        "hotspot_count": 8,
+        "hotspots": [
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 0,
+            "y": 1644
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 64,
+            "y": 1644
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 128,
+            "y": 1644
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 192,
+            "y": 1644
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 256,
+            "y": 1644
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 320,
+            "y": 1644
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 384,
+            "y": 1644
+          },
+          {
+            "delta_sum": 41310,
+            "height": 1,
+            "pixels": 54,
+            "unpaired": false,
+            "width": 54,
+            "x": 448,
+            "y": 1644
+          }
+        ],
+        "left_height": 1645,
+        "left_width": 1824,
+        "max_channel_delta": 255,
+        "overlap_height": 1645,
+        "overlap_width": 1824,
+        "overlay_url": "evidence/f8ac5238ca7d93b8dd97ea2d4adb5f31c4460069ed816d52901ca729ce1ec171.png",
+        "right_height": 1645,
+        "right_width": 1824,
+        "total_channel_delta": 384030,
+        "unmatched_nonwhite_pixels": 0,
+        "unmatched_pixels": 0,
+        "unmeasured_regions": 0
+      }
+    },
+    {
+      "key": "0:findings:135",
+      "sheet": "71717-17",
+      "range": "A1:K91",
+      "geometry_differs": false,
+      "metrics": {
+        "changed_pixels": 502,
+        "hotspot_count": 8,
+        "hotspots": [
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 0,
+            "y": 1644
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 64,
+            "y": 1644
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 128,
+            "y": 1644
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 192,
+            "y": 1644
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 256,
+            "y": 1644
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 320,
+            "y": 1644
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 384,
+            "y": 1644
+          },
+          {
+            "delta_sum": 41310,
+            "height": 1,
+            "pixels": 54,
+            "unpaired": false,
+            "width": 54,
+            "x": 448,
+            "y": 1644
+          }
+        ],
+        "left_height": 1645,
+        "left_width": 1824,
+        "max_channel_delta": 255,
+        "overlap_height": 1645,
+        "overlap_width": 1824,
+        "overlay_url": "evidence/f8ac5238ca7d93b8dd97ea2d4adb5f31c4460069ed816d52901ca729ce1ec171.png",
+        "right_height": 1645,
+        "right_width": 1824,
+        "total_channel_delta": 384030,
+        "unmatched_nonwhite_pixels": 0,
+        "unmatched_pixels": 0,
+        "unmeasured_regions": 0
+      }
+    },
+    {
+      "key": "0:findings:136",
+      "sheet": "71717-18",
+      "range": "A1:K91",
+      "geometry_differs": false,
+      "metrics": {
+        "changed_pixels": 502,
+        "hotspot_count": 8,
+        "hotspots": [
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 0,
+            "y": 1644
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 64,
+            "y": 1644
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 128,
+            "y": 1644
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 192,
+            "y": 1644
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 256,
+            "y": 1644
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 320,
+            "y": 1644
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 384,
+            "y": 1644
+          },
+          {
+            "delta_sum": 41310,
+            "height": 1,
+            "pixels": 54,
+            "unpaired": false,
+            "width": 54,
+            "x": 448,
+            "y": 1644
+          }
+        ],
+        "left_height": 1645,
+        "left_width": 1824,
+        "max_channel_delta": 255,
+        "overlap_height": 1645,
+        "overlap_width": 1824,
+        "overlay_url": "evidence/f8ac5238ca7d93b8dd97ea2d4adb5f31c4460069ed816d52901ca729ce1ec171.png",
+        "right_height": 1645,
+        "right_width": 1824,
+        "total_channel_delta": 384030,
+        "unmatched_nonwhite_pixels": 0,
+        "unmatched_pixels": 0,
+        "unmeasured_regions": 0
+      }
+    },
+    {
+      "key": "0:findings:137",
+      "sheet": "71717-19",
+      "range": "A1:Q32",
+      "geometry_differs": false,
+      "metrics": {
+        "changed_pixels": 358,
+        "hotspot_count": 7,
+        "hotspots": [
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 64,
+            "y": 619
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 128,
+            "y": 619
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 192,
+            "y": 619
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 256,
+            "y": 619
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 320,
+            "y": 619
+          },
+          {
+            "delta_sum": 17595,
+            "height": 1,
+            "pixels": 23,
+            "unpaired": false,
+            "width": 23,
+            "x": 41,
+            "y": 619
+          },
+          {
+            "delta_sum": 11475,
+            "height": 1,
+            "pixels": 15,
+            "unpaired": false,
+            "width": 15,
+            "x": 384,
+            "y": 619
+          }
+        ],
+        "left_height": 620,
+        "left_width": 1963,
+        "max_channel_delta": 255,
+        "overlap_height": 620,
+        "overlap_width": 1963,
+        "overlay_url": "evidence/48f2520ca2a4eb04a5e2fa6b028a90ff8727406109a0ba39151ad1880b58f186.png",
+        "right_height": 620,
+        "right_width": 1963,
+        "total_channel_delta": 273870,
+        "unmatched_nonwhite_pixels": 0,
+        "unmatched_pixels": 0,
+        "unmeasured_regions": 0
+      }
+    },
+    {
+      "key": "0:findings:142",
+      "sheet": "71717-23",
+      "range": "A1:Q89",
+      "geometry_differs": false,
+      "metrics": {
+        "changed_pixels": 397,
+        "hotspot_count": 7,
+        "hotspots": [
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 64,
+            "y": 1586
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 128,
+            "y": 1586
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 192,
+            "y": 1586
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 256,
+            "y": 1586
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 320,
+            "y": 1586
+          },
+          {
+            "delta_sum": 41310,
+            "height": 1,
+            "pixels": 54,
+            "unpaired": false,
+            "width": 54,
+            "x": 384,
+            "y": 1586
+          },
+          {
+            "delta_sum": 17595,
+            "height": 1,
+            "pixels": 23,
+            "unpaired": false,
+            "width": 23,
+            "x": 41,
+            "y": 1586
+          }
+        ],
+        "left_height": 1587,
+        "left_width": 2002,
+        "max_channel_delta": 255,
+        "overlap_height": 1587,
+        "overlap_width": 2002,
+        "overlay_url": "evidence/70209aec703f025a0937f354fb6bc33370e7d1a66fd2038fa1cb67d775f91d12.png",
+        "right_height": 1589,
+        "right_width": 2002,
+        "total_channel_delta": 303705,
+        "unmatched_nonwhite_pixels": 0,
+        "unmatched_pixels": 4004,
+        "unmeasured_regions": 0
+      }
+    },
+    {
+      "key": "0:findings:143",
+      "sheet": "71717-24",
+      "range": "A1:Q89",
+      "geometry_differs": false,
+      "metrics": {
+        "changed_pixels": 397,
+        "hotspot_count": 7,
+        "hotspots": [
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 64,
+            "y": 1586
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 128,
+            "y": 1586
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 192,
+            "y": 1586
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 256,
+            "y": 1586
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 320,
+            "y": 1586
+          },
+          {
+            "delta_sum": 41310,
+            "height": 1,
+            "pixels": 54,
+            "unpaired": false,
+            "width": 54,
+            "x": 384,
+            "y": 1586
+          },
+          {
+            "delta_sum": 17595,
+            "height": 1,
+            "pixels": 23,
+            "unpaired": false,
+            "width": 23,
+            "x": 41,
+            "y": 1586
+          }
+        ],
+        "left_height": 1587,
+        "left_width": 2002,
+        "max_channel_delta": 255,
+        "overlap_height": 1587,
+        "overlap_width": 2002,
+        "overlay_url": "evidence/70209aec703f025a0937f354fb6bc33370e7d1a66fd2038fa1cb67d775f91d12.png",
+        "right_height": 1589,
+        "right_width": 2002,
+        "total_channel_delta": 303705,
+        "unmatched_nonwhite_pixels": 0,
+        "unmatched_pixels": 4004,
+        "unmeasured_regions": 0
+      }
+    },
+    {
+      "key": "0:findings:144",
+      "sheet": "71717-25",
+      "range": "A1:Q89",
+      "geometry_differs": false,
+      "metrics": {
+        "changed_pixels": 397,
+        "hotspot_count": 7,
+        "hotspots": [
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 64,
+            "y": 1586
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 128,
+            "y": 1586
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 192,
+            "y": 1586
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 256,
+            "y": 1586
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 320,
+            "y": 1586
+          },
+          {
+            "delta_sum": 41310,
+            "height": 1,
+            "pixels": 54,
+            "unpaired": false,
+            "width": 54,
+            "x": 384,
+            "y": 1586
+          },
+          {
+            "delta_sum": 17595,
+            "height": 1,
+            "pixels": 23,
+            "unpaired": false,
+            "width": 23,
+            "x": 41,
+            "y": 1586
+          }
+        ],
+        "left_height": 1587,
+        "left_width": 2002,
+        "max_channel_delta": 255,
+        "overlap_height": 1587,
+        "overlap_width": 2002,
+        "overlay_url": "evidence/70209aec703f025a0937f354fb6bc33370e7d1a66fd2038fa1cb67d775f91d12.png",
+        "right_height": 1589,
+        "right_width": 2002,
+        "total_channel_delta": 303705,
+        "unmatched_nonwhite_pixels": 0,
+        "unmatched_pixels": 4004,
+        "unmeasured_regions": 0
+      }
+    },
+    {
+      "key": "0:findings:145",
+      "sheet": "71717-26",
+      "range": "A1:Q89",
+      "geometry_differs": false,
+      "metrics": {
+        "changed_pixels": 397,
+        "hotspot_count": 7,
+        "hotspots": [
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 64,
+            "y": 1586
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 128,
+            "y": 1586
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 192,
+            "y": 1586
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 256,
+            "y": 1586
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 320,
+            "y": 1586
+          },
+          {
+            "delta_sum": 41310,
+            "height": 1,
+            "pixels": 54,
+            "unpaired": false,
+            "width": 54,
+            "x": 384,
+            "y": 1586
+          },
+          {
+            "delta_sum": 17595,
+            "height": 1,
+            "pixels": 23,
+            "unpaired": false,
+            "width": 23,
+            "x": 41,
+            "y": 1586
+          }
+        ],
+        "left_height": 1587,
+        "left_width": 2002,
+        "max_channel_delta": 255,
+        "overlap_height": 1587,
+        "overlap_width": 2002,
+        "overlay_url": "evidence/70209aec703f025a0937f354fb6bc33370e7d1a66fd2038fa1cb67d775f91d12.png",
+        "right_height": 1589,
+        "right_width": 2002,
+        "total_channel_delta": 303705,
+        "unmatched_nonwhite_pixels": 0,
+        "unmatched_pixels": 4004,
+        "unmeasured_regions": 0
+      }
+    },
+    {
+      "key": "0:findings:146",
+      "sheet": "71717-27",
+      "range": "A1:Q89",
+      "geometry_differs": false,
+      "metrics": {
+        "changed_pixels": 397,
+        "hotspot_count": 7,
+        "hotspots": [
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 64,
+            "y": 1586
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 128,
+            "y": 1586
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 192,
+            "y": 1586
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 256,
+            "y": 1586
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 320,
+            "y": 1586
+          },
+          {
+            "delta_sum": 41310,
+            "height": 1,
+            "pixels": 54,
+            "unpaired": false,
+            "width": 54,
+            "x": 384,
+            "y": 1586
+          },
+          {
+            "delta_sum": 17595,
+            "height": 1,
+            "pixels": 23,
+            "unpaired": false,
+            "width": 23,
+            "x": 41,
+            "y": 1586
+          }
+        ],
+        "left_height": 1587,
+        "left_width": 2002,
+        "max_channel_delta": 255,
+        "overlap_height": 1587,
+        "overlap_width": 2002,
+        "overlay_url": "evidence/70209aec703f025a0937f354fb6bc33370e7d1a66fd2038fa1cb67d775f91d12.png",
+        "right_height": 1589,
+        "right_width": 2002,
+        "total_channel_delta": 303705,
+        "unmatched_nonwhite_pixels": 0,
+        "unmatched_pixels": 4004,
+        "unmeasured_regions": 0
+      }
+    },
+    {
+      "key": "0:findings:147",
+      "sheet": "71717-28",
+      "range": "A1:Q89",
+      "geometry_differs": false,
+      "metrics": {
+        "changed_pixels": 397,
+        "hotspot_count": 7,
+        "hotspots": [
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 64,
+            "y": 1586
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 128,
+            "y": 1586
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 192,
+            "y": 1586
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 256,
+            "y": 1586
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 320,
+            "y": 1586
+          },
+          {
+            "delta_sum": 41310,
+            "height": 1,
+            "pixels": 54,
+            "unpaired": false,
+            "width": 54,
+            "x": 384,
+            "y": 1586
+          },
+          {
+            "delta_sum": 17595,
+            "height": 1,
+            "pixels": 23,
+            "unpaired": false,
+            "width": 23,
+            "x": 41,
+            "y": 1586
+          }
+        ],
+        "left_height": 1587,
+        "left_width": 2002,
+        "max_channel_delta": 255,
+        "overlap_height": 1587,
+        "overlap_width": 2002,
+        "overlay_url": "evidence/70209aec703f025a0937f354fb6bc33370e7d1a66fd2038fa1cb67d775f91d12.png",
+        "right_height": 1589,
+        "right_width": 2002,
+        "total_channel_delta": 303705,
+        "unmatched_nonwhite_pixels": 0,
+        "unmatched_pixels": 4004,
+        "unmeasured_regions": 0
+      }
+    },
+    {
+      "key": "0:findings:148",
+      "sheet": "71717-29",
+      "range": "A1:Q83",
+      "geometry_differs": false,
+      "metrics": {
+        "changed_pixels": 573,
+        "hotspot_count": 10,
+        "hotspots": [
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 64,
+            "y": 1676
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 128,
+            "y": 1676
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 192,
+            "y": 1676
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 256,
+            "y": 1676
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 320,
+            "y": 1676
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 384,
+            "y": 1676
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 448,
+            "y": 1676
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 512,
+            "y": 1676
+          },
+          {
+            "delta_sum": 29070,
+            "height": 1,
+            "pixels": 38,
+            "unpaired": false,
+            "width": 38,
+            "x": 576,
+            "y": 1676
+          },
+          {
+            "delta_sum": 17595,
+            "height": 1,
+            "pixels": 23,
+            "unpaired": false,
+            "width": 23,
+            "x": 41,
+            "y": 1676
+          }
+        ],
+        "left_height": 1677,
+        "left_width": 2178,
+        "max_channel_delta": 255,
+        "overlap_height": 1677,
+        "overlap_width": 2178,
+        "overlay_url": "evidence/49a7b35b822e35a6dc8f35533d4c8cf8e96c355dd74aaed98be1850941f5676e.png",
+        "right_height": 1679,
+        "right_width": 2178,
+        "total_channel_delta": 438345,
+        "unmatched_nonwhite_pixels": 0,
+        "unmatched_pixels": 4356,
+        "unmeasured_regions": 0
+      }
+    },
+    {
+      "key": "0:findings:149",
+      "sheet": "71717-30",
+      "range": "A1:Q83",
+      "geometry_differs": false,
+      "metrics": {
+        "changed_pixels": 575,
+        "hotspot_count": 10,
+        "hotspots": [
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 64,
+            "y": 1682
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 128,
+            "y": 1682
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 192,
+            "y": 1682
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 256,
+            "y": 1682
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 320,
+            "y": 1682
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 384,
+            "y": 1682
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 448,
+            "y": 1682
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 512,
+            "y": 1682
+          },
+          {
+            "delta_sum": 30600,
+            "height": 1,
+            "pixels": 40,
+            "unpaired": false,
+            "width": 40,
+            "x": 576,
+            "y": 1682
+          },
+          {
+            "delta_sum": 17595,
+            "height": 1,
+            "pixels": 23,
+            "unpaired": false,
+            "width": 23,
+            "x": 41,
+            "y": 1682
+          }
+        ],
+        "left_height": 1683,
+        "left_width": 2180,
+        "max_channel_delta": 255,
+        "overlap_height": 1683,
+        "overlap_width": 2180,
+        "overlay_url": "evidence/7a471805413e8b18c5f80b9f97b637da19541b79efadc21fde5ade77e98b31e7.png",
+        "right_height": 1685,
+        "right_width": 2180,
+        "total_channel_delta": 439875,
+        "unmatched_nonwhite_pixels": 0,
+        "unmatched_pixels": 4360,
+        "unmeasured_regions": 0
+      }
+    },
+    {
+      "key": "0:findings:150",
+      "sheet": "71717-31",
+      "range": "A1:Q83",
+      "geometry_differs": false,
+      "metrics": {
+        "changed_pixels": 587,
+        "hotspot_count": 10,
+        "hotspots": [
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 64,
+            "y": 1674
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 128,
+            "y": 1674
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 192,
+            "y": 1674
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 256,
+            "y": 1674
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 320,
+            "y": 1674
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 384,
+            "y": 1674
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 448,
+            "y": 1674
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 512,
+            "y": 1674
+          },
+          {
+            "delta_sum": 39780,
+            "height": 1,
+            "pixels": 52,
+            "unpaired": false,
+            "width": 52,
+            "x": 576,
+            "y": 1674
+          },
+          {
+            "delta_sum": 17595,
+            "height": 1,
+            "pixels": 23,
+            "unpaired": false,
+            "width": 23,
+            "x": 41,
+            "y": 1674
+          }
+        ],
+        "left_height": 1675,
+        "left_width": 2192,
+        "max_channel_delta": 255,
+        "overlap_height": 1675,
+        "overlap_width": 2192,
+        "overlay_url": "evidence/9eaf19487cf35c324e9690ab40b817a0e01ea9ec25d4c9b0f5c883c67117b0ae.png",
+        "right_height": 1677,
+        "right_width": 2192,
+        "total_channel_delta": 449055,
+        "unmatched_nonwhite_pixels": 0,
+        "unmatched_pixels": 4384,
+        "unmeasured_regions": 0
+      }
+    },
+    {
+      "key": "0:findings:151",
+      "sheet": "71717-32",
+      "range": "A1:Q83",
+      "geometry_differs": false,
+      "metrics": {
+        "changed_pixels": 586,
+        "hotspot_count": 10,
+        "hotspots": [
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 64,
+            "y": 1674
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 128,
+            "y": 1674
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 192,
+            "y": 1674
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 256,
+            "y": 1674
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 320,
+            "y": 1674
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 384,
+            "y": 1674
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 448,
+            "y": 1674
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 512,
+            "y": 1674
+          },
+          {
+            "delta_sum": 39015,
+            "height": 1,
+            "pixels": 51,
+            "unpaired": false,
+            "width": 51,
+            "x": 576,
+            "y": 1674
+          },
+          {
+            "delta_sum": 17595,
+            "height": 1,
+            "pixels": 23,
+            "unpaired": false,
+            "width": 23,
+            "x": 41,
+            "y": 1674
+          }
+        ],
+        "left_height": 1675,
+        "left_width": 2191,
+        "max_channel_delta": 255,
+        "overlap_height": 1675,
+        "overlap_width": 2191,
+        "overlay_url": "evidence/89ee33ae0ba59bde1c5bb2636ee597b2d1023364dbffe73624a3bc6c256806d3.png",
+        "right_height": 1677,
+        "right_width": 2191,
+        "total_channel_delta": 448290,
+        "unmatched_nonwhite_pixels": 0,
+        "unmatched_pixels": 4382,
+        "unmeasured_regions": 0
+      }
+    },
+    {
+      "key": "0:findings:152",
+      "sheet": "71717-33",
+      "range": "A1:Q83",
+      "geometry_differs": false,
+      "metrics": {
+        "changed_pixels": 601,
+        "hotspot_count": 11,
+        "hotspots": [
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 64,
+            "y": 1673
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 128,
+            "y": 1673
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 192,
+            "y": 1673
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 256,
+            "y": 1673
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 320,
+            "y": 1673
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 384,
+            "y": 1673
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 448,
+            "y": 1673
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 512,
+            "y": 1673
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 576,
+            "y": 1673
+          },
+          {
+            "delta_sum": 17595,
+            "height": 1,
+            "pixels": 23,
+            "unpaired": false,
+            "width": 23,
+            "x": 41,
+            "y": 1673
+          },
+          {
+            "delta_sum": 1530,
+            "height": 1,
+            "pixels": 2,
+            "unpaired": false,
+            "width": 2,
+            "x": 640,
+            "y": 1673
+          }
+        ],
+        "left_height": 1674,
+        "left_width": 2206,
+        "max_channel_delta": 255,
+        "overlap_height": 1674,
+        "overlap_width": 2206,
+        "overlay_url": "evidence/1091112245e200a6231e4740923069d254c19501d22297c2242226a911587d5c.png",
+        "right_height": 1676,
+        "right_width": 2206,
+        "total_channel_delta": 459765,
+        "unmatched_nonwhite_pixels": 0,
+        "unmatched_pixels": 4412,
+        "unmeasured_regions": 0
+      }
+    },
+    {
+      "key": "0:findings:153",
+      "sheet": "71717-34",
+      "range": "A1:Q86",
+      "geometry_differs": false,
+      "metrics": {
+        "changed_pixels": 464,
+        "hotspot_count": 8,
+        "hotspots": [
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 64,
+            "y": 1804
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 128,
+            "y": 1804
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 192,
+            "y": 1804
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 256,
+            "y": 1804
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 320,
+            "y": 1804
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 384,
+            "y": 1804
+          },
+          {
+            "delta_sum": 43605,
+            "height": 1,
+            "pixels": 57,
+            "unpaired": false,
+            "width": 57,
+            "x": 448,
+            "y": 1804
+          },
+          {
+            "delta_sum": 17595,
+            "height": 1,
+            "pixels": 23,
+            "unpaired": false,
+            "width": 23,
+            "x": 41,
+            "y": 1804
+          }
+        ],
+        "left_height": 1805,
+        "left_width": 2069,
+        "max_channel_delta": 255,
+        "overlap_height": 1805,
+        "overlap_width": 2069,
+        "overlay_url": "evidence/a31934019b7660794a89e02afe36bf08f207a38f52edf02ce1d242a22904d720.png",
+        "right_height": 1807,
+        "right_width": 2069,
+        "total_channel_delta": 354960,
+        "unmatched_nonwhite_pixels": 0,
+        "unmatched_pixels": 4138,
+        "unmeasured_regions": 0
+      }
+    },
+    {
+      "key": "0:findings:154",
+      "sheet": "71717-35",
+      "range": "A1:Q82",
+      "geometry_differs": false,
+      "metrics": {
+        "changed_pixels": 585,
+        "hotspot_count": 10,
+        "hotspots": [
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 64,
+            "y": 1667
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 128,
+            "y": 1667
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 192,
+            "y": 1667
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 256,
+            "y": 1667
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 320,
+            "y": 1667
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 384,
+            "y": 1667
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 448,
+            "y": 1667
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 512,
+            "y": 1667
+          },
+          {
+            "delta_sum": 38250,
+            "height": 1,
+            "pixels": 50,
+            "unpaired": false,
+            "width": 50,
+            "x": 576,
+            "y": 1667
+          },
+          {
+            "delta_sum": 17595,
+            "height": 1,
+            "pixels": 23,
+            "unpaired": false,
+            "width": 23,
+            "x": 41,
+            "y": 1667
+          }
+        ],
+        "left_height": 1668,
+        "left_width": 2190,
+        "max_channel_delta": 255,
+        "overlap_height": 1668,
+        "overlap_width": 2190,
+        "overlay_url": "evidence/4dbf8af659353da8cfba747805d409943b7cb3c39328f61aaae8a5c131fb0128.png",
+        "right_height": 1670,
+        "right_width": 2190,
+        "total_channel_delta": 447525,
+        "unmatched_nonwhite_pixels": 0,
+        "unmatched_pixels": 4380,
+        "unmeasured_regions": 0
+      }
+    },
+    {
+      "key": "0:findings:155",
+      "sheet": "71717-36",
+      "range": "A1:Q81",
+      "geometry_differs": false,
+      "metrics": {
+        "changed_pixels": 576,
+        "hotspot_count": 10,
+        "hotspots": [
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 64,
+            "y": 1639
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 128,
+            "y": 1639
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 192,
+            "y": 1639
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 256,
+            "y": 1639
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 320,
+            "y": 1639
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 384,
+            "y": 1639
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 448,
+            "y": 1639
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 512,
+            "y": 1639
+          },
+          {
+            "delta_sum": 31365,
+            "height": 1,
+            "pixels": 41,
+            "unpaired": false,
+            "width": 41,
+            "x": 576,
+            "y": 1639
+          },
+          {
+            "delta_sum": 17595,
+            "height": 1,
+            "pixels": 23,
+            "unpaired": false,
+            "width": 23,
+            "x": 41,
+            "y": 1639
+          }
+        ],
+        "left_height": 1640,
+        "left_width": 2181,
+        "max_channel_delta": 255,
+        "overlap_height": 1640,
+        "overlap_width": 2181,
+        "overlay_url": "evidence/f4aa3fadb2ce292a70efdaf66f97f36f5aca3afd588152499e5764baad94e0bc.png",
+        "right_height": 1642,
+        "right_width": 2181,
+        "total_channel_delta": 440640,
+        "unmatched_nonwhite_pixels": 0,
+        "unmatched_pixels": 4362,
+        "unmeasured_regions": 0
+      }
+    },
+    {
+      "key": "0:findings:156",
+      "sheet": "71717-37",
+      "range": "A1:Q86",
+      "geometry_differs": false,
+      "metrics": {
+        "changed_pixels": 461,
+        "hotspot_count": 8,
+        "hotspots": [
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 64,
+            "y": 1792
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 128,
+            "y": 1792
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 192,
+            "y": 1792
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 256,
+            "y": 1792
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 320,
+            "y": 1792
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 384,
+            "y": 1792
+          },
+          {
+            "delta_sum": 41310,
+            "height": 1,
+            "pixels": 54,
+            "unpaired": false,
+            "width": 54,
+            "x": 448,
+            "y": 1792
+          },
+          {
+            "delta_sum": 17595,
+            "height": 1,
+            "pixels": 23,
+            "unpaired": false,
+            "width": 23,
+            "x": 41,
+            "y": 1792
+          }
+        ],
+        "left_height": 1793,
+        "left_width": 2066,
+        "max_channel_delta": 255,
+        "overlap_height": 1793,
+        "overlap_width": 2066,
+        "overlay_url": "evidence/ca3ad455b2bfcd7939d4767879e442fb95e07481248854edbbdd40bf223e8e84.png",
+        "right_height": 1795,
+        "right_width": 2066,
+        "total_channel_delta": 352665,
+        "unmatched_nonwhite_pixels": 0,
+        "unmatched_pixels": 4132,
+        "unmeasured_regions": 0
+      }
+    },
+    {
+      "key": "0:findings:158",
+      "sheet": "71717-39",
+      "range": "A1:Q83",
+      "geometry_differs": false,
+      "metrics": {
+        "changed_pixels": 579,
+        "hotspot_count": 10,
+        "hotspots": [
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 64,
+            "y": 1679
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 128,
+            "y": 1679
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 192,
+            "y": 1679
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 256,
+            "y": 1679
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 320,
+            "y": 1679
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 384,
+            "y": 1679
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 448,
+            "y": 1679
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 512,
+            "y": 1679
+          },
+          {
+            "delta_sum": 33660,
+            "height": 1,
+            "pixels": 44,
+            "unpaired": false,
+            "width": 44,
+            "x": 576,
+            "y": 1679
+          },
+          {
+            "delta_sum": 17595,
+            "height": 1,
+            "pixels": 23,
+            "unpaired": false,
+            "width": 23,
+            "x": 41,
+            "y": 1679
+          }
+        ],
+        "left_height": 1680,
+        "left_width": 2184,
+        "max_channel_delta": 255,
+        "overlap_height": 1680,
+        "overlap_width": 2184,
+        "overlay_url": "evidence/9604fd7169178b46f6a6ae9e669068a5e816de3cbee4f8e03343114443582eb9.png",
+        "right_height": 1682,
+        "right_width": 2184,
+        "total_channel_delta": 442935,
+        "unmatched_nonwhite_pixels": 0,
+        "unmatched_pixels": 4368,
+        "unmeasured_regions": 0
+      }
+    },
+    {
+      "key": "0:findings:159",
+      "sheet": "71717-40",
+      "range": "A1:Q83",
+      "geometry_differs": false,
+      "metrics": {
+        "changed_pixels": 596,
+        "hotspot_count": 10,
+        "hotspots": [
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 64,
+            "y": 1678
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 128,
+            "y": 1678
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 192,
+            "y": 1678
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 256,
+            "y": 1678
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 320,
+            "y": 1678
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 384,
+            "y": 1678
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 448,
+            "y": 1678
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 512,
+            "y": 1678
+          },
+          {
+            "delta_sum": 46665,
+            "height": 1,
+            "pixels": 61,
+            "unpaired": false,
+            "width": 61,
+            "x": 576,
+            "y": 1678
+          },
+          {
+            "delta_sum": 17595,
+            "height": 1,
+            "pixels": 23,
+            "unpaired": false,
+            "width": 23,
+            "x": 41,
+            "y": 1678
+          }
+        ],
+        "left_height": 1679,
+        "left_width": 2201,
+        "max_channel_delta": 255,
+        "overlap_height": 1679,
+        "overlap_width": 2201,
+        "overlay_url": "evidence/f5c9803debf0435da671d7b7070b504d01e01ad82ec81c6d526da9c911315f43.png",
+        "right_height": 1681,
+        "right_width": 2201,
+        "total_channel_delta": 455940,
+        "unmatched_nonwhite_pixels": 0,
+        "unmatched_pixels": 4402,
+        "unmeasured_regions": 0
+      }
+    },
+    {
+      "key": "0:findings:160",
+      "sheet": "71717-41",
+      "range": "A1:Q83",
+      "geometry_differs": false,
+      "metrics": {
+        "changed_pixels": 575,
+        "hotspot_count": 10,
+        "hotspots": [
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 64,
+            "y": 1677
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 128,
+            "y": 1677
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 192,
+            "y": 1677
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 256,
+            "y": 1677
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 320,
+            "y": 1677
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 384,
+            "y": 1677
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 448,
+            "y": 1677
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 512,
+            "y": 1677
+          },
+          {
+            "delta_sum": 30600,
+            "height": 1,
+            "pixels": 40,
+            "unpaired": false,
+            "width": 40,
+            "x": 576,
+            "y": 1677
+          },
+          {
+            "delta_sum": 17595,
+            "height": 1,
+            "pixels": 23,
+            "unpaired": false,
+            "width": 23,
+            "x": 41,
+            "y": 1677
+          }
+        ],
+        "left_height": 1678,
+        "left_width": 2180,
+        "max_channel_delta": 255,
+        "overlap_height": 1678,
+        "overlap_width": 2180,
+        "overlay_url": "evidence/c6498fbd5bf25ac07f0fdc1ee692e8b6a76b1ca5b06a957f25b610cad57bdc2f.png",
+        "right_height": 1680,
+        "right_width": 2180,
+        "total_channel_delta": 439875,
+        "unmatched_nonwhite_pixels": 0,
+        "unmatched_pixels": 4360,
+        "unmeasured_regions": 0
+      }
+    },
+    {
+      "key": "0:findings:161",
+      "sheet": "71717-42",
+      "range": "A1:Q83",
+      "geometry_differs": false,
+      "metrics": {
+        "changed_pixels": 577,
+        "hotspot_count": 10,
+        "hotspots": [
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 64,
+            "y": 1678
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 128,
+            "y": 1678
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 192,
+            "y": 1678
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 256,
+            "y": 1678
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 320,
+            "y": 1678
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 384,
+            "y": 1678
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 448,
+            "y": 1678
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 512,
+            "y": 1678
+          },
+          {
+            "delta_sum": 32130,
+            "height": 1,
+            "pixels": 42,
+            "unpaired": false,
+            "width": 42,
+            "x": 576,
+            "y": 1678
+          },
+          {
+            "delta_sum": 17595,
+            "height": 1,
+            "pixels": 23,
+            "unpaired": false,
+            "width": 23,
+            "x": 41,
+            "y": 1678
+          }
+        ],
+        "left_height": 1679,
+        "left_width": 2182,
+        "max_channel_delta": 255,
+        "overlap_height": 1679,
+        "overlap_width": 2182,
+        "overlay_url": "evidence/547f7d150265d01aec33d9c26d425e38fdbd51adee383e336ac6a1bab0c9aa70.png",
+        "right_height": 1681,
+        "right_width": 2182,
+        "total_channel_delta": 441405,
+        "unmatched_nonwhite_pixels": 0,
+        "unmatched_pixels": 4364,
+        "unmeasured_regions": 0
+      }
+    },
+    {
+      "key": "0:findings:162",
+      "sheet": "71717-43",
+      "range": "A1:Q83",
+      "geometry_differs": false,
+      "metrics": {
+        "changed_pixels": 579,
+        "hotspot_count": 10,
+        "hotspots": [
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 64,
+            "y": 1681
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 128,
+            "y": 1681
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 192,
+            "y": 1681
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 256,
+            "y": 1681
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 320,
+            "y": 1681
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 384,
+            "y": 1681
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 448,
+            "y": 1681
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 512,
+            "y": 1681
+          },
+          {
+            "delta_sum": 33660,
+            "height": 1,
+            "pixels": 44,
+            "unpaired": false,
+            "width": 44,
+            "x": 576,
+            "y": 1681
+          },
+          {
+            "delta_sum": 17595,
+            "height": 1,
+            "pixels": 23,
+            "unpaired": false,
+            "width": 23,
+            "x": 41,
+            "y": 1681
+          }
+        ],
+        "left_height": 1682,
+        "left_width": 2184,
+        "max_channel_delta": 255,
+        "overlap_height": 1682,
+        "overlap_width": 2184,
+        "overlay_url": "evidence/32480e21511ac150bb90e6f19f76b932e548404c72e8b300a5b973915748c6e6.png",
+        "right_height": 1684,
+        "right_width": 2184,
+        "total_channel_delta": 442935,
+        "unmatched_nonwhite_pixels": 0,
+        "unmatched_pixels": 4368,
+        "unmeasured_regions": 0
+      }
+    },
+    {
+      "key": "0:findings:163",
+      "sheet": "71717-44",
+      "range": "A1:Q86",
+      "geometry_differs": false,
+      "metrics": {
+        "changed_pixels": 577,
+        "hotspot_count": 10,
+        "hotspots": [
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 64,
+            "y": 1779
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 128,
+            "y": 1779
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 192,
+            "y": 1779
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 256,
+            "y": 1779
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 320,
+            "y": 1779
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 384,
+            "y": 1779
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 448,
+            "y": 1779
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 512,
+            "y": 1779
+          },
+          {
+            "delta_sum": 32130,
+            "height": 1,
+            "pixels": 42,
+            "unpaired": false,
+            "width": 42,
+            "x": 576,
+            "y": 1779
+          },
+          {
+            "delta_sum": 17595,
+            "height": 1,
+            "pixels": 23,
+            "unpaired": false,
+            "width": 23,
+            "x": 41,
+            "y": 1779
+          }
+        ],
+        "left_height": 1780,
+        "left_width": 2182,
+        "max_channel_delta": 255,
+        "overlap_height": 1780,
+        "overlap_width": 2182,
+        "overlay_url": "evidence/fc423e7818645dbb070da83062b20864573bbad6bdf5a61e058c851d0962d44f.png",
+        "right_height": 1782,
+        "right_width": 2182,
+        "total_channel_delta": 441405,
+        "unmatched_nonwhite_pixels": 0,
+        "unmatched_pixels": 4364,
+        "unmeasured_regions": 0
+      }
+    },
+    {
+      "key": "0:findings:164",
+      "sheet": "71717-45",
+      "range": "A1:Q82",
+      "geometry_differs": false,
+      "metrics": {
+        "changed_pixels": 581,
+        "hotspot_count": 10,
+        "hotspots": [
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 64,
+            "y": 1660
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 128,
+            "y": 1660
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 192,
+            "y": 1660
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 256,
+            "y": 1660
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 320,
+            "y": 1660
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 384,
+            "y": 1660
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 448,
+            "y": 1660
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 512,
+            "y": 1660
+          },
+          {
+            "delta_sum": 35190,
+            "height": 1,
+            "pixels": 46,
+            "unpaired": false,
+            "width": 46,
+            "x": 576,
+            "y": 1660
+          },
+          {
+            "delta_sum": 17595,
+            "height": 1,
+            "pixels": 23,
+            "unpaired": false,
+            "width": 23,
+            "x": 41,
+            "y": 1660
+          }
+        ],
+        "left_height": 1661,
+        "left_width": 2186,
+        "max_channel_delta": 255,
+        "overlap_height": 1661,
+        "overlap_width": 2186,
+        "overlay_url": "evidence/90dcd368792d3522142823422f092f5c81232bae32342c7de251ee061852c166.png",
+        "right_height": 1663,
+        "right_width": 2186,
+        "total_channel_delta": 444465,
+        "unmatched_nonwhite_pixels": 0,
+        "unmatched_pixels": 4372,
+        "unmeasured_regions": 0
+      }
+    },
+    {
+      "key": "0:findings:165",
+      "sheet": "71717-46",
+      "range": "A1:Q86",
+      "geometry_differs": false,
+      "metrics": {
+        "changed_pixels": 464,
+        "hotspot_count": 8,
+        "hotspots": [
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 64,
+            "y": 1802
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 128,
+            "y": 1802
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 192,
+            "y": 1802
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 256,
+            "y": 1802
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 320,
+            "y": 1802
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 384,
+            "y": 1802
+          },
+          {
+            "delta_sum": 43605,
+            "height": 1,
+            "pixels": 57,
+            "unpaired": false,
+            "width": 57,
+            "x": 448,
+            "y": 1802
+          },
+          {
+            "delta_sum": 17595,
+            "height": 1,
+            "pixels": 23,
+            "unpaired": false,
+            "width": 23,
+            "x": 41,
+            "y": 1802
+          }
+        ],
+        "left_height": 1803,
+        "left_width": 2069,
+        "max_channel_delta": 255,
+        "overlap_height": 1803,
+        "overlap_width": 2069,
+        "overlay_url": "evidence/35c3fec0966df4c094bcbc9fd933023664156dfe27b5044bdb09d1cbc4a3136a.png",
+        "right_height": 1805,
+        "right_width": 2069,
+        "total_channel_delta": 354960,
+        "unmatched_nonwhite_pixels": 0,
+        "unmatched_pixels": 4138,
+        "unmeasured_regions": 0
+      }
+    },
+    {
+      "key": "0:findings:170",
+      "sheet": "71717-50",
+      "range": "A433:H865",
+      "geometry_differs": false,
+      "metrics": {
+        "changed_pixels": 674,
+        "hotspot_count": 12,
+        "hotspots": [
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 64,
+            "y": 7633
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 128,
+            "y": 7633
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 192,
+            "y": 7633
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 256,
+            "y": 7633
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 320,
+            "y": 7633
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 384,
+            "y": 7633
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 448,
+            "y": 7633
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 512,
+            "y": 7633
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 576,
+            "y": 7633
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 640,
+            "y": 7633
+          },
+          {
+            "delta_sum": 17595,
+            "height": 1,
+            "pixels": 23,
+            "unpaired": false,
+            "width": 23,
+            "x": 704,
+            "y": 7633
+          },
+          {
+            "delta_sum": 8415,
+            "height": 1,
+            "pixels": 11,
+            "unpaired": false,
+            "width": 11,
+            "x": 53,
+            "y": 7633
+          }
+        ],
+        "left_height": 7651,
+        "left_width": 1680,
+        "max_channel_delta": 255,
+        "overlap_height": 7651,
+        "overlap_width": 1680,
+        "overlay_url": "evidence/4693a218d6157f9f8f179e01c0554644396c82a03c6ee6d7d5286c235e503d53.png",
+        "right_height": 7651,
+        "right_width": 1680,
+        "total_channel_delta": 515610,
+        "unmatched_nonwhite_pixels": 0,
+        "unmatched_pixels": 0,
+        "unmeasured_regions": 0
+      }
+    },
+    {
+      "key": "0:findings:174",
+      "sheet": "GENESIS-Online",
+      "range": "A1:AF128",
+      "geometry_differs": false,
+      "metrics": {
+        "changed_pixels": 28213,
+        "hotspot_count": 137,
+        "hotspots": [
+          {
+            "delta_sum": 999679,
+            "height": 42,
+            "pixels": 2298,
+            "unpaired": false,
+            "width": 64,
+            "x": 896,
+            "y": 320
+          },
+          {
+            "delta_sum": 901354,
+            "height": 32,
+            "pixels": 2048,
+            "unpaired": false,
+            "width": 64,
+            "x": 832,
+            "y": 330
+          },
+          {
+            "delta_sum": 891619,
+            "height": 32,
+            "pixels": 2016,
+            "unpaired": false,
+            "width": 63,
+            "x": 960,
+            "y": 330
+          },
+          {
+            "delta_sum": 342999,
+            "height": 39,
+            "pixels": 995,
+            "unpaired": false,
+            "width": 48,
+            "x": 896,
+            "y": 281
+          },
+          {
+            "delta_sum": 285453,
+            "height": 63,
+            "pixels": 930,
+            "unpaired": false,
+            "width": 64,
+            "x": 896,
+            "y": 512
+          },
+          {
+            "delta_sum": 275748,
+            "height": 40,
+            "pixels": 866,
+            "unpaired": false,
+            "width": 64,
+            "x": 896,
+            "y": 577
+          },
+          {
+            "delta_sum": 258862,
+            "height": 40,
+            "pixels": 788,
+            "unpaired": false,
+            "width": 64,
+            "x": 832,
+            "y": 577
+          },
+          {
+            "delta_sum": 235584,
+            "height": 32,
+            "pixels": 544,
+            "unpaired": false,
+            "width": 17,
+            "x": 815,
+            "y": 330
+          },
+          {
+            "delta_sum": 211481,
+            "height": 41,
+            "pixels": 659,
+            "unpaired": false,
+            "width": 64,
+            "x": 832,
+            "y": 534
+          },
+          {
+            "delta_sum": 197193,
+            "height": 61,
+            "pixels": 655,
+            "unpaired": false,
+            "width": 48,
+            "x": 896,
+            "y": 451
+          },
+          {
+            "delta_sum": 179607,
+            "height": 41,
+            "pixels": 650,
+            "unpaired": false,
+            "width": 63,
+            "x": 960,
+            "y": 576
+          },
+          {
+            "delta_sum": 176715,
+            "height": 42,
+            "pixels": 231,
+            "unpaired": false,
+            "width": 64,
+            "x": 0,
+            "y": 768
+          },
+          {
+            "delta_sum": 176715,
+            "height": 42,
+            "pixels": 231,
+            "unpaired": false,
+            "width": 64,
+            "x": 64,
+            "y": 768
+          },
+          {
+            "delta_sum": 176715,
+            "height": 42,
+            "pixels": 231,
+            "unpaired": false,
+            "width": 64,
+            "x": 448,
+            "y": 768
+          },
+          {
+            "delta_sum": 166345,
+            "height": 42,
+            "pixels": 603,
+            "unpaired": false,
+            "width": 63,
+            "x": 960,
+            "y": 534
+          },
+          {
+            "delta_sum": 146880,
+            "height": 35,
+            "pixels": 192,
+            "unpaired": false,
+            "width": 64,
+            "x": 128,
+            "y": 775
+          },
+          {
+            "delta_sum": 146880,
+            "height": 35,
+            "pixels": 192,
+            "unpaired": false,
+            "width": 64,
+            "x": 192,
+            "y": 775
+          },
+          {
+            "delta_sum": 146880,
+            "height": 35,
+            "pixels": 192,
+            "unpaired": false,
+            "width": 64,
+            "x": 256,
+            "y": 775
+          },
+          {
+            "delta_sum": 146880,
+            "height": 35,
+            "pixels": 192,
+            "unpaired": false,
+            "width": 64,
+            "x": 320,
+            "y": 775
+          },
+          {
+            "delta_sum": 146880,
+            "height": 35,
+            "pixels": 192,
+            "unpaired": false,
+            "width": 64,
+            "x": 384,
+            "y": 775
+          },
+          {
+            "delta_sum": 146880,
+            "height": 35,
+            "pixels": 192,
+            "unpaired": false,
+            "width": 64,
+            "x": 512,
+            "y": 775
+          },
+          {
+            "delta_sum": 146880,
+            "height": 35,
+            "pixels": 192,
+            "unpaired": false,
+            "width": 64,
+            "x": 576,
+            "y": 775
+          },
+          {
+            "delta_sum": 145350,
+            "height": 64,
+            "pixels": 190,
+            "unpaired": false,
+            "width": 64,
+            "x": 0,
+            "y": 192
+          },
+          {
+            "delta_sum": 145350,
+            "height": 64,
+            "pixels": 190,
+            "unpaired": false,
+            "width": 64,
+            "x": 0,
+            "y": 384
+          },
+          {
+            "delta_sum": 145350,
+            "height": 64,
+            "pixels": 190,
+            "unpaired": false,
+            "width": 64,
+            "x": 0,
+            "y": 448
+          },
+          {
+            "delta_sum": 145350,
+            "height": 64,
+            "pixels": 190,
+            "unpaired": false,
+            "width": 64,
+            "x": 0,
+            "y": 512
+          },
+          {
+            "delta_sum": 145350,
+            "height": 64,
+            "pixels": 190,
+            "unpaired": false,
+            "width": 64,
+            "x": 0,
+            "y": 640
+          },
+          {
+            "delta_sum": 145350,
+            "height": 64,
+            "pixels": 190,
+            "unpaired": false,
+            "width": 64,
+            "x": 0,
+            "y": 704
+          },
+          {
+            "delta_sum": 145350,
+            "height": 64,
+            "pixels": 190,
+            "unpaired": false,
+            "width": 64,
+            "x": 64,
+            "y": 192
+          },
+          {
+            "delta_sum": 145350,
+            "height": 64,
+            "pixels": 190,
+            "unpaired": false,
+            "width": 64,
+            "x": 64,
+            "y": 384
+          },
+          {
+            "delta_sum": 145350,
+            "height": 64,
+            "pixels": 190,
+            "unpaired": false,
+            "width": 64,
+            "x": 64,
+            "y": 448
+          },
+          {
+            "delta_sum": 145350,
+            "height": 64,
+            "pixels": 190,
+            "unpaired": false,
+            "width": 64,
+            "x": 64,
+            "y": 512
+          },
+          {
+            "delta_sum": 145350,
+            "height": 64,
+            "pixels": 190,
+            "unpaired": false,
+            "width": 64,
+            "x": 64,
+            "y": 640
+          },
+          {
+            "delta_sum": 145350,
+            "height": 64,
+            "pixels": 190,
+            "unpaired": false,
+            "width": 64,
+            "x": 64,
+            "y": 704
+          },
+          {
+            "delta_sum": 145350,
+            "height": 64,
+            "pixels": 190,
+            "unpaired": false,
+            "width": 64,
+            "x": 448,
+            "y": 192
+          },
+          {
+            "delta_sum": 145350,
+            "height": 64,
+            "pixels": 190,
+            "unpaired": false,
+            "width": 64,
+            "x": 448,
+            "y": 384
+          },
+          {
+            "delta_sum": 145350,
+            "height": 64,
+            "pixels": 190,
+            "unpaired": false,
+            "width": 64,
+            "x": 448,
+            "y": 448
+          },
+          {
+            "delta_sum": 145350,
+            "height": 64,
+            "pixels": 190,
+            "unpaired": false,
+            "width": 64,
+            "x": 448,
+            "y": 512
+          },
+          {
+            "delta_sum": 145350,
+            "height": 64,
+            "pixels": 190,
+            "unpaired": false,
+            "width": 64,
+            "x": 448,
+            "y": 640
+          },
+          {
+            "delta_sum": 145350,
+            "height": 64,
+            "pixels": 190,
+            "unpaired": false,
+            "width": 64,
+            "x": 448,
+            "y": 704
+          },
+          {
+            "delta_sum": 97920,
+            "height": 35,
+            "pixels": 128,
+            "unpaired": false,
+            "width": 64,
+            "x": 128,
+            "y": 214
+          },
+          {
+            "delta_sum": 97920,
+            "height": 35,
+            "pixels": 128,
+            "unpaired": false,
+            "width": 64,
+            "x": 128,
+            "y": 384
+          },
+          {
+            "delta_sum": 97920,
+            "height": 35,
+            "pixels": 128,
+            "unpaired": false,
+            "width": 64,
+            "x": 128,
+            "y": 452
+          },
+          {
+            "delta_sum": 97920,
+            "height": 35,
+            "pixels": 128,
+            "unpaired": false,
+            "width": 64,
+            "x": 128,
+            "y": 520
+          },
+          {
+            "delta_sum": 97920,
+            "height": 35,
+            "pixels": 128,
+            "unpaired": false,
+            "width": 64,
+            "x": 128,
+            "y": 656
+          },
+          {
+            "delta_sum": 97920,
+            "height": 35,
+            "pixels": 128,
+            "unpaired": false,
+            "width": 64,
+            "x": 128,
+            "y": 724
+          },
+          {
+            "delta_sum": 97920,
+            "height": 35,
+            "pixels": 128,
+            "unpaired": false,
+            "width": 64,
+            "x": 192,
+            "y": 214
+          },
+          {
+            "delta_sum": 97920,
+            "height": 35,
+            "pixels": 128,
+            "unpaired": false,
+            "width": 64,
+            "x": 192,
+            "y": 384
+          },
+          {
+            "delta_sum": 97920,
+            "height": 35,
+            "pixels": 128,
+            "unpaired": false,
+            "width": 64,
+            "x": 192,
+            "y": 452
+          },
+          {
+            "delta_sum": 97920,
+            "height": 35,
+            "pixels": 128,
+            "unpaired": false,
+            "width": 64,
+            "x": 192,
+            "y": 520
+          },
+          {
+            "delta_sum": 97920,
+            "height": 35,
+            "pixels": 128,
+            "unpaired": false,
+            "width": 64,
+            "x": 192,
+            "y": 656
+          },
+          {
+            "delta_sum": 97920,
+            "height": 35,
+            "pixels": 128,
+            "unpaired": false,
+            "width": 64,
+            "x": 192,
+            "y": 724
+          },
+          {
+            "delta_sum": 97920,
+            "height": 35,
+            "pixels": 128,
+            "unpaired": false,
+            "width": 64,
+            "x": 256,
+            "y": 214
+          },
+          {
+            "delta_sum": 97920,
+            "height": 35,
+            "pixels": 128,
+            "unpaired": false,
+            "width": 64,
+            "x": 256,
+            "y": 384
+          },
+          {
+            "delta_sum": 97920,
+            "height": 35,
+            "pixels": 128,
+            "unpaired": false,
+            "width": 64,
+            "x": 256,
+            "y": 452
+          },
+          {
+            "delta_sum": 97920,
+            "height": 35,
+            "pixels": 128,
+            "unpaired": false,
+            "width": 64,
+            "x": 256,
+            "y": 520
+          },
+          {
+            "delta_sum": 97920,
+            "height": 35,
+            "pixels": 128,
+            "unpaired": false,
+            "width": 64,
+            "x": 256,
+            "y": 656
+          },
+          {
+            "delta_sum": 97920,
+            "height": 35,
+            "pixels": 128,
+            "unpaired": false,
+            "width": 64,
+            "x": 256,
+            "y": 724
+          },
+          {
+            "delta_sum": 97920,
+            "height": 35,
+            "pixels": 128,
+            "unpaired": false,
+            "width": 64,
+            "x": 320,
+            "y": 214
+          },
+          {
+            "delta_sum": 97920,
+            "height": 35,
+            "pixels": 128,
+            "unpaired": false,
+            "width": 64,
+            "x": 320,
+            "y": 384
+          },
+          {
+            "delta_sum": 97920,
+            "height": 35,
+            "pixels": 128,
+            "unpaired": false,
+            "width": 64,
+            "x": 320,
+            "y": 452
+          },
+          {
+            "delta_sum": 97920,
+            "height": 35,
+            "pixels": 128,
+            "unpaired": false,
+            "width": 64,
+            "x": 320,
+            "y": 520
+          },
+          {
+            "delta_sum": 97920,
+            "height": 35,
+            "pixels": 128,
+            "unpaired": false,
+            "width": 64,
+            "x": 320,
+            "y": 656
+          },
+          {
+            "delta_sum": 97920,
+            "height": 35,
+            "pixels": 128,
+            "unpaired": false,
+            "width": 64,
+            "x": 320,
+            "y": 724
+          }
+        ],
+        "left_height": 2612,
+        "left_width": 2964,
+        "max_channel_delta": 255,
+        "overlap_height": 2272,
+        "overlap_width": 2964,
+        "overlay_url": "evidence/43c78657636d80d723f4299b300884807cdc9ab8161a708b5ad0bc8c0ca699b3.png",
+        "right_height": 2272,
+        "right_width": 2964,
+        "total_channel_delta": 16346401,
+        "unmatched_nonwhite_pixels": 0,
+        "unmatched_pixels": 1007760,
+        "unmeasured_regions": 0
+      }
+    },
+    {
+      "key": "0:findings:3",
+      "sheet": "71717-04",
+      "range": "A1:Q87",
+      "geometry_differs": false,
+      "metrics": {
+        "changed_pixels": 469,
+        "hotspot_count": 9,
+        "hotspots": [
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 64,
+            "y": 1587
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 128,
+            "y": 1587
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 192,
+            "y": 1587
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 256,
+            "y": 1587
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 320,
+            "y": 1587
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 384,
+            "y": 1587
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 448,
+            "y": 1587
+          },
+          {
+            "delta_sum": 8415,
+            "height": 1,
+            "pixels": 11,
+            "unpaired": false,
+            "width": 11,
+            "x": 53,
+            "y": 1587
+          },
+          {
+            "delta_sum": 7650,
+            "height": 1,
+            "pixels": 10,
+            "unpaired": false,
+            "width": 10,
+            "x": 512,
+            "y": 1587
+          }
+        ],
+        "left_height": 1588,
+        "left_width": 1952,
+        "max_channel_delta": 255,
+        "overlap_height": 1588,
+        "overlap_width": 1952,
+        "overlay_url": "evidence/602faa0692148a83ec6c8c517478d2125a2f8f32226fbf1efe476e8dce92599d.png",
+        "right_height": 1588,
+        "right_width": 1952,
+        "total_channel_delta": 358785,
+        "unmatched_nonwhite_pixels": 0,
+        "unmatched_pixels": 0,
+        "unmeasured_regions": 0
+      }
+    },
+    {
+      "key": "0:findings:4",
+      "sheet": "71717-05",
+      "range": "A1:H400",
+      "geometry_differs": false,
+      "metrics": {
+        "changed_pixels": 5708,
+        "hotspot_count": 92,
+        "hotspots": [
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 64,
+            "y": 1541
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 128,
+            "y": 1541
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 192,
+            "y": 1541
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 256,
+            "y": 1541
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 320,
+            "y": 1541
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 384,
+            "y": 1541
+          },
+          {
+            "delta_sum": 48960,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 448,
+            "y": 1541
+          },
+          {
+            "delta_sum": 48960,
+            "height": 64,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 1,
+            "x": 547,
+            "y": 1664
+          },
+          {
+            "delta_sum": 48960,
+            "height": 64,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 1,
+            "x": 547,
+            "y": 1728
+          },
+          {
+            "delta_sum": 48960,
+            "height": 64,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 1,
+            "x": 547,
+            "y": 1792
+          },
+          {
+            "delta_sum": 48960,
+            "height": 64,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 1,
+            "x": 547,
+            "y": 1856
+          },
+          {
+            "delta_sum": 48960,
+            "height": 64,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 1,
+            "x": 547,
+            "y": 1920
+          },
+          {
+            "delta_sum": 48960,
+            "height": 64,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 1,
+            "x": 547,
+            "y": 1984
+          },
+          {
+            "delta_sum": 48960,
+            "height": 64,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 1,
+            "x": 547,
+            "y": 2048
+          },
+          {
+            "delta_sum": 48960,
+            "height": 64,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 1,
+            "x": 547,
+            "y": 2112
+          },
+          {
+            "delta_sum": 48960,
+            "height": 64,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 1,
+            "x": 547,
+            "y": 2176
+          },
+          {
+            "delta_sum": 48960,
+            "height": 64,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 1,
+            "x": 547,
+            "y": 2240
+          },
+          {
+            "delta_sum": 48960,
+            "height": 64,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 1,
+            "x": 547,
+            "y": 2304
+          },
+          {
+            "delta_sum": 48960,
+            "height": 64,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 1,
+            "x": 547,
+            "y": 2368
+          },
+          {
+            "delta_sum": 48960,
+            "height": 64,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 1,
+            "x": 547,
+            "y": 2432
+          },
+          {
+            "delta_sum": 48960,
+            "height": 64,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 1,
+            "x": 547,
+            "y": 2496
+          },
+          {
+            "delta_sum": 48960,
+            "height": 64,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 1,
+            "x": 547,
+            "y": 2560
+          },
+          {
+            "delta_sum": 48960,
+            "height": 64,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 1,
+            "x": 547,
+            "y": 2624
+          },
+          {
+            "delta_sum": 48960,
+            "height": 64,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 1,
+            "x": 547,
+            "y": 2688
+          },
+          {
+            "delta_sum": 48960,
+            "height": 64,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 1,
+            "x": 547,
+            "y": 2752
+          },
+          {
+            "delta_sum": 48960,
+            "height": 64,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 1,
+            "x": 547,
+            "y": 2816
+          },
+          {
+            "delta_sum": 48960,
+            "height": 64,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 1,
+            "x": 547,
+            "y": 2880
+          },
+          {
+            "delta_sum": 48960,
+            "height": 64,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 1,
+            "x": 547,
+            "y": 2944
+          },
+          {
+            "delta_sum": 48960,
+            "height": 64,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 1,
+            "x": 547,
+            "y": 3008
+          },
+          {
+            "delta_sum": 48960,
+            "height": 64,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 1,
+            "x": 547,
+            "y": 3072
+          },
+          {
+            "delta_sum": 48960,
+            "height": 64,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 1,
+            "x": 547,
+            "y": 3136
+          },
+          {
+            "delta_sum": 48960,
+            "height": 64,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 1,
+            "x": 547,
+            "y": 3200
+          },
+          {
+            "delta_sum": 48960,
+            "height": 64,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 1,
+            "x": 547,
+            "y": 3264
+          },
+          {
+            "delta_sum": 48960,
+            "height": 64,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 1,
+            "x": 547,
+            "y": 3328
+          },
+          {
+            "delta_sum": 48960,
+            "height": 64,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 1,
+            "x": 547,
+            "y": 3392
+          },
+          {
+            "delta_sum": 48960,
+            "height": 64,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 1,
+            "x": 547,
+            "y": 3456
+          },
+          {
+            "delta_sum": 48960,
+            "height": 64,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 1,
+            "x": 547,
+            "y": 3520
+          },
+          {
+            "delta_sum": 48960,
+            "height": 64,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 1,
+            "x": 547,
+            "y": 3584
+          },
+          {
+            "delta_sum": 48960,
+            "height": 64,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 1,
+            "x": 547,
+            "y": 3648
+          },
+          {
+            "delta_sum": 48960,
+            "height": 64,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 1,
+            "x": 547,
+            "y": 3712
+          },
+          {
+            "delta_sum": 48960,
+            "height": 64,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 1,
+            "x": 547,
+            "y": 3776
+          },
+          {
+            "delta_sum": 48960,
+            "height": 64,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 1,
+            "x": 547,
+            "y": 3840
+          },
+          {
+            "delta_sum": 48960,
+            "height": 64,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 1,
+            "x": 547,
+            "y": 3904
+          },
+          {
+            "delta_sum": 48960,
+            "height": 64,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 1,
+            "x": 547,
+            "y": 3968
+          },
+          {
+            "delta_sum": 48960,
+            "height": 64,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 1,
+            "x": 547,
+            "y": 4032
+          },
+          {
+            "delta_sum": 48960,
+            "height": 64,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 1,
+            "x": 547,
+            "y": 4096
+          },
+          {
+            "delta_sum": 48960,
+            "height": 64,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 1,
+            "x": 547,
+            "y": 4160
+          },
+          {
+            "delta_sum": 48960,
+            "height": 64,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 1,
+            "x": 547,
+            "y": 4224
+          },
+          {
+            "delta_sum": 48960,
+            "height": 64,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 1,
+            "x": 547,
+            "y": 4288
+          },
+          {
+            "delta_sum": 48960,
+            "height": 64,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 1,
+            "x": 547,
+            "y": 4352
+          },
+          {
+            "delta_sum": 48960,
+            "height": 64,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 1,
+            "x": 547,
+            "y": 4416
+          },
+          {
+            "delta_sum": 48960,
+            "height": 64,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 1,
+            "x": 547,
+            "y": 4480
+          },
+          {
+            "delta_sum": 48960,
+            "height": 64,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 1,
+            "x": 547,
+            "y": 4544
+          },
+          {
+            "delta_sum": 48960,
+            "height": 64,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 1,
+            "x": 547,
+            "y": 4608
+          },
+          {
+            "delta_sum": 48960,
+            "height": 64,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 1,
+            "x": 547,
+            "y": 4672
+          },
+          {
+            "delta_sum": 48960,
+            "height": 64,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 1,
+            "x": 547,
+            "y": 4736
+          },
+          {
+            "delta_sum": 48960,
+            "height": 64,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 1,
+            "x": 547,
+            "y": 4800
+          },
+          {
+            "delta_sum": 48960,
+            "height": 64,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 1,
+            "x": 547,
+            "y": 4864
+          },
+          {
+            "delta_sum": 48960,
+            "height": 64,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 1,
+            "x": 547,
+            "y": 4928
+          },
+          {
+            "delta_sum": 48960,
+            "height": 64,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 1,
+            "x": 547,
+            "y": 4992
+          },
+          {
+            "delta_sum": 48960,
+            "height": 64,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 1,
+            "x": 547,
+            "y": 5056
+          },
+          {
+            "delta_sum": 48960,
+            "height": 64,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 1,
+            "x": 547,
+            "y": 5120
+          },
+          {
+            "delta_sum": 48960,
+            "height": 64,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 1,
+            "x": 547,
+            "y": 5184
+          },
+          {
+            "delta_sum": 48960,
+            "height": 64,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 1,
+            "x": 547,
+            "y": 5248
+          }
+        ],
+        "left_height": 6863,
+        "left_width": 1538,
+        "max_channel_delta": 255,
+        "overlap_height": 6863,
+        "overlap_width": 1538,
+        "overlay_url": "evidence/0bf0169544339143528de09ddb32f92b0dfc17a4f29589a0df69985e162c7f7a.png",
+        "right_height": 7805,
+        "right_width": 1538,
+        "total_channel_delta": 4366620,
+        "unmatched_nonwhite_pixels": 0,
+        "unmatched_pixels": 1448796,
+        "unmeasured_regions": 0
+      }
+    },
+    {
+      "key": "0:findings:432",
+      "sheet": "Informationen zur Statistik",
+      "range": "A1:C256",
+      "geometry_differs": false,
+      "metrics": {
+        "changed_pixels": 327737,
+        "hotspot_count": 534,
+        "hotspots": [
+          {
+            "delta_sum": 522078,
+            "height": 64,
+            "pixels": 1434,
+            "unpaired": false,
+            "width": 64,
+            "x": 64,
+            "y": 5504
+          },
+          {
+            "delta_sum": 472164,
+            "height": 61,
+            "pixels": 1247,
+            "unpaired": false,
+            "width": 64,
+            "x": 448,
+            "y": 6339
+          },
+          {
+            "delta_sum": 467807,
+            "height": 64,
+            "pixels": 1343,
+            "unpaired": false,
+            "width": 64,
+            "x": 448,
+            "y": 7104
+          },
+          {
+            "delta_sum": 460598,
+            "height": 64,
+            "pixels": 1196,
+            "unpaired": false,
+            "width": 64,
+            "x": 256,
+            "y": 7936
+          },
+          {
+            "delta_sum": 459190,
+            "height": 61,
+            "pixels": 1265,
+            "unpaired": false,
+            "width": 64,
+            "x": 256,
+            "y": 7104
+          },
+          {
+            "delta_sum": 456799,
+            "height": 64,
+            "pixels": 1233,
+            "unpaired": false,
+            "width": 64,
+            "x": 384,
+            "y": 7936
+          },
+          {
+            "delta_sum": 451882,
+            "height": 61,
+            "pixels": 1233,
+            "unpaired": false,
+            "width": 64,
+            "x": 512,
+            "y": 6339
+          },
+          {
+            "delta_sum": 451062,
+            "height": 58,
+            "pixels": 1232,
+            "unpaired": false,
+            "width": 64,
+            "x": 128,
+            "y": 5888
+          },
+          {
+            "delta_sum": 447375,
+            "height": 61,
+            "pixels": 1233,
+            "unpaired": false,
+            "width": 64,
+            "x": 64,
+            "y": 8000
+          },
+          {
+            "delta_sum": 445787,
+            "height": 60,
+            "pixels": 1232,
+            "unpaired": false,
+            "width": 64,
+            "x": 128,
+            "y": 8256
+          },
+          {
+            "delta_sum": 445357,
+            "height": 61,
+            "pixels": 1234,
+            "unpaired": false,
+            "width": 64,
+            "x": 192,
+            "y": 6339
+          },
+          {
+            "delta_sum": 441903,
+            "height": 60,
+            "pixels": 1321,
+            "unpaired": false,
+            "width": 64,
+            "x": 256,
+            "y": 8256
+          },
+          {
+            "delta_sum": 441643,
+            "height": 59,
+            "pixels": 1233,
+            "unpaired": false,
+            "width": 64,
+            "x": 128,
+            "y": 7809
+          },
+          {
+            "delta_sum": 440300,
+            "height": 61,
+            "pixels": 1215,
+            "unpaired": false,
+            "width": 64,
+            "x": 64,
+            "y": 7104
+          },
+          {
+            "delta_sum": 440242,
+            "height": 60,
+            "pixels": 1264,
+            "unpaired": false,
+            "width": 64,
+            "x": 384,
+            "y": 7808
+          },
+          {
+            "delta_sum": 439278,
+            "height": 60,
+            "pixels": 1288,
+            "unpaired": false,
+            "width": 64,
+            "x": 512,
+            "y": 7808
+          },
+          {
+            "delta_sum": 439017,
+            "height": 61,
+            "pixels": 1279,
+            "unpaired": false,
+            "width": 64,
+            "x": 128,
+            "y": 6339
+          },
+          {
+            "delta_sum": 437410,
+            "height": 63,
+            "pixels": 1229,
+            "unpaired": false,
+            "width": 64,
+            "x": 384,
+            "y": 6337
+          },
+          {
+            "delta_sum": 437399,
+            "height": 64,
+            "pixels": 1239,
+            "unpaired": false,
+            "width": 64,
+            "x": 448,
+            "y": 6592
+          },
+          {
+            "delta_sum": 436487,
+            "height": 58,
+            "pixels": 1221,
+            "unpaired": false,
+            "width": 64,
+            "x": 384,
+            "y": 5888
+          },
+          {
+            "delta_sum": 436262,
+            "height": 59,
+            "pixels": 1280,
+            "unpaired": false,
+            "width": 64,
+            "x": 448,
+            "y": 7809
+          },
+          {
+            "delta_sum": 435543,
+            "height": 64,
+            "pixels": 1177,
+            "unpaired": false,
+            "width": 64,
+            "x": 64,
+            "y": 6592
+          },
+          {
+            "delta_sum": 432899,
+            "height": 61,
+            "pixels": 1240,
+            "unpaired": false,
+            "width": 64,
+            "x": 320,
+            "y": 6339
+          },
+          {
+            "delta_sum": 431877,
+            "height": 64,
+            "pixels": 1199,
+            "unpaired": false,
+            "width": 64,
+            "x": 192,
+            "y": 6592
+          },
+          {
+            "delta_sum": 430688,
+            "height": 60,
+            "pixels": 1222,
+            "unpaired": false,
+            "width": 64,
+            "x": 256,
+            "y": 7808
+          },
+          {
+            "delta_sum": 428989,
+            "height": 63,
+            "pixels": 1210,
+            "unpaired": false,
+            "width": 64,
+            "x": 64,
+            "y": 4992
+          },
+          {
+            "delta_sum": 425960,
+            "height": 61,
+            "pixels": 1241,
+            "unpaired": false,
+            "width": 64,
+            "x": 256,
+            "y": 8000
+          },
+          {
+            "delta_sum": 425388,
+            "height": 60,
+            "pixels": 1211,
+            "unpaired": false,
+            "width": 64,
+            "x": 320,
+            "y": 7808
+          },
+          {
+            "delta_sum": 425183,
+            "height": 64,
+            "pixels": 1201,
+            "unpaired": false,
+            "width": 64,
+            "x": 384,
+            "y": 7104
+          },
+          {
+            "delta_sum": 424958,
+            "height": 64,
+            "pixels": 1226,
+            "unpaired": false,
+            "width": 64,
+            "x": 128,
+            "y": 7104
+          },
+          {
+            "delta_sum": 424383,
+            "height": 61,
+            "pixels": 1215,
+            "unpaired": false,
+            "width": 64,
+            "x": 64,
+            "y": 6339
+          },
+          {
+            "delta_sum": 422235,
+            "height": 63,
+            "pixels": 1206,
+            "unpaired": false,
+            "width": 64,
+            "x": 384,
+            "y": 8256
+          },
+          {
+            "delta_sum": 422096,
+            "height": 60,
+            "pixels": 1167,
+            "unpaired": false,
+            "width": 64,
+            "x": 192,
+            "y": 8256
+          },
+          {
+            "delta_sum": 421399,
+            "height": 58,
+            "pixels": 1198,
+            "unpaired": false,
+            "width": 64,
+            "x": 256,
+            "y": 5888
+          },
+          {
+            "delta_sum": 420363,
+            "height": 64,
+            "pixels": 1212,
+            "unpaired": false,
+            "width": 64,
+            "x": 128,
+            "y": 8512
+          },
+          {
+            "delta_sum": 418909,
+            "height": 64,
+            "pixels": 1301,
+            "unpaired": false,
+            "width": 64,
+            "x": 64,
+            "y": 8512
+          },
+          {
+            "delta_sum": 418327,
+            "height": 61,
+            "pixels": 1230,
+            "unpaired": false,
+            "width": 64,
+            "x": 256,
+            "y": 6339
+          },
+          {
+            "delta_sum": 418040,
+            "height": 61,
+            "pixels": 1207,
+            "unpaired": false,
+            "width": 64,
+            "x": 512,
+            "y": 7104
+          },
+          {
+            "delta_sum": 416271,
+            "height": 58,
+            "pixels": 1139,
+            "unpaired": false,
+            "width": 64,
+            "x": 448,
+            "y": 5888
+          },
+          {
+            "delta_sum": 415856,
+            "height": 64,
+            "pixels": 1108,
+            "unpaired": false,
+            "width": 64,
+            "x": 448,
+            "y": 7936
+          },
+          {
+            "delta_sum": 413758,
+            "height": 64,
+            "pixels": 1137,
+            "unpaired": false,
+            "width": 64,
+            "x": 384,
+            "y": 4928
+          },
+          {
+            "delta_sum": 411952,
+            "height": 61,
+            "pixels": 1202,
+            "unpaired": false,
+            "width": 64,
+            "x": 192,
+            "y": 8000
+          },
+          {
+            "delta_sum": 411467,
+            "height": 64,
+            "pixels": 1142,
+            "unpaired": false,
+            "width": 64,
+            "x": 512,
+            "y": 6592
+          },
+          {
+            "delta_sum": 411151,
+            "height": 59,
+            "pixels": 1148,
+            "unpaired": false,
+            "width": 64,
+            "x": 128,
+            "y": 6144
+          },
+          {
+            "delta_sum": 411113,
+            "height": 64,
+            "pixels": 1141,
+            "unpaired": false,
+            "width": 64,
+            "x": 384,
+            "y": 6592
+          },
+          {
+            "delta_sum": 410781,
+            "height": 64,
+            "pixels": 1110,
+            "unpaired": false,
+            "width": 64,
+            "x": 320,
+            "y": 6592
+          },
+          {
+            "delta_sum": 407873,
+            "height": 62,
+            "pixels": 1110,
+            "unpaired": false,
+            "width": 64,
+            "x": 320,
+            "y": 8256
+          },
+          {
+            "delta_sum": 406951,
+            "height": 61,
+            "pixels": 1152,
+            "unpaired": false,
+            "width": 64,
+            "x": 384,
+            "y": 8000
+          },
+          {
+            "delta_sum": 406449,
+            "height": 58,
+            "pixels": 1175,
+            "unpaired": false,
+            "width": 64,
+            "x": 64,
+            "y": 5888
+          },
+          {
+            "delta_sum": 406387,
+            "height": 62,
+            "pixels": 1174,
+            "unpaired": false,
+            "width": 64,
+            "x": 64,
+            "y": 7809
+          },
+          {
+            "delta_sum": 405415,
+            "height": 64,
+            "pixels": 1172,
+            "unpaired": false,
+            "width": 64,
+            "x": 64,
+            "y": 4928
+          },
+          {
+            "delta_sum": 402207,
+            "height": 60,
+            "pixels": 1144,
+            "unpaired": false,
+            "width": 64,
+            "x": 64,
+            "y": 8256
+          },
+          {
+            "delta_sum": 401037,
+            "height": 64,
+            "pixels": 1141,
+            "unpaired": false,
+            "width": 64,
+            "x": 128,
+            "y": 4928
+          },
+          {
+            "delta_sum": 399812,
+            "height": 64,
+            "pixels": 1173,
+            "unpaired": false,
+            "width": 64,
+            "x": 64,
+            "y": 7744
+          },
+          {
+            "delta_sum": 399274,
+            "height": 55,
+            "pixels": 1084,
+            "unpaired": false,
+            "width": 64,
+            "x": 128,
+            "y": 5833
+          },
+          {
+            "delta_sum": 399096,
+            "height": 57,
+            "pixels": 1141,
+            "unpaired": false,
+            "width": 64,
+            "x": 64,
+            "y": 4871
+          },
+          {
+            "delta_sum": 399002,
+            "height": 58,
+            "pixels": 1173,
+            "unpaired": false,
+            "width": 64,
+            "x": 448,
+            "y": 8000
+          },
+          {
+            "delta_sum": 398747,
+            "height": 64,
+            "pixels": 1136,
+            "unpaired": false,
+            "width": 64,
+            "x": 448,
+            "y": 4928
+          },
+          {
+            "delta_sum": 397676,
+            "height": 64,
+            "pixels": 1087,
+            "unpaired": false,
+            "width": 64,
+            "x": 256,
+            "y": 6592
+          },
+          {
+            "delta_sum": 397474,
+            "height": 64,
+            "pixels": 1130,
+            "unpaired": false,
+            "width": 64,
+            "x": 512,
+            "y": 7936
+          },
+          {
+            "delta_sum": 397077,
+            "height": 61,
+            "pixels": 1205,
+            "unpaired": false,
+            "width": 64,
+            "x": 320,
+            "y": 7104
+          },
+          {
+            "delta_sum": 396828,
+            "height": 58,
+            "pixels": 1166,
+            "unpaired": false,
+            "width": 64,
+            "x": 320,
+            "y": 5888
+          },
+          {
+            "delta_sum": 396530,
+            "height": 64,
+            "pixels": 1160,
+            "unpaired": false,
+            "width": 64,
+            "x": 192,
+            "y": 7104
+          },
+          {
+            "delta_sum": 395716,
+            "height": 64,
+            "pixels": 1102,
+            "unpaired": false,
+            "width": 64,
+            "x": 320,
+            "y": 7936
+          }
+        ],
+        "left_height": 8737,
+        "left_width": 716,
+        "max_channel_delta": 255,
+        "overlap_height": 8736,
+        "overlap_width": 716,
+        "overlay_url": "evidence/1ad8a2b7a5655e29924a450dba600b68db3193461499c932e4411de5839a4bb7.png",
+        "right_height": 8736,
+        "right_width": 716,
+        "total_channel_delta": 114270764,
+        "unmatched_nonwhite_pixels": 0,
+        "unmatched_pixels": 716,
+        "unmeasured_regions": 0
+      }
+    },
+    {
+      "key": "0:findings:434",
+      "sheet": "Titel",
+      "range": "A1:P128",
+      "geometry_differs": false,
+      "metrics": {
+        "changed_pixels": 1718,
+        "hotspot_count": 28,
+        "hotspots": [
+          {
+            "delta_sum": 12480,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 64,
+            "y": 724
+          },
+          {
+            "delta_sum": 12480,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 192,
+            "y": 724
+          },
+          {
+            "delta_sum": 12480,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 512,
+            "y": 724
+          },
+          {
+            "delta_sum": 12480,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 832,
+            "y": 724
+          },
+          {
+            "delta_sum": 12480,
+            "height": 1,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 64,
+            "x": 1152,
+            "y": 724
+          },
+          {
+            "delta_sum": 12480,
+            "height": 64,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 1,
+            "x": 1219,
+            "y": 448
+          },
+          {
+            "delta_sum": 12480,
+            "height": 64,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 1,
+            "x": 1219,
+            "y": 576
+          },
+          {
+            "delta_sum": 12285,
+            "height": 1,
+            "pixels": 63,
+            "unpaired": false,
+            "width": 63,
+            "x": 1,
+            "y": 724
+          },
+          {
+            "delta_sum": 12285,
+            "height": 1,
+            "pixels": 63,
+            "unpaired": false,
+            "width": 64,
+            "x": 128,
+            "y": 724
+          },
+          {
+            "delta_sum": 12285,
+            "height": 1,
+            "pixels": 63,
+            "unpaired": false,
+            "width": 64,
+            "x": 256,
+            "y": 724
+          },
+          {
+            "delta_sum": 12285,
+            "height": 1,
+            "pixels": 63,
+            "unpaired": false,
+            "width": 64,
+            "x": 320,
+            "y": 724
+          },
+          {
+            "delta_sum": 12285,
+            "height": 1,
+            "pixels": 63,
+            "unpaired": false,
+            "width": 64,
+            "x": 384,
+            "y": 724
+          },
+          {
+            "delta_sum": 12285,
+            "height": 1,
+            "pixels": 63,
+            "unpaired": false,
+            "width": 64,
+            "x": 448,
+            "y": 724
+          },
+          {
+            "delta_sum": 12285,
+            "height": 1,
+            "pixels": 63,
+            "unpaired": false,
+            "width": 64,
+            "x": 576,
+            "y": 724
+          },
+          {
+            "delta_sum": 12285,
+            "height": 1,
+            "pixels": 63,
+            "unpaired": false,
+            "width": 64,
+            "x": 640,
+            "y": 724
+          },
+          {
+            "delta_sum": 12285,
+            "height": 1,
+            "pixels": 63,
+            "unpaired": false,
+            "width": 64,
+            "x": 704,
+            "y": 724
+          },
+          {
+            "delta_sum": 12285,
+            "height": 1,
+            "pixels": 63,
+            "unpaired": false,
+            "width": 64,
+            "x": 768,
+            "y": 724
+          },
+          {
+            "delta_sum": 12285,
+            "height": 1,
+            "pixels": 63,
+            "unpaired": false,
+            "width": 64,
+            "x": 896,
+            "y": 724
+          },
+          {
+            "delta_sum": 12285,
+            "height": 1,
+            "pixels": 63,
+            "unpaired": false,
+            "width": 64,
+            "x": 960,
+            "y": 724
+          },
+          {
+            "delta_sum": 12285,
+            "height": 1,
+            "pixels": 63,
+            "unpaired": false,
+            "width": 64,
+            "x": 1024,
+            "y": 724
+          },
+          {
+            "delta_sum": 12285,
+            "height": 1,
+            "pixels": 63,
+            "unpaired": false,
+            "width": 64,
+            "x": 1088,
+            "y": 724
+          },
+          {
+            "delta_sum": 12285,
+            "height": 64,
+            "pixels": 63,
+            "unpaired": false,
+            "width": 1,
+            "x": 1219,
+            "y": 256
+          },
+          {
+            "delta_sum": 12285,
+            "height": 64,
+            "pixels": 63,
+            "unpaired": false,
+            "width": 1,
+            "x": 1219,
+            "y": 320
+          },
+          {
+            "delta_sum": 12285,
+            "height": 64,
+            "pixels": 63,
+            "unpaired": false,
+            "width": 1,
+            "x": 1219,
+            "y": 384
+          },
+          {
+            "delta_sum": 12285,
+            "height": 64,
+            "pixels": 63,
+            "unpaired": false,
+            "width": 1,
+            "x": 1219,
+            "y": 512
+          },
+          {
+            "delta_sum": 12285,
+            "height": 64,
+            "pixels": 63,
+            "unpaired": false,
+            "width": 1,
+            "x": 1219,
+            "y": 640
+          },
+          {
+            "delta_sum": 9750,
+            "height": 50,
+            "pixels": 50,
+            "unpaired": false,
+            "width": 1,
+            "x": 1219,
+            "y": 206
+          },
+          {
+            "delta_sum": 4485,
+            "height": 21,
+            "pixels": 23,
+            "unpaired": false,
+            "width": 4,
+            "x": 1216,
+            "y": 704
+          }
+        ],
+        "left_height": 2765,
+        "left_width": 1380,
+        "max_channel_delta": 125,
+        "overlap_height": 2765,
+        "overlap_width": 1380,
+        "overlay_url": "evidence/55575e6bcc2ba1e31e4da9895975e00383cce65c40d5362de7054c7b3cb78883.png",
+        "right_height": 2765,
+        "right_width": 1380,
+        "total_channel_delta": 335010,
+        "unmatched_nonwhite_pixels": 0,
+        "unmatched_pixels": 0,
+        "unmeasured_regions": 0
+      }
+    },
+    {
+      "key": "0:findings:5",
+      "sheet": "71717-05",
+      "range": "A401:H801",
+      "geometry_differs": true,
+      "metrics": {
+        "changed_pixels": 6818,
+        "hotspot_count": 107,
+        "hotspots": [
+          {
+            "delta_sum": 48960,
+            "height": 64,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 1,
+            "x": 547,
+            "y": 0
+          },
+          {
+            "delta_sum": 48960,
+            "height": 64,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 1,
+            "x": 547,
+            "y": 64
+          },
+          {
+            "delta_sum": 48960,
+            "height": 64,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 1,
+            "x": 547,
+            "y": 128
+          },
+          {
+            "delta_sum": 48960,
+            "height": 64,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 1,
+            "x": 547,
+            "y": 192
+          },
+          {
+            "delta_sum": 48960,
+            "height": 64,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 1,
+            "x": 547,
+            "y": 256
+          },
+          {
+            "delta_sum": 48960,
+            "height": 64,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 1,
+            "x": 547,
+            "y": 320
+          },
+          {
+            "delta_sum": 48960,
+            "height": 64,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 1,
+            "x": 547,
+            "y": 384
+          },
+          {
+            "delta_sum": 48960,
+            "height": 64,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 1,
+            "x": 547,
+            "y": 448
+          },
+          {
+            "delta_sum": 48960,
+            "height": 64,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 1,
+            "x": 547,
+            "y": 512
+          },
+          {
+            "delta_sum": 48960,
+            "height": 64,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 1,
+            "x": 547,
+            "y": 576
+          },
+          {
+            "delta_sum": 48960,
+            "height": 64,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 1,
+            "x": 547,
+            "y": 640
+          },
+          {
+            "delta_sum": 48960,
+            "height": 64,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 1,
+            "x": 547,
+            "y": 704
+          },
+          {
+            "delta_sum": 48960,
+            "height": 64,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 1,
+            "x": 547,
+            "y": 768
+          },
+          {
+            "delta_sum": 48960,
+            "height": 64,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 1,
+            "x": 547,
+            "y": 832
+          },
+          {
+            "delta_sum": 48960,
+            "height": 64,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 1,
+            "x": 547,
+            "y": 896
+          },
+          {
+            "delta_sum": 48960,
+            "height": 64,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 1,
+            "x": 547,
+            "y": 960
+          },
+          {
+            "delta_sum": 48960,
+            "height": 64,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 1,
+            "x": 547,
+            "y": 1024
+          },
+          {
+            "delta_sum": 48960,
+            "height": 64,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 1,
+            "x": 547,
+            "y": 1088
+          },
+          {
+            "delta_sum": 48960,
+            "height": 64,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 1,
+            "x": 547,
+            "y": 1152
+          },
+          {
+            "delta_sum": 48960,
+            "height": 64,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 1,
+            "x": 547,
+            "y": 1216
+          },
+          {
+            "delta_sum": 48960,
+            "height": 64,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 1,
+            "x": 547,
+            "y": 1280
+          },
+          {
+            "delta_sum": 48960,
+            "height": 64,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 1,
+            "x": 547,
+            "y": 1344
+          },
+          {
+            "delta_sum": 48960,
+            "height": 64,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 1,
+            "x": 547,
+            "y": 1408
+          },
+          {
+            "delta_sum": 48960,
+            "height": 64,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 1,
+            "x": 547,
+            "y": 1472
+          },
+          {
+            "delta_sum": 48960,
+            "height": 64,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 1,
+            "x": 547,
+            "y": 1536
+          },
+          {
+            "delta_sum": 48960,
+            "height": 64,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 1,
+            "x": 547,
+            "y": 1600
+          },
+          {
+            "delta_sum": 48960,
+            "height": 64,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 1,
+            "x": 547,
+            "y": 1664
+          },
+          {
+            "delta_sum": 48960,
+            "height": 64,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 1,
+            "x": 547,
+            "y": 1728
+          },
+          {
+            "delta_sum": 48960,
+            "height": 64,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 1,
+            "x": 547,
+            "y": 1792
+          },
+          {
+            "delta_sum": 48960,
+            "height": 64,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 1,
+            "x": 547,
+            "y": 1856
+          },
+          {
+            "delta_sum": 48960,
+            "height": 64,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 1,
+            "x": 547,
+            "y": 1920
+          },
+          {
+            "delta_sum": 48960,
+            "height": 64,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 1,
+            "x": 547,
+            "y": 1984
+          },
+          {
+            "delta_sum": 48960,
+            "height": 64,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 1,
+            "x": 547,
+            "y": 2048
+          },
+          {
+            "delta_sum": 48960,
+            "height": 64,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 1,
+            "x": 547,
+            "y": 2112
+          },
+          {
+            "delta_sum": 48960,
+            "height": 64,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 1,
+            "x": 547,
+            "y": 2176
+          },
+          {
+            "delta_sum": 48960,
+            "height": 64,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 1,
+            "x": 547,
+            "y": 2240
+          },
+          {
+            "delta_sum": 48960,
+            "height": 64,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 1,
+            "x": 547,
+            "y": 2304
+          },
+          {
+            "delta_sum": 48960,
+            "height": 64,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 1,
+            "x": 547,
+            "y": 2368
+          },
+          {
+            "delta_sum": 48960,
+            "height": 64,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 1,
+            "x": 547,
+            "y": 2432
+          },
+          {
+            "delta_sum": 48960,
+            "height": 64,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 1,
+            "x": 547,
+            "y": 2496
+          },
+          {
+            "delta_sum": 48960,
+            "height": 64,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 1,
+            "x": 547,
+            "y": 2560
+          },
+          {
+            "delta_sum": 48960,
+            "height": 64,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 1,
+            "x": 547,
+            "y": 2624
+          },
+          {
+            "delta_sum": 48960,
+            "height": 64,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 1,
+            "x": 547,
+            "y": 2688
+          },
+          {
+            "delta_sum": 48960,
+            "height": 64,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 1,
+            "x": 547,
+            "y": 2752
+          },
+          {
+            "delta_sum": 48960,
+            "height": 64,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 1,
+            "x": 547,
+            "y": 2816
+          },
+          {
+            "delta_sum": 48960,
+            "height": 64,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 1,
+            "x": 547,
+            "y": 2880
+          },
+          {
+            "delta_sum": 48960,
+            "height": 64,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 1,
+            "x": 547,
+            "y": 2944
+          },
+          {
+            "delta_sum": 48960,
+            "height": 64,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 1,
+            "x": 547,
+            "y": 3008
+          },
+          {
+            "delta_sum": 48960,
+            "height": 64,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 1,
+            "x": 547,
+            "y": 3072
+          },
+          {
+            "delta_sum": 48960,
+            "height": 64,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 1,
+            "x": 547,
+            "y": 3136
+          },
+          {
+            "delta_sum": 48960,
+            "height": 64,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 1,
+            "x": 547,
+            "y": 3200
+          },
+          {
+            "delta_sum": 48960,
+            "height": 64,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 1,
+            "x": 547,
+            "y": 3264
+          },
+          {
+            "delta_sum": 48960,
+            "height": 64,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 1,
+            "x": 547,
+            "y": 3328
+          },
+          {
+            "delta_sum": 48960,
+            "height": 64,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 1,
+            "x": 547,
+            "y": 3392
+          },
+          {
+            "delta_sum": 48960,
+            "height": 64,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 1,
+            "x": 547,
+            "y": 3456
+          },
+          {
+            "delta_sum": 48960,
+            "height": 64,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 1,
+            "x": 547,
+            "y": 3520
+          },
+          {
+            "delta_sum": 48960,
+            "height": 64,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 1,
+            "x": 547,
+            "y": 3584
+          },
+          {
+            "delta_sum": 48960,
+            "height": 64,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 1,
+            "x": 547,
+            "y": 3648
+          },
+          {
+            "delta_sum": 48960,
+            "height": 64,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 1,
+            "x": 547,
+            "y": 3712
+          },
+          {
+            "delta_sum": 48960,
+            "height": 64,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 1,
+            "x": 547,
+            "y": 3776
+          },
+          {
+            "delta_sum": 48960,
+            "height": 64,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 1,
+            "x": 547,
+            "y": 3840
+          },
+          {
+            "delta_sum": 48960,
+            "height": 64,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 1,
+            "x": 547,
+            "y": 3904
+          },
+          {
+            "delta_sum": 48960,
+            "height": 64,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 1,
+            "x": 547,
+            "y": 3968
+          },
+          {
+            "delta_sum": 48960,
+            "height": 64,
+            "pixels": 64,
+            "unpaired": false,
+            "width": 1,
+            "x": 547,
+            "y": 4032
+          }
+        ],
+        "left_height": 6818,
+        "left_width": 1538,
+        "max_channel_delta": 255,
+        "overlap_height": 6818,
+        "overlap_width": 1538,
+        "overlay_url": "evidence/72a3640f4d29020d1e0e9a3ef7634080fa75ac421a018f1e8d4bb6996faeeda9.png",
+        "right_height": 8021,
+        "right_width": 1538,
+        "total_channel_delta": 5215770,
+        "unmatched_nonwhite_pixels": 0,
+        "unmatched_pixels": 1850214,
+        "unmeasured_regions": 0
+      }
+    },
+    {
+      "key": "0:findings:6",
+      "sheet": "71717-06",
+      "range": "A1:V62",
+      "geometry_differs": false,
+      "metrics": {
+        "changed_pixels": 85,
+        "hotspot_count": 2,
+        "hotspots": [
+          {
+            "delta_sum": 4420,
+            "height": 52,
+            "pixels": 52,
+            "unpaired": false,
+            "width": 1,
+            "x": 3208,
+            "y": 76
+          },
+          {
+            "delta_sum": 2805,
+            "height": 33,
+            "pixels": 33,
+            "unpaired": false,
+            "width": 1,
+            "x": 3208,
+            "y": 128
+          }
+        ],
+        "left_height": 1152,
+        "left_width": 3369,
+        "max_channel_delta": 40,
+        "overlap_height": 1152,
+        "overlap_width": 3369,
+        "overlay_url": "evidence/53ef00749780eb70b39f15f7b8c7fc7e0d4f1e43fc873d5b3b11828038c2225d.png",
+        "right_height": 1152,
+        "right_width": 3369,
+        "total_channel_delta": 7225,
+        "unmatched_nonwhite_pixels": 0,
+        "unmatched_pixels": 0,
+        "unmeasured_regions": 0
+      }
+    }
+  ]
+}

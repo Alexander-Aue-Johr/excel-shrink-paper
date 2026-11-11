@@ -1,0 +1,250 @@
+[
+  {
+    "case_id": "wanderungen",
+    "file": "wanderungen-2010120217005.xlsx",
+    "variants": {
+      "Original": {
+        "file": "wanderungen-2010120217005.xlsx",
+        "sha256": "bedf8677328fb15ffd967d03ebdf860ae4b1d0942d38091b4b4bef90e574f712",
+        "zip_bytes": 16926818,
+        "uncompressed_bytes": 248392608,
+        "members": 138,
+        "cleanup_provenance": null
+      },
+      "SheetShrink": {
+        "file": "wanderungen-2010120217005.xlsx",
+        "sha256": "f534b01bb082d1559b47238215e85a01067d1d9bdb6a0262cab50fe2e73cb4b7",
+        "zip_bytes": 1804772,
+        "uncompressed_bytes": 16458013,
+        "members": 138,
+        "cleanup_provenance": "Nine-run median, same host, frozen 765c480"
+      },
+      "NXPowerLite": {
+        "file": "wanderungen-2010120217005.xlsx",
+        "sha256": "c8ccfab74549e6e607fca8c442490b663d074642760a086c7d3f8a4a568317d3",
+        "zip_bytes": 11740768,
+        "uncompressed_bytes": 197483807,
+        "members": 139,
+        "cleanup_provenance": "Single primary GUI workflow, same host, cell-formatting-focused profile"
+      },
+      "XLStylesTool": {
+        "file": "wanderungen-2010120217005.xlsx",
+        "sha256": "aac5759f51696c9eedc950c55c01b65d84bc1e21de9dfe6624a7a8bf0b74aa61",
+        "zip_bytes": 16923122,
+        "uncompressed_bytes": 248416091,
+        "members": 138,
+        "cleanup_provenance": "Historical output; cleanup time not established for this selected file"
+      },
+      "CheckPerformance": {
+        "file": "wanderungen-2010120217005.xlsx",
+        "sha256": "b5d5b6a623a37ff24dd04a671eef5f857c8651e521ffbc3cd9f23fbaafcbf76c",
+        "zip_bytes": 1816566,
+        "uncompressed_bytes": 20147798,
+        "members": 138,
+        "cleanup_provenance": "Retained prior output; cleanup time pending provenance audit"
+      },
+      "Inquire": {
+        "file": "wanderungen-2010120217005.xlsx",
+        "sha256": "6d42e611ee17f393c2fcc26b6c17d2ca5975689a84c020c4c2db6d0dd26860b7",
+        "zip_bytes": 9498559,
+        "uncompressed_bytes": 116436675,
+        "members": 138,
+        "cleanup_provenance": "Produced on Gotham, opening/saving measured locally; producer receipt inquire/wanderungen-2010120217005.provenance.json"
+      }
+    },
+    "fresh_sheetshrink": {
+      "zip_bytes": [
+        1804772
+      ],
+      "sha256": [
+        "0b09faeefab1e9bd88ecd9071fde77934b51cdb88bf10c74ca233d891bf34b1f",
+        "21a9280d864e7d121de01e28812256b2ce85d8f2e65cfb03478f99822f202d67",
+        "53af22bf5cb3d8be7ee88081eb916a0c6f53ecf19d0225ac95f67ceb0ec3c7f8",
+        "741e387cfbe04543b5e5318a0ab99114287b22d90055f8e22b03c08b1166cf45",
+        "94247876be249f84892d41524e67559912cdf344e2159ba3dc5dc7f5213a1f09",
+        "944a44c5772a9b41667ac7ef7c8e94ad50ea30adc0cd83a7b85bc37562ff5ab5",
+        "a33a679740bee310eae151636445d2928eddd2d4c8a57a5168d8603d9a7b6c8a",
+        "aaf8ba00227de3eb507d6d346f7856c1933baac25c5144e719250e450cf7537b",
+        "bb6e6d8357b255fcb117c0679c3f2525104045da7108ffd91b758db83f1760bd",
+        "bf0cd041460a54ee8928104d1d32a58ade4d7b31f3b74aef423dd87656005af0",
+        "c138c6728edaf2910a02bd1705be2dd5086d8146d03036c607d9677ccfb052b4",
+        "db7cc020f2ffa8207b1f79219b419e94386f19f43383af65f26011b09f0e9196",
+        "de657eb9285d1640dea654cb7e4dfeb42f0de9cfaa4b6c9f562e26e957597451",
+        "e58801b73f5d404db4780f3d513a10d18209fcf9136c6b919cfc5ac067615dbd",
+        "e67677e54a35a56a8ace48094f5f0d86d432706adbd32a7ece2abaaf848a1fc4",
+        "ee39b4a8d7dca03d79a7aac5fca161eec1d14b2e6c95ae3c7d8074cde57a9960",
+        "f3e8d4a2a2af2341d28b3f7dc43734d5476e5e310f1e3527afc6ebf57b0109bb",
+        "f9117c4234fd9463de6ad57268df66442816ceff79f5e2e68b3b60e74ce1e506"
+      ],
+      "uncompressed_bytes": null
+    }
+  },
+  {
+    "case_id": "finance",
+    "file": "statistischer-bericht-rechnungsergebnis-kernhaushalt-gemeinden-2140331217005.xlsx",
+    "variants": {
+      "Original": {
+        "file": "statistischer-bericht-rechnungsergebnis-kernhaushalt-gemeinden-2140331217005.xlsx",
+        "sha256": "b4a3dd77023756e06c3b7c9b04a55a8d3fbf4334f8803f44460a8dc8cd4dc603",
+        "zip_bytes": 89367137,
+        "uncompressed_bytes": 955411843,
+        "members": 225,
+        "cleanup_provenance": null
+      },
+      "SheetShrink": {
+        "file": "statistischer-bericht-rechnungsergebnis-kernhaushalt-gemeinden-2140331217005.xlsx",
+        "sha256": "c39657b190438817bc42a5902bea88cce26d3c05fb0cbd1804374c65415b8b33",
+        "zip_bytes": 4602667,
+        "uncompressed_bytes": 34504559,
+        "members": 225,
+        "cleanup_provenance": "Nine-run median, same host, frozen 765c480"
+      },
+      "NXPowerLite": {
+        "file": "statistischer-bericht-rechnungsergebnis-kernhaushalt-gemeinden-2140331217005.xlsx",
+        "sha256": "3c17eb2eaf8e60865df4e17cc63f638fb6bb651a0f6124f2df632403e36b56bc",
+        "zip_bytes": 2603145,
+        "uncompressed_bytes": 21601962,
+        "members": 226,
+        "cleanup_provenance": "Single primary GUI workflow, same host, cell-formatting-focused profile"
+      },
+      "XLStylesTool": {
+        "file": "statistischer-bericht-rechnungsergebnis-kernhaushalt-gemeinden-2140331217005.xlsx",
+        "sha256": "9d1811f8c56c4ff874fe5bb7b74af7f3379deb68ae2fc096363d44e01d87a00a",
+        "zip_bytes": 89362149,
+        "uncompressed_bytes": 955395970,
+        "members": 225,
+        "cleanup_provenance": "Historical output; cleanup time not established for this selected file"
+      },
+      "CheckPerformance": {
+        "file": "statistischer-bericht-rechnungsergebnis-kernhaushalt-gemeinden-2140331217005.xlsx",
+        "sha256": "53b914219e92623d05244997619e4f860c89a82b697dc2af5f5ed96af359dd30",
+        "zip_bytes": 2817444,
+        "uncompressed_bytes": 21196207,
+        "members": 225,
+        "cleanup_provenance": "Retained prior output; cleanup time pending provenance audit"
+      },
+      "Inquire": {
+        "file": "statistischer-bericht-rechnungsergebnis-kernhaushalt-gemeinden-2140331217005.xlsx",
+        "sha256": "c2b15e09fb70e1a17b4d2780e49ca043666a967b5cac081cf9cbd6f061cedda6",
+        "zip_bytes": 34154517,
+        "uncompressed_bytes": 738206586,
+        "members": 225,
+        "cleanup_provenance": "Produced on Gotham, opening/saving measured locally; producer receipt inquire/statistischer-bericht-rechnungsergebnis-kernhaushalt-gemeinden-2140331217005.provenance.json"
+      }
+    },
+    "fresh_sheetshrink": {
+      "zip_bytes": [
+        4602667
+      ],
+      "sha256": [
+        "0a04bb2e22529dd7b1ebfbe507f85ce63db5f337b8fd672218862244e4967b4e",
+        "4420a56c0cd7860c9fff5d623cc263f85013595124997715a0ea5bf46c81c0a5",
+        "4f425be23b2eddc46559b519791ae379d7bec0d0c51258feee7c38ec3f448972",
+        "4f9efe33009474305dfe4a5ec7c7ddacf7f6c2d47c1e0e2335985c18865718e2",
+        "504e289a376ff12a42c71fdc1eff1cd97838eb15936902fad929da8268fe0dc8",
+        "55f3aefd0822aca504c34d8d80b533200c67d713697596c364a693be071c7ad7",
+        "5c05d2caa6c11eed6e02d12bcce0dbbffb677281f38f65978849956414feaf16",
+        "649a3d90c0ed7d35b45e30ffee95fb7ae8310f0feb588eecbbd5616310afc971",
+        "9492cb29ae52488ab9d6a09cdad6d7ad8a96257c50d4c0205666fd55106af3d7",
+        "9d25701f77cbaa50e08a337d3ff77dfef00370ce45c0fcc5f6382fb7ba0b2e3c",
+        "a8b0bdf24560017ef2df1df6c8caa4df6bc8ab642c48c9bcedba609d202fa539",
+        "b32eb45435f922acc89bf8630997fa58684151316c6c8fc3bdc36c0b14a54ffb",
+        "bf082b1c93f6b464f70edf13931ec15559816cbd157b88881539ec51e3dd637d",
+        "d9eb41c5a0e9e53d65a6ceda05632d08de9c073126eed2a5b8eaa661b4cfc208",
+        "e3f49652c2bb143c15898d5b2c26532396921c29e0331fe86d6153504823632e"
+      ],
+      "uncompressed_bytes": null
+    }
+  },
+  {
+    "case_id": "qt-rr",
+    "file": "QT_RR data_dobutamine challenge test_Hazari_Dec 2015_84eb838fbc46.xlsx",
+    "variants": {
+      "Original": {
+        "file": "QT_RR data_dobutamine challenge test_Hazari_Dec 2015_84eb838fbc46.xlsx",
+        "sha256": "84eb838fbc4627fb2ca1dd8461e8a05493a0b31ade8e27c66b437a22d932a577",
+        "zip_bytes": 121949169,
+        "uncompressed_bytes": 1350765186,
+        "members": 24,
+        "cleanup_provenance": null
+      },
+      "SheetShrink": {
+        "file": "QT_RR data_dobutamine challenge test_Hazari_Dec 2015_84eb838fbc46.xlsx",
+        "sha256": "46f3e7a20d89efaf15c4867c95831182cbfbc5ce6ce49a0becac10ce1fda5f49",
+        "zip_bytes": 3848467,
+        "uncompressed_bytes": 29907542,
+        "members": 24,
+        "cleanup_provenance": "Nine-run median, same host, frozen 765c480"
+      },
+      "NXPowerLite": {
+        "file": "QT_RR data_dobutamine challenge test_Hazari_Dec 2015_84eb838fbc46.xlsx",
+        "sha256": "e01f2fd59547cd627e2882415ef7b2f5bae0fc35fb135cbf0ea5b9648a286612",
+        "zip_bytes": 3331492,
+        "uncompressed_bytes": 29984617,
+        "members": 25,
+        "cleanup_provenance": "Single primary GUI workflow, same host, cell-formatting-focused profile"
+      },
+      "XLStylesTool": {
+        "file": "QT_RR data_dobutamine challenge test_Hazari_Dec 2015_84eb838fbc46.xlsx",
+        "sha256": "937630e298b0aec5f92232b2fc744b6dc41f815bac3af8b8927490f9cc1bad60",
+        "zip_bytes": 121949146,
+        "uncompressed_bytes": 1350766246,
+        "members": 24,
+        "cleanup_provenance": "Historical output; cleanup time not established for this selected file"
+      },
+      "Inquire": {
+        "file": "QT_RR data_dobutamine challenge test_Hazari_Dec 2015_84eb838fbc46.xlsx",
+        "sha256": "236ef931ee0123022701729b4ba95087c3bd303fb7682ce8729268c2f8578bea",
+        "zip_bytes": 3878463,
+        "uncompressed_bytes": 30131051,
+        "members": 24,
+        "cleanup_provenance": "Produced on Gotham, opening/saving measured locally; producer receipt inquire/QT_RR data_dobutamine challenge test_Hazari_Dec 2015_84eb838fbc46.provenance.json"
+      },
+      "CheckPerformance": {
+        "file": "QT_RR data_dobutamine challenge test_Hazari_Dec 2015_84eb838fbc46.xlsx",
+        "sha256": "e74ec092e53e3b11aeaf6f34fb2e93c8dd0f379bd51a9ecb07c351149118d869",
+        "zip_bytes": 3625581,
+        "uncompressed_bytes": 25594480,
+        "members": 24,
+        "cleanup_provenance": "Produced on Gotham, opening/saving measured locally; producer receipt check-performance/QT_RR data_dobutamine challenge test_Hazari_Dec 2015_84eb838fbc46.provenance.json"
+      }
+    },
+    "fresh_sheetshrink": {
+      "zip_bytes": [
+        3848467
+      ],
+      "sha256": [
+        "223eede33a41eff2c145abac866f1d0d575ddee4f2775d8693364774e4edfe38",
+        "4f50a7e0b4b34934554010d394fd1cf864590aeb3a206e914d6cf34a848d1b9f",
+        "5589d7932728bcd9c17b98621523791c1be6d311aec74628f7739b75a77773af",
+        "686951f2b573f6f99d8979388f3abc60f28d12f21f8411de79d3a341144c3bb9",
+        "739e641bfd8c109d479ad52c34d778586f3156461411aa086b4ac23fff48cb73",
+        "884acf478a7bc9c594cc943e4f316ca33a1e9c26561000d6f77cf3b84efb7071",
+        "9e5c23637dc27595ae42e6adeeac8c9c21a41078beb92384cb5a459ba3982995",
+        "b181c2f7f244b878952e505e6e4ba067dfd4e05026a39aafcff67a5f1c44572a",
+        "ba65a22c89f20b4db4267b960f72c4bc66b669bd0930a77035220c2fda456f7a",
+        "c21cf7581349ca9be9326961baf74a5d44315f63ca82a5517bc37c6752e7adb8",
+        "d4342bf16b862db5f4dbb290a8bd6345369ac660e16fab5d671c3c1670ff1168",
+        "e72caac161059d65211848b831ce2e394c93f9a8414e89a9b621288e3266c91b",
+        "f4c7b74570282284c02264ca89c15119fde9580193789c8787ab98b68dd58cbd",
+        "f551a5369285ac535352220be9c0c5ea447fc73f157f718fb055cf9851f7671e",
+        "ff65fab78affb207c27202c58ef355d33a07a434b93a3ae9aa86e365ec77d514"
+      ],
+      "uncompressed_bytes": null
+    }
+  },
+  {
+    "case_id": "enron",
+    "file": "b2d0dfef6a1ce21cf3896241052a4a28ffdad659b6bbb6b1ea44f47e4d589c86.xlsx",
+    "variants": {
+      "Original": {
+        "file": "b2d0dfef6a1ce21cf3896241052a4a28ffdad659b6bbb6b1ea44f47e4d589c86.xlsx",
+        "sha256": "7298df9a6a76d0b69599c21d1653287adc863a5c7dbb9b5eaca275ea23ffada0",
+        "zip_bytes": 42710945,
+        "uncompressed_bytes": 353151842,
+        "members": 18
+      }
+    },
+    "fresh_sheetshrink": null
+  }
+]
