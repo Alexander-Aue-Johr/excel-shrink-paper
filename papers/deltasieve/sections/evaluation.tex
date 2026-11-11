@@ -118,7 +118,10 @@ explicit outcomes. Report both completed-reference detection and the fraction
 of all selected cases with usable reference evidence.
 
 \subsection{Mutation strata and statistical scope}
-Unresolved-reference and error-value mutation strata remain incomplete.
+Two A1 formula-error mutations changed 366 and 358 reference pixels.
+Selected A1:D3 masks exactly matched the independent A1:N30 change masks
+after native rebuild. Broader unresolved-dependency strata remain
+open~\cite{errorcontrols}.
 
 Literal and cell-indirected INDIRECT conditional-format controls each changed
 5,070 reference pixels. The unsupported-rule fallback selected A1:AA3 and
@@ -136,13 +139,12 @@ inclusion probabilities, with development cases reported separately.
 
 \subsection{Matched cost accounting}
 
-Cost accounting separates measured phases, image counts, rendered/compared
-pixels, retained bytes, elapsed time and coverage-union size. Overlaps count
-as repeated work. Matched trials require consistent preparation, environment,
-image budgets and reuse, including opening, rebuild and save. Repeated paired
-trials characterize variation; production queues cannot isolate tuning effects.
-Timeouts remain censored. Corpus projections require geometry-calibrated strata
-and explicit hidden-region and object-extent assumptions.
+Cost accounting separates phases, images, pixels, retained bytes, elapsed time
+and coverage unions; overlapping captures count as repeated work. Matched trials
+control preparation, environment, image budgets and reuse through open, rebuild
+and save. Repeated pairs measure variation. Timeouts remain censored. Corpus
+projections require geometry-calibrated strata and hidden-region/object-extent
+assumptions. Production queues cannot isolate tuning effects.
 
 \subsection{Opening, batching and independent Excel pairs}
 A bounded opening experiment used four copies of a synthetic workbook with eight
