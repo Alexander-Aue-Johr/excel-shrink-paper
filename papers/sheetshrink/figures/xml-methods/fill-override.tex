@@ -9,11 +9,9 @@ Original & SheetShrink Default & Check Performance \\
 \includegraphics[width=0.323\textwidth]{evidence/xml-methods/native-vector/enron/Default.pdf} &
 \includegraphics[width=0.323\textwidth]{evidence/xml-methods/native-vector/enron/Check-Performance.pdf}
 \end{tabular}
-\caption{Empty cells can preserve a visible fill. In Enron case
-\texttt{ccde4294bab9094d7d73}, an explicit gray B31 cell masks a pink column
-format (column XF 51, cell XF 98). The retained Original and SheetShrink Default vector exports match in
-\texttt{PL-Consolidated!A25:H37} after full rebuild of the retained rebuild/Save controls. Check Performance
-removes the mask and exposes pink. The source excerpt is shortened.
-The print-renderer equality observation covers this region.}
+\caption{An empty cell masks inherited formatting. In the Enron example, gray B31
+overrides a pink column fill. SheetShrink preserves the mask; Check Performance
+removes it and exposes pink. Native print exports match for Original and
+SheetShrink after full rebuild within the displayed region. XML is abbreviated.}
 \label{fig:fill-override-native}
 \end{figure*}
