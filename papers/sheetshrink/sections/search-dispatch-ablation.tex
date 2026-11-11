@@ -12,7 +12,7 @@ A separate runtime probe logs an AVX2 cached substring searcher in the normal
 configuration and a scalar Two-Way searcher with a portable prefilter in the
 experimental configuration. Each passes 161 forward/reverse byte and cached
 substring controls. The existing nine focused XML tests pass in both release
-configurations. Three developer-selected stress workbooks receive three trials
+configurations. Three purposively selected stress workbooks receive three trials
 per configuration, using one Rayon thread, one writer and one active-workbook
 slot. Configuration order alternates by repetition. All 18 outputs have equal
 uncompressed member names, byte lengths and SHA-256 values within each case.
