@@ -3,13 +3,13 @@
 The figure edits and selected text cuts are implemented. The quoted blocks
 below record the reviewed source before those cuts. Figure numbers
 can change after later cuts. The previous run-state figure is retained as TikZ,
-PDF and SVG. Image transport is now Figure 11, and capture ownership is Figure 12.
+PDF and SVG. Image transport and capture ownership have separate illustrations.
 
 The accepted cuts remove operational exposition, the preliminary Intel result
 lane and historical budget/adapter detail. Figure 6 is retained with a flatter
 return edge and acceptance conditions in its caption. The geometry code figure is omitted from the manuscript, with its source and
-vector files retained. The Office.js synchronization figure is also omitted. Figure 4 now describes default preparation without
-the optional internal Check Performance branch or the duplicate reuse gate.
+vector files retained. The Office.js synchronization figure is also omitted. The control-lineage illustration is retained as a standalone asset. Its
+preparation sequence is explained in the method text.
 
 ## First text cut
 
