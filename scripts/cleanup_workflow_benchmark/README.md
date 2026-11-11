@@ -83,3 +83,9 @@ shapes, restrained color and logarithmic axes expose the full range without
 compressing small observations into zero-width bars. The historical
 `plot_retained_wanderungen.py` remains the separate opening-plus-saving figure.
 Cleanup workflow measurements do not supply new opening-time observations.
+
+The optional `--receipts` argument adds selection-outcome bars from complete
+compressed per-tool receipt inventories. Counts distinguish plotted pairs,
+other eligible inputs, failed conversions, protected-payload exclusions and
+incomplete timing receipts. The current manuscript command adds
+`--receipts papers/sheetshrink/evidence/top49-nxpowerlite-receipts.json.gz papers/sheetshrink/evidence/top49-xlstyles-receipts.json.gz`.

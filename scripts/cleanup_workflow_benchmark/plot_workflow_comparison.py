@@ -1,6 +1,8 @@
 """Plot retained paired cleanup observations without opening any workbook."""
 import argparse
 import csv
+import gzip
+import json
 from pathlib import Path
 
 import matplotlib
@@ -15,11 +17,14 @@ def main():
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--common-inputs", action="store_true",
                         help="Restrict each host/corpus group to input identities shared by its tools")
+    parser.add_argument("--receipts", type=Path, nargs="+",
+                        help="Complete per-tool selection receipts for outcome counts")
     args = parser.parse_args()
     rows = read_pairs(args.pairs)
     if args.common_inputs:
         rows = shared_input_pairs(rows)
-    draw_comparison(rows, args.output)
+    outcomes = read_outcomes(args.receipts, rows) if args.receipts else None
+    draw_comparison(rows, args.output, outcomes)
 
 
 def read_pairs(paths):
@@ -54,7 +59,58 @@ def shared_input_pairs(rows):
     return selected
 
 
-def draw_comparison(rows, output):
+def read_outcomes(paths, rows):
+    plotted = {(r["host_id"], r["comparator"], r["corpus"], r["input_sha256"]) for r in rows}
+    outcomes = {}
+    seen = set()
+    for path in paths:
+        with gzip.open(path, "rt", encoding="utf-8") as stream:
+            receipt = json.load(stream)
+        tool = receipt.get("tool_label", "NXPowerLite")
+        for record in receipt["records"]:
+            group = (receipt["host_id"], tool, record["corpus"])
+            identity = (*group, record["input_sha"])
+            if identity in seen:
+                raise ValueError(f"Duplicate outcome identity: {identity}")
+            seen.add(identity)
+            counts = outcomes.setdefault(group, [0] * 5)
+            if identity in plotted:
+                category = 0
+            elif record["conversion"] == "failed":
+                category = 2
+            elif record["eligible_for_formatting_comparison"]:
+                category = 1
+            elif tool == "NXPowerLite":
+                category = 3
+            else:
+                category = 4
+            counts[category] += 1
+    if not plotted.issubset(seen):
+        raise ValueError("Outcome receipts omit plotted identities")
+    return outcomes
+
+
+def draw_outcomes(axis, groups, outcomes):
+    colors = ["#0072B2", "#56B4E9", "#D55E00", "#E69F00", "#CCCCCC"]
+    hatches = ["", "//", "xx", "..", "\\\\"]
+    for position, group in enumerate(groups):
+        counts = outcomes[group]
+        left = 0
+        for count, color, hatch in zip(counts, colors, hatches):
+            axis.barh(position, count, left=left, height=0.44, color=color,
+                      hatch=hatch, edgecolor="white", linewidth=0.4)
+            left += count
+        axis.text(0, position + 0.34, "/".join(str(n) for n in counts), fontsize=6.5)
+    axis.set_ylim(len(groups) - 0.5, -0.5)
+    axis.set_xlim(0, max(sum(outcomes[g]) for g in groups))
+    axis.set_xticks([0, 49])
+    axis.set_yticks([])
+    axis.set_xlabel("Selection outcomes (files)")
+    for side in ("left", "right", "top"):
+        axis.spines[side].set_visible(False)
+
+
+def draw_comparison(rows, output, outcomes=None):
     groups = list(dict.fromkeys((row["host_id"], row["comparator"], row["corpus"]) for row in rows))
     tool_names = list(dict.fromkeys(group[1] for group in groups))
     hosts = list(dict.fromkeys(group[0] for group in groups))
@@ -67,7 +123,9 @@ def draw_comparison(rows, output):
     styles = {name: (markers[index % 4], colors[index % 4]) for index, name in enumerate(tool_names)}
     plt.rcParams.update({"font.family": "DejaVu Sans", "font.size": 8,
                          "pdf.fonttype": 42, "svg.fonttype": "none"})
-    figure, axes = plt.subplots(1, 2, figsize=(7.15, 1.8 + 0.47 * len(groups)))
+    figure, axes = plt.subplots(1, 3 if outcomes else 2,
+                                figsize=(7.15, 1.8 + 0.47 * len(groups)),
+                                gridspec_kw={"width_ratios": [1, 1, 0.85]} if outcomes else None)
     labels = []
     for position, group in enumerate(groups):
         selected = [row for row in rows if (row["host_id"], row["comparator"], row["corpus"]) == group]
@@ -93,18 +151,25 @@ def draw_comparison(rows, output):
         axes[1].annotate(f"{quartiles[1]:.1f}x", (quartiles[1], position),
                          xytext=(4, 8), textcoords="offset points", fontsize=7,
                          bbox={"facecolor": "white", "edgecolor": "none", "alpha": 0.8, "pad": 0.5})
-    format_axes(axes, labels)
+    format_axes(axes[:2], labels)
+    if outcomes:
+        draw_outcomes(axes[2], groups, outcomes)
     heading = f"Cleanup workflow comparisons  ·  {', '.join(hosts)}"
     figure.text(0.02, 0.98, heading, va="top", fontsize=8)
     for name, (marker, color) in styles.items():
         axes[0].scatter([], [], color=color, marker=marker, label=name)
-    axes[0].scatter([], [], color="#0072B2", marker="o", label="SheetShrink")
+    axes[0].scatter([], [], color="#0072B2", marker="o", label="Sheet Shrink")
     figure.legend(*axes[0].get_legend_handles_labels(), frameon=False, loc="upper left",
                   bbox_to_anchor=(0.20, 0.93), ncol=len(tool_names) + 1, fontsize=7)
     figure.text(0.02, 0.025, "Absolute times show workbook medians and quartiles. Ratio dots represent paired workbooks.\n"
                 "Black diamonds and lines mark the median and IQR across workbooks.\n"
-                "Each external tool n=1. SheetShrink n=9 after warm-up. Native visual validation pending.", fontsize=6.8)
-    figure.subplots_adjust(left=0.29 if multiple_hosts else 0.23, right=0.985, top=0.80, bottom=0.20, wspace=0.22)
+                "Each external tool n=1. Sheet Shrink n=9 after warm-up. Native visual validation pending.", fontsize=6.8)
+    if outcomes:
+        figure.text(0.02, 0.13,
+                    "Status counts: plotted / other eligible / failed / payload excluded / incomplete receipt.\n"
+                    "Blue / hatched blue / crosshatched orange / dotted yellow / hatched gray; each row totals 49.",
+                    fontsize=6.8)
+    figure.subplots_adjust(left=0.29 if multiple_hosts else 0.23, right=0.985, top=0.80, bottom=0.29 if outcomes else 0.20, wspace=0.40)
     output.parent.mkdir(parents=True, exist_ok=True)
     figure.savefig(output)
     figure.savefig(output.with_suffix(".png"), dpi=200)
@@ -131,7 +196,7 @@ def format_axes(axes, labels):
     axes[0].set_yticks(range(len(labels)), labels)
     axes[1].set_yticks(range(len(labels)), [""] * len(labels))
     axes[0].set_xlabel("Observed cleanup workflow time (s)")
-    axes[1].set_xlabel("Tool / SheetShrink time ratio")
+    axes[1].set_xlabel("Tool / Sheet Shrink time ratio")
     axes[1].axvline(1, color="#999999", linestyle="--", linewidth=0.8)
 
 
