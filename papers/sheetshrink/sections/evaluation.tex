@@ -52,18 +52,13 @@ and full replay events alongside concurrent native validation~\cite{corpusdistri
 All three runs reached completion with zero reported processing failures.
 The host used an AMD Ryzen 7 7800X3D with eight physical cores, sixteen logical
 processors, 95.1\,GiB OS-visible RAM and Windows 11 Home build 26200.
-Interactive execution replays accompany the
+Interactive replays accompany the
 \href{https://alexander-aue-johr.github.io/excel-shrink-paper/replays/corpus-distributions-20261111/destatis/}{Destatis},
 \href{https://alexander-aue-johr.github.io/excel-shrink-paper/replays/corpus-distributions-20261111/datagov/}{Data.gov}
 and \href{https://alexander-aue-johr.github.io/excel-shrink-paper/replays/corpus-distributions-20261111/enron/}{prepared Enron XLSX}
-runs. Their terminal event clocks include final reporting and can differ slightly
-from the cleanup timing endpoint above. Each recording retains source and
-publication checksums, with local output paths projected to basenames.
-Playback loads the complete history into browser memory and supports seeking
-and accelerated inspection of workbook, worksheet and chunk events.
+runs; replay clocks additionally include final reporting.
 Successful processing of these inputs does not establish correctness for every
 valid serialization.
-These namespace exclusions occurred only in Data.gov in the evaluated runs.
 These descriptive results include files that grew and use only processed
 input bytes as the denominator. Enron's denominator begins after
 preparation. Visual preservation is evaluated separately.
