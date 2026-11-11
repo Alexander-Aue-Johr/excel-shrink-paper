@@ -120,28 +120,29 @@ of all selected cases with usable reference evidence.
 \subsection{Mutation strata and statistical scope}
 Unresolved-reference and error-value mutation strata remain incomplete.
 
-Identical-input controls characterize renderer variation. NOW, RAND, INDIRECT
-and OFFSET require reference-policy controls~\cite{excelrecalculation}.
-Both states are rebuilt and saved, so unchanged formulas can produce different
-values. Raw pixels and calculation context remain available for attribution.
+Literal and cell-indirected INDIRECT conditional-format controls each changed
+5,070 reference pixels. The unsupported-rule fallback selected A1:AA3 and
+matched both complete change masks. Neither case establishes INDIRECT
+dependency resolution~\cite{indirectcontrols}.
+
+Both states are rebuilt and saved. NOW, RAND, INDIRECT and OFFSET require
+reference-policy controls~\cite{excelrecalculation}. Raw pixels and calculation
+context support attribution, alongside identical-input rendering controls.
 
 For zero misses in $n$ independent trials with common miss probability, the
-exact one-sided 95\% upper bound is $1-0.05^{1/n}$, approximately 9.5\% at
-30 trials and 5.8\% at 50~\cite{binomialintervals}. Mutations within one
-workbook share a cluster. Population estimates require sampling strata and
+exact one-sided 95\% upper bound is $1-0.05^{1/n}$~\cite{binomialintervals}.
+Workbook mutations share a cluster. Population estimates require strata and
 inclusion probabilities, with development cases reported separately.
 
 \subsection{Matched cost accounting}
 
-Cost accounting separates planning, geometry, rendering, transfer, comparison
-and persistence where measured. Image counts, rendered and compared pixels,
-retained bytes and elapsed time accompany coverage-union size. Overlapping
-captures count as repeated work. Matched trials require the same preparation,
-environment, image budget and reuse configuration, retaining opening, rebuild
-and save in end-to-end time. Repeated paired trials characterize variation.
-Production queues cannot isolate tuning effects. Reference timeouts remain
-censored outcomes. Full-corpus projections require geometry-calibrated,
-stratified samples with explicit hidden-region and object-extent assumptions.
+Cost accounting separates measured phases, image counts, rendered/compared
+pixels, retained bytes, elapsed time and coverage-union size. Overlaps count
+as repeated work. Matched trials require consistent preparation, environment,
+image budgets and reuse, including opening, rebuild and save. Repeated paired
+trials characterize variation; production queues cannot isolate tuning effects.
+Timeouts remain censored. Corpus projections require geometry-calibrated strata
+and explicit hidden-region and object-extent assumptions.
 
 \subsection{Opening, batching and independent Excel pairs}
 A bounded opening experiment used four copies of a synthetic workbook with eight
