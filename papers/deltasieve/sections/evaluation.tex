@@ -72,6 +72,12 @@ RGBA pixels. Two had additional opaque-white exterior strips, totaling 196,657
 pixels, which were retained as raw extent differences. This sample is not held
 out, and failed or unsupported references remain in its denominator.
 
+A separate sample selected one input per size quartile from 30,301 prepared
+Enron XLSX files using a fixed seed before inspecting selected outputs.
+All four native references qualified over 41 stored-dimension rectangles,
+with matching image dimensions and zero changed RGBA pixels.
+Prior development exposure remains unclassified.
+
 A separate twelve-occurrence Destatis sample used the same fixed-seed,
 size-quartile selection policy. All twelve selected packages contain graphical
 or embedded parts and remain unsupported by the current dimension-only reference
@@ -102,14 +108,10 @@ explicit outcomes. Report both completed-reference detection and the fraction
 of all selected cases with usable reference evidence.
 
 \subsection{Mutation strata and statistical scope}
-The mutation matrix covers direct values and formulas, effective styles,
-conditional dependencies, chart inputs and objects, row/column geometry and
-visibility, and unresolved references. Serialization-only controls exercise
-equivalent package representations. Supported cases and fallback cases have
-separate expectations. Workbook identities, generator seeds, intended edits,
-reference areas and observed native effects identify every case. Spreadsheet
-errors such as division by zero are valid calculation outcomes and need their
-own fixtures alongside malformed or unopenable packages.
+The planned mutation matrix extends the measured controls to formulas,
+visibility, unresolved references and spreadsheet error values. Fixtures retain
+intended edits, source identities and independently declared areas. Supported
+and fallback cases have separate expectations.
 
 Repeated identical-input native controls characterize renderer variation.
 Volatile-function cases include NOW and RAND, with INDIRECT and OFFSET also
