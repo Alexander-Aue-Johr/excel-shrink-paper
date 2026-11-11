@@ -51,15 +51,21 @@ an existing XLSX package into another editable workbook under a stated
 preservation contract. These optimization layers can be used together.
 
 \subsection{Spreadsheet loading and specialized parsing}
-SheetReader studies specialized spreadsheet ingestion and the coupling of
-parsing, decompression and parallel execution~\cite{sheetreader}. It motivates
-evaluating loading cost and memory. Its output consists of data representations
-for an analytical consumer. Sheet Shrink produces an editable workbook whose
-required layout and dependencies must survive package rewriting. A blank cell
-that a tabular reader can omit may still influence inherited formatting or
-automatic layout in Excel. Our evaluation therefore measures cleanup together
-with subsequent use of the output and separately observes native preservation.
-The two systems address complementary sources of ingestion cost, namely the
+SheetReader studies specialized XML parsing for efficient spreadsheet ingestion,
+including the coupling of decompression, parsing and parallel execution~\cite{sheetreader}.
+Specialized scanners assume syntax-recognition and state-transition obligations
+otherwise handled by established DOM or SAX implementations. Rare valid
+serializations can expose defects after many successful inputs. During baseline
+ingestion, we encountered an empty-cell parsing defect in SheetReader and
+submitted a correction with regression fixtures~\cite{sheetreaderparserfix}.
+
+SheetReader loads worksheet data into analytical representations. Sheet Shrink
+rewrites an editable workbook whose required contents, dependencies and
+presentation must survive cleanup. Its byte-oriented scanner therefore combines
+XML recognition with preservation-specific guards. Corpus-scale processing and
+targeted regression controls exercise this implementation within its supported
+domain, while additional serializations and semantic cases can remain untested.
+The two systems address complementary sources of ingestion cost through the
 reader's processing strategy and the representation supplied to it.
 
 \subsection{Spreadsheet refactoring and validation}
