@@ -1,0 +1,23 @@
+{
+  "scope": "Historical XLSX cleanup screening for selection by absolute compressed bytes saved. Counts use preparation records and ranking data. Output existence was checked; sizes are from the recorded rows.",
+  "destatis": {
+    "inputs": 1182, "processed": 1182, "unsupported_namespace": 0,
+    "input_bytes_processed": 2364066555, "output_bytes": 1998106180,
+    "smaller": 1045, "same_size": 30, "larger": 107,
+    "preparation_sha256": "d5c2ce6100cb9626f5c92492ceca128133f306269302f2f158961296edca0d3c"
+  },
+  "datagov": {
+    "inputs": 9117, "processed": 8623, "unsupported_namespace": 494,
+    "input_bytes_processed": 24236837934, "output_bytes": 22954644511,
+    "smaller": 4805, "same_size": 3477, "larger": 341,
+    "recovered_outputs": 7, "retry_terminal_event": "run.failed",
+    "retry_preparation_sha256": "2655588e5e570407d1481675aeac022431f99efeb1567ee7ed82da3a7771d9a6",
+    "recovered_rows_sha256": "c1ca72632425c238c4b7558952f11e9d70d2c7e3115a260edbbb83b504dcb973"
+  },
+  "enron": {
+    "prepared_xlsx_inputs": 30301, "processed": 30301,
+    "input_bytes_processed": 3392324315, "output_bytes": 2750450949,
+    "smaller": 21639, "same_size": 8341, "larger": 321,
+    "ranking_csv_sha256": "9e56827a3820076c39537f903fe9e0676a0c6aac6de59ed2b0f3ff87727d219a"
+  }
+}
