@@ -54,8 +54,8 @@ measure native layout before replacing additional sentinels or whitespace
 blockers. Such a stage is outside the implementation evaluated here.
 
 \subsection{Validation and attribution boundaries}
-Our fast visual validation compares independently rebuilt original and Sheet Shrink
-states using the same installed Excel environment. Ordinary-save and rebuild
+DeltaSieve compares selected regions of independently rebuilt original and
+Sheet Shrink workbooks in the same installed Excel environment~\cite{deltasievecompanion}. Ordinary-save and rebuild
 controls retain information for attributing differences introduced by Excel.
 Excel save-only controls distinguish cleanup effects from changes introduced
 by serialization and recalculation.
