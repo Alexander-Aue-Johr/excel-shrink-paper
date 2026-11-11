@@ -110,13 +110,13 @@ def write_resource_table(summaries, output):
     text = r"""\begin{table*}[t]
 \caption{Median resource observations across paired workbooks on the laptop.
 CPU is process time in seconds.
-WS is working set in MiB, using OS peak counters for Sheet Shrink and sampled peaks for NXPowerLite.}
+WS is working set in MiB, using OS peak counters for SheetShrink and sampled peaks for NXPowerLite.}
 \label{tab:top49-resources}
 \centering
 \setlength{\tabcolsep}{3pt}
 \begin{tabular}{lrrrrr}
 \hline
-Corpus & Pairs & CPU Sheet Shrink & CPU NXPowerLite & WS Sheet Shrink & WS NXPowerLite \\
+Corpus & Pairs & CPU SheetShrink & CPU NXPowerLite & WS SheetShrink & WS NXPowerLite \\
 \hline
 """ + "\n".join(rows) + r"""
 \hline

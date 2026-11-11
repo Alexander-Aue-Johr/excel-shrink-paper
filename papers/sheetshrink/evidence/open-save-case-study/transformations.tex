@@ -11,7 +11,7 @@ Variant & Payload MB (reduction) & Changed / compared pixels; coverage \\
 \hline
 \multicolumn{3}{l}{\textbf{Destatis Migration}} \\
 Original & \CasePairBars[4.4]{248.39 (0\%)}{1.09990}{1.09990}{casebarblue} & Reference \\
-Sheet Shrink\textsuperscript{*} & \CasePairBars[4.4]{16.46 (93\%)}{1.09990}{0.07288}{casebarblue} & \begin{tabular}[c]{@{}l@{}}0 / 101,874,379\\37/38 image pairs\\5 size differences\\Normalized baseline\end{tabular} \\
+SheetShrink\textsuperscript{*} & \CasePairBars[4.4]{16.46 (93\%)}{1.09990}{0.07288}{casebarblue} & \begin{tabular}[c]{@{}l@{}}0 / 101,874,379\\37/38 image pairs\\5 size differences\\Normalized baseline\end{tabular} \\
 NXPowerLite & \CasePairBars[4.4]{197.48 (20\%)}{1.09990}{0.87447}{casebarblue} & Failed \\
 XLStylesTool & \CasePairBars[4.4]{248.42 (-0.0095\%)}{1.09990}{1.10000}{casebarorange} & Failed \\
 Check Performance & \CasePairBars[4.4]{20.15 (92\%)}{1.09990}{0.08922}{casebarblue} & Memory limit \\
@@ -19,7 +19,7 @@ Inquire & \CasePairBars[4.4]{116.44 (53\%)}{1.09990}{0.51559}{casebarblue} & Fai
 \hline
 \multicolumn{3}{l}{\textbf{Data.gov QT/RR}} \\
 Original & \CasePairBars[4.4]{1350.77 (0\%)}{1.10000}{1.10000}{casebarblue} & Reference \\
-Sheet Shrink\textsuperscript{*} & \CasePairBars[4.4]{29.91 (98\%)}{1.10000}{0.02436}{casebarblue} & No capture regions \\
+SheetShrink\textsuperscript{*} & \CasePairBars[4.4]{29.91 (98\%)}{1.10000}{0.02436}{casebarblue} & No capture regions \\
 NXPowerLite & \CasePairBars[4.4]{29.98 (98\%)}{1.10000}{0.02442}{casebarblue} & No capture regions \\
 XLStylesTool & \CasePairBars[4.4]{1350.77 (-7.8e-05\%)}{1.10000}{1.10000}{casebarorange} & No capture regions \\
 Check Performance & \CasePairBars[4.4]{25.59 (98\%)}{1.10000}{0.02084}{casebarblue} & No capture regions \\
@@ -27,7 +27,7 @@ Inquire & \CasePairBars[4.4]{30.13 (98\%)}{1.10000}{0.02454}{casebarblue} & No c
 \hline
 \multicolumn{3}{l}{\textbf{Enron b2d0dfef}} \\
 Original & \CasePairBars[4.4]{353.15 (0\%)}{1.09999}{1.09999}{casebarblue} & Reference \\
-Sheet Shrink\textsuperscript{*} & \CasePairBars[4.4]{2.58 (99\%)}{1.09999}{0.00804}{casebarblue} & No retained pairs (0/2824) \\
+SheetShrink\textsuperscript{*} & \CasePairBars[4.4]{2.58 (99\%)}{1.09999}{0.00804}{casebarblue} & No retained pairs (0/2824) \\
 NXPowerLite & \CasePairBars[4.4]{2.55 (99\%)}{1.09999}{0.00795}{casebarblue} & \begin{tabular}[c]{@{}l@{}}6,437 / 11,640,701,446\\1033/1033 image pairs\end{tabular} \\
 XLStylesTool & \CasePairBars[4.4]{353.16 (-0.0011\%)}{1.09999}{1.10000}{casebarorange} & No capture regions \\
 Check Performance & \CasePairBars[4.4]{2.54 (99\%)}{1.09999}{0.00792}{casebarblue} & \begin{tabular}[c]{@{}l@{}}456,503 / 46,890,576\\8/1032 image pairs\\2 size differences\end{tabular} \\
@@ -35,5 +35,5 @@ Inquire & \CasePairBars[4.4]{2.57 (99\%)}{1.09999}{0.00801}{casebarblue} & \begi
 \hline
 \end{tabular}
 \par\smallskip
-\begin{minipage}{0.98\textwidth}\footnotesize \textsuperscript{*}Sheet Shrink uses separately regenerated controls whose uncompressed members match the native candidates; full per-trial member inventories of the timed pipelines were not retained. Wanderungen uses a normalized baseline. Counts compare exact RGBA values in common rectangles with matched origins; overlapping captures can count pixels repeatedly. Image-size differences remain separate from common-area pixel counts. Different plans and incomplete scopes preclude a cross-tool preservation ranking. No capture regions or retained pairs provide no pixel-equality observation. Gray bars show the original; blue/orange show payload at or below/above the original. Input/output hashes, scope details and failures remain in the artifact.\end{minipage}
+\begin{minipage}{0.98\textwidth}\footnotesize \textsuperscript{*}SheetShrink uses separately regenerated controls whose uncompressed members match the native candidates; full per-trial member inventories of the timed pipelines were not retained. Wanderungen uses a normalized baseline. Counts compare exact RGBA values in common rectangles with matched origins; overlapping captures can count pixels repeatedly. Image-size differences remain separate from common-area pixel counts. Different plans and incomplete scopes preclude a cross-tool preservation ranking. No capture regions or retained pairs provide no pixel-equality observation. Gray bars show the original; blue/orange show payload at or below/above the original. Input/output hashes, scope details and failures remain in the artifact.\end{minipage}
 \end{table*}

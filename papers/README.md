@@ -8,32 +8,26 @@ wording do not constrain these drafts.
 
 ## Build on this machine
 
-Build PDFs and auxiliary files in an external build directory. After a successful
-build, copy the current manuscript PDF to `papers/sheetshrink/main.pdf` or
-`papers/deltasieve/main.pdf`. Commit and push the updated PDF with manuscript
-changes so the repository contains a readable version of each current draft.
-Auxiliary build files remain outside the source tree.
+Run the manuscript builder from the repository root with Python 3.
 
 ```powershell
-$project = 'V:\excel-shrink-paper\papers\sheetshrink'
-$build = 'V:\paper-builds\sheetshrink'
-New-Item -ItemType Directory -Path $build -Force | Out-Null
-$env:TEXINPUTS = "$project//;"
-$env:BIBINPUTS = "$project;"
-Push-Location $build
-try {
-    & 'D:\texlive\2026\bin\windows\pdflatex.exe' -halt-on-error -interaction=nonstopmode "$project\main.tex"
-    & 'D:\texlive\2026\bin\windows\bibtex.exe' main
-    & 'D:\texlive\2026\bin\windows\pdflatex.exe' -halt-on-error -interaction=nonstopmode "$project\main.tex"
-    & 'D:\texlive\2026\bin\windows\pdflatex.exe' -halt-on-error -interaction=nonstopmode "$project\main.tex"
-} finally {
-    Pop-Location
-}
+python scripts/build_manuscripts.py
 ```
 
-Use `deltasieve` for the other project. Inspect the compilation log and render all
-PDF pages after layout changes. The present projects use IEEEtran conference
-format. Their current four-page length is a working-draft observation.
+The build produces `papers/sheetshrink/SheetShrink-ICDE2027.pdf` and
+`papers/deltasieve/DeltaSieve-ICDE2027.pdf`. These filenames identify the system
+and target conference for uploads. Use `--paper sheetshrink` or `--paper deltasieve`
+to build one manuscript. The builder also refreshes each existing `main.pdf`
+for links and viewers that use that path.
+
+TeX Live is discovered on PATH or under `C:/texlive`. Override its executable
+directory with `--tex-bin`. On this machine, all temporary and auxiliary files
+stay under `C:/texlive/builds/icde2027`. Elsewhere the default is the system
+temporary directory. Use `--build-root` to choose another build directory.
+The builder runs PDFLaTeX, BibTeX and two further PDFLaTeX passes, publishing
+PDFs after successful compilation. Commit and push the named PDFs and updated
+`main.pdf` copies with manuscript changes. Inspect the logs and rendered pages
+after layout changes.
 
 ## Author-review checklist
 

@@ -14,7 +14,7 @@ ROOT = Path(__file__).resolve().parents[2]
 PAPER = ROOT / "papers/sheetshrink"
 EVIDENCE = PAPER / "evidence/open-save-case-study"
 TOOLS = ["SheetShrink", "NXPowerLite", "XLStylesTool", "CheckPerformance", "Inquire"]
-NAMES = dict(zip(TOOLS, ["Sheet Shrink", "NXPowerLite", "XLStylesTool", "Check Performance", "Inquire"]))
+NAMES = dict(zip(TOOLS, ["SheetShrink", "NXPowerLite", "XLStylesTool", "Check Performance", "Inquire"]))
 NAMES["Original"] = "Original"
 COLORS = dict(zip(TOOLS + ["Original"], ["#0072B2", "#D55E00", "#009E73", "#E69F00", "#CC79A7", "#777777"]))
 MARKERS = dict(zip(TOOLS + ["Original"], ["D", "s", "^", "v", "P", "o"]))
@@ -61,24 +61,28 @@ def draw_payload(native, cases):
     save_figure(figure, "case-study-payload")
 
 
-def read_enron_resources():
-    path = PAPER / "evidence/enron-open-save-followup/trials.jsonl.gz"
+def read_library_resources(evidence_directory):
+    path = PAPER / "evidence" / evidence_directory / "trials.jsonl.gz"
     with gzip.open(path, "rt", encoding="utf-8") as stream:
         trials = [json.loads(line) for line in stream]
+    groups = sorted({(r["case_id"], r["library"], r["tool"]) for r in trials})
     summaries = []
-    for tool in ["Original"] + TOOLS:
-        selected = [r for r in trials if r["tool"] == tool]
+    for case_id, library, tool in groups:
+        if library not in {"openpyxl", "excel"}:
+            continue
+        selected = [r for r in trials if (r["case_id"], r["library"], r["tool"]) == (case_id, library, tool)]
         assert len(selected) == 3
         complete = [r for r in selected if r["status"] == "completed"]
-        times = [r["wall_seconds"] for r in complete]
-        peaks = [max(p["working_set_bytes"] for name, p in r["resources"]["sampled_phase_peaks"].items()
-                     if name in {"importing", "opening", "saving", "completed"}) / 2**20 for r in complete]
-        summaries.append({"case": "enron", "library": "openpyxl", "tool": tool,
+        times = [r["worker_state"]["open_seconds"] + r["worker_state"]["save_seconds"] for r in complete]
+        process_name = "python.exe" if library == "openpyxl" else "excel.exe"
+        peaks = [max(p["working_set_bytes"] for p in r["resources"]["observed_process_peaks"].values()
+                     if p["name"].lower() == process_name) / 2**20 for r in complete]
+        summaries.append({"case": case_id, "library": library, "tool": tool,
                           "completed": len(complete), "attempts": 3,
                           "statuses": [r["status"] for r in selected],
-                          "end_to_end_median_seconds": float(np.median(times)) if times else None,
-                          "wall_time_range_seconds": [min(times), max(times)] if times else None,
-                          "sampled_library_rss_max_mib": max(peaks) if peaks else None})
+                          "library_open_save_median_seconds": float(np.median(times)) if times else None,
+                          "library_open_save_range_seconds": [min(times), max(times)] if times else None,
+                          "sampled_worker_rss_max_mib": max(peaks) if peaks else None})
     return summaries
 
 
@@ -100,10 +104,10 @@ def draw_resources(resources):
                 stopped.append(NAMES[tool])
                 continue
             assert row["completed"] == row["attempts"] == 3
-            x = row["sampled_library_rss_max_mib"] / 1024
-            y = row["end_to_end_median_seconds"]
-            assert 0.04 <= x <= 4.5 and 0.6 <= y <= 180
-            axis.plot([x, x], row["wall_time_range_seconds"], color=COLORS[tool], linewidth=0.8)
+            x = row["sampled_worker_rss_max_mib"] / 1024
+            y = row["library_open_save_median_seconds"]
+            assert 0.04 <= x <= 4.5 and 0.5 <= y <= 180
+            axis.plot([x, x], row["library_open_save_range_seconds"], color=COLORS[tool], linewidth=0.8)
             axis.scatter(x, y, s=52 if tool == "Original" else 24,
                          facecolors="none" if tool == "Original" else COLORS[tool],
                          edgecolors=COLORS[tool], marker=MARKERS[tool],
@@ -115,7 +119,7 @@ def draw_resources(resources):
         axis.set_xscale("log")
         axis.set_yscale("log")
         axis.set_xlim(0.04, 4.5)
-        axis.set_ylim(0.6, 180)
+        axis.set_ylim(0.5, 180)
         axis.set_xticks([0.05, 0.25, 1, 4], ["0.05", "0.25", "1", "4"])
         axis.set_yticks([1, 10, 100], ["1", "10", "100"])
         axis.xaxis.set_minor_formatter(NullFormatter())
@@ -133,8 +137,8 @@ def draw_resources(resources):
                          markeredgecolor=COLORS[t], label=NAMES[t], markersize=5)
                for t in ["Original"] + TOOLS]
     axes[5].legend(handles=handles, loc="center left", frameon=False, fontsize=7)
-    figure.supxlabel("Peak sampled library working set (GiB)", fontsize=8)
-    figure.supylabel("Total elapsed time (s)", fontsize=8)
+    figure.supxlabel("Peak sampled library-process working set (GiB)", fontsize=8)
+    figure.supylabel("Library opening + saving time (s)", fontsize=8)
     figure.subplots_adjust(left=0.09, right=0.99, bottom=0.13, top=0.93, hspace=0.38, wspace=0.25)
     save_figure(figure, "case-study-resources")
 
@@ -156,7 +160,7 @@ def write_native_table(native):
                          + str(visual["different_dimensions_in_measured_regions"]) + r" \\")
         lines.append(r"\hline")
     lines += [r"\end{tabular}", r"\par\smallskip",
-              r"\begin{minipage}{\columnwidth}\footnotesize \textsuperscript{*}Normalized baseline and separately regenerated Sheet Shrink control. "
+              r"\begin{minipage}{\columnwidth}\footnotesize \textsuperscript{*}Normalized baseline and separately regenerated SheetShrink control. "
               r"Counts use exact RGBA differences in matched-origin common rectangles. Overlapping captures can repeat pixels. "
               r"Different plans and incomplete scopes preclude cross-tool preservation ranking. Pixel denominators and identities remain in the artifact.\end{minipage}",
               r"\end{table}"]
@@ -167,7 +171,9 @@ def main():
     plt.rcParams.update({"font.family": "DejaVu Sans", "font.size": 8, "pdf.fonttype": 42})
     native = read_json(EVIDENCE / "matched-native-summary.json")
     cases = read_json(EVIDENCE / "sizes.json")
-    resources = read_json(EVIDENCE / "resource-summary.json") + read_enron_resources()
+    resources = read_library_resources("bounded-open-save") + read_library_resources("enron-open-save-followup")
+    (EVIDENCE / "plotted-library-resources.json").write_text(
+        json.dumps(resources, indent=2) + "\n", encoding="utf-8")
     draw_payload(native, cases)
     draw_resources(resources)
     write_native_table(native)

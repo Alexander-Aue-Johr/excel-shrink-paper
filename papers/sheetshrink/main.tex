@@ -24,7 +24,7 @@
   \end{tikzpicture}%
 }
 
-\title{Sheet Shrink: Efficient Spreadsheet Cleanup}
+\title{SheetShrink: Efficient Spreadsheet Cleanup}
 \author{
 \IEEEauthorblockN{Alexander Aue-Johr}
 \IEEEauthorblockA{
@@ -46,7 +46,7 @@ ORCID 0009-0001-8683-3630}
 Spreadsheet packages can contain large populations of empty or redundant cell
 records that increase storage and ingestion costs. Cleanup must distinguish
 this structural redundancy from small formatting or dependency witnesses that
-preserve required workbook behavior. We present Sheet Shrink, a byte-oriented
+preserve required workbook behavior. We present SheetShrink, a byte-oriented
 OOXML cleanup system that rewrites stored XLSX packages before opening them in
 Excel. It combines workbook-context analysis, local rewrite decisions, compact
 formatting representatives, and bounded parallel execution. We define its

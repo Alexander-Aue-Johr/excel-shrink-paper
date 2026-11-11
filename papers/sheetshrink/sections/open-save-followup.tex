@@ -2,9 +2,9 @@
 The four displayed workbook/library combinations that reached the laptop's 4\,GiB
 commit ceiling were repeated on an AMD Ryzen 7 7800X3D host with sixteen
 logical processors and 102,066,212,864 OS-reported physical bytes. Each
-combination has three Original and three fresh Sheet Shrink pipeline attempts
+combination has three Original and three fresh SheetShrink pipeline attempts
 at both 4\,GiB and 24\,GiB aggregate process-tree commit limits, totaling 48 displayed
-attempts. The same frozen Sheet Shrink binary uses sixteen Rayon and sixteen
+attempts. The same frozen SheetShrink binary uses sixteen Rayon and sixteen
 writer workers with one active workbook. The controller maintains an 8\,GiB
 reserve for physical RAM and commit headroom, with a 900-second per-trial
 timeout. Python 3.12.14, openpyxl 3.1.5, pandas 3.0.1, R 4.6.2, readxl 1.6.0
@@ -45,7 +45,7 @@ host, six variants each received three openpyxl 3.1.5 round-trip attempts,
 with a 4\,GiB process-tree commit limit, an 8\,GiB physical-RAM and commit
 reserve and a 300-second timeout~\cite{enronopenmemory}.
 Original and XLStylesTool
-reached the memory limit in all three attempts. Fresh Sheet Shrink cleanup
+reached the memory limit in all three attempts. Fresh SheetShrink cleanup
 followed by the library round trip completed with a median process-creation-to-exit
 time of 3.021 seconds and a maximum job-commit peak of 891.4\,MiB.
 Prepared Check Performance, Inquire and NXPowerLite outputs completed their
@@ -53,12 +53,12 @@ library round trips with respective medians of 1.036, 1.054 and 1.101 seconds,
 and maximum job-commit peaks of approximately 535.6\,MiB.
 
 The external prepared-output endpoints omit their tools' preparation cost.
-The Sheet Shrink endpoint includes fresh cleanup, so these observations do
+The SheetShrink endpoint includes fresh cleanup, so these observations do
 not establish an end-to-end speed ranking among cleaners. Memory-limited
 attempts remain censored. Recorded commit peaks slightly exceed the configured
 4\,GiB boundary and are retained without clamping. Concurrent native
 comparisons and retained filesystem caches qualify this selected-case result.
-After the timed series, a separate fresh Sheet Shrink control matched all
+After the timed series, a separate fresh SheetShrink control matched all
 eighteen uncompressed member names, lengths and hashes of the retained native
 candidate. Its output has 384,724 compressed bytes and 2,581,673 uncompressed
 member bytes. This representative identity check links the control to the

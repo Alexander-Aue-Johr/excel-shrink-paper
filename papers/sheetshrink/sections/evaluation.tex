@@ -82,8 +82,8 @@ styles, geometry, conditional dependencies and objects. Mutations that Excel
 normalizes away are reported separately.
 
 \subsection{Performance and comparison subjects}
-We compared direct open--save trials with fresh six-worker Sheet Shrink cleanup
-followed by the same library. Across the two displayed laptop workbooks, all 33 Sheet Shrink
+We compared direct open--save trials with fresh six-worker SheetShrink cleanup
+followed by the same library. Across the two displayed laptop workbooks, all 33 SheetShrink
 trials completed under a 4\,GiB commit limit, compared with 21 original trials.
 Median elapsed time improved in all seven fully completed pairs. Migration
 with openpyxl took 111.3\,s directly and 9.7\,s including cleanup.
@@ -115,7 +115,7 @@ the representative restored pixel and geometry equality in the independent contr
 and all 350 regions selected by the targeted capture policy.
 
 \paragraph{Background definitions.}
-In a Destatis horticulture workbook, Sheet Shrink reduced column definitions from
+In a Destatis horticulture workbook, SheetShrink reduced column definitions from
 128,912 to 2,197. A corrected DeltaSieve background-envelope guard reduced the
 capture selection from 16,101 to 165 regions; all 165 resulting image pairs were
 pixel-identical.
@@ -131,7 +131,7 @@ equivalence.
 
 \subsection{Targeted visual outcomes on the Top49 selection}
 A version-matched audit of the 49 workbooks with the largest absolute
-Sheet Shrink reductions in each corpus retained 42 Destatis, 46 Data.gov,
+SheetShrink reductions in each corpus retained 42 Destatis, 46 Data.gov,
 and 46 Enron comparisons against the selected originals. Separately
 documented normalized baselines supplied five further Destatis and two
 further Enron observations. The remaining two, three, and one slots,

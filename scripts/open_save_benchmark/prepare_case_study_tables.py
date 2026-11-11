@@ -8,7 +8,7 @@ ROOT = Path(__file__).resolve().parents[2]
 PAPER = ROOT / "papers/sheetshrink"
 EVIDENCE = PAPER / "evidence/open-save-case-study"
 TOOLS = ["Original", "SheetShrink", "NXPowerLite", "XLStylesTool", "CheckPerformance", "Inquire"]
-NAMES = {"Original": "Original", "SheetShrink": "Sheet Shrink", "NXPowerLite": "NXPowerLite", "XLStylesTool": "XLStylesTool", "CheckPerformance": "Check Performance", "Inquire": "Inquire"}
+NAMES = {"Original": "Original", "SheetShrink": "SheetShrink", "NXPowerLite": "NXPowerLite", "XLStylesTool": "XLStylesTool", "CheckPerformance": "Check Performance", "Inquire": "Inquire"}
 CASES = {"wanderungen": "Destatis Migration", "finance": "Destatis Municipal Finance", "qt-rr": "Data.gov QT/RR", "enron": "Enron b2d0dfef"}
 LIBRARIES = {"openpyxl": "openpyxl", "pandas": "pandas to XLSX", "pandas-csv": "pandas to CSV", "excel": "Excel COM", "r-openxlsx": "R openxlsx", "r-readxl": "R readxl + writexl"}
 
@@ -111,7 +111,7 @@ def transformation_table(cases, native_rows):
             display = paired_bar(label, payload, original["uncompressed_bytes"], scale, width=4.4)
             lines.append(" & ".join([name, display, visual]) + r" \\")
     note = (
-        r"\textsuperscript{*}Sheet Shrink uses separately regenerated controls whose uncompressed members match the native candidates; "
+        r"\textsuperscript{*}SheetShrink uses separately regenerated controls whose uncompressed members match the native candidates; "
         "full per-trial member inventories of the timed pipelines were not retained. "
         "Wanderungen uses a normalized baseline. Counts compare exact RGBA values in common rectangles with matched origins; "
         "overlapping captures can count pixels repeatedly. Image-size differences remain separate from common-area pixel counts. "
@@ -158,7 +158,7 @@ def resource_tables(cases, records):
     (EVIDENCE / "resource-summary.json").write_text(json.dumps(summaries, indent=2) + "\n")
     caption = "Opening/saving observations on two hosts. Cells show median total seconds above maximum memory across three attempts. Host blocks specify commit caps and memory metrics. The timeout is 900 s."
     lines = table_start(caption, "lrrrrrr", label="tab:case-study-resources")
-    lines.append(r"Endpoint & Original & Sheet Shrink & NXPowerLite & XLStylesTool & \shortstack{Check\\Performance} & Inquire \\")
+    lines.append(r"Endpoint & Original & SheetShrink & NXPowerLite & XLStylesTool & \shortstack{Check\\Performance} & Inquire \\")
     lines.append(r"\multicolumn{7}{l}{\textbf{Ryzen 5 4500U laptop: 4 GiB commit cap; library working set (MiB)}} \\")
     for case in cases[:3]:
         if case["case_id"] == "finance":
@@ -190,7 +190,7 @@ def resource_tables(cases, records):
                     time_display += f" ({row['completed']}/{row['attempts']})"
                 values.append(r"\shortstack[r]{" + time_display + r"\\" + rss_display + "}")
             lines.append(" & ".join(values) + r" \\")
-    note = r"Sheet Shrink includes fresh cleanup through library exit. Other columns measure processing of prepared outputs, with their cleanup excluded. Completed cells have three successful attempts. M means all three attempts stopped at the memory limit, with reached memory retained below. Bars compare original (gray) and measured value (blue at or below, orange above) on a common linear scale per endpoint and metric, requiring completed originals. RSS covers library phases, with nominal 20 ms sampling. Pipeline working sets, OS job-commit peaks, cleanup/open/save phases, stopped elapsed times, CPU, ranges and all 288 receipts remain in the artifact. The larger-host block reports aggregate process-tree commit in GiB, including cleanup. Dashes indicate unmeasured conditions."
+    note = r"SheetShrink includes fresh cleanup through library exit. Other columns measure processing of prepared outputs, with their cleanup excluded. Completed cells have three successful attempts. M means all three attempts stopped at the memory limit, with reached memory retained below. Bars compare original (gray) and measured value (blue at or below, orange above) on a common linear scale per endpoint and metric, requiring completed originals. RSS covers library phases, with nominal 20 ms sampling. Pipeline working sets, OS job-commit peaks, cleanup/open/save phases, stopped elapsed times, CPU, ranges and all 288 receipts remain in the artifact. The larger-host block reports aggregate process-tree commit in GiB, including cleanup. Dashes indicate unmeasured conditions."
     lines.extend((EVIDENCE / "larger-host-resources.tex").read_text().splitlines())
     lines.extend(table_end(note))
     return "\n".join(lines) + "\n"

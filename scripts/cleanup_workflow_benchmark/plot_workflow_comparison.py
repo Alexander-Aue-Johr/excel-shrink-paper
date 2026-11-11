@@ -184,12 +184,12 @@ def draw_comparison(rows, output, outcomes=None):
     figure.text(0.02, 0.98, heading, va="top", fontsize=8)
     for name, (marker, color) in styles.items():
         axes[0].scatter([], [], color=color, marker=marker, label=name)
-    axes[0].scatter([], [], color="#0072B2", marker="o", label="Sheet Shrink")
+    axes[0].scatter([], [], color="#0072B2", marker="o", label="SheetShrink")
     figure.legend(*axes[0].get_legend_handles_labels(), frameon=False, loc="upper left",
                   bbox_to_anchor=(0.10, 0.93), ncol=3, fontsize=7)
     figure.text(0.02, 0.025, "Absolute times show workbook medians and quartiles. Ratio dots represent paired workbooks.\n"
-                "Black diamonds/lines: median/IQR. Inquire dots: filled NVMe, hollow USB, x unrecorded; Sheet Shrink on NVMe.\n"
-                "One primary comparator attempt. Sheet Shrink: Lenovo 9 repetitions; HP 7–11. Visual validation separate.", fontsize=6.8)
+                "Black diamonds/lines: median/IQR. Inquire dots: filled NVMe, hollow USB, x unrecorded; SheetShrink on NVMe.\n"
+                "One primary comparator attempt. SheetShrink: Lenovo 9 repetitions; HP 7–11. Visual validation separate.", fontsize=6.8)
     if outcomes:
         figure.text(0.02, 0.13,
                     "Status: plotted / other eligible / failed / payload excluded / incomplete receipt / partial.\n"
@@ -264,9 +264,9 @@ def draw_single_column(rows, output):
     axes[0].set_yticks(positions, labels)
     axes[1].set_yticks(positions, [""] * len(positions))
     axes[0].set_xlabel("Workflow time (s)", fontsize=7)
-    axes[1].set_xlabel("Tool / Sheet Shrink", fontsize=7)
+    axes[1].set_xlabel("Tool / SheetShrink", fontsize=7)
     axes[1].axvline(1, color="#999999", linestyle="--", linewidth=0.7)
-    axes[0].scatter([], [], marker="o", color="#0072B2", s=15, label="Sheet Shrink")
+    axes[0].scatter([], [], marker="o", color="#0072B2", s=15, label="SheetShrink")
     figure.legend(*axes[0].get_legend_handles_labels(), loc="upper right",
                   bbox_to_anchor=(1, 1), ncol=2, frameon=False, fontsize=6.5)
     figure.subplots_adjust(left=0.34, right=0.99, top=0.91, bottom=0.10, wspace=0.28)
@@ -288,7 +288,7 @@ def format_axes(axes, labels):
     axes[0].set_yticks(range(len(labels)), labels)
     axes[1].set_yticks(range(len(labels)), [""] * len(labels))
     axes[0].set_xlabel("Observed cleanup workflow time (s)")
-    axes[1].set_xlabel("Tool / Sheet Shrink time ratio")
+    axes[1].set_xlabel("Tool / SheetShrink time ratio")
     axes[1].axvline(1, color="#999999", linestyle="--", linewidth=0.8)
 
 

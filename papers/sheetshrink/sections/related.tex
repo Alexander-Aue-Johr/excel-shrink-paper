@@ -8,7 +8,7 @@ O'Beirne's published analysis of Excel 2013 Inquire discusses this command and
 criticizes its lack of information about planned and completed
 removals~\cite{obeirne2013inquire}.
 
-Package-level cleanup also predates Sheet Shrink. XLStylesTool's developer
+Package-level cleanup also predates SheetShrink. XLStylesTool's developer
 describes an Open-XML-based cleaner for excessive and corrupted styles that
 operates independently of Excel's object model~\cite{xlstylestool}.
 NXPowerLite Desktop 10 lists excess XLSX cell-format cleanup among its
@@ -16,7 +16,7 @@ features~\cite{nxpowerlite10}. Its engine description discusses formatted blank
 cells as a source of large worksheet parts~\cite{nxengine}. Their available
 descriptions do not establish the
 guarded removal rules, compact row-font witnesses or native preservation
-outcomes examined here. Sheet Shrink's positioning therefore includes its
+outcomes examined here. SheetShrink's positioning therefore includes its
 effect-aware rules, retained
 representatives and measured costs alongside its execution before native loading.
 
@@ -27,7 +27,7 @@ benchmark Excel, LibreOffice Calc and Google Sheets on spreadsheet computations
 and examine indexing, data layout, incremental evaluation and shared
 computation~\cite{rahman2020benchmarking}. Their workloads assess system
 responsiveness and
-computation, while Sheet Shrink measures removable persisted representation and
+computation, while SheetShrink measures removable persisted representation and
 the cost of preparing workbooks for subsequent use.
 
 DataSpread's storage engine integrates spreadsheet presentation with database
@@ -36,7 +36,7 @@ asynchronous formula computation to retain interactivity during
 updates~\cite{bendre2019antifreeze}. Hillview distributes exploration of large
 datasets and uses compact visualization sketches~\cite{budiu2019hillview}.
 TACO exploits regular formula-reference patterns to compact dependency graphs
-and query them directly~\cite{tang2023taco}. Sheet Shrink transforms
+and query them directly~\cite{tang2023taco}. SheetShrink transforms
 an existing XLSX package into another editable workbook under a stated
 preservation contract.
 
@@ -48,7 +48,7 @@ During baseline
 ingestion, we encountered an empty-cell parsing defect in SheetReader and
 submitted a correction with regression fixtures~\cite{sheetreaderparserfix}.
 
-SheetReader loads worksheet data into analytical representations. Sheet Shrink
+SheetReader loads worksheet data into analytical representations. SheetShrink
 rewrites an editable workbook whose required contents, dependencies and
 presentation must survive cleanup. Its byte-oriented scanner therefore combines
 XML recognition with preservation-specific guards. Corpus-scale processing and
@@ -57,7 +57,7 @@ domain, while additional serializations and semantic cases can remain untested.
 
 \subsection{Spreadsheet refactoring and validation}
 Hermans et al. detect formula smells and suggest refactorings to improve
-spreadsheet maintainability~\cite{formulasmells}. Sheet Shrink's removal rules
+spreadsheet maintainability~\cite{formulasmells}. SheetShrink's removal rules
 additionally
 account for formatting inheritance and native layout effects of stored cells.
 

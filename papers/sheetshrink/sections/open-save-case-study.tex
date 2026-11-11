@@ -2,27 +2,27 @@ Figures~\ref{fig:case-study-payload} and~\ref{fig:case-study-resources}
 show payload reduction and subsequent processing for selected cases. Full
 library matrices, absolute payloads and per-trial phases remain in the artifact.
 The laptop experiment retains 288 attempts; Enron adds eighteen attempts on the
-larger-memory host. Sheet Shrink payloads use separate controls whose member
+larger-memory host. SheetShrink payloads use separate controls whose member
 manifests match the native candidates; timed fresh outputs lack full per-trial
 member inventories.
 
 Table~\ref{tab:case-study-native} retains the measured native pixel observations.
 Wanderungen uses a normalized reference. Its other retained resource-study
 comparisons failed or reached the memory limit. QT/RR reports selected zero
-regions except Inquire, for which no completed report is available. Enron Sheet
-Shrink has no retained image pairs for its 2,824 recorded regions, and XLStylesTool
+regions except Inquire, for which no completed report is available. Enron SheetShrink has no retained image pairs for its 2,824 recorded regions, and XLStylesTool
 selected zero regions. These missing scopes provide no pixel-equality observation.
 
 Figure~\ref{fig:case-study-resources} reports selected open--save endpoints
-through total elapsed time and library working-set peaks. The artifact separately retains pipeline working sets and job-commit
+through library opening-plus-saving time and library-process working-set peaks. The artifact separately retains pipeline working sets and job-commit
 peaks. Each plotted time is a median of completed attempts,
 with memory maxima over all three attempts. Stopped attempts retain their
-elapsed time and memory boundary. Existing prepared-output
-variants measure subsequent library processing. Fresh Sheet Shrink rows include
-cleanup within the measured pipeline. The common host is a Ryzen 5 4500U laptop
+elapsed time and memory boundary. Cleanup time is excluded uniformly from the figure. Fresh SheetShrink outputs
+and prepared external-tool outputs are processed by the same library endpoint.
+Pipeline coordinators are excluded from the plotted process-memory peaks.
+Fresh cleanup-plus-processing totals remain separately available in the artifact. The common host is a Ryzen 5 4500U laptop
 with six logical processors, 8 GiB installed RAM and Windows 11. Each job has a
 4 GiB commit cap and a 900 s timeout, with the free-RAM reserve disabled.
-The Sheet Shrink executable is frozen at revision \texttt{765c480} and uses six
+The SheetShrink executable is frozen at revision \texttt{765c480} and uses six
 Rayon and six writer workers. Native visual observations use the retained
 paired-rebuild protocol.
 

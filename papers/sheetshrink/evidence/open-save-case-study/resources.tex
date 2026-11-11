@@ -7,7 +7,7 @@
 \label{tab:case-study-resources}
 \begin{tabular}{lrrrrrr}
 \hline
-Endpoint & Original & Sheet Shrink & NXPowerLite & XLStylesTool & \shortstack{Check\\Performance} & Inquire \\
+Endpoint & Original & SheetShrink & NXPowerLite & XLStylesTool & \shortstack{Check\\Performance} & Inquire \\
 \multicolumn{7}{l}{\textbf{Ryzen 5 4500U laptop: 4 GiB commit cap; library working set (MiB)}} \\
 \hline
 \multicolumn{7}{l}{\textbf{Destatis Migration}} \\
@@ -36,5 +36,5 @@ openpyxl & \shortstack[r]{279.638\\12.56} & \shortstack[r]{11.519\\3.66} & -- & 
 \hline
 \end{tabular}
 \par\smallskip
-\begin{minipage}{0.98\textwidth}\footnotesize Sheet Shrink includes fresh cleanup through library exit. Other columns measure processing of prepared outputs, with their cleanup excluded. Completed cells have three successful attempts. M means all three attempts stopped at the memory limit, with reached memory retained below. Bars compare original (gray) and measured value (blue at or below, orange above) on a common linear scale per endpoint and metric, requiring completed originals. RSS covers library phases, with nominal 20 ms sampling. Pipeline working sets, OS job-commit peaks, cleanup/open/save phases, stopped elapsed times, CPU, ranges and all 288 receipts remain in the artifact. The larger-host block reports aggregate process-tree commit in GiB, including cleanup. Dashes indicate unmeasured conditions.\end{minipage}
+\begin{minipage}{0.98\textwidth}\footnotesize SheetShrink includes fresh cleanup through library exit. Other columns measure processing of prepared outputs, with their cleanup excluded. Completed cells have three successful attempts. M means all three attempts stopped at the memory limit, with reached memory retained below. Bars compare original (gray) and measured value (blue at or below, orange above) on a common linear scale per endpoint and metric, requiring completed originals. RSS covers library phases, with nominal 20 ms sampling. Pipeline working sets, OS job-commit peaks, cleanup/open/save phases, stopped elapsed times, CPU, ranges and all 288 receipts remain in the artifact. The larger-host block reports aggregate process-tree commit in GiB, including cleanup. Dashes indicate unmeasured conditions.\end{minipage}
 \end{table*}

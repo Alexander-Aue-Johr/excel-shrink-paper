@@ -1,7 +1,7 @@
 \begin{figure*}[t]
 \centering
 \begin{tabular}{@{}c@{\hspace{0.015\textwidth}}c@{\hspace{0.015\textwidth}}c@{}}
-Original & Sheet Shrink Default & Check Performance \\
+Original & SheetShrink Default & Check Performance \\
 \includegraphics[width=0.323\textwidth]{figures/xml-methods/fill-original-code.pdf} &
 \includegraphics[width=0.323\textwidth]{figures/xml-methods/fill-sheetshrink-code.pdf} &
 \includegraphics[width=0.323\textwidth]{figures/xml-methods/fill-check-performance-code.pdf} \\[2pt]
@@ -11,7 +11,7 @@ Original & Sheet Shrink Default & Check Performance \\
 \end{tabular}
 \caption{Empty cells can preserve a visible fill. In Enron case
 \texttt{ccde4294bab9094d7d73}, an explicit gray B31 cell masks a pink column
-format (column XF 51, cell XF 98). The retained Original and Sheet Shrink Default vector exports match in
+format (column XF 51, cell XF 98). The retained Original and SheetShrink Default vector exports match in
 \texttt{PL-Consolidated!A25:H37} after full rebuild of the retained rebuild/Save controls. Check Performance
 removes the mask and exposes pink. The source excerpt is shortened.
 The print-renderer equality observation covers this region.}

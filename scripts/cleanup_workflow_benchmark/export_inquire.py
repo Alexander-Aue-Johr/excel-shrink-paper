@@ -1,4 +1,4 @@
-"""Join the frozen Inquire cohort to verified same-host Sheet Shrink trials."""
+"""Join the frozen Inquire cohort to verified same-host SheetShrink trials."""
 import csv
 import gzip
 import json

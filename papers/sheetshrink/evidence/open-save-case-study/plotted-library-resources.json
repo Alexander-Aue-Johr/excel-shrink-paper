@@ -1,0 +1,737 @@
+[
+  {
+    "case": "finance",
+    "library": "excel",
+    "tool": "CheckPerformance",
+    "completed": 3,
+    "attempts": 3,
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ],
+    "library_open_save_median_seconds": 2.1222651000007318,
+    "library_open_save_range_seconds": [
+      2.117868200000885,
+      2.1630131999972946
+    ],
+    "sampled_worker_rss_max_mib": 220.015625
+  },
+  {
+    "case": "finance",
+    "library": "excel",
+    "tool": "Inquire",
+    "completed": 3,
+    "attempts": 3,
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ],
+    "library_open_save_median_seconds": 34.613695999999436,
+    "library_open_save_range_seconds": [
+      32.973193199999514,
+      34.681604100000186
+    ],
+    "sampled_worker_rss_max_mib": 585.0390625
+  },
+  {
+    "case": "finance",
+    "library": "excel",
+    "tool": "NXPowerLite",
+    "completed": 3,
+    "attempts": 3,
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ],
+    "library_open_save_median_seconds": 2.6984183000004123,
+    "library_open_save_range_seconds": [
+      2.696471000001111,
+      2.7053461999994397
+    ],
+    "sampled_worker_rss_max_mib": 356.94140625
+  },
+  {
+    "case": "finance",
+    "library": "excel",
+    "tool": "Original",
+    "completed": 3,
+    "attempts": 3,
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ],
+    "library_open_save_median_seconds": 39.756986999999754,
+    "library_open_save_range_seconds": [
+      39.588877900000625,
+      40.04654799999844
+    ],
+    "sampled_worker_rss_max_mib": 968.3203125
+  },
+  {
+    "case": "finance",
+    "library": "excel",
+    "tool": "SheetShrink",
+    "completed": 3,
+    "attempts": 3,
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ],
+    "library_open_save_median_seconds": 3.725944100000106,
+    "library_open_save_range_seconds": [
+      3.637487100000726,
+      3.7471230000001015
+    ],
+    "sampled_worker_rss_max_mib": 361.71875
+  },
+  {
+    "case": "finance",
+    "library": "excel",
+    "tool": "XLStylesTool",
+    "completed": 3,
+    "attempts": 3,
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ],
+    "library_open_save_median_seconds": 39.89614840000013,
+    "library_open_save_range_seconds": [
+      39.60516970000026,
+      39.925664000000324
+    ],
+    "sampled_worker_rss_max_mib": 968.25390625
+  },
+  {
+    "case": "finance",
+    "library": "openpyxl",
+    "tool": "CheckPerformance",
+    "completed": 3,
+    "attempts": 3,
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ],
+    "library_open_save_median_seconds": 10.365827599999648,
+    "library_open_save_range_seconds": [
+      10.238218700000289,
+      10.400327900000775
+    ],
+    "sampled_worker_rss_max_mib": 220.37109375
+  },
+  {
+    "case": "finance",
+    "library": "openpyxl",
+    "tool": "Inquire",
+    "completed": 0,
+    "attempts": 3,
+    "statuses": [
+      "memory_limit",
+      "memory_limit",
+      "memory_limit"
+    ],
+    "library_open_save_median_seconds": null,
+    "library_open_save_range_seconds": null,
+    "sampled_worker_rss_max_mib": null
+  },
+  {
+    "case": "finance",
+    "library": "openpyxl",
+    "tool": "NXPowerLite",
+    "completed": 3,
+    "attempts": 3,
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ],
+    "library_open_save_median_seconds": 10.552329800000734,
+    "library_open_save_range_seconds": [
+      10.429228099999818,
+      10.630727799999477
+    ],
+    "sampled_worker_rss_max_mib": 220.40234375
+  },
+  {
+    "case": "finance",
+    "library": "openpyxl",
+    "tool": "Original",
+    "completed": 0,
+    "attempts": 3,
+    "statuses": [
+      "memory_limit",
+      "memory_limit",
+      "memory_limit"
+    ],
+    "library_open_save_median_seconds": null,
+    "library_open_save_range_seconds": null,
+    "sampled_worker_rss_max_mib": null
+  },
+  {
+    "case": "finance",
+    "library": "openpyxl",
+    "tool": "SheetShrink",
+    "completed": 3,
+    "attempts": 3,
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ],
+    "library_open_save_median_seconds": 17.025924999999916,
+    "library_open_save_range_seconds": [
+      16.98391879999872,
+      17.19640410000011
+    ],
+    "sampled_worker_rss_max_mib": 426.3046875
+  },
+  {
+    "case": "finance",
+    "library": "openpyxl",
+    "tool": "XLStylesTool",
+    "completed": 0,
+    "attempts": 3,
+    "statuses": [
+      "memory_limit",
+      "memory_limit",
+      "memory_limit"
+    ],
+    "library_open_save_median_seconds": null,
+    "library_open_save_range_seconds": null,
+    "sampled_worker_rss_max_mib": null
+  },
+  {
+    "case": "qt-rr",
+    "library": "excel",
+    "tool": "CheckPerformance",
+    "completed": 3,
+    "attempts": 3,
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ],
+    "library_open_save_median_seconds": 2.169221500000276,
+    "library_open_save_range_seconds": [
+      2.1495994999995673,
+      2.1710373000005347
+    ],
+    "sampled_worker_rss_max_mib": 214.66015625
+  },
+  {
+    "case": "qt-rr",
+    "library": "excel",
+    "tool": "Inquire",
+    "completed": 3,
+    "attempts": 3,
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ],
+    "library_open_save_median_seconds": 2.248681500001112,
+    "library_open_save_range_seconds": [
+      2.202002399999401,
+      2.2931421000002956
+    ],
+    "sampled_worker_rss_max_mib": 215.26953125
+  },
+  {
+    "case": "qt-rr",
+    "library": "excel",
+    "tool": "NXPowerLite",
+    "completed": 3,
+    "attempts": 3,
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ],
+    "library_open_save_median_seconds": 2.2431945000007545,
+    "library_open_save_range_seconds": [
+      2.235029399999803,
+      2.2585791000001336
+    ],
+    "sampled_worker_rss_max_mib": 221.84765625
+  },
+  {
+    "case": "qt-rr",
+    "library": "excel",
+    "tool": "Original",
+    "completed": 3,
+    "attempts": 3,
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ],
+    "library_open_save_median_seconds": 37.01640469999984,
+    "library_open_save_range_seconds": [
+      36.837762700000894,
+      37.08909760000006
+    ],
+    "sampled_worker_rss_max_mib": 898.1796875
+  },
+  {
+    "case": "qt-rr",
+    "library": "excel",
+    "tool": "SheetShrink",
+    "completed": 3,
+    "attempts": 3,
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ],
+    "library_open_save_median_seconds": 2.3137024999996356,
+    "library_open_save_range_seconds": [
+      2.246327900000324,
+      2.3282671000006303
+    ],
+    "sampled_worker_rss_max_mib": 221.79296875
+  },
+  {
+    "case": "qt-rr",
+    "library": "excel",
+    "tool": "XLStylesTool",
+    "completed": 3,
+    "attempts": 3,
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ],
+    "library_open_save_median_seconds": 36.54858179999974,
+    "library_open_save_range_seconds": [
+      36.45248050000009,
+      37.253033900000446
+    ],
+    "sampled_worker_rss_max_mib": 899.33984375
+  },
+  {
+    "case": "qt-rr",
+    "library": "openpyxl",
+    "tool": "CheckPerformance",
+    "completed": 3,
+    "attempts": 3,
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ],
+    "library_open_save_median_seconds": 10.814983299999767,
+    "library_open_save_range_seconds": [
+      10.613322800001697,
+      10.870795799999541
+    ],
+    "sampled_worker_rss_max_mib": 291.96484375
+  },
+  {
+    "case": "qt-rr",
+    "library": "openpyxl",
+    "tool": "Inquire",
+    "completed": 3,
+    "attempts": 3,
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ],
+    "library_open_save_median_seconds": 11.13878339999792,
+    "library_open_save_range_seconds": [
+      11.04513020000013,
+      11.139142200000606
+    ],
+    "sampled_worker_rss_max_mib": 295.73046875
+  },
+  {
+    "case": "qt-rr",
+    "library": "openpyxl",
+    "tool": "NXPowerLite",
+    "completed": 3,
+    "attempts": 3,
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ],
+    "library_open_save_median_seconds": 11.033535599999595,
+    "library_open_save_range_seconds": [
+      11.02143739999974,
+      11.129320000001826
+    ],
+    "sampled_worker_rss_max_mib": 292.4140625
+  },
+  {
+    "case": "qt-rr",
+    "library": "openpyxl",
+    "tool": "Original",
+    "completed": 0,
+    "attempts": 3,
+    "statuses": [
+      "memory_limit",
+      "memory_limit",
+      "memory_limit"
+    ],
+    "library_open_save_median_seconds": null,
+    "library_open_save_range_seconds": null,
+    "sampled_worker_rss_max_mib": null
+  },
+  {
+    "case": "qt-rr",
+    "library": "openpyxl",
+    "tool": "SheetShrink",
+    "completed": 3,
+    "attempts": 3,
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ],
+    "library_open_save_median_seconds": 11.020977099999072,
+    "library_open_save_range_seconds": [
+      11.008886700001312,
+      11.024981299999126
+    ],
+    "sampled_worker_rss_max_mib": 292.125
+  },
+  {
+    "case": "qt-rr",
+    "library": "openpyxl",
+    "tool": "XLStylesTool",
+    "completed": 0,
+    "attempts": 3,
+    "statuses": [
+      "memory_limit",
+      "memory_limit",
+      "memory_limit"
+    ],
+    "library_open_save_median_seconds": null,
+    "library_open_save_range_seconds": null,
+    "sampled_worker_rss_max_mib": null
+  },
+  {
+    "case": "wanderungen",
+    "library": "excel",
+    "tool": "CheckPerformance",
+    "completed": 3,
+    "attempts": 3,
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ],
+    "library_open_save_median_seconds": 2.723805099999481,
+    "library_open_save_range_seconds": [
+      2.327184799999941,
+      2.736100800000713
+    ],
+    "sampled_worker_rss_max_mib": 227.20703125
+  },
+  {
+    "case": "wanderungen",
+    "library": "excel",
+    "tool": "Inquire",
+    "completed": 3,
+    "attempts": 3,
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ],
+    "library_open_save_median_seconds": 7.41638889999922,
+    "library_open_save_range_seconds": [
+      7.242285199999969,
+      7.464814500000557
+    ],
+    "sampled_worker_rss_max_mib": 293.20703125
+  },
+  {
+    "case": "wanderungen",
+    "library": "excel",
+    "tool": "NXPowerLite",
+    "completed": 3,
+    "attempts": 3,
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ],
+    "library_open_save_median_seconds": 15.49831710000035,
+    "library_open_save_range_seconds": [
+      15.227139099999476,
+      15.538288300000204
+    ],
+    "sampled_worker_rss_max_mib": 377.0546875
+  },
+  {
+    "case": "wanderungen",
+    "library": "excel",
+    "tool": "Original",
+    "completed": 3,
+    "attempts": 3,
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ],
+    "library_open_save_median_seconds": 17.776297600000362,
+    "library_open_save_range_seconds": [
+      17.684841000000233,
+      18.30621149999979
+    ],
+    "sampled_worker_rss_max_mib": 397.80859375
+  },
+  {
+    "case": "wanderungen",
+    "library": "excel",
+    "tool": "SheetShrink",
+    "completed": 3,
+    "attempts": 3,
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ],
+    "library_open_save_median_seconds": 6.109674399999676,
+    "library_open_save_range_seconds": [
+      6.096625899997889,
+      6.114438099999461
+    ],
+    "sampled_worker_rss_max_mib": 258.8046875
+  },
+  {
+    "case": "wanderungen",
+    "library": "excel",
+    "tool": "XLStylesTool",
+    "completed": 3,
+    "attempts": 3,
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ],
+    "library_open_save_median_seconds": 17.564510599999267,
+    "library_open_save_range_seconds": [
+      17.53777910000008,
+      18.193101300000308
+    ],
+    "sampled_worker_rss_max_mib": 396.68359375
+  },
+  {
+    "case": "wanderungen",
+    "library": "openpyxl",
+    "tool": "CheckPerformance",
+    "completed": 3,
+    "attempts": 3,
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ],
+    "library_open_save_median_seconds": 7.951945799999521,
+    "library_open_save_range_seconds": [
+      7.777232399999775,
+      7.983602400001473
+    ],
+    "sampled_worker_rss_max_mib": 228.65234375
+  },
+  {
+    "case": "wanderungen",
+    "library": "openpyxl",
+    "tool": "Inquire",
+    "completed": 3,
+    "attempts": 3,
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ],
+    "library_open_save_median_seconds": 52.2007506000009,
+    "library_open_save_range_seconds": [
+      51.954568300000574,
+      52.60779240000102
+    ],
+    "sampled_worker_rss_max_mib": 1523.3359375
+  },
+  {
+    "case": "wanderungen",
+    "library": "openpyxl",
+    "tool": "NXPowerLite",
+    "completed": 3,
+    "attempts": 3,
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ],
+    "library_open_save_median_seconds": 80.74027709999973,
+    "library_open_save_range_seconds": [
+      80.15370210000037,
+      80.75767539999924
+    ],
+    "sampled_worker_rss_max_mib": 1989.37890625
+  },
+  {
+    "case": "wanderungen",
+    "library": "openpyxl",
+    "tool": "Original",
+    "completed": 3,
+    "attempts": 3,
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ],
+    "library_open_save_median_seconds": 107.07498569999916,
+    "library_open_save_range_seconds": [
+      106.87432019999983,
+      107.46110500000032
+    ],
+    "sampled_worker_rss_max_mib": 2692.96484375
+  },
+  {
+    "case": "wanderungen",
+    "library": "openpyxl",
+    "tool": "SheetShrink",
+    "completed": 3,
+    "attempts": 3,
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ],
+    "library_open_save_median_seconds": 7.178217399998175,
+    "library_open_save_range_seconds": [
+      7.081866299999547,
+      7.241202799999883
+    ],
+    "sampled_worker_rss_max_mib": 224.625
+  },
+  {
+    "case": "wanderungen",
+    "library": "openpyxl",
+    "tool": "XLStylesTool",
+    "completed": 3,
+    "attempts": 3,
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ],
+    "library_open_save_median_seconds": 106.74205320000056,
+    "library_open_save_range_seconds": [
+      106.29726689999961,
+      106.8443873999986
+    ],
+    "sampled_worker_rss_max_mib": 2693.02734375
+  },
+  {
+    "case": "enron",
+    "library": "openpyxl",
+    "tool": "CheckPerformance",
+    "completed": 3,
+    "attempts": 3,
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ],
+    "library_open_save_median_seconds": 0.661910100003297,
+    "library_open_save_range_seconds": [
+      0.6501959000015631,
+      0.6774003000027733
+    ],
+    "sampled_worker_rss_max_mib": 65.140625
+  },
+  {
+    "case": "enron",
+    "library": "openpyxl",
+    "tool": "Inquire",
+    "completed": 3,
+    "attempts": 3,
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ],
+    "library_open_save_median_seconds": 0.6574666000014986,
+    "library_open_save_range_seconds": [
+      0.6471403000032296,
+      0.7190398999955505
+    ],
+    "sampled_worker_rss_max_mib": 65.171875
+  },
+  {
+    "case": "enron",
+    "library": "openpyxl",
+    "tool": "NXPowerLite",
+    "completed": 3,
+    "attempts": 3,
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ],
+    "library_open_save_median_seconds": 0.701404100000218,
+    "library_open_save_range_seconds": [
+      0.6639819000047282,
+      0.9621340000012424
+    ],
+    "sampled_worker_rss_max_mib": 65.09765625
+  },
+  {
+    "case": "enron",
+    "library": "openpyxl",
+    "tool": "Original",
+    "completed": 0,
+    "attempts": 3,
+    "statuses": [
+      "memory_limit",
+      "memory_limit",
+      "memory_limit"
+    ],
+    "library_open_save_median_seconds": null,
+    "library_open_save_range_seconds": null,
+    "sampled_worker_rss_max_mib": null
+  },
+  {
+    "case": "enron",
+    "library": "openpyxl",
+    "tool": "SheetShrink",
+    "completed": 3,
+    "attempts": 3,
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ],
+    "library_open_save_median_seconds": 0.6700792999981786,
+    "library_open_save_range_seconds": [
+      0.6450259000048391,
+      0.6772848000036902
+    ],
+    "sampled_worker_rss_max_mib": 65.74609375
+  },
+  {
+    "case": "enron",
+    "library": "openpyxl",
+    "tool": "XLStylesTool",
+    "completed": 0,
+    "attempts": 3,
+    "statuses": [
+      "memory_limit",
+      "memory_limit",
+      "memory_limit"
+    ],
+    "library_open_save_median_seconds": null,
+    "library_open_save_range_seconds": null,
+    "sampled_worker_rss_max_mib": null
+  }
+]
