@@ -132,9 +132,10 @@ overrides and geometry needed for borders.
 
 \subsection{Hidden content and the Wanderungen case}
 \label{sec:wanderungen}
-Ordinary hidden nonempty tables remain intact. The separate constant-tail policy
-admits only a dense horizontal suffix of at least 4,096 identical signed integers,
-hidden and ending at XFD, subject to cell-level layout and dependency guards.
+SheetShrink uses a conservative heuristic to remove certain hidden numeric tails.
+A candidate must contain at least 4,096 identical integers and extend to XFD.
+This restriction targets large repeated tails such as those in Wanderungen.
+Candidates must also pass cell-level layout and dependency checks.
 Gaps, formulas, text, differing values and unsupported numeric forms reject the
 band. Source cells contribute before style cleanup. The common zero path compares
 value bytes directly, while one admitted row span replaces per-cell entries in
