@@ -62,6 +62,15 @@ with subsequent use of the output and separately observes native preservation.
 The two systems address complementary sources of ingestion cost, namely the
 reader's processing strategy and the representation supplied to it.
 
+SIMD-aware parsing provides a methodological connection to simdjson.
+Langdale and Lemire use SIMD operations for high-throughput JSON
+parsing~\cite{simdjson}. SheetShrink applies SIMD-assisted library searches to
+XML byte buffers, combined with application-specific state machines and
+preservation rules. The shared principle is accelerating byte classification
+and search while retaining the format's recognition obligations. The concrete
+search implementation in SheetShrink is supplied by \texttt{memchr}, whose
+runtime dispatch and reusable searchers are described in our method~\cite{memchr281}.
+
 \subsection{Spreadsheet refactoring and validation}
 Hermans et al. detect formula smells and suggest refactorings to improve
 spreadsheet maintainability~\cite{formulasmells}. Their work connects structural

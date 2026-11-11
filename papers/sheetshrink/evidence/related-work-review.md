@@ -43,3 +43,21 @@ compact retained witnesses, execution cost and observed preservation outcomes.
 
 The literature review adds contextual evidence. Performance and preservation
 results for SheetShrink remain grounded in the separately retained experiments.
+
+## SIMD implementation and methodological connection
+
+The source inventory covers local revision 765c480 and fetched Origin revision
+e738ca3. Core source files, manifests and Cargo.lock agree between these revisions.
+Cargo.lock pins memchr 2.8.1, with the default std feature enabled. xml.rs caches
+eight memmem::Finder instances through OnceLock. Rows and cells use this helper,
+with direct calls in conditional_layout.rs and streaming.rs. The dependency's
+x86-64 source supplies AVX2 and SSE2 dispatch, with pattern/input-dependent
+substring strategies. Ordinary byte loops remain in attribute and delimiter
+readers. This inspection establishes available implementation paths. The fraction
+of end-to-end runtime attributable to SIMD requires a controlled ablation.
+
+The simdjson reference is restored as a methodological connection to SIMD-aware
+parsing. The Method identifies memchr as the actual search implementation.
+The SIMD ablation request in the private SSH handover asks Gotham for matched
+builds, verified dispatch control, repeated paired timings, resource measurements,
+output equivalence and integration of completed results into Evaluation.
