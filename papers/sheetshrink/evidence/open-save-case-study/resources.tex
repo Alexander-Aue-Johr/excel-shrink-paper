@@ -3,11 +3,12 @@
 \footnotesize
 \setlength{\tabcolsep}{2.5pt}
 \renewcommand{\arraystretch}{1.08}
-\caption{Opening/saving summary on the Ryzen 5 4500U laptop with 8 GiB RAM. Each cell shows median total seconds above maximum sampled library working set in MiB. Three attempts per condition, 4 GiB job-commit cap, 900 s timeout.}
+\caption{Opening/saving observations on two hosts. Cells show median total seconds above maximum memory across three attempts. Host blocks specify commit caps and memory metrics. The timeout is 900 s.}
 \label{tab:case-study-resources}
 \begin{tabular}{lrrrrrr}
 \hline
 Endpoint & Original & Sheet Shrink & NXPowerLite & XLStylesTool & \shortstack{Check\\Performance} & Inquire \\
+\multicolumn{7}{l}{\textbf{Ryzen 5 4500U laptop: 4 GiB commit cap; library working set (MiB)}} \\
 \hline
 \multicolumn{7}{l}{\textbf{Destatis Migration}} \\
 openpyxl & \shortstack[r]{\CasePairBars[2.2]{111.30}{1.10000}{1.10000}{casebarblue}\\\CasePairBars[2.2]{2700}{1.09997}{1.09997}{casebarblue}} & \shortstack[r]{\CasePairBars[2.2]{9.67}{1.10000}{0.09555}{casebarblue}\\\CasePairBars[2.2]{250}{1.09997}{0.10194}{casebarblue}} & \shortstack[r]{\CasePairBars[2.2]{83.58}{1.10000}{0.82602}{casebarblue}\\\CasePairBars[2.2]{1996}{1.09997}{0.81334}{casebarblue}} & \shortstack[r]{\CasePairBars[2.2]{111.13}{1.10000}{1.09829}{casebarblue}\\\CasePairBars[2.2]{2700}{1.09997}{1.10000}{casebarorange}} & \shortstack[r]{\CasePairBars[2.2]{9.11}{1.10000}{0.09002}{casebarblue}\\\CasePairBars[2.2]{236}{1.09997}{0.09603}{casebarblue}} & \shortstack[r]{\CasePairBars[2.2]{54.96}{1.10000}{0.54318}{casebarblue}\\\CasePairBars[2.2]{1530}{1.09997}{0.62347}{casebarblue}} \\
@@ -24,7 +25,16 @@ Excel COM & \shortstack[r]{\CasePairBars[2.2]{39.79}{0.70004}{0.70004}{casebarbl
 R openxlsx & \shortstack[r]{\CasePairBars[2.2]{140.86}{1.10000}{1.10000}{casebarblue}\\\CasePairBars[2.2]{2453}{1.09990}{1.09990}{casebarblue}} & \shortstack[r]{\CasePairBars[2.2]{11.28}{1.10000}{0.08812}{casebarblue}\\\CasePairBars[2.2]{242}{1.09990}{0.10870}{casebarblue}} & \shortstack[r]{\CasePairBars[2.2]{4.26}{1.10000}{0.03324}{casebarblue}\\\CasePairBars[2.2]{224}{1.09990}{0.10044}{casebarblue}} & \shortstack[r]{\CasePairBars[2.2]{140.40}{1.10000}{1.09640}{casebarblue}\\\CasePairBars[2.2]{2454}{1.09990}{1.10000}{casebarorange}} & \shortstack[r]{\CasePairBars[2.2]{3.55}{1.10000}{0.02770}{casebarblue}\\\CasePairBars[2.2]{210}{1.09990}{0.09434}{casebarblue}} & \shortstack[r]{\CasePairBars[2.2]{4.32}{1.10000}{0.03375}{casebarblue}\\\CasePairBars[2.2]{225}{1.09990}{0.10065}{casebarblue}} \\
 R readxl + writexl & \shortstack[r]{\CasePairBars[2.2]{11.90}{1.10000}{1.10000}{casebarblue}\\\CasePairBars[2.2]{1341}{1.10000}{1.10000}{casebarblue}} & \shortstack[r]{\CasePairBars[2.2]{10.06}{1.10000}{0.93020}{casebarblue}\\\CasePairBars[2.2]{258}{1.10000}{0.21204}{casebarblue}} & \shortstack[r]{\CasePairBars[2.2]{2.94}{1.10000}{0.27160}{casebarblue}\\\CasePairBars[2.2]{240}{1.10000}{0.19675}{casebarblue}} & \shortstack[r]{\CasePairBars[2.2]{11.89}{1.10000}{1.09963}{casebarblue}\\\CasePairBars[2.2]{1340}{1.10000}{1.09966}{casebarblue}} & \shortstack[r]{\CasePairBars[2.2]{2.88}{1.10000}{0.26619}{casebarblue}\\\CasePairBars[2.2]{248}{1.10000}{0.20355}{casebarblue}} & \shortstack[r]{\CasePairBars[2.2]{2.96}{1.10000}{0.27394}{casebarblue}\\\CasePairBars[2.2]{239}{1.10000}{0.19643}{casebarblue}} \\
 \hline
+\multicolumn{7}{l}{\textbf{Ryzen 7 7800X3D: 24 GiB commit cap; process-tree commit (GiB)}} \\
+\multicolumn{7}{l}{\textbf{Destatis Migration}} \\
+pandas to XLSX & \shortstack[r]{\colorbox{caseadverse}{\strut M}\\24.00} & \shortstack[r]{24.729\\1.27} & -- & -- & -- & -- \\
+pandas to CSV & \shortstack[r]{\colorbox{caseadverse}{\strut M}\\24.00} & \shortstack[r]{8.291\\0.65} & -- & -- & -- & -- \\
+R readxl + writexl & \shortstack[r]{392.149\\8.70} & \shortstack[r]{131.953\\0.51} & -- & -- & -- & -- \\
+\hline
+\multicolumn{7}{l}{\textbf{Data.gov QT/RR}} \\
+openpyxl & \shortstack[r]{279.638\\12.56} & \shortstack[r]{11.519\\3.66} & -- & -- & -- & -- \\
+\hline
 \end{tabular}
 \par\smallskip
-\begin{minipage}{0.98\textwidth}\footnotesize Sheet Shrink includes fresh cleanup through library exit. Other columns measure processing of prepared outputs, with their cleanup excluded. Completed cells have three successful attempts. M means all three attempts stopped at the memory limit, with reached library RSS retained below. Bars compare original (gray) and measured value (blue at or below, orange above) on a common linear scale per endpoint and metric, requiring completed originals. RSS covers library phases, with nominal 20 ms sampling. Pipeline working sets, OS job-commit peaks, cleanup/open/save phases, stopped elapsed times, CPU, ranges and all 288 receipts remain in the artifact. Separate host results follow below.\end{minipage}
+\begin{minipage}{0.98\textwidth}\footnotesize Sheet Shrink includes fresh cleanup through library exit. Other columns measure processing of prepared outputs, with their cleanup excluded. Completed cells have three successful attempts. M means all three attempts stopped at the memory limit, with reached memory retained below. Bars compare original (gray) and measured value (blue at or below, orange above) on a common linear scale per endpoint and metric, requiring completed originals. RSS covers library phases, with nominal 20 ms sampling. Pipeline working sets, OS job-commit peaks, cleanup/open/save phases, stopped elapsed times, CPU, ranges and all 288 receipts remain in the artifact. The larger-host block reports aggregate process-tree commit in GiB, including cleanup. Dashes indicate unmeasured conditions.\end{minipage}
 \end{table*}

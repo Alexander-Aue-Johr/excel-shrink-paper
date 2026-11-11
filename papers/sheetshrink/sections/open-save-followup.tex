@@ -14,30 +14,12 @@ At 4\,GiB, all twelve Original attempts reached the memory limit, while
 all twelve fresh-cleanup pipelines completed. At 24\,GiB, the six Original
 attempts for Migration/readxl and QT/RR/openpyxl completed.
 Migration's two pandas endpoints reached the memory limit in all six attempts.
-All twelve fresh-cleanup pipelines completed at that limit. Table~\ref{tab:open-save-followup}
+All twelve fresh-cleanup pipelines completed at that limit. Table~\ref{tab:case-study-resources}
 retains these censored endpoints alongside successful medians. A memory-stop
-termination time receives no completed-runtime ratio.
+termination time receives no completed-runtime ratio. The completed Migration/readxl
+and QT/RR/openpyxl pipelines were 2.97 and 24.28 times faster, respectively.
 
-\begin{table*}[t]
-\caption{Selected-case follow-up under a 24\,GiB job-commit limit. Elapsed time
-covers process creation through exit, including fresh cleanup in the pipeline.
-Times are medians of three attempts. Commit peaks are maxima over the three
-attempts. M denotes three memory-limit stops. The raw receipts retain ranges,
-phase samples, working sets and CPU counters.}
-\label{tab:open-save-followup}
-\centering
-\setlength{\tabcolsep}{5pt}
-\begin{tabular}{lrrrrr}
-\hline
-Workbook / endpoint & Original (s) & Cleanup + endpoint (s) & Ratio & Original peak (GiB) & Pipeline peak (GiB) \\
-\hline
-Migration / pandas to XLSX & M & 24.729 & -- & 24.00 & 1.27 \\
-Migration / pandas to CSV & M & 8.291 & -- & 24.00 & 0.65 \\
-Migration / readxl + writexl & 392.149 & 131.953 & 2.97 & 8.70 & 0.51 \\
-QT/RR / openpyxl & 279.638 & 11.519 & 24.28 & 12.56 & 3.66 \\
-\hline
-\end{tabular}
-\end{table*}
+
 
 The larger limit distinguishes memory censoring from completed processing cost
 for these selected cases. Native visual comparisons, a separate cleanup

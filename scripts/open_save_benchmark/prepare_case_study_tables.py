@@ -134,9 +134,10 @@ def resource_summaries(cases, records):
 def resource_tables(cases, records):
     summaries = resource_summaries(cases, records)
     (EVIDENCE / "resource-summary.json").write_text(json.dumps(summaries, indent=2) + "\n")
-    caption = "Opening/saving summary on the Ryzen 5 4500U laptop with 8 GiB RAM. Each cell shows median total seconds above maximum sampled library working set in MiB. Three attempts per condition, 4 GiB job-commit cap, 900 s timeout."
+    caption = "Opening/saving observations on two hosts. Cells show median total seconds above maximum memory across three attempts. Host blocks specify commit caps and memory metrics. The timeout is 900 s."
     lines = table_start(caption, "lrrrrrr", label="tab:case-study-resources")
     lines.append(r"Endpoint & Original & Sheet Shrink & NXPowerLite & XLStylesTool & \shortstack{Check\\Performance} & Inquire \\")
+    lines.append(r"\multicolumn{7}{l}{\textbf{Ryzen 5 4500U laptop: 4 GiB commit cap; library working set (MiB)}} \\")
     for case in cases[:3]:
         if case["case_id"] == "finance":
             continue
@@ -167,7 +168,8 @@ def resource_tables(cases, records):
                     time_display += f" ({row['completed']}/{row['attempts']})"
                 values.append(r"\shortstack[r]{" + time_display + r"\\" + rss_display + "}")
             lines.append(" & ".join(values) + r" \\")
-    note = r"Sheet Shrink includes fresh cleanup through library exit. Other columns measure processing of prepared outputs, with their cleanup excluded. Completed cells have three successful attempts. M means all three attempts stopped at the memory limit, with reached library RSS retained below. Bars compare original (gray) and measured value (blue at or below, orange above) on a common linear scale per endpoint and metric, requiring completed originals. RSS covers library phases, with nominal 20 ms sampling. Pipeline working sets, OS job-commit peaks, cleanup/open/save phases, stopped elapsed times, CPU, ranges and all 288 receipts remain in the artifact. Separate host results follow below."
+    note = r"Sheet Shrink includes fresh cleanup through library exit. Other columns measure processing of prepared outputs, with their cleanup excluded. Completed cells have three successful attempts. M means all three attempts stopped at the memory limit, with reached memory retained below. Bars compare original (gray) and measured value (blue at or below, orange above) on a common linear scale per endpoint and metric, requiring completed originals. RSS covers library phases, with nominal 20 ms sampling. Pipeline working sets, OS job-commit peaks, cleanup/open/save phases, stopped elapsed times, CPU, ranges and all 288 receipts remain in the artifact. The larger-host block reports aggregate process-tree commit in GiB, including cleanup. Dashes indicate unmeasured conditions."
+    lines.extend((EVIDENCE / "larger-host-resources.tex").read_text().splitlines())
     lines.extend(table_end(note))
     return "\n".join(lines) + "\n"
 
