@@ -16,7 +16,7 @@
     minimum width=.6cm,minimum height=.42cm,inner sep=1pt,
     font=\scriptsize},
   heading/.style={font=\small\bfseries,anchor=west}]
-\path[use as bounding box] (-.05,.65) rectangle (17.1,-12.25);
+\path[use as bounding box] (-.05,.65) rectangle (17.1,-13.15);
 % One pitch keeps participant centers and equal-width headers evenly spaced.
 \def\originalX{1.7}
 \def\actorPitch{4.5}
@@ -24,14 +24,16 @@
 \pgfmathsetmacro{\coordinatorX}{\hostX+\actorPitch}
 \pgfmathsetmacro{\variantX}{\coordinatorX+\actorPitch}
 \node[heading] at (0,.35) {A\quad Default image transport and retained evidence};
-\node[participant,draw=stateBlue,fill=stateBlue!7] (original) at (\originalX,-.25)
+% Reserve distinct bands for the panel title, actor headers and first message.
+\begin{scope}[yshift=-.9cm]
+\node[participant,draw=stateBlue,fill=stateBlue!7] (original) at (\originalX,.15)
   {Original Excel Session\\{\fontsize{6.5}{7.2}\selectfont Capture Add-in}};
-\node[participant] (host) at (\hostX,-.25) {Capture Service};
-\node[participant] (coordinator) at (\coordinatorX,-.25) {Comparison Coordinator};
-\node[participant,draw=stateTeal,fill=stateTeal!7] (variant) at (\variantX,-.25)
+\node[participant] (host) at (\hostX,.15) {Capture Service};
+\node[participant] (coordinator) at (\coordinatorX,.15) {Comparison Coordinator};
+\node[participant,draw=stateTeal,fill=stateTeal!7] (variant) at (\variantX,.15)
   {Transformed Excel Session\\{\fontsize{6.5}{7.2}\selectfont Capture Add-in}};
 \foreach \xx in {\originalX,\hostX,\coordinatorX,\variantX} {
-  \draw[stateSlate!25,dashed,line width=.45pt] (\xx,-.7) -- (\xx,-4.85);
+  \draw[stateSlate!25,dashed,line width=.45pt] (\xx,-.3) -- (\xx,-4.85);
 }
 \draw[msg] (\coordinatorX,-1.03) -- node[label,above=2pt]
   {Publish capture command} (\hostX,-1.03);
@@ -142,6 +144,7 @@
   (11.6,-11.28) -- (11.6,-10.99) -- (12.65,-10.99) --
   (12.65,-10.7) -- (14.4,-10.7) -- (14.4,-11.28) -- (16.5,-11.28);
 \node[tinylabel,anchor=north] at (13.45,-11.77) {Illustrative capture / comparison progress};
+\end{scope}
 \end{tikzpicture}
 \caption{DeltaSieve communication and supervision, illustrated schematically.
 (A) Each Excel session holds a comparison workbook and its capture add-in.
