@@ -14,6 +14,8 @@ FIGURES = (
     "papers/deltasieve/figures/artifact-lineage.tex",
     "papers/deltasieve/figures/capture-partition.tex",
     "papers/deltasieve/figures/communication.tex",
+    "papers/deltasieve/figures/capture-ownership.tex",
+    "papers/deltasieve/figures/run-states.tex",
 )
 
 
@@ -98,12 +100,17 @@ def export_figure(source: Path, texlive: Path, scratch: Path) -> None:
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--texlive", type=Path, required=True)
+    parser.add_argument(
+        "--figure", type=Path, action="append",
+        help="Export only these figure sources instead of the full set",
+    )
     arguments = parser.parse_args()
     texlive = arguments.texlive.resolve()
     scratch = texlive / "scratch/diagram-design"
     scratch.mkdir(parents=True, exist_ok=True)
-    for relative in FIGURES:
-        export_figure(REPOSITORY / relative, texlive, scratch)
+    sources = arguments.figure or [REPOSITORY / relative for relative in FIGURES]
+    for source in sources:
+        export_figure(source.resolve(), texlive, scratch)
 
 
 if __name__ == "__main__":

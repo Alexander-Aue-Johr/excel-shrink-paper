@@ -280,12 +280,10 @@ or automatically clears an unrelated finding.
 
 \subsection{Execution, omission and evidence reuse}
 
-Figure~\ref{fig:run-states} shows the permitted run-state transitions. Preparing
-can proceed directly to pairing when transformed inputs are supplied. Active
+Preparing can proceed directly to pairing when transformed inputs are supplied. Active
 phases can fail, with already durable pair records retained for accounting.
 Completion follows report publication. The finalized report still records
 individual failures, limitations and observed differences.
-\input{figures/run-states}
 
 Each comparison group owns its Excel processes, private desktop and WebView
 profile. Office calls are serial within a workbook. Independent groups can
@@ -299,8 +297,9 @@ while a native call is pending, but do not extend a deadline by themselves.
 Durable commands and receipts reconcile reconnects. Repeated delivery cannot
 restart an already completed operation or silently duplicate a pending one.
 Failed attempts retain produced evidence and receive no equality verdict.
-Figure~\ref{fig:communication-panels} separates message exchange, supervision
-signals and bounded capture ownership. Transport acknowledgment, native progress
+Figure~\ref{fig:communication-panels} shows image transport and retained evidence.
+Figure~\ref{fig:capture-ownership} illustrates bounded capture ownership.
+Transport acknowledgment, native progress
 and process lifetime have independent evidence and failure conditions.
 The default transfers captured images and retains equal regions in portable
 reports. Verified-equal PNGs can receive a smaller lossless encoding after exact

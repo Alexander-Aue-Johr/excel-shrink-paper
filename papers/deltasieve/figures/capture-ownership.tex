@@ -1,0 +1,51 @@
+\begin{figure}[b]
+\centering
+\begin{tikzpicture}[x=1cm,y=1cm,
+  label/.style={font=\scriptsize,text=stateSlate,align=center},
+  msg/.style={-{Stealth[length=3pt]},draw=stateSlate!85,line width=.65pt},
+  tile/.style={draw=stateBlue!75,fill=stateBlue!12,
+    minimum width=.48cm,minimum height=.38cm,inner sep=1pt,
+    font=\scriptsize},
+  stage/.style={rounded corners=2pt,draw=stateSlate!55,fill=stateSlate!4,
+    text width=.95cm,minimum height=.6cm,inner sep=2pt,
+    align=center,font=\scriptsize}]
+\path[use as bounding box] (-.05,.5) rectangle (8.5,-3.65);
+\node[label,anchor=east] at (1.45,0) {Original};
+\node[label,anchor=east] at (1.45,-.65) {Transformed};
+\draw[stateSlate!25,rounded corners=2pt,line width=.5pt]
+  (1.55,.3) rectangle (3.75,-.95);
+\foreach \xx/\name in {1.95/{$i$},2.65/{$i+1$},3.35/{$i+2$}} {
+  \node[tile] at (\xx,0) {\name};
+}
+\node[tile,draw=stateTeal,fill=stateTeal!12] at (1.95,-.65) {$i$};
+\foreach \xx in {2.65,3.35} {
+  \node[tile,draw=stateSlate!30,fill=white,dashed] at (\xx,-.65) {};
+}
+\node[stage] (compare) at (5.15,-.32) {Compare\\tile $i$};
+\node[stage,draw=stateTeal,fill=stateTeal!7] (release) at (7.35,-.32)
+  {Return\\credit $i$};
+\draw[msg] (3.8,0) -- (compare.north west);
+\draw[msg] (3.8,-.65) -- (compare.south west);
+\draw[msg] (compare) -- (release);
+\draw[msg,dashed,draw=stateTeal] (release.south) -- (7.35,-1.3)
+  -- (2.65,-1.3) -- (2.65,-.95);
+\node[label,text=stateTeal,fill=white,inner sep=1pt] at (5.15,-1.3)
+  {Credit returns after comparison};
+\node[label,anchor=west] at (.5,-1.8) {Original pending pixels};
+\draw[msg] (.85,-3.2) -- (8.05,-3.2);
+\draw[msg] (.85,-3.2) -- (.85,-2.02);
+\draw[stateRose!65,dashed,line width=.6pt] (.85,-2.15) -- (7.95,-2.15);
+\node[label,anchor=south east,text=stateRose] at (7.95,-2.12) {Pixel budget};
+\draw[stateBlue,line width=1.2pt]
+  (.9,-3.17) -- (1.45,-3.17) -- (1.45,-2.93) --
+  (2.45,-2.93) -- (2.45,-2.69) -- (3.5,-2.69) --
+  (3.5,-2.45) -- (5.4,-2.45) -- (5.4,-2.93) -- (7.8,-2.93);
+\node[label,anchor=north] at (4.45,-3.35)
+  {Illustrative capture / comparison progress};
+\end{tikzpicture}
+\caption{Bounded capture ownership. Credits remain reserved from issue through
+paired comparison, so a faster client retains bounded pending work while its
+partner catches up. PNG buffers also have byte limits and explicit lifetimes.
+The occupancy trace is illustrative.}
+\label{fig:capture-ownership}
+\end{figure}
