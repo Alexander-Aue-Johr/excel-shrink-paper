@@ -1,0 +1,2640 @@
+{
+  "identity": {
+    "original_sha256": "fa6eaaef69319901e81c710e090e6f37f429918e0bd56255d8f1a946dd65a1ce",
+    "output_sha256": "86933c81c1ed07728646c639e969ce1268bdf387fe7cffa76575b36e1cb13d40"
+  },
+  "summary": {
+    "case_id": "destatis-1",
+    "file": "statistischer-bericht-sterbefaelle-tage-wochen-monate-endg-5126108.xlsx",
+    "archive_growth_bytes": 3038299,
+    "uncompressed_growth_bytes": -811176,
+    "xml_growth_bytes": -811176,
+    "compressed_payload_growth_bytes": 3040203,
+    "changed_members": 27,
+    "archive_overhead_growth_bytes": -1904,
+    "common_deflate_2_payload_delta": -107000,
+    "actual_minus_common_deflate_2_delta": 3147203,
+    "common_deflate_6_payload_delta": -101214,
+    "actual_minus_common_deflate_6_delta": 3141417
+  },
+  "members": [
+    {
+      "part": "[Content_Types].xml",
+      "original": {
+        "uncompressed": 6187,
+        "compressed": 519,
+        "method": 8,
+        "sha256": "429765e78edfe2d2334f57bcb6b22623e875d091ead805a6e2ad45eb5fdb62b4",
+        "deflate_2": 533,
+        "deflate_6": 519
+      },
+      "output": {
+        "uncompressed": 6187,
+        "compressed": 519,
+        "method": 8,
+        "sha256": "429765e78edfe2d2334f57bcb6b22623e875d091ead805a6e2ad45eb5fdb62b4",
+        "deflate_2": 533,
+        "deflate_6": 519
+      },
+      "payload_identical": true,
+      "uncompressed_delta": 0,
+      "compressed_delta": 0
+    },
+    {
+      "part": "_rels/.rels",
+      "original": {
+        "uncompressed": 585,
+        "compressed": 227,
+        "method": 8,
+        "sha256": "d368e7daa21ba9c93feee7faaaccec2370cba4737582d680085944875cc84800",
+        "deflate_2": 230,
+        "deflate_6": 227
+      },
+      "output": {
+        "uncompressed": 585,
+        "compressed": 227,
+        "method": 8,
+        "sha256": "d368e7daa21ba9c93feee7faaaccec2370cba4737582d680085944875cc84800",
+        "deflate_2": 230,
+        "deflate_6": 227
+      },
+      "payload_identical": true,
+      "uncompressed_delta": 0,
+      "compressed_delta": 0
+    },
+    {
+      "part": "docProps/app.xml",
+      "original": {
+        "uncompressed": 1814,
+        "compressed": 547,
+        "method": 8,
+        "sha256": "23bf8891f5d6fe3c076ee7c17c8a57e5b7bea7740ef4b8d8aecf801d8a6778fa",
+        "deflate_2": 569,
+        "deflate_6": 547
+      },
+      "output": {
+        "uncompressed": 1814,
+        "compressed": 547,
+        "method": 8,
+        "sha256": "23bf8891f5d6fe3c076ee7c17c8a57e5b7bea7740ef4b8d8aecf801d8a6778fa",
+        "deflate_2": 569,
+        "deflate_6": 547
+      },
+      "payload_identical": true,
+      "uncompressed_delta": 0,
+      "compressed_delta": 0
+    },
+    {
+      "part": "docProps/core.xml",
+      "original": {
+        "uncompressed": 786,
+        "compressed": 429,
+        "method": 8,
+        "sha256": "44aa5b0e0f0a427f3ca7e6be4bde8b51b3bb8d5403c86f9bb57c91f620f71f4e",
+        "deflate_2": 433,
+        "deflate_6": 429
+      },
+      "output": {
+        "uncompressed": 786,
+        "compressed": 429,
+        "method": 8,
+        "sha256": "44aa5b0e0f0a427f3ca7e6be4bde8b51b3bb8d5403c86f9bb57c91f620f71f4e",
+        "deflate_2": 433,
+        "deflate_6": 429
+      },
+      "payload_identical": true,
+      "uncompressed_delta": 0,
+      "compressed_delta": 0
+    },
+    {
+      "part": "xl/_rels/workbook.xml.rels",
+      "original": {
+        "uncompressed": 5401,
+        "compressed": 421,
+        "method": 8,
+        "sha256": "b3006b620c573df3abe9db0ead3e98f6c1311fa52d1dac40235e119d7559e9ae",
+        "deflate_2": 431,
+        "deflate_6": 421
+      },
+      "output": {
+        "uncompressed": 5401,
+        "compressed": 421,
+        "method": 8,
+        "sha256": "b3006b620c573df3abe9db0ead3e98f6c1311fa52d1dac40235e119d7559e9ae",
+        "deflate_2": 431,
+        "deflate_6": 421
+      },
+      "payload_identical": true,
+      "uncompressed_delta": 0,
+      "compressed_delta": 0
+    },
+    {
+      "part": "xl/drawings/_rels/drawing1.xml.rels",
+      "original": {
+        "uncompressed": 560,
+        "compressed": 196,
+        "method": 8,
+        "sha256": "741efe2f724de05b984bc0767c2b1373345da141731403c61d8f9f7f5b237f91",
+        "deflate_2": 196,
+        "deflate_6": 196
+      },
+      "output": {
+        "uncompressed": 560,
+        "compressed": 196,
+        "method": 8,
+        "sha256": "741efe2f724de05b984bc0767c2b1373345da141731403c61d8f9f7f5b237f91",
+        "deflate_2": 196,
+        "deflate_6": 196
+      },
+      "payload_identical": true,
+      "uncompressed_delta": 0,
+      "compressed_delta": 0
+    },
+    {
+      "part": "xl/drawings/_rels/drawing2.xml.rels",
+      "original": {
+        "uncompressed": 289,
+        "compressed": 180,
+        "method": 8,
+        "sha256": "312cb8ab02fbad3f8ec2703dca2805f07c296a23c3f00a9eaf873410ec0816ee",
+        "deflate_2": 181,
+        "deflate_6": 180
+      },
+      "output": {
+        "uncompressed": 289,
+        "compressed": 180,
+        "method": 8,
+        "sha256": "312cb8ab02fbad3f8ec2703dca2805f07c296a23c3f00a9eaf873410ec0816ee",
+        "deflate_2": 181,
+        "deflate_6": 180
+      },
+      "payload_identical": true,
+      "uncompressed_delta": 0,
+      "compressed_delta": 0
+    },
+    {
+      "part": "xl/drawings/drawing1.xml",
+      "original": {
+        "uncompressed": 3455,
+        "compressed": 820,
+        "method": 8,
+        "sha256": "c41f00d4fdab11cfe06a4695abdaa8081c85a9f7b24464fba5d3e18fd934eb48",
+        "deflate_2": 874,
+        "deflate_6": 820
+      },
+      "output": {
+        "uncompressed": 3455,
+        "compressed": 820,
+        "method": 8,
+        "sha256": "c41f00d4fdab11cfe06a4695abdaa8081c85a9f7b24464fba5d3e18fd934eb48",
+        "deflate_2": 874,
+        "deflate_6": 820
+      },
+      "payload_identical": true,
+      "uncompressed_delta": 0,
+      "compressed_delta": 0
+    },
+    {
+      "part": "xl/drawings/drawing2.xml",
+      "original": {
+        "uncompressed": 7005,
+        "compressed": 1768,
+        "method": 8,
+        "sha256": "945d8db9377abbec9744aedf78221eff249df05adadd46cfbf6391a40982ffbf",
+        "deflate_2": 1934,
+        "deflate_6": 1768
+      },
+      "output": {
+        "uncompressed": 7005,
+        "compressed": 1768,
+        "method": 8,
+        "sha256": "945d8db9377abbec9744aedf78221eff249df05adadd46cfbf6391a40982ffbf",
+        "deflate_2": 1934,
+        "deflate_6": 1768
+      },
+      "payload_identical": true,
+      "uncompressed_delta": 0,
+      "compressed_delta": 0
+    },
+    {
+      "part": "xl/media/image1.jpeg",
+      "original": {
+        "uncompressed": 22036,
+        "compressed": 21248,
+        "method": 8,
+        "sha256": "7e1e7fe5c2aea00503b657a20ca976367067c452a1e5f73b603b879b738fd12f",
+        "deflate_2": 21266,
+        "deflate_6": 21248
+      },
+      "output": {
+        "uncompressed": 22036,
+        "compressed": 21248,
+        "method": 8,
+        "sha256": "7e1e7fe5c2aea00503b657a20ca976367067c452a1e5f73b603b879b738fd12f",
+        "deflate_2": 21266,
+        "deflate_6": 21248
+      },
+      "payload_identical": true,
+      "uncompressed_delta": 0,
+      "compressed_delta": 0
+    },
+    {
+      "part": "xl/media/image2.png",
+      "original": {
+        "uncompressed": 5487,
+        "compressed": 4789,
+        "method": 8,
+        "sha256": "22dbd26558368f6e182a8370d3cd8949f2341e893a8f13e7a2a77ae13d16606e",
+        "deflate_2": 4821,
+        "deflate_6": 4789
+      },
+      "output": {
+        "uncompressed": 5487,
+        "compressed": 4789,
+        "method": 8,
+        "sha256": "22dbd26558368f6e182a8370d3cd8949f2341e893a8f13e7a2a77ae13d16606e",
+        "deflate_2": 4821,
+        "deflate_6": 4789
+      },
+      "payload_identical": true,
+      "uncompressed_delta": 0,
+      "compressed_delta": 0
+    },
+    {
+      "part": "xl/media/image3.png",
+      "original": {
+        "uncompressed": 2824,
+        "compressed": 2674,
+        "method": 8,
+        "sha256": "178605bd5b94950c4338f4c51a0b641f7a80bf91ca8705cdf69894734ee4d35e",
+        "deflate_2": 2677,
+        "deflate_6": 2674
+      },
+      "output": {
+        "uncompressed": 2824,
+        "compressed": 2674,
+        "method": 8,
+        "sha256": "178605bd5b94950c4338f4c51a0b641f7a80bf91ca8705cdf69894734ee4d35e",
+        "deflate_2": 2677,
+        "deflate_6": 2674
+      },
+      "payload_identical": true,
+      "uncompressed_delta": 0,
+      "compressed_delta": 0
+    },
+    {
+      "part": "xl/media/image4.JPG",
+      "original": {
+        "uncompressed": 37845,
+        "compressed": 21519,
+        "method": 8,
+        "sha256": "8f09f64e2dd10419190133d5aed83812cd6310d5bcd3389dd54a4be624c4b2e6",
+        "deflate_2": 21652,
+        "deflate_6": 21519
+      },
+      "output": {
+        "uncompressed": 37845,
+        "compressed": 21519,
+        "method": 8,
+        "sha256": "8f09f64e2dd10419190133d5aed83812cd6310d5bcd3389dd54a4be624c4b2e6",
+        "deflate_2": 21652,
+        "deflate_6": 21519
+      },
+      "payload_identical": true,
+      "uncompressed_delta": 0,
+      "compressed_delta": 0
+    },
+    {
+      "part": "xl/printerSettings/printerSettings1.bin",
+      "original": {
+        "uncompressed": 220,
+        "compressed": 59,
+        "method": 8,
+        "sha256": "41f09ae49198fccc78a1878586bd54695a198cdd1886b009d1a7187b76130725",
+        "deflate_2": 62,
+        "deflate_6": 59
+      },
+      "output": {
+        "uncompressed": 220,
+        "compressed": 59,
+        "method": 8,
+        "sha256": "41f09ae49198fccc78a1878586bd54695a198cdd1886b009d1a7187b76130725",
+        "deflate_2": 62,
+        "deflate_6": 59
+      },
+      "payload_identical": true,
+      "uncompressed_delta": 0,
+      "compressed_delta": 0
+    },
+    {
+      "part": "xl/printerSettings/printerSettings10.bin",
+      "original": {
+        "uncompressed": 8648,
+        "compressed": 849,
+        "method": 8,
+        "sha256": "7fcc0a92e23c9e71dfb0d90a8f924c83282d5e4b9b7eb7d1ed43b855614f4bca",
+        "deflate_2": 879,
+        "deflate_6": 849
+      },
+      "output": {
+        "uncompressed": 8648,
+        "compressed": 849,
+        "method": 8,
+        "sha256": "7fcc0a92e23c9e71dfb0d90a8f924c83282d5e4b9b7eb7d1ed43b855614f4bca",
+        "deflate_2": 879,
+        "deflate_6": 849
+      },
+      "payload_identical": true,
+      "uncompressed_delta": 0,
+      "compressed_delta": 0
+    },
+    {
+      "part": "xl/printerSettings/printerSettings11.bin",
+      "original": {
+        "uncompressed": 8648,
+        "compressed": 849,
+        "method": 8,
+        "sha256": "7fcc0a92e23c9e71dfb0d90a8f924c83282d5e4b9b7eb7d1ed43b855614f4bca",
+        "deflate_2": 879,
+        "deflate_6": 849
+      },
+      "output": {
+        "uncompressed": 8648,
+        "compressed": 849,
+        "method": 8,
+        "sha256": "7fcc0a92e23c9e71dfb0d90a8f924c83282d5e4b9b7eb7d1ed43b855614f4bca",
+        "deflate_2": 879,
+        "deflate_6": 849
+      },
+      "payload_identical": true,
+      "uncompressed_delta": 0,
+      "compressed_delta": 0
+    },
+    {
+      "part": "xl/printerSettings/printerSettings12.bin",
+      "original": {
+        "uncompressed": 8648,
+        "compressed": 849,
+        "method": 8,
+        "sha256": "7fcc0a92e23c9e71dfb0d90a8f924c83282d5e4b9b7eb7d1ed43b855614f4bca",
+        "deflate_2": 879,
+        "deflate_6": 849
+      },
+      "output": {
+        "uncompressed": 8648,
+        "compressed": 849,
+        "method": 8,
+        "sha256": "7fcc0a92e23c9e71dfb0d90a8f924c83282d5e4b9b7eb7d1ed43b855614f4bca",
+        "deflate_2": 879,
+        "deflate_6": 849
+      },
+      "payload_identical": true,
+      "uncompressed_delta": 0,
+      "compressed_delta": 0
+    },
+    {
+      "part": "xl/printerSettings/printerSettings13.bin",
+      "original": {
+        "uncompressed": 8648,
+        "compressed": 849,
+        "method": 8,
+        "sha256": "7fcc0a92e23c9e71dfb0d90a8f924c83282d5e4b9b7eb7d1ed43b855614f4bca",
+        "deflate_2": 879,
+        "deflate_6": 849
+      },
+      "output": {
+        "uncompressed": 8648,
+        "compressed": 849,
+        "method": 8,
+        "sha256": "7fcc0a92e23c9e71dfb0d90a8f924c83282d5e4b9b7eb7d1ed43b855614f4bca",
+        "deflate_2": 879,
+        "deflate_6": 849
+      },
+      "payload_identical": true,
+      "uncompressed_delta": 0,
+      "compressed_delta": 0
+    },
+    {
+      "part": "xl/printerSettings/printerSettings14.bin",
+      "original": {
+        "uncompressed": 8648,
+        "compressed": 849,
+        "method": 8,
+        "sha256": "7fcc0a92e23c9e71dfb0d90a8f924c83282d5e4b9b7eb7d1ed43b855614f4bca",
+        "deflate_2": 879,
+        "deflate_6": 849
+      },
+      "output": {
+        "uncompressed": 8648,
+        "compressed": 849,
+        "method": 8,
+        "sha256": "7fcc0a92e23c9e71dfb0d90a8f924c83282d5e4b9b7eb7d1ed43b855614f4bca",
+        "deflate_2": 879,
+        "deflate_6": 849
+      },
+      "payload_identical": true,
+      "uncompressed_delta": 0,
+      "compressed_delta": 0
+    },
+    {
+      "part": "xl/printerSettings/printerSettings15.bin",
+      "original": {
+        "uncompressed": 8648,
+        "compressed": 849,
+        "method": 8,
+        "sha256": "7fcc0a92e23c9e71dfb0d90a8f924c83282d5e4b9b7eb7d1ed43b855614f4bca",
+        "deflate_2": 879,
+        "deflate_6": 849
+      },
+      "output": {
+        "uncompressed": 8648,
+        "compressed": 849,
+        "method": 8,
+        "sha256": "7fcc0a92e23c9e71dfb0d90a8f924c83282d5e4b9b7eb7d1ed43b855614f4bca",
+        "deflate_2": 879,
+        "deflate_6": 849
+      },
+      "payload_identical": true,
+      "uncompressed_delta": 0,
+      "compressed_delta": 0
+    },
+    {
+      "part": "xl/printerSettings/printerSettings16.bin",
+      "original": {
+        "uncompressed": 8648,
+        "compressed": 849,
+        "method": 8,
+        "sha256": "7fcc0a92e23c9e71dfb0d90a8f924c83282d5e4b9b7eb7d1ed43b855614f4bca",
+        "deflate_2": 879,
+        "deflate_6": 849
+      },
+      "output": {
+        "uncompressed": 8648,
+        "compressed": 849,
+        "method": 8,
+        "sha256": "7fcc0a92e23c9e71dfb0d90a8f924c83282d5e4b9b7eb7d1ed43b855614f4bca",
+        "deflate_2": 879,
+        "deflate_6": 849
+      },
+      "payload_identical": true,
+      "uncompressed_delta": 0,
+      "compressed_delta": 0
+    },
+    {
+      "part": "xl/printerSettings/printerSettings17.bin",
+      "original": {
+        "uncompressed": 8648,
+        "compressed": 849,
+        "method": 8,
+        "sha256": "7fcc0a92e23c9e71dfb0d90a8f924c83282d5e4b9b7eb7d1ed43b855614f4bca",
+        "deflate_2": 879,
+        "deflate_6": 849
+      },
+      "output": {
+        "uncompressed": 8648,
+        "compressed": 849,
+        "method": 8,
+        "sha256": "7fcc0a92e23c9e71dfb0d90a8f924c83282d5e4b9b7eb7d1ed43b855614f4bca",
+        "deflate_2": 879,
+        "deflate_6": 849
+      },
+      "payload_identical": true,
+      "uncompressed_delta": 0,
+      "compressed_delta": 0
+    },
+    {
+      "part": "xl/printerSettings/printerSettings18.bin",
+      "original": {
+        "uncompressed": 8648,
+        "compressed": 849,
+        "method": 8,
+        "sha256": "7fcc0a92e23c9e71dfb0d90a8f924c83282d5e4b9b7eb7d1ed43b855614f4bca",
+        "deflate_2": 879,
+        "deflate_6": 849
+      },
+      "output": {
+        "uncompressed": 8648,
+        "compressed": 849,
+        "method": 8,
+        "sha256": "7fcc0a92e23c9e71dfb0d90a8f924c83282d5e4b9b7eb7d1ed43b855614f4bca",
+        "deflate_2": 879,
+        "deflate_6": 849
+      },
+      "payload_identical": true,
+      "uncompressed_delta": 0,
+      "compressed_delta": 0
+    },
+    {
+      "part": "xl/printerSettings/printerSettings19.bin",
+      "original": {
+        "uncompressed": 8648,
+        "compressed": 849,
+        "method": 8,
+        "sha256": "7fcc0a92e23c9e71dfb0d90a8f924c83282d5e4b9b7eb7d1ed43b855614f4bca",
+        "deflate_2": 879,
+        "deflate_6": 849
+      },
+      "output": {
+        "uncompressed": 8648,
+        "compressed": 849,
+        "method": 8,
+        "sha256": "7fcc0a92e23c9e71dfb0d90a8f924c83282d5e4b9b7eb7d1ed43b855614f4bca",
+        "deflate_2": 879,
+        "deflate_6": 849
+      },
+      "payload_identical": true,
+      "uncompressed_delta": 0,
+      "compressed_delta": 0
+    },
+    {
+      "part": "xl/printerSettings/printerSettings2.bin",
+      "original": {
+        "uncompressed": 220,
+        "compressed": 68,
+        "method": 8,
+        "sha256": "f0f81f1ffa8b9f71dd7ca761fff4c13620108d9de2ad6e0221fae273bd7ffb37",
+        "deflate_2": 71,
+        "deflate_6": 68
+      },
+      "output": {
+        "uncompressed": 220,
+        "compressed": 68,
+        "method": 8,
+        "sha256": "f0f81f1ffa8b9f71dd7ca761fff4c13620108d9de2ad6e0221fae273bd7ffb37",
+        "deflate_2": 71,
+        "deflate_6": 68
+      },
+      "payload_identical": true,
+      "uncompressed_delta": 0,
+      "compressed_delta": 0
+    },
+    {
+      "part": "xl/printerSettings/printerSettings20.bin",
+      "original": {
+        "uncompressed": 8632,
+        "compressed": 925,
+        "method": 8,
+        "sha256": "24af7a92c74e873cdd21f30943e31cc4815856a0719dc14fce59b83eb0911f4e",
+        "deflate_2": 957,
+        "deflate_6": 925
+      },
+      "output": {
+        "uncompressed": 8632,
+        "compressed": 925,
+        "method": 8,
+        "sha256": "24af7a92c74e873cdd21f30943e31cc4815856a0719dc14fce59b83eb0911f4e",
+        "deflate_2": 957,
+        "deflate_6": 925
+      },
+      "payload_identical": true,
+      "uncompressed_delta": 0,
+      "compressed_delta": 0
+    },
+    {
+      "part": "xl/printerSettings/printerSettings21.bin",
+      "original": {
+        "uncompressed": 8648,
+        "compressed": 849,
+        "method": 8,
+        "sha256": "41d5bfaffd1cf1f3f7de0be912e26233effaf81f68e7e3b29b74ab4609e8e0ae",
+        "deflate_2": 878,
+        "deflate_6": 849
+      },
+      "output": {
+        "uncompressed": 8648,
+        "compressed": 849,
+        "method": 8,
+        "sha256": "41d5bfaffd1cf1f3f7de0be912e26233effaf81f68e7e3b29b74ab4609e8e0ae",
+        "deflate_2": 878,
+        "deflate_6": 849
+      },
+      "payload_identical": true,
+      "uncompressed_delta": 0,
+      "compressed_delta": 0
+    },
+    {
+      "part": "xl/printerSettings/printerSettings22.bin",
+      "original": {
+        "uncompressed": 8648,
+        "compressed": 849,
+        "method": 8,
+        "sha256": "41d5bfaffd1cf1f3f7de0be912e26233effaf81f68e7e3b29b74ab4609e8e0ae",
+        "deflate_2": 878,
+        "deflate_6": 849
+      },
+      "output": {
+        "uncompressed": 8648,
+        "compressed": 849,
+        "method": 8,
+        "sha256": "41d5bfaffd1cf1f3f7de0be912e26233effaf81f68e7e3b29b74ab4609e8e0ae",
+        "deflate_2": 878,
+        "deflate_6": 849
+      },
+      "payload_identical": true,
+      "uncompressed_delta": 0,
+      "compressed_delta": 0
+    },
+    {
+      "part": "xl/printerSettings/printerSettings23.bin",
+      "original": {
+        "uncompressed": 8648,
+        "compressed": 849,
+        "method": 8,
+        "sha256": "41d5bfaffd1cf1f3f7de0be912e26233effaf81f68e7e3b29b74ab4609e8e0ae",
+        "deflate_2": 878,
+        "deflate_6": 849
+      },
+      "output": {
+        "uncompressed": 8648,
+        "compressed": 849,
+        "method": 8,
+        "sha256": "41d5bfaffd1cf1f3f7de0be912e26233effaf81f68e7e3b29b74ab4609e8e0ae",
+        "deflate_2": 878,
+        "deflate_6": 849
+      },
+      "payload_identical": true,
+      "uncompressed_delta": 0,
+      "compressed_delta": 0
+    },
+    {
+      "part": "xl/printerSettings/printerSettings24.bin",
+      "original": {
+        "uncompressed": 8648,
+        "compressed": 849,
+        "method": 8,
+        "sha256": "41d5bfaffd1cf1f3f7de0be912e26233effaf81f68e7e3b29b74ab4609e8e0ae",
+        "deflate_2": 878,
+        "deflate_6": 849
+      },
+      "output": {
+        "uncompressed": 8648,
+        "compressed": 849,
+        "method": 8,
+        "sha256": "41d5bfaffd1cf1f3f7de0be912e26233effaf81f68e7e3b29b74ab4609e8e0ae",
+        "deflate_2": 878,
+        "deflate_6": 849
+      },
+      "payload_identical": true,
+      "uncompressed_delta": 0,
+      "compressed_delta": 0
+    },
+    {
+      "part": "xl/printerSettings/printerSettings25.bin",
+      "original": {
+        "uncompressed": 8648,
+        "compressed": 849,
+        "method": 8,
+        "sha256": "41d5bfaffd1cf1f3f7de0be912e26233effaf81f68e7e3b29b74ab4609e8e0ae",
+        "deflate_2": 878,
+        "deflate_6": 849
+      },
+      "output": {
+        "uncompressed": 8648,
+        "compressed": 849,
+        "method": 8,
+        "sha256": "41d5bfaffd1cf1f3f7de0be912e26233effaf81f68e7e3b29b74ab4609e8e0ae",
+        "deflate_2": 878,
+        "deflate_6": 849
+      },
+      "payload_identical": true,
+      "uncompressed_delta": 0,
+      "compressed_delta": 0
+    },
+    {
+      "part": "xl/printerSettings/printerSettings26.bin",
+      "original": {
+        "uncompressed": 8648,
+        "compressed": 849,
+        "method": 8,
+        "sha256": "41d5bfaffd1cf1f3f7de0be912e26233effaf81f68e7e3b29b74ab4609e8e0ae",
+        "deflate_2": 878,
+        "deflate_6": 849
+      },
+      "output": {
+        "uncompressed": 8648,
+        "compressed": 849,
+        "method": 8,
+        "sha256": "41d5bfaffd1cf1f3f7de0be912e26233effaf81f68e7e3b29b74ab4609e8e0ae",
+        "deflate_2": 878,
+        "deflate_6": 849
+      },
+      "payload_identical": true,
+      "uncompressed_delta": 0,
+      "compressed_delta": 0
+    },
+    {
+      "part": "xl/printerSettings/printerSettings27.bin",
+      "original": {
+        "uncompressed": 8648,
+        "compressed": 849,
+        "method": 8,
+        "sha256": "41d5bfaffd1cf1f3f7de0be912e26233effaf81f68e7e3b29b74ab4609e8e0ae",
+        "deflate_2": 878,
+        "deflate_6": 849
+      },
+      "output": {
+        "uncompressed": 8648,
+        "compressed": 849,
+        "method": 8,
+        "sha256": "41d5bfaffd1cf1f3f7de0be912e26233effaf81f68e7e3b29b74ab4609e8e0ae",
+        "deflate_2": 878,
+        "deflate_6": 849
+      },
+      "payload_identical": true,
+      "uncompressed_delta": 0,
+      "compressed_delta": 0
+    },
+    {
+      "part": "xl/printerSettings/printerSettings28.bin",
+      "original": {
+        "uncompressed": 8648,
+        "compressed": 849,
+        "method": 8,
+        "sha256": "41d5bfaffd1cf1f3f7de0be912e26233effaf81f68e7e3b29b74ab4609e8e0ae",
+        "deflate_2": 878,
+        "deflate_6": 849
+      },
+      "output": {
+        "uncompressed": 8648,
+        "compressed": 849,
+        "method": 8,
+        "sha256": "41d5bfaffd1cf1f3f7de0be912e26233effaf81f68e7e3b29b74ab4609e8e0ae",
+        "deflate_2": 878,
+        "deflate_6": 849
+      },
+      "payload_identical": true,
+      "uncompressed_delta": 0,
+      "compressed_delta": 0
+    },
+    {
+      "part": "xl/printerSettings/printerSettings29.bin",
+      "original": {
+        "uncompressed": 8648,
+        "compressed": 849,
+        "method": 8,
+        "sha256": "41d5bfaffd1cf1f3f7de0be912e26233effaf81f68e7e3b29b74ab4609e8e0ae",
+        "deflate_2": 878,
+        "deflate_6": 849
+      },
+      "output": {
+        "uncompressed": 8648,
+        "compressed": 849,
+        "method": 8,
+        "sha256": "41d5bfaffd1cf1f3f7de0be912e26233effaf81f68e7e3b29b74ab4609e8e0ae",
+        "deflate_2": 878,
+        "deflate_6": 849
+      },
+      "payload_identical": true,
+      "uncompressed_delta": 0,
+      "compressed_delta": 0
+    },
+    {
+      "part": "xl/printerSettings/printerSettings3.bin",
+      "original": {
+        "uncompressed": 220,
+        "compressed": 60,
+        "method": 8,
+        "sha256": "89109fa6a480af07f8c64c9f74841288e02a3e7b5a85b374f770f7838146e05c",
+        "deflate_2": 63,
+        "deflate_6": 60
+      },
+      "output": {
+        "uncompressed": 220,
+        "compressed": 60,
+        "method": 8,
+        "sha256": "89109fa6a480af07f8c64c9f74841288e02a3e7b5a85b374f770f7838146e05c",
+        "deflate_2": 63,
+        "deflate_6": 60
+      },
+      "payload_identical": true,
+      "uncompressed_delta": 0,
+      "compressed_delta": 0
+    },
+    {
+      "part": "xl/printerSettings/printerSettings30.bin",
+      "original": {
+        "uncompressed": 8648,
+        "compressed": 849,
+        "method": 8,
+        "sha256": "41d5bfaffd1cf1f3f7de0be912e26233effaf81f68e7e3b29b74ab4609e8e0ae",
+        "deflate_2": 878,
+        "deflate_6": 849
+      },
+      "output": {
+        "uncompressed": 8648,
+        "compressed": 849,
+        "method": 8,
+        "sha256": "41d5bfaffd1cf1f3f7de0be912e26233effaf81f68e7e3b29b74ab4609e8e0ae",
+        "deflate_2": 878,
+        "deflate_6": 849
+      },
+      "payload_identical": true,
+      "uncompressed_delta": 0,
+      "compressed_delta": 0
+    },
+    {
+      "part": "xl/printerSettings/printerSettings31.bin",
+      "original": {
+        "uncompressed": 8648,
+        "compressed": 849,
+        "method": 8,
+        "sha256": "41d5bfaffd1cf1f3f7de0be912e26233effaf81f68e7e3b29b74ab4609e8e0ae",
+        "deflate_2": 878,
+        "deflate_6": 849
+      },
+      "output": {
+        "uncompressed": 8648,
+        "compressed": 849,
+        "method": 8,
+        "sha256": "41d5bfaffd1cf1f3f7de0be912e26233effaf81f68e7e3b29b74ab4609e8e0ae",
+        "deflate_2": 878,
+        "deflate_6": 849
+      },
+      "payload_identical": true,
+      "uncompressed_delta": 0,
+      "compressed_delta": 0
+    },
+    {
+      "part": "xl/printerSettings/printerSettings32.bin",
+      "original": {
+        "uncompressed": 8648,
+        "compressed": 849,
+        "method": 8,
+        "sha256": "41d5bfaffd1cf1f3f7de0be912e26233effaf81f68e7e3b29b74ab4609e8e0ae",
+        "deflate_2": 878,
+        "deflate_6": 849
+      },
+      "output": {
+        "uncompressed": 8648,
+        "compressed": 849,
+        "method": 8,
+        "sha256": "41d5bfaffd1cf1f3f7de0be912e26233effaf81f68e7e3b29b74ab4609e8e0ae",
+        "deflate_2": 878,
+        "deflate_6": 849
+      },
+      "payload_identical": true,
+      "uncompressed_delta": 0,
+      "compressed_delta": 0
+    },
+    {
+      "part": "xl/printerSettings/printerSettings33.bin",
+      "original": {
+        "uncompressed": 8648,
+        "compressed": 849,
+        "method": 8,
+        "sha256": "41d5bfaffd1cf1f3f7de0be912e26233effaf81f68e7e3b29b74ab4609e8e0ae",
+        "deflate_2": 878,
+        "deflate_6": 849
+      },
+      "output": {
+        "uncompressed": 8648,
+        "compressed": 849,
+        "method": 8,
+        "sha256": "41d5bfaffd1cf1f3f7de0be912e26233effaf81f68e7e3b29b74ab4609e8e0ae",
+        "deflate_2": 878,
+        "deflate_6": 849
+      },
+      "payload_identical": true,
+      "uncompressed_delta": 0,
+      "compressed_delta": 0
+    },
+    {
+      "part": "xl/printerSettings/printerSettings34.bin",
+      "original": {
+        "uncompressed": 8648,
+        "compressed": 849,
+        "method": 8,
+        "sha256": "41d5bfaffd1cf1f3f7de0be912e26233effaf81f68e7e3b29b74ab4609e8e0ae",
+        "deflate_2": 878,
+        "deflate_6": 849
+      },
+      "output": {
+        "uncompressed": 8648,
+        "compressed": 849,
+        "method": 8,
+        "sha256": "41d5bfaffd1cf1f3f7de0be912e26233effaf81f68e7e3b29b74ab4609e8e0ae",
+        "deflate_2": 878,
+        "deflate_6": 849
+      },
+      "payload_identical": true,
+      "uncompressed_delta": 0,
+      "compressed_delta": 0
+    },
+    {
+      "part": "xl/printerSettings/printerSettings4.bin",
+      "original": {
+        "uncompressed": 8648,
+        "compressed": 849,
+        "method": 8,
+        "sha256": "41d5bfaffd1cf1f3f7de0be912e26233effaf81f68e7e3b29b74ab4609e8e0ae",
+        "deflate_2": 878,
+        "deflate_6": 849
+      },
+      "output": {
+        "uncompressed": 8648,
+        "compressed": 849,
+        "method": 8,
+        "sha256": "41d5bfaffd1cf1f3f7de0be912e26233effaf81f68e7e3b29b74ab4609e8e0ae",
+        "deflate_2": 878,
+        "deflate_6": 849
+      },
+      "payload_identical": true,
+      "uncompressed_delta": 0,
+      "compressed_delta": 0
+    },
+    {
+      "part": "xl/printerSettings/printerSettings5.bin",
+      "original": {
+        "uncompressed": 220,
+        "compressed": 54,
+        "method": 8,
+        "sha256": "479e150145e7cfb67e34e42a492015031198168cbf611d8604cb3acf6d7fa0ad",
+        "deflate_2": 59,
+        "deflate_6": 54
+      },
+      "output": {
+        "uncompressed": 220,
+        "compressed": 54,
+        "method": 8,
+        "sha256": "479e150145e7cfb67e34e42a492015031198168cbf611d8604cb3acf6d7fa0ad",
+        "deflate_2": 59,
+        "deflate_6": 54
+      },
+      "payload_identical": true,
+      "uncompressed_delta": 0,
+      "compressed_delta": 0
+    },
+    {
+      "part": "xl/printerSettings/printerSettings6.bin",
+      "original": {
+        "uncompressed": 8648,
+        "compressed": 849,
+        "method": 8,
+        "sha256": "7fcc0a92e23c9e71dfb0d90a8f924c83282d5e4b9b7eb7d1ed43b855614f4bca",
+        "deflate_2": 879,
+        "deflate_6": 849
+      },
+      "output": {
+        "uncompressed": 8648,
+        "compressed": 849,
+        "method": 8,
+        "sha256": "7fcc0a92e23c9e71dfb0d90a8f924c83282d5e4b9b7eb7d1ed43b855614f4bca",
+        "deflate_2": 879,
+        "deflate_6": 849
+      },
+      "payload_identical": true,
+      "uncompressed_delta": 0,
+      "compressed_delta": 0
+    },
+    {
+      "part": "xl/printerSettings/printerSettings7.bin",
+      "original": {
+        "uncompressed": 8648,
+        "compressed": 849,
+        "method": 8,
+        "sha256": "7fcc0a92e23c9e71dfb0d90a8f924c83282d5e4b9b7eb7d1ed43b855614f4bca",
+        "deflate_2": 879,
+        "deflate_6": 849
+      },
+      "output": {
+        "uncompressed": 8648,
+        "compressed": 849,
+        "method": 8,
+        "sha256": "7fcc0a92e23c9e71dfb0d90a8f924c83282d5e4b9b7eb7d1ed43b855614f4bca",
+        "deflate_2": 879,
+        "deflate_6": 849
+      },
+      "payload_identical": true,
+      "uncompressed_delta": 0,
+      "compressed_delta": 0
+    },
+    {
+      "part": "xl/printerSettings/printerSettings8.bin",
+      "original": {
+        "uncompressed": 8648,
+        "compressed": 849,
+        "method": 8,
+        "sha256": "7fcc0a92e23c9e71dfb0d90a8f924c83282d5e4b9b7eb7d1ed43b855614f4bca",
+        "deflate_2": 879,
+        "deflate_6": 849
+      },
+      "output": {
+        "uncompressed": 8648,
+        "compressed": 849,
+        "method": 8,
+        "sha256": "7fcc0a92e23c9e71dfb0d90a8f924c83282d5e4b9b7eb7d1ed43b855614f4bca",
+        "deflate_2": 879,
+        "deflate_6": 849
+      },
+      "payload_identical": true,
+      "uncompressed_delta": 0,
+      "compressed_delta": 0
+    },
+    {
+      "part": "xl/printerSettings/printerSettings9.bin",
+      "original": {
+        "uncompressed": 8648,
+        "compressed": 849,
+        "method": 8,
+        "sha256": "7fcc0a92e23c9e71dfb0d90a8f924c83282d5e4b9b7eb7d1ed43b855614f4bca",
+        "deflate_2": 879,
+        "deflate_6": 849
+      },
+      "output": {
+        "uncompressed": 8648,
+        "compressed": 849,
+        "method": 8,
+        "sha256": "7fcc0a92e23c9e71dfb0d90a8f924c83282d5e4b9b7eb7d1ed43b855614f4bca",
+        "deflate_2": 879,
+        "deflate_6": 849
+      },
+      "payload_identical": true,
+      "uncompressed_delta": 0,
+      "compressed_delta": 0
+    },
+    {
+      "part": "xl/sharedStrings.xml",
+      "original": {
+        "uncompressed": 21233,
+        "compressed": 4121,
+        "method": 8,
+        "sha256": "1711e77bdaf60aa7ac96ad8c634c0b237a471a39c111beb339b2669bbff7c4ad",
+        "deflate_2": 4496,
+        "deflate_6": 4121
+      },
+      "output": {
+        "uncompressed": 21233,
+        "compressed": 4121,
+        "method": 8,
+        "sha256": "1711e77bdaf60aa7ac96ad8c634c0b237a471a39c111beb339b2669bbff7c4ad",
+        "deflate_2": 4496,
+        "deflate_6": 4121
+      },
+      "payload_identical": true,
+      "uncompressed_delta": 0,
+      "compressed_delta": 0
+    },
+    {
+      "part": "xl/styles.xml",
+      "original": {
+        "uncompressed": 28521,
+        "compressed": 2457,
+        "method": 8,
+        "sha256": "7ba36f1b44a49080d8e0bedf409119bb922934aeed9befd3dbcdb0b11cea2f3d",
+        "deflate_2": 3210,
+        "deflate_6": 2457
+      },
+      "output": {
+        "uncompressed": 28521,
+        "compressed": 2457,
+        "method": 8,
+        "sha256": "7ba36f1b44a49080d8e0bedf409119bb922934aeed9befd3dbcdb0b11cea2f3d",
+        "deflate_2": 3210,
+        "deflate_6": 2457
+      },
+      "payload_identical": true,
+      "uncompressed_delta": 0,
+      "compressed_delta": 0
+    },
+    {
+      "part": "xl/theme/theme1.xml",
+      "original": {
+        "uncompressed": 8366,
+        "compressed": 1669,
+        "method": 8,
+        "sha256": "e8189e15e30bf69728321ff5d6edb01f90cccf7de0e2f55dc72a31904883017a",
+        "deflate_2": 1861,
+        "deflate_6": 1669
+      },
+      "output": {
+        "uncompressed": 8366,
+        "compressed": 1669,
+        "method": 8,
+        "sha256": "e8189e15e30bf69728321ff5d6edb01f90cccf7de0e2f55dc72a31904883017a",
+        "deflate_2": 1861,
+        "deflate_6": 1669
+      },
+      "payload_identical": true,
+      "uncompressed_delta": 0,
+      "compressed_delta": 0
+    },
+    {
+      "part": "xl/workbook.xml",
+      "original": {
+        "uncompressed": 7811,
+        "compressed": 1366,
+        "method": 8,
+        "sha256": "69eadcbf5b9d4bc637b51b0adca0ebd5c4a249c6eaa97c7f31e141399aae9acf",
+        "deflate_2": 1461,
+        "deflate_6": 1366
+      },
+      "output": {
+        "uncompressed": 7811,
+        "compressed": 1366,
+        "method": 8,
+        "sha256": "69eadcbf5b9d4bc637b51b0adca0ebd5c4a249c6eaa97c7f31e141399aae9acf",
+        "deflate_2": 1461,
+        "deflate_6": 1366
+      },
+      "payload_identical": true,
+      "uncompressed_delta": 0,
+      "compressed_delta": 0
+    },
+    {
+      "part": "xl/worksheets/_rels/sheet1.xml.rels",
+      "original": {
+        "uncompressed": 461,
+        "compressed": 205,
+        "method": 8,
+        "sha256": "e697b7de66ab899537a726a77b9ef4080c17f938c6e420c25a8f84102da59087",
+        "deflate_2": 206,
+        "deflate_6": 205
+      },
+      "output": {
+        "uncompressed": 461,
+        "compressed": 205,
+        "method": 8,
+        "sha256": "e697b7de66ab899537a726a77b9ef4080c17f938c6e420c25a8f84102da59087",
+        "deflate_2": 206,
+        "deflate_6": 205
+      },
+      "payload_identical": true,
+      "uncompressed_delta": 0,
+      "compressed_delta": 0
+    },
+    {
+      "part": "xl/worksheets/_rels/sheet10.xml.rels",
+      "original": {
+        "uncompressed": 320,
+        "compressed": 180,
+        "method": 8,
+        "sha256": "4b972d7e1af2b9646b294a964889aba59b09587b567fe1e096bae3e9c2cc94a4",
+        "deflate_2": 181,
+        "deflate_6": 180
+      },
+      "output": {
+        "uncompressed": 320,
+        "compressed": 180,
+        "method": 8,
+        "sha256": "4b972d7e1af2b9646b294a964889aba59b09587b567fe1e096bae3e9c2cc94a4",
+        "deflate_2": 181,
+        "deflate_6": 180
+      },
+      "payload_identical": true,
+      "uncompressed_delta": 0,
+      "compressed_delta": 0
+    },
+    {
+      "part": "xl/worksheets/_rels/sheet11.xml.rels",
+      "original": {
+        "uncompressed": 320,
+        "compressed": 180,
+        "method": 8,
+        "sha256": "6cb003b006bc4b10286448075496a053051ef511c283f37d180c373a471a550c",
+        "deflate_2": 181,
+        "deflate_6": 180
+      },
+      "output": {
+        "uncompressed": 320,
+        "compressed": 180,
+        "method": 8,
+        "sha256": "6cb003b006bc4b10286448075496a053051ef511c283f37d180c373a471a550c",
+        "deflate_2": 181,
+        "deflate_6": 180
+      },
+      "payload_identical": true,
+      "uncompressed_delta": 0,
+      "compressed_delta": 0
+    },
+    {
+      "part": "xl/worksheets/_rels/sheet12.xml.rels",
+      "original": {
+        "uncompressed": 320,
+        "compressed": 181,
+        "method": 8,
+        "sha256": "0bd6b115915c6f0e780235723ec1344f9377be785960ecdd1173d89dbf1683a1",
+        "deflate_2": 181,
+        "deflate_6": 181
+      },
+      "output": {
+        "uncompressed": 320,
+        "compressed": 181,
+        "method": 8,
+        "sha256": "0bd6b115915c6f0e780235723ec1344f9377be785960ecdd1173d89dbf1683a1",
+        "deflate_2": 181,
+        "deflate_6": 181
+      },
+      "payload_identical": true,
+      "uncompressed_delta": 0,
+      "compressed_delta": 0
+    },
+    {
+      "part": "xl/worksheets/_rels/sheet13.xml.rels",
+      "original": {
+        "uncompressed": 320,
+        "compressed": 180,
+        "method": 8,
+        "sha256": "619ded934e4c5a766ded7e5a7750b9e084f1eec87256b8693757d41983b474e9",
+        "deflate_2": 181,
+        "deflate_6": 180
+      },
+      "output": {
+        "uncompressed": 320,
+        "compressed": 180,
+        "method": 8,
+        "sha256": "619ded934e4c5a766ded7e5a7750b9e084f1eec87256b8693757d41983b474e9",
+        "deflate_2": 181,
+        "deflate_6": 180
+      },
+      "payload_identical": true,
+      "uncompressed_delta": 0,
+      "compressed_delta": 0
+    },
+    {
+      "part": "xl/worksheets/_rels/sheet14.xml.rels",
+      "original": {
+        "uncompressed": 320,
+        "compressed": 180,
+        "method": 8,
+        "sha256": "d4b58185858b812e5dae58015ec8d60edcdd10156ac84254418bc3ad1558143c",
+        "deflate_2": 181,
+        "deflate_6": 180
+      },
+      "output": {
+        "uncompressed": 320,
+        "compressed": 180,
+        "method": 8,
+        "sha256": "d4b58185858b812e5dae58015ec8d60edcdd10156ac84254418bc3ad1558143c",
+        "deflate_2": 181,
+        "deflate_6": 180
+      },
+      "payload_identical": true,
+      "uncompressed_delta": 0,
+      "compressed_delta": 0
+    },
+    {
+      "part": "xl/worksheets/_rels/sheet15.xml.rels",
+      "original": {
+        "uncompressed": 320,
+        "compressed": 180,
+        "method": 8,
+        "sha256": "d249b6af270ebbeb24c35480c1f225c289889ab2a13b0a47a7a59e6e83af8339",
+        "deflate_2": 181,
+        "deflate_6": 180
+      },
+      "output": {
+        "uncompressed": 320,
+        "compressed": 180,
+        "method": 8,
+        "sha256": "d249b6af270ebbeb24c35480c1f225c289889ab2a13b0a47a7a59e6e83af8339",
+        "deflate_2": 181,
+        "deflate_6": 180
+      },
+      "payload_identical": true,
+      "uncompressed_delta": 0,
+      "compressed_delta": 0
+    },
+    {
+      "part": "xl/worksheets/_rels/sheet16.xml.rels",
+      "original": {
+        "uncompressed": 320,
+        "compressed": 181,
+        "method": 8,
+        "sha256": "6a58a98b0ed726121af8c9b1d1ffe78aadab663efc5585a158d3670ed212013a",
+        "deflate_2": 181,
+        "deflate_6": 181
+      },
+      "output": {
+        "uncompressed": 320,
+        "compressed": 181,
+        "method": 8,
+        "sha256": "6a58a98b0ed726121af8c9b1d1ffe78aadab663efc5585a158d3670ed212013a",
+        "deflate_2": 181,
+        "deflate_6": 181
+      },
+      "payload_identical": true,
+      "uncompressed_delta": 0,
+      "compressed_delta": 0
+    },
+    {
+      "part": "xl/worksheets/_rels/sheet17.xml.rels",
+      "original": {
+        "uncompressed": 320,
+        "compressed": 180,
+        "method": 8,
+        "sha256": "61f33067d6eb3f5fac78300c5a96c32fa7ac41ff5c005b06c23b41c4a11597c8",
+        "deflate_2": 181,
+        "deflate_6": 180
+      },
+      "output": {
+        "uncompressed": 320,
+        "compressed": 180,
+        "method": 8,
+        "sha256": "61f33067d6eb3f5fac78300c5a96c32fa7ac41ff5c005b06c23b41c4a11597c8",
+        "deflate_2": 181,
+        "deflate_6": 180
+      },
+      "payload_identical": true,
+      "uncompressed_delta": 0,
+      "compressed_delta": 0
+    },
+    {
+      "part": "xl/worksheets/_rels/sheet18.xml.rels",
+      "original": {
+        "uncompressed": 320,
+        "compressed": 181,
+        "method": 8,
+        "sha256": "e14dc3a8920a61a1441a81f9e503c0589013459bfe2177a91185124909e66a23",
+        "deflate_2": 181,
+        "deflate_6": 181
+      },
+      "output": {
+        "uncompressed": 320,
+        "compressed": 181,
+        "method": 8,
+        "sha256": "e14dc3a8920a61a1441a81f9e503c0589013459bfe2177a91185124909e66a23",
+        "deflate_2": 181,
+        "deflate_6": 181
+      },
+      "payload_identical": true,
+      "uncompressed_delta": 0,
+      "compressed_delta": 0
+    },
+    {
+      "part": "xl/worksheets/_rels/sheet19.xml.rels",
+      "original": {
+        "uncompressed": 320,
+        "compressed": 180,
+        "method": 8,
+        "sha256": "da0904ab8471112a1723376bfd39b4750a1b02661bb802ac237837549254630e",
+        "deflate_2": 181,
+        "deflate_6": 180
+      },
+      "output": {
+        "uncompressed": 320,
+        "compressed": 180,
+        "method": 8,
+        "sha256": "da0904ab8471112a1723376bfd39b4750a1b02661bb802ac237837549254630e",
+        "deflate_2": 181,
+        "deflate_6": 180
+      },
+      "payload_identical": true,
+      "uncompressed_delta": 0,
+      "compressed_delta": 0
+    },
+    {
+      "part": "xl/worksheets/_rels/sheet2.xml.rels",
+      "original": {
+        "uncompressed": 319,
+        "compressed": 179,
+        "method": 8,
+        "sha256": "db53bf213259b6eb868ab5fe63e4634bad3cdcc8b1d09251603209ab09bde56b",
+        "deflate_2": 179,
+        "deflate_6": 179
+      },
+      "output": {
+        "uncompressed": 319,
+        "compressed": 179,
+        "method": 8,
+        "sha256": "db53bf213259b6eb868ab5fe63e4634bad3cdcc8b1d09251603209ab09bde56b",
+        "deflate_2": 179,
+        "deflate_6": 179
+      },
+      "payload_identical": true,
+      "uncompressed_delta": 0,
+      "compressed_delta": 0
+    },
+    {
+      "part": "xl/worksheets/_rels/sheet20.xml.rels",
+      "original": {
+        "uncompressed": 320,
+        "compressed": 180,
+        "method": 8,
+        "sha256": "27ccee44ef7c0e8195d4071c3e2272882bd076d7b5709ad020dd6d1d12e9ad10",
+        "deflate_2": 181,
+        "deflate_6": 180
+      },
+      "output": {
+        "uncompressed": 320,
+        "compressed": 180,
+        "method": 8,
+        "sha256": "27ccee44ef7c0e8195d4071c3e2272882bd076d7b5709ad020dd6d1d12e9ad10",
+        "deflate_2": 181,
+        "deflate_6": 180
+      },
+      "payload_identical": true,
+      "uncompressed_delta": 0,
+      "compressed_delta": 0
+    },
+    {
+      "part": "xl/worksheets/_rels/sheet21.xml.rels",
+      "original": {
+        "uncompressed": 320,
+        "compressed": 181,
+        "method": 8,
+        "sha256": "a2b11c49a994ac28fdcc0c2566b02366826a4bf498413b781dcef62fa71727e9",
+        "deflate_2": 181,
+        "deflate_6": 181
+      },
+      "output": {
+        "uncompressed": 320,
+        "compressed": 181,
+        "method": 8,
+        "sha256": "a2b11c49a994ac28fdcc0c2566b02366826a4bf498413b781dcef62fa71727e9",
+        "deflate_2": 181,
+        "deflate_6": 181
+      },
+      "payload_identical": true,
+      "uncompressed_delta": 0,
+      "compressed_delta": 0
+    },
+    {
+      "part": "xl/worksheets/_rels/sheet22.xml.rels",
+      "original": {
+        "uncompressed": 320,
+        "compressed": 180,
+        "method": 8,
+        "sha256": "68018d859e04ded9bf1ce7b651fb182722690433666a84c56926ed1c7fdc7a41",
+        "deflate_2": 181,
+        "deflate_6": 180
+      },
+      "output": {
+        "uncompressed": 320,
+        "compressed": 180,
+        "method": 8,
+        "sha256": "68018d859e04ded9bf1ce7b651fb182722690433666a84c56926ed1c7fdc7a41",
+        "deflate_2": 181,
+        "deflate_6": 180
+      },
+      "payload_identical": true,
+      "uncompressed_delta": 0,
+      "compressed_delta": 0
+    },
+    {
+      "part": "xl/worksheets/_rels/sheet23.xml.rels",
+      "original": {
+        "uncompressed": 320,
+        "compressed": 180,
+        "method": 8,
+        "sha256": "4fd51f8f0edf7ba6a7e24fcfc7370e74bdd6f780f31a4c4b65def04e28a88d1a",
+        "deflate_2": 181,
+        "deflate_6": 180
+      },
+      "output": {
+        "uncompressed": 320,
+        "compressed": 180,
+        "method": 8,
+        "sha256": "4fd51f8f0edf7ba6a7e24fcfc7370e74bdd6f780f31a4c4b65def04e28a88d1a",
+        "deflate_2": 181,
+        "deflate_6": 180
+      },
+      "payload_identical": true,
+      "uncompressed_delta": 0,
+      "compressed_delta": 0
+    },
+    {
+      "part": "xl/worksheets/_rels/sheet24.xml.rels",
+      "original": {
+        "uncompressed": 320,
+        "compressed": 180,
+        "method": 8,
+        "sha256": "89ae667027a6c72eb9c149a721f493d205c379cb545a003a67919c8c6545cf99",
+        "deflate_2": 181,
+        "deflate_6": 180
+      },
+      "output": {
+        "uncompressed": 320,
+        "compressed": 180,
+        "method": 8,
+        "sha256": "89ae667027a6c72eb9c149a721f493d205c379cb545a003a67919c8c6545cf99",
+        "deflate_2": 181,
+        "deflate_6": 180
+      },
+      "payload_identical": true,
+      "uncompressed_delta": 0,
+      "compressed_delta": 0
+    },
+    {
+      "part": "xl/worksheets/_rels/sheet25.xml.rels",
+      "original": {
+        "uncompressed": 320,
+        "compressed": 180,
+        "method": 8,
+        "sha256": "a34fccd12a7bc014a12751ee4dec02f0d333ca5887a497394196fd0f5ce5e0e9",
+        "deflate_2": 181,
+        "deflate_6": 180
+      },
+      "output": {
+        "uncompressed": 320,
+        "compressed": 180,
+        "method": 8,
+        "sha256": "a34fccd12a7bc014a12751ee4dec02f0d333ca5887a497394196fd0f5ce5e0e9",
+        "deflate_2": 181,
+        "deflate_6": 180
+      },
+      "payload_identical": true,
+      "uncompressed_delta": 0,
+      "compressed_delta": 0
+    },
+    {
+      "part": "xl/worksheets/_rels/sheet26.xml.rels",
+      "original": {
+        "uncompressed": 320,
+        "compressed": 181,
+        "method": 8,
+        "sha256": "73b8a5154e9c24e9ef40638eec6ee5003570f9e0a9d5957967114871d9ae76b0",
+        "deflate_2": 181,
+        "deflate_6": 181
+      },
+      "output": {
+        "uncompressed": 320,
+        "compressed": 181,
+        "method": 8,
+        "sha256": "73b8a5154e9c24e9ef40638eec6ee5003570f9e0a9d5957967114871d9ae76b0",
+        "deflate_2": 181,
+        "deflate_6": 181
+      },
+      "payload_identical": true,
+      "uncompressed_delta": 0,
+      "compressed_delta": 0
+    },
+    {
+      "part": "xl/worksheets/_rels/sheet27.xml.rels",
+      "original": {
+        "uncompressed": 320,
+        "compressed": 180,
+        "method": 8,
+        "sha256": "3345aebc8b5eb27c3ac627f8442347a53eaa2b2d26a140b1c75714849a560300",
+        "deflate_2": 181,
+        "deflate_6": 180
+      },
+      "output": {
+        "uncompressed": 320,
+        "compressed": 180,
+        "method": 8,
+        "sha256": "3345aebc8b5eb27c3ac627f8442347a53eaa2b2d26a140b1c75714849a560300",
+        "deflate_2": 181,
+        "deflate_6": 180
+      },
+      "payload_identical": true,
+      "uncompressed_delta": 0,
+      "compressed_delta": 0
+    },
+    {
+      "part": "xl/worksheets/_rels/sheet28.xml.rels",
+      "original": {
+        "uncompressed": 320,
+        "compressed": 181,
+        "method": 8,
+        "sha256": "1ec278505bcb037b3ef322eaff6c0e9f559b7562f545e6adcfff8a1b4fa18fb1",
+        "deflate_2": 181,
+        "deflate_6": 181
+      },
+      "output": {
+        "uncompressed": 320,
+        "compressed": 181,
+        "method": 8,
+        "sha256": "1ec278505bcb037b3ef322eaff6c0e9f559b7562f545e6adcfff8a1b4fa18fb1",
+        "deflate_2": 181,
+        "deflate_6": 181
+      },
+      "payload_identical": true,
+      "uncompressed_delta": 0,
+      "compressed_delta": 0
+    },
+    {
+      "part": "xl/worksheets/_rels/sheet29.xml.rels",
+      "original": {
+        "uncompressed": 320,
+        "compressed": 180,
+        "method": 8,
+        "sha256": "4e321113148ac9efeb3f5976115a2663c3d34a0ab06687252b50981871b0373b",
+        "deflate_2": 181,
+        "deflate_6": 180
+      },
+      "output": {
+        "uncompressed": 320,
+        "compressed": 180,
+        "method": 8,
+        "sha256": "4e321113148ac9efeb3f5976115a2663c3d34a0ab06687252b50981871b0373b",
+        "deflate_2": 181,
+        "deflate_6": 180
+      },
+      "payload_identical": true,
+      "uncompressed_delta": 0,
+      "compressed_delta": 0
+    },
+    {
+      "part": "xl/worksheets/_rels/sheet3.xml.rels",
+      "original": {
+        "uncompressed": 461,
+        "compressed": 206,
+        "method": 8,
+        "sha256": "87bebf1972494a04e2a4dde643949ff3f1c07c6fbe01f71b0480f41a629fef40",
+        "deflate_2": 206,
+        "deflate_6": 206
+      },
+      "output": {
+        "uncompressed": 461,
+        "compressed": 206,
+        "method": 8,
+        "sha256": "87bebf1972494a04e2a4dde643949ff3f1c07c6fbe01f71b0480f41a629fef40",
+        "deflate_2": 206,
+        "deflate_6": 206
+      },
+      "payload_identical": true,
+      "uncompressed_delta": 0,
+      "compressed_delta": 0
+    },
+    {
+      "part": "xl/worksheets/_rels/sheet30.xml.rels",
+      "original": {
+        "uncompressed": 320,
+        "compressed": 181,
+        "method": 8,
+        "sha256": "45c5deb23f538a32ca4d1d388cbea9fbbca41c1ecfbeb40ecce5a3f940fbacaa",
+        "deflate_2": 181,
+        "deflate_6": 181
+      },
+      "output": {
+        "uncompressed": 320,
+        "compressed": 181,
+        "method": 8,
+        "sha256": "45c5deb23f538a32ca4d1d388cbea9fbbca41c1ecfbeb40ecce5a3f940fbacaa",
+        "deflate_2": 181,
+        "deflate_6": 181
+      },
+      "payload_identical": true,
+      "uncompressed_delta": 0,
+      "compressed_delta": 0
+    },
+    {
+      "part": "xl/worksheets/_rels/sheet31.xml.rels",
+      "original": {
+        "uncompressed": 320,
+        "compressed": 180,
+        "method": 8,
+        "sha256": "a0d9064698e63b9be4fa74787ace97355d1268cdb4d51f3a51c9529de6e16b58",
+        "deflate_2": 181,
+        "deflate_6": 180
+      },
+      "output": {
+        "uncompressed": 320,
+        "compressed": 180,
+        "method": 8,
+        "sha256": "a0d9064698e63b9be4fa74787ace97355d1268cdb4d51f3a51c9529de6e16b58",
+        "deflate_2": 181,
+        "deflate_6": 180
+      },
+      "payload_identical": true,
+      "uncompressed_delta": 0,
+      "compressed_delta": 0
+    },
+    {
+      "part": "xl/worksheets/_rels/sheet32.xml.rels",
+      "original": {
+        "uncompressed": 320,
+        "compressed": 180,
+        "method": 8,
+        "sha256": "7a70436580993e2c10fcdacd9444776d45f975ebefb0abc8362942e48dab2333",
+        "deflate_2": 181,
+        "deflate_6": 180
+      },
+      "output": {
+        "uncompressed": 320,
+        "compressed": 180,
+        "method": 8,
+        "sha256": "7a70436580993e2c10fcdacd9444776d45f975ebefb0abc8362942e48dab2333",
+        "deflate_2": 181,
+        "deflate_6": 180
+      },
+      "payload_identical": true,
+      "uncompressed_delta": 0,
+      "compressed_delta": 0
+    },
+    {
+      "part": "xl/worksheets/_rels/sheet33.xml.rels",
+      "original": {
+        "uncompressed": 320,
+        "compressed": 180,
+        "method": 8,
+        "sha256": "1344fc79b05fca279fc7fcf71652aa4b89fa08bd436015da38ff05ebc94a7107",
+        "deflate_2": 181,
+        "deflate_6": 180
+      },
+      "output": {
+        "uncompressed": 320,
+        "compressed": 180,
+        "method": 8,
+        "sha256": "1344fc79b05fca279fc7fcf71652aa4b89fa08bd436015da38ff05ebc94a7107",
+        "deflate_2": 181,
+        "deflate_6": 180
+      },
+      "payload_identical": true,
+      "uncompressed_delta": 0,
+      "compressed_delta": 0
+    },
+    {
+      "part": "xl/worksheets/_rels/sheet34.xml.rels",
+      "original": {
+        "uncompressed": 320,
+        "compressed": 181,
+        "method": 8,
+        "sha256": "e5d48682b810c7fb07b3e7bc0f0669f6920caee10e37a26d6e7e22fb7c36ba60",
+        "deflate_2": 182,
+        "deflate_6": 181
+      },
+      "output": {
+        "uncompressed": 320,
+        "compressed": 181,
+        "method": 8,
+        "sha256": "e5d48682b810c7fb07b3e7bc0f0669f6920caee10e37a26d6e7e22fb7c36ba60",
+        "deflate_2": 182,
+        "deflate_6": 181
+      },
+      "payload_identical": true,
+      "uncompressed_delta": 0,
+      "compressed_delta": 0
+    },
+    {
+      "part": "xl/worksheets/_rels/sheet4.xml.rels",
+      "original": {
+        "uncompressed": 319,
+        "compressed": 179,
+        "method": 8,
+        "sha256": "1be494b270062b8636603934d4638ae3fee50f520824c0a0414c83bc53b70c41",
+        "deflate_2": 180,
+        "deflate_6": 179
+      },
+      "output": {
+        "uncompressed": 319,
+        "compressed": 179,
+        "method": 8,
+        "sha256": "1be494b270062b8636603934d4638ae3fee50f520824c0a0414c83bc53b70c41",
+        "deflate_2": 180,
+        "deflate_6": 179
+      },
+      "payload_identical": true,
+      "uncompressed_delta": 0,
+      "compressed_delta": 0
+    },
+    {
+      "part": "xl/worksheets/_rels/sheet5.xml.rels",
+      "original": {
+        "uncompressed": 319,
+        "compressed": 179,
+        "method": 8,
+        "sha256": "acb809d788f1c204e34d8f5a60761c6fa9d0902b49fd5bceb70997adc90dee1c",
+        "deflate_2": 180,
+        "deflate_6": 179
+      },
+      "output": {
+        "uncompressed": 319,
+        "compressed": 179,
+        "method": 8,
+        "sha256": "acb809d788f1c204e34d8f5a60761c6fa9d0902b49fd5bceb70997adc90dee1c",
+        "deflate_2": 180,
+        "deflate_6": 179
+      },
+      "payload_identical": true,
+      "uncompressed_delta": 0,
+      "compressed_delta": 0
+    },
+    {
+      "part": "xl/worksheets/_rels/sheet6.xml.rels",
+      "original": {
+        "uncompressed": 319,
+        "compressed": 179,
+        "method": 8,
+        "sha256": "87af103016ca3dd62c4b6ec9ef2464c8df69c7b0000537b6d0340fa615bf115a",
+        "deflate_2": 179,
+        "deflate_6": 179
+      },
+      "output": {
+        "uncompressed": 319,
+        "compressed": 179,
+        "method": 8,
+        "sha256": "87af103016ca3dd62c4b6ec9ef2464c8df69c7b0000537b6d0340fa615bf115a",
+        "deflate_2": 179,
+        "deflate_6": 179
+      },
+      "payload_identical": true,
+      "uncompressed_delta": 0,
+      "compressed_delta": 0
+    },
+    {
+      "part": "xl/worksheets/_rels/sheet7.xml.rels",
+      "original": {
+        "uncompressed": 319,
+        "compressed": 179,
+        "method": 8,
+        "sha256": "54494e4a08568d3d97ddd2524c348fe7b45359b802fbfb93a2a4a060fbf80c1f",
+        "deflate_2": 180,
+        "deflate_6": 179
+      },
+      "output": {
+        "uncompressed": 319,
+        "compressed": 179,
+        "method": 8,
+        "sha256": "54494e4a08568d3d97ddd2524c348fe7b45359b802fbfb93a2a4a060fbf80c1f",
+        "deflate_2": 180,
+        "deflate_6": 179
+      },
+      "payload_identical": true,
+      "uncompressed_delta": 0,
+      "compressed_delta": 0
+    },
+    {
+      "part": "xl/worksheets/_rels/sheet8.xml.rels",
+      "original": {
+        "uncompressed": 319,
+        "compressed": 179,
+        "method": 8,
+        "sha256": "8e50023cd0423725912d6108797c3cc54b20c55d348755e4bed6ad7a3556b1a9",
+        "deflate_2": 180,
+        "deflate_6": 179
+      },
+      "output": {
+        "uncompressed": 319,
+        "compressed": 179,
+        "method": 8,
+        "sha256": "8e50023cd0423725912d6108797c3cc54b20c55d348755e4bed6ad7a3556b1a9",
+        "deflate_2": 180,
+        "deflate_6": 179
+      },
+      "payload_identical": true,
+      "uncompressed_delta": 0,
+      "compressed_delta": 0
+    },
+    {
+      "part": "xl/worksheets/_rels/sheet9.xml.rels",
+      "original": {
+        "uncompressed": 319,
+        "compressed": 179,
+        "method": 8,
+        "sha256": "d970694e9a123387e3eedef24beb7d97ddf35755f3af8f482acedcd1003482d9",
+        "deflate_2": 180,
+        "deflate_6": 179
+      },
+      "output": {
+        "uncompressed": 319,
+        "compressed": 179,
+        "method": 8,
+        "sha256": "d970694e9a123387e3eedef24beb7d97ddf35755f3af8f482acedcd1003482d9",
+        "deflate_2": 180,
+        "deflate_6": 179
+      },
+      "payload_identical": true,
+      "uncompressed_delta": 0,
+      "compressed_delta": 0
+    },
+    {
+      "part": "xl/worksheets/sheet1.xml",
+      "original": {
+        "uncompressed": 5431,
+        "compressed": 1309,
+        "method": 8,
+        "sha256": "ed5045e2cc23542d24cf5167284a1b2e1e0e47ad140045dba626ff6189eac19d",
+        "deflate_2": 1400,
+        "deflate_6": 1309
+      },
+      "output": {
+        "uncompressed": 4935,
+        "compressed": 1328,
+        "method": 8,
+        "sha256": "338b4f4f93b3efe02b387f12329c518dc301acc0c0878d0513d8c9aeaf525cc2",
+        "deflate_2": 1340,
+        "deflate_6": 1254
+      },
+      "payload_identical": false,
+      "uncompressed_delta": -496,
+      "compressed_delta": 19
+    },
+    {
+      "part": "xl/worksheets/sheet10.xml",
+      "original": {
+        "uncompressed": 198385,
+        "compressed": 27607,
+        "method": 8,
+        "sha256": "903e83ebea667f3f5267ab047c1b44a84c1784c3ead2fd9649dc9fb6235902af",
+        "deflate_2": 34248,
+        "deflate_6": 27607
+      },
+      "output": {
+        "uncompressed": 198333,
+        "compressed": 32605,
+        "method": 8,
+        "sha256": "809fad49f49965e784ed8f6e989fc1827e48d02250f20c3d06ef6ea28f188722",
+        "deflate_2": 34234,
+        "deflate_6": 27598
+      },
+      "payload_identical": false,
+      "uncompressed_delta": -52,
+      "compressed_delta": 4998
+    },
+    {
+      "part": "xl/worksheets/sheet11.xml",
+      "original": {
+        "uncompressed": 197227,
+        "compressed": 26869,
+        "method": 8,
+        "sha256": "a31295bcbe275fe6db078f0c9e79dc7dbf5c7e80d90e1a9141aa4de85474f8aa",
+        "deflate_2": 33352,
+        "deflate_6": 26869
+      },
+      "output": {
+        "uncompressed": 197175,
+        "compressed": 31730,
+        "method": 8,
+        "sha256": "ca5a1e15c82b12af5a3931bf96de240a6ff0467a56e694f6c6889e8bf51d5d4a",
+        "deflate_2": 33338,
+        "deflate_6": 26860
+      },
+      "payload_identical": false,
+      "uncompressed_delta": -52,
+      "compressed_delta": 4861
+    },
+    {
+      "part": "xl/worksheets/sheet12.xml",
+      "original": {
+        "uncompressed": 196749,
+        "compressed": 26820,
+        "method": 8,
+        "sha256": "2ec184e859d25690bcee388353fb3fecf2b760376226ba33fdb586c2d206b608",
+        "deflate_2": 33197,
+        "deflate_6": 26820
+      },
+      "output": {
+        "uncompressed": 196697,
+        "compressed": 31625,
+        "method": 8,
+        "sha256": "5f04f59e0ae0df0a0cb5c74332bf19a7a32b5820df50bbe88b86a951b131d21a",
+        "deflate_2": 33183,
+        "deflate_6": 26814
+      },
+      "payload_identical": false,
+      "uncompressed_delta": -52,
+      "compressed_delta": 4805
+    },
+    {
+      "part": "xl/worksheets/sheet13.xml",
+      "original": {
+        "uncompressed": 3988425,
+        "compressed": 482268,
+        "method": 8,
+        "sha256": "c70e04bece8927a7958f4ed59b709512d9ae36a28ed60b3eb56f3cd10f00e851",
+        "deflate_2": 608620,
+        "deflate_6": 482268
+      },
+      "output": {
+        "uncompressed": 3988372,
+        "compressed": 554430,
+        "method": 8,
+        "sha256": "39771212d47a5f101edb91a77a10de4515de8b3b0f5835c66413cd216a52616d",
+        "deflate_2": 608609,
+        "deflate_6": 482256
+      },
+      "payload_identical": false,
+      "uncompressed_delta": -53,
+      "compressed_delta": 72162
+    },
+    {
+      "part": "xl/worksheets/sheet14.xml",
+      "original": {
+        "uncompressed": 3153237,
+        "compressed": 384799,
+        "method": 8,
+        "sha256": "17d9f5fb932bf90a17ac3a10f71b4afc290c120efffd808c509aa59d38431dac",
+        "deflate_2": 490161,
+        "deflate_6": 384799
+      },
+      "output": {
+        "uncompressed": 3153183,
+        "compressed": 468389,
+        "method": 8,
+        "sha256": "c32754ba3f10c656dcc540a15331367465b92a11211eb097da05a74ce7324647",
+        "deflate_2": 490140,
+        "deflate_6": 384788
+      },
+      "payload_identical": false,
+      "uncompressed_delta": -54,
+      "compressed_delta": 83590
+    },
+    {
+      "part": "xl/worksheets/sheet15.xml",
+      "original": {
+        "uncompressed": 3124212,
+        "compressed": 371339,
+        "method": 8,
+        "sha256": "69ce1b5e93cecf5fb1c00ecaf719a8416ad7338268ec78fdad4b3e5185e74a3b",
+        "deflate_2": 475861,
+        "deflate_6": 371339
+      },
+      "output": {
+        "uncompressed": 3124158,
+        "compressed": 456406,
+        "method": 8,
+        "sha256": "b09e729879443e5b4b29c8dbe4f17d330da7eb3db1dd59c639124a0161d15955",
+        "deflate_2": 475841,
+        "deflate_6": 371328
+      },
+      "payload_identical": false,
+      "uncompressed_delta": -54,
+      "compressed_delta": 85067
+    },
+    {
+      "part": "xl/worksheets/sheet16.xml",
+      "original": {
+        "uncompressed": 3125180,
+        "compressed": 373189,
+        "method": 8,
+        "sha256": "3e6a80f4530dbb47bb45f100e5cdc814e32cba90a6bac32a147277285d02de23",
+        "deflate_2": 477901,
+        "deflate_6": 373189
+      },
+      "output": {
+        "uncompressed": 3125126,
+        "compressed": 458320,
+        "method": 8,
+        "sha256": "fea3eda36dfb2161765ba526f83a9256ea3ec4e78c350cc1adb8d3467bb74d54",
+        "deflate_2": 477877,
+        "deflate_6": 373178
+      },
+      "payload_identical": false,
+      "uncompressed_delta": -54,
+      "compressed_delta": 85131
+    },
+    {
+      "part": "xl/worksheets/sheet17.xml",
+      "original": {
+        "uncompressed": 981172,
+        "compressed": 126000,
+        "method": 8,
+        "sha256": "49d2457f7864f937226efaf286a1f3d69e1a49ae295b1d19c8f9403e2492a80e",
+        "deflate_2": 157728,
+        "deflate_6": 126000
+      },
+      "output": {
+        "uncompressed": 981118,
+        "compressed": 148715,
+        "method": 8,
+        "sha256": "9176181d10745828a25ac684bc3444662240eb3746baa10703bc1dcfbf67cd1f",
+        "deflate_2": 157715,
+        "deflate_6": 125991
+      },
+      "payload_identical": false,
+      "uncompressed_delta": -54,
+      "compressed_delta": 22715
+    },
+    {
+      "part": "xl/worksheets/sheet18.xml",
+      "original": {
+        "uncompressed": 975320,
+        "compressed": 122714,
+        "method": 8,
+        "sha256": "ae1fee695752cf58c5777865efed16bacc97da5e0f8e2ef5327cb6440050fbbb",
+        "deflate_2": 152857,
+        "deflate_6": 122714
+      },
+      "output": {
+        "uncompressed": 975266,
+        "compressed": 144832,
+        "method": 8,
+        "sha256": "b9a0211c2d3a87218bab485e316f9c59b6a9b2af17ef0922ce6a53b966903647",
+        "deflate_2": 152845,
+        "deflate_6": 122706
+      },
+      "payload_identical": false,
+      "uncompressed_delta": -54,
+      "compressed_delta": 22118
+    },
+    {
+      "part": "xl/worksheets/sheet19.xml",
+      "original": {
+        "uncompressed": 975311,
+        "compressed": 122977,
+        "method": 8,
+        "sha256": "c98189a4f8d4e5ff53709f81e0117af4075ecd9c722584013771a57a042530e7",
+        "deflate_2": 153180,
+        "deflate_6": 122977
+      },
+      "output": {
+        "uncompressed": 975257,
+        "compressed": 145232,
+        "method": 8,
+        "sha256": "f9a88a3c1d35c315f99a64048433270d8299983ea01358f51fef3b564fbc920d",
+        "deflate_2": 153168,
+        "deflate_6": 122968
+      },
+      "payload_identical": false,
+      "uncompressed_delta": -54,
+      "compressed_delta": 22255
+    },
+    {
+      "part": "xl/worksheets/sheet2.xml",
+      "original": {
+        "uncompressed": 12338,
+        "compressed": 2885,
+        "method": 8,
+        "sha256": "701baa01674e8fed3d321fd69bb22751e9d64ef317da430a0d6788dbbc80f711",
+        "deflate_2": 3139,
+        "deflate_6": 2885
+      },
+      "output": {
+        "uncompressed": 11555,
+        "compressed": 3004,
+        "method": 8,
+        "sha256": "b8d6cec7e3d9b89b2f317c2b1fc44a49c08c166f3608db03e74c88a6205447be",
+        "deflate_2": 3052,
+        "deflate_6": 2822
+      },
+      "payload_identical": false,
+      "uncompressed_delta": -783,
+      "compressed_delta": 119
+    },
+    {
+      "part": "xl/worksheets/sheet20.xml",
+      "original": {
+        "uncompressed": 342019,
+        "compressed": 46492,
+        "method": 8,
+        "sha256": "62dc1007348851155d483c9876842e60fc890a109dced1d2b4e46a3910f8a0b0",
+        "deflate_2": 46855,
+        "deflate_6": 46492
+      },
+      "output": {
+        "uncompressed": 15204,
+        "compressed": 3476,
+        "method": 8,
+        "sha256": "ad192482f5ae4b231d645261ca625aa2b219e16b91faf9c38239814dda8847db",
+        "deflate_2": 3569,
+        "deflate_6": 3248
+      },
+      "payload_identical": false,
+      "uncompressed_delta": -326815,
+      "compressed_delta": -43016
+    },
+    {
+      "part": "xl/worksheets/sheet21.xml",
+      "original": {
+        "uncompressed": 2399659,
+        "compressed": 220533,
+        "method": 8,
+        "sha256": "334668824727b4b1d79f72abcea3b9cae2a8f4c0335b939907c0fb190f6c74b9",
+        "deflate_2": 269471,
+        "deflate_6": 220533
+      },
+      "output": {
+        "uncompressed": 2397227,
+        "compressed": 261087,
+        "method": 8,
+        "sha256": "a258d92e9bb3dd19e14148f0217cb29e95e7f70ca294458b1d2ca98d9e7e3c5d",
+        "deflate_2": 268975,
+        "deflate_6": 220153
+      },
+      "payload_identical": false,
+      "uncompressed_delta": -2432,
+      "compressed_delta": 40554
+    },
+    {
+      "part": "xl/worksheets/sheet22.xml",
+      "original": {
+        "uncompressed": 5518864,
+        "compressed": 520798,
+        "method": 8,
+        "sha256": "7b2b909cedb82624110eb08edb47cf5bd568e91f1c96d1828542089b09a6bf0e",
+        "deflate_2": 628533,
+        "deflate_6": 520798
+      },
+      "output": {
+        "uncompressed": 5518864,
+        "compressed": 520798,
+        "method": 8,
+        "sha256": "7b2b909cedb82624110eb08edb47cf5bd568e91f1c96d1828542089b09a6bf0e",
+        "deflate_2": 628533,
+        "deflate_6": 520798
+      },
+      "payload_identical": true,
+      "uncompressed_delta": 0,
+      "compressed_delta": 0
+    },
+    {
+      "part": "xl/worksheets/sheet23.xml",
+      "original": {
+        "uncompressed": 5547273,
+        "compressed": 520523,
+        "method": 8,
+        "sha256": "1504c9663bbd1e05e6d1ddd7b4e4e83d2458ab0b23b08c465b2634cb608e9caf",
+        "deflate_2": 642576,
+        "deflate_6": 520523
+      },
+      "output": {
+        "uncompressed": 5547273,
+        "compressed": 520523,
+        "method": 8,
+        "sha256": "1504c9663bbd1e05e6d1ddd7b4e4e83d2458ab0b23b08c465b2634cb608e9caf",
+        "deflate_2": 642576,
+        "deflate_6": 520523
+      },
+      "payload_identical": true,
+      "uncompressed_delta": 0,
+      "compressed_delta": 0
+    },
+    {
+      "part": "xl/worksheets/sheet24.xml",
+      "original": {
+        "uncompressed": 5546275,
+        "compressed": 520317,
+        "method": 8,
+        "sha256": "22f4fe11e75dc725768ea1974b29da0f20131b6a314bb492f55b54539b52bc85",
+        "deflate_2": 642745,
+        "deflate_6": 520317
+      },
+      "output": {
+        "uncompressed": 5546275,
+        "compressed": 520317,
+        "method": 8,
+        "sha256": "22f4fe11e75dc725768ea1974b29da0f20131b6a314bb492f55b54539b52bc85",
+        "deflate_2": 642745,
+        "deflate_6": 520317
+      },
+      "payload_identical": true,
+      "uncompressed_delta": 0,
+      "compressed_delta": 0
+    },
+    {
+      "part": "xl/worksheets/sheet25.xml",
+      "original": {
+        "uncompressed": 1449132,
+        "compressed": 136576,
+        "method": 8,
+        "sha256": "3602fe5944c250dc3053aada8f5b6e487d072ab0f7c5e057679f4534508f0209",
+        "deflate_2": 151130,
+        "deflate_6": 136576
+      },
+      "output": {
+        "uncompressed": 1448940,
+        "compressed": 153937,
+        "method": 8,
+        "sha256": "9b0aafd3bd9e806c7a84753739f8db116417eefe32a25ecf9c40339106fbc2c7",
+        "deflate_2": 151080,
+        "deflate_6": 136540
+      },
+      "payload_identical": false,
+      "uncompressed_delta": -192,
+      "compressed_delta": 17361
+    },
+    {
+      "part": "xl/worksheets/sheet26.xml",
+      "original": {
+        "uncompressed": 1456622,
+        "compressed": 136178,
+        "method": 8,
+        "sha256": "9c595df9927650ab77ffd7070f457635cfa3ec3e862bac26420e34fbe9b2bf41",
+        "deflate_2": 152439,
+        "deflate_6": 136178
+      },
+      "output": {
+        "uncompressed": 1456622,
+        "compressed": 136178,
+        "method": 8,
+        "sha256": "9c595df9927650ab77ffd7070f457635cfa3ec3e862bac26420e34fbe9b2bf41",
+        "deflate_2": 152439,
+        "deflate_6": 136178
+      },
+      "payload_identical": true,
+      "uncompressed_delta": 0,
+      "compressed_delta": 0
+    },
+    {
+      "part": "xl/worksheets/sheet27.xml",
+      "original": {
+        "uncompressed": 1456144,
+        "compressed": 135109,
+        "method": 8,
+        "sha256": "65d418d2d757716dd019613ece6eff93f718d948e80f5d58a4fdf4cb583d4330",
+        "deflate_2": 153042,
+        "deflate_6": 135109
+      },
+      "output": {
+        "uncompressed": 1456144,
+        "compressed": 135109,
+        "method": 8,
+        "sha256": "65d418d2d757716dd019613ece6eff93f718d948e80f5d58a4fdf4cb583d4330",
+        "deflate_2": 153042,
+        "deflate_6": 135109
+      },
+      "payload_identical": true,
+      "uncompressed_delta": 0,
+      "compressed_delta": 0
+    },
+    {
+      "part": "xl/worksheets/sheet28.xml",
+      "original": {
+        "uncompressed": 39927766,
+        "compressed": 3448518,
+        "method": 8,
+        "sha256": "7dbdabb93d2121202ba0655b4d7d109cea516fbdc1758277278dfae060087ec3",
+        "deflate_2": 4168907,
+        "deflate_6": 3448518
+      },
+      "output": {
+        "uncompressed": 39776986,
+        "compressed": 4372681,
+        "method": 8,
+        "sha256": "15a7b16c0eda085a3b42d8f05398792558409e0423803c9bd4918f0580acb8ee",
+        "deflate_2": 4149646,
+        "deflate_6": 3434726
+      },
+      "payload_identical": false,
+      "uncompressed_delta": -150780,
+      "compressed_delta": 924163
+    },
+    {
+      "part": "xl/worksheets/sheet29.xml",
+      "original": {
+        "uncompressed": 28090054,
+        "compressed": 2442267,
+        "method": 8,
+        "sha256": "7fa8f9a2c6f9c6f1e623c878339431bdd98234bf67de26613c905f5690d48371",
+        "deflate_2": 2922158,
+        "deflate_6": 2442267
+      },
+      "output": {
+        "uncompressed": 28089799,
+        "compressed": 3065553,
+        "method": 8,
+        "sha256": "a10204e304f137a985a50ef2bdadbcae318420d522d45ddd6a825d9373680826",
+        "deflate_2": 2922364,
+        "deflate_6": 2442219
+      },
+      "payload_identical": false,
+      "uncompressed_delta": -255,
+      "compressed_delta": 623286
+    },
+    {
+      "part": "xl/worksheets/sheet3.xml",
+      "original": {
+        "uncompressed": 331803,
+        "compressed": 44531,
+        "method": 8,
+        "sha256": "230ecdd6a153f02ae298cab0d51a35ecc187b8c5db52dd41947393a35249f98d",
+        "deflate_2": 44715,
+        "deflate_6": 44531
+      },
+      "output": {
+        "uncompressed": 4865,
+        "compressed": 1401,
+        "method": 8,
+        "sha256": "43627d9936f3e1da07529c121a33a72ce0b4eb676e9d44d2d71ac4c359b9ec03",
+        "deflate_2": 1425,
+        "deflate_6": 1317
+      },
+      "payload_identical": false,
+      "uncompressed_delta": -326938,
+      "compressed_delta": -43130
+    },
+    {
+      "part": "xl/worksheets/sheet30.xml",
+      "original": {
+        "uncompressed": 28230428,
+        "compressed": 2435456,
+        "method": 8,
+        "sha256": "ad4b2c9e4f4db159b0d4cfb257694e77d8842f0784623fbb6295251adf46cec2",
+        "deflate_2": 2898835,
+        "deflate_6": 2435456
+      },
+      "output": {
+        "uncompressed": 28230374,
+        "compressed": 2892616,
+        "method": 8,
+        "sha256": "6017b5d23544c34a308e9b729b3e5ee62c25ea570d36744e7187ffd8102f0c76",
+        "deflate_2": 2898656,
+        "deflate_6": 2435447
+      },
+      "payload_identical": false,
+      "uncompressed_delta": -54,
+      "compressed_delta": 457160
+    },
+    {
+      "part": "xl/worksheets/sheet31.xml",
+      "original": {
+        "uncompressed": 28231395,
+        "compressed": 2421778,
+        "method": 8,
+        "sha256": "e15299eb90c1cd61da75f9f26f86c428a9781dcc96c8c99dc8b4938f01e9099b",
+        "deflate_2": 2921754,
+        "deflate_6": 2421778
+      },
+      "output": {
+        "uncompressed": 28231341,
+        "compressed": 2900515,
+        "method": 8,
+        "sha256": "5da2ba897822c8e79250baab69257d64abba37501193a5c5b9d06e0eb7367555",
+        "deflate_2": 2921785,
+        "deflate_6": 2421768
+      },
+      "payload_identical": false,
+      "uncompressed_delta": -54,
+      "compressed_delta": 478737
+    },
+    {
+      "part": "xl/worksheets/sheet32.xml",
+      "original": {
+        "uncompressed": 6974052,
+        "compressed": 615794,
+        "method": 8,
+        "sha256": "4b217a716e4d1da7ed3003a02cab0aeb7aed62b371d286f7a2900489647a357a",
+        "deflate_2": 721669,
+        "deflate_6": 615794
+      },
+      "output": {
+        "uncompressed": 6973851,
+        "compressed": 753629,
+        "method": 8,
+        "sha256": "90f65486b05db5e70f0fffcd5394d5b29883a81da8062e3a1669e145456c5d55",
+        "deflate_2": 721616,
+        "deflate_6": 615757
+      },
+      "payload_identical": false,
+      "uncompressed_delta": -201,
+      "compressed_delta": 137835
+    },
+    {
+      "part": "xl/worksheets/sheet33.xml",
+      "original": {
+        "uncompressed": 7009599,
+        "compressed": 615602,
+        "method": 8,
+        "sha256": "19072fff93f6b879defb2763fe3a0fdf1337ffeb0b7b21240d43f028b26cbc47",
+        "deflate_2": 729850,
+        "deflate_6": 615602
+      },
+      "output": {
+        "uncompressed": 7009599,
+        "compressed": 615602,
+        "method": 8,
+        "sha256": "19072fff93f6b879defb2763fe3a0fdf1337ffeb0b7b21240d43f028b26cbc47",
+        "deflate_2": 729850,
+        "deflate_6": 615602
+      },
+      "payload_identical": true,
+      "uncompressed_delta": 0,
+      "compressed_delta": 0
+    },
+    {
+      "part": "xl/worksheets/sheet34.xml",
+      "original": {
+        "uncompressed": 6967990,
+        "compressed": 611649,
+        "method": 8,
+        "sha256": "27b323ced88eef9f1581773cd3065bf609977ba432c0ff3dab6bf4801bf09ae5",
+        "deflate_2": 715728,
+        "deflate_6": 611649
+      },
+      "output": {
+        "uncompressed": 6967990,
+        "compressed": 611649,
+        "method": 8,
+        "sha256": "27b323ced88eef9f1581773cd3065bf609977ba432c0ff3dab6bf4801bf09ae5",
+        "deflate_2": 715728,
+        "deflate_6": 611649
+      },
+      "payload_identical": true,
+      "uncompressed_delta": 0,
+      "compressed_delta": 0
+    },
+    {
+      "part": "xl/worksheets/sheet4.xml",
+      "original": {
+        "uncompressed": 4334,
+        "compressed": 1282,
+        "method": 8,
+        "sha256": "3e717ffc3ed1b458f703e963c26a58a3f3fb161f8982faca98f8c7f7feaa91b0",
+        "deflate_2": 1398,
+        "deflate_6": 1282
+      },
+      "output": {
+        "uncompressed": 3541,
+        "compressed": 1246,
+        "method": 8,
+        "sha256": "eca8d003331130491d16f62b489d72fda2a3635678594dce126fe9013b29bd8c",
+        "deflate_2": 1277,
+        "deflate_6": 1170
+      },
+      "payload_identical": false,
+      "uncompressed_delta": -793,
+      "compressed_delta": -36
+    },
+    {
+      "part": "xl/worksheets/sheet5.xml",
+      "original": {
+        "uncompressed": 2811,
+        "compressed": 1035,
+        "method": 8,
+        "sha256": "56a2cc0f45af684e73aa00c73de884e304c034dc59c884c31847a39c5611e793",
+        "deflate_2": 1101,
+        "deflate_6": 1035
+      },
+      "output": {
+        "uncompressed": 2788,
+        "compressed": 1074,
+        "method": 8,
+        "sha256": "0637523fbf7c9a8b08723107ac84e9ddded07adc44df2eaf300402c65df6c42a",
+        "deflate_2": 1095,
+        "deflate_6": 1033
+      },
+      "payload_identical": false,
+      "uncompressed_delta": -23,
+      "compressed_delta": 39
+    },
+    {
+      "part": "xl/worksheets/sheet6.xml",
+      "original": {
+        "uncompressed": 305867,
+        "compressed": 42883,
+        "method": 8,
+        "sha256": "1336900530183bae2a680fe67c329b4fde5cc34f72ee161cdae56a3542dbf676",
+        "deflate_2": 50211,
+        "deflate_6": 42883
+      },
+      "output": {
+        "uncompressed": 305816,
+        "compressed": 44069,
+        "method": 8,
+        "sha256": "038c0805135e30bd85680ca7eef9ae597d5cfb2694c6b1844828581a0a5dc781",
+        "deflate_2": 50199,
+        "deflate_6": 42872
+      },
+      "payload_identical": false,
+      "uncompressed_delta": -51,
+      "compressed_delta": 1186
+    },
+    {
+      "part": "xl/worksheets/sheet7.xml",
+      "original": {
+        "uncompressed": 625730,
+        "compressed": 81051,
+        "method": 8,
+        "sha256": "fe624ed026d09d6305bd8c4bbaada2a1083ae1a5050d87843f8ad5127fcbaf87",
+        "deflate_2": 98071,
+        "deflate_6": 81051
+      },
+      "output": {
+        "uncompressed": 625590,
+        "compressed": 93687,
+        "method": 8,
+        "sha256": "1c5184aeb79db9553fa7193b22da395e724a787597fdd678f9100ad7ee20cb88",
+        "deflate_2": 98031,
+        "deflate_6": 81027
+      },
+      "payload_identical": false,
+      "uncompressed_delta": -140,
+      "compressed_delta": 12636
+    },
+    {
+      "part": "xl/worksheets/sheet8.xml",
+      "original": {
+        "uncompressed": 620428,
+        "compressed": 78569,
+        "method": 8,
+        "sha256": "0c1077ab29d907fac9190f564faa62e6e97a72a17c844c1e5d3598941a11d1d4",
+        "deflate_2": 95305,
+        "deflate_6": 78569
+      },
+      "output": {
+        "uncompressed": 620110,
+        "compressed": 91362,
+        "method": 8,
+        "sha256": "ed78f0cdbc05a3c55e443cff10e50294c19930f31d7a0f628d3d133a57c19b1b",
+        "deflate_2": 95234,
+        "deflate_6": 78528
+      },
+      "payload_identical": false,
+      "uncompressed_delta": -318,
+      "compressed_delta": 12793
+    },
+    {
+      "part": "xl/worksheets/sheet9.xml",
+      "original": {
+        "uncompressed": 619430,
+        "compressed": 78540,
+        "method": 8,
+        "sha256": "103ce571a2fff2ca9f3a9fcad5a40f0dc5aa5eabb87a7f40fe295ae24c5740fe",
+        "deflate_2": 95137,
+        "deflate_6": 78540
+      },
+      "output": {
+        "uncompressed": 619112,
+        "compressed": 91335,
+        "method": 8,
+        "sha256": "52ffa39d088a2e88f2442de8a8690d159f9035c24678b24c806dc2c04a73b46d",
+        "deflate_2": 95067,
+        "deflate_6": 78499
+      },
+      "payload_identical": false,
+      "uncompressed_delta": -318,
+      "compressed_delta": 12795
+    }
+  ]
+}
