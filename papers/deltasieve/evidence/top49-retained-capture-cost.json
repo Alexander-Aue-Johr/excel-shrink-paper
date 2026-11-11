@@ -1,0 +1,856 @@
+{
+  "schema": 1,
+  "source_audit_sha256": "3ebf22de2f409b539e3e029be2dbff1300b41befe329537ceb71124658418946",
+  "scope": "Retained, version-matched SheetShrink observations against the selected raw originals. Historical runtime configurations can differ. No full-capture speedup estimate.",
+  "corpora": {
+    "destatis": {
+      "observations": 42,
+      "summary": {
+        "candidate_count": {
+          "median": 21.0,
+          "maximum": 451
+        },
+        "capture_selection_and_transport_ms": {
+          "median": 7387.5,
+          "maximum": 146803
+        }
+      },
+      "rows": [
+        {
+          "rank": 1,
+          "report_sha256": "47b7081646d7e226dff37b5f7a2e1d89f9521a9a8602329bb0b002f0b2a0ab78",
+          "candidate_count": 128,
+          "capture_selection_and_transport_ms": 62346
+        },
+        {
+          "rank": 4,
+          "report_sha256": "a48d421ef4609faa42feabfd16cce5fec9bff84646c56c75d2fbc07795601abf",
+          "candidate_count": 333,
+          "capture_selection_and_transport_ms": 70209
+        },
+        {
+          "rank": 5,
+          "report_sha256": "65a295c5aa617fd4c91df79ac5f640c00bf40d4fcfd91eff82439a35a0ca4c6b",
+          "candidate_count": 19,
+          "capture_selection_and_transport_ms": 6551
+        },
+        {
+          "rank": 6,
+          "report_sha256": "134c0c17bff36fa1f36092ef082be43e78b695314488ea2ddf39e62fa8e37e38",
+          "candidate_count": 15,
+          "capture_selection_and_transport_ms": 4360
+        },
+        {
+          "rank": 8,
+          "report_sha256": "77256ee489eaa2f699c1ac06c31c1743d2b1214b17fb7de81c66064ce3f42fe7",
+          "candidate_count": 12,
+          "capture_selection_and_transport_ms": 2452
+        },
+        {
+          "rank": 9,
+          "report_sha256": "dc01f562507b1fa6f85a745a7c2951189076de961e91c53d575990c156a9b3fc",
+          "candidate_count": 8,
+          "capture_selection_and_transport_ms": 2990
+        },
+        {
+          "rank": 10,
+          "report_sha256": "4df70d632e5ec73c0fd133b03da5cbfa566507f20f29583f36622f4c1e5ed42b",
+          "candidate_count": 350,
+          "capture_selection_and_transport_ms": 119009
+        },
+        {
+          "rank": 11,
+          "report_sha256": "40a221b715fe5c917135450073d1d691a11ef12d54495d7a6cbee0e7b85b33d9",
+          "candidate_count": 22,
+          "capture_selection_and_transport_ms": 7091
+        },
+        {
+          "rank": 12,
+          "report_sha256": "9faa0bd4037d253a3cd70ac97e21b869d83fc1def5c55534aeec78eca3934698",
+          "candidate_count": 76,
+          "capture_selection_and_transport_ms": 24653
+        },
+        {
+          "rank": 13,
+          "report_sha256": "7b335afb5bba8fde8793c60b2f9a4d768f91de00096fff2420959fa16d600340",
+          "candidate_count": 100,
+          "capture_selection_and_transport_ms": 20830
+        },
+        {
+          "rank": 14,
+          "report_sha256": "975fc836ed6e92b156820235388efc0bea00e52fcc16a1d97fdde9357d18a7a4",
+          "candidate_count": 9,
+          "capture_selection_and_transport_ms": 3400
+        },
+        {
+          "rank": 15,
+          "report_sha256": "e085e29a43620982c01dc99e15ae6259b6dc952bcc3329a3e3e7cf34d789bf27",
+          "candidate_count": 24,
+          "capture_selection_and_transport_ms": 7891
+        },
+        {
+          "rank": 16,
+          "report_sha256": "94948b5faae87f13e71e66c1a66b86b245bffacf2f4b8a579610f5582d1832e1",
+          "candidate_count": 18,
+          "capture_selection_and_transport_ms": 4885
+        },
+        {
+          "rank": 17,
+          "report_sha256": "0279c51609853627d15b7fe43082ae51e8c22fa2adf3dacdf5cb40cd619297c3",
+          "candidate_count": 13,
+          "capture_selection_and_transport_ms": 4719
+        },
+        {
+          "rank": 18,
+          "report_sha256": "cde7f0b72e5c5e6156a195e7ec6398014190349d10b7a9685de8548151af40ba",
+          "candidate_count": 20,
+          "capture_selection_and_transport_ms": 5640
+        },
+        {
+          "rank": 19,
+          "report_sha256": "92a8bf90ac2931483242f20584bfa9b4fd5e44d72c1cfa70e1a72bde5cc7c430",
+          "candidate_count": 18,
+          "capture_selection_and_transport_ms": 12940
+        },
+        {
+          "rank": 20,
+          "report_sha256": "e694b7d24c498218da07378bad6a2733b4b164169c8e4e836f88653126e0ba0f",
+          "candidate_count": 20,
+          "capture_selection_and_transport_ms": 5137
+        },
+        {
+          "rank": 21,
+          "report_sha256": "5368f060f708916ad3a78fd2abe59347d4d76ce52dbb4bca86040e4d604a94cd",
+          "candidate_count": 39,
+          "capture_selection_and_transport_ms": 10142
+        },
+        {
+          "rank": 22,
+          "report_sha256": "df23c8fc9c391d80397f20a70a1f18d17c4b8b27736b0e39a9e3cc9e135579ce",
+          "candidate_count": 18,
+          "capture_selection_and_transport_ms": 5631
+        },
+        {
+          "rank": 23,
+          "report_sha256": "9c57480ecdb2d4372b8d09a872d38db887acd72ab550f5558980bb3cefb9bf42",
+          "candidate_count": 18,
+          "capture_selection_and_transport_ms": 5683
+        },
+        {
+          "rank": 24,
+          "report_sha256": "db0ee7608ffdc0e7af78e38ecc8288341fe189315476a52d26630de63f9b1506",
+          "candidate_count": 27,
+          "capture_selection_and_transport_ms": 7684
+        },
+        {
+          "rank": 26,
+          "report_sha256": "33d371a5d9bad7d8a591be5bd1bc6bfc252bddcb746bdbc33b71d87dca3fe599",
+          "candidate_count": 66,
+          "capture_selection_and_transport_ms": 18215
+        },
+        {
+          "rank": 27,
+          "report_sha256": "bc406ebadd3553b2b423ff01a98484de24fe5b7fda272ee6882ce9567b9a0c69",
+          "candidate_count": 4,
+          "capture_selection_and_transport_ms": 1339
+        },
+        {
+          "rank": 28,
+          "report_sha256": "4caecbbb16f334c27a082618463b3d1ae97105ce34c38b3df4c265c00f1311c0",
+          "candidate_count": 5,
+          "capture_selection_and_transport_ms": 1288
+        },
+        {
+          "rank": 29,
+          "report_sha256": "101e41ef0bfd688eb25aece1b053a7a39955927713d0b51527321534f2ba202a",
+          "candidate_count": 8,
+          "capture_selection_and_transport_ms": 3083
+        },
+        {
+          "rank": 30,
+          "report_sha256": "a5abef60bb76d377f79a9fe0b1efd5bca7a2668385b8292ccd251dad9b3ea7cc",
+          "candidate_count": 164,
+          "capture_selection_and_transport_ms": 35596
+        },
+        {
+          "rank": 31,
+          "report_sha256": "092432236239ae368920dd2739c466a50bd93b5cc33d54f05ddcc7fd87a731c8",
+          "candidate_count": 11,
+          "capture_selection_and_transport_ms": 4022
+        },
+        {
+          "rank": 32,
+          "report_sha256": "51fdc07202e5e43e9188ea626b07ce3d717ba580fffa090bb320a0dff1919f26",
+          "candidate_count": 84,
+          "capture_selection_and_transport_ms": 30854
+        },
+        {
+          "rank": 33,
+          "report_sha256": "dc3db7a637ef1f5382b979d4d441432304e1e9069ebfda9b2b5b0334a7072d92",
+          "candidate_count": 84,
+          "capture_selection_and_transport_ms": 32972
+        },
+        {
+          "rank": 34,
+          "report_sha256": "26870f4d8f36b48dd22ff12971b877c9e129cc6ebc11747dbe1480332a7f9081",
+          "candidate_count": 36,
+          "capture_selection_and_transport_ms": 9585
+        },
+        {
+          "rank": 35,
+          "report_sha256": "8c181d5dffa1675a76d6cdd06cfd261ada8aa3e4e30d711bc62f7e5642717b53",
+          "candidate_count": 38,
+          "capture_selection_and_transport_ms": 9077
+        },
+        {
+          "rank": 36,
+          "report_sha256": "3d08881789dcb4f4476bd3ba074ac871043daf3ec951fdf85843227a66271e94",
+          "candidate_count": 38,
+          "capture_selection_and_transport_ms": 9606
+        },
+        {
+          "rank": 37,
+          "report_sha256": "43f322edd83a8123e121f2498dbf7866bf68088c352cdcbb87dc491f853a5cb2",
+          "candidate_count": 38,
+          "capture_selection_and_transport_ms": 9684
+        },
+        {
+          "rank": 38,
+          "report_sha256": "72264a52c65d1f61d282fc61cc62249d8e8bcdd6d2c011aefe5b752db69be65a",
+          "candidate_count": 165,
+          "capture_selection_and_transport_ms": 34487
+        },
+        {
+          "rank": 40,
+          "report_sha256": "b36c6fe08f99a7d8931b23745c155b9188ef9c929fa1093d232578c8ba9022d2",
+          "candidate_count": 451,
+          "capture_selection_and_transport_ms": 146803
+        },
+        {
+          "rank": 41,
+          "report_sha256": "e088b5e801e28cd029aa32b2a0e33e4769f6bd0cc34d70f317bb3595086dd5bd",
+          "candidate_count": 11,
+          "capture_selection_and_transport_ms": 2957
+        },
+        {
+          "rank": 42,
+          "report_sha256": "f4add72f0517cf3400ac67a2693d4ab800683912b023045972422db142b0a00f",
+          "candidate_count": 121,
+          "capture_selection_and_transport_ms": 28411
+        },
+        {
+          "rank": 44,
+          "report_sha256": "6be3adbf8a6e5e926cc2143b1ad64e2be682c1817fd62cb637535a3e1382a83b",
+          "candidate_count": 268,
+          "capture_selection_and_transport_ms": 110358
+        },
+        {
+          "rank": 46,
+          "report_sha256": "2860ec742b457e840c9215902227d2df7fa1d9518ce1ac14f691f967354004d1",
+          "candidate_count": 10,
+          "capture_selection_and_transport_ms": 3222
+        },
+        {
+          "rank": 47,
+          "report_sha256": "823059b11404c12b43daa078495880bd9e99c960b00990813ab09aa90a50098a",
+          "candidate_count": 13,
+          "capture_selection_and_transport_ms": 2752
+        },
+        {
+          "rank": 48,
+          "report_sha256": "b6bc5832a5a80e4adf949ca9a7f164ca15cba8281f361d3a23d398da550a9ccc",
+          "candidate_count": 13,
+          "capture_selection_and_transport_ms": 3160
+        },
+        {
+          "rank": 49,
+          "report_sha256": "13c2b930e5fc8d50c15f6acc48c54fc6cecb2a62dc701432af6cd239300d0a4c",
+          "candidate_count": 13,
+          "capture_selection_and_transport_ms": 3629
+        }
+      ]
+    },
+    "datagov": {
+      "observations": 46,
+      "summary": {
+        "candidate_count": {
+          "median": 65.5,
+          "maximum": 4870
+        },
+        "capture_selection_and_transport_ms": {
+          "median": 30391.0,
+          "maximum": 1969159
+        }
+      },
+      "rows": [
+        {
+          "rank": 1,
+          "report_sha256": "47baa2755966ec9c2532860ee5cb5a489631db2250670417909709105a41257e",
+          "candidate_count": 0,
+          "capture_selection_and_transport_ms": 94
+        },
+        {
+          "rank": 2,
+          "report_sha256": "4e9ff92bcf89ffd1041f09fe3c52f5cbcf1ad028964a1d585040d6b6f26420a1",
+          "candidate_count": 0,
+          "capture_selection_and_transport_ms": 88
+        },
+        {
+          "rank": 3,
+          "report_sha256": "0e0201c41d4144223a71abee3fc5e69bd4ee69f6d54fdf36cea5fd52a8665c5a",
+          "candidate_count": 27,
+          "capture_selection_and_transport_ms": 5363
+        },
+        {
+          "rank": 4,
+          "report_sha256": "e4321d632b83c2b3341a124b47d4444f0e6d1723876902a4cf26d73f46ccec82",
+          "candidate_count": 100,
+          "capture_selection_and_transport_ms": 32631
+        },
+        {
+          "rank": 5,
+          "report_sha256": "83d9bf5cd9504371e5d3b5f08aa3ef4a54f3ed7f993aebb52d77fcc746b40988",
+          "candidate_count": 26,
+          "capture_selection_and_transport_ms": 5579
+        },
+        {
+          "rank": 6,
+          "report_sha256": "5769040cc374cf364cb96b87a054482eaa36e3b6c851d874f417403b5a83ce8c",
+          "candidate_count": 26,
+          "capture_selection_and_transport_ms": 5267
+        },
+        {
+          "rank": 7,
+          "report_sha256": "76391570e35f107e699c455e36ef9bb9ba86afcea23a9a5f00549b2771aeb2ed",
+          "candidate_count": 29,
+          "capture_selection_and_transport_ms": 31706
+        },
+        {
+          "rank": 9,
+          "report_sha256": "14a9c8f7d7ca57c567ff8bec968e102166bfc9371e753316bf44f6f67483df35",
+          "candidate_count": 3546,
+          "capture_selection_and_transport_ms": 1335191
+        },
+        {
+          "rank": 10,
+          "report_sha256": "5502b0f3960a5306ea75f7949d2bfd097959405f392f3949d14e8b4d74108073",
+          "candidate_count": 3098,
+          "capture_selection_and_transport_ms": 1343620
+        },
+        {
+          "rank": 11,
+          "report_sha256": "f91f4e5777286ddcf9b57860fa893154ad3f3382a1ecf7480cd08d35b36ccb94",
+          "candidate_count": 3353,
+          "capture_selection_and_transport_ms": 1287354
+        },
+        {
+          "rank": 12,
+          "report_sha256": "191bade8f172c406edf31bacbf5e065397424a4ff522d9a7167d1ce8580fd2c9",
+          "candidate_count": 3060,
+          "capture_selection_and_transport_ms": 1106914
+        },
+        {
+          "rank": 13,
+          "report_sha256": "63e67101bb9123fe69c201bce59118fc2089587c639ef8f37bfee17a1772e122",
+          "candidate_count": 10,
+          "capture_selection_and_transport_ms": 2703
+        },
+        {
+          "rank": 14,
+          "report_sha256": "4a238fa1d76f7c4e42fb4b42ddced4e4239f34357693ec8ff79baf61a53d1f75",
+          "candidate_count": 2,
+          "capture_selection_and_transport_ms": 301
+        },
+        {
+          "rank": 15,
+          "report_sha256": "16cf7826c46890cd938f348adc54e95080e47400f221c8dd078bf5dc7beaf448",
+          "candidate_count": 514,
+          "capture_selection_and_transport_ms": 246189
+        },
+        {
+          "rank": 16,
+          "report_sha256": "2d99686f5cbc72c73ff22b81747a751fbc4ed1f22d6cb76b2070c587cd13e2c4",
+          "candidate_count": 4870,
+          "capture_selection_and_transport_ms": 1969159
+        },
+        {
+          "rank": 18,
+          "report_sha256": "41bc2a3499d5d65a1aafb9eefbf2412c8f177cdf4d2d200ba3d9b0466a9d31a1",
+          "candidate_count": 3,
+          "capture_selection_and_transport_ms": 833
+        },
+        {
+          "rank": 19,
+          "report_sha256": "e8e61f445860e1ee0ee84bb96b7393c125f43be8b4a9363ed21b2617c4eb3e94",
+          "candidate_count": 10,
+          "capture_selection_and_transport_ms": 3269
+        },
+        {
+          "rank": 20,
+          "report_sha256": "bdc815acbd1fe3dff8fa2268aa3e0dd2bfb6256f37757610cc9dc0d190a9ccb4",
+          "candidate_count": 1,
+          "capture_selection_and_transport_ms": 366
+        },
+        {
+          "rank": 21,
+          "report_sha256": "78d89b43d20bac37ce59e8f6bb0957e0183b69d5271eb84330a21404aaa11c7a",
+          "candidate_count": 70,
+          "capture_selection_and_transport_ms": 29076
+        },
+        {
+          "rank": 23,
+          "report_sha256": "77a022083d094f043818d3780c282e002e903a76c8e62b3caf1595b827be7074",
+          "candidate_count": 27,
+          "capture_selection_and_transport_ms": 7417
+        },
+        {
+          "rank": 24,
+          "report_sha256": "ece65dfc66b8337151edee73c1d18d733139800d72fcd26f9854360bf1b036d5",
+          "candidate_count": 265,
+          "capture_selection_and_transport_ms": 134709
+        },
+        {
+          "rank": 25,
+          "report_sha256": "4f2c4f6ec6e24ef2e8d2a32b087618aa418df46b00a3e4e54f0aa3c889b6daf0",
+          "candidate_count": 264,
+          "capture_selection_and_transport_ms": 126831
+        },
+        {
+          "rank": 26,
+          "report_sha256": "4120466f5936425ea7e0a809c06cdc33f868c9f058a11c720005019b19b26314",
+          "candidate_count": 134,
+          "capture_selection_and_transport_ms": 26735
+        },
+        {
+          "rank": 27,
+          "report_sha256": "8b40c39a0f4dfa865c823fcd699099775781eed56adc24004e08161e54809103",
+          "candidate_count": 12,
+          "capture_selection_and_transport_ms": 7826
+        },
+        {
+          "rank": 28,
+          "report_sha256": "607f35527d719bb9c5bdd0e46ebd1db938ab1d25616a24da5b1f7f9b91c60448",
+          "candidate_count": 11,
+          "capture_selection_and_transport_ms": 6040
+        },
+        {
+          "rank": 29,
+          "report_sha256": "11ea710186efbe99fa7919c5d8d4033113be6344570b7eb1b80aeb80fd2fb6d1",
+          "candidate_count": 16,
+          "capture_selection_and_transport_ms": 8042
+        },
+        {
+          "rank": 30,
+          "report_sha256": "8503d8a740e783a850f8d4e1befc57250063d69608339268afb33fa1739d3b32",
+          "candidate_count": 61,
+          "capture_selection_and_transport_ms": 31755
+        },
+        {
+          "rank": 31,
+          "report_sha256": "cfb3e65737f912d9949e04134d8ffab4c25cf6f363fd57597a0ca9cd7821406c",
+          "candidate_count": 2,
+          "capture_selection_and_transport_ms": 565
+        },
+        {
+          "rank": 32,
+          "report_sha256": "127f89f522897dfcc834aa529bbf2d5f5b84d51f16b40188deab459457698ca0",
+          "candidate_count": 1285,
+          "capture_selection_and_transport_ms": 936248
+        },
+        {
+          "rank": 33,
+          "report_sha256": "a89ed855d54c576bdc32f580eb9785e560b4a5008e7119250b01c8d0aebf908a",
+          "candidate_count": 422,
+          "capture_selection_and_transport_ms": 161398
+        },
+        {
+          "rank": 34,
+          "report_sha256": "ea88644adf5694a2e0acdfda2eae892c047c93ae57a22d5d06cd12dcd8ca2f3e",
+          "candidate_count": 20,
+          "capture_selection_and_transport_ms": 7499
+        },
+        {
+          "rank": 35,
+          "report_sha256": "74b6f6fd1b1a1b8dc8fba6c2e28d75d2732dce3a346bf8be21bf2f2a77cdcf07",
+          "candidate_count": 426,
+          "capture_selection_and_transport_ms": 220634
+        },
+        {
+          "rank": 36,
+          "report_sha256": "5e9297904bcb0d8b5134240e87fecf6bb1cc706d12d2ea0ca648429a94a7f3ce",
+          "candidate_count": 18,
+          "capture_selection_and_transport_ms": 9095
+        },
+        {
+          "rank": 37,
+          "report_sha256": "4c2aa5ca2ea34e1cda7ca6ebd017f4954ce5076b8e0d0df4e72ee998c3596b2b",
+          "candidate_count": 4,
+          "capture_selection_and_transport_ms": 660
+        },
+        {
+          "rank": 38,
+          "report_sha256": "06330b4580f4006b9becfcd5f46f1e998bab56a176defea8199d849b6218af42",
+          "candidate_count": 103,
+          "capture_selection_and_transport_ms": 43958
+        },
+        {
+          "rank": 39,
+          "report_sha256": "c7e8e86efa2211fd5360214f87bf21bbbf7a43814fc40eaff0f1ffb1a09a1fbf",
+          "candidate_count": 3459,
+          "capture_selection_and_transport_ms": 1851610
+        },
+        {
+          "rank": 40,
+          "report_sha256": "196a770b7c6dbb49774b3edfbbfa21e8a00382ecebe143c17e335d33afd1788b",
+          "candidate_count": 440,
+          "capture_selection_and_transport_ms": 162344
+        },
+        {
+          "rank": 41,
+          "report_sha256": "2279e207b51130f24db846362808f82714623feebca234f5002389313e931bdd",
+          "candidate_count": 3460,
+          "capture_selection_and_transport_ms": 1698132
+        },
+        {
+          "rank": 42,
+          "report_sha256": "ac92ea2129c9de1e99cbd62638dcd5b7b7f00003361520bd80a05f25ee054e22",
+          "candidate_count": 143,
+          "capture_selection_and_transport_ms": 109636
+        },
+        {
+          "rank": 43,
+          "report_sha256": "a286fabfc53b3cf713e06c241da46f7c3ed1e6b6b36e8af9e26561a3759ceeda",
+          "candidate_count": 2,
+          "capture_selection_and_transport_ms": 937
+        },
+        {
+          "rank": 44,
+          "report_sha256": "fcc6dc8c643b154b2ab6005f0161aa2a381debe09a6af44aba46722d1085ad7e",
+          "candidate_count": 260,
+          "capture_selection_and_transport_ms": 132307
+        },
+        {
+          "rank": 45,
+          "report_sha256": "478ac437e4fcf044aea7d87500eb93b957248aee23913de5451ee821fe9452a6",
+          "candidate_count": 3080,
+          "capture_selection_and_transport_ms": 1639386
+        },
+        {
+          "rank": 46,
+          "report_sha256": "9b83fef53dbd6ab75b490f945c1697e30ce9256a4dc0ceadaa4718aee948d11b",
+          "candidate_count": 29,
+          "capture_selection_and_transport_ms": 14247
+        },
+        {
+          "rank": 47,
+          "report_sha256": "7cb75044627713a72673db82c16f083118f73e3db64c71b824f946732cc493eb",
+          "candidate_count": 129,
+          "capture_selection_and_transport_ms": 104499
+        },
+        {
+          "rank": 48,
+          "report_sha256": "1df398b122b34cbc6c7191414ba4b92af23da206c8db13b9b14406681177e261",
+          "candidate_count": 289,
+          "capture_selection_and_transport_ms": 110581
+        },
+        {
+          "rank": 49,
+          "report_sha256": "89d1185d64c5167abbabfa00f8133c0a1be1046b41d8dde626055356d4dae718",
+          "candidate_count": 29,
+          "capture_selection_and_transport_ms": 15627
+        }
+      ]
+    },
+    "enron": {
+      "observations": 46,
+      "summary": {
+        "candidate_count": {
+          "median": 8.0,
+          "maximum": 2824
+        },
+        "capture_selection_and_transport_ms": {
+          "median": 3001.5,
+          "maximum": 1093215
+        }
+      },
+      "rows": [
+        {
+          "rank": 1,
+          "report_sha256": "dfde7e8e6b5a70eef81f81cfcd5daf0bfddf8926d7249bb371e9e42ef42ed72f",
+          "candidate_count": 2824,
+          "capture_selection_and_transport_ms": 1093215
+        },
+        {
+          "rank": 3,
+          "report_sha256": "443ef338a427933bfa0b9e41dac48919e8d6fc597e8e4635fab77e2327dcc16f",
+          "candidate_count": 13,
+          "capture_selection_and_transport_ms": 4793
+        },
+        {
+          "rank": 4,
+          "report_sha256": "59759230542acc29ada014d3bd99a70e2e45a631fa29ff1a31eafca0905401b9",
+          "candidate_count": 13,
+          "capture_selection_and_transport_ms": 5006
+        },
+        {
+          "rank": 5,
+          "report_sha256": "a55dde7e7004de17a02c11065952d909dd5b54de2c2c14833c074175036c404b",
+          "candidate_count": 18,
+          "capture_selection_and_transport_ms": 6244
+        },
+        {
+          "rank": 6,
+          "report_sha256": "a7b0d8ef24246c0f6d1e619999e7a0566a7ce8dac33f479ade2fc216fde58cc5",
+          "candidate_count": 3,
+          "capture_selection_and_transport_ms": 988
+        },
+        {
+          "rank": 7,
+          "report_sha256": "7e9edd85057da769be7a75df7ab26d480258832fd417988da9a54a51d5d9cc7c",
+          "candidate_count": 3,
+          "capture_selection_and_transport_ms": 1380
+        },
+        {
+          "rank": 8,
+          "report_sha256": "f49651c6135ca9c1ed4888d80b04548e30ddbfc4f768ab6a58ab97aec4e3b5ae",
+          "candidate_count": 3,
+          "capture_selection_and_transport_ms": 1074
+        },
+        {
+          "rank": 9,
+          "report_sha256": "7f99d99d60b8a5ea6f502ccbcd077716db593a483cedbecddd1c94de48307d8a",
+          "candidate_count": 3,
+          "capture_selection_and_transport_ms": 803
+        },
+        {
+          "rank": 10,
+          "report_sha256": "44a141ae7244ce011a04e6053c953c7a715fcc11a7bb01c01859b80f7136dda3",
+          "candidate_count": 2,
+          "capture_selection_and_transport_ms": 441
+        },
+        {
+          "rank": 11,
+          "report_sha256": "fa7625416e7df814a38e48e44532cb065902faa188328e32c161100c4147271b",
+          "candidate_count": 10,
+          "capture_selection_and_transport_ms": 3827
+        },
+        {
+          "rank": 12,
+          "report_sha256": "990e281b92163b4579ca33145961f878fe2213484964aee3a0d1a701c7d92a68",
+          "candidate_count": 14,
+          "capture_selection_and_transport_ms": 4691
+        },
+        {
+          "rank": 13,
+          "report_sha256": "e7f3c66bd133ec1c226a53b9e2d277f8435de9613684cfcc0245080ea0e4302f",
+          "candidate_count": 6,
+          "capture_selection_and_transport_ms": 2701
+        },
+        {
+          "rank": 14,
+          "report_sha256": "24db8af637fb2b9c078fe3881e33d4ab57efac9e1c267eec6e9bea639eaa0019",
+          "candidate_count": 1,
+          "capture_selection_and_transport_ms": 480
+        },
+        {
+          "rank": 15,
+          "report_sha256": "68379af9a8add47d6d44644b0e76e18a8d808ae98ea40378d5db926575f24cd6",
+          "candidate_count": 1,
+          "capture_selection_and_transport_ms": 418
+        },
+        {
+          "rank": 16,
+          "report_sha256": "253fd989185d233de37a5cf567504f95b74d1fd6d89784007df5e57a19d2ac46",
+          "candidate_count": 1,
+          "capture_selection_and_transport_ms": 396
+        },
+        {
+          "rank": 17,
+          "report_sha256": "a7f2526fe95c5afc6a22b453a25d083805f6f152bf98f62ef2989b1dd808757f",
+          "candidate_count": 1,
+          "capture_selection_and_transport_ms": 363
+        },
+        {
+          "rank": 18,
+          "report_sha256": "95adbf404b0df0f2f0ab81b192d5715ba62e4537e2e96daffccd099bf6f09329",
+          "candidate_count": 1,
+          "capture_selection_and_transport_ms": 517
+        },
+        {
+          "rank": 19,
+          "report_sha256": "6ed1be0525e1ac99bd1e35a5c1e65cd0e12c2ddc33af16c8f5f157a52369dd34",
+          "candidate_count": 1,
+          "capture_selection_and_transport_ms": 300
+        },
+        {
+          "rank": 20,
+          "report_sha256": "02d8211357e2419f28944b0989c2aa5211e7d5845a3ac3588b314e8c9cf7e8fd",
+          "candidate_count": 1,
+          "capture_selection_and_transport_ms": 291
+        },
+        {
+          "rank": 21,
+          "report_sha256": "92de67dd147c6e8500aa52d4b2fbe65b56ef84e4b85e220aac78f52c6a0648fe",
+          "candidate_count": 3,
+          "capture_selection_and_transport_ms": 1183
+        },
+        {
+          "rank": 22,
+          "report_sha256": "e69dd7dbf02afcda757cb34fa0248bfdcb60104d96670509b18a6db581f3b09c",
+          "candidate_count": 2822,
+          "capture_selection_and_transport_ms": 1000816
+        },
+        {
+          "rank": 23,
+          "report_sha256": "9a091bdb450f45fdc33e883630aa47a4f94a3084c809497819a4e7b01ff580a9",
+          "candidate_count": 6,
+          "capture_selection_and_transport_ms": 1461
+        },
+        {
+          "rank": 24,
+          "report_sha256": "cf33201f20373321de319a90505cc2b90eb7268df444d797a1e39e5006caa131",
+          "candidate_count": 13,
+          "capture_selection_and_transport_ms": 4866
+        },
+        {
+          "rank": 25,
+          "report_sha256": "18432e75dde5f030deb6685ee4b9677ef4000416eca3f9aa2c16f5d2b1b0e6ae",
+          "candidate_count": 1,
+          "capture_selection_and_transport_ms": 422
+        },
+        {
+          "rank": 26,
+          "report_sha256": "47e376efae7af1b93fb1921ad5bcabab3923ab48b4a663e704a7b76e94fa9e75",
+          "candidate_count": 4,
+          "capture_selection_and_transport_ms": 1474
+        },
+        {
+          "rank": 27,
+          "report_sha256": "f1bbbb135f3ac9c5ae1ea6bc08d80a31cea9d7b8980655513e89d3372cfaeb20",
+          "candidate_count": 73,
+          "capture_selection_and_transport_ms": 28114
+        },
+        {
+          "rank": 28,
+          "report_sha256": "198574bc634eaefcbd9559c18d4e7510bc4d2e846c670a164c64f4e5d43037c2",
+          "candidate_count": 64,
+          "capture_selection_and_transport_ms": 24190
+        },
+        {
+          "rank": 29,
+          "report_sha256": "2c8d0069f01cd15590b1971ae3324f0b106aa5b7eaefceb68129b73c5198b52b",
+          "candidate_count": 12,
+          "capture_selection_and_transport_ms": 3302
+        },
+        {
+          "rank": 31,
+          "report_sha256": "f2f42ba13e99a2a83c055677fa351f63b110f5fa34953f1dbe1bbd9c2847d980",
+          "candidate_count": 63,
+          "capture_selection_and_transport_ms": 22840
+        },
+        {
+          "rank": 32,
+          "report_sha256": "3681237a2d73c33adee9abfd05aaf7ef5c00f55c63414fc5a62b696b9cbef14a",
+          "candidate_count": 2,
+          "capture_selection_and_transport_ms": 283
+        },
+        {
+          "rank": 33,
+          "report_sha256": "1c9c7f2d994a82ace72824ee6faed7f76971e2882e95b9842f3e05d612d06206",
+          "candidate_count": 58,
+          "capture_selection_and_transport_ms": 16939
+        },
+        {
+          "rank": 34,
+          "report_sha256": "b4557b72e827303854eb669592171c42a5d26389f660f9177c19e4753f10c938",
+          "candidate_count": 58,
+          "capture_selection_and_transport_ms": 20794
+        },
+        {
+          "rank": 35,
+          "report_sha256": "851a6a090f19826b9517f24dbcc7c6ddc7381439d6e6c8fb6efc9b9e817e6574",
+          "candidate_count": 58,
+          "capture_selection_and_transport_ms": 18406
+        },
+        {
+          "rank": 36,
+          "report_sha256": "05b34d954abb3bce80e7a3569721d4cfdb8d6c69f73617f980075f0eec1b6c9d",
+          "candidate_count": 58,
+          "capture_selection_and_transport_ms": 16985
+        },
+        {
+          "rank": 37,
+          "report_sha256": "335e6f0887f739ecd938ccd4f2d2f61c487d86db276b829a5393e1ff937d3a59",
+          "candidate_count": 58,
+          "capture_selection_and_transport_ms": 22971
+        },
+        {
+          "rank": 38,
+          "report_sha256": "70df527589019918d0ac294703c604addcb25f18655d94812480c8dab44341dd",
+          "candidate_count": 58,
+          "capture_selection_and_transport_ms": 17813
+        },
+        {
+          "rank": 39,
+          "report_sha256": "a655fb03e852885f09ead6564a7756df45ffe0edff7bc43927a3103e070e4185",
+          "candidate_count": 58,
+          "capture_selection_and_transport_ms": 18534
+        },
+        {
+          "rank": 40,
+          "report_sha256": "67e4c2e12adea48087a977dafc93268352eaea23cd78bfeb7ef8385e5cb257bc",
+          "candidate_count": 58,
+          "capture_selection_and_transport_ms": 18411
+        },
+        {
+          "rank": 41,
+          "report_sha256": "c6d2246732e8455a65cc7365c0d83133c8e82e79df9257a647757d8592f36263",
+          "candidate_count": 250,
+          "capture_selection_and_transport_ms": 117117
+        },
+        {
+          "rank": 42,
+          "report_sha256": "ee68685a672805171c0a0438e6e35049d3d0290dfa94342afed079f0e77a620e",
+          "candidate_count": 1,
+          "capture_selection_and_transport_ms": 497
+        },
+        {
+          "rank": 44,
+          "report_sha256": "d0008cd346303653eaf650d678c5f42cdf819b3c0bdab38fb1d5e428c133b3d4",
+          "candidate_count": 25,
+          "capture_selection_and_transport_ms": 9045
+        },
+        {
+          "rank": 45,
+          "report_sha256": "e14a5633d519b73dd6d90151563dc1fdea791656c779c76560a0f8ca3ca7251e",
+          "candidate_count": 25,
+          "capture_selection_and_transport_ms": 9599
+        },
+        {
+          "rank": 46,
+          "report_sha256": "bed34a29afad7c15907a5065257181c67d66fb6d3b0d5528acecf66e85e0ed46",
+          "candidate_count": 6,
+          "capture_selection_and_transport_ms": 1123
+        },
+        {
+          "rank": 47,
+          "report_sha256": "812b55168559aa99d56ce88bbf1eae9590f032bb2d829f842dfab42ea5a3f4d2",
+          "candidate_count": 4,
+          "capture_selection_and_transport_ms": 978
+        },
+        {
+          "rank": 48,
+          "report_sha256": "49121d91c8f2fcfb3864c59235f291bb5cc8a1de3fb30045e64e9ac9bed7cde4",
+          "candidate_count": 5,
+          "capture_selection_and_transport_ms": 997
+        },
+        {
+          "rank": 49,
+          "report_sha256": "ca58c5a992663912e3c92327c4bb438b964cac4012525882e9095de891528747",
+          "candidate_count": 5,
+          "capture_selection_and_transport_ms": 1432
+        }
+      ]
+    }
+  }
+}
