@@ -1,0 +1,5450 @@
+{
+  "candidate_count": 0,
+  "capture_counts": {
+    "OR:charts": 70,
+    "SDR:charts": 70
+  },
+  "capture_partition": "visible-geometry-v2",
+  "capture_policy": "targeted-content-grid-v15",
+  "capture_receipts": [
+    {
+      "at": 1794402854059,
+      "geometry": {
+        "height": 303,
+        "left": 24,
+        "top": 13.5,
+        "width": 377.25
+      },
+      "id": "be71cbf9-0f7d-494e-a5a7-9dd03247ad6b",
+      "image": "evidence/b2ffcb0e2a77820b79929eb56a9d3900f74c4899bd7d36b0daf367a7ba337289.png",
+      "lane": "OR",
+      "range": "Chart: Chart 1",
+      "sheet": "2020 W Cotton Lys Graphs"
+    },
+    {
+      "at": 1794402854184,
+      "geometry": {
+        "height": 303.75,
+        "left": 24,
+        "top": 333,
+        "width": 378
+      },
+      "id": "57fa432f-29ed-4b9d-80f1-ecc1d8052674",
+      "image": "evidence/bb1fa1916b6df1576d986d0eaba9fd69fd2055dbc14093d918ace6545b611bb5.png",
+      "lane": "OR",
+      "range": "Chart: Chart 2",
+      "sheet": "2020 W Cotton Lys Graphs"
+    },
+    {
+      "at": 1794402854312,
+      "geometry": {
+        "height": 303,
+        "left": 405,
+        "top": 333.75,
+        "width": 376.5
+      },
+      "id": "8ad120be-d4dd-405f-8338-edcf6594e60c",
+      "image": "evidence/431fb58785fbff9512235318556ea99aa216b7f9a6e9394617d62807f948728b.png",
+      "lane": "OR",
+      "range": "Chart: Chart 3",
+      "sheet": "2020 W Cotton Lys Graphs"
+    },
+    {
+      "at": 1794402854478,
+      "geometry": {
+        "height": 306.149993896484,
+        "left": 25.7999992370605,
+        "top": 956.099975585938,
+        "width": 378.75
+      },
+      "id": "e3c02714-f962-4198-b61c-d7d001a47fbc",
+      "image": "evidence/9d2e7d7a30561abea5b55f0f5b24a34110c3f5780a5b4cc0c02198ad16483dcb.png",
+      "lane": "OR",
+      "range": "Chart: Chart 4",
+      "sheet": "2020 W Cotton Lys Graphs"
+    },
+    {
+      "at": 1794402854612,
+      "geometry": {
+        "height": 299.850006103516,
+        "left": 402.299987792969,
+        "top": 12.75,
+        "width": 378
+      },
+      "id": "d1292cee-416d-4027-ad03-4a7a7bb278c3",
+      "image": "evidence/c2bd6c9af8b64ae3bb40041229082dbea98824a757fa38857df88595a609a89c.png",
+      "lane": "OR",
+      "range": "Chart: Chart 10",
+      "sheet": "2020 W Cotton Lys Graphs"
+    },
+    {
+      "at": 1794402854731,
+      "geometry": {
+        "height": 306,
+        "left": 23.5499992370605,
+        "top": 1275.15002441406,
+        "width": 380.25
+      },
+      "id": "80b76b29-5c93-4e5b-a1b0-0a0e6abb0b4b",
+      "image": "evidence/e9bade1cbfe8e3be33cbcb315fce50cc2ca79689ad1052badcc7841dcda95a69.png",
+      "lane": "OR",
+      "range": "Chart: Chart 11",
+      "sheet": "2020 W Cotton Lys Graphs"
+    },
+    {
+      "at": 1794402854854,
+      "geometry": {
+        "height": 306.75,
+        "left": 406.200012207031,
+        "top": 1275.30004882812,
+        "width": 378
+      },
+      "id": "108b3749-9114-4d23-b03b-18073b772dfd",
+      "image": "evidence/c27190446bb921118b8cdb998f7f38335667ba11479e6610240b0b83c8a5a399.png",
+      "lane": "OR",
+      "range": "Chart: Chart 12",
+      "sheet": "2020 W Cotton Lys Graphs"
+    },
+    {
+      "at": 1794402855030,
+      "geometry": {
+        "height": 306,
+        "left": 28.7999992370605,
+        "top": 3461.09985351562,
+        "width": 380.25
+      },
+      "id": "f618accb-506a-4f8e-8c5f-96ff1c4f652a",
+      "image": "evidence/fdb89e2d8825890ce4e24ff338b0f6af865ebc1bf413e8e4688b2aeee69af2b6.png",
+      "lane": "OR",
+      "range": "Chart: Chart 19",
+      "sheet": "2020 W Cotton Lys Graphs"
+    },
+    {
+      "at": 1794402855157,
+      "geometry": {
+        "height": 306,
+        "left": 25.7999992370605,
+        "top": 2834.69995117188,
+        "width": 381
+      },
+      "id": "540c7872-39d4-4abe-a7a9-5c498a8e9607",
+      "image": "evidence/e9cfa549514873747fea6a970866f873aaed42e5e3ea16cd52d402d6b705f49e.png",
+      "lane": "OR",
+      "range": "Chart: Chart 21",
+      "sheet": "2020 W Cotton Lys Graphs"
+    },
+    {
+      "at": 1794402855337,
+      "geometry": {
+        "height": 303.299987792969,
+        "left": 22.3500003814697,
+        "top": 642.450012207031,
+        "width": 378
+      },
+      "id": "f5f6ad87-bd81-4824-980b-90c404241da5",
+      "image": "evidence/25c69d1302d041f07a06be700a42396ce286c70a8a81a654399bbb67492af777.png",
+      "lane": "OR",
+      "range": "Chart: Chart 10",
+      "sheet": "2020 W Cotton Lys Graphs"
+    },
+    {
+      "at": 1794402855459,
+      "geometry": {
+        "height": 303.299987792969,
+        "left": 407.399993896484,
+        "top": 642.299987792969,
+        "width": 378
+      },
+      "id": "0c3eafbb-7fa1-487a-9db5-3542ee4c4caf",
+      "image": "evidence/ba6f543cb9a3168af8a5f7349a318428994316eeb777952562625af75b0939e3.png",
+      "lane": "OR",
+      "range": "Chart: Chart 11",
+      "sheet": "2020 W Cotton Lys Graphs"
+    },
+    {
+      "at": 1794402855588,
+      "geometry": {
+        "height": 306,
+        "left": 412.200012207031,
+        "top": 2838.2998046875,
+        "width": 381
+      },
+      "id": "afd4c61b-a5f1-4bcc-8909-992953896cbf",
+      "image": "evidence/3f4689fce829b5107751ccd6d75bc573e5e4ee0e4103e7683263f9000ff62dd2.png",
+      "lane": "OR",
+      "range": "Chart: Chart 21",
+      "sheet": "2020 W Cotton Lys Graphs"
+    },
+    {
+      "at": 1794402855712,
+      "geometry": {
+        "height": 306,
+        "left": 24,
+        "top": 1587,
+        "width": 380.25
+      },
+      "id": "239a6abf-d6e3-40cf-b099-61390863962b",
+      "image": "evidence/ab55536300f7ddcca0a378cc185822f2becbb61073ef6f90f52643625b62af5f.png",
+      "lane": "OR",
+      "range": "Chart: Chart 11",
+      "sheet": "2020 W Cotton Lys Graphs"
+    },
+    {
+      "at": 1794402856290,
+      "geometry": {
+        "height": 306,
+        "left": 408.75,
+        "top": 1589.25012207031,
+        "width": 380.25
+      },
+      "id": "132c108d-469e-4242-82c6-1f92a7e3377c",
+      "image": "evidence/c2ae79b9d36c9af7eb2b4dd5d5f1636d6bfb390c9deea47bac108a52d965f009.png",
+      "lane": "OR",
+      "range": "Chart: Chart 11",
+      "sheet": "2020 W Cotton Lys Graphs"
+    },
+    {
+      "at": 1794402856446,
+      "geometry": {
+        "height": 306,
+        "left": 25.5,
+        "top": 1899,
+        "width": 380.25
+      },
+      "id": "ff18af83-61ef-4b17-af91-98f5c5749272",
+      "image": "evidence/5dcfddf2e6e54d590566e8a5e9c1f33e18b88c91dbfeb85ad0e5a8669dc54a39.png",
+      "lane": "OR",
+      "range": "Chart: Chart 11",
+      "sheet": "2020 W Cotton Lys Graphs"
+    },
+    {
+      "at": 1794402856587,
+      "geometry": {
+        "height": 306,
+        "left": 410.25,
+        "top": 1898.25012207031,
+        "width": 380.25
+      },
+      "id": "6a75f68c-7000-41f0-9748-d0da559340a9",
+      "image": "evidence/5605a7546ecc76a6c49f46b14094d4349fb1cdc112173df3c37bbd898dc6fb6b.png",
+      "lane": "OR",
+      "range": "Chart: Chart 11",
+      "sheet": "2020 W Cotton Lys Graphs"
+    },
+    {
+      "at": 1794402856710,
+      "geometry": {
+        "height": 306,
+        "left": 411,
+        "top": 2213.25,
+        "width": 380.25
+      },
+      "id": "0ab33a71-e7ce-49a2-96bd-e810c68f91a9",
+      "image": "evidence/ae8164d0466329915815170504f158a4d0923dbaf0ab0f95f0f1626d3d395dd9.png",
+      "lane": "OR",
+      "range": "Chart: Chart 11",
+      "sheet": "2020 W Cotton Lys Graphs"
+    },
+    {
+      "at": 1794402856835,
+      "geometry": {
+        "height": 306,
+        "left": 27,
+        "top": 2211.75,
+        "width": 380.25
+      },
+      "id": "87edfd0d-2125-45bb-8bac-0d70586507df",
+      "image": "evidence/c72846ec3b823c39c3c3c5cdf81881197d0f8a2cdd7029a27d8287b423954e20.png",
+      "lane": "OR",
+      "range": "Chart: Chart 11",
+      "sheet": "2020 W Cotton Lys Graphs"
+    },
+    {
+      "at": 1794402857006,
+      "geometry": {
+        "height": 306,
+        "left": 414.75,
+        "top": 2524.5,
+        "width": 380.25
+      },
+      "id": "efaa8076-6c66-4978-8018-164c8d9c6820",
+      "image": "evidence/830cdd8dff040a62ea27c327d5712bf3b2293ba00eafc7177ef67214f3ce2a31.png",
+      "lane": "OR",
+      "range": "Chart: Chart 11",
+      "sheet": "2020 W Cotton Lys Graphs"
+    },
+    {
+      "at": 1794402857130,
+      "geometry": {
+        "height": 306,
+        "left": 29.25,
+        "top": 2525.25,
+        "width": 380.25
+      },
+      "id": "95ff2ca8-f483-4b83-9f08-b92b9ec21316",
+      "image": "evidence/1cc8377a107b36c47aecc73ab8badc2726f82aafe7d2eb4c5219a9420f86a728.png",
+      "lane": "OR",
+      "range": "Chart: Chart 11",
+      "sheet": "2020 W Cotton Lys Graphs"
+    },
+    {
+      "at": 1794402857258,
+      "geometry": {
+        "height": 306,
+        "left": 27,
+        "top": 3147,
+        "width": 381
+      },
+      "id": "ac4465ff-c767-4ef0-8051-9cec155eede0",
+      "image": "evidence/96b607bd6249895fb2e41691d6d458c4bcfdea41781f76499d4d477b2b0cbc8d.png",
+      "lane": "OR",
+      "range": "Chart: Chart 21",
+      "sheet": "2020 W Cotton Lys Graphs"
+    },
+    {
+      "at": 1794402857385,
+      "geometry": {
+        "height": 306,
+        "left": 412.5,
+        "top": 3147,
+        "width": 381
+      },
+      "id": "197092b8-f0cd-488e-aa03-f8a6bec3025a",
+      "image": "evidence/70d479734db86c15b0ae27f4414bc393bdc784a782c9dadee233462a278976ef.png",
+      "lane": "OR",
+      "range": "Chart: Chart 21",
+      "sheet": "2020 W Cotton Lys Graphs"
+    },
+    {
+      "at": 1794402857515,
+      "geometry": {
+        "height": 306,
+        "left": 413.25,
+        "top": 3462,
+        "width": 380.25
+      },
+      "id": "be969e2d-030f-42e3-8cdb-021039f8d7fb",
+      "image": "evidence/b4085afb974c89c5dbd233f1e275a031f3d60179f70a710c9fa5b644c7554a52.png",
+      "lane": "OR",
+      "range": "Chart: Chart 19",
+      "sheet": "2020 W Cotton Lys Graphs"
+    },
+    {
+      "at": 1794402857644,
+      "geometry": {
+        "height": 278.399993896484,
+        "left": 10.5000791549683,
+        "top": 633,
+        "width": 412.5
+      },
+      "id": "50c4ef81-1456-4bce-81a3-924885223f64",
+      "image": "evidence/c4fc1190563a07ccd159393569c6c4a1827764c914f595130af3ccb50060cf82.png",
+      "lane": "OR",
+      "range": "Chart: Chart 1",
+      "sheet": "2020 W Cotton Lys 15MinCharts"
+    },
+    {
+      "at": 1794402857901,
+      "geometry": {
+        "height": 277.649993896484,
+        "left": 807.750061035156,
+        "top": 5348.25,
+        "width": 372.374969482422
+      },
+      "id": "87bcb08b-71ea-48ab-af2e-e7f17da0691b",
+      "image": "evidence/39b03c07dd1a1451a90b93cce3cd4ae9e49f01f0894ae5cfaf7fdb7571d3e9ce.png",
+      "lane": "OR",
+      "range": "Chart: Chart 2",
+      "sheet": "2020 W Cotton Lys 15MinCharts"
+    },
+    {
+      "at": 1794402858032,
+      "geometry": {
+        "height": 278.399993896484,
+        "left": 10.1251182556152,
+        "top": 918.854187011719,
+        "width": 412.874877929688
+      },
+      "id": "4e682e49-c8e7-4d07-a7d5-5bd9cfb06756",
+      "image": "evidence/a0d7cb7cf371b3b39f57c5d5729f7dac0bb2e8475c7b1257f7f48f89f83f53c1.png",
+      "lane": "OR",
+      "range": "Chart: Chart 3",
+      "sheet": "2020 W Cotton Lys 15MinCharts"
+    },
+    {
+      "at": 1794402858162,
+      "geometry": {
+        "height": 278.399993896484,
+        "left": 430.875030517578,
+        "top": 919.6875,
+        "width": 418.874969482422
+      },
+      "id": "cfa3e05d-2c41-40e6-9488-88463519a6bb",
+      "image": "evidence/fb2a3357614ac1dd8e6609097add14afdd0b752b14ae286c6921d05c1fdbf083.png",
+      "lane": "OR",
+      "range": "Chart: Chart 4",
+      "sheet": "2020 W Cotton Lys 15MinCharts"
+    },
+    {
+      "at": 1794402858403,
+      "geometry": {
+        "height": 278.399993896484,
+        "left": 49.5000801086426,
+        "top": 5632.12451171875,
+        "width": 376.499908447266
+      },
+      "id": "cd32b158-e164-4dca-b8b5-70f58fa30cc1",
+      "image": "evidence/b43e7cfa99d6d0a7cac345426c8ae44aa9e747ddedeedc0a3ded4e1e84c0f258.png",
+      "lane": "OR",
+      "range": "Chart: Chart 5",
+      "sheet": "2020 W Cotton Lys 15MinCharts"
+    },
+    {
+      "at": 1794402858585,
+      "geometry": {
+        "height": 278.399993896484,
+        "left": 432,
+        "top": 5633.625,
+        "width": 371.624969482422
+      },
+      "id": "06cb939e-8b16-461e-8eab-10b00d8a729a",
+      "image": "evidence/e19a0897332954af8e253a64ad7b632785bf076e8b4eafef1e25bb4ba8c52d30.png",
+      "lane": "OR",
+      "range": "Chart: Chart 6",
+      "sheet": "2020 W Cotton Lys 15MinCharts"
+    },
+    {
+      "at": 1794402858721,
+      "geometry": {
+        "height": 278.399993896484,
+        "left": 11.2500791549683,
+        "top": 1202.25,
+        "width": 410.999908447266
+      },
+      "id": "3ef33866-ecf9-4804-84f9-fce144a7d71d",
+      "image": "evidence/62d31156ee63faa494b8708f3eb8bc91dc74df3fbd1bdba2586fec64a1583975.png",
+      "lane": "OR",
+      "range": "Chart: Chart 7",
+      "sheet": "2020 W Cotton Lys 15MinCharts"
+    },
+    {
+      "at": 1794402858898,
+      "geometry": {
+        "height": 277.649993896484,
+        "left": 49.5000801086426,
+        "top": 5916.75,
+        "width": 376.124969482422
+      },
+      "id": "a56f1c2d-304d-48d6-a703-31285968fc54",
+      "image": "evidence/f8ea59c0501c884c6fbe772ba708109dde8c0141b8862bc4889b9fbdff18f250.png",
+      "lane": "OR",
+      "range": "Chart: Chart 9",
+      "sheet": "2020 W Cotton Lys 15MinCharts"
+    },
+    {
+      "at": 1794402859086,
+      "geometry": {
+        "height": 278.399993896484,
+        "left": 431.625030517578,
+        "top": 5917.5,
+        "width": 371.25
+      },
+      "id": "7a65e187-1ae7-45bb-9d1f-6770d28cf918",
+      "image": "evidence/490f93ab2005049eaeb3a545972c8d8defdc14090b1328770c340539dff55c3a.png",
+      "lane": "OR",
+      "range": "Chart: Chart 10",
+      "sheet": "2020 W Cotton Lys 15MinCharts"
+    },
+    {
+      "at": 1794402859270,
+      "geometry": {
+        "height": 278.399993896484,
+        "left": 432,
+        "top": 5348.625,
+        "width": 372
+      },
+      "id": "5f92ac05-052a-4a35-9772-81bbbf1458de",
+      "image": "evidence/398adfb53c4ba9632710059635044761bb0f99908acf24dc01d9524d72dd7b9d.png",
+      "lane": "OR",
+      "range": "Chart: Chart 11",
+      "sheet": "2020 W Cotton Lys 15MinCharts"
+    },
+    {
+      "at": 1794402859469,
+      "geometry": {
+        "height": 278.399993896484,
+        "left": 10.125039100647,
+        "top": 1488.37512207031,
+        "width": 412.874877929688
+      },
+      "id": "cda69cb9-806b-4bbf-b446-4e84515b1698",
+      "image": "evidence/3d45474b93c49b6f0275893bc99a4c994e8483291ba7b5a6b919a8b9efe43537.png",
+      "lane": "OR",
+      "range": "Chart: Chart 12",
+      "sheet": "2020 W Cotton Lys 15MinCharts"
+    },
+    {
+      "at": 1794402859741,
+      "geometry": {
+        "height": 278.399993896484,
+        "left": 50.6249618530273,
+        "top": 5347.125,
+        "width": 375.000091552734
+      },
+      "id": "e5031a10-53db-4c45-bbc0-88d1c0e2a0e8",
+      "image": "evidence/b391a1cd13762bc2f3aacae1374ed195dc159867b26cc6840738f2a20bd333d9.png",
+      "lane": "OR",
+      "range": "Chart: Chart 13",
+      "sheet": "2020 W Cotton Lys 15MinCharts"
+    },
+    {
+      "at": 1794402859869,
+      "geometry": {
+        "height": 278.399993896484,
+        "left": 429.75,
+        "top": 1773.74987792969,
+        "width": 423
+      },
+      "id": "06b7cb6e-f5a1-41bd-994a-ed688f27e66a",
+      "image": "evidence/dbada516f184842801ced3b4744ff1ecf63844bca8080f2689afa0dce0cd8fd8.png",
+      "lane": "OR",
+      "range": "Chart: Chart 14",
+      "sheet": "2020 W Cotton Lys 15MinCharts"
+    },
+    {
+      "at": 1794402859983,
+      "geometry": {
+        "height": 278.399993896484,
+        "left": 431.062591552734,
+        "top": 1489.5,
+        "width": 420.937408447266
+      },
+      "id": "8bc9b64d-8f4f-4663-993f-9d08b535d191",
+      "image": "evidence/b3e262877fd93628cf3bf51a23790f697a190f3f042644de81431bdca81a4c6d.png",
+      "lane": "OR",
+      "range": "Chart: Chart 15",
+      "sheet": "2020 W Cotton Lys 15MinCharts"
+    },
+    {
+      "at": 1794402860168,
+      "geometry": {
+        "height": 278.399993896484,
+        "left": 9.75007915496826,
+        "top": 1773,
+        "width": 411.749908447266
+      },
+      "id": "b0d6f758-9da0-4802-924f-b420180925c8",
+      "image": "evidence/0f2235a64354b6af7e38761519997b0d6be9ea35fa8814e305ba9d11583f8ad8.png",
+      "lane": "OR",
+      "range": "Chart: Chart 16",
+      "sheet": "2020 W Cotton Lys 15MinCharts"
+    },
+    {
+      "at": 1794402860281,
+      "geometry": {
+        "height": 279.149993896484,
+        "left": 15.125039100647,
+        "top": 4127.29150390625,
+        "width": 356.874969482422
+      },
+      "id": "e37257e5-326c-4502-b2d7-3f1a4c0d00c2",
+      "image": "evidence/3093a6067cd4077500ed7f3152ad195b01949aa6958cd366d7ceddc74ec06b40.png",
+      "lane": "OR",
+      "range": "Chart: Chart 17",
+      "sheet": "2020 W Cotton Lys 15MinCharts"
+    },
+    {
+      "at": 1794402860409,
+      "geometry": {
+        "height": 278.399993896484,
+        "left": 375.666625976562,
+        "top": 4128.04150390625,
+        "width": 372.833312988281
+      },
+      "id": "7d1e1724-ca1a-46ff-b348-059233ceb081",
+      "image": "evidence/58c2edb0833185f50e00439981a3534666f03854ee30cc6d6aa9dd5b10a1eb8c.png",
+      "lane": "OR",
+      "range": "Chart: Chart 18",
+      "sheet": "2020 W Cotton Lys 15MinCharts"
+    },
+    {
+      "at": 1794402860515,
+      "geometry": {
+        "height": 278.399993896484,
+        "left": 753.874938964844,
+        "top": 4129.16650390625,
+        "width": 373.750091552734
+      },
+      "id": "4aeb45a6-cae4-41df-a37b-c30b0217e694",
+      "image": "evidence/d85cefda3ab94ee22b85eaf474eb6f51cdf892cf2e8b97d8936addbc854af01d.png",
+      "lane": "OR",
+      "range": "Chart: Chart 19",
+      "sheet": "2020 W Cotton Lys 15MinCharts"
+    },
+    {
+      "at": 1794402860629,
+      "geometry": {
+        "height": 278.816680908203,
+        "left": 15.125039100647,
+        "top": 4415.29150390625,
+        "width": 356.5
+      },
+      "id": "2484f6b8-0c97-4e74-b26b-ddb186c92b6f",
+      "image": "evidence/67e4d1a4367ecde6f4bafcc2a06be56c16e7ce5a9a7e978f12e22b66580dea2a.png",
+      "lane": "OR",
+      "range": "Chart: Chart 20",
+      "sheet": "2020 W Cotton Lys 15MinCharts"
+    },
+    {
+      "at": 1794402860722,
+      "geometry": {
+        "height": 278.066680908203,
+        "left": 376.041717529297,
+        "top": 4416.41650390625,
+        "width": 371.708282470703
+      },
+      "id": "5f88e168-c425-415c-a55c-6f85845d7238",
+      "image": "evidence/4cfbce43caccafe1eb23706fe842d20926085d82112b0eb2c8ef204b6b3ecb9e.png",
+      "lane": "OR",
+      "range": "Chart: Chart 21",
+      "sheet": "2020 W Cotton Lys 15MinCharts"
+    },
+    {
+      "at": 1794402860832,
+      "geometry": {
+        "height": 277.649993896484,
+        "left": 374.916625976562,
+        "top": 4700.3330078125,
+        "width": 372.458435058594
+      },
+      "id": "c7ec25dc-5d72-4563-851a-df1ea1c1d02c",
+      "image": "evidence/01fdbcd1ec2a05d8a3c2d1d26fdacb3bab58f6a4aa172f0cad963ee3c5e405b8.png",
+      "lane": "OR",
+      "range": "Chart: Chart 22",
+      "sheet": "2020 W Cotton Lys 15MinCharts"
+    },
+    {
+      "at": 1794402860956,
+      "geometry": {
+        "height": 277.649993896484,
+        "left": 13.9167718887329,
+        "top": 4701.08349609375,
+        "width": 357.708343505859
+      },
+      "id": "2278f24f-0bc3-42c2-97d8-4d8085d694ef",
+      "image": "evidence/25a7a6c478328858809abef46095c92513082fdf63219c6237279913175ceadb.png",
+      "lane": "OR",
+      "range": "Chart: Chart 23",
+      "sheet": "2020 W Cotton Lys 15MinCharts"
+    },
+    {
+      "at": 1794402861092,
+      "geometry": {
+        "height": 278.399993896484,
+        "left": 8.25007915496826,
+        "top": 65.25,
+        "width": 414
+      },
+      "id": "a75d5965-0414-4573-b844-4c8ae4661fc2",
+      "image": "evidence/68c50436bd1df7bb8d4435f5d0d8bc065cfad503aa485a0561cb09382172391d.png",
+      "lane": "OR",
+      "range": "Chart: Chart 26",
+      "sheet": "2020 W Cotton Lys 15MinCharts"
+    },
+    {
+      "at": 1794402861214,
+      "geometry": {
+        "height": 278.399993896484,
+        "left": 429.749908447266,
+        "top": 66,
+        "width": 425.25
+      },
+      "id": "03a840f2-f162-4737-8378-b4a20dc22f7f",
+      "image": "evidence/91b1734748aa4e8f82f432fd1df60306869fb89bf11d8694724c6c6f92f4200a.png",
+      "lane": "OR",
+      "range": "Chart: Chart 25",
+      "sheet": "2020 W Cotton Lys 15MinCharts"
+    },
+    {
+      "at": 1794402861665,
+      "geometry": {
+        "height": 276,
+        "left": 8.25,
+        "top": 350.25,
+        "width": 414
+      },
+      "id": "d6a63298-e2e0-4c2f-a0ea-86809fe9f16d",
+      "image": "evidence/44a01810bc03126cb81d857d06f44847cca04e7e181b3111ea6e03f127d15072.png",
+      "lane": "OR",
+      "range": "Chart: Chart 28",
+      "sheet": "2020 W Cotton Lys 15MinCharts"
+    },
+    {
+      "at": 1794402861798,
+      "geometry": {
+        "height": 278.399993896484,
+        "left": 4.72905492782593,
+        "top": 3768.45825195312,
+        "width": 415.729217529297
+      },
+      "id": "de088735-f431-4da8-a8ad-2d1299795ddf",
+      "image": "evidence/7988d9b9d1e45575fbc36c94636e81f14b246ee9fa51153ffcdb00b8b30e4727.png",
+      "lane": "OR",
+      "range": "Chart: Chart 29",
+      "sheet": "2020 W Cotton Lys 15MinCharts"
+    },
+    {
+      "at": 1794402861924,
+      "geometry": {
+        "height": 278.399993896484,
+        "left": 430.583312988281,
+        "top": 3769.20825195312,
+        "width": 419.916687011719
+      },
+      "id": "f22e1aca-4187-4d87-9405-3eee6cb35773",
+      "image": "evidence/f39d886879a97aac563b0478c709816d9ee937d51758338c7a5a84bc5d6f6ec5.png",
+      "lane": "OR",
+      "range": "Chart: Chart 31",
+      "sheet": "2020 W Cotton Lys 15MinCharts"
+    },
+    {
+      "at": 1794402862109,
+      "geometry": {
+        "height": 278.399993896484,
+        "left": 9,
+        "top": 2343,
+        "width": 413.25
+      },
+      "id": "0061a908-a3a8-4f1d-9402-3cd0f113f1c7",
+      "image": "evidence/0acaaf5e9a2678c911e41f3507597bd2e427e525f0e6d13b7164ff52d93653c8.png",
+      "lane": "OR",
+      "range": "Chart: Chart 32",
+      "sheet": "2020 W Cotton Lys 15MinCharts"
+    },
+    {
+      "at": 1794402862247,
+      "geometry": {
+        "height": 278.399993896484,
+        "left": 429.75,
+        "top": 2343,
+        "width": 423.75
+      },
+      "id": "0b5c8ec7-64d2-4f39-b10b-9aa9919a4340",
+      "image": "evidence/9963dfbe8b8d23a6498ef2b108ce285fcafde656762754695c05d35db0115cc4.png",
+      "lane": "OR",
+      "range": "Chart: Chart 33",
+      "sheet": "2020 W Cotton Lys 15MinCharts"
+    },
+    {
+      "at": 1794402862353,
+      "geometry": {
+        "height": 279.149993896484,
+        "left": 12.2083463668823,
+        "top": 4987.75,
+        "width": 359.416687011719
+      },
+      "id": "25e097ab-3636-4f2d-b22b-69fd8563b3a4",
+      "image": "evidence/70a0bff1d6aff4ab9240cc4dacbad1fd1113031cf93c716419083c3b77c7544b.png",
+      "lane": "OR",
+      "range": "Chart: Chart 34",
+      "sheet": "2020 W Cotton Lys 15MinCharts"
+    },
+    {
+      "at": 1794402862487,
+      "geometry": {
+        "height": 279.149993896484,
+        "left": 375.374969482422,
+        "top": 4988.12451171875,
+        "width": 371.624969482422
+      },
+      "id": "1d2a428f-796c-4a6c-a46c-8cbea17c9df2",
+      "image": "evidence/1e957fa93ececcb9eee615fefddd30c37fd1bd766295a6698a7d18f9679fbe04.png",
+      "lane": "OR",
+      "range": "Chart: Chart 35",
+      "sheet": "2020 W Cotton Lys 15MinCharts"
+    },
+    {
+      "at": 1794402862598,
+      "geometry": {
+        "height": 279.149993896484,
+        "left": 755.000061035156,
+        "top": 4987.54150390625,
+        "width": 372.624969482422
+      },
+      "id": "0bfb2773-d21f-4132-aad6-9ebcc61ce8d4",
+      "image": "evidence/2b0c430b8f3113d31cda12aeee0b88ca896c3fc51c3627f1800b6d2cd682e3da.png",
+      "lane": "OR",
+      "range": "Chart: Chart 36",
+      "sheet": "2020 W Cotton Lys 15MinCharts"
+    },
+    {
+      "at": 1794402862732,
+      "geometry": {
+        "height": 278.399993896484,
+        "left": 7.5,
+        "top": 2628,
+        "width": 416.25
+      },
+      "id": "5a0f40b1-3e9c-4bc3-b6eb-43295a522436",
+      "image": "evidence/9d5c52f6da73519f9600fca1f41af6b5dc9e5c93204a21c388747de6cdc2d499.png",
+      "lane": "OR",
+      "range": "Chart: Chart 40",
+      "sheet": "2020 W Cotton Lys 15MinCharts"
+    },
+    {
+      "at": 1794402862911,
+      "geometry": {
+        "height": 278.399993896484,
+        "left": 429,
+        "top": 2628.75,
+        "width": 425.25
+      },
+      "id": "7de40246-e7ab-4200-ba88-9f53d84836e6",
+      "image": "evidence/3de14058ebffd5a7861aa5d9758b6ca270c14c812ea738f1a8d0c0c7e48dd0a0.png",
+      "lane": "OR",
+      "range": "Chart: Chart 41",
+      "sheet": "2020 W Cotton Lys 15MinCharts"
+    },
+    {
+      "at": 1794402863034,
+      "geometry": {
+        "height": 278.399993896484,
+        "left": 6.9999213218689,
+        "top": 2913.66674804688,
+        "width": 415.250091552734
+      },
+      "id": "589a63dc-d4d5-47b7-9cc0-70586826dbb2",
+      "image": "evidence/0eeb8d40c94e05b9cfbc3870a941df4fee3c71d6588a9844376cd0eb19c5f2de.png",
+      "lane": "OR",
+      "range": "Chart: Chart 42",
+      "sheet": "2020 W Cotton Lys 15MinCharts"
+    },
+    {
+      "at": 1794402863163,
+      "geometry": {
+        "height": 278.399993896484,
+        "left": 429.083312988281,
+        "top": 2914.41674804688,
+        "width": 422.916687011719
+      },
+      "id": "adba46d7-568a-445a-98c9-0f1167a358cf",
+      "image": "evidence/803a3f074345d06bf7a7d54624b9a9ae061d245347447f3a11c7564c59ce3d8f.png",
+      "lane": "OR",
+      "range": "Chart: Chart 43",
+      "sheet": "2020 W Cotton Lys 15MinCharts"
+    },
+    {
+      "at": 1794402863300,
+      "geometry": {
+        "height": 278.399993896484,
+        "left": 6,
+        "top": 3197.25,
+        "width": 416.25
+      },
+      "id": "84bb478d-78cc-4a6b-89d5-90bdc4ac91d4",
+      "image": "evidence/29b1fb02141bb758f283b0489989798463f060595b66da4a91822c35e8cce92c.png",
+      "lane": "OR",
+      "range": "Chart: Chart 44",
+      "sheet": "2020 W Cotton Lys 15MinCharts"
+    },
+    {
+      "at": 1794402863539,
+      "geometry": {
+        "height": 278.399993896484,
+        "left": 429.75,
+        "top": 3199.49975585938,
+        "width": 421.5
+      },
+      "id": "60a43e93-d7c3-4dad-bb54-9734b2e7247a",
+      "image": "evidence/116dd9b2299afefc81ba704ab86535bb3f96ffc4c9a02c590957bd8e2ed79a6c.png",
+      "lane": "OR",
+      "range": "Chart: Chart 46",
+      "sheet": "2020 W Cotton Lys 15MinCharts"
+    },
+    {
+      "at": 1794402863662,
+      "geometry": {
+        "height": 278.399993896484,
+        "left": 5.25,
+        "top": 3482.625,
+        "width": 414
+      },
+      "id": "d50c4ee6-d19f-4a63-b55a-31d9ba4507f0",
+      "image": "evidence/cdfcdecae13746f109a8aec95366b04539ad65e5fe783edb1064aafbf74893d8.png",
+      "lane": "OR",
+      "range": "Chart: Chart 47",
+      "sheet": "2020 W Cotton Lys 15MinCharts"
+    },
+    {
+      "at": 1794402863814,
+      "geometry": {
+        "height": 278.399993896484,
+        "left": 427.687469482422,
+        "top": 3483.1875,
+        "width": 425.062530517578
+      },
+      "id": "2660394e-0ba2-405f-8d4c-e9690aed0f4b",
+      "image": "evidence/42db2f3d9375de897b99f092384cec98418abc4168efdfe7a28ab0886aab65d4.png",
+      "lane": "OR",
+      "range": "Chart: Chart 48",
+      "sheet": "2020 W Cotton Lys 15MinCharts"
+    },
+    {
+      "at": 1794402863983,
+      "geometry": {
+        "height": 276,
+        "left": 10.5000791549683,
+        "top": 2059.5,
+        "width": 411
+      },
+      "id": "286e9f16-01bd-428b-b567-8416daf8fed7",
+      "image": "evidence/39692b7268341924270f8c8b8f78b37d4a7482fa5206b385ee5f0055b72873ab.png",
+      "lane": "OR",
+      "range": "Chart: Chart 49",
+      "sheet": "2020 W Cotton Lys 15MinCharts"
+    },
+    {
+      "at": 1794402864172,
+      "geometry": {
+        "height": 275.625030517578,
+        "left": 429.187561035156,
+        "top": 2059.875,
+        "width": 422.062438964844
+      },
+      "id": "3bbb3523-2b00-4e92-89ef-df8b5a35e15e",
+      "image": "evidence/37346e1afd00393b466b9bd328c8263db4f860db54a8268998610a62f4710278.png",
+      "lane": "OR",
+      "range": "Chart: Chart 50",
+      "sheet": "2020 W Cotton Lys 15MinCharts"
+    },
+    {
+      "at": 1794402864346,
+      "geometry": {
+        "height": 278.399993896484,
+        "left": 429.749908447266,
+        "top": 633.5625,
+        "width": 420.75
+      },
+      "id": "cc0eef1c-4a10-4b79-907c-52031d16cd06",
+      "image": "evidence/a238dbf536aa2e2cd7da39cd64e1f388174d1e40913a76b9d2607d7cf5168555.png",
+      "lane": "OR",
+      "range": "Chart: Chart 52",
+      "sheet": "2020 W Cotton Lys 15MinCharts"
+    },
+    {
+      "at": 1794402864472,
+      "geometry": {
+        "height": 278.399993896484,
+        "left": 431.249908447266,
+        "top": 1203.75,
+        "width": 420.75
+      },
+      "id": "93fff962-61ba-4cf7-8fba-7d65cecac38a",
+      "image": "evidence/0355197dae424324da1f372b092a9f1fc9346552bbe578095d357b9f49561bf4.png",
+      "lane": "OR",
+      "range": "Chart: Chart 53",
+      "sheet": "2020 W Cotton Lys 15MinCharts"
+    },
+    {
+      "at": 1794402864628,
+      "geometry": {
+        "height": 303,
+        "left": 9.75,
+        "top": 64.8750381469727,
+        "width": 366
+      },
+      "id": "82b2f35a-69b5-43b5-86df-553c9867f353",
+      "image": "evidence/f703ed2db1a3f479e46d2ab85416311e24582cacdceab19487e24ce6be8299ed.png",
+      "lane": "OR",
+      "range": "Chart: Chart 2",
+      "sheet": "2020 W Cotton Lys 5MinCharts"
+    },
+    {
+      "at": 1794402864757,
+      "geometry": {
+        "height": 303.374969482422,
+        "left": 383.25,
+        "top": 64.8750381469727,
+        "width": 367.875030517578
+      },
+      "id": "087b04bd-469d-464d-a2c5-08691dc38dbb",
+      "image": "evidence/c173dca42f990802d58af876508be53034d04d868482e7907f067bec15c592c9.png",
+      "lane": "OR",
+      "range": "Chart: Chart 3",
+      "sheet": "2020 W Cotton Lys 5MinCharts"
+    },
+    {
+      "at": 1794402864914,
+      "geometry": {
+        "height": 302.624969482422,
+        "left": 7.5000786781311,
+        "top": 380.625030517578,
+        "width": 365.999908447266
+      },
+      "id": "fc371dec-7100-4dfb-bc10-841bbe0e54ef",
+      "image": "evidence/75f153c50e278e71cacc1dcc0d2a08763500af56d397b52c3de8a4e053eab24e.png",
+      "lane": "OR",
+      "range": "Chart: Chart 4",
+      "sheet": "2020 W Cotton Lys 5MinCharts"
+    },
+    {
+      "at": 1794402865085,
+      "geometry": {
+        "height": 303,
+        "left": 24,
+        "top": 13.5,
+        "width": 377.25
+      },
+      "id": "1b497623-a80d-4d08-8b01-246c56775bfa",
+      "image": "evidence/b2ffcb0e2a77820b79929eb56a9d3900f74c4899bd7d36b0daf367a7ba337289.png",
+      "lane": "SDR",
+      "range": "Chart: Chart 1",
+      "sheet": "2020 W Cotton Lys Graphs"
+    },
+    {
+      "at": 1794402865210,
+      "geometry": {
+        "height": 303.75,
+        "left": 24,
+        "top": 333,
+        "width": 378
+      },
+      "id": "78f65973-a0f1-45cf-8e29-ca0083de9f0b",
+      "image": "evidence/bb1fa1916b6df1576d986d0eaba9fd69fd2055dbc14093d918ace6545b611bb5.png",
+      "lane": "SDR",
+      "range": "Chart: Chart 2",
+      "sheet": "2020 W Cotton Lys Graphs"
+    },
+    {
+      "at": 1794402865385,
+      "geometry": {
+        "height": 303,
+        "left": 405,
+        "top": 333.75,
+        "width": 376.5
+      },
+      "id": "c0dafde9-cae0-4e35-b717-3109ef8fe25e",
+      "image": "evidence/431fb58785fbff9512235318556ea99aa216b7f9a6e9394617d62807f948728b.png",
+      "lane": "SDR",
+      "range": "Chart: Chart 3",
+      "sheet": "2020 W Cotton Lys Graphs"
+    },
+    {
+      "at": 1794402865511,
+      "geometry": {
+        "height": 306.149993896484,
+        "left": 25.7999992370605,
+        "top": 956.099975585938,
+        "width": 378.75
+      },
+      "id": "0af10a87-2d23-4179-ab94-00c548270b6b",
+      "image": "evidence/9d2e7d7a30561abea5b55f0f5b24a34110c3f5780a5b4cc0c02198ad16483dcb.png",
+      "lane": "SDR",
+      "range": "Chart: Chart 4",
+      "sheet": "2020 W Cotton Lys Graphs"
+    },
+    {
+      "at": 1794402865684,
+      "geometry": {
+        "height": 299.850006103516,
+        "left": 402.299987792969,
+        "top": 12.75,
+        "width": 378
+      },
+      "id": "a5097707-00d5-48be-8a4b-616286730dec",
+      "image": "evidence/c2bd6c9af8b64ae3bb40041229082dbea98824a757fa38857df88595a609a89c.png",
+      "lane": "SDR",
+      "range": "Chart: Chart 10",
+      "sheet": "2020 W Cotton Lys Graphs"
+    },
+    {
+      "at": 1794402865809,
+      "geometry": {
+        "height": 306,
+        "left": 23.5499992370605,
+        "top": 1275.15002441406,
+        "width": 380.25
+      },
+      "id": "d24d5caa-3515-4866-abc3-929d2aedcc03",
+      "image": "evidence/e9bade1cbfe8e3be33cbcb315fce50cc2ca79689ad1052badcc7841dcda95a69.png",
+      "lane": "SDR",
+      "range": "Chart: Chart 11",
+      "sheet": "2020 W Cotton Lys Graphs"
+    },
+    {
+      "at": 1794402865937,
+      "geometry": {
+        "height": 306.75,
+        "left": 406.200012207031,
+        "top": 1275.30004882812,
+        "width": 378
+      },
+      "id": "bec665c3-1c12-4ca3-a8e8-e9ab8658561e",
+      "image": "evidence/c27190446bb921118b8cdb998f7f38335667ba11479e6610240b0b83c8a5a399.png",
+      "lane": "SDR",
+      "range": "Chart: Chart 12",
+      "sheet": "2020 W Cotton Lys Graphs"
+    },
+    {
+      "at": 1794402866066,
+      "geometry": {
+        "height": 306,
+        "left": 28.7999992370605,
+        "top": 3461.09985351562,
+        "width": 380.25
+      },
+      "id": "216089ed-70e6-4591-8553-37f863f6ac8b",
+      "image": "evidence/fdb89e2d8825890ce4e24ff338b0f6af865ebc1bf413e8e4688b2aeee69af2b6.png",
+      "lane": "SDR",
+      "range": "Chart: Chart 19",
+      "sheet": "2020 W Cotton Lys Graphs"
+    },
+    {
+      "at": 1794402866181,
+      "geometry": {
+        "height": 306,
+        "left": 25.7999992370605,
+        "top": 2834.69995117188,
+        "width": 381
+      },
+      "id": "395e8956-de52-4fbb-b95a-37962bcfae12",
+      "image": "evidence/e9cfa549514873747fea6a970866f873aaed42e5e3ea16cd52d402d6b705f49e.png",
+      "lane": "SDR",
+      "range": "Chart: Chart 21",
+      "sheet": "2020 W Cotton Lys Graphs"
+    },
+    {
+      "at": 1794402866299,
+      "geometry": {
+        "height": 303.299987792969,
+        "left": 22.3500003814697,
+        "top": 642.450012207031,
+        "width": 378
+      },
+      "id": "6a53b882-aa3d-4c99-9664-0403b40a9fdc",
+      "image": "evidence/25c69d1302d041f07a06be700a42396ce286c70a8a81a654399bbb67492af777.png",
+      "lane": "SDR",
+      "range": "Chart: Chart 10",
+      "sheet": "2020 W Cotton Lys Graphs"
+    },
+    {
+      "at": 1794402866478,
+      "geometry": {
+        "height": 303.299987792969,
+        "left": 407.399993896484,
+        "top": 642.299987792969,
+        "width": 378
+      },
+      "id": "9b6dfcc2-b0d2-44c6-bba4-7ced38fd8c16",
+      "image": "evidence/ba6f543cb9a3168af8a5f7349a318428994316eeb777952562625af75b0939e3.png",
+      "lane": "SDR",
+      "range": "Chart: Chart 11",
+      "sheet": "2020 W Cotton Lys Graphs"
+    },
+    {
+      "at": 1794402866609,
+      "geometry": {
+        "height": 306,
+        "left": 412.200012207031,
+        "top": 2838.2998046875,
+        "width": 381
+      },
+      "id": "4f6f619e-3a93-4171-bc11-1463ea1ddd47",
+      "image": "evidence/3f4689fce829b5107751ccd6d75bc573e5e4ee0e4103e7683263f9000ff62dd2.png",
+      "lane": "SDR",
+      "range": "Chart: Chart 21",
+      "sheet": "2020 W Cotton Lys Graphs"
+    },
+    {
+      "at": 1794402866735,
+      "geometry": {
+        "height": 306,
+        "left": 24,
+        "top": 1587,
+        "width": 380.25
+      },
+      "id": "e9a7fa6a-6265-4958-9208-39d1a31c2bc8",
+      "image": "evidence/ab55536300f7ddcca0a378cc185822f2becbb61073ef6f90f52643625b62af5f.png",
+      "lane": "SDR",
+      "range": "Chart: Chart 11",
+      "sheet": "2020 W Cotton Lys Graphs"
+    },
+    {
+      "at": 1794402866897,
+      "geometry": {
+        "height": 306,
+        "left": 408.75,
+        "top": 1589.25012207031,
+        "width": 380.25
+      },
+      "id": "460f3822-e43d-4a56-8a65-e8b2c18ce3e7",
+      "image": "evidence/c2ae79b9d36c9af7eb2b4dd5d5f1636d6bfb390c9deea47bac108a52d965f009.png",
+      "lane": "SDR",
+      "range": "Chart: Chart 11",
+      "sheet": "2020 W Cotton Lys Graphs"
+    },
+    {
+      "at": 1794402867335,
+      "geometry": {
+        "height": 306,
+        "left": 25.5,
+        "top": 1899,
+        "width": 380.25
+      },
+      "id": "5a3ed9a7-5f5b-44b6-b4c3-4e087205b3d5",
+      "image": "evidence/5dcfddf2e6e54d590566e8a5e9c1f33e18b88c91dbfeb85ad0e5a8669dc54a39.png",
+      "lane": "SDR",
+      "range": "Chart: Chart 11",
+      "sheet": "2020 W Cotton Lys Graphs"
+    },
+    {
+      "at": 1794402867525,
+      "geometry": {
+        "height": 306,
+        "left": 410.25,
+        "top": 1898.25012207031,
+        "width": 380.25
+      },
+      "id": "81275db7-25a4-415e-aa0f-029c90794a97",
+      "image": "evidence/5605a7546ecc76a6c49f46b14094d4349fb1cdc112173df3c37bbd898dc6fb6b.png",
+      "lane": "SDR",
+      "range": "Chart: Chart 11",
+      "sheet": "2020 W Cotton Lys Graphs"
+    },
+    {
+      "at": 1794402867664,
+      "geometry": {
+        "height": 306,
+        "left": 411,
+        "top": 2213.25,
+        "width": 380.25
+      },
+      "id": "0c377310-d47f-4c5e-9d09-17b6a27a1250",
+      "image": "evidence/ae8164d0466329915815170504f158a4d0923dbaf0ab0f95f0f1626d3d395dd9.png",
+      "lane": "SDR",
+      "range": "Chart: Chart 11",
+      "sheet": "2020 W Cotton Lys Graphs"
+    },
+    {
+      "at": 1794402867775,
+      "geometry": {
+        "height": 306,
+        "left": 27,
+        "top": 2211.75,
+        "width": 380.25
+      },
+      "id": "1d1bca63-28af-48c0-a01a-8609e27c97d3",
+      "image": "evidence/c72846ec3b823c39c3c3c5cdf81881197d0f8a2cdd7029a27d8287b423954e20.png",
+      "lane": "SDR",
+      "range": "Chart: Chart 11",
+      "sheet": "2020 W Cotton Lys Graphs"
+    },
+    {
+      "at": 1794402867912,
+      "geometry": {
+        "height": 306,
+        "left": 414.75,
+        "top": 2524.5,
+        "width": 380.25
+      },
+      "id": "474ecb0e-1f3f-4e94-b33e-b92c1bc30261",
+      "image": "evidence/830cdd8dff040a62ea27c327d5712bf3b2293ba00eafc7177ef67214f3ce2a31.png",
+      "lane": "SDR",
+      "range": "Chart: Chart 11",
+      "sheet": "2020 W Cotton Lys Graphs"
+    },
+    {
+      "at": 1794402868028,
+      "geometry": {
+        "height": 306,
+        "left": 29.25,
+        "top": 2525.25,
+        "width": 380.25
+      },
+      "id": "3d54dc03-66be-4d47-a624-22c67fa78bc4",
+      "image": "evidence/1cc8377a107b36c47aecc73ab8badc2726f82aafe7d2eb4c5219a9420f86a728.png",
+      "lane": "SDR",
+      "range": "Chart: Chart 11",
+      "sheet": "2020 W Cotton Lys Graphs"
+    },
+    {
+      "at": 1794402868154,
+      "geometry": {
+        "height": 306,
+        "left": 27,
+        "top": 3147,
+        "width": 381
+      },
+      "id": "2b15deef-321d-456e-8ba0-792e890e52cc",
+      "image": "evidence/96b607bd6249895fb2e41691d6d458c4bcfdea41781f76499d4d477b2b0cbc8d.png",
+      "lane": "SDR",
+      "range": "Chart: Chart 21",
+      "sheet": "2020 W Cotton Lys Graphs"
+    },
+    {
+      "at": 1794402868339,
+      "geometry": {
+        "height": 306,
+        "left": 412.5,
+        "top": 3147,
+        "width": 381
+      },
+      "id": "3ff4e914-f8ea-4797-8371-dab5dce4b77a",
+      "image": "evidence/70d479734db86c15b0ae27f4414bc393bdc784a782c9dadee233462a278976ef.png",
+      "lane": "SDR",
+      "range": "Chart: Chart 21",
+      "sheet": "2020 W Cotton Lys Graphs"
+    },
+    {
+      "at": 1794402868472,
+      "geometry": {
+        "height": 306,
+        "left": 413.25,
+        "top": 3462,
+        "width": 380.25
+      },
+      "id": "aa1e6bb8-2431-49a5-b78b-45f6fdc84b5e",
+      "image": "evidence/b4085afb974c89c5dbd233f1e275a031f3d60179f70a710c9fa5b644c7554a52.png",
+      "lane": "SDR",
+      "range": "Chart: Chart 19",
+      "sheet": "2020 W Cotton Lys Graphs"
+    },
+    {
+      "at": 1794402868606,
+      "geometry": {
+        "height": 278.399993896484,
+        "left": 10.5000791549683,
+        "top": 633,
+        "width": 412.5
+      },
+      "id": "cd7f332a-baaf-4956-b46b-51daec7b11e8",
+      "image": "evidence/c4fc1190563a07ccd159393569c6c4a1827764c914f595130af3ccb50060cf82.png",
+      "lane": "SDR",
+      "range": "Chart: Chart 1",
+      "sheet": "2020 W Cotton Lys 15MinCharts"
+    },
+    {
+      "at": 1794402868791,
+      "geometry": {
+        "height": 277.649993896484,
+        "left": 807.750061035156,
+        "top": 5348.25,
+        "width": 372.374969482422
+      },
+      "id": "2dd2a181-1a50-41b4-bd4d-3b22b406c17f",
+      "image": "evidence/39b03c07dd1a1451a90b93cce3cd4ae9e49f01f0894ae5cfaf7fdb7571d3e9ce.png",
+      "lane": "SDR",
+      "range": "Chart: Chart 2",
+      "sheet": "2020 W Cotton Lys 15MinCharts"
+    },
+    {
+      "at": 1794402868910,
+      "geometry": {
+        "height": 278.399993896484,
+        "left": 10.1251182556152,
+        "top": 918.854187011719,
+        "width": 412.874877929688
+      },
+      "id": "7444db8f-7dcf-4455-bba5-b3b26a945fc4",
+      "image": "evidence/a0d7cb7cf371b3b39f57c5d5729f7dac0bb2e8475c7b1257f7f48f89f83f53c1.png",
+      "lane": "SDR",
+      "range": "Chart: Chart 3",
+      "sheet": "2020 W Cotton Lys 15MinCharts"
+    },
+    {
+      "at": 1794402869033,
+      "geometry": {
+        "height": 278.399993896484,
+        "left": 430.875030517578,
+        "top": 919.6875,
+        "width": 418.874969482422
+      },
+      "id": "01111a0f-94ca-4d83-9ade-88db8b4f1976",
+      "image": "evidence/fb2a3357614ac1dd8e6609097add14afdd0b752b14ae286c6921d05c1fdbf083.png",
+      "lane": "SDR",
+      "range": "Chart: Chart 4",
+      "sheet": "2020 W Cotton Lys 15MinCharts"
+    },
+    {
+      "at": 1794402869216,
+      "geometry": {
+        "height": 278.399993896484,
+        "left": 49.5000801086426,
+        "top": 5632.12451171875,
+        "width": 376.499908447266
+      },
+      "id": "de2aadd6-5abb-4dc6-a0db-0e3b94a74a36",
+      "image": "evidence/b43e7cfa99d6d0a7cac345426c8ae44aa9e747ddedeedc0a3ded4e1e84c0f258.png",
+      "lane": "SDR",
+      "range": "Chart: Chart 5",
+      "sheet": "2020 W Cotton Lys 15MinCharts"
+    },
+    {
+      "at": 1794402869398,
+      "geometry": {
+        "height": 278.399993896484,
+        "left": 432,
+        "top": 5633.625,
+        "width": 371.624969482422
+      },
+      "id": "827ebe9e-057d-425d-8d28-dfbf88791f64",
+      "image": "evidence/e19a0897332954af8e253a64ad7b632785bf076e8b4eafef1e25bb4ba8c52d30.png",
+      "lane": "SDR",
+      "range": "Chart: Chart 6",
+      "sheet": "2020 W Cotton Lys 15MinCharts"
+    },
+    {
+      "at": 1794402869533,
+      "geometry": {
+        "height": 278.399993896484,
+        "left": 11.2500791549683,
+        "top": 1202.25,
+        "width": 410.999908447266
+      },
+      "id": "fbf2524f-5669-4e2b-a6b5-f5c3f31237b1",
+      "image": "evidence/62d31156ee63faa494b8708f3eb8bc91dc74df3fbd1bdba2586fec64a1583975.png",
+      "lane": "SDR",
+      "range": "Chart: Chart 7",
+      "sheet": "2020 W Cotton Lys 15MinCharts"
+    },
+    {
+      "at": 1794402869712,
+      "geometry": {
+        "height": 277.649993896484,
+        "left": 49.5000801086426,
+        "top": 5916.75,
+        "width": 376.124969482422
+      },
+      "id": "43326c1c-7f5e-41b5-8d70-cea9efe8ff53",
+      "image": "evidence/f8ea59c0501c884c6fbe772ba708109dde8c0141b8862bc4889b9fbdff18f250.png",
+      "lane": "SDR",
+      "range": "Chart: Chart 9",
+      "sheet": "2020 W Cotton Lys 15MinCharts"
+    },
+    {
+      "at": 1794402869897,
+      "geometry": {
+        "height": 278.399993896484,
+        "left": 431.625030517578,
+        "top": 5917.5,
+        "width": 371.25
+      },
+      "id": "e5767965-ba73-4b35-a92d-cde6282b1dbd",
+      "image": "evidence/490f93ab2005049eaeb3a545972c8d8defdc14090b1328770c340539dff55c3a.png",
+      "lane": "SDR",
+      "range": "Chart: Chart 10",
+      "sheet": "2020 W Cotton Lys 15MinCharts"
+    },
+    {
+      "at": 1794402870085,
+      "geometry": {
+        "height": 278.399993896484,
+        "left": 432,
+        "top": 5348.625,
+        "width": 372
+      },
+      "id": "8a2a50ea-09ab-487a-9926-ac1e29094820",
+      "image": "evidence/398adfb53c4ba9632710059635044761bb0f99908acf24dc01d9524d72dd7b9d.png",
+      "lane": "SDR",
+      "range": "Chart: Chart 11",
+      "sheet": "2020 W Cotton Lys 15MinCharts"
+    },
+    {
+      "at": 1794402870223,
+      "geometry": {
+        "height": 278.399993896484,
+        "left": 10.125039100647,
+        "top": 1488.37512207031,
+        "width": 412.874877929688
+      },
+      "id": "3790b7f2-c0ec-4f5e-97ab-2ed040fddbc8",
+      "image": "evidence/3d45474b93c49b6f0275893bc99a4c994e8483291ba7b5a6b919a8b9efe43537.png",
+      "lane": "SDR",
+      "range": "Chart: Chart 12",
+      "sheet": "2020 W Cotton Lys 15MinCharts"
+    },
+    {
+      "at": 1794402870398,
+      "geometry": {
+        "height": 278.399993896484,
+        "left": 50.6249618530273,
+        "top": 5347.125,
+        "width": 375.000091552734
+      },
+      "id": "8e513cd6-a641-4eb7-8f89-34b6961b8149",
+      "image": "evidence/b391a1cd13762bc2f3aacae1374ed195dc159867b26cc6840738f2a20bd333d9.png",
+      "lane": "SDR",
+      "range": "Chart: Chart 13",
+      "sheet": "2020 W Cotton Lys 15MinCharts"
+    },
+    {
+      "at": 1794402870533,
+      "geometry": {
+        "height": 278.399993896484,
+        "left": 429.75,
+        "top": 1773.74987792969,
+        "width": 423
+      },
+      "id": "d247451c-e986-4f67-a672-b9487d8cc7a8",
+      "image": "evidence/dbada516f184842801ced3b4744ff1ecf63844bca8080f2689afa0dce0cd8fd8.png",
+      "lane": "SDR",
+      "range": "Chart: Chart 14",
+      "sheet": "2020 W Cotton Lys 15MinCharts"
+    },
+    {
+      "at": 1794402870654,
+      "geometry": {
+        "height": 278.399993896484,
+        "left": 431.062591552734,
+        "top": 1489.5,
+        "width": 420.937408447266
+      },
+      "id": "85b86c3c-9f8b-4590-8498-02e8b30dd131",
+      "image": "evidence/b3e262877fd93628cf3bf51a23790f697a190f3f042644de81431bdca81a4c6d.png",
+      "lane": "SDR",
+      "range": "Chart: Chart 15",
+      "sheet": "2020 W Cotton Lys 15MinCharts"
+    },
+    {
+      "at": 1794402870778,
+      "geometry": {
+        "height": 278.399993896484,
+        "left": 9.75007915496826,
+        "top": 1773,
+        "width": 411.749908447266
+      },
+      "id": "a8473c2e-ed50-41f4-af34-faf170e255de",
+      "image": "evidence/0f2235a64354b6af7e38761519997b0d6be9ea35fa8814e305ba9d11583f8ad8.png",
+      "lane": "SDR",
+      "range": "Chart: Chart 16",
+      "sheet": "2020 W Cotton Lys 15MinCharts"
+    },
+    {
+      "at": 1794402870964,
+      "geometry": {
+        "height": 279.149993896484,
+        "left": 15.125039100647,
+        "top": 4127.29150390625,
+        "width": 356.874969482422
+      },
+      "id": "4cad52c8-1b17-4be3-b7c0-e5312db07d61",
+      "image": "evidence/3093a6067cd4077500ed7f3152ad195b01949aa6958cd366d7ceddc74ec06b40.png",
+      "lane": "SDR",
+      "range": "Chart: Chart 17",
+      "sheet": "2020 W Cotton Lys 15MinCharts"
+    },
+    {
+      "at": 1794402871082,
+      "geometry": {
+        "height": 278.399993896484,
+        "left": 375.666625976562,
+        "top": 4128.04150390625,
+        "width": 372.833312988281
+      },
+      "id": "3abe5994-e966-4f73-89ed-ee8b7f5f99ae",
+      "image": "evidence/58c2edb0833185f50e00439981a3534666f03854ee30cc6d6aa9dd5b10a1eb8c.png",
+      "lane": "SDR",
+      "range": "Chart: Chart 18",
+      "sheet": "2020 W Cotton Lys 15MinCharts"
+    },
+    {
+      "at": 1794402871209,
+      "geometry": {
+        "height": 278.399993896484,
+        "left": 753.874938964844,
+        "top": 4129.16650390625,
+        "width": 373.750091552734
+      },
+      "id": "033ddb45-9277-4d18-9fc5-411c98c30b77",
+      "image": "evidence/d85cefda3ab94ee22b85eaf474eb6f51cdf892cf2e8b97d8936addbc854af01d.png",
+      "lane": "SDR",
+      "range": "Chart: Chart 19",
+      "sheet": "2020 W Cotton Lys 15MinCharts"
+    },
+    {
+      "at": 1794402871330,
+      "geometry": {
+        "height": 278.816680908203,
+        "left": 15.125039100647,
+        "top": 4415.29150390625,
+        "width": 356.5
+      },
+      "id": "5498b0ce-ede3-41a7-ba8e-41af9adf4964",
+      "image": "evidence/67e4d1a4367ecde6f4bafcc2a06be56c16e7ce5a9a7e978f12e22b66580dea2a.png",
+      "lane": "SDR",
+      "range": "Chart: Chart 20",
+      "sheet": "2020 W Cotton Lys 15MinCharts"
+    },
+    {
+      "at": 1794402871462,
+      "geometry": {
+        "height": 278.066680908203,
+        "left": 376.041717529297,
+        "top": 4416.41650390625,
+        "width": 371.708282470703
+      },
+      "id": "b6cda4a7-cdd3-483d-a967-17f6fd8101f0",
+      "image": "evidence/4cfbce43caccafe1eb23706fe842d20926085d82112b0eb2c8ef204b6b3ecb9e.png",
+      "lane": "SDR",
+      "range": "Chart: Chart 21",
+      "sheet": "2020 W Cotton Lys 15MinCharts"
+    },
+    {
+      "at": 1794402871584,
+      "geometry": {
+        "height": 277.649993896484,
+        "left": 374.916625976562,
+        "top": 4700.3330078125,
+        "width": 372.458435058594
+      },
+      "id": "aa9ae7ce-c397-48a2-99c8-a431735a9915",
+      "image": "evidence/01fdbcd1ec2a05d8a3c2d1d26fdacb3bab58f6a4aa172f0cad963ee3c5e405b8.png",
+      "lane": "SDR",
+      "range": "Chart: Chart 22",
+      "sheet": "2020 W Cotton Lys 15MinCharts"
+    },
+    {
+      "at": 1794402871763,
+      "geometry": {
+        "height": 277.649993896484,
+        "left": 13.9167718887329,
+        "top": 4701.08349609375,
+        "width": 357.708343505859
+      },
+      "id": "f8e3be9f-d375-4c2c-b449-9fbe9d219e71",
+      "image": "evidence/25a7a6c478328858809abef46095c92513082fdf63219c6237279913175ceadb.png",
+      "lane": "SDR",
+      "range": "Chart: Chart 23",
+      "sheet": "2020 W Cotton Lys 15MinCharts"
+    },
+    {
+      "at": 1794402871881,
+      "geometry": {
+        "height": 278.399993896484,
+        "left": 8.25007915496826,
+        "top": 65.25,
+        "width": 414
+      },
+      "id": "b91137d0-292b-454a-b358-58671aafff05",
+      "image": "evidence/68c50436bd1df7bb8d4435f5d0d8bc065cfad503aa485a0561cb09382172391d.png",
+      "lane": "SDR",
+      "range": "Chart: Chart 26",
+      "sheet": "2020 W Cotton Lys 15MinCharts"
+    },
+    {
+      "at": 1794402872325,
+      "geometry": {
+        "height": 278.399993896484,
+        "left": 429.749908447266,
+        "top": 66,
+        "width": 425.25
+      },
+      "id": "4af414f9-6d74-428e-960f-68b0a36b116e",
+      "image": "evidence/91b1734748aa4e8f82f432fd1df60306869fb89bf11d8694724c6c6f92f4200a.png",
+      "lane": "SDR",
+      "range": "Chart: Chart 25",
+      "sheet": "2020 W Cotton Lys 15MinCharts"
+    },
+    {
+      "at": 1794402872467,
+      "geometry": {
+        "height": 276,
+        "left": 8.25,
+        "top": 350.25,
+        "width": 414
+      },
+      "id": "3d5a6f01-2c60-4c49-a4d6-788270c83872",
+      "image": "evidence/44a01810bc03126cb81d857d06f44847cca04e7e181b3111ea6e03f127d15072.png",
+      "lane": "SDR",
+      "range": "Chart: Chart 28",
+      "sheet": "2020 W Cotton Lys 15MinCharts"
+    },
+    {
+      "at": 1794402872597,
+      "geometry": {
+        "height": 278.399993896484,
+        "left": 4.72905492782593,
+        "top": 3768.45825195312,
+        "width": 415.729217529297
+      },
+      "id": "2ff9a456-94a4-4318-acc8-62a642655688",
+      "image": "evidence/7988d9b9d1e45575fbc36c94636e81f14b246ee9fa51153ffcdb00b8b30e4727.png",
+      "lane": "SDR",
+      "range": "Chart: Chart 29",
+      "sheet": "2020 W Cotton Lys 15MinCharts"
+    },
+    {
+      "at": 1794402872733,
+      "geometry": {
+        "height": 278.399993896484,
+        "left": 430.583312988281,
+        "top": 3769.20825195312,
+        "width": 419.916687011719
+      },
+      "id": "3d26d7ea-bb68-406e-8a0e-495331bc7f3b",
+      "image": "evidence/f39d886879a97aac563b0478c709816d9ee937d51758338c7a5a84bc5d6f6ec5.png",
+      "lane": "SDR",
+      "range": "Chart: Chart 31",
+      "sheet": "2020 W Cotton Lys 15MinCharts"
+    },
+    {
+      "at": 1794402872877,
+      "geometry": {
+        "height": 278.399993896484,
+        "left": 9,
+        "top": 2343,
+        "width": 413.25
+      },
+      "id": "a95f455c-fc0b-410b-a0d2-a200efc656d7",
+      "image": "evidence/0acaaf5e9a2678c911e41f3507597bd2e427e525f0e6d13b7164ff52d93653c8.png",
+      "lane": "SDR",
+      "range": "Chart: Chart 32",
+      "sheet": "2020 W Cotton Lys 15MinCharts"
+    },
+    {
+      "at": 1794402873013,
+      "geometry": {
+        "height": 278.399993896484,
+        "left": 429.75,
+        "top": 2343,
+        "width": 423.75
+      },
+      "id": "bde8979b-baea-4010-865f-3cff0faac308",
+      "image": "evidence/9963dfbe8b8d23a6498ef2b108ce285fcafde656762754695c05d35db0115cc4.png",
+      "lane": "SDR",
+      "range": "Chart: Chart 33",
+      "sheet": "2020 W Cotton Lys 15MinCharts"
+    },
+    {
+      "at": 1794402873177,
+      "geometry": {
+        "height": 279.149993896484,
+        "left": 12.2083463668823,
+        "top": 4987.75,
+        "width": 359.416687011719
+      },
+      "id": "1f745362-3675-4b9f-a674-264864acc1f0",
+      "image": "evidence/70a0bff1d6aff4ab9240cc4dacbad1fd1113031cf93c716419083c3b77c7544b.png",
+      "lane": "SDR",
+      "range": "Chart: Chart 34",
+      "sheet": "2020 W Cotton Lys 15MinCharts"
+    },
+    {
+      "at": 1794402873301,
+      "geometry": {
+        "height": 279.149993896484,
+        "left": 375.374969482422,
+        "top": 4988.12451171875,
+        "width": 371.624969482422
+      },
+      "id": "19c503ce-ae3b-4cda-9f6c-3780c4ee4420",
+      "image": "evidence/1e957fa93ececcb9eee615fefddd30c37fd1bd766295a6698a7d18f9679fbe04.png",
+      "lane": "SDR",
+      "range": "Chart: Chart 35",
+      "sheet": "2020 W Cotton Lys 15MinCharts"
+    },
+    {
+      "at": 1794402873475,
+      "geometry": {
+        "height": 279.149993896484,
+        "left": 755.000061035156,
+        "top": 4987.54150390625,
+        "width": 372.624969482422
+      },
+      "id": "1cd3f101-11d1-4450-8055-7c157634d3d2",
+      "image": "evidence/2b0c430b8f3113d31cda12aeee0b88ca896c3fc51c3627f1800b6d2cd682e3da.png",
+      "lane": "SDR",
+      "range": "Chart: Chart 36",
+      "sheet": "2020 W Cotton Lys 15MinCharts"
+    },
+    {
+      "at": 1794402873618,
+      "geometry": {
+        "height": 278.399993896484,
+        "left": 7.5,
+        "top": 2628,
+        "width": 416.25
+      },
+      "id": "6f3953dc-9abd-44a4-a3d7-669aad95a3e2",
+      "image": "evidence/9d5c52f6da73519f9600fca1f41af6b5dc9e5c93204a21c388747de6cdc2d499.png",
+      "lane": "SDR",
+      "range": "Chart: Chart 40",
+      "sheet": "2020 W Cotton Lys 15MinCharts"
+    },
+    {
+      "at": 1794402873750,
+      "geometry": {
+        "height": 278.399993896484,
+        "left": 429,
+        "top": 2628.75,
+        "width": 425.25
+      },
+      "id": "e1838ded-235c-4771-a5a8-b211c842ff85",
+      "image": "evidence/3de14058ebffd5a7861aa5d9758b6ca270c14c812ea738f1a8d0c0c7e48dd0a0.png",
+      "lane": "SDR",
+      "range": "Chart: Chart 41",
+      "sheet": "2020 W Cotton Lys 15MinCharts"
+    },
+    {
+      "at": 1794402873867,
+      "geometry": {
+        "height": 278.399993896484,
+        "left": 6.9999213218689,
+        "top": 2913.66674804688,
+        "width": 415.250091552734
+      },
+      "id": "4d5f6e6a-388f-4e55-ad65-8b7e0c490f9b",
+      "image": "evidence/0eeb8d40c94e05b9cfbc3870a941df4fee3c71d6588a9844376cd0eb19c5f2de.png",
+      "lane": "SDR",
+      "range": "Chart: Chart 42",
+      "sheet": "2020 W Cotton Lys 15MinCharts"
+    },
+    {
+      "at": 1794402873996,
+      "geometry": {
+        "height": 278.399993896484,
+        "left": 429.083312988281,
+        "top": 2914.41674804688,
+        "width": 422.916687011719
+      },
+      "id": "9f657381-5a25-4c9b-9ad0-9986da4cacc2",
+      "image": "evidence/803a3f074345d06bf7a7d54624b9a9ae061d245347447f3a11c7564c59ce3d8f.png",
+      "lane": "SDR",
+      "range": "Chart: Chart 43",
+      "sheet": "2020 W Cotton Lys 15MinCharts"
+    },
+    {
+      "at": 1794402874174,
+      "geometry": {
+        "height": 278.399993896484,
+        "left": 6,
+        "top": 3197.25,
+        "width": 416.25
+      },
+      "id": "541babf6-6c10-470e-af94-501d9b94cdfa",
+      "image": "evidence/29b1fb02141bb758f283b0489989798463f060595b66da4a91822c35e8cce92c.png",
+      "lane": "SDR",
+      "range": "Chart: Chart 44",
+      "sheet": "2020 W Cotton Lys 15MinCharts"
+    },
+    {
+      "at": 1794402874311,
+      "geometry": {
+        "height": 278.399993896484,
+        "left": 429.75,
+        "top": 3199.49975585938,
+        "width": 421.5
+      },
+      "id": "b2bdab19-9b67-49b7-aec1-7d85f4967ac4",
+      "image": "evidence/116dd9b2299afefc81ba704ab86535bb3f96ffc4c9a02c590957bd8e2ed79a6c.png",
+      "lane": "SDR",
+      "range": "Chart: Chart 46",
+      "sheet": "2020 W Cotton Lys 15MinCharts"
+    },
+    {
+      "at": 1794402874440,
+      "geometry": {
+        "height": 278.399993896484,
+        "left": 5.25,
+        "top": 3482.625,
+        "width": 414
+      },
+      "id": "46d623a1-077c-4446-a8e7-432f59227e32",
+      "image": "evidence/cdfcdecae13746f109a8aec95366b04539ad65e5fe783edb1064aafbf74893d8.png",
+      "lane": "SDR",
+      "range": "Chart: Chart 47",
+      "sheet": "2020 W Cotton Lys 15MinCharts"
+    },
+    {
+      "at": 1794402874564,
+      "geometry": {
+        "height": 278.399993896484,
+        "left": 427.687469482422,
+        "top": 3483.1875,
+        "width": 425.062530517578
+      },
+      "id": "826b8dee-3067-4685-a05b-01081d417737",
+      "image": "evidence/42db2f3d9375de897b99f092384cec98418abc4168efdfe7a28ab0886aab65d4.png",
+      "lane": "SDR",
+      "range": "Chart: Chart 48",
+      "sheet": "2020 W Cotton Lys 15MinCharts"
+    },
+    {
+      "at": 1794402874693,
+      "geometry": {
+        "height": 276,
+        "left": 10.5000791549683,
+        "top": 2059.5,
+        "width": 411
+      },
+      "id": "fe955605-e6d0-4c7b-8a84-5cb65152b2f5",
+      "image": "evidence/39692b7268341924270f8c8b8f78b37d4a7482fa5206b385ee5f0055b72873ab.png",
+      "lane": "SDR",
+      "range": "Chart: Chart 49",
+      "sheet": "2020 W Cotton Lys 15MinCharts"
+    },
+    {
+      "at": 1794402874847,
+      "geometry": {
+        "height": 275.625030517578,
+        "left": 429.187561035156,
+        "top": 2059.875,
+        "width": 422.062438964844
+      },
+      "id": "5d2da888-73fd-4594-8a71-1f5472013e3f",
+      "image": "evidence/37346e1afd00393b466b9bd328c8263db4f860db54a8268998610a62f4710278.png",
+      "lane": "SDR",
+      "range": "Chart: Chart 50",
+      "sheet": "2020 W Cotton Lys 15MinCharts"
+    },
+    {
+      "at": 1794402874985,
+      "geometry": {
+        "height": 278.399993896484,
+        "left": 429.749908447266,
+        "top": 633.5625,
+        "width": 420.75
+      },
+      "id": "56eb0871-f5e8-4819-b8f7-56b80999210d",
+      "image": "evidence/a238dbf536aa2e2cd7da39cd64e1f388174d1e40913a76b9d2607d7cf5168555.png",
+      "lane": "SDR",
+      "range": "Chart: Chart 52",
+      "sheet": "2020 W Cotton Lys 15MinCharts"
+    },
+    {
+      "at": 1794402875116,
+      "geometry": {
+        "height": 278.399993896484,
+        "left": 431.249908447266,
+        "top": 1203.75,
+        "width": 420.75
+      },
+      "id": "896199bb-f6af-464c-a476-30d809e2915a",
+      "image": "evidence/0355197dae424324da1f372b092a9f1fc9346552bbe578095d357b9f49561bf4.png",
+      "lane": "SDR",
+      "range": "Chart: Chart 53",
+      "sheet": "2020 W Cotton Lys 15MinCharts"
+    },
+    {
+      "at": 1794402875264,
+      "geometry": {
+        "height": 303,
+        "left": 9.75,
+        "top": 64.8750381469727,
+        "width": 366
+      },
+      "id": "a892b061-6613-4752-bfa4-ee96532e9c70",
+      "image": "evidence/f703ed2db1a3f479e46d2ab85416311e24582cacdceab19487e24ce6be8299ed.png",
+      "lane": "SDR",
+      "range": "Chart: Chart 2",
+      "sheet": "2020 W Cotton Lys 5MinCharts"
+    },
+    {
+      "at": 1794402875406,
+      "geometry": {
+        "height": 303.374969482422,
+        "left": 383.25,
+        "top": 64.8750381469727,
+        "width": 367.875030517578
+      },
+      "id": "9fb58ea4-07ba-42bd-a7af-317ce7e76ccd",
+      "image": "evidence/c173dca42f990802d58af876508be53034d04d868482e7907f067bec15c592c9.png",
+      "lane": "SDR",
+      "range": "Chart: Chart 3",
+      "sheet": "2020 W Cotton Lys 5MinCharts"
+    },
+    {
+      "at": 1794402875609,
+      "geometry": {
+        "height": 302.624969482422,
+        "left": 7.5000786781311,
+        "top": 380.625030517578,
+        "width": 365.999908447266
+      },
+      "id": "9ec42105-6669-40c2-b5cd-f7681ea4f690",
+      "image": "evidence/75f153c50e278e71cacc1dcc0d2a08763500af56d397b52c3de8a4e053eab24e.png",
+      "lane": "SDR",
+      "range": "Chart: Chart 4",
+      "sheet": "2020 W Cotton Lys 5MinCharts"
+    }
+  ],
+  "chart_capture_mode": "deterministic",
+  "chart_dependencies": [
+    {
+      "decisions": [
+        {
+          "chart": {
+            "index": 0,
+            "kind": "embedded",
+            "name": "Chart 1",
+            "sheet": "2020 W Cotton Lys Graphs"
+          },
+          "reason": "Unsupported chart package dependency: xl/connections.xml",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 1,
+            "kind": "embedded",
+            "name": "Chart 2",
+            "sheet": "2020 W Cotton Lys Graphs"
+          },
+          "reason": "Unsupported chart package dependency: xl/connections.xml",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 2,
+            "kind": "embedded",
+            "name": "Chart 3",
+            "sheet": "2020 W Cotton Lys Graphs"
+          },
+          "reason": "Unsupported chart package dependency: xl/connections.xml",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 3,
+            "kind": "embedded",
+            "name": "Chart 4",
+            "sheet": "2020 W Cotton Lys Graphs"
+          },
+          "reason": "Unsupported chart package dependency: xl/connections.xml",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 4,
+            "kind": "embedded",
+            "name": "Chart 10",
+            "sheet": "2020 W Cotton Lys Graphs"
+          },
+          "reason": "Unsupported chart package dependency: xl/connections.xml",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 5,
+            "kind": "embedded",
+            "name": "Chart 11",
+            "sheet": "2020 W Cotton Lys Graphs"
+          },
+          "reason": "Unsupported chart package dependency: xl/connections.xml",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 6,
+            "kind": "embedded",
+            "name": "Chart 12",
+            "sheet": "2020 W Cotton Lys Graphs"
+          },
+          "reason": "Unsupported chart package dependency: xl/connections.xml",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 7,
+            "kind": "embedded",
+            "name": "Chart 19",
+            "sheet": "2020 W Cotton Lys Graphs"
+          },
+          "reason": "Unsupported chart package dependency: xl/connections.xml",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 8,
+            "kind": "embedded",
+            "name": "Chart 21",
+            "sheet": "2020 W Cotton Lys Graphs"
+          },
+          "reason": "Unsupported chart package dependency: xl/connections.xml",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 9,
+            "kind": "embedded",
+            "name": "Chart 10",
+            "sheet": "2020 W Cotton Lys Graphs"
+          },
+          "reason": "Unsupported chart package dependency: xl/connections.xml",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 10,
+            "kind": "embedded",
+            "name": "Chart 11",
+            "sheet": "2020 W Cotton Lys Graphs"
+          },
+          "reason": "Unsupported chart package dependency: xl/connections.xml",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 11,
+            "kind": "embedded",
+            "name": "Chart 21",
+            "sheet": "2020 W Cotton Lys Graphs"
+          },
+          "reason": "Unsupported chart package dependency: xl/connections.xml",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 12,
+            "kind": "embedded",
+            "name": "Chart 11",
+            "sheet": "2020 W Cotton Lys Graphs"
+          },
+          "reason": "Unsupported chart package dependency: xl/connections.xml",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 13,
+            "kind": "embedded",
+            "name": "Chart 11",
+            "sheet": "2020 W Cotton Lys Graphs"
+          },
+          "reason": "Unsupported chart package dependency: xl/connections.xml",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 14,
+            "kind": "embedded",
+            "name": "Chart 11",
+            "sheet": "2020 W Cotton Lys Graphs"
+          },
+          "reason": "Unsupported chart package dependency: xl/connections.xml",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 15,
+            "kind": "embedded",
+            "name": "Chart 11",
+            "sheet": "2020 W Cotton Lys Graphs"
+          },
+          "reason": "Unsupported chart package dependency: xl/connections.xml",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 16,
+            "kind": "embedded",
+            "name": "Chart 11",
+            "sheet": "2020 W Cotton Lys Graphs"
+          },
+          "reason": "Unsupported chart package dependency: xl/connections.xml",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 17,
+            "kind": "embedded",
+            "name": "Chart 11",
+            "sheet": "2020 W Cotton Lys Graphs"
+          },
+          "reason": "Unsupported chart package dependency: xl/connections.xml",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 18,
+            "kind": "embedded",
+            "name": "Chart 11",
+            "sheet": "2020 W Cotton Lys Graphs"
+          },
+          "reason": "Unsupported chart package dependency: xl/connections.xml",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 19,
+            "kind": "embedded",
+            "name": "Chart 11",
+            "sheet": "2020 W Cotton Lys Graphs"
+          },
+          "reason": "Unsupported chart package dependency: xl/connections.xml",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 20,
+            "kind": "embedded",
+            "name": "Chart 21",
+            "sheet": "2020 W Cotton Lys Graphs"
+          },
+          "reason": "Unsupported chart package dependency: xl/connections.xml",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 21,
+            "kind": "embedded",
+            "name": "Chart 21",
+            "sheet": "2020 W Cotton Lys Graphs"
+          },
+          "reason": "Unsupported chart package dependency: xl/connections.xml",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 22,
+            "kind": "embedded",
+            "name": "Chart 19",
+            "sheet": "2020 W Cotton Lys Graphs"
+          },
+          "reason": "Unsupported chart package dependency: xl/connections.xml",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 0,
+            "kind": "embedded",
+            "name": "Chart 1",
+            "sheet": "2020 W Cotton Lys 15MinCharts"
+          },
+          "reason": "Unsupported chart package dependency: xl/connections.xml",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 1,
+            "kind": "embedded",
+            "name": "Chart 2",
+            "sheet": "2020 W Cotton Lys 15MinCharts"
+          },
+          "reason": "Unsupported chart package dependency: xl/connections.xml",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 2,
+            "kind": "embedded",
+            "name": "Chart 3",
+            "sheet": "2020 W Cotton Lys 15MinCharts"
+          },
+          "reason": "Unsupported chart package dependency: xl/connections.xml",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 3,
+            "kind": "embedded",
+            "name": "Chart 4",
+            "sheet": "2020 W Cotton Lys 15MinCharts"
+          },
+          "reason": "Unsupported chart package dependency: xl/connections.xml",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 4,
+            "kind": "embedded",
+            "name": "Chart 5",
+            "sheet": "2020 W Cotton Lys 15MinCharts"
+          },
+          "reason": "Unsupported chart package dependency: xl/connections.xml",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 5,
+            "kind": "embedded",
+            "name": "Chart 6",
+            "sheet": "2020 W Cotton Lys 15MinCharts"
+          },
+          "reason": "Unsupported chart package dependency: xl/connections.xml",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 6,
+            "kind": "embedded",
+            "name": "Chart 7",
+            "sheet": "2020 W Cotton Lys 15MinCharts"
+          },
+          "reason": "Unsupported chart package dependency: xl/connections.xml",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 7,
+            "kind": "embedded",
+            "name": "Chart 9",
+            "sheet": "2020 W Cotton Lys 15MinCharts"
+          },
+          "reason": "Unsupported chart package dependency: xl/connections.xml",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 8,
+            "kind": "embedded",
+            "name": "Chart 10",
+            "sheet": "2020 W Cotton Lys 15MinCharts"
+          },
+          "reason": "Unsupported chart package dependency: xl/connections.xml",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 9,
+            "kind": "embedded",
+            "name": "Chart 11",
+            "sheet": "2020 W Cotton Lys 15MinCharts"
+          },
+          "reason": "Unsupported chart package dependency: xl/connections.xml",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 10,
+            "kind": "embedded",
+            "name": "Chart 12",
+            "sheet": "2020 W Cotton Lys 15MinCharts"
+          },
+          "reason": "Unsupported chart package dependency: xl/connections.xml",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 11,
+            "kind": "embedded",
+            "name": "Chart 13",
+            "sheet": "2020 W Cotton Lys 15MinCharts"
+          },
+          "reason": "Unsupported chart package dependency: xl/connections.xml",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 12,
+            "kind": "embedded",
+            "name": "Chart 14",
+            "sheet": "2020 W Cotton Lys 15MinCharts"
+          },
+          "reason": "Unsupported chart package dependency: xl/connections.xml",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 13,
+            "kind": "embedded",
+            "name": "Chart 15",
+            "sheet": "2020 W Cotton Lys 15MinCharts"
+          },
+          "reason": "Unsupported chart package dependency: xl/connections.xml",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 14,
+            "kind": "embedded",
+            "name": "Chart 16",
+            "sheet": "2020 W Cotton Lys 15MinCharts"
+          },
+          "reason": "Unsupported chart package dependency: xl/connections.xml",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 15,
+            "kind": "embedded",
+            "name": "Chart 17",
+            "sheet": "2020 W Cotton Lys 15MinCharts"
+          },
+          "reason": "Unsupported chart package dependency: xl/connections.xml",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 16,
+            "kind": "embedded",
+            "name": "Chart 18",
+            "sheet": "2020 W Cotton Lys 15MinCharts"
+          },
+          "reason": "Unsupported chart package dependency: xl/connections.xml",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 17,
+            "kind": "embedded",
+            "name": "Chart 19",
+            "sheet": "2020 W Cotton Lys 15MinCharts"
+          },
+          "reason": "Unsupported chart package dependency: xl/connections.xml",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 18,
+            "kind": "embedded",
+            "name": "Chart 20",
+            "sheet": "2020 W Cotton Lys 15MinCharts"
+          },
+          "reason": "Unsupported chart package dependency: xl/connections.xml",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 19,
+            "kind": "embedded",
+            "name": "Chart 21",
+            "sheet": "2020 W Cotton Lys 15MinCharts"
+          },
+          "reason": "Unsupported chart package dependency: xl/connections.xml",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 20,
+            "kind": "embedded",
+            "name": "Chart 22",
+            "sheet": "2020 W Cotton Lys 15MinCharts"
+          },
+          "reason": "Unsupported chart package dependency: xl/connections.xml",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 21,
+            "kind": "embedded",
+            "name": "Chart 23",
+            "sheet": "2020 W Cotton Lys 15MinCharts"
+          },
+          "reason": "Unsupported chart package dependency: xl/connections.xml",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 22,
+            "kind": "embedded",
+            "name": "Chart 26",
+            "sheet": "2020 W Cotton Lys 15MinCharts"
+          },
+          "reason": "Unsupported chart package dependency: xl/connections.xml",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 23,
+            "kind": "embedded",
+            "name": "Chart 25",
+            "sheet": "2020 W Cotton Lys 15MinCharts"
+          },
+          "reason": "Unsupported chart package dependency: xl/connections.xml",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 24,
+            "kind": "embedded",
+            "name": "Chart 28",
+            "sheet": "2020 W Cotton Lys 15MinCharts"
+          },
+          "reason": "Unsupported chart package dependency: xl/connections.xml",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 25,
+            "kind": "embedded",
+            "name": "Chart 29",
+            "sheet": "2020 W Cotton Lys 15MinCharts"
+          },
+          "reason": "Unsupported chart package dependency: xl/connections.xml",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 26,
+            "kind": "embedded",
+            "name": "Chart 31",
+            "sheet": "2020 W Cotton Lys 15MinCharts"
+          },
+          "reason": "Unsupported chart package dependency: xl/connections.xml",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 27,
+            "kind": "embedded",
+            "name": "Chart 32",
+            "sheet": "2020 W Cotton Lys 15MinCharts"
+          },
+          "reason": "Unsupported chart package dependency: xl/connections.xml",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 28,
+            "kind": "embedded",
+            "name": "Chart 33",
+            "sheet": "2020 W Cotton Lys 15MinCharts"
+          },
+          "reason": "Unsupported chart package dependency: xl/connections.xml",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 29,
+            "kind": "embedded",
+            "name": "Chart 34",
+            "sheet": "2020 W Cotton Lys 15MinCharts"
+          },
+          "reason": "Unsupported chart package dependency: xl/connections.xml",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 30,
+            "kind": "embedded",
+            "name": "Chart 35",
+            "sheet": "2020 W Cotton Lys 15MinCharts"
+          },
+          "reason": "Unsupported chart package dependency: xl/connections.xml",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 31,
+            "kind": "embedded",
+            "name": "Chart 36",
+            "sheet": "2020 W Cotton Lys 15MinCharts"
+          },
+          "reason": "Unsupported chart package dependency: xl/connections.xml",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 32,
+            "kind": "embedded",
+            "name": "Chart 40",
+            "sheet": "2020 W Cotton Lys 15MinCharts"
+          },
+          "reason": "Unsupported chart package dependency: xl/connections.xml",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 33,
+            "kind": "embedded",
+            "name": "Chart 41",
+            "sheet": "2020 W Cotton Lys 15MinCharts"
+          },
+          "reason": "Unsupported chart package dependency: xl/connections.xml",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 34,
+            "kind": "embedded",
+            "name": "Chart 42",
+            "sheet": "2020 W Cotton Lys 15MinCharts"
+          },
+          "reason": "Unsupported chart package dependency: xl/connections.xml",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 35,
+            "kind": "embedded",
+            "name": "Chart 43",
+            "sheet": "2020 W Cotton Lys 15MinCharts"
+          },
+          "reason": "Unsupported chart package dependency: xl/connections.xml",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 36,
+            "kind": "embedded",
+            "name": "Chart 44",
+            "sheet": "2020 W Cotton Lys 15MinCharts"
+          },
+          "reason": "Unsupported chart package dependency: xl/connections.xml",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 37,
+            "kind": "embedded",
+            "name": "Chart 46",
+            "sheet": "2020 W Cotton Lys 15MinCharts"
+          },
+          "reason": "Unsupported chart package dependency: xl/connections.xml",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 38,
+            "kind": "embedded",
+            "name": "Chart 47",
+            "sheet": "2020 W Cotton Lys 15MinCharts"
+          },
+          "reason": "Unsupported chart package dependency: xl/connections.xml",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 39,
+            "kind": "embedded",
+            "name": "Chart 48",
+            "sheet": "2020 W Cotton Lys 15MinCharts"
+          },
+          "reason": "Unsupported chart package dependency: xl/connections.xml",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 40,
+            "kind": "embedded",
+            "name": "Chart 49",
+            "sheet": "2020 W Cotton Lys 15MinCharts"
+          },
+          "reason": "Unsupported chart package dependency: xl/connections.xml",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 41,
+            "kind": "embedded",
+            "name": "Chart 50",
+            "sheet": "2020 W Cotton Lys 15MinCharts"
+          },
+          "reason": "Unsupported chart package dependency: xl/connections.xml",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 42,
+            "kind": "embedded",
+            "name": "Chart 52",
+            "sheet": "2020 W Cotton Lys 15MinCharts"
+          },
+          "reason": "Unsupported chart package dependency: xl/connections.xml",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 43,
+            "kind": "embedded",
+            "name": "Chart 53",
+            "sheet": "2020 W Cotton Lys 15MinCharts"
+          },
+          "reason": "Unsupported chart package dependency: xl/connections.xml",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 0,
+            "kind": "embedded",
+            "name": "Chart 2",
+            "sheet": "2020 W Cotton Lys 5MinCharts"
+          },
+          "reason": "Unsupported chart package dependency: xl/connections.xml",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 1,
+            "kind": "embedded",
+            "name": "Chart 3",
+            "sheet": "2020 W Cotton Lys 5MinCharts"
+          },
+          "reason": "Unsupported chart package dependency: xl/connections.xml",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 2,
+            "kind": "embedded",
+            "name": "Chart 4",
+            "sheet": "2020 W Cotton Lys 5MinCharts"
+          },
+          "reason": "Unsupported chart package dependency: xl/connections.xml",
+          "references": 0,
+          "unchanged": false
+        }
+      ],
+      "left": "OR",
+      "mode": "deterministic",
+      "right": "SDR"
+    }
+  ],
+  "check_performance": "not_requested",
+  "check_performance_cache": null,
+  "check_performance_evidence": null,
+  "comparisons": [
+    {
+      "charts": [
+        {
+          "chart": "Chart 1",
+          "chart_index": 0,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 278.399993896484,
+            "left": 10.5000791549683,
+            "top": 633,
+            "width": 412.5
+          },
+          "left_image": "evidence/c4fc1190563a07ccd159393569c6c4a1827764c914f595130af3ccb50060cf82.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 278.399993896484,
+            "left": 10.5000791549683,
+            "top": 633,
+            "width": 412.5
+          },
+          "right_image": "evidence/c4fc1190563a07ccd159393569c6c4a1827764c914f595130af3ccb50060cf82.png",
+          "right_rendering": "captured",
+          "sheet": "2020 W Cotton Lys 15MinCharts"
+        },
+        {
+          "chart": "Chart 10",
+          "chart_index": 8,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 278.399993896484,
+            "left": 431.625030517578,
+            "top": 5917.5,
+            "width": 371.25
+          },
+          "left_image": "evidence/490f93ab2005049eaeb3a545972c8d8defdc14090b1328770c340539dff55c3a.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 278.399993896484,
+            "left": 431.625030517578,
+            "top": 5917.5,
+            "width": 371.25
+          },
+          "right_image": "evidence/490f93ab2005049eaeb3a545972c8d8defdc14090b1328770c340539dff55c3a.png",
+          "right_rendering": "captured",
+          "sheet": "2020 W Cotton Lys 15MinCharts"
+        },
+        {
+          "chart": "Chart 11",
+          "chart_index": 9,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 278.399993896484,
+            "left": 432,
+            "top": 5348.625,
+            "width": 372
+          },
+          "left_image": "evidence/398adfb53c4ba9632710059635044761bb0f99908acf24dc01d9524d72dd7b9d.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 278.399993896484,
+            "left": 432,
+            "top": 5348.625,
+            "width": 372
+          },
+          "right_image": "evidence/398adfb53c4ba9632710059635044761bb0f99908acf24dc01d9524d72dd7b9d.png",
+          "right_rendering": "captured",
+          "sheet": "2020 W Cotton Lys 15MinCharts"
+        },
+        {
+          "chart": "Chart 12",
+          "chart_index": 10,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 278.399993896484,
+            "left": 10.125039100647,
+            "top": 1488.37512207031,
+            "width": 412.874877929688
+          },
+          "left_image": "evidence/3d45474b93c49b6f0275893bc99a4c994e8483291ba7b5a6b919a8b9efe43537.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 278.399993896484,
+            "left": 10.125039100647,
+            "top": 1488.37512207031,
+            "width": 412.874877929688
+          },
+          "right_image": "evidence/3d45474b93c49b6f0275893bc99a4c994e8483291ba7b5a6b919a8b9efe43537.png",
+          "right_rendering": "captured",
+          "sheet": "2020 W Cotton Lys 15MinCharts"
+        },
+        {
+          "chart": "Chart 13",
+          "chart_index": 11,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 278.399993896484,
+            "left": 50.6249618530273,
+            "top": 5347.125,
+            "width": 375.000091552734
+          },
+          "left_image": "evidence/b391a1cd13762bc2f3aacae1374ed195dc159867b26cc6840738f2a20bd333d9.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 278.399993896484,
+            "left": 50.6249618530273,
+            "top": 5347.125,
+            "width": 375.000091552734
+          },
+          "right_image": "evidence/b391a1cd13762bc2f3aacae1374ed195dc159867b26cc6840738f2a20bd333d9.png",
+          "right_rendering": "captured",
+          "sheet": "2020 W Cotton Lys 15MinCharts"
+        },
+        {
+          "chart": "Chart 14",
+          "chart_index": 12,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 278.399993896484,
+            "left": 429.75,
+            "top": 1773.74987792969,
+            "width": 423
+          },
+          "left_image": "evidence/dbada516f184842801ced3b4744ff1ecf63844bca8080f2689afa0dce0cd8fd8.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 278.399993896484,
+            "left": 429.75,
+            "top": 1773.74987792969,
+            "width": 423
+          },
+          "right_image": "evidence/dbada516f184842801ced3b4744ff1ecf63844bca8080f2689afa0dce0cd8fd8.png",
+          "right_rendering": "captured",
+          "sheet": "2020 W Cotton Lys 15MinCharts"
+        },
+        {
+          "chart": "Chart 15",
+          "chart_index": 13,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 278.399993896484,
+            "left": 431.062591552734,
+            "top": 1489.5,
+            "width": 420.937408447266
+          },
+          "left_image": "evidence/b3e262877fd93628cf3bf51a23790f697a190f3f042644de81431bdca81a4c6d.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 278.399993896484,
+            "left": 431.062591552734,
+            "top": 1489.5,
+            "width": 420.937408447266
+          },
+          "right_image": "evidence/b3e262877fd93628cf3bf51a23790f697a190f3f042644de81431bdca81a4c6d.png",
+          "right_rendering": "captured",
+          "sheet": "2020 W Cotton Lys 15MinCharts"
+        },
+        {
+          "chart": "Chart 16",
+          "chart_index": 14,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 278.399993896484,
+            "left": 9.75007915496826,
+            "top": 1773,
+            "width": 411.749908447266
+          },
+          "left_image": "evidence/0f2235a64354b6af7e38761519997b0d6be9ea35fa8814e305ba9d11583f8ad8.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 278.399993896484,
+            "left": 9.75007915496826,
+            "top": 1773,
+            "width": 411.749908447266
+          },
+          "right_image": "evidence/0f2235a64354b6af7e38761519997b0d6be9ea35fa8814e305ba9d11583f8ad8.png",
+          "right_rendering": "captured",
+          "sheet": "2020 W Cotton Lys 15MinCharts"
+        },
+        {
+          "chart": "Chart 17",
+          "chart_index": 15,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 279.149993896484,
+            "left": 15.125039100647,
+            "top": 4127.29150390625,
+            "width": 356.874969482422
+          },
+          "left_image": "evidence/3093a6067cd4077500ed7f3152ad195b01949aa6958cd366d7ceddc74ec06b40.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 279.149993896484,
+            "left": 15.125039100647,
+            "top": 4127.29150390625,
+            "width": 356.874969482422
+          },
+          "right_image": "evidence/3093a6067cd4077500ed7f3152ad195b01949aa6958cd366d7ceddc74ec06b40.png",
+          "right_rendering": "captured",
+          "sheet": "2020 W Cotton Lys 15MinCharts"
+        },
+        {
+          "chart": "Chart 18",
+          "chart_index": 16,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 278.399993896484,
+            "left": 375.666625976562,
+            "top": 4128.04150390625,
+            "width": 372.833312988281
+          },
+          "left_image": "evidence/58c2edb0833185f50e00439981a3534666f03854ee30cc6d6aa9dd5b10a1eb8c.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 278.399993896484,
+            "left": 375.666625976562,
+            "top": 4128.04150390625,
+            "width": 372.833312988281
+          },
+          "right_image": "evidence/58c2edb0833185f50e00439981a3534666f03854ee30cc6d6aa9dd5b10a1eb8c.png",
+          "right_rendering": "captured",
+          "sheet": "2020 W Cotton Lys 15MinCharts"
+        },
+        {
+          "chart": "Chart 19",
+          "chart_index": 17,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 278.399993896484,
+            "left": 753.874938964844,
+            "top": 4129.16650390625,
+            "width": 373.750091552734
+          },
+          "left_image": "evidence/d85cefda3ab94ee22b85eaf474eb6f51cdf892cf2e8b97d8936addbc854af01d.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 278.399993896484,
+            "left": 753.874938964844,
+            "top": 4129.16650390625,
+            "width": 373.750091552734
+          },
+          "right_image": "evidence/d85cefda3ab94ee22b85eaf474eb6f51cdf892cf2e8b97d8936addbc854af01d.png",
+          "right_rendering": "captured",
+          "sheet": "2020 W Cotton Lys 15MinCharts"
+        },
+        {
+          "chart": "Chart 2",
+          "chart_index": 1,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 277.649993896484,
+            "left": 807.750061035156,
+            "top": 5348.25,
+            "width": 372.374969482422
+          },
+          "left_image": "evidence/39b03c07dd1a1451a90b93cce3cd4ae9e49f01f0894ae5cfaf7fdb7571d3e9ce.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 277.649993896484,
+            "left": 807.750061035156,
+            "top": 5348.25,
+            "width": 372.374969482422
+          },
+          "right_image": "evidence/39b03c07dd1a1451a90b93cce3cd4ae9e49f01f0894ae5cfaf7fdb7571d3e9ce.png",
+          "right_rendering": "captured",
+          "sheet": "2020 W Cotton Lys 15MinCharts"
+        },
+        {
+          "chart": "Chart 20",
+          "chart_index": 18,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 278.816680908203,
+            "left": 15.125039100647,
+            "top": 4415.29150390625,
+            "width": 356.5
+          },
+          "left_image": "evidence/67e4d1a4367ecde6f4bafcc2a06be56c16e7ce5a9a7e978f12e22b66580dea2a.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 278.816680908203,
+            "left": 15.125039100647,
+            "top": 4415.29150390625,
+            "width": 356.5
+          },
+          "right_image": "evidence/67e4d1a4367ecde6f4bafcc2a06be56c16e7ce5a9a7e978f12e22b66580dea2a.png",
+          "right_rendering": "captured",
+          "sheet": "2020 W Cotton Lys 15MinCharts"
+        },
+        {
+          "chart": "Chart 21",
+          "chart_index": 19,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 278.066680908203,
+            "left": 376.041717529297,
+            "top": 4416.41650390625,
+            "width": 371.708282470703
+          },
+          "left_image": "evidence/4cfbce43caccafe1eb23706fe842d20926085d82112b0eb2c8ef204b6b3ecb9e.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 278.066680908203,
+            "left": 376.041717529297,
+            "top": 4416.41650390625,
+            "width": 371.708282470703
+          },
+          "right_image": "evidence/4cfbce43caccafe1eb23706fe842d20926085d82112b0eb2c8ef204b6b3ecb9e.png",
+          "right_rendering": "captured",
+          "sheet": "2020 W Cotton Lys 15MinCharts"
+        },
+        {
+          "chart": "Chart 22",
+          "chart_index": 20,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 277.649993896484,
+            "left": 374.916625976562,
+            "top": 4700.3330078125,
+            "width": 372.458435058594
+          },
+          "left_image": "evidence/01fdbcd1ec2a05d8a3c2d1d26fdacb3bab58f6a4aa172f0cad963ee3c5e405b8.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 277.649993896484,
+            "left": 374.916625976562,
+            "top": 4700.3330078125,
+            "width": 372.458435058594
+          },
+          "right_image": "evidence/01fdbcd1ec2a05d8a3c2d1d26fdacb3bab58f6a4aa172f0cad963ee3c5e405b8.png",
+          "right_rendering": "captured",
+          "sheet": "2020 W Cotton Lys 15MinCharts"
+        },
+        {
+          "chart": "Chart 23",
+          "chart_index": 21,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 277.649993896484,
+            "left": 13.9167718887329,
+            "top": 4701.08349609375,
+            "width": 357.708343505859
+          },
+          "left_image": "evidence/25a7a6c478328858809abef46095c92513082fdf63219c6237279913175ceadb.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 277.649993896484,
+            "left": 13.9167718887329,
+            "top": 4701.08349609375,
+            "width": 357.708343505859
+          },
+          "right_image": "evidence/25a7a6c478328858809abef46095c92513082fdf63219c6237279913175ceadb.png",
+          "right_rendering": "captured",
+          "sheet": "2020 W Cotton Lys 15MinCharts"
+        },
+        {
+          "chart": "Chart 25",
+          "chart_index": 23,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 278.399993896484,
+            "left": 429.749908447266,
+            "top": 66,
+            "width": 425.25
+          },
+          "left_image": "evidence/91b1734748aa4e8f82f432fd1df60306869fb89bf11d8694724c6c6f92f4200a.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 278.399993896484,
+            "left": 429.749908447266,
+            "top": 66,
+            "width": 425.25
+          },
+          "right_image": "evidence/91b1734748aa4e8f82f432fd1df60306869fb89bf11d8694724c6c6f92f4200a.png",
+          "right_rendering": "captured",
+          "sheet": "2020 W Cotton Lys 15MinCharts"
+        },
+        {
+          "chart": "Chart 26",
+          "chart_index": 22,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 278.399993896484,
+            "left": 8.25007915496826,
+            "top": 65.25,
+            "width": 414
+          },
+          "left_image": "evidence/68c50436bd1df7bb8d4435f5d0d8bc065cfad503aa485a0561cb09382172391d.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 278.399993896484,
+            "left": 8.25007915496826,
+            "top": 65.25,
+            "width": 414
+          },
+          "right_image": "evidence/68c50436bd1df7bb8d4435f5d0d8bc065cfad503aa485a0561cb09382172391d.png",
+          "right_rendering": "captured",
+          "sheet": "2020 W Cotton Lys 15MinCharts"
+        },
+        {
+          "chart": "Chart 28",
+          "chart_index": 24,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 276,
+            "left": 8.25,
+            "top": 350.25,
+            "width": 414
+          },
+          "left_image": "evidence/44a01810bc03126cb81d857d06f44847cca04e7e181b3111ea6e03f127d15072.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 276,
+            "left": 8.25,
+            "top": 350.25,
+            "width": 414
+          },
+          "right_image": "evidence/44a01810bc03126cb81d857d06f44847cca04e7e181b3111ea6e03f127d15072.png",
+          "right_rendering": "captured",
+          "sheet": "2020 W Cotton Lys 15MinCharts"
+        },
+        {
+          "chart": "Chart 29",
+          "chart_index": 25,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 278.399993896484,
+            "left": 4.72905492782593,
+            "top": 3768.45825195312,
+            "width": 415.729217529297
+          },
+          "left_image": "evidence/7988d9b9d1e45575fbc36c94636e81f14b246ee9fa51153ffcdb00b8b30e4727.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 278.399993896484,
+            "left": 4.72905492782593,
+            "top": 3768.45825195312,
+            "width": 415.729217529297
+          },
+          "right_image": "evidence/7988d9b9d1e45575fbc36c94636e81f14b246ee9fa51153ffcdb00b8b30e4727.png",
+          "right_rendering": "captured",
+          "sheet": "2020 W Cotton Lys 15MinCharts"
+        },
+        {
+          "chart": "Chart 3",
+          "chart_index": 2,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 278.399993896484,
+            "left": 10.1251182556152,
+            "top": 918.854187011719,
+            "width": 412.874877929688
+          },
+          "left_image": "evidence/a0d7cb7cf371b3b39f57c5d5729f7dac0bb2e8475c7b1257f7f48f89f83f53c1.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 278.399993896484,
+            "left": 10.1251182556152,
+            "top": 918.854187011719,
+            "width": 412.874877929688
+          },
+          "right_image": "evidence/a0d7cb7cf371b3b39f57c5d5729f7dac0bb2e8475c7b1257f7f48f89f83f53c1.png",
+          "right_rendering": "captured",
+          "sheet": "2020 W Cotton Lys 15MinCharts"
+        },
+        {
+          "chart": "Chart 31",
+          "chart_index": 26,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 278.399993896484,
+            "left": 430.583312988281,
+            "top": 3769.20825195312,
+            "width": 419.916687011719
+          },
+          "left_image": "evidence/f39d886879a97aac563b0478c709816d9ee937d51758338c7a5a84bc5d6f6ec5.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 278.399993896484,
+            "left": 430.583312988281,
+            "top": 3769.20825195312,
+            "width": 419.916687011719
+          },
+          "right_image": "evidence/f39d886879a97aac563b0478c709816d9ee937d51758338c7a5a84bc5d6f6ec5.png",
+          "right_rendering": "captured",
+          "sheet": "2020 W Cotton Lys 15MinCharts"
+        },
+        {
+          "chart": "Chart 32",
+          "chart_index": 27,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 278.399993896484,
+            "left": 9,
+            "top": 2343,
+            "width": 413.25
+          },
+          "left_image": "evidence/0acaaf5e9a2678c911e41f3507597bd2e427e525f0e6d13b7164ff52d93653c8.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 278.399993896484,
+            "left": 9,
+            "top": 2343,
+            "width": 413.25
+          },
+          "right_image": "evidence/0acaaf5e9a2678c911e41f3507597bd2e427e525f0e6d13b7164ff52d93653c8.png",
+          "right_rendering": "captured",
+          "sheet": "2020 W Cotton Lys 15MinCharts"
+        },
+        {
+          "chart": "Chart 33",
+          "chart_index": 28,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 278.399993896484,
+            "left": 429.75,
+            "top": 2343,
+            "width": 423.75
+          },
+          "left_image": "evidence/9963dfbe8b8d23a6498ef2b108ce285fcafde656762754695c05d35db0115cc4.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 278.399993896484,
+            "left": 429.75,
+            "top": 2343,
+            "width": 423.75
+          },
+          "right_image": "evidence/9963dfbe8b8d23a6498ef2b108ce285fcafde656762754695c05d35db0115cc4.png",
+          "right_rendering": "captured",
+          "sheet": "2020 W Cotton Lys 15MinCharts"
+        },
+        {
+          "chart": "Chart 34",
+          "chart_index": 29,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 279.149993896484,
+            "left": 12.2083463668823,
+            "top": 4987.75,
+            "width": 359.416687011719
+          },
+          "left_image": "evidence/70a0bff1d6aff4ab9240cc4dacbad1fd1113031cf93c716419083c3b77c7544b.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 279.149993896484,
+            "left": 12.2083463668823,
+            "top": 4987.75,
+            "width": 359.416687011719
+          },
+          "right_image": "evidence/70a0bff1d6aff4ab9240cc4dacbad1fd1113031cf93c716419083c3b77c7544b.png",
+          "right_rendering": "captured",
+          "sheet": "2020 W Cotton Lys 15MinCharts"
+        },
+        {
+          "chart": "Chart 35",
+          "chart_index": 30,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 279.149993896484,
+            "left": 375.374969482422,
+            "top": 4988.12451171875,
+            "width": 371.624969482422
+          },
+          "left_image": "evidence/1e957fa93ececcb9eee615fefddd30c37fd1bd766295a6698a7d18f9679fbe04.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 279.149993896484,
+            "left": 375.374969482422,
+            "top": 4988.12451171875,
+            "width": 371.624969482422
+          },
+          "right_image": "evidence/1e957fa93ececcb9eee615fefddd30c37fd1bd766295a6698a7d18f9679fbe04.png",
+          "right_rendering": "captured",
+          "sheet": "2020 W Cotton Lys 15MinCharts"
+        },
+        {
+          "chart": "Chart 36",
+          "chart_index": 31,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 279.149993896484,
+            "left": 755.000061035156,
+            "top": 4987.54150390625,
+            "width": 372.624969482422
+          },
+          "left_image": "evidence/2b0c430b8f3113d31cda12aeee0b88ca896c3fc51c3627f1800b6d2cd682e3da.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 279.149993896484,
+            "left": 755.000061035156,
+            "top": 4987.54150390625,
+            "width": 372.624969482422
+          },
+          "right_image": "evidence/2b0c430b8f3113d31cda12aeee0b88ca896c3fc51c3627f1800b6d2cd682e3da.png",
+          "right_rendering": "captured",
+          "sheet": "2020 W Cotton Lys 15MinCharts"
+        },
+        {
+          "chart": "Chart 4",
+          "chart_index": 3,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 278.399993896484,
+            "left": 430.875030517578,
+            "top": 919.6875,
+            "width": 418.874969482422
+          },
+          "left_image": "evidence/fb2a3357614ac1dd8e6609097add14afdd0b752b14ae286c6921d05c1fdbf083.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 278.399993896484,
+            "left": 430.875030517578,
+            "top": 919.6875,
+            "width": 418.874969482422
+          },
+          "right_image": "evidence/fb2a3357614ac1dd8e6609097add14afdd0b752b14ae286c6921d05c1fdbf083.png",
+          "right_rendering": "captured",
+          "sheet": "2020 W Cotton Lys 15MinCharts"
+        },
+        {
+          "chart": "Chart 40",
+          "chart_index": 32,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 278.399993896484,
+            "left": 7.5,
+            "top": 2628,
+            "width": 416.25
+          },
+          "left_image": "evidence/9d5c52f6da73519f9600fca1f41af6b5dc9e5c93204a21c388747de6cdc2d499.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 278.399993896484,
+            "left": 7.5,
+            "top": 2628,
+            "width": 416.25
+          },
+          "right_image": "evidence/9d5c52f6da73519f9600fca1f41af6b5dc9e5c93204a21c388747de6cdc2d499.png",
+          "right_rendering": "captured",
+          "sheet": "2020 W Cotton Lys 15MinCharts"
+        },
+        {
+          "chart": "Chart 41",
+          "chart_index": 33,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 278.399993896484,
+            "left": 429,
+            "top": 2628.75,
+            "width": 425.25
+          },
+          "left_image": "evidence/3de14058ebffd5a7861aa5d9758b6ca270c14c812ea738f1a8d0c0c7e48dd0a0.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 278.399993896484,
+            "left": 429,
+            "top": 2628.75,
+            "width": 425.25
+          },
+          "right_image": "evidence/3de14058ebffd5a7861aa5d9758b6ca270c14c812ea738f1a8d0c0c7e48dd0a0.png",
+          "right_rendering": "captured",
+          "sheet": "2020 W Cotton Lys 15MinCharts"
+        },
+        {
+          "chart": "Chart 42",
+          "chart_index": 34,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 278.399993896484,
+            "left": 6.9999213218689,
+            "top": 2913.66674804688,
+            "width": 415.250091552734
+          },
+          "left_image": "evidence/0eeb8d40c94e05b9cfbc3870a941df4fee3c71d6588a9844376cd0eb19c5f2de.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 278.399993896484,
+            "left": 6.9999213218689,
+            "top": 2913.66674804688,
+            "width": 415.250091552734
+          },
+          "right_image": "evidence/0eeb8d40c94e05b9cfbc3870a941df4fee3c71d6588a9844376cd0eb19c5f2de.png",
+          "right_rendering": "captured",
+          "sheet": "2020 W Cotton Lys 15MinCharts"
+        },
+        {
+          "chart": "Chart 43",
+          "chart_index": 35,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 278.399993896484,
+            "left": 429.083312988281,
+            "top": 2914.41674804688,
+            "width": 422.916687011719
+          },
+          "left_image": "evidence/803a3f074345d06bf7a7d54624b9a9ae061d245347447f3a11c7564c59ce3d8f.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 278.399993896484,
+            "left": 429.083312988281,
+            "top": 2914.41674804688,
+            "width": 422.916687011719
+          },
+          "right_image": "evidence/803a3f074345d06bf7a7d54624b9a9ae061d245347447f3a11c7564c59ce3d8f.png",
+          "right_rendering": "captured",
+          "sheet": "2020 W Cotton Lys 15MinCharts"
+        },
+        {
+          "chart": "Chart 44",
+          "chart_index": 36,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 278.399993896484,
+            "left": 6,
+            "top": 3197.25,
+            "width": 416.25
+          },
+          "left_image": "evidence/29b1fb02141bb758f283b0489989798463f060595b66da4a91822c35e8cce92c.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 278.399993896484,
+            "left": 6,
+            "top": 3197.25,
+            "width": 416.25
+          },
+          "right_image": "evidence/29b1fb02141bb758f283b0489989798463f060595b66da4a91822c35e8cce92c.png",
+          "right_rendering": "captured",
+          "sheet": "2020 W Cotton Lys 15MinCharts"
+        },
+        {
+          "chart": "Chart 46",
+          "chart_index": 37,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 278.399993896484,
+            "left": 429.75,
+            "top": 3199.49975585938,
+            "width": 421.5
+          },
+          "left_image": "evidence/116dd9b2299afefc81ba704ab86535bb3f96ffc4c9a02c590957bd8e2ed79a6c.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 278.399993896484,
+            "left": 429.75,
+            "top": 3199.49975585938,
+            "width": 421.5
+          },
+          "right_image": "evidence/116dd9b2299afefc81ba704ab86535bb3f96ffc4c9a02c590957bd8e2ed79a6c.png",
+          "right_rendering": "captured",
+          "sheet": "2020 W Cotton Lys 15MinCharts"
+        },
+        {
+          "chart": "Chart 47",
+          "chart_index": 38,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 278.399993896484,
+            "left": 5.25,
+            "top": 3482.625,
+            "width": 414
+          },
+          "left_image": "evidence/cdfcdecae13746f109a8aec95366b04539ad65e5fe783edb1064aafbf74893d8.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 278.399993896484,
+            "left": 5.25,
+            "top": 3482.625,
+            "width": 414
+          },
+          "right_image": "evidence/cdfcdecae13746f109a8aec95366b04539ad65e5fe783edb1064aafbf74893d8.png",
+          "right_rendering": "captured",
+          "sheet": "2020 W Cotton Lys 15MinCharts"
+        },
+        {
+          "chart": "Chart 48",
+          "chart_index": 39,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 278.399993896484,
+            "left": 427.687469482422,
+            "top": 3483.1875,
+            "width": 425.062530517578
+          },
+          "left_image": "evidence/42db2f3d9375de897b99f092384cec98418abc4168efdfe7a28ab0886aab65d4.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 278.399993896484,
+            "left": 427.687469482422,
+            "top": 3483.1875,
+            "width": 425.062530517578
+          },
+          "right_image": "evidence/42db2f3d9375de897b99f092384cec98418abc4168efdfe7a28ab0886aab65d4.png",
+          "right_rendering": "captured",
+          "sheet": "2020 W Cotton Lys 15MinCharts"
+        },
+        {
+          "chart": "Chart 49",
+          "chart_index": 40,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 276,
+            "left": 10.5000791549683,
+            "top": 2059.5,
+            "width": 411
+          },
+          "left_image": "evidence/39692b7268341924270f8c8b8f78b37d4a7482fa5206b385ee5f0055b72873ab.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 276,
+            "left": 10.5000791549683,
+            "top": 2059.5,
+            "width": 411
+          },
+          "right_image": "evidence/39692b7268341924270f8c8b8f78b37d4a7482fa5206b385ee5f0055b72873ab.png",
+          "right_rendering": "captured",
+          "sheet": "2020 W Cotton Lys 15MinCharts"
+        },
+        {
+          "chart": "Chart 5",
+          "chart_index": 4,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 278.399993896484,
+            "left": 49.5000801086426,
+            "top": 5632.12451171875,
+            "width": 376.499908447266
+          },
+          "left_image": "evidence/b43e7cfa99d6d0a7cac345426c8ae44aa9e747ddedeedc0a3ded4e1e84c0f258.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 278.399993896484,
+            "left": 49.5000801086426,
+            "top": 5632.12451171875,
+            "width": 376.499908447266
+          },
+          "right_image": "evidence/b43e7cfa99d6d0a7cac345426c8ae44aa9e747ddedeedc0a3ded4e1e84c0f258.png",
+          "right_rendering": "captured",
+          "sheet": "2020 W Cotton Lys 15MinCharts"
+        },
+        {
+          "chart": "Chart 50",
+          "chart_index": 41,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 275.625030517578,
+            "left": 429.187561035156,
+            "top": 2059.875,
+            "width": 422.062438964844
+          },
+          "left_image": "evidence/37346e1afd00393b466b9bd328c8263db4f860db54a8268998610a62f4710278.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 275.625030517578,
+            "left": 429.187561035156,
+            "top": 2059.875,
+            "width": 422.062438964844
+          },
+          "right_image": "evidence/37346e1afd00393b466b9bd328c8263db4f860db54a8268998610a62f4710278.png",
+          "right_rendering": "captured",
+          "sheet": "2020 W Cotton Lys 15MinCharts"
+        },
+        {
+          "chart": "Chart 52",
+          "chart_index": 42,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 278.399993896484,
+            "left": 429.749908447266,
+            "top": 633.5625,
+            "width": 420.75
+          },
+          "left_image": "evidence/a238dbf536aa2e2cd7da39cd64e1f388174d1e40913a76b9d2607d7cf5168555.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 278.399993896484,
+            "left": 429.749908447266,
+            "top": 633.5625,
+            "width": 420.75
+          },
+          "right_image": "evidence/a238dbf536aa2e2cd7da39cd64e1f388174d1e40913a76b9d2607d7cf5168555.png",
+          "right_rendering": "captured",
+          "sheet": "2020 W Cotton Lys 15MinCharts"
+        },
+        {
+          "chart": "Chart 53",
+          "chart_index": 43,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 278.399993896484,
+            "left": 431.249908447266,
+            "top": 1203.75,
+            "width": 420.75
+          },
+          "left_image": "evidence/0355197dae424324da1f372b092a9f1fc9346552bbe578095d357b9f49561bf4.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 278.399993896484,
+            "left": 431.249908447266,
+            "top": 1203.75,
+            "width": 420.75
+          },
+          "right_image": "evidence/0355197dae424324da1f372b092a9f1fc9346552bbe578095d357b9f49561bf4.png",
+          "right_rendering": "captured",
+          "sheet": "2020 W Cotton Lys 15MinCharts"
+        },
+        {
+          "chart": "Chart 6",
+          "chart_index": 5,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 278.399993896484,
+            "left": 432,
+            "top": 5633.625,
+            "width": 371.624969482422
+          },
+          "left_image": "evidence/e19a0897332954af8e253a64ad7b632785bf076e8b4eafef1e25bb4ba8c52d30.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 278.399993896484,
+            "left": 432,
+            "top": 5633.625,
+            "width": 371.624969482422
+          },
+          "right_image": "evidence/e19a0897332954af8e253a64ad7b632785bf076e8b4eafef1e25bb4ba8c52d30.png",
+          "right_rendering": "captured",
+          "sheet": "2020 W Cotton Lys 15MinCharts"
+        },
+        {
+          "chart": "Chart 7",
+          "chart_index": 6,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 278.399993896484,
+            "left": 11.2500791549683,
+            "top": 1202.25,
+            "width": 410.999908447266
+          },
+          "left_image": "evidence/62d31156ee63faa494b8708f3eb8bc91dc74df3fbd1bdba2586fec64a1583975.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 278.399993896484,
+            "left": 11.2500791549683,
+            "top": 1202.25,
+            "width": 410.999908447266
+          },
+          "right_image": "evidence/62d31156ee63faa494b8708f3eb8bc91dc74df3fbd1bdba2586fec64a1583975.png",
+          "right_rendering": "captured",
+          "sheet": "2020 W Cotton Lys 15MinCharts"
+        },
+        {
+          "chart": "Chart 9",
+          "chart_index": 7,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 277.649993896484,
+            "left": 49.5000801086426,
+            "top": 5916.75,
+            "width": 376.124969482422
+          },
+          "left_image": "evidence/f8ea59c0501c884c6fbe772ba708109dde8c0141b8862bc4889b9fbdff18f250.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 277.649993896484,
+            "left": 49.5000801086426,
+            "top": 5916.75,
+            "width": 376.124969482422
+          },
+          "right_image": "evidence/f8ea59c0501c884c6fbe772ba708109dde8c0141b8862bc4889b9fbdff18f250.png",
+          "right_rendering": "captured",
+          "sheet": "2020 W Cotton Lys 15MinCharts"
+        },
+        {
+          "chart": "Chart 2",
+          "chart_index": 0,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 303,
+            "left": 9.75,
+            "top": 64.8750381469727,
+            "width": 366
+          },
+          "left_image": "evidence/f703ed2db1a3f479e46d2ab85416311e24582cacdceab19487e24ce6be8299ed.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 303,
+            "left": 9.75,
+            "top": 64.8750381469727,
+            "width": 366
+          },
+          "right_image": "evidence/f703ed2db1a3f479e46d2ab85416311e24582cacdceab19487e24ce6be8299ed.png",
+          "right_rendering": "captured",
+          "sheet": "2020 W Cotton Lys 5MinCharts"
+        },
+        {
+          "chart": "Chart 3",
+          "chart_index": 1,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 303.374969482422,
+            "left": 383.25,
+            "top": 64.8750381469727,
+            "width": 367.875030517578
+          },
+          "left_image": "evidence/c173dca42f990802d58af876508be53034d04d868482e7907f067bec15c592c9.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 303.374969482422,
+            "left": 383.25,
+            "top": 64.8750381469727,
+            "width": 367.875030517578
+          },
+          "right_image": "evidence/c173dca42f990802d58af876508be53034d04d868482e7907f067bec15c592c9.png",
+          "right_rendering": "captured",
+          "sheet": "2020 W Cotton Lys 5MinCharts"
+        },
+        {
+          "chart": "Chart 4",
+          "chart_index": 2,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 302.624969482422,
+            "left": 7.5000786781311,
+            "top": 380.625030517578,
+            "width": 365.999908447266
+          },
+          "left_image": "evidence/75f153c50e278e71cacc1dcc0d2a08763500af56d397b52c3de8a4e053eab24e.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 302.624969482422,
+            "left": 7.5000786781311,
+            "top": 380.625030517578,
+            "width": 365.999908447266
+          },
+          "right_image": "evidence/75f153c50e278e71cacc1dcc0d2a08763500af56d397b52c3de8a4e053eab24e.png",
+          "right_rendering": "captured",
+          "sheet": "2020 W Cotton Lys 5MinCharts"
+        },
+        {
+          "chart": "Chart 1",
+          "chart_index": 0,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 303,
+            "left": 24,
+            "top": 13.5,
+            "width": 377.25
+          },
+          "left_image": "evidence/b2ffcb0e2a77820b79929eb56a9d3900f74c4899bd7d36b0daf367a7ba337289.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 303,
+            "left": 24,
+            "top": 13.5,
+            "width": 377.25
+          },
+          "right_image": "evidence/b2ffcb0e2a77820b79929eb56a9d3900f74c4899bd7d36b0daf367a7ba337289.png",
+          "right_rendering": "captured",
+          "sheet": "2020 W Cotton Lys Graphs"
+        },
+        {
+          "chart": "Chart 10",
+          "chart_index": 4,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 299.850006103516,
+            "left": 402.299987792969,
+            "top": 12.75,
+            "width": 378
+          },
+          "left_image": "evidence/c2bd6c9af8b64ae3bb40041229082dbea98824a757fa38857df88595a609a89c.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 299.850006103516,
+            "left": 402.299987792969,
+            "top": 12.75,
+            "width": 378
+          },
+          "right_image": "evidence/c2bd6c9af8b64ae3bb40041229082dbea98824a757fa38857df88595a609a89c.png",
+          "right_rendering": "captured",
+          "sheet": "2020 W Cotton Lys Graphs"
+        },
+        {
+          "chart": "Chart 10",
+          "chart_index": 9,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 303.299987792969,
+            "left": 22.3500003814697,
+            "top": 642.450012207031,
+            "width": 378
+          },
+          "left_image": "evidence/25c69d1302d041f07a06be700a42396ce286c70a8a81a654399bbb67492af777.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 303.299987792969,
+            "left": 22.3500003814697,
+            "top": 642.450012207031,
+            "width": 378
+          },
+          "right_image": "evidence/25c69d1302d041f07a06be700a42396ce286c70a8a81a654399bbb67492af777.png",
+          "right_rendering": "captured",
+          "sheet": "2020 W Cotton Lys Graphs"
+        },
+        {
+          "chart": "Chart 11",
+          "chart_index": 5,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 306,
+            "left": 23.5499992370605,
+            "top": 1275.15002441406,
+            "width": 380.25
+          },
+          "left_image": "evidence/e9bade1cbfe8e3be33cbcb315fce50cc2ca79689ad1052badcc7841dcda95a69.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 306,
+            "left": 23.5499992370605,
+            "top": 1275.15002441406,
+            "width": 380.25
+          },
+          "right_image": "evidence/e9bade1cbfe8e3be33cbcb315fce50cc2ca79689ad1052badcc7841dcda95a69.png",
+          "right_rendering": "captured",
+          "sheet": "2020 W Cotton Lys Graphs"
+        },
+        {
+          "chart": "Chart 11",
+          "chart_index": 10,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 303.299987792969,
+            "left": 407.399993896484,
+            "top": 642.299987792969,
+            "width": 378
+          },
+          "left_image": "evidence/ba6f543cb9a3168af8a5f7349a318428994316eeb777952562625af75b0939e3.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 303.299987792969,
+            "left": 407.399993896484,
+            "top": 642.299987792969,
+            "width": 378
+          },
+          "right_image": "evidence/ba6f543cb9a3168af8a5f7349a318428994316eeb777952562625af75b0939e3.png",
+          "right_rendering": "captured",
+          "sheet": "2020 W Cotton Lys Graphs"
+        },
+        {
+          "chart": "Chart 11",
+          "chart_index": 12,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 306,
+            "left": 24,
+            "top": 1587,
+            "width": 380.25
+          },
+          "left_image": "evidence/ab55536300f7ddcca0a378cc185822f2becbb61073ef6f90f52643625b62af5f.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 306,
+            "left": 24,
+            "top": 1587,
+            "width": 380.25
+          },
+          "right_image": "evidence/ab55536300f7ddcca0a378cc185822f2becbb61073ef6f90f52643625b62af5f.png",
+          "right_rendering": "captured",
+          "sheet": "2020 W Cotton Lys Graphs"
+        },
+        {
+          "chart": "Chart 11",
+          "chart_index": 13,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 306,
+            "left": 408.75,
+            "top": 1589.25012207031,
+            "width": 380.25
+          },
+          "left_image": "evidence/c2ae79b9d36c9af7eb2b4dd5d5f1636d6bfb390c9deea47bac108a52d965f009.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 306,
+            "left": 408.75,
+            "top": 1589.25012207031,
+            "width": 380.25
+          },
+          "right_image": "evidence/c2ae79b9d36c9af7eb2b4dd5d5f1636d6bfb390c9deea47bac108a52d965f009.png",
+          "right_rendering": "captured",
+          "sheet": "2020 W Cotton Lys Graphs"
+        },
+        {
+          "chart": "Chart 11",
+          "chart_index": 14,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 306,
+            "left": 25.5,
+            "top": 1899,
+            "width": 380.25
+          },
+          "left_image": "evidence/5dcfddf2e6e54d590566e8a5e9c1f33e18b88c91dbfeb85ad0e5a8669dc54a39.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 306,
+            "left": 25.5,
+            "top": 1899,
+            "width": 380.25
+          },
+          "right_image": "evidence/5dcfddf2e6e54d590566e8a5e9c1f33e18b88c91dbfeb85ad0e5a8669dc54a39.png",
+          "right_rendering": "captured",
+          "sheet": "2020 W Cotton Lys Graphs"
+        },
+        {
+          "chart": "Chart 11",
+          "chart_index": 15,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 306,
+            "left": 410.25,
+            "top": 1898.25012207031,
+            "width": 380.25
+          },
+          "left_image": "evidence/5605a7546ecc76a6c49f46b14094d4349fb1cdc112173df3c37bbd898dc6fb6b.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 306,
+            "left": 410.25,
+            "top": 1898.25012207031,
+            "width": 380.25
+          },
+          "right_image": "evidence/5605a7546ecc76a6c49f46b14094d4349fb1cdc112173df3c37bbd898dc6fb6b.png",
+          "right_rendering": "captured",
+          "sheet": "2020 W Cotton Lys Graphs"
+        },
+        {
+          "chart": "Chart 11",
+          "chart_index": 16,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 306,
+            "left": 411,
+            "top": 2213.25,
+            "width": 380.25
+          },
+          "left_image": "evidence/ae8164d0466329915815170504f158a4d0923dbaf0ab0f95f0f1626d3d395dd9.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 306,
+            "left": 411,
+            "top": 2213.25,
+            "width": 380.25
+          },
+          "right_image": "evidence/ae8164d0466329915815170504f158a4d0923dbaf0ab0f95f0f1626d3d395dd9.png",
+          "right_rendering": "captured",
+          "sheet": "2020 W Cotton Lys Graphs"
+        },
+        {
+          "chart": "Chart 11",
+          "chart_index": 17,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 306,
+            "left": 27,
+            "top": 2211.75,
+            "width": 380.25
+          },
+          "left_image": "evidence/c72846ec3b823c39c3c3c5cdf81881197d0f8a2cdd7029a27d8287b423954e20.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 306,
+            "left": 27,
+            "top": 2211.75,
+            "width": 380.25
+          },
+          "right_image": "evidence/c72846ec3b823c39c3c3c5cdf81881197d0f8a2cdd7029a27d8287b423954e20.png",
+          "right_rendering": "captured",
+          "sheet": "2020 W Cotton Lys Graphs"
+        },
+        {
+          "chart": "Chart 11",
+          "chart_index": 18,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 306,
+            "left": 414.75,
+            "top": 2524.5,
+            "width": 380.25
+          },
+          "left_image": "evidence/830cdd8dff040a62ea27c327d5712bf3b2293ba00eafc7177ef67214f3ce2a31.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 306,
+            "left": 414.75,
+            "top": 2524.5,
+            "width": 380.25
+          },
+          "right_image": "evidence/830cdd8dff040a62ea27c327d5712bf3b2293ba00eafc7177ef67214f3ce2a31.png",
+          "right_rendering": "captured",
+          "sheet": "2020 W Cotton Lys Graphs"
+        },
+        {
+          "chart": "Chart 11",
+          "chart_index": 19,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 306,
+            "left": 29.25,
+            "top": 2525.25,
+            "width": 380.25
+          },
+          "left_image": "evidence/1cc8377a107b36c47aecc73ab8badc2726f82aafe7d2eb4c5219a9420f86a728.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 306,
+            "left": 29.25,
+            "top": 2525.25,
+            "width": 380.25
+          },
+          "right_image": "evidence/1cc8377a107b36c47aecc73ab8badc2726f82aafe7d2eb4c5219a9420f86a728.png",
+          "right_rendering": "captured",
+          "sheet": "2020 W Cotton Lys Graphs"
+        },
+        {
+          "chart": "Chart 12",
+          "chart_index": 6,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 306.75,
+            "left": 406.200012207031,
+            "top": 1275.30004882812,
+            "width": 378
+          },
+          "left_image": "evidence/c27190446bb921118b8cdb998f7f38335667ba11479e6610240b0b83c8a5a399.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 306.75,
+            "left": 406.200012207031,
+            "top": 1275.30004882812,
+            "width": 378
+          },
+          "right_image": "evidence/c27190446bb921118b8cdb998f7f38335667ba11479e6610240b0b83c8a5a399.png",
+          "right_rendering": "captured",
+          "sheet": "2020 W Cotton Lys Graphs"
+        },
+        {
+          "chart": "Chart 19",
+          "chart_index": 7,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 306,
+            "left": 28.7999992370605,
+            "top": 3461.09985351562,
+            "width": 380.25
+          },
+          "left_image": "evidence/fdb89e2d8825890ce4e24ff338b0f6af865ebc1bf413e8e4688b2aeee69af2b6.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 306,
+            "left": 28.7999992370605,
+            "top": 3461.09985351562,
+            "width": 380.25
+          },
+          "right_image": "evidence/fdb89e2d8825890ce4e24ff338b0f6af865ebc1bf413e8e4688b2aeee69af2b6.png",
+          "right_rendering": "captured",
+          "sheet": "2020 W Cotton Lys Graphs"
+        },
+        {
+          "chart": "Chart 19",
+          "chart_index": 22,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 306,
+            "left": 413.25,
+            "top": 3462,
+            "width": 380.25
+          },
+          "left_image": "evidence/b4085afb974c89c5dbd233f1e275a031f3d60179f70a710c9fa5b644c7554a52.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 306,
+            "left": 413.25,
+            "top": 3462,
+            "width": 380.25
+          },
+          "right_image": "evidence/b4085afb974c89c5dbd233f1e275a031f3d60179f70a710c9fa5b644c7554a52.png",
+          "right_rendering": "captured",
+          "sheet": "2020 W Cotton Lys Graphs"
+        },
+        {
+          "chart": "Chart 2",
+          "chart_index": 1,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 303.75,
+            "left": 24,
+            "top": 333,
+            "width": 378
+          },
+          "left_image": "evidence/bb1fa1916b6df1576d986d0eaba9fd69fd2055dbc14093d918ace6545b611bb5.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 303.75,
+            "left": 24,
+            "top": 333,
+            "width": 378
+          },
+          "right_image": "evidence/bb1fa1916b6df1576d986d0eaba9fd69fd2055dbc14093d918ace6545b611bb5.png",
+          "right_rendering": "captured",
+          "sheet": "2020 W Cotton Lys Graphs"
+        },
+        {
+          "chart": "Chart 21",
+          "chart_index": 8,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 306,
+            "left": 25.7999992370605,
+            "top": 2834.69995117188,
+            "width": 381
+          },
+          "left_image": "evidence/e9cfa549514873747fea6a970866f873aaed42e5e3ea16cd52d402d6b705f49e.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 306,
+            "left": 25.7999992370605,
+            "top": 2834.69995117188,
+            "width": 381
+          },
+          "right_image": "evidence/e9cfa549514873747fea6a970866f873aaed42e5e3ea16cd52d402d6b705f49e.png",
+          "right_rendering": "captured",
+          "sheet": "2020 W Cotton Lys Graphs"
+        },
+        {
+          "chart": "Chart 21",
+          "chart_index": 11,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 306,
+            "left": 412.200012207031,
+            "top": 2838.2998046875,
+            "width": 381
+          },
+          "left_image": "evidence/3f4689fce829b5107751ccd6d75bc573e5e4ee0e4103e7683263f9000ff62dd2.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 306,
+            "left": 412.200012207031,
+            "top": 2838.2998046875,
+            "width": 381
+          },
+          "right_image": "evidence/3f4689fce829b5107751ccd6d75bc573e5e4ee0e4103e7683263f9000ff62dd2.png",
+          "right_rendering": "captured",
+          "sheet": "2020 W Cotton Lys Graphs"
+        },
+        {
+          "chart": "Chart 21",
+          "chart_index": 20,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 306,
+            "left": 27,
+            "top": 3147,
+            "width": 381
+          },
+          "left_image": "evidence/96b607bd6249895fb2e41691d6d458c4bcfdea41781f76499d4d477b2b0cbc8d.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 306,
+            "left": 27,
+            "top": 3147,
+            "width": 381
+          },
+          "right_image": "evidence/96b607bd6249895fb2e41691d6d458c4bcfdea41781f76499d4d477b2b0cbc8d.png",
+          "right_rendering": "captured",
+          "sheet": "2020 W Cotton Lys Graphs"
+        },
+        {
+          "chart": "Chart 21",
+          "chart_index": 21,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 306,
+            "left": 412.5,
+            "top": 3147,
+            "width": 381
+          },
+          "left_image": "evidence/70d479734db86c15b0ae27f4414bc393bdc784a782c9dadee233462a278976ef.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 306,
+            "left": 412.5,
+            "top": 3147,
+            "width": 381
+          },
+          "right_image": "evidence/70d479734db86c15b0ae27f4414bc393bdc784a782c9dadee233462a278976ef.png",
+          "right_rendering": "captured",
+          "sheet": "2020 W Cotton Lys Graphs"
+        },
+        {
+          "chart": "Chart 3",
+          "chart_index": 2,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 303,
+            "left": 405,
+            "top": 333.75,
+            "width": 376.5
+          },
+          "left_image": "evidence/431fb58785fbff9512235318556ea99aa216b7f9a6e9394617d62807f948728b.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 303,
+            "left": 405,
+            "top": 333.75,
+            "width": 376.5
+          },
+          "right_image": "evidence/431fb58785fbff9512235318556ea99aa216b7f9a6e9394617d62807f948728b.png",
+          "right_rendering": "captured",
+          "sheet": "2020 W Cotton Lys Graphs"
+        },
+        {
+          "chart": "Chart 4",
+          "chart_index": 3,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 306.149993896484,
+            "left": 25.7999992370605,
+            "top": 956.099975585938,
+            "width": 378.75
+          },
+          "left_image": "evidence/9d2e7d7a30561abea5b55f0f5b24a34110c3f5780a5b4cc0c02198ad16483dcb.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 306.149993896484,
+            "left": 25.7999992370605,
+            "top": 956.099975585938,
+            "width": 378.75
+          },
+          "right_image": "evidence/9d2e7d7a30561abea5b55f0f5b24a34110c3f5780a5b4cc0c02198ad16483dcb.png",
+          "right_rendering": "captured",
+          "sheet": "2020 W Cotton Lys Graphs"
+        }
+      ],
+      "findings": [],
+      "label": "both rebuilt Default",
+      "left": "OR",
+      "right": "SDR",
+      "selected_region_count": 0
+    }
+  ],
+  "conditional_formatting": [
+    {
+      "decisions": [
+        {
+          "block_index": 0,
+          "catalogue_side": "both",
+          "changed_inputs": 0,
+          "comparison_extent": {
+            "bottom": 105409,
+            "left": 1,
+            "right": 14,
+            "top": 1
+          },
+          "formula_input_observations": 0,
+          "layout_rows": 0,
+          "outcome": "excluded",
+          "reason": "Literal cellIs: unchanged XML inputs and visual context; formula inputs remain captures.",
+          "referenced_formula_observations": 0,
+          "referenced_input_changes": 0,
+          "sheet": "2020 W Cotton Lys 5-Min",
+          "sqref": "F1:F1048576 H1:H1048576"
+        },
+        {
+          "block_index": 1,
+          "catalogue_side": "both",
+          "changed_inputs": 0,
+          "comparison_extent": {
+            "bottom": 105409,
+            "left": 1,
+            "right": 14,
+            "top": 1
+          },
+          "formula_input_observations": 0,
+          "layout_rows": 0,
+          "outcome": "excluded",
+          "reason": "Literal cellIs: unchanged XML inputs and visual context; formula inputs remain captures.",
+          "referenced_formula_observations": 0,
+          "referenced_input_changes": 0,
+          "sheet": "2020 W Cotton Lys 5-Min",
+          "sqref": "F2 F38018:H1048576"
+        },
+        {
+          "block_index": 2,
+          "catalogue_side": "both",
+          "changed_inputs": 0,
+          "comparison_extent": {
+            "bottom": 105409,
+            "left": 1,
+            "right": 14,
+            "top": 1
+          },
+          "formula_input_observations": 0,
+          "layout_rows": 0,
+          "outcome": "excluded",
+          "reason": "Literal cellIs: unchanged XML inputs and visual context; formula inputs remain captures.",
+          "referenced_formula_observations": 0,
+          "referenced_input_changes": 0,
+          "sheet": "2020 W Cotton Lys 5-Min",
+          "sqref": "F2:F1048576"
+        },
+        {
+          "block_index": 3,
+          "catalogue_side": "both",
+          "changed_inputs": 0,
+          "comparison_extent": {
+            "bottom": 105409,
+            "left": 1,
+            "right": 14,
+            "top": 1
+          },
+          "formula_input_observations": 0,
+          "layout_rows": 0,
+          "outcome": "excluded",
+          "reason": "Literal cellIs: unchanged XML inputs and visual context; formula inputs remain captures.",
+          "referenced_formula_observations": 0,
+          "referenced_input_changes": 0,
+          "sheet": "2020 W Cotton Lys 5-Min",
+          "sqref": "F19010"
+        },
+        {
+          "block_index": 4,
+          "catalogue_side": "both",
+          "changed_inputs": 0,
+          "comparison_extent": {
+            "bottom": 105409,
+            "left": 1,
+            "right": 14,
+            "top": 1
+          },
+          "formula_input_observations": 0,
+          "layout_rows": 0,
+          "outcome": "excluded",
+          "reason": "Literal cellIs: unchanged XML inputs and visual context; formula inputs remain captures.",
+          "referenced_formula_observations": 0,
+          "referenced_input_changes": 0,
+          "sheet": "2020 W Cotton Lys 5-Min",
+          "sqref": "F2:G38017"
+        },
+        {
+          "block_index": 5,
+          "catalogue_side": "both",
+          "changed_inputs": 0,
+          "comparison_extent": {
+            "bottom": 105409,
+            "left": 1,
+            "right": 14,
+            "top": 1
+          },
+          "formula_input_observations": 0,
+          "layout_rows": 0,
+          "outcome": "excluded",
+          "reason": "Literal cellIs: unchanged XML inputs and visual context; formula inputs remain captures.",
+          "referenced_formula_observations": 0,
+          "referenced_input_changes": 0,
+          "sheet": "2020 W Cotton Lys 5-Min",
+          "sqref": "G1"
+        },
+        {
+          "block_index": 6,
+          "catalogue_side": "both",
+          "changed_inputs": 0,
+          "comparison_extent": {
+            "bottom": 105409,
+            "left": 1,
+            "right": 14,
+            "top": 1
+          },
+          "formula_input_observations": 0,
+          "layout_rows": 0,
+          "outcome": "excluded",
+          "reason": "Literal cellIs: unchanged XML inputs and visual context; formula inputs remain captures.",
+          "referenced_formula_observations": 0,
+          "referenced_input_changes": 0,
+          "sheet": "2020 W Cotton Lys 5-Min",
+          "sqref": "G86980:G87265"
+        },
+        {
+          "block_index": 7,
+          "catalogue_side": "both",
+          "changed_inputs": 0,
+          "comparison_extent": {
+            "bottom": 105409,
+            "left": 1,
+            "right": 14,
+            "top": 1
+          },
+          "formula_input_observations": 0,
+          "layout_rows": 0,
+          "outcome": "excluded",
+          "reason": "Literal cellIs: unchanged XML inputs and visual context; formula inputs remain captures.",
+          "referenced_formula_observations": 0,
+          "referenced_input_changes": 0,
+          "sheet": "2020 W Cotton Lys 5-Min",
+          "sqref": "H1:H38017"
+        },
+        {
+          "block_index": 8,
+          "catalogue_side": "both",
+          "changed_inputs": 0,
+          "comparison_extent": {
+            "bottom": 105409,
+            "left": 1,
+            "right": 14,
+            "top": 1
+          },
+          "formula_input_observations": 0,
+          "layout_rows": 0,
+          "outcome": "excluded",
+          "reason": "Literal cellIs: unchanged XML inputs and visual context; formula inputs remain captures.",
+          "referenced_formula_observations": 0,
+          "referenced_input_changes": 0,
+          "sheet": "2020 W Cotton Lys 5-Min",
+          "sqref": "H2:H1048576"
+        },
+        {
+          "block_index": 9,
+          "catalogue_side": "both",
+          "changed_inputs": 0,
+          "comparison_extent": {
+            "bottom": 105409,
+            "left": 1,
+            "right": 14,
+            "top": 1
+          },
+          "formula_input_observations": 0,
+          "layout_rows": 0,
+          "outcome": "excluded",
+          "reason": "Literal cellIs: unchanged XML inputs and visual context; formula inputs remain captures.",
+          "referenced_formula_observations": 0,
+          "referenced_input_changes": 0,
+          "sheet": "2020 W Cotton Lys 5-Min",
+          "sqref": "H44643:H44655"
+        },
+        {
+          "block_index": 10,
+          "catalogue_side": "both",
+          "changed_inputs": 0,
+          "comparison_extent": {
+            "bottom": 105409,
+            "left": 1,
+            "right": 14,
+            "top": 1
+          },
+          "formula_input_observations": 0,
+          "layout_rows": 0,
+          "outcome": "excluded",
+          "reason": "Literal cellIs: unchanged XML inputs and visual context; formula inputs remain captures.",
+          "referenced_formula_observations": 0,
+          "referenced_input_changes": 0,
+          "sheet": "2020 W Cotton Lys 5-Min",
+          "sqref": "H45337:H45340"
+        },
+        {
+          "block_index": 11,
+          "catalogue_side": "both",
+          "changed_inputs": 0,
+          "comparison_extent": {
+            "bottom": 105409,
+            "left": 1,
+            "right": 14,
+            "top": 1
+          },
+          "formula_input_observations": 0,
+          "layout_rows": 0,
+          "outcome": "excluded",
+          "reason": "Literal cellIs: unchanged XML inputs and visual context; formula inputs remain captures.",
+          "referenced_formula_observations": 0,
+          "referenced_input_changes": 0,
+          "sheet": "2020 W Cotton Lys 5-Min",
+          "sqref": "H57549:H57553"
+        },
+        {
+          "block_index": 12,
+          "catalogue_side": "both",
+          "changed_inputs": 0,
+          "comparison_extent": {
+            "bottom": 105409,
+            "left": 1,
+            "right": 14,
+            "top": 1
+          },
+          "formula_input_observations": 0,
+          "layout_rows": 0,
+          "outcome": "excluded",
+          "reason": "Literal cellIs: unchanged XML inputs and visual context; formula inputs remain captures.",
+          "referenced_formula_observations": 0,
+          "referenced_input_changes": 0,
+          "sheet": "2020 W Cotton Lys 5-Min",
+          "sqref": "H59941:H59944"
+        },
+        {
+          "block_index": 13,
+          "catalogue_side": "both",
+          "changed_inputs": 0,
+          "comparison_extent": {
+            "bottom": 105409,
+            "left": 1,
+            "right": 14,
+            "top": 1
+          },
+          "formula_input_observations": 0,
+          "layout_rows": 0,
+          "outcome": "excluded",
+          "reason": "Literal cellIs: unchanged XML inputs and visual context; formula inputs remain captures.",
+          "referenced_formula_observations": 0,
+          "referenced_input_changes": 0,
+          "sheet": "2020 W Cotton Lys 5-Min",
+          "sqref": "H63303:H63305"
+        },
+        {
+          "block_index": 14,
+          "catalogue_side": "both",
+          "changed_inputs": 0,
+          "comparison_extent": {
+            "bottom": 105409,
+            "left": 1,
+            "right": 14,
+            "top": 1
+          },
+          "formula_input_observations": 0,
+          "layout_rows": 0,
+          "outcome": "excluded",
+          "reason": "Literal cellIs: unchanged XML inputs and visual context; formula inputs remain captures.",
+          "referenced_formula_observations": 0,
+          "referenced_input_changes": 0,
+          "sheet": "2020 W Cotton Lys 5-Min",
+          "sqref": "H86114:H86401"
+        },
+        {
+          "block_index": 15,
+          "catalogue_side": "both",
+          "changed_inputs": 0,
+          "comparison_extent": {
+            "bottom": 105409,
+            "left": 1,
+            "right": 14,
+            "top": 1
+          },
+          "formula_input_observations": 0,
+          "layout_rows": 0,
+          "outcome": "excluded",
+          "reason": "Literal cellIs: unchanged XML inputs and visual context; formula inputs remain captures.",
+          "referenced_formula_observations": 0,
+          "referenced_input_changes": 0,
+          "sheet": "2020 W Cotton Lys 5-Min",
+          "sqref": "H100226:H101377"
+        },
+        {
+          "block_index": 0,
+          "catalogue_side": "both",
+          "changed_inputs": 0,
+          "comparison_extent": {
+            "bottom": 367,
+            "left": 1,
+            "right": 76,
+            "top": 1
+          },
+          "formula_input_observations": 0,
+          "layout_rows": 0,
+          "outcome": "excluded",
+          "reason": "Literal cellIs: unchanged XML inputs and visual context; formula inputs remain captures.",
+          "referenced_formula_observations": 0,
+          "referenced_input_changes": 0,
+          "sheet": "2020 W Cotton Lys Daily",
+          "sqref": "B2:E167 G2:M167 B168:M200"
+        },
+        {
+          "block_index": 1,
+          "catalogue_side": "both",
+          "changed_inputs": 0,
+          "comparison_extent": {
+            "bottom": 367,
+            "left": 1,
+            "right": 76,
+            "top": 1
+          },
+          "formula_input_observations": 0,
+          "layout_rows": 0,
+          "outcome": "excluded",
+          "reason": "Literal cellIs: unchanged XML inputs and visual context; formula inputs remain captures.",
+          "referenced_formula_observations": 0,
+          "referenced_input_changes": 0,
+          "sheet": "2020 W Cotton Lys Daily",
+          "sqref": "F2:F200"
+        },
+        {
+          "block_index": 2,
+          "catalogue_side": "both",
+          "changed_inputs": 0,
+          "comparison_extent": {
+            "bottom": 367,
+            "left": 1,
+            "right": 76,
+            "top": 1
+          },
+          "formula_input_observations": 0,
+          "layout_rows": 0,
+          "outcome": "excluded",
+          "reason": "Literal cellIs: unchanged XML inputs and visual context; formula inputs remain captures.",
+          "referenced_formula_observations": 0,
+          "referenced_input_changes": 0,
+          "sheet": "2020 W Cotton Lys Daily",
+          "sqref": "N2:R200"
+        }
+      ],
+      "left": "OR",
+      "right": "SDR"
+    }
+  ],
+  "content_coverage": [],
+  "control_artifacts_cache": null,
+  "equal_image_encoding": {
+    "compression": "best",
+    "filter": "adaptive",
+    "format": "PNG",
+    "pixel_preservation": "decoded RGBA equality checked before accepting a smaller encoding",
+    "scope": "verified equal images only; shared differing or unverified references preserve original bytes"
+  },
+  "excel_pids": null,
+  "execution_strategy": "paired-inplace-rebuild-v1",
+  "findings": [],
+  "formula_diagnostics": {
+    "note": "Optional dependency explanations; no visual verdict or coverage was changed.",
+    "omitted_regions": 0,
+    "regions": [],
+    "version": 1
+  },
+  "height_checks": [],
+  "image_comparison_statistics": {
+    "comparisons": 70,
+    "decoded_images": 70,
+    "encoded_bytes_read": 3143316,
+    "encoded_images_reused": 70,
+    "files_read": 140
+  },
+  "input_identity": {
+    "status": "different"
+  },
+  "limitations": [
+    "Gridlines are disabled consistently. Policy v10 compares only common pixels when measured capture/content origins match and content cores are contained. capture_extent_ignored records omitted right/bottom extent and retains both raw images and geometries. Changed overlapping pixels remain differences. Shifted origins, missing measurements and charts retain conservative verdicts. blank_margin_ignored records the stronger exact white-margin proof.",
+    "Row-height checks cover rows above and within the unpadded union of content envelopes, including potentially visible fill/border/conditional-formatting extents. Policy v12 excludes context rows below the union content boundary from both height dependencies and cell capture rectangles; upper and side context remain. Charts retain independent full-chart observations.",
+    "Strategy paired-inplace-rebuild-v1 compares rebuilt Original against rebuilt Default and optional rebuilt Check Performance. Each reuses its existing Excel process. Pre-rebuild captures are omitted for throughput; XML save/optimization/rebuild controls are retained. Volatility and exclusive causal attribution require follow-up.",
+    "Cell capture regions are intersected with the union of content-bearing cells and potentially visible fill/border/conditional-formatting extents in the compared rebuilt states, plus one row above and one column on either side. Opening/save XML controls retain separate provenance. Exterior regions outside that envelope are intentionally skipped, not visually confirmed identical; content_coverage records selection counts and bounds. Chart exports are independent of this policy.",
+    "Capture partition visible-geometry-v2 merges adjacent internal grid tiles without changing their union. It measures every live state and splits only for image budgets (30,000 pixels per edge, 32 million pixels total), estimating conservatively at two pixels per point plus a rounding margin. Actual exports are checked too. Zero-area ranges retain geometry and explicit non-rendering observations without images or pixel equality claims. Later states can repartition and backfill earlier retained workbooks.",
+    "CF decisions concern rule contributions within the recorded union of comparison extents. Literal cellIs exclusions require identical cell-XML fingerprints and visual context. Formula inputs remain captures; unknown or changed rules retain region captures. This is not a proof of whole-workbook visual equality.",
+    "Chart mode deterministic excludes only embedded charts with complete unchanged package, XML/cache, source-cell/style/layout/CF and live-geometry dependencies. Exclusions are not pixel comparisons. Unknown references, external or unsupported parts, ambiguous names and chart sheets retain full-chart exports. Mode conservative exports every chart. Other drawings and all worksheet geometry effects are not exhaustively discovered.",
+    "Charts with measured zero width or height retain geometry and an explicit zero-area-chart observation without a pixel verdict. A transition between visible and zero-area states is a rendering/geometry difference.",
+    "Disposable targeted copies are staged with calcMode=manual, fullCalcOnLoad=0, forceFullCalc=0 and calcOnSave=0 before Excel opens them. Cached formula values are retained until each resident workbook is explicitly rebuilt. Excel may still autonomously refresh content; observed save/rebuild transitions remain audited. Original inputs and prepared bundles are unchanged. This suppresses unintended open/save recalculation and changes the opening baseline relative to capture policy v4.",
+    "Opening/saving and the in-place SD rebuild are retained as separate XML controls. Exact content/context matches identify overlaps conservatively; absence of a match does not establish exclusive causality.",
+    "Worksheet cells are streamed into temporary fixed-size fingerprints without worksheet-byte or cell-count limits. Exterior empty-cell changes are counted before candidate allocation. Layout metadata and retained change evidence still require memory.",
+    "When content coverage marks background_tail_sampling, supported borderless solid-fill bands with known sheet-wide gridline settings are represented through their finite transitions and tail samples. Pixels beyond that envelope are not captured; this is not exhaustive whole-grid pixel coverage."
+  ],
+  "native_drawing_bounds": [],
+  "phases": [
+    "initial XML compared",
+    "Original and Default opened",
+    "Excel save effects inspected",
+    "Original and variants rebuilt in their existing processes"
+  ],
+  "portable_report": {
+    "diagnostics": {},
+    "different_regions": 0,
+    "failure": null,
+    "note": "Pixel diagnostics describe retained captures. They do not change the scientific comparison verdict or extend its coverage.",
+    "source_report": null,
+    "version": 1
+  },
+  "public_presentation": {
+    "meaning": "Derived presentation. Native evidence remains unchanged.",
+    "metadata_omissions": [
+      {
+        "pointer": "/report/excel_pids",
+        "source_value_sha256": "32c4d7b75697d090760005106c9dc043022fc0ab39a314709a85be8270f62ca1"
+      },
+      {
+        "pointer": "/report/portable_report/source_report",
+        "source_value_sha256": "451a884b2f650e04f633bf7eeb85ec438ca310eeca276f3ffca40a7a677cb192"
+      },
+      {
+        "pointer": "/report/transitions/0/after_file",
+        "source_value_sha256": "6f46655db962c5d52a2d1774eed0206f0cee11d75906ac94b65d9995d8d9c842"
+      },
+      {
+        "pointer": "/report/transitions/0/before_file",
+        "source_value_sha256": "da150fe22182a69835651a48110485c6b0e73688a7bb5445c58c8281507de452"
+      },
+      {
+        "pointer": "/report/transitions/0/changes_file",
+        "source_value_sha256": "3f32da9515b2cd3f93a2c56f7c94edd15c4e37ffc0c5f0385e5ff476c7fd22cd"
+      },
+      {
+        "pointer": "/report/transitions/1/after_file",
+        "source_value_sha256": "616daa1c8c928c4821eb64fd17ba0ceb9ca4de101c633647e290f5893922ebca"
+      },
+      {
+        "pointer": "/report/transitions/1/before_file",
+        "source_value_sha256": "da150fe22182a69835651a48110485c6b0e73688a7bb5445c58c8281507de452"
+      },
+      {
+        "pointer": "/report/transitions/1/changes_file",
+        "source_value_sha256": "7a60805b7c8fb69c4accce797b1553cd5920ee0570fa2e4f429fb7d56547ff8c"
+      },
+      {
+        "pointer": "/report/transitions/2/after_file",
+        "source_value_sha256": "38d3a2c922d17cd164e9a61562649ee94dd1f984f87c12a3055c52c6931f1034"
+      },
+      {
+        "pointer": "/report/transitions/2/before_file",
+        "source_value_sha256": "616daa1c8c928c4821eb64fd17ba0ceb9ca4de101c633647e290f5893922ebca"
+      },
+      {
+        "pointer": "/report/transitions/2/changes_file",
+        "source_value_sha256": "e7c803b833ab00fa5329427cb715c8a549d14520083c466a66467d11f342f80a"
+      },
+      {
+        "pointer": "/report/transitions/3/after_file",
+        "source_value_sha256": "3ffa87d4b132a157f9032083f3486be73d557b1455b398a36e56283ba04f3fc4"
+      },
+      {
+        "pointer": "/report/transitions/3/before_file",
+        "source_value_sha256": "6f46655db962c5d52a2d1774eed0206f0cee11d75906ac94b65d9995d8d9c842"
+      },
+      {
+        "pointer": "/report/transitions/3/changes_file",
+        "source_value_sha256": "d191ee2b9cbc62c1161f6a06db192a5519255af58f99a30fc54d80bc1e5ae4fc"
+      },
+      {
+        "pointer": "/report/transitions/4/after_file",
+        "source_value_sha256": "841c32600a9bf313c5691f2afbebc678adeec89c9294966a8fced3d735b715ef"
+      },
+      {
+        "pointer": "/report/transitions/4/before_file",
+        "source_value_sha256": "38d3a2c922d17cd164e9a61562649ee94dd1f984f87c12a3055c52c6931f1034"
+      },
+      {
+        "pointer": "/report/transitions/4/changes_file",
+        "source_value_sha256": "f03a30562ba5b9b4305c6251034568ecd36e85364c374af8171e4dd1646a94d1"
+      },
+      {
+        "pointer": "/validation_signature/environment_key",
+        "source_value_sha256": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126"
+      }
+    ],
+    "schema": 1,
+    "source_report_sha256": "7f1ef1b9871e923ad3824f153620875a2070f325148ff40dd9b3e5b610e79a62"
+  },
+  "rebuild_checks": {},
+  "state_decisions": {
+    "CP": {
+      "status": "disabled"
+    },
+    "CPR": {
+      "status": "disabled"
+    },
+    "O": {
+      "method": "open-save",
+      "status": "observed"
+    },
+    "OR": {
+      "method": "inplace-rebuild",
+      "status": "observed"
+    },
+    "SD": {
+      "method": "open-save",
+      "status": "observed"
+    },
+    "SDR": {
+      "method": "inplace-rebuild",
+      "status": "observed"
+    }
+  },
+  "status": "completed_with_limitations",
+  "timings_ms": {
+    "capture_selection_and_transport": 85,
+    "image_comparisons": 114
+  },
+  "transitions": [
+    {
+      "after_file": null,
+      "before_file": null,
+      "change_count": 4255909,
+      "changes_file": null,
+      "label": "original opening/saving control",
+      "skipped_outside_content_cell_changes": {
+        "2020 W Cotton Lys 5-Min": 2278867,
+        "2020 W Cotton Lys 5MinCharts": 3,
+        "2020 W Cotton Lys VLookup15Min": 61824,
+        "2020 W Cotton Lys VLookup5Min": 26676,
+        "Dic. 2020 W Cotton Lys 15-Min": 20
+      },
+      "timings_ms": {
+        "attribution": 9660,
+        "differences": 9050,
+        "read_snapshots": 61,
+        "total": 25319,
+        "write_evidence": 6541
+      }
+    },
+    {
+      "after_file": null,
+      "before_file": null,
+      "change_count": 4100269,
+      "changes_file": null,
+      "label": "default input versus original input",
+      "skipped_outside_content_cell_changes": {
+        "2020 W Cotton Lys 5-Min": 2278867,
+        "2020 W Cotton Lys 5MinCharts": 3,
+        "2020 W Cotton Lys VLookup15Min": 61824,
+        "2020 W Cotton Lys VLookup5Min": 26676,
+        "Dic. 2020 W Cotton Lys 15-Min": 20
+      },
+      "timings_ms": {
+        "attribution": 5497,
+        "differences": 8982,
+        "read_snapshots": 61,
+        "total": 20993,
+        "write_evidence": 6443
+      }
+    },
+    {
+      "after_file": null,
+      "before_file": null,
+      "change_count": 4255909,
+      "changes_file": null,
+      "label": "default opening/saving control",
+      "skipped_outside_content_cell_changes": {
+        "2020 W Cotton Lys 5-Min": 2278867,
+        "2020 W Cotton Lys 5MinCharts": 3,
+        "2020 W Cotton Lys VLookup15Min": 61824,
+        "2020 W Cotton Lys VLookup5Min": 26676,
+        "Dic. 2020 W Cotton Lys 15-Min": 20
+      },
+      "timings_ms": {
+        "attribution": 5650,
+        "differences": 9320,
+        "read_snapshots": 63,
+        "total": 21571,
+        "write_evidence": 6530
+      }
+    },
+    {
+      "after_file": null,
+      "before_file": null,
+      "change_count": 0,
+      "changes_file": null,
+      "label": "O in-place rebuild and save",
+      "skipped_outside_content_cell_changes": {},
+      "timings_ms": {
+        "attribution": 0,
+        "differences": 117,
+        "read_snapshots": 8531,
+        "total": 8656,
+        "write_evidence": 2
+      }
+    },
+    {
+      "after_file": null,
+      "before_file": null,
+      "change_count": 0,
+      "changes_file": null,
+      "label": "SD in-place rebuild and save",
+      "skipped_outside_content_cell_changes": {},
+      "timings_ms": {
+        "attribution": 0,
+        "differences": 119,
+        "read_snapshots": 8687,
+        "total": 8815,
+        "write_evidence": 2
+      }
+    }
+  ],
+  "workbook_bytes": {
+    "OR-rebuilt.xlsx": 50832811,
+    "SDR-rebuilt.xlsx": 50834434,
+    "default.before-save.xlsx": 50892450,
+    "default.xlsx": 50834406,
+    "input_default": 50892450,
+    "input_original": 50892812,
+    "original.before-save.xlsx": 50892812,
+    "original.xlsx": 50832783
+  },
+  "workbook_inventory": {
+    "complete": true,
+    "original_sha256": "ce9bf3f268f7368e68fb84779a117607c2d4ceca5dae20eeb1235219f9ca2ef2",
+    "sheets": [
+      {
+        "id": "101",
+        "name": "2020 W Cotton Lys Introduction",
+        "order": 0,
+        "state": "visible"
+      },
+      {
+        "id": "99",
+        "name": "Dic. 2020 W Cotton Lys 5-Min",
+        "order": 1,
+        "state": "visible"
+      },
+      {
+        "id": "6",
+        "name": "2020 W Cotton Lys 5-Min",
+        "order": 2,
+        "state": "visible"
+      },
+      {
+        "id": "102",
+        "name": "Dic. 2020 W Cotton Lys 15-Min",
+        "order": 3,
+        "state": "visible"
+      },
+      {
+        "id": "79",
+        "name": "2020 W Cotton Lys 15-Min",
+        "order": 4,
+        "state": "visible"
+      },
+      {
+        "id": "103",
+        "name": "Dic. 2020 W Cotton Lys Daily",
+        "order": 5,
+        "state": "visible"
+      },
+      {
+        "id": "65",
+        "name": "2020 W Cotton Lys Daily",
+        "order": 6,
+        "state": "visible"
+      },
+      {
+        "id": "97",
+        "name": "2020 W Cotton Lys Graphs",
+        "order": 7,
+        "state": "visible"
+      },
+      {
+        "id": "88",
+        "name": "2020 W Cotton Lys VLookup15Min",
+        "order": 8,
+        "state": "visible"
+      },
+      {
+        "id": "89",
+        "name": "2020 W Cotton Lys 15MinCharts",
+        "order": 9,
+        "state": "visible"
+      },
+      {
+        "id": "91",
+        "name": "2020 W Cotton Lys VLookup5Min",
+        "order": 10,
+        "state": "visible"
+      },
+      {
+        "id": "92",
+        "name": "2020 W Cotton Lys 5MinCharts",
+        "order": 11,
+        "state": "visible"
+      }
+    ]
+  },
+  "xml_snapshot_statistics": {
+    "elapsed_ms": 51494,
+    "parsed_versions": 6,
+    "reads": 20,
+    "reused_versions": 14
+  }
+}

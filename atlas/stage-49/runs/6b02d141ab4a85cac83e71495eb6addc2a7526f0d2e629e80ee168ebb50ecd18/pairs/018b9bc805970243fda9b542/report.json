@@ -1,0 +1,2618 @@
+{
+  "candidate_count": 0,
+  "capture_counts": {
+    "OR:charts": 33,
+    "SDR:charts": 33
+  },
+  "capture_partition": "visible-geometry-v2",
+  "capture_policy": "targeted-content-grid-v15",
+  "capture_receipts": [
+    {
+      "at": 1794400700645,
+      "geometry": {
+        "height": 251,
+        "left": 566.403137207031,
+        "top": 2.5,
+        "width": 425.096862792969
+      },
+      "id": "a0c9a6e4-6b7f-4dc6-b6bc-915ea7ae1757",
+      "image": "evidence/3038e64bc45f17dfcbd05ae195015f99ad18335c0b58504db5352c9fef41a12f.png",
+      "lane": "OR",
+      "range": "Chart: 图表 1",
+      "sheet": "Fig3_EFLS"
+    },
+    {
+      "at": 1794400700760,
+      "geometry": {
+        "height": 216.673461914062,
+        "left": 593.040710449219,
+        "top": 619.576538085938,
+        "width": 389.459289550781
+      },
+      "id": "7ccb2a48-32f4-492e-94ef-b84cf494e12e",
+      "image": "evidence/06bb8e1017db39554945517800e2e8a4f4712c206a761bceca26ee23bb19caf8.png",
+      "lane": "OR",
+      "range": "Chart: 图表 2",
+      "sheet": "Fig3_EFLS"
+    },
+    {
+      "at": 1794400700879,
+      "geometry": {
+        "height": 237.591735839844,
+        "left": 594.959289550781,
+        "top": 354.673553466797,
+        "width": 505.714172363281
+      },
+      "id": "2ad7da65-5f61-4d60-81d2-ebacb9edc090",
+      "image": "evidence/6af8ce223f863d17b22617ac0879b3add4e025fe321b2d9344dc569a974b2d37.png",
+      "lane": "OR",
+      "range": "Chart: 图表 3",
+      "sheet": "Fig3_EFLS"
+    },
+    {
+      "at": 1794400701072,
+      "geometry": {
+        "height": 237.591735839844,
+        "left": 916.5,
+        "top": 390,
+        "width": 536.826477050781
+      },
+      "id": "2087d378-08f7-45f3-8272-fce9f7741a34",
+      "image": "evidence/b1343fc0a932d15d26c2dab490a227c8f35899528969c6fef30fba3e8d99e282.png",
+      "lane": "OR",
+      "range": "Chart: 图表 4",
+      "sheet": "Fig3_EFLS"
+    },
+    {
+      "at": 1794400701187,
+      "geometry": {
+        "height": 223.5,
+        "left": 1045,
+        "top": 15,
+        "width": 365.5
+      },
+      "id": "94319334-0769-4544-8e3b-02943a8b628a",
+      "image": "evidence/337371504540793f625eac2aa8fb74da1a72d5a4dbae7223ccd543d07f0429c6.png",
+      "lane": "OR",
+      "range": "Chart: 图表 6",
+      "sheet": "Fig3_EFLS"
+    },
+    {
+      "at": 1794400701368,
+      "geometry": {
+        "height": 226.896301269531,
+        "left": 439.90087890625,
+        "top": 8.10370063781738,
+        "width": 421.09912109375
+      },
+      "id": "f47beafc-e6fa-4311-8ba9-34b6fbf8bd48",
+      "image": "evidence/198b7899d89f0be1c0cb9f0501fb0f25892f24bf56b9b62a1d8aa0a0f29e7b99.png",
+      "lane": "OR",
+      "range": "Chart: 图表 1",
+      "sheet": "Fig3_BUOY"
+    },
+    {
+      "at": 1794400701491,
+      "geometry": {
+        "height": 241.868026733398,
+        "left": 376.801818847656,
+        "top": 384.924407958984,
+        "width": 535.594421386719
+      },
+      "id": "d3cfe7d3-fc67-47a4-95da-9552b2353043",
+      "image": "evidence/1cd60dc278b5ac12ab2cfba2f3e071e73e3496b2eff73e39eff2448e5c7be147.png",
+      "lane": "OR",
+      "range": "Chart: 图表 2",
+      "sheet": "Fig3_BUOY"
+    },
+    {
+      "at": 1794400701664,
+      "geometry": {
+        "height": 241.868026733398,
+        "left": 923.245300292969,
+        "top": 382.075439453125,
+        "width": 535.594421386719
+      },
+      "id": "188b94b8-edc6-40ae-81a3-a36cf9343109",
+      "image": "evidence/310a1c704c3021b5ebd34b3532cadcccbbee999880d1c37ebfb26923c33b0f8c.png",
+      "lane": "OR",
+      "range": "Chart: 图表 4",
+      "sheet": "Fig3_BUOY"
+    },
+    {
+      "at": 1794400701783,
+      "geometry": {
+        "height": 207.500076293945,
+        "left": 902,
+        "top": 41.9999198913574,
+        "width": 351
+      },
+      "id": "bcf7a0f9-819b-4616-8d9e-7fee16838e22",
+      "image": "evidence/1be18f605341d4a65040b5891bd286a394d940103f7075da8be996a104cbae9b.png",
+      "lane": "OR",
+      "range": "Chart: 图表 6",
+      "sheet": "Fig3_BUOY"
+    },
+    {
+      "at": 1794400701906,
+      "geometry": {
+        "height": 216,
+        "left": 366.000091552734,
+        "top": 675,
+        "width": 394.499908447266
+      },
+      "id": "2078583f-7b4e-4348-a857-6f73b61872d4",
+      "image": "evidence/0068d998384f64a9cf84f2323139057e5c4fe50665fa5fb1680ab089cce46a74.png",
+      "lane": "OR",
+      "range": "Chart: 图表 8",
+      "sheet": "Fig3_BUOY"
+    },
+    {
+      "at": 1794400702096,
+      "geometry": {
+        "height": 164,
+        "left": 495.25,
+        "top": 12.5,
+        "width": 356.750091552734
+      },
+      "id": "fa009060-e650-4efc-8217-aa55f5bfe524",
+      "image": "evidence/3898642a6b4a6db609addfd5071a35a88483c4be154c0e39082c7f71c5906166.png",
+      "lane": "OR",
+      "range": "Chart: 图表 9",
+      "sheet": "Fig3_EMB"
+    },
+    {
+      "at": 1794400702206,
+      "geometry": {
+        "height": 247,
+        "left": 322.5,
+        "top": 405.5,
+        "width": 460.75
+      },
+      "id": "b472b31a-63eb-406b-8d4a-bb2a5871f61e",
+      "image": "evidence/ca2755bca864aeab11c3264e83904d835a268bc8a2515a1a3c193ee44509b954.png",
+      "lane": "OR",
+      "range": "Chart: 图表 10",
+      "sheet": "Fig3_EMB"
+    },
+    {
+      "at": 1794400702334,
+      "geometry": {
+        "height": 247,
+        "left": 816,
+        "top": 405,
+        "width": 460.75
+      },
+      "id": "1a00c9d0-b651-4689-9421-24d50e445828",
+      "image": "evidence/98e5c0e1f473dc2cf5c4dac0ad6c2e2f6155a7f195737a8a86d773c6bd557d17.png",
+      "lane": "OR",
+      "range": "Chart: 图表 12",
+      "sheet": "Fig3_EMB"
+    },
+    {
+      "at": 1794400702459,
+      "geometry": {
+        "height": 191,
+        "left": 869,
+        "top": 15,
+        "width": 340.5
+      },
+      "id": "e10cb49b-992d-49d9-9853-f098568275d4",
+      "image": "evidence/3fb3881dca1790d37e0647024dd599b3d0278599666e96a91cbb3c0db931ceeb.png",
+      "lane": "OR",
+      "range": "Chart: 图表 7",
+      "sheet": "Fig3_EMB"
+    },
+    {
+      "at": 1794400702578,
+      "geometry": {
+        "height": 221,
+        "left": 336.000091552734,
+        "top": 675,
+        "width": 420.5
+      },
+      "id": "ad55e4a5-b621-418f-b0c3-109bf5db6f1d",
+      "image": "evidence/a0274f166125d0770664232480fbf3c79f6bca200b2373d06c150ad28cab8b63.png",
+      "lane": "OR",
+      "range": "Chart: 图表 8",
+      "sheet": "Fig3_EMB"
+    },
+    {
+      "at": 1794400702688,
+      "geometry": {
+        "height": 205.5,
+        "left": 501.000091552734,
+        "top": 26.5,
+        "width": 340.5
+      },
+      "id": "b5f96ca0-162b-4b3b-8809-e3455037904c",
+      "image": "evidence/57bc3c0d8bc34c572b62a9e6fcc2db4287b64a806f4b58835d41a1f07222569e.png",
+      "lane": "OR",
+      "range": "Chart: 图表 9",
+      "sheet": "Fig3_CGB"
+    },
+    {
+      "at": 1794400702964,
+      "geometry": {
+        "height": 247,
+        "left": 315.75,
+        "top": 512,
+        "width": 460.75
+      },
+      "id": "0af5a535-28d3-4416-a37f-b2658834ef5a",
+      "image": "evidence/8669896db30132f614d94ae3548935b4b6c481312474c8c51795489acf0f2e62.png",
+      "lane": "OR",
+      "range": "Chart: 图表 10",
+      "sheet": "Fig3_CGB"
+    },
+    {
+      "at": 1794400703091,
+      "geometry": {
+        "height": 248,
+        "left": 800,
+        "top": 491.5,
+        "width": 460.75
+      },
+      "id": "cb1feea1-d7a2-482a-959e-e4ea8c4f2245",
+      "image": "evidence/b503a45f4e6e3cb636994f1d4ef6414e27d72e7cb0e533d25bad5d0131d56b69.png",
+      "lane": "OR",
+      "range": "Chart: 图表 12",
+      "sheet": "Fig3_CGB"
+    },
+    {
+      "at": 1794400703208,
+      "geometry": {
+        "height": 227,
+        "left": 899.5,
+        "top": 9,
+        "width": 393.5
+      },
+      "id": "5b465c05-281d-41c5-b743-6c215bf82999",
+      "image": "evidence/4d3d6ef362a025491b6b8ec24bdc86ac4b1470b355d00dd30f98a23482d77fa4.png",
+      "lane": "OR",
+      "range": "Chart: 图表 6",
+      "sheet": "Fig3_CGB"
+    },
+    {
+      "at": 1794400703333,
+      "geometry": {
+        "height": 247,
+        "left": 288,
+        "top": 765,
+        "width": 464.75
+      },
+      "id": "6048a692-85d0-4b06-8aaa-0fa943ba8804",
+      "image": "evidence/8db454403de8031162c0f93b3f945a121768a14ec409ec6bd08e80191106c804.png",
+      "lane": "OR",
+      "range": "Chart: 图表 8",
+      "sheet": "Fig3_CGB"
+    },
+    {
+      "at": 1794400703458,
+      "geometry": {
+        "height": 300.612274169922,
+        "left": 446.5,
+        "top": 23,
+        "width": 559.69384765625
+      },
+      "id": "becdbb6b-405c-4056-b5c7-52111d357874",
+      "image": "evidence/df826589e638f6ced13a9de069f95fc20105b7d61f2af8b5886c1b9ba98de6db.png",
+      "lane": "OR",
+      "range": "Chart: 图表 5",
+      "sheet": "EFLD"
+    },
+    {
+      "at": 1794400703601,
+      "geometry": {
+        "height": 300.612274169922,
+        "left": 305.5,
+        "top": 424,
+        "width": 559.69384765625
+      },
+      "id": "3a8b0042-b04c-4c11-bc42-b862c8971e04",
+      "image": "evidence/4b072ea4e3639e1c74141696f6216a4a157c4b89d60c5fae6495360da87359aa.png",
+      "lane": "OR",
+      "range": "Chart: 图表 6",
+      "sheet": "EFLD"
+    },
+    {
+      "at": 1794400703723,
+      "geometry": {
+        "height": 300.612274169922,
+        "left": 334.5,
+        "top": 738.5,
+        "width": 559.69384765625
+      },
+      "id": "e1ed6b05-c0d4-47c6-be91-20dba740063b",
+      "image": "evidence/7e1dc89a8837e7d89e55b54b632741f61c77f99bd79d29719d55ac560339b522.png",
+      "lane": "OR",
+      "range": "Chart: 图表 7",
+      "sheet": "EFLD"
+    },
+    {
+      "at": 1794400703849,
+      "geometry": {
+        "height": 300.612274169922,
+        "left": 912,
+        "top": 420,
+        "width": 559.69384765625
+      },
+      "id": "c5a052e9-c77b-4c40-8359-b51b517864bc",
+      "image": "evidence/df0d8976453d497a3af2ac78244177109e6347f1d5607f1e473b5d36db09c3c6.png",
+      "lane": "OR",
+      "range": "Chart: 图表 8",
+      "sheet": "EFLD"
+    },
+    {
+      "at": 1794400703964,
+      "geometry": {
+        "height": 270.5,
+        "left": 405.5,
+        "top": 15.25,
+        "width": 557
+      },
+      "id": "6f96f546-169f-4d81-910e-a6e09b2c990a",
+      "image": "evidence/f85e4508e723446bad030d4a8e62db8d64093583430c9df32b2558ee1da8f06c.png",
+      "lane": "OR",
+      "range": "Chart: 图表 2",
+      "sheet": "Fig2_biomass"
+    },
+    {
+      "at": 1794400704109,
+      "geometry": {
+        "height": 296.25,
+        "left": 435.75,
+        "top": 12,
+        "width": 519
+      },
+      "id": "555a881b-4f9f-4805-a096-e536420e3aeb",
+      "image": "evidence/cb8933ddbb3273a225cc88424dfc0a064c9dbb3abd938a624c5b1201aa84bbf3.png",
+      "lane": "OR",
+      "range": "Chart: Chart 6",
+      "sheet": "Fig4_Nutrients"
+    },
+    {
+      "at": 1794400704256,
+      "geometry": {
+        "height": 296.25,
+        "left": 434.25,
+        "top": 339.75,
+        "width": 519
+      },
+      "id": "ff30957b-2213-4f26-82ba-41e55d98d397",
+      "image": "evidence/2218788d2728a2d969435d5974985164015be2cddec5d53f1243d1a87fa5321b.png",
+      "lane": "OR",
+      "range": "Chart: Chart 6",
+      "sheet": "Fig4_Nutrients"
+    },
+    {
+      "at": 1794400704400,
+      "geometry": {
+        "height": 296.25,
+        "left": 433.5,
+        "top": 679.5,
+        "width": 519
+      },
+      "id": "e7737570-8acd-42ff-aeee-2a28fb99268f",
+      "image": "evidence/08face4cf0aa589c0544c8ebaa81de050f0f070453ba576e2e1e5e17466bf959.png",
+      "lane": "OR",
+      "range": "Chart: Chart 6",
+      "sheet": "Fig4_Nutrients"
+    },
+    {
+      "at": 1794400704554,
+      "geometry": {
+        "height": 296.25,
+        "left": 402.75,
+        "top": 993,
+        "width": 519
+      },
+      "id": "29d006d6-e327-48d2-ac08-4d0b3b121348",
+      "image": "evidence/8013846c230b605f17819ea13e219e75f8d98dd94a84f179fe3f2e6c5af76c69.png",
+      "lane": "OR",
+      "range": "Chart: Chart 6",
+      "sheet": "Fig4_Nutrients"
+    },
+    {
+      "at": 1794400704710,
+      "geometry": {
+        "height": 271.5,
+        "left": 237.75,
+        "top": 339.75,
+        "width": 470.25
+      },
+      "id": "d1f8eb20-991f-4ca9-8be3-b11ee5014bac",
+      "image": "evidence/5d5b256fb0ff3fd376fda2cd372163cdc3754d4f57d3200963be5e8d79fd08f1.png",
+      "lane": "OR",
+      "range": "Chart: Chart 3",
+      "sheet": "Fig5_ELISA"
+    },
+    {
+      "at": 1794400704847,
+      "geometry": {
+        "height": 297.75,
+        "left": 259.5,
+        "top": 19.5,
+        "width": 501
+      },
+      "id": "b14fee03-9d52-4d53-ba38-6f896544af1e",
+      "image": "evidence/f1678698dd34c6eaac435259018033897f3a87d066071f5ca7267c6b4b639785.png",
+      "lane": "OR",
+      "range": "Chart: Chart 4",
+      "sheet": "Fig5_ELISA"
+    },
+    {
+      "at": 1794400704995,
+      "geometry": {
+        "height": 294,
+        "left": 142.5,
+        "top": 636.75,
+        "width": 438.75
+      },
+      "id": "a1b8659c-5705-4f7b-a34f-c6c438502e83",
+      "image": "evidence/a1c2bdad13824661f3416e41d145dd3e76e98c83827e3b9726ce5104ca3eb8f7.png",
+      "lane": "OR",
+      "range": "Chart: Chart 5",
+      "sheet": "Fig5_ELISA"
+    },
+    {
+      "at": 1794400705214,
+      "geometry": {
+        "height": 294.75,
+        "left": 133.5,
+        "top": 1014.75,
+        "width": 410.25
+      },
+      "id": "62d119c1-f28e-48b4-a68d-4660394425ba",
+      "image": "evidence/5d179e83368c8b96f85e6b5c42333130f64d6561d0c61f08384fdb08a197c747.png",
+      "lane": "OR",
+      "range": "Chart: Chart 6",
+      "sheet": "Fig5_ELISA"
+    },
+    {
+      "at": 1794400705468,
+      "geometry": {
+        "height": 251,
+        "left": 566.403137207031,
+        "top": 2.5,
+        "width": 425.096862792969
+      },
+      "id": "0c8a75ed-ac41-4fac-bd80-595e9c17d7b0",
+      "image": "evidence/3038e64bc45f17dfcbd05ae195015f99ad18335c0b58504db5352c9fef41a12f.png",
+      "lane": "SDR",
+      "range": "Chart: 图表 1",
+      "sheet": "Fig3_EFLS"
+    },
+    {
+      "at": 1794400705597,
+      "geometry": {
+        "height": 216.673461914062,
+        "left": 593.040710449219,
+        "top": 619.576538085938,
+        "width": 389.459289550781
+      },
+      "id": "c0e620d1-9d9e-40fd-b9d0-1de8346b3706",
+      "image": "evidence/06bb8e1017db39554945517800e2e8a4f4712c206a761bceca26ee23bb19caf8.png",
+      "lane": "SDR",
+      "range": "Chart: 图表 2",
+      "sheet": "Fig3_EFLS"
+    },
+    {
+      "at": 1794400705712,
+      "geometry": {
+        "height": 237.591735839844,
+        "left": 594.959289550781,
+        "top": 354.673553466797,
+        "width": 505.714172363281
+      },
+      "id": "01a0e8ef-d3e2-4b7a-9ba1-1e1490c357ff",
+      "image": "evidence/6af8ce223f863d17b22617ac0879b3add4e025fe321b2d9344dc569a974b2d37.png",
+      "lane": "SDR",
+      "range": "Chart: 图表 3",
+      "sheet": "Fig3_EFLS"
+    },
+    {
+      "at": 1794400705837,
+      "geometry": {
+        "height": 237.591735839844,
+        "left": 916.5,
+        "top": 390,
+        "width": 536.826477050781
+      },
+      "id": "89fce4b6-0e38-43af-ba4e-9a487658dc8b",
+      "image": "evidence/b1343fc0a932d15d26c2dab490a227c8f35899528969c6fef30fba3e8d99e282.png",
+      "lane": "SDR",
+      "range": "Chart: 图表 4",
+      "sheet": "Fig3_EFLS"
+    },
+    {
+      "at": 1794400706001,
+      "geometry": {
+        "height": 223.5,
+        "left": 1045,
+        "top": 15,
+        "width": 365.5
+      },
+      "id": "3a0dc762-5344-466e-8de0-78bb57b95de5",
+      "image": "evidence/337371504540793f625eac2aa8fb74da1a72d5a4dbae7223ccd543d07f0429c6.png",
+      "lane": "SDR",
+      "range": "Chart: 图表 6",
+      "sheet": "Fig3_EFLS"
+    },
+    {
+      "at": 1794400706136,
+      "geometry": {
+        "height": 226.896301269531,
+        "left": 439.90087890625,
+        "top": 8.10370063781738,
+        "width": 421.09912109375
+      },
+      "id": "900c9b61-65aa-4fd7-9410-90803f4fc63c",
+      "image": "evidence/198b7899d89f0be1c0cb9f0501fb0f25892f24bf56b9b62a1d8aa0a0f29e7b99.png",
+      "lane": "SDR",
+      "range": "Chart: 图表 1",
+      "sheet": "Fig3_BUOY"
+    },
+    {
+      "at": 1794400706265,
+      "geometry": {
+        "height": 241.868026733398,
+        "left": 376.801818847656,
+        "top": 384.924407958984,
+        "width": 535.594421386719
+      },
+      "id": "07d371e1-4af5-4b90-9f4c-a42d0ec1b475",
+      "image": "evidence/1cd60dc278b5ac12ab2cfba2f3e071e73e3496b2eff73e39eff2448e5c7be147.png",
+      "lane": "SDR",
+      "range": "Chart: 图表 2",
+      "sheet": "Fig3_BUOY"
+    },
+    {
+      "at": 1794400706402,
+      "geometry": {
+        "height": 241.868026733398,
+        "left": 923.245300292969,
+        "top": 382.075439453125,
+        "width": 535.594421386719
+      },
+      "id": "20970dee-57a9-4888-b3b8-e3bc9603a28d",
+      "image": "evidence/310a1c704c3021b5ebd34b3532cadcccbbee999880d1c37ebfb26923c33b0f8c.png",
+      "lane": "SDR",
+      "range": "Chart: 图表 4",
+      "sheet": "Fig3_BUOY"
+    },
+    {
+      "at": 1794400706525,
+      "geometry": {
+        "height": 207.500076293945,
+        "left": 902,
+        "top": 41.9999198913574,
+        "width": 351
+      },
+      "id": "9b77466c-6879-4c1f-84e4-0b6152687b58",
+      "image": "evidence/1be18f605341d4a65040b5891bd286a394d940103f7075da8be996a104cbae9b.png",
+      "lane": "SDR",
+      "range": "Chart: 图表 6",
+      "sheet": "Fig3_BUOY"
+    },
+    {
+      "at": 1794400706708,
+      "geometry": {
+        "height": 216,
+        "left": 366.000091552734,
+        "top": 675,
+        "width": 394.499908447266
+      },
+      "id": "263c2574-1d22-4d09-8fca-a6e76f84b3e9",
+      "image": "evidence/0068d998384f64a9cf84f2323139057e5c4fe50665fa5fb1680ab089cce46a74.png",
+      "lane": "SDR",
+      "range": "Chart: 图表 8",
+      "sheet": "Fig3_BUOY"
+    },
+    {
+      "at": 1794400706830,
+      "geometry": {
+        "height": 164,
+        "left": 495.25,
+        "top": 12.5,
+        "width": 356.750091552734
+      },
+      "id": "d94ee257-9051-44cf-a651-2f431ac1c4e9",
+      "image": "evidence/3898642a6b4a6db609addfd5071a35a88483c4be154c0e39082c7f71c5906166.png",
+      "lane": "SDR",
+      "range": "Chart: 图表 9",
+      "sheet": "Fig3_EMB"
+    },
+    {
+      "at": 1794400706957,
+      "geometry": {
+        "height": 247,
+        "left": 322.5,
+        "top": 405.5,
+        "width": 460.75
+      },
+      "id": "29fe7069-7901-45d4-9d2a-797c55a1a271",
+      "image": "evidence/ca2755bca864aeab11c3264e83904d835a268bc8a2515a1a3c193ee44509b954.png",
+      "lane": "SDR",
+      "range": "Chart: 图表 10",
+      "sheet": "Fig3_EMB"
+    },
+    {
+      "at": 1794400707140,
+      "geometry": {
+        "height": 247,
+        "left": 816,
+        "top": 405,
+        "width": 460.75
+      },
+      "id": "d4d1b55d-66c7-46f7-adf5-6dd852fc61d8",
+      "image": "evidence/98e5c0e1f473dc2cf5c4dac0ad6c2e2f6155a7f195737a8a86d773c6bd557d17.png",
+      "lane": "SDR",
+      "range": "Chart: 图表 12",
+      "sheet": "Fig3_EMB"
+    },
+    {
+      "at": 1794400707260,
+      "geometry": {
+        "height": 191,
+        "left": 869,
+        "top": 15,
+        "width": 340.5
+      },
+      "id": "546c8a97-2d32-4375-a755-f8e866344b3b",
+      "image": "evidence/3fb3881dca1790d37e0647024dd599b3d0278599666e96a91cbb3c0db931ceeb.png",
+      "lane": "SDR",
+      "range": "Chart: 图表 7",
+      "sheet": "Fig3_EMB"
+    },
+    {
+      "at": 1794400707379,
+      "geometry": {
+        "height": 221,
+        "left": 336.000091552734,
+        "top": 675,
+        "width": 420.5
+      },
+      "id": "11f3607b-d320-4d97-b577-3492f87532c5",
+      "image": "evidence/a0274f166125d0770664232480fbf3c79f6bca200b2373d06c150ad28cab8b63.png",
+      "lane": "SDR",
+      "range": "Chart: 图表 8",
+      "sheet": "Fig3_EMB"
+    },
+    {
+      "at": 1794400707564,
+      "geometry": {
+        "height": 205.5,
+        "left": 501.000091552734,
+        "top": 26.5,
+        "width": 340.5
+      },
+      "id": "ec064143-e3c8-47ed-8f60-ce8af3bfd0ab",
+      "image": "evidence/57bc3c0d8bc34c572b62a9e6fcc2db4287b64a806f4b58835d41a1f07222569e.png",
+      "lane": "SDR",
+      "range": "Chart: 图表 9",
+      "sheet": "Fig3_CGB"
+    },
+    {
+      "at": 1794400707747,
+      "geometry": {
+        "height": 247,
+        "left": 315.75,
+        "top": 512,
+        "width": 460.75
+      },
+      "id": "e4e0e5a9-e9b5-4b57-86e6-3a94e1031867",
+      "image": "evidence/8669896db30132f614d94ae3548935b4b6c481312474c8c51795489acf0f2e62.png",
+      "lane": "SDR",
+      "range": "Chart: 图表 10",
+      "sheet": "Fig3_CGB"
+    },
+    {
+      "at": 1794400707890,
+      "geometry": {
+        "height": 248,
+        "left": 800,
+        "top": 491.5,
+        "width": 460.75
+      },
+      "id": "129f0072-4d0e-442e-8bba-991ce7aee659",
+      "image": "evidence/b503a45f4e6e3cb636994f1d4ef6414e27d72e7cb0e533d25bad5d0131d56b69.png",
+      "lane": "SDR",
+      "range": "Chart: 图表 12",
+      "sheet": "Fig3_CGB"
+    },
+    {
+      "at": 1794400708061,
+      "geometry": {
+        "height": 227,
+        "left": 899.5,
+        "top": 9,
+        "width": 393.5
+      },
+      "id": "bca59a6d-e054-4198-9290-99113ed3e312",
+      "image": "evidence/4d3d6ef362a025491b6b8ec24bdc86ac4b1470b355d00dd30f98a23482d77fa4.png",
+      "lane": "SDR",
+      "range": "Chart: 图表 6",
+      "sheet": "Fig3_CGB"
+    },
+    {
+      "at": 1794400708188,
+      "geometry": {
+        "height": 247,
+        "left": 288,
+        "top": 765,
+        "width": 464.75
+      },
+      "id": "4d89afae-2e42-41ef-a42f-4426e7b5e047",
+      "image": "evidence/8db454403de8031162c0f93b3f945a121768a14ec409ec6bd08e80191106c804.png",
+      "lane": "SDR",
+      "range": "Chart: 图表 8",
+      "sheet": "Fig3_CGB"
+    },
+    {
+      "at": 1794400708445,
+      "geometry": {
+        "height": 300.612274169922,
+        "left": 446.5,
+        "top": 23,
+        "width": 559.69384765625
+      },
+      "id": "f86cebca-4f09-4587-b575-ba5c9920cb11",
+      "image": "evidence/df826589e638f6ced13a9de069f95fc20105b7d61f2af8b5886c1b9ba98de6db.png",
+      "lane": "SDR",
+      "range": "Chart: 图表 5",
+      "sheet": "EFLD"
+    },
+    {
+      "at": 1794400708992,
+      "geometry": {
+        "height": 300.612274169922,
+        "left": 305.5,
+        "top": 424,
+        "width": 559.69384765625
+      },
+      "id": "fd6f36b3-695b-41fc-b99f-866d26819c2b",
+      "image": "evidence/4b072ea4e3639e1c74141696f6216a4a157c4b89d60c5fae6495360da87359aa.png",
+      "lane": "SDR",
+      "range": "Chart: 图表 6",
+      "sheet": "EFLD"
+    },
+    {
+      "at": 1794400709225,
+      "geometry": {
+        "height": 300.612274169922,
+        "left": 334.5,
+        "top": 738.5,
+        "width": 559.69384765625
+      },
+      "id": "89457848-2ddd-4f50-8a7e-193f935afc0b",
+      "image": "evidence/7e1dc89a8837e7d89e55b54b632741f61c77f99bd79d29719d55ac560339b522.png",
+      "lane": "SDR",
+      "range": "Chart: 图表 7",
+      "sheet": "EFLD"
+    },
+    {
+      "at": 1794400709386,
+      "geometry": {
+        "height": 300.612274169922,
+        "left": 912,
+        "top": 420,
+        "width": 559.69384765625
+      },
+      "id": "423e10c2-d15e-4872-8b25-e09d966f9b8b",
+      "image": "evidence/df0d8976453d497a3af2ac78244177109e6347f1d5607f1e473b5d36db09c3c6.png",
+      "lane": "SDR",
+      "range": "Chart: 图表 8",
+      "sheet": "EFLD"
+    },
+    {
+      "at": 1794400709512,
+      "geometry": {
+        "height": 270.5,
+        "left": 405.5,
+        "top": 15.25,
+        "width": 557
+      },
+      "id": "909686ec-560d-409a-be64-71cb28be7c8e",
+      "image": "evidence/f85e4508e723446bad030d4a8e62db8d64093583430c9df32b2558ee1da8f06c.png",
+      "lane": "SDR",
+      "range": "Chart: 图表 2",
+      "sheet": "Fig2_biomass"
+    },
+    {
+      "at": 1794400709706,
+      "geometry": {
+        "height": 296.25,
+        "left": 435.75,
+        "top": 12,
+        "width": 519
+      },
+      "id": "2b86483f-8627-46e6-8b5f-ef5ae5c17af6",
+      "image": "evidence/cb8933ddbb3273a225cc88424dfc0a064c9dbb3abd938a624c5b1201aa84bbf3.png",
+      "lane": "SDR",
+      "range": "Chart: Chart 6",
+      "sheet": "Fig4_Nutrients"
+    },
+    {
+      "at": 1794400709896,
+      "geometry": {
+        "height": 296.25,
+        "left": 434.25,
+        "top": 339.75,
+        "width": 519
+      },
+      "id": "64d039b1-e591-463a-aced-76918854e875",
+      "image": "evidence/2218788d2728a2d969435d5974985164015be2cddec5d53f1243d1a87fa5321b.png",
+      "lane": "SDR",
+      "range": "Chart: Chart 6",
+      "sheet": "Fig4_Nutrients"
+    },
+    {
+      "at": 1794400710011,
+      "geometry": {
+        "height": 296.25,
+        "left": 433.5,
+        "top": 679.5,
+        "width": 519
+      },
+      "id": "280b21c1-b880-413d-8491-bd733d50b70f",
+      "image": "evidence/08face4cf0aa589c0544c8ebaa81de050f0f070453ba576e2e1e5e17466bf959.png",
+      "lane": "SDR",
+      "range": "Chart: Chart 6",
+      "sheet": "Fig4_Nutrients"
+    },
+    {
+      "at": 1794400710170,
+      "geometry": {
+        "height": 296.25,
+        "left": 402.75,
+        "top": 993,
+        "width": 519
+      },
+      "id": "2a56be9d-7445-4707-8f40-431be27d3c13",
+      "image": "evidence/8013846c230b605f17819ea13e219e75f8d98dd94a84f179fe3f2e6c5af76c69.png",
+      "lane": "SDR",
+      "range": "Chart: Chart 6",
+      "sheet": "Fig4_Nutrients"
+    },
+    {
+      "at": 1794400710324,
+      "geometry": {
+        "height": 271.5,
+        "left": 237.75,
+        "top": 339.75,
+        "width": 470.25
+      },
+      "id": "98a3050e-2543-41fe-a994-5ff847718c42",
+      "image": "evidence/5d5b256fb0ff3fd376fda2cd372163cdc3754d4f57d3200963be5e8d79fd08f1.png",
+      "lane": "SDR",
+      "range": "Chart: Chart 3",
+      "sheet": "Fig5_ELISA"
+    },
+    {
+      "at": 1794400710446,
+      "geometry": {
+        "height": 297.75,
+        "left": 259.5,
+        "top": 19.5,
+        "width": 501
+      },
+      "id": "68dcbe69-1034-417e-9dc0-82dcfdbe5a95",
+      "image": "evidence/f1678698dd34c6eaac435259018033897f3a87d066071f5ca7267c6b4b639785.png",
+      "lane": "SDR",
+      "range": "Chart: Chart 4",
+      "sheet": "Fig5_ELISA"
+    },
+    {
+      "at": 1794400710618,
+      "geometry": {
+        "height": 294,
+        "left": 142.5,
+        "top": 636.75,
+        "width": 438.75
+      },
+      "id": "403313c1-0ef5-49aa-a13b-eff2ecc2d807",
+      "image": "evidence/a1c2bdad13824661f3416e41d145dd3e76e98c83827e3b9726ce5104ca3eb8f7.png",
+      "lane": "SDR",
+      "range": "Chart: Chart 5",
+      "sheet": "Fig5_ELISA"
+    },
+    {
+      "at": 1794400710743,
+      "geometry": {
+        "height": 294.75,
+        "left": 133.5,
+        "top": 1014.75,
+        "width": 410.25
+      },
+      "id": "debec212-1cdb-4c03-bab2-e17b5f31b116",
+      "image": "evidence/5d179e83368c8b96f85e6b5c42333130f64d6561d0c61f08384fdb08a197c747.png",
+      "lane": "SDR",
+      "range": "Chart: Chart 6",
+      "sheet": "Fig5_ELISA"
+    }
+  ],
+  "chart_capture_mode": "deterministic",
+  "chart_dependencies": [
+    {
+      "decisions": [
+        {
+          "chart": {
+            "index": 0,
+            "kind": "embedded",
+            "name": "图表 1",
+            "sheet": "Fig3_EFLS"
+          },
+          "reason": "Unsupported chart package dependency: xl/externalLinks/_rels/externalLink1.xml.rels",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 1,
+            "kind": "embedded",
+            "name": "图表 2",
+            "sheet": "Fig3_EFLS"
+          },
+          "reason": "Unsupported chart package dependency: xl/externalLinks/_rels/externalLink1.xml.rels",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 2,
+            "kind": "embedded",
+            "name": "图表 3",
+            "sheet": "Fig3_EFLS"
+          },
+          "reason": "Unsupported chart package dependency: xl/externalLinks/_rels/externalLink1.xml.rels",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 3,
+            "kind": "embedded",
+            "name": "图表 4",
+            "sheet": "Fig3_EFLS"
+          },
+          "reason": "Unsupported chart package dependency: xl/externalLinks/_rels/externalLink1.xml.rels",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 4,
+            "kind": "embedded",
+            "name": "图表 6",
+            "sheet": "Fig3_EFLS"
+          },
+          "reason": "Unsupported chart package dependency: xl/externalLinks/_rels/externalLink1.xml.rels",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 0,
+            "kind": "embedded",
+            "name": "图表 1",
+            "sheet": "Fig3_BUOY"
+          },
+          "reason": "Unsupported chart package dependency: xl/externalLinks/_rels/externalLink1.xml.rels",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 1,
+            "kind": "embedded",
+            "name": "图表 2",
+            "sheet": "Fig3_BUOY"
+          },
+          "reason": "Unsupported chart package dependency: xl/externalLinks/_rels/externalLink1.xml.rels",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 2,
+            "kind": "embedded",
+            "name": "图表 4",
+            "sheet": "Fig3_BUOY"
+          },
+          "reason": "Unsupported chart package dependency: xl/externalLinks/_rels/externalLink1.xml.rels",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 3,
+            "kind": "embedded",
+            "name": "图表 6",
+            "sheet": "Fig3_BUOY"
+          },
+          "reason": "Unsupported chart package dependency: xl/externalLinks/_rels/externalLink1.xml.rels",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 4,
+            "kind": "embedded",
+            "name": "图表 8",
+            "sheet": "Fig3_BUOY"
+          },
+          "reason": "Unsupported chart package dependency: xl/externalLinks/_rels/externalLink1.xml.rels",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 0,
+            "kind": "embedded",
+            "name": "图表 9",
+            "sheet": "Fig3_EMB"
+          },
+          "reason": "Unsupported chart package dependency: xl/externalLinks/_rels/externalLink1.xml.rels",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 1,
+            "kind": "embedded",
+            "name": "图表 10",
+            "sheet": "Fig3_EMB"
+          },
+          "reason": "Unsupported chart package dependency: xl/externalLinks/_rels/externalLink1.xml.rels",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 2,
+            "kind": "embedded",
+            "name": "图表 12",
+            "sheet": "Fig3_EMB"
+          },
+          "reason": "Unsupported chart package dependency: xl/externalLinks/_rels/externalLink1.xml.rels",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 3,
+            "kind": "embedded",
+            "name": "图表 7",
+            "sheet": "Fig3_EMB"
+          },
+          "reason": "Unsupported chart package dependency: xl/externalLinks/_rels/externalLink1.xml.rels",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 4,
+            "kind": "embedded",
+            "name": "图表 8",
+            "sheet": "Fig3_EMB"
+          },
+          "reason": "Unsupported chart package dependency: xl/externalLinks/_rels/externalLink1.xml.rels",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 0,
+            "kind": "embedded",
+            "name": "图表 9",
+            "sheet": "Fig3_CGB"
+          },
+          "reason": "Unsupported chart package dependency: xl/externalLinks/_rels/externalLink1.xml.rels",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 1,
+            "kind": "embedded",
+            "name": "图表 10",
+            "sheet": "Fig3_CGB"
+          },
+          "reason": "Unsupported chart package dependency: xl/externalLinks/_rels/externalLink1.xml.rels",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 2,
+            "kind": "embedded",
+            "name": "图表 12",
+            "sheet": "Fig3_CGB"
+          },
+          "reason": "Unsupported chart package dependency: xl/externalLinks/_rels/externalLink1.xml.rels",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 3,
+            "kind": "embedded",
+            "name": "图表 6",
+            "sheet": "Fig3_CGB"
+          },
+          "reason": "Unsupported chart package dependency: xl/externalLinks/_rels/externalLink1.xml.rels",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 4,
+            "kind": "embedded",
+            "name": "图表 8",
+            "sheet": "Fig3_CGB"
+          },
+          "reason": "Unsupported chart package dependency: xl/externalLinks/_rels/externalLink1.xml.rels",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 0,
+            "kind": "embedded",
+            "name": "图表 5",
+            "sheet": "EFLD"
+          },
+          "reason": "Unsupported chart package dependency: xl/externalLinks/_rels/externalLink1.xml.rels",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 1,
+            "kind": "embedded",
+            "name": "图表 6",
+            "sheet": "EFLD"
+          },
+          "reason": "Unsupported chart package dependency: xl/externalLinks/_rels/externalLink1.xml.rels",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 2,
+            "kind": "embedded",
+            "name": "图表 7",
+            "sheet": "EFLD"
+          },
+          "reason": "Unsupported chart package dependency: xl/externalLinks/_rels/externalLink1.xml.rels",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 3,
+            "kind": "embedded",
+            "name": "图表 8",
+            "sheet": "EFLD"
+          },
+          "reason": "Unsupported chart package dependency: xl/externalLinks/_rels/externalLink1.xml.rels",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 0,
+            "kind": "embedded",
+            "name": "图表 2",
+            "sheet": "Fig2_biomass"
+          },
+          "reason": "Unsupported chart package dependency: xl/externalLinks/_rels/externalLink1.xml.rels",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 0,
+            "kind": "embedded",
+            "name": "Chart 6",
+            "sheet": "Fig4_Nutrients"
+          },
+          "reason": "Unsupported chart package dependency: xl/externalLinks/_rels/externalLink1.xml.rels",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 1,
+            "kind": "embedded",
+            "name": "Chart 6",
+            "sheet": "Fig4_Nutrients"
+          },
+          "reason": "Unsupported chart package dependency: xl/externalLinks/_rels/externalLink1.xml.rels",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 2,
+            "kind": "embedded",
+            "name": "Chart 6",
+            "sheet": "Fig4_Nutrients"
+          },
+          "reason": "Unsupported chart package dependency: xl/externalLinks/_rels/externalLink1.xml.rels",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 3,
+            "kind": "embedded",
+            "name": "Chart 6",
+            "sheet": "Fig4_Nutrients"
+          },
+          "reason": "Unsupported chart package dependency: xl/externalLinks/_rels/externalLink1.xml.rels",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 0,
+            "kind": "embedded",
+            "name": "Chart 3",
+            "sheet": "Fig5_ELISA"
+          },
+          "reason": "Unsupported chart package dependency: xl/externalLinks/_rels/externalLink1.xml.rels",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 1,
+            "kind": "embedded",
+            "name": "Chart 4",
+            "sheet": "Fig5_ELISA"
+          },
+          "reason": "Unsupported chart package dependency: xl/externalLinks/_rels/externalLink1.xml.rels",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 2,
+            "kind": "embedded",
+            "name": "Chart 5",
+            "sheet": "Fig5_ELISA"
+          },
+          "reason": "Unsupported chart package dependency: xl/externalLinks/_rels/externalLink1.xml.rels",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 3,
+            "kind": "embedded",
+            "name": "Chart 6",
+            "sheet": "Fig5_ELISA"
+          },
+          "reason": "Unsupported chart package dependency: xl/externalLinks/_rels/externalLink1.xml.rels",
+          "references": 0,
+          "unchanged": false
+        }
+      ],
+      "left": "OR",
+      "mode": "deterministic",
+      "right": "SDR"
+    }
+  ],
+  "check_performance": "not_requested",
+  "check_performance_cache": null,
+  "check_performance_evidence": null,
+  "comparisons": [
+    {
+      "charts": [
+        {
+          "chart": "图表 5",
+          "chart_index": 0,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 300.612274169922,
+            "left": 446.5,
+            "top": 23,
+            "width": 559.69384765625
+          },
+          "left_image": "evidence/df826589e638f6ced13a9de069f95fc20105b7d61f2af8b5886c1b9ba98de6db.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 300.612274169922,
+            "left": 446.5,
+            "top": 23,
+            "width": 559.69384765625
+          },
+          "right_image": "evidence/df826589e638f6ced13a9de069f95fc20105b7d61f2af8b5886c1b9ba98de6db.png",
+          "right_rendering": "captured",
+          "sheet": "EFLD"
+        },
+        {
+          "chart": "图表 6",
+          "chart_index": 1,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 300.612274169922,
+            "left": 305.5,
+            "top": 424,
+            "width": 559.69384765625
+          },
+          "left_image": "evidence/4b072ea4e3639e1c74141696f6216a4a157c4b89d60c5fae6495360da87359aa.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 300.612274169922,
+            "left": 305.5,
+            "top": 424,
+            "width": 559.69384765625
+          },
+          "right_image": "evidence/4b072ea4e3639e1c74141696f6216a4a157c4b89d60c5fae6495360da87359aa.png",
+          "right_rendering": "captured",
+          "sheet": "EFLD"
+        },
+        {
+          "chart": "图表 7",
+          "chart_index": 2,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 300.612274169922,
+            "left": 334.5,
+            "top": 738.5,
+            "width": 559.69384765625
+          },
+          "left_image": "evidence/7e1dc89a8837e7d89e55b54b632741f61c77f99bd79d29719d55ac560339b522.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 300.612274169922,
+            "left": 334.5,
+            "top": 738.5,
+            "width": 559.69384765625
+          },
+          "right_image": "evidence/7e1dc89a8837e7d89e55b54b632741f61c77f99bd79d29719d55ac560339b522.png",
+          "right_rendering": "captured",
+          "sheet": "EFLD"
+        },
+        {
+          "chart": "图表 8",
+          "chart_index": 3,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 300.612274169922,
+            "left": 912,
+            "top": 420,
+            "width": 559.69384765625
+          },
+          "left_image": "evidence/df0d8976453d497a3af2ac78244177109e6347f1d5607f1e473b5d36db09c3c6.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 300.612274169922,
+            "left": 912,
+            "top": 420,
+            "width": 559.69384765625
+          },
+          "right_image": "evidence/df0d8976453d497a3af2ac78244177109e6347f1d5607f1e473b5d36db09c3c6.png",
+          "right_rendering": "captured",
+          "sheet": "EFLD"
+        },
+        {
+          "chart": "图表 2",
+          "chart_index": 0,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 270.5,
+            "left": 405.5,
+            "top": 15.25,
+            "width": 557
+          },
+          "left_image": "evidence/f85e4508e723446bad030d4a8e62db8d64093583430c9df32b2558ee1da8f06c.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 270.5,
+            "left": 405.5,
+            "top": 15.25,
+            "width": 557
+          },
+          "right_image": "evidence/f85e4508e723446bad030d4a8e62db8d64093583430c9df32b2558ee1da8f06c.png",
+          "right_rendering": "captured",
+          "sheet": "Fig2_biomass"
+        },
+        {
+          "chart": "图表 1",
+          "chart_index": 0,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 226.896301269531,
+            "left": 439.90087890625,
+            "top": 8.10370063781738,
+            "width": 421.09912109375
+          },
+          "left_image": "evidence/198b7899d89f0be1c0cb9f0501fb0f25892f24bf56b9b62a1d8aa0a0f29e7b99.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 226.896301269531,
+            "left": 439.90087890625,
+            "top": 8.10370063781738,
+            "width": 421.09912109375
+          },
+          "right_image": "evidence/198b7899d89f0be1c0cb9f0501fb0f25892f24bf56b9b62a1d8aa0a0f29e7b99.png",
+          "right_rendering": "captured",
+          "sheet": "Fig3_BUOY"
+        },
+        {
+          "chart": "图表 2",
+          "chart_index": 1,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 241.868026733398,
+            "left": 376.801818847656,
+            "top": 384.924407958984,
+            "width": 535.594421386719
+          },
+          "left_image": "evidence/1cd60dc278b5ac12ab2cfba2f3e071e73e3496b2eff73e39eff2448e5c7be147.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 241.868026733398,
+            "left": 376.801818847656,
+            "top": 384.924407958984,
+            "width": 535.594421386719
+          },
+          "right_image": "evidence/1cd60dc278b5ac12ab2cfba2f3e071e73e3496b2eff73e39eff2448e5c7be147.png",
+          "right_rendering": "captured",
+          "sheet": "Fig3_BUOY"
+        },
+        {
+          "chart": "图表 4",
+          "chart_index": 2,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 241.868026733398,
+            "left": 923.245300292969,
+            "top": 382.075439453125,
+            "width": 535.594421386719
+          },
+          "left_image": "evidence/310a1c704c3021b5ebd34b3532cadcccbbee999880d1c37ebfb26923c33b0f8c.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 241.868026733398,
+            "left": 923.245300292969,
+            "top": 382.075439453125,
+            "width": 535.594421386719
+          },
+          "right_image": "evidence/310a1c704c3021b5ebd34b3532cadcccbbee999880d1c37ebfb26923c33b0f8c.png",
+          "right_rendering": "captured",
+          "sheet": "Fig3_BUOY"
+        },
+        {
+          "chart": "图表 6",
+          "chart_index": 3,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 207.500076293945,
+            "left": 902,
+            "top": 41.9999198913574,
+            "width": 351
+          },
+          "left_image": "evidence/1be18f605341d4a65040b5891bd286a394d940103f7075da8be996a104cbae9b.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 207.500076293945,
+            "left": 902,
+            "top": 41.9999198913574,
+            "width": 351
+          },
+          "right_image": "evidence/1be18f605341d4a65040b5891bd286a394d940103f7075da8be996a104cbae9b.png",
+          "right_rendering": "captured",
+          "sheet": "Fig3_BUOY"
+        },
+        {
+          "chart": "图表 8",
+          "chart_index": 4,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 216,
+            "left": 366.000091552734,
+            "top": 675,
+            "width": 394.499908447266
+          },
+          "left_image": "evidence/0068d998384f64a9cf84f2323139057e5c4fe50665fa5fb1680ab089cce46a74.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 216,
+            "left": 366.000091552734,
+            "top": 675,
+            "width": 394.499908447266
+          },
+          "right_image": "evidence/0068d998384f64a9cf84f2323139057e5c4fe50665fa5fb1680ab089cce46a74.png",
+          "right_rendering": "captured",
+          "sheet": "Fig3_BUOY"
+        },
+        {
+          "chart": "图表 10",
+          "chart_index": 1,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 247,
+            "left": 315.75,
+            "top": 512,
+            "width": 460.75
+          },
+          "left_image": "evidence/8669896db30132f614d94ae3548935b4b6c481312474c8c51795489acf0f2e62.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 247,
+            "left": 315.75,
+            "top": 512,
+            "width": 460.75
+          },
+          "right_image": "evidence/8669896db30132f614d94ae3548935b4b6c481312474c8c51795489acf0f2e62.png",
+          "right_rendering": "captured",
+          "sheet": "Fig3_CGB"
+        },
+        {
+          "chart": "图表 12",
+          "chart_index": 2,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 248,
+            "left": 800,
+            "top": 491.5,
+            "width": 460.75
+          },
+          "left_image": "evidence/b503a45f4e6e3cb636994f1d4ef6414e27d72e7cb0e533d25bad5d0131d56b69.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 248,
+            "left": 800,
+            "top": 491.5,
+            "width": 460.75
+          },
+          "right_image": "evidence/b503a45f4e6e3cb636994f1d4ef6414e27d72e7cb0e533d25bad5d0131d56b69.png",
+          "right_rendering": "captured",
+          "sheet": "Fig3_CGB"
+        },
+        {
+          "chart": "图表 6",
+          "chart_index": 3,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 227,
+            "left": 899.5,
+            "top": 9,
+            "width": 393.5
+          },
+          "left_image": "evidence/4d3d6ef362a025491b6b8ec24bdc86ac4b1470b355d00dd30f98a23482d77fa4.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 227,
+            "left": 899.5,
+            "top": 9,
+            "width": 393.5
+          },
+          "right_image": "evidence/4d3d6ef362a025491b6b8ec24bdc86ac4b1470b355d00dd30f98a23482d77fa4.png",
+          "right_rendering": "captured",
+          "sheet": "Fig3_CGB"
+        },
+        {
+          "chart": "图表 8",
+          "chart_index": 4,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 247,
+            "left": 288,
+            "top": 765,
+            "width": 464.75
+          },
+          "left_image": "evidence/8db454403de8031162c0f93b3f945a121768a14ec409ec6bd08e80191106c804.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 247,
+            "left": 288,
+            "top": 765,
+            "width": 464.75
+          },
+          "right_image": "evidence/8db454403de8031162c0f93b3f945a121768a14ec409ec6bd08e80191106c804.png",
+          "right_rendering": "captured",
+          "sheet": "Fig3_CGB"
+        },
+        {
+          "chart": "图表 9",
+          "chart_index": 0,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 205.5,
+            "left": 501.000091552734,
+            "top": 26.5,
+            "width": 340.5
+          },
+          "left_image": "evidence/57bc3c0d8bc34c572b62a9e6fcc2db4287b64a806f4b58835d41a1f07222569e.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 205.5,
+            "left": 501.000091552734,
+            "top": 26.5,
+            "width": 340.5
+          },
+          "right_image": "evidence/57bc3c0d8bc34c572b62a9e6fcc2db4287b64a806f4b58835d41a1f07222569e.png",
+          "right_rendering": "captured",
+          "sheet": "Fig3_CGB"
+        },
+        {
+          "chart": "图表 1",
+          "chart_index": 0,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 251,
+            "left": 566.403137207031,
+            "top": 2.5,
+            "width": 425.096862792969
+          },
+          "left_image": "evidence/3038e64bc45f17dfcbd05ae195015f99ad18335c0b58504db5352c9fef41a12f.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 251,
+            "left": 566.403137207031,
+            "top": 2.5,
+            "width": 425.096862792969
+          },
+          "right_image": "evidence/3038e64bc45f17dfcbd05ae195015f99ad18335c0b58504db5352c9fef41a12f.png",
+          "right_rendering": "captured",
+          "sheet": "Fig3_EFLS"
+        },
+        {
+          "chart": "图表 2",
+          "chart_index": 1,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 216.673461914062,
+            "left": 593.040710449219,
+            "top": 619.576538085938,
+            "width": 389.459289550781
+          },
+          "left_image": "evidence/06bb8e1017db39554945517800e2e8a4f4712c206a761bceca26ee23bb19caf8.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 216.673461914062,
+            "left": 593.040710449219,
+            "top": 619.576538085938,
+            "width": 389.459289550781
+          },
+          "right_image": "evidence/06bb8e1017db39554945517800e2e8a4f4712c206a761bceca26ee23bb19caf8.png",
+          "right_rendering": "captured",
+          "sheet": "Fig3_EFLS"
+        },
+        {
+          "chart": "图表 3",
+          "chart_index": 2,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 237.591735839844,
+            "left": 594.959289550781,
+            "top": 354.673553466797,
+            "width": 505.714172363281
+          },
+          "left_image": "evidence/6af8ce223f863d17b22617ac0879b3add4e025fe321b2d9344dc569a974b2d37.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 237.591735839844,
+            "left": 594.959289550781,
+            "top": 354.673553466797,
+            "width": 505.714172363281
+          },
+          "right_image": "evidence/6af8ce223f863d17b22617ac0879b3add4e025fe321b2d9344dc569a974b2d37.png",
+          "right_rendering": "captured",
+          "sheet": "Fig3_EFLS"
+        },
+        {
+          "chart": "图表 4",
+          "chart_index": 3,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 237.591735839844,
+            "left": 916.5,
+            "top": 390,
+            "width": 536.826477050781
+          },
+          "left_image": "evidence/b1343fc0a932d15d26c2dab490a227c8f35899528969c6fef30fba3e8d99e282.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 237.591735839844,
+            "left": 916.5,
+            "top": 390,
+            "width": 536.826477050781
+          },
+          "right_image": "evidence/b1343fc0a932d15d26c2dab490a227c8f35899528969c6fef30fba3e8d99e282.png",
+          "right_rendering": "captured",
+          "sheet": "Fig3_EFLS"
+        },
+        {
+          "chart": "图表 6",
+          "chart_index": 4,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 223.5,
+            "left": 1045,
+            "top": 15,
+            "width": 365.5
+          },
+          "left_image": "evidence/337371504540793f625eac2aa8fb74da1a72d5a4dbae7223ccd543d07f0429c6.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 223.5,
+            "left": 1045,
+            "top": 15,
+            "width": 365.5
+          },
+          "right_image": "evidence/337371504540793f625eac2aa8fb74da1a72d5a4dbae7223ccd543d07f0429c6.png",
+          "right_rendering": "captured",
+          "sheet": "Fig3_EFLS"
+        },
+        {
+          "chart": "图表 10",
+          "chart_index": 1,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 247,
+            "left": 322.5,
+            "top": 405.5,
+            "width": 460.75
+          },
+          "left_image": "evidence/ca2755bca864aeab11c3264e83904d835a268bc8a2515a1a3c193ee44509b954.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 247,
+            "left": 322.5,
+            "top": 405.5,
+            "width": 460.75
+          },
+          "right_image": "evidence/ca2755bca864aeab11c3264e83904d835a268bc8a2515a1a3c193ee44509b954.png",
+          "right_rendering": "captured",
+          "sheet": "Fig3_EMB"
+        },
+        {
+          "chart": "图表 12",
+          "chart_index": 2,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 247,
+            "left": 816,
+            "top": 405,
+            "width": 460.75
+          },
+          "left_image": "evidence/98e5c0e1f473dc2cf5c4dac0ad6c2e2f6155a7f195737a8a86d773c6bd557d17.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 247,
+            "left": 816,
+            "top": 405,
+            "width": 460.75
+          },
+          "right_image": "evidence/98e5c0e1f473dc2cf5c4dac0ad6c2e2f6155a7f195737a8a86d773c6bd557d17.png",
+          "right_rendering": "captured",
+          "sheet": "Fig3_EMB"
+        },
+        {
+          "chart": "图表 7",
+          "chart_index": 3,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 191,
+            "left": 869,
+            "top": 15,
+            "width": 340.5
+          },
+          "left_image": "evidence/3fb3881dca1790d37e0647024dd599b3d0278599666e96a91cbb3c0db931ceeb.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 191,
+            "left": 869,
+            "top": 15,
+            "width": 340.5
+          },
+          "right_image": "evidence/3fb3881dca1790d37e0647024dd599b3d0278599666e96a91cbb3c0db931ceeb.png",
+          "right_rendering": "captured",
+          "sheet": "Fig3_EMB"
+        },
+        {
+          "chart": "图表 8",
+          "chart_index": 4,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 221,
+            "left": 336.000091552734,
+            "top": 675,
+            "width": 420.5
+          },
+          "left_image": "evidence/a0274f166125d0770664232480fbf3c79f6bca200b2373d06c150ad28cab8b63.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 221,
+            "left": 336.000091552734,
+            "top": 675,
+            "width": 420.5
+          },
+          "right_image": "evidence/a0274f166125d0770664232480fbf3c79f6bca200b2373d06c150ad28cab8b63.png",
+          "right_rendering": "captured",
+          "sheet": "Fig3_EMB"
+        },
+        {
+          "chart": "图表 9",
+          "chart_index": 0,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 164,
+            "left": 495.25,
+            "top": 12.5,
+            "width": 356.750091552734
+          },
+          "left_image": "evidence/3898642a6b4a6db609addfd5071a35a88483c4be154c0e39082c7f71c5906166.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 164,
+            "left": 495.25,
+            "top": 12.5,
+            "width": 356.750091552734
+          },
+          "right_image": "evidence/3898642a6b4a6db609addfd5071a35a88483c4be154c0e39082c7f71c5906166.png",
+          "right_rendering": "captured",
+          "sheet": "Fig3_EMB"
+        },
+        {
+          "chart": "Chart 6",
+          "chart_index": 0,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 296.25,
+            "left": 435.75,
+            "top": 12,
+            "width": 519
+          },
+          "left_image": "evidence/cb8933ddbb3273a225cc88424dfc0a064c9dbb3abd938a624c5b1201aa84bbf3.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 296.25,
+            "left": 435.75,
+            "top": 12,
+            "width": 519
+          },
+          "right_image": "evidence/cb8933ddbb3273a225cc88424dfc0a064c9dbb3abd938a624c5b1201aa84bbf3.png",
+          "right_rendering": "captured",
+          "sheet": "Fig4_Nutrients"
+        },
+        {
+          "chart": "Chart 6",
+          "chart_index": 1,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 296.25,
+            "left": 434.25,
+            "top": 339.75,
+            "width": 519
+          },
+          "left_image": "evidence/2218788d2728a2d969435d5974985164015be2cddec5d53f1243d1a87fa5321b.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 296.25,
+            "left": 434.25,
+            "top": 339.75,
+            "width": 519
+          },
+          "right_image": "evidence/2218788d2728a2d969435d5974985164015be2cddec5d53f1243d1a87fa5321b.png",
+          "right_rendering": "captured",
+          "sheet": "Fig4_Nutrients"
+        },
+        {
+          "chart": "Chart 6",
+          "chart_index": 2,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 296.25,
+            "left": 433.5,
+            "top": 679.5,
+            "width": 519
+          },
+          "left_image": "evidence/08face4cf0aa589c0544c8ebaa81de050f0f070453ba576e2e1e5e17466bf959.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 296.25,
+            "left": 433.5,
+            "top": 679.5,
+            "width": 519
+          },
+          "right_image": "evidence/08face4cf0aa589c0544c8ebaa81de050f0f070453ba576e2e1e5e17466bf959.png",
+          "right_rendering": "captured",
+          "sheet": "Fig4_Nutrients"
+        },
+        {
+          "chart": "Chart 6",
+          "chart_index": 3,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 296.25,
+            "left": 402.75,
+            "top": 993,
+            "width": 519
+          },
+          "left_image": "evidence/8013846c230b605f17819ea13e219e75f8d98dd94a84f179fe3f2e6c5af76c69.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 296.25,
+            "left": 402.75,
+            "top": 993,
+            "width": 519
+          },
+          "right_image": "evidence/8013846c230b605f17819ea13e219e75f8d98dd94a84f179fe3f2e6c5af76c69.png",
+          "right_rendering": "captured",
+          "sheet": "Fig4_Nutrients"
+        },
+        {
+          "chart": "Chart 3",
+          "chart_index": 0,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 271.5,
+            "left": 237.75,
+            "top": 339.75,
+            "width": 470.25
+          },
+          "left_image": "evidence/5d5b256fb0ff3fd376fda2cd372163cdc3754d4f57d3200963be5e8d79fd08f1.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 271.5,
+            "left": 237.75,
+            "top": 339.75,
+            "width": 470.25
+          },
+          "right_image": "evidence/5d5b256fb0ff3fd376fda2cd372163cdc3754d4f57d3200963be5e8d79fd08f1.png",
+          "right_rendering": "captured",
+          "sheet": "Fig5_ELISA"
+        },
+        {
+          "chart": "Chart 4",
+          "chart_index": 1,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 297.75,
+            "left": 259.5,
+            "top": 19.5,
+            "width": 501
+          },
+          "left_image": "evidence/f1678698dd34c6eaac435259018033897f3a87d066071f5ca7267c6b4b639785.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 297.75,
+            "left": 259.5,
+            "top": 19.5,
+            "width": 501
+          },
+          "right_image": "evidence/f1678698dd34c6eaac435259018033897f3a87d066071f5ca7267c6b4b639785.png",
+          "right_rendering": "captured",
+          "sheet": "Fig5_ELISA"
+        },
+        {
+          "chart": "Chart 5",
+          "chart_index": 2,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 294,
+            "left": 142.5,
+            "top": 636.75,
+            "width": 438.75
+          },
+          "left_image": "evidence/a1c2bdad13824661f3416e41d145dd3e76e98c83827e3b9726ce5104ca3eb8f7.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 294,
+            "left": 142.5,
+            "top": 636.75,
+            "width": 438.75
+          },
+          "right_image": "evidence/a1c2bdad13824661f3416e41d145dd3e76e98c83827e3b9726ce5104ca3eb8f7.png",
+          "right_rendering": "captured",
+          "sheet": "Fig5_ELISA"
+        },
+        {
+          "chart": "Chart 6",
+          "chart_index": 3,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 294.75,
+            "left": 133.5,
+            "top": 1014.75,
+            "width": 410.25
+          },
+          "left_image": "evidence/5d179e83368c8b96f85e6b5c42333130f64d6561d0c61f08384fdb08a197c747.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 294.75,
+            "left": 133.5,
+            "top": 1014.75,
+            "width": 410.25
+          },
+          "right_image": "evidence/5d179e83368c8b96f85e6b5c42333130f64d6561d0c61f08384fdb08a197c747.png",
+          "right_rendering": "captured",
+          "sheet": "Fig5_ELISA"
+        }
+      ],
+      "findings": [],
+      "label": "both rebuilt Default",
+      "left": "OR",
+      "right": "SDR",
+      "selected_region_count": 0
+    }
+  ],
+  "conditional_formatting": [
+    {
+      "decisions": [],
+      "left": "OR",
+      "right": "SDR"
+    }
+  ],
+  "content_coverage": [],
+  "control_artifacts_cache": null,
+  "equal_image_encoding": {
+    "compression": "best",
+    "filter": "adaptive",
+    "format": "PNG",
+    "pixel_preservation": "decoded RGBA equality checked before accepting a smaller encoding",
+    "scope": "verified equal images only; shared differing or unverified references preserve original bytes"
+  },
+  "excel_pids": null,
+  "execution_strategy": "paired-inplace-rebuild-v1",
+  "findings": [],
+  "formula_diagnostics": {
+    "note": "Optional dependency explanations; no visual verdict or coverage was changed.",
+    "omitted_regions": 0,
+    "regions": [],
+    "version": 1
+  },
+  "height_checks": [],
+  "image_comparison_statistics": {
+    "comparisons": 33,
+    "decoded_images": 33,
+    "encoded_bytes_read": 1478778,
+    "encoded_images_reused": 33,
+    "files_read": 66
+  },
+  "input_identity": {
+    "status": "different"
+  },
+  "limitations": [
+    "Gridlines are disabled consistently. Policy v10 compares only common pixels when measured capture/content origins match and content cores are contained. capture_extent_ignored records omitted right/bottom extent and retains both raw images and geometries. Changed overlapping pixels remain differences. Shifted origins, missing measurements and charts retain conservative verdicts. blank_margin_ignored records the stronger exact white-margin proof.",
+    "Row-height checks cover rows above and within the unpadded union of content envelopes, including potentially visible fill/border/conditional-formatting extents. Policy v12 excludes context rows below the union content boundary from both height dependencies and cell capture rectangles; upper and side context remain. Charts retain independent full-chart observations.",
+    "Strategy paired-inplace-rebuild-v1 compares rebuilt Original against rebuilt Default and optional rebuilt Check Performance. Each reuses its existing Excel process. Pre-rebuild captures are omitted for throughput; XML save/optimization/rebuild controls are retained. Volatility and exclusive causal attribution require follow-up.",
+    "Cell capture regions are intersected with the union of content-bearing cells and potentially visible fill/border/conditional-formatting extents in the compared rebuilt states, plus one row above and one column on either side. Opening/save XML controls retain separate provenance. Exterior regions outside that envelope are intentionally skipped, not visually confirmed identical; content_coverage records selection counts and bounds. Chart exports are independent of this policy.",
+    "Capture partition visible-geometry-v2 merges adjacent internal grid tiles without changing their union. It measures every live state and splits only for image budgets (30,000 pixels per edge, 32 million pixels total), estimating conservatively at two pixels per point plus a rounding margin. Actual exports are checked too. Zero-area ranges retain geometry and explicit non-rendering observations without images or pixel equality claims. Later states can repartition and backfill earlier retained workbooks.",
+    "CF decisions concern rule contributions within the recorded union of comparison extents. Literal cellIs exclusions require identical cell-XML fingerprints and visual context. Formula inputs remain captures; unknown or changed rules retain region captures. This is not a proof of whole-workbook visual equality.",
+    "Chart mode deterministic excludes only embedded charts with complete unchanged package, XML/cache, source-cell/style/layout/CF and live-geometry dependencies. Exclusions are not pixel comparisons. Unknown references, external or unsupported parts, ambiguous names and chart sheets retain full-chart exports. Mode conservative exports every chart. Other drawings and all worksheet geometry effects are not exhaustively discovered.",
+    "Charts with measured zero width or height retain geometry and an explicit zero-area-chart observation without a pixel verdict. A transition between visible and zero-area states is a rendering/geometry difference.",
+    "Disposable targeted copies are staged with calcMode=manual, fullCalcOnLoad=0, forceFullCalc=0 and calcOnSave=0 before Excel opens them. Cached formula values are retained until each resident workbook is explicitly rebuilt. Excel may still autonomously refresh content; observed save/rebuild transitions remain audited. Original inputs and prepared bundles are unchanged. This suppresses unintended open/save recalculation and changes the opening baseline relative to capture policy v4.",
+    "Opening/saving and the in-place SD rebuild are retained as separate XML controls. Exact content/context matches identify overlaps conservatively; absence of a match does not establish exclusive causality.",
+    "Worksheet cells are streamed into temporary fixed-size fingerprints without worksheet-byte or cell-count limits. Exterior empty-cell changes are counted before candidate allocation. Layout metadata and retained change evidence still require memory.",
+    "When content coverage marks background_tail_sampling, supported borderless solid-fill bands with known sheet-wide gridline settings are represented through their finite transitions and tail samples. Pixels beyond that envelope are not captured; this is not exhaustive whole-grid pixel coverage."
+  ],
+  "native_drawing_bounds": [],
+  "phases": [
+    "initial XML compared",
+    "Original and Default opened",
+    "Excel save effects inspected",
+    "Original and variants rebuilt in their existing processes"
+  ],
+  "portable_report": {
+    "diagnostics": {},
+    "different_regions": 0,
+    "failure": null,
+    "note": "Pixel diagnostics describe retained captures. They do not change the scientific comparison verdict or extend its coverage.",
+    "source_report": null,
+    "version": 1
+  },
+  "public_presentation": {
+    "meaning": "Derived presentation. Native evidence remains unchanged.",
+    "metadata_omissions": [
+      {
+        "pointer": "/report/excel_pids",
+        "source_value_sha256": "6efcac00c606e280e0efa92f9168bcf754934dbfe289bfa0b23c09119f3c55aa"
+      },
+      {
+        "pointer": "/report/portable_report/source_report",
+        "source_value_sha256": "451a884b2f650e04f633bf7eeb85ec438ca310eeca276f3ffca40a7a677cb192"
+      },
+      {
+        "pointer": "/report/transitions/0/after_file",
+        "source_value_sha256": "90254a89b20872b15e92cbb101f95ecfad2feb0feabf1365f8ba33de383b0ccf"
+      },
+      {
+        "pointer": "/report/transitions/0/before_file",
+        "source_value_sha256": "f77bbe0f427cbbf99c54dbbc17959e0fdb1e1b0ddc8739df8c583667529cc1c4"
+      },
+      {
+        "pointer": "/report/transitions/0/changes_file",
+        "source_value_sha256": "a4d50f14c01827acaac86b5fedf01357c8c71e763e6dfc6f2f91c34a583a04b3"
+      },
+      {
+        "pointer": "/report/transitions/1/after_file",
+        "source_value_sha256": "e344722c7231bb402fae654ea937ce2bd3ff5df6b4d178725d5b0106bd039c80"
+      },
+      {
+        "pointer": "/report/transitions/1/before_file",
+        "source_value_sha256": "f77bbe0f427cbbf99c54dbbc17959e0fdb1e1b0ddc8739df8c583667529cc1c4"
+      },
+      {
+        "pointer": "/report/transitions/1/changes_file",
+        "source_value_sha256": "44eebacd2b096c10fe8cc4e72a19b9e413e2284e3d1b9bcdc2a99997b069b4bf"
+      },
+      {
+        "pointer": "/report/transitions/2/after_file",
+        "source_value_sha256": "43cfd3fcc66a3c2c048c63c57f2bc715c6e1ba5f09b87aceb64c5f5729913e11"
+      },
+      {
+        "pointer": "/report/transitions/2/before_file",
+        "source_value_sha256": "e344722c7231bb402fae654ea937ce2bd3ff5df6b4d178725d5b0106bd039c80"
+      },
+      {
+        "pointer": "/report/transitions/2/changes_file",
+        "source_value_sha256": "77c4d70a0e642fb6aca83416a823998665f665638bac44f5a287fd34fdadc9bd"
+      },
+      {
+        "pointer": "/report/transitions/3/after_file",
+        "source_value_sha256": "5d4d2fcd6ae024f14923922f66ca6dbf4d9c5955cdf62b3670307699c21a389f"
+      },
+      {
+        "pointer": "/report/transitions/3/before_file",
+        "source_value_sha256": "90254a89b20872b15e92cbb101f95ecfad2feb0feabf1365f8ba33de383b0ccf"
+      },
+      {
+        "pointer": "/report/transitions/3/changes_file",
+        "source_value_sha256": "d569500dd3bcad7ffafd46dfb3ed207fbfbd0be07a9db734dd7ecbe29607c785"
+      },
+      {
+        "pointer": "/report/transitions/4/after_file",
+        "source_value_sha256": "d9d7380aa042c492f2bc766165ed814976314663130397a97e34558a1e5d97c9"
+      },
+      {
+        "pointer": "/report/transitions/4/before_file",
+        "source_value_sha256": "43cfd3fcc66a3c2c048c63c57f2bc715c6e1ba5f09b87aceb64c5f5729913e11"
+      },
+      {
+        "pointer": "/report/transitions/4/changes_file",
+        "source_value_sha256": "4f028df2dd9c4fbf2ef69de979d09cd317b7ed0c673ac5e2b735a40e13347e54"
+      },
+      {
+        "pointer": "/validation_signature/environment_key",
+        "source_value_sha256": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126"
+      }
+    ],
+    "schema": 1,
+    "source_report_sha256": "3f4649cf48c27886f44a5762821c80a9066802d55a3cdca493e21f5b3897232f"
+  },
+  "rebuild_checks": {},
+  "state_decisions": {
+    "CP": {
+      "status": "disabled"
+    },
+    "CPR": {
+      "status": "disabled"
+    },
+    "O": {
+      "method": "open-save",
+      "status": "observed"
+    },
+    "OR": {
+      "method": "inplace-rebuild",
+      "status": "observed"
+    },
+    "SD": {
+      "method": "open-save",
+      "status": "observed"
+    },
+    "SDR": {
+      "method": "inplace-rebuild",
+      "status": "observed"
+    }
+  },
+  "status": "completed_with_limitations",
+  "timings_ms": {
+    "capture_selection_and_transport": 84,
+    "image_comparisons": 69
+  },
+  "transitions": [
+    {
+      "after_file": null,
+      "before_file": null,
+      "change_count": 5516,
+      "changes_file": null,
+      "label": "original opening/saving control",
+      "skipped_outside_content_cell_changes": {
+        "Fig2_Temperature": 57,
+        "Fig2_biomass": 282,
+        "Fig3_BUOY": 1048443,
+        "Fig3_EFLS": 2096886,
+        "Sequence_Fig6-8": 13,
+        "TableS2-3": 6
+      },
+      "timings_ms": {
+        "attribution": 9,
+        "differences": 509,
+        "read_snapshots": 18,
+        "total": 553,
+        "write_evidence": 9
+      }
+    },
+    {
+      "after_file": null,
+      "before_file": null,
+      "change_count": 5516,
+      "changes_file": null,
+      "label": "default input versus original input",
+      "skipped_outside_content_cell_changes": {
+        "Fig2_Temperature": 57,
+        "Fig2_biomass": 282,
+        "Fig3_BUOY": 1048443,
+        "Fig3_EFLS": 2096886,
+        "Sequence_Fig6-8": 13,
+        "TableS2-3": 6
+      },
+      "timings_ms": {
+        "attribution": 4,
+        "differences": 505,
+        "read_snapshots": 17,
+        "total": 545,
+        "write_evidence": 9
+      }
+    },
+    {
+      "after_file": null,
+      "before_file": null,
+      "change_count": 5516,
+      "changes_file": null,
+      "label": "default opening/saving control",
+      "skipped_outside_content_cell_changes": {
+        "Fig2_Temperature": 57,
+        "Fig2_biomass": 282,
+        "Fig3_BUOY": 1048443,
+        "Fig3_EFLS": 2096886,
+        "Sequence_Fig6-8": 13,
+        "TableS2-3": 6
+      },
+      "timings_ms": {
+        "attribution": 4,
+        "differences": 500,
+        "read_snapshots": 17,
+        "total": 539,
+        "write_evidence": 9
+      }
+    },
+    {
+      "after_file": null,
+      "before_file": null,
+      "change_count": 0,
+      "changes_file": null,
+      "label": "O in-place rebuild and save",
+      "skipped_outside_content_cell_changes": {},
+      "timings_ms": {
+        "attribution": 0,
+        "differences": 0,
+        "read_snapshots": 4942,
+        "total": 4952,
+        "write_evidence": 2
+      }
+    },
+    {
+      "after_file": null,
+      "before_file": null,
+      "change_count": 0,
+      "changes_file": null,
+      "label": "SD in-place rebuild and save",
+      "skipped_outside_content_cell_changes": {},
+      "timings_ms": {
+        "attribution": 0,
+        "differences": 0,
+        "read_snapshots": 4942,
+        "total": 4953,
+        "write_evidence": 2
+      }
+    }
+  ],
+  "workbook_bytes": {
+    "OR-rebuilt.xlsx": 14496528,
+    "SDR-rebuilt.xlsx": 14496519,
+    "default.before-save.xlsx": 14500185,
+    "default.xlsx": 14496423,
+    "input_default": 14500185,
+    "input_original": 14500422,
+    "original.before-save.xlsx": 14500422,
+    "original.xlsx": 14496423
+  },
+  "workbook_inventory": {
+    "complete": true,
+    "original_sha256": "b142626aa1d6cf8b2de321126e8db283a995688afd07b09d1c75053af14e1ed6",
+    "sheets": [
+      {
+        "id": "11",
+        "name": "Description",
+        "order": 0,
+        "state": "visible"
+      },
+      {
+        "id": "12",
+        "name": "Sequence_Fig6-8",
+        "order": 1,
+        "state": "visible"
+      },
+      {
+        "id": "1",
+        "name": "Fig3_EFLS",
+        "order": 2,
+        "state": "visible"
+      },
+      {
+        "id": "2",
+        "name": "Fig3_BUOY",
+        "order": 3,
+        "state": "visible"
+      },
+      {
+        "id": "3",
+        "name": "Fig3_EMB",
+        "order": 4,
+        "state": "visible"
+      },
+      {
+        "id": "4",
+        "name": "Fig3_CGB",
+        "order": 5,
+        "state": "visible"
+      },
+      {
+        "id": "5",
+        "name": "EFLD",
+        "order": 6,
+        "state": "visible"
+      },
+      {
+        "id": "6",
+        "name": "Fig2_biomass",
+        "order": 7,
+        "state": "visible"
+      },
+      {
+        "id": "7",
+        "name": "TableS2-3",
+        "order": 8,
+        "state": "visible"
+      },
+      {
+        "id": "8",
+        "name": "Fig2_Temperature",
+        "order": 9,
+        "state": "visible"
+      },
+      {
+        "id": "13",
+        "name": "Fig4_Nutrients",
+        "order": 10,
+        "state": "visible"
+      },
+      {
+        "id": "14",
+        "name": "Fig5_ELISA",
+        "order": 11,
+        "state": "visible"
+      },
+      {
+        "id": "9",
+        "name": "TableS5",
+        "order": 12,
+        "state": "visible"
+      }
+    ]
+  },
+  "xml_snapshot_statistics": {
+    "elapsed_ms": 28560,
+    "parsed_versions": 6,
+    "reads": 20,
+    "reused_versions": 14
+  }
+}

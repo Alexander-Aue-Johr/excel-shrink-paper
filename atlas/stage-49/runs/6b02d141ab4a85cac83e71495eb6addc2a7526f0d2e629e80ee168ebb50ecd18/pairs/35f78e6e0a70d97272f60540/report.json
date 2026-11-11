@@ -1,0 +1,4225 @@
+{
+  "candidate_count": 1,
+  "capture_counts": {
+    "OR": 1,
+    "OR:charts": 54,
+    "SDR": 1,
+    "SDR:charts": 54
+  },
+  "capture_partition": "visible-geometry-v2",
+  "capture_policy": "targeted-content-grid-v15",
+  "capture_receipts": [
+    {
+      "at": 1794399249231,
+      "geometry": {
+        "height": 272.25,
+        "left": 759,
+        "top": 181.5,
+        "width": 561.75
+      },
+      "id": "7d626bcd-49a0-4a5a-9f5b-7d9612fad35f",
+      "image": "evidence/ada484153297321603533edf6f9ce5fda099b7fcfaea4c29e957082af81fcbfa.png",
+      "lane": "OR",
+      "range": "Chart: Chart 1",
+      "sheet": "GH Single Fuel Charts"
+    },
+    {
+      "at": 1794399249365,
+      "geometry": {
+        "height": 280.5,
+        "left": 759,
+        "top": 479.25,
+        "width": 559.5
+      },
+      "id": "ba6178cb-cd90-49ba-b232-0ca096c95164",
+      "image": "evidence/8ef32cc9eec2217a3c58ad8f456f36fca84567522d3e2dc8bfc64a8ea798265a.png",
+      "lane": "OR",
+      "range": "Chart: Chart 2",
+      "sheet": "GH Single Fuel Charts"
+    },
+    {
+      "at": 1794399249505,
+      "geometry": {
+        "height": 273.75,
+        "left": 762,
+        "top": 786.75,
+        "width": 558
+      },
+      "id": "c7eaa329-d699-4924-bf13-576b73c8dc7d",
+      "image": "evidence/32e7c0cd8056accc1da937d6cdde19c93243557641a91983a55d997918a99181.png",
+      "lane": "OR",
+      "range": "Chart: Chart 3",
+      "sheet": "GH Single Fuel Charts"
+    },
+    {
+      "at": 1794399249636,
+      "geometry": {
+        "height": 270,
+        "left": 762.75,
+        "top": 1087.5,
+        "width": 555.75
+      },
+      "id": "bd8f9476-2997-4bec-bed1-577f5364cf04",
+      "image": "evidence/3ab05bf5364b3973e9e36852273e9c26026941ecfc632d3bc9b6465e4ada3355.png",
+      "lane": "OR",
+      "range": "Chart: Chart 4",
+      "sheet": "GH Single Fuel Charts"
+    },
+    {
+      "at": 1794399249753,
+      "geometry": {
+        "height": 275.25,
+        "left": 765.75,
+        "top": 1383.74987792969,
+        "width": 553.5
+      },
+      "id": "c1ce294f-7587-4bda-ab8b-0945e18b2d7b",
+      "image": "evidence/be1f1903ecb6f0085c612e270e3f995c6847c0956f3e2dadac7e2916c152f23e.png",
+      "lane": "OR",
+      "range": "Chart: Chart 5",
+      "sheet": "GH Single Fuel Charts"
+    },
+    {
+      "at": 1794399249929,
+      "geometry": {
+        "height": 268.5,
+        "left": 765,
+        "top": 1685.25012207031,
+        "width": 558
+      },
+      "id": "b78b5ec5-3bdf-48e2-a882-d348d8cc9f96",
+      "image": "evidence/0efd93480c02b5581dce41c50c3849886525240cb445fe51a786db699077e895.png",
+      "lane": "OR",
+      "range": "Chart: Chart 6",
+      "sheet": "GH Single Fuel Charts"
+    },
+    {
+      "at": 1794399250057,
+      "geometry": {
+        "height": 274.5,
+        "left": 765,
+        "top": 1979.25012207031,
+        "width": 555
+      },
+      "id": "a8aa3678-bfe9-4ffd-8f54-772edb6519ef",
+      "image": "evidence/20ce8088f928470d130457e6333a920bd7f22ec931822b2f7e9e49a30e3af837.png",
+      "lane": "OR",
+      "range": "Chart: Chart 7",
+      "sheet": "GH Single Fuel Charts"
+    },
+    {
+      "at": 1794399250193,
+      "geometry": {
+        "height": 273.75,
+        "left": 764.25,
+        "top": 2277.75,
+        "width": 557.25
+      },
+      "id": "261f97d1-0ec6-45d3-b8bf-91e8277bff25",
+      "image": "evidence/aef261e7ba195d6b5342cab5f424a701462ba8c64b0b0d88077fcbd83677d4cd.png",
+      "lane": "OR",
+      "range": "Chart: Chart 8",
+      "sheet": "GH Single Fuel Charts"
+    },
+    {
+      "at": 1794399250327,
+      "geometry": {
+        "height": 276.75,
+        "left": 764.25,
+        "top": 2577,
+        "width": 556.5
+      },
+      "id": "3f21d1b8-4b30-4afc-bd0b-91105b86a74f",
+      "image": "evidence/3ed51819b55655ec4ededee5689ca0c49f4d0b71be79f72ef90b640b3063c468.png",
+      "lane": "OR",
+      "range": "Chart: Chart 9",
+      "sheet": "GH Single Fuel Charts"
+    },
+    {
+      "at": 1794399250459,
+      "geometry": {
+        "height": 273.749908447266,
+        "left": 762.749938964844,
+        "top": 2875.50024414062,
+        "width": 558.750061035156
+      },
+      "id": "30e5b998-bd21-4e5d-bf8a-d69b6919cdf5",
+      "image": "evidence/62721036dfb3831274d6f98c8249d7a75cfe132ae6bd308d52fcc7ee7142ce73.png",
+      "lane": "OR",
+      "range": "Chart: Chart 10",
+      "sheet": "GH Single Fuel Charts"
+    },
+    {
+      "at": 1794399250662,
+      "geometry": {
+        "height": 1343.1083984375,
+        "left": 821.524230957031,
+        "top": 186.329208374023,
+        "width": 611.913208007812
+      },
+      "id": "801e09b6-f18d-4cfa-afe3-2f5cf2768c4d",
+      "image": "evidence/2584c8bbd6ee90784a10550f943d45c58a909cade311f737f6654e59af41c191.png",
+      "lane": "OR",
+      "range": "Chart: Chart 1",
+      "sheet": "GH Single Fuel Summary Chart"
+    },
+    {
+      "at": 1794399250884,
+      "geometry": {
+        "height": 624.214172363281,
+        "left": 61.9506301879883,
+        "top": 599.68603515625,
+        "width": 3626.85693359375
+      },
+      "id": "074cee61-af49-46b0-9ef1-1a13cd6ddf54",
+      "image": "evidence/0cd4ed07bc1a1ef5d82bc709772f25046c8144378b14ebfdfdab0b999e622367.png",
+      "lane": "OR",
+      "range": "Chart: Chart 1",
+      "sheet": "GH Scenario Summary Results"
+    },
+    {
+      "at": 1794399251053,
+      "geometry": {
+        "height": 341.850006103516,
+        "left": 1081.30700683594,
+        "top": 450.685668945312,
+        "width": 583.800048828125
+      },
+      "id": "a03530e1-6135-457f-bf91-d5c954104a61",
+      "image": "evidence/7e96e16513686d17f9c2c37a1cc2d26fccccaeea9de6214259e3ab0a033be8d9.png",
+      "lane": "OR",
+      "range": "Chart: Chart 1",
+      "sheet": "GH Single Scenario Charts"
+    },
+    {
+      "at": 1794399251224,
+      "geometry": {
+        "height": 326.250091552734,
+        "left": 1108.17846679688,
+        "top": 1149.74987792969,
+        "width": 576.321472167969
+      },
+      "id": "19613f8f-c546-4c49-9604-efe3bef71d1d",
+      "image": "evidence/7b9ec4f6fd916f032276400a169d42e1266e82747472635e529ea69e91157860.png",
+      "lane": "OR",
+      "range": "Chart: Chart 2",
+      "sheet": "GH Single Scenario Charts"
+    },
+    {
+      "at": 1794399251366,
+      "geometry": {
+        "height": 331.5,
+        "left": 1095.21423339844,
+        "top": 801,
+        "width": 581.035827636719
+      },
+      "id": "a1f88ae0-f794-42f8-8a9b-0311958d93ac",
+      "image": "evidence/b14f82f3d01167a12085c456f3c7863444f30cb3e7ec06640ebb5048f501d54b.png",
+      "lane": "OR",
+      "range": "Chart: Chart 3",
+      "sheet": "GH Single Scenario Charts"
+    },
+    {
+      "at": 1794399251506,
+      "geometry": {
+        "height": 340.5,
+        "left": 1107.75,
+        "top": 1490.25012207031,
+        "width": 578.25
+      },
+      "id": "038369cf-c9dc-4264-a845-5f1d3eb8458f",
+      "image": "evidence/3487d66f6fc84df204e6746d8d76321116e64dfe0a92a65260fded7c3ef241d6.png",
+      "lane": "OR",
+      "range": "Chart: Chart 4",
+      "sheet": "GH Single Scenario Charts"
+    },
+    {
+      "at": 1794399251682,
+      "geometry": {
+        "height": 326.25,
+        "left": 1119.74987792969,
+        "top": 1852.5,
+        "width": 580.500183105469
+      },
+      "id": "610fecc7-7310-4230-95e5-8d87d4d3dc0f",
+      "image": "evidence/a03d375786649155e06480df9da8f6d7ea448741a93f540e1fb4b8eb56bf59b5.png",
+      "lane": "OR",
+      "range": "Chart: Chart 5",
+      "sheet": "GH Single Scenario Charts"
+    },
+    {
+      "at": 1794399251799,
+      "geometry": {
+        "height": 331.5,
+        "left": 1124.25,
+        "top": 2189.25,
+        "width": 576
+      },
+      "id": "0e463204-37c7-4441-aa66-8909489041d7",
+      "image": "evidence/f8142189a6d2960fcb7eb8be7dff99994f78ba08065e1000a624aac3de34d333.png",
+      "lane": "OR",
+      "range": "Chart: Chart 6",
+      "sheet": "GH Single Scenario Charts"
+    },
+    {
+      "at": 1794399251986,
+      "geometry": {
+        "height": 335.25,
+        "left": 1122.42846679688,
+        "top": 2533.5,
+        "width": 592.071594238281
+      },
+      "id": "70a78140-8ede-41d8-b30a-2a75e2011392",
+      "image": "evidence/727a0fc3cbbab71e859b08a0bfee1355103c6ac02403f85639adf32a795d00d6.png",
+      "lane": "OR",
+      "range": "Chart: Chart 7",
+      "sheet": "GH Single Scenario Charts"
+    },
+    {
+      "at": 1794399252180,
+      "geometry": {
+        "height": 331.5,
+        "left": 1121.14270019531,
+        "top": 2881.49975585938,
+        "width": 591.857238769531
+      },
+      "id": "4b2a4988-30f8-459d-9d9a-58371a938ab5",
+      "image": "evidence/e315a434aa070f28384db2b56ca727c7f2eac56668f17d8e51f7db563292a995.png",
+      "lane": "OR",
+      "range": "Chart: Chart 8",
+      "sheet": "GH Single Scenario Charts"
+    },
+    {
+      "at": 1794399252302,
+      "geometry": {
+        "height": 310.607177734375,
+        "left": 1124.35717773438,
+        "top": 3219.53564453125,
+        "width": 609.535766601562
+      },
+      "id": "953c39f1-d905-491d-9f4d-9082355f3f10",
+      "image": "evidence/1fce595060e18f73ac2e4fd93915a147cdb89115651bcb67e198a648c047e73e.png",
+      "lane": "OR",
+      "range": "Chart: Chart 9",
+      "sheet": "GH Single Scenario Charts"
+    },
+    {
+      "at": 1794399252424,
+      "geometry": {
+        "height": 332.785827636719,
+        "left": 1068.23559570312,
+        "top": 110.25,
+        "width": 574.050048828125
+      },
+      "id": "f9342517-2758-43ed-84da-5d0358bcca3c",
+      "image": "evidence/1a73d722a68953a5be3d13fe68290179522aca1f075872227b83e424fe98b99e.png",
+      "lane": "OR",
+      "range": "Chart: Chart 10",
+      "sheet": "GH Single Scenario Charts"
+    },
+    {
+      "at": 1794399252663,
+      "geometry": {
+        "height": 614.804931640625,
+        "left": 176.660949707031,
+        "top": 376.222351074219,
+        "width": 1072.70556640625
+      },
+      "id": "d076c91e-cc73-41a8-aafa-a710b6a505f9",
+      "image": "evidence/60a3f2aec128a3da6007b270aaa94ddd08c9d58d61610a619dda1a513645024f.png",
+      "lane": "OR",
+      "range": "Chart: Chart 11",
+      "sheet": "GH Single Scenario Charts_Norm"
+    },
+    {
+      "at": 1794399252839,
+      "geometry": {
+        "height": 644.718811035156,
+        "left": 48,
+        "top": 757.031188964844,
+        "width": 2774.25
+      },
+      "id": "80eb341d-9e2a-4928-9c60-ef59a5462bf1",
+      "image": "evidence/8e1c954b522b0cda356cc04ab2e56d0c08aa1dad232841672d267bfbf9b42f99.png",
+      "lane": "OR",
+      "range": "Chart: Chart 7",
+      "sheet": "Stove Uncertainty_GH"
+    },
+    {
+      "at": 1794399253077,
+      "geometry": {
+        "height": 684.468811035156,
+        "left": 30,
+        "top": 1612.03112792969,
+        "width": 2796
+      },
+      "id": "e181cf3f-cffa-439a-98f2-e1d4c2b6a37c",
+      "image": "evidence/d6259470525b814a88ddf7a8c492713a0f569dc6a774cfc394015116b9edf12d.png",
+      "lane": "OR",
+      "range": "Chart: Chart 10",
+      "sheet": "Stove Uncertainty_GH"
+    },
+    {
+      "at": 1794399253733,
+      "geometry": {
+        "height": 684.468811035156,
+        "left": 48,
+        "top": 2527.03125,
+        "width": 2796
+      },
+      "id": "56fe2eca-5a92-4013-8c48-fbb7740a9b7f",
+      "image": "evidence/14337fb1ec02bed1a9f203527260c4be4a9578831f40013c71805cb65896141f.png",
+      "lane": "OR",
+      "range": "Chart: Chart 13",
+      "sheet": "Stove Uncertainty_GH"
+    },
+    {
+      "at": 1794399253943,
+      "geometry": {
+        "height": 684.468811035156,
+        "left": 48,
+        "top": 4297.03125,
+        "width": 2796
+      },
+      "id": "d279b2e0-3ee8-49f3-8693-6bc47049a7aa",
+      "image": "evidence/c8b9ae618324365c93811ea9ee9f479c162e32989bd0413130949030a8798d6d.png",
+      "lane": "OR",
+      "range": "Chart: Chart 15",
+      "sheet": "Stove Uncertainty_GH"
+    },
+    {
+      "at": 1794399254151,
+      "geometry": {
+        "height": 684.468811035156,
+        "left": 48,
+        "top": 5182.03125,
+        "width": 2796
+      },
+      "id": "c08942ee-2953-4821-b051-f786e4836d05",
+      "image": "evidence/8365410e50913be9165bd41c4157c785b5c294dac9e218a4b99e4de848e4be0a.png",
+      "lane": "OR",
+      "range": "Chart: Chart 16",
+      "sheet": "Stove Uncertainty_GH"
+    },
+    {
+      "at": 1794399254342,
+      "geometry": {
+        "height": 684.468811035156,
+        "left": 48,
+        "top": 6082.03076171875,
+        "width": 2796
+      },
+      "id": "779e7328-5850-44ea-9871-e5368d659e4f",
+      "image": "evidence/3222f1029ac50beb2b13efc5324a0baf67b91cd4e295416a3e6dd410851b4db5.png",
+      "lane": "OR",
+      "range": "Chart: Chart 17",
+      "sheet": "Stove Uncertainty_GH"
+    },
+    {
+      "at": 1794399254543,
+      "geometry": {
+        "height": 684.468811035156,
+        "left": 48,
+        "top": 6967.03125,
+        "width": 2796
+      },
+      "id": "48b51c5c-fe88-442e-a848-232162744705",
+      "image": "evidence/5dd2cc0c6f719de4349b40275af191cd102b23fe8d29a2a6a4bf0d02a4e09462.png",
+      "lane": "OR",
+      "range": "Chart: Chart 18",
+      "sheet": "Stove Uncertainty_GH"
+    },
+    {
+      "at": 1794399254743,
+      "geometry": {
+        "height": 684.468811035156,
+        "left": 48,
+        "top": 7852.03173828125,
+        "width": 2796
+      },
+      "id": "157eea18-f57c-4352-954c-340647526d46",
+      "image": "evidence/b8826b1f1d27de6eb47851f5203ee33f0750226dc2ab88bb6c82d060edfcc5a4.png",
+      "lane": "OR",
+      "range": "Chart: Chart 19",
+      "sheet": "Stove Uncertainty_GH"
+    },
+    {
+      "at": 1794399254943,
+      "geometry": {
+        "height": 684.468811035156,
+        "left": 48,
+        "top": 8737.03125,
+        "width": 2796
+      },
+      "id": "b69b84cc-363d-4ecb-acbe-aae329f27ab4",
+      "image": "evidence/9287cddb5be61ff2bc52e04062c865f815f1c73a5552d37e3a68cb50e42b4cea.png",
+      "lane": "OR",
+      "range": "Chart: Chart 20",
+      "sheet": "Stove Uncertainty_GH"
+    },
+    {
+      "at": 1794399255139,
+      "geometry": {
+        "height": 708.750061035156,
+        "left": 99,
+        "top": 3396.75,
+        "width": 2737.49975585938
+      },
+      "id": "0dee79f7-e5da-45ba-a42b-7a7ffb70faff",
+      "image": "evidence/d809965a735d85991543d50f8eedcac0cca9321f2a82019cbac66865d8e18479.png",
+      "lane": "OR",
+      "range": "Chart: Chart 1",
+      "sheet": "Stove Uncertainty_GH"
+    },
+    {
+      "at": 1794399255406,
+      "geometry": {
+        "height": 902.375122070312,
+        "left": 91.5,
+        "top": 733.803405761719,
+        "width": 3564.98193359375
+      },
+      "id": "dfed3c84-1635-4092-a5c4-f1876dd10d26",
+      "image": "evidence/4e501cb2abf0274236a9ee3d403515413d305a0fe2a2a9faa519302f9843b7c2.png",
+      "lane": "OR",
+      "range": "Chart: Chart 1",
+      "sheet": "Stove Efficiency Sensitivity"
+    },
+    {
+      "at": 1794399255615,
+      "geometry": {
+        "height": 319.750152587891,
+        "left": 40.1408653259277,
+        "top": 645.225219726562,
+        "width": 796.911987304688
+      },
+      "id": "d74e5669-ab40-413a-bf56-a09cd5194513",
+      "image": "evidence/6a3841d54aa44a18911459f7102bbf66ca87f441a7add8f6886e813ee61ba6ab.png",
+      "lane": "OR",
+      "range": "Chart: Chart 1",
+      "sheet": "Electricity Sensitivity"
+    },
+    {
+      "at": 1794399255876,
+      "geometry": {
+        "height": 640,
+        "left": 2175.25,
+        "top": 33.25,
+        "width": 694.999938964844
+      },
+      "id": "38d5eabf-595f-4eaa-aa5f-63e1cebfb880",
+      "image": "evidence/bbd6b1f71bc08410d7a2a855c08a7057230fb7840127d589dcf8347399fc21ca.png",
+      "lane": "OR",
+      "range": "Chart: Chart 1",
+      "sheet": "GH - Cooking Scenarios"
+    },
+    {
+      "at": 1794399256041,
+      "geometry": {
+        "height": 602.874938964844,
+        "left": 2167.125,
+        "top": 695.874938964844,
+        "width": 694.374938964844
+      },
+      "id": "a7729988-aef0-4a54-9361-25b473e02e30",
+      "image": "evidence/c9613b409a1a85edc5676a92d456d9d482ce794a4e56c6c6d3b9097bfd51e2bb.png",
+      "lane": "OR",
+      "range": "Chart: Chart 3",
+      "sheet": "GH - Cooking Scenarios"
+    },
+    {
+      "at": 1794399256203,
+      "geometry": {
+        "height": 632.5,
+        "left": 2976.4287109375,
+        "top": 33.6071662902832,
+        "width": 632.749816894531
+      },
+      "id": "5ba88dbf-4f55-4d8b-9282-92998f3785b8",
+      "image": "evidence/2340251cef26115d5f0405701cecadb8bef5a822f7b4f1582c006abddced2e56.png",
+      "lane": "OR",
+      "range": "Chart: Chart 4",
+      "sheet": "GH - Cooking Scenarios"
+    },
+    {
+      "at": 1794399256361,
+      "geometry": {
+        "height": 622.562622070312,
+        "left": 2890.875,
+        "top": 693.687377929688,
+        "width": 668.874938964844
+      },
+      "id": "fa236c89-69b7-45f6-b88f-40456a4d95dc",
+      "image": "evidence/2f3e4e4831fd127a18f4a2813fc85a6a5e7182e062d5312484e008dc0f3b77f4.png",
+      "lane": "OR",
+      "range": "Chart: Chart 5",
+      "sheet": "GH - Cooking Scenarios"
+    },
+    {
+      "at": 1794399256534,
+      "geometry": {
+        "height": 545.75,
+        "left": 1599.53576660156,
+        "top": 15.75,
+        "width": 674.964233398438
+      },
+      "id": "3c967365-aad4-469d-8265-95408b686f93",
+      "image": "evidence/8dd714eddad1b0b3a35a3d80a7022cf9a44279bec286d783568027a0b02fcf48.png",
+      "lane": "OR",
+      "range": "Chart: Chart 2",
+      "sheet": "GH - Scenario Electricity"
+    },
+    {
+      "at": 1794399256754,
+      "geometry": {
+        "height": 577.0625,
+        "left": 1611.18737792969,
+        "top": 1063.6875,
+        "width": 660.8125
+      },
+      "id": "ebf6c51c-c250-4c3b-b43d-d026c2a9bc38",
+      "image": "evidence/797bc2d4b6c4353bd069361126a37f8edbe94ef4993ad541ddcc8146fa3eddd4.png",
+      "lane": "OR",
+      "range": "Chart: Chart 4",
+      "sheet": "GH - Scenario Electricity"
+    },
+    {
+      "at": 1794399256894,
+      "geometry": {
+        "height": 567.5,
+        "left": 1605.25012207031,
+        "top": 1648.25012207031,
+        "width": 664.25
+      },
+      "id": "07ab2886-6f1f-416d-9716-a5077fbd63f3",
+      "image": "evidence/254647f2b2df8592dca9eedf1f6959c43a7a06d9f8ab78b698c5b5c03b611256.png",
+      "lane": "OR",
+      "range": "Chart: Chart 5",
+      "sheet": "GH - Scenario Electricity"
+    },
+    {
+      "at": 1794399257043,
+      "geometry": {
+        "height": 481.625030517578,
+        "left": 1610.25012207031,
+        "top": 583.624877929688,
+        "width": 659.25
+      },
+      "id": "916678d5-5618-42a7-ab76-a91af2e6911a",
+      "image": "evidence/41a120d2bc4ad81fcfafc28bd5f84c5a670a430d59a82b0078af8cd77bd32caf.png",
+      "lane": "OR",
+      "range": "Chart: Chart 1",
+      "sheet": "GH - Scenario Electricity"
+    },
+    {
+      "at": 1794399257272,
+      "geometry": {
+        "height": 345.375030517578,
+        "left": 56.2499198913574,
+        "top": 348.374877929688,
+        "width": 1022.25
+      },
+      "id": "115b5b02-dbc2-4cf0-81eb-a7dca8c3fb9c",
+      "image": "evidence/5035477413d29bc612bb3f8280353f362797745e7bae1c70f17afaa188d7a48b.png",
+      "lane": "OR",
+      "range": "Chart: Chart 1",
+      "sheet": "Forestry Sensitivity - GH"
+    },
+    {
+      "at": 1794399257446,
+      "geometry": {
+        "height": 522.749938964844,
+        "left": 138.75,
+        "top": 345.565277099609,
+        "width": 1723.076171875
+      },
+      "id": "e0ac9e04-0f49-44cb-b8d3-cd55275e0fb8",
+      "image": "evidence/e42ebcdc709e97c2c5521addb9b434ab00cc2a822fa7ad508dfdecc80401a1b6.png",
+      "lane": "OR",
+      "range": "Chart: Chart 1",
+      "sheet": "GCCP_GH"
+    },
+    {
+      "at": 1794399257658,
+      "geometry": {
+        "height": 444,
+        "left": 180.5,
+        "top": 342,
+        "width": 1660.74987792969
+      },
+      "id": "f17bec36-265a-45f4-8126-729625e405e6",
+      "image": "evidence/373f3636e8b506dc1f3f5f99805a84e8293084e609cd638f96d6b05993b6b74c.png",
+      "lane": "OR",
+      "range": "Chart: Chart 1",
+      "sheet": "CED_GH"
+    },
+    {
+      "at": 1794399257888,
+      "geometry": {
+        "height": 444.211273193359,
+        "left": 160.28874206543,
+        "top": 346.700714111328,
+        "width": 1552.89074707031
+      },
+      "id": "a7f5c162-9ec9-4ca6-b6bd-256e7f5928d5",
+      "image": "evidence/69be359b27e978843cddb42c290a60b68611df202668a5ffb50a7f033e3f5eaf.png",
+      "lane": "OR",
+      "range": "Chart: Chart 1",
+      "sheet": "FDP_GH"
+    },
+    {
+      "at": 1794399258045,
+      "geometry": {
+        "height": 443.782684326172,
+        "left": 179.195663452148,
+        "top": 337.380401611328,
+        "width": 1537.14135742188
+      },
+      "id": "35731903-b5e6-4157-931b-1c5785d1346b",
+      "image": "evidence/fd9e82ed8fb0b6dfdd7d085f495a4df0734ceb814a443c7f887659702b6ba4ad.png",
+      "lane": "OR",
+      "range": "Chart: Chart 1",
+      "sheet": "WDP_GH"
+    },
+    {
+      "at": 1794399258226,
+      "geometry": {
+        "height": 443.589141845703,
+        "left": 189.30827331543,
+        "top": 336.606140136719,
+        "width": 1920.8525390625
+      },
+      "id": "9216ade4-0a8a-41c7-99c1-58026c2cef4e",
+      "image": "evidence/0b81a4440d16be874a46fb1c0b903f58952e5d0f750048620db247a961bc7a1b.png",
+      "lane": "OR",
+      "range": "Chart: Chart 1",
+      "sheet": "PMFP_GH"
+    },
+    {
+      "at": 1794399258391,
+      "geometry": {
+        "height": 444.211273193359,
+        "left": 182.471893310547,
+        "top": 332.757080078125,
+        "width": 1876.23596191406
+      },
+      "id": "7e4acf1a-d869-4644-ae61-83b945794a2f",
+      "image": "evidence/9d6cad0fad8ebf78fae4833f39524cda5a87cf153ac322b0e851c61d2661ef3e.png",
+      "lane": "OR",
+      "range": "Chart: Chart 1",
+      "sheet": "POFP_GH"
+    },
+    {
+      "at": 1794399258538,
+      "geometry": {
+        "height": 444,
+        "left": 167.5,
+        "top": 333.25,
+        "width": 1824.25012207031
+      },
+      "id": "aca313a6-d992-4985-b37c-a3b176e4fd2e",
+      "image": "evidence/8d2e4015f0843c414f8e45ec6016a65c16a38b2a6bf05b7c35d93e42050d857a.png",
+      "lane": "OR",
+      "range": "Chart: Chart 1",
+      "sheet": "FEP_GH"
+    },
+    {
+      "at": 1794399258711,
+      "geometry": {
+        "height": 443.615447998047,
+        "left": 184.961578369141,
+        "top": 332.865447998047,
+        "width": 1533.0576171875
+      },
+      "id": "aebad6da-d2f5-402a-b119-d49b704b712e",
+      "image": "evidence/a665df65f80c693a6d2eae171c43a2a54ad75f190726839d05d6f09c652cb583.png",
+      "lane": "OR",
+      "range": "Chart: Chart 1",
+      "sheet": "TAP_GH"
+    },
+    {
+      "at": 1794399258888,
+      "geometry": {
+        "height": 443.615447998047,
+        "left": 184.961578369141,
+        "top": 330.942291259766,
+        "width": 1822.55773925781
+      },
+      "id": "b71456e0-1b84-4dda-9a30-2b87dbfa2adb",
+      "image": "evidence/c5dab8d5e99a30737a74b891ad7762c2b8e07dc43afa65c1b14d86298c3e51bd.png",
+      "lane": "OR",
+      "range": "Chart: Chart 1",
+      "sheet": "ODP_GH"
+    },
+    {
+      "at": 1794399259506,
+      "geometry": {
+        "height": 444,
+        "left": 54,
+        "top": 337.5,
+        "width": 1654.5
+      },
+      "id": "5a54c70d-d505-4b56-80ae-2012b0a4c2b8",
+      "image": "evidence/f516ef6132cdae60f71b4da44683d7b10fe1ec8a6aecbc9382961d8463a0d3f9.png",
+      "lane": "OR",
+      "range": "Chart: Chart 1",
+      "sheet": "BC_GH"
+    },
+    {
+      "at": 1794399271006,
+      "geometry": {
+        "comparison_core": {
+          "height": 1293.0,
+          "left": 0.0,
+          "top": 138.0,
+          "width": 4936.5
+        },
+        "height": 1293.0,
+        "left": 0.0,
+        "top": 138.0,
+        "width": 4936.5
+      },
+      "id": "94d4230e-5295-4ef9-953f-7bec22cd50ff",
+      "image": "evidence/7a12aed70b7dcb83e2305cf3d4ed282ff5dbd5021e9c4c955d6674334bf79be3.png",
+      "lane": "OR",
+      "range": "A129:BL256",
+      "sheet": "GH Single Scenario Charts_Norm"
+    },
+    {
+      "at": 1794399259929,
+      "geometry": {
+        "height": 272.25,
+        "left": 759,
+        "top": 181.5,
+        "width": 561.75
+      },
+      "id": "afce0c92-15b6-4d6b-9b0c-b291b7c16087",
+      "image": "evidence/ada484153297321603533edf6f9ce5fda099b7fcfaea4c29e957082af81fcbfa.png",
+      "lane": "SDR",
+      "range": "Chart: Chart 1",
+      "sheet": "GH Single Fuel Charts"
+    },
+    {
+      "at": 1794399260052,
+      "geometry": {
+        "height": 280.5,
+        "left": 759,
+        "top": 479.25,
+        "width": 559.5
+      },
+      "id": "c754ad7b-d895-4289-896e-cf957c506637",
+      "image": "evidence/8ef32cc9eec2217a3c58ad8f456f36fca84567522d3e2dc8bfc64a8ea798265a.png",
+      "lane": "SDR",
+      "range": "Chart: Chart 2",
+      "sheet": "GH Single Fuel Charts"
+    },
+    {
+      "at": 1794399260189,
+      "geometry": {
+        "height": 273.75,
+        "left": 762,
+        "top": 786.75,
+        "width": 558
+      },
+      "id": "42156cd7-8f35-4ac3-8bc7-8ae6817cea7a",
+      "image": "evidence/32e7c0cd8056accc1da937d6cdde19c93243557641a91983a55d997918a99181.png",
+      "lane": "SDR",
+      "range": "Chart: Chart 3",
+      "sheet": "GH Single Fuel Charts"
+    },
+    {
+      "at": 1794399260300,
+      "geometry": {
+        "height": 270,
+        "left": 762.75,
+        "top": 1087.5,
+        "width": 555.75
+      },
+      "id": "152a6ce1-db3e-45c4-ac2d-d43377a8c410",
+      "image": "evidence/3ab05bf5364b3973e9e36852273e9c26026941ecfc632d3bc9b6465e4ada3355.png",
+      "lane": "SDR",
+      "range": "Chart: Chart 4",
+      "sheet": "GH Single Fuel Charts"
+    },
+    {
+      "at": 1794399260429,
+      "geometry": {
+        "height": 275.25,
+        "left": 765.75,
+        "top": 1383.74987792969,
+        "width": 553.5
+      },
+      "id": "25cb90a7-fb32-49da-b6df-9e16326a5fe5",
+      "image": "evidence/be1f1903ecb6f0085c612e270e3f995c6847c0956f3e2dadac7e2916c152f23e.png",
+      "lane": "SDR",
+      "range": "Chart: Chart 5",
+      "sheet": "GH Single Fuel Charts"
+    },
+    {
+      "at": 1794399260614,
+      "geometry": {
+        "height": 268.5,
+        "left": 765,
+        "top": 1685.25012207031,
+        "width": 558
+      },
+      "id": "564f036c-125e-4aa1-b966-585bf6dc922e",
+      "image": "evidence/0efd93480c02b5581dce41c50c3849886525240cb445fe51a786db699077e895.png",
+      "lane": "SDR",
+      "range": "Chart: Chart 6",
+      "sheet": "GH Single Fuel Charts"
+    },
+    {
+      "at": 1794399260737,
+      "geometry": {
+        "height": 274.5,
+        "left": 765,
+        "top": 1979.25012207031,
+        "width": 555
+      },
+      "id": "5679a373-f514-4a62-b000-e681b3bdad70",
+      "image": "evidence/20ce8088f928470d130457e6333a920bd7f22ec931822b2f7e9e49a30e3af837.png",
+      "lane": "SDR",
+      "range": "Chart: Chart 7",
+      "sheet": "GH Single Fuel Charts"
+    },
+    {
+      "at": 1794399260910,
+      "geometry": {
+        "height": 273.75,
+        "left": 764.25,
+        "top": 2277.75,
+        "width": 557.25
+      },
+      "id": "9893b103-1913-4056-91af-55688c6d9b45",
+      "image": "evidence/aef261e7ba195d6b5342cab5f424a701462ba8c64b0b0d88077fcbd83677d4cd.png",
+      "lane": "SDR",
+      "range": "Chart: Chart 8",
+      "sheet": "GH Single Fuel Charts"
+    },
+    {
+      "at": 1794399261043,
+      "geometry": {
+        "height": 276.75,
+        "left": 764.25,
+        "top": 2577,
+        "width": 556.5
+      },
+      "id": "d5f7ede5-20f7-42b1-b725-3c51fd3ab6cf",
+      "image": "evidence/3ed51819b55655ec4ededee5689ca0c49f4d0b71be79f72ef90b640b3063c468.png",
+      "lane": "SDR",
+      "range": "Chart: Chart 9",
+      "sheet": "GH Single Fuel Charts"
+    },
+    {
+      "at": 1794399261240,
+      "geometry": {
+        "height": 273.749908447266,
+        "left": 762.749938964844,
+        "top": 2875.50024414062,
+        "width": 558.750061035156
+      },
+      "id": "77a78f57-8759-41a5-bd9f-f9010ea5bdd7",
+      "image": "evidence/62721036dfb3831274d6f98c8249d7a75cfe132ae6bd308d52fcc7ee7142ce73.png",
+      "lane": "SDR",
+      "range": "Chart: Chart 10",
+      "sheet": "GH Single Fuel Charts"
+    },
+    {
+      "at": 1794399261488,
+      "geometry": {
+        "height": 1343.1083984375,
+        "left": 821.524230957031,
+        "top": 186.329208374023,
+        "width": 611.913208007812
+      },
+      "id": "afc33c4f-72d2-40dc-84cd-8299ed13ee63",
+      "image": "evidence/2584c8bbd6ee90784a10550f943d45c58a909cade311f737f6654e59af41c191.png",
+      "lane": "SDR",
+      "range": "Chart: Chart 1",
+      "sheet": "GH Single Fuel Summary Chart"
+    },
+    {
+      "at": 1794399261709,
+      "geometry": {
+        "height": 624.214172363281,
+        "left": 61.9506301879883,
+        "top": 599.68603515625,
+        "width": 3626.85693359375
+      },
+      "id": "931e19e1-277d-45c5-a10b-4e913ee74325",
+      "image": "evidence/0cd4ed07bc1a1ef5d82bc709772f25046c8144378b14ebfdfdab0b999e622367.png",
+      "lane": "SDR",
+      "range": "Chart: Chart 1",
+      "sheet": "GH Scenario Summary Results"
+    },
+    {
+      "at": 1794399261913,
+      "geometry": {
+        "height": 341.850006103516,
+        "left": 1081.30700683594,
+        "top": 450.685668945312,
+        "width": 583.800048828125
+      },
+      "id": "23e44bfa-d8f1-4ba0-b832-5966a839f351",
+      "image": "evidence/7e96e16513686d17f9c2c37a1cc2d26fccccaeea9de6214259e3ab0a033be8d9.png",
+      "lane": "SDR",
+      "range": "Chart: Chart 1",
+      "sheet": "GH Single Scenario Charts"
+    },
+    {
+      "at": 1794399262035,
+      "geometry": {
+        "height": 326.250091552734,
+        "left": 1108.17846679688,
+        "top": 1149.74987792969,
+        "width": 576.321472167969
+      },
+      "id": "61c54142-48c0-4707-bdcc-f7348680cb02",
+      "image": "evidence/7b9ec4f6fd916f032276400a169d42e1266e82747472635e529ea69e91157860.png",
+      "lane": "SDR",
+      "range": "Chart: Chart 2",
+      "sheet": "GH Single Scenario Charts"
+    },
+    {
+      "at": 1794399262218,
+      "geometry": {
+        "height": 331.5,
+        "left": 1095.21423339844,
+        "top": 801,
+        "width": 581.035827636719
+      },
+      "id": "70701fcd-d94a-459e-af3f-7c380e8e651d",
+      "image": "evidence/b14f82f3d01167a12085c456f3c7863444f30cb3e7ec06640ebb5048f501d54b.png",
+      "lane": "SDR",
+      "range": "Chart: Chart 3",
+      "sheet": "GH Single Scenario Charts"
+    },
+    {
+      "at": 1794399262360,
+      "geometry": {
+        "height": 340.5,
+        "left": 1107.75,
+        "top": 1490.25012207031,
+        "width": 578.25
+      },
+      "id": "04374ff0-e0e2-42a8-a0d7-c662570001e4",
+      "image": "evidence/3487d66f6fc84df204e6746d8d76321116e64dfe0a92a65260fded7c3ef241d6.png",
+      "lane": "SDR",
+      "range": "Chart: Chart 4",
+      "sheet": "GH Single Scenario Charts"
+    },
+    {
+      "at": 1794399262531,
+      "geometry": {
+        "height": 326.25,
+        "left": 1119.74987792969,
+        "top": 1852.5,
+        "width": 580.500183105469
+      },
+      "id": "719e7ad0-4c2a-4bdf-9dd1-e7a32b869f9c",
+      "image": "evidence/a03d375786649155e06480df9da8f6d7ea448741a93f540e1fb4b8eb56bf59b5.png",
+      "lane": "SDR",
+      "range": "Chart: Chart 5",
+      "sheet": "GH Single Scenario Charts"
+    },
+    {
+      "at": 1794399262667,
+      "geometry": {
+        "height": 331.5,
+        "left": 1124.25,
+        "top": 2189.25,
+        "width": 576
+      },
+      "id": "3d565f41-99a6-43ed-a6ea-fb35305cac34",
+      "image": "evidence/f8142189a6d2960fcb7eb8be7dff99994f78ba08065e1000a624aac3de34d333.png",
+      "lane": "SDR",
+      "range": "Chart: Chart 6",
+      "sheet": "GH Single Scenario Charts"
+    },
+    {
+      "at": 1794399262859,
+      "geometry": {
+        "height": 335.25,
+        "left": 1122.42846679688,
+        "top": 2533.5,
+        "width": 592.071594238281
+      },
+      "id": "d72da2a7-0c73-4376-b54e-c9a82b5bb4d3",
+      "image": "evidence/727a0fc3cbbab71e859b08a0bfee1355103c6ac02403f85639adf32a795d00d6.png",
+      "lane": "SDR",
+      "range": "Chart: Chart 7",
+      "sheet": "GH Single Scenario Charts"
+    },
+    {
+      "at": 1794399263005,
+      "geometry": {
+        "height": 331.5,
+        "left": 1121.14270019531,
+        "top": 2881.49975585938,
+        "width": 591.857238769531
+      },
+      "id": "456d84d9-8ea9-406e-b055-c908990f731f",
+      "image": "evidence/e315a434aa070f28384db2b56ca727c7f2eac56668f17d8e51f7db563292a995.png",
+      "lane": "SDR",
+      "range": "Chart: Chart 8",
+      "sheet": "GH Single Scenario Charts"
+    },
+    {
+      "at": 1794399263145,
+      "geometry": {
+        "height": 310.607177734375,
+        "left": 1124.35717773438,
+        "top": 3219.53564453125,
+        "width": 609.535766601562
+      },
+      "id": "56eb133c-8aae-4e81-b436-d41086e40728",
+      "image": "evidence/1fce595060e18f73ac2e4fd93915a147cdb89115651bcb67e198a648c047e73e.png",
+      "lane": "SDR",
+      "range": "Chart: Chart 9",
+      "sheet": "GH Single Scenario Charts"
+    },
+    {
+      "at": 1794399263347,
+      "geometry": {
+        "height": 332.785827636719,
+        "left": 1068.23559570312,
+        "top": 110.25,
+        "width": 574.050048828125
+      },
+      "id": "d182aeaa-dc2b-4c27-9d66-3d3fda2d4b06",
+      "image": "evidence/1a73d722a68953a5be3d13fe68290179522aca1f075872227b83e424fe98b99e.png",
+      "lane": "SDR",
+      "range": "Chart: Chart 10",
+      "sheet": "GH Single Scenario Charts"
+    },
+    {
+      "at": 1794399263540,
+      "geometry": {
+        "height": 614.804931640625,
+        "left": 176.660949707031,
+        "top": 376.222351074219,
+        "width": 1072.70556640625
+      },
+      "id": "eb976056-7049-430a-be0e-a15df87c8e18",
+      "image": "evidence/60a3f2aec128a3da6007b270aaa94ddd08c9d58d61610a619dda1a513645024f.png",
+      "lane": "SDR",
+      "range": "Chart: Chart 11",
+      "sheet": "GH Single Scenario Charts_Norm"
+    },
+    {
+      "at": 1794399263734,
+      "geometry": {
+        "height": 644.718811035156,
+        "left": 48,
+        "top": 757.031188964844,
+        "width": 2774.25
+      },
+      "id": "b49737e8-6c58-4de3-9202-f5f4b3ea81c1",
+      "image": "evidence/8e1c954b522b0cda356cc04ab2e56d0c08aa1dad232841672d267bfbf9b42f99.png",
+      "lane": "SDR",
+      "range": "Chart: Chart 7",
+      "sheet": "Stove Uncertainty_GH"
+    },
+    {
+      "at": 1794399263929,
+      "geometry": {
+        "height": 684.468811035156,
+        "left": 30,
+        "top": 1612.03112792969,
+        "width": 2796
+      },
+      "id": "19d33117-0cbd-4697-9b20-a5d993b4d513",
+      "image": "evidence/d6259470525b814a88ddf7a8c492713a0f569dc6a774cfc394015116b9edf12d.png",
+      "lane": "SDR",
+      "range": "Chart: Chart 10",
+      "sheet": "Stove Uncertainty_GH"
+    },
+    {
+      "at": 1794399264431,
+      "geometry": {
+        "height": 684.468811035156,
+        "left": 48,
+        "top": 2527.03125,
+        "width": 2796
+      },
+      "id": "0c87d8b9-2de2-4678-9d66-011a18d001da",
+      "image": "evidence/14337fb1ec02bed1a9f203527260c4be4a9578831f40013c71805cb65896141f.png",
+      "lane": "SDR",
+      "range": "Chart: Chart 13",
+      "sheet": "Stove Uncertainty_GH"
+    },
+    {
+      "at": 1794399264614,
+      "geometry": {
+        "height": 684.468811035156,
+        "left": 48,
+        "top": 4297.03125,
+        "width": 2796
+      },
+      "id": "94e268d3-e548-470b-93e8-eb81e856c425",
+      "image": "evidence/c8b9ae618324365c93811ea9ee9f479c162e32989bd0413130949030a8798d6d.png",
+      "lane": "SDR",
+      "range": "Chart: Chart 15",
+      "sheet": "Stove Uncertainty_GH"
+    },
+    {
+      "at": 1794399264825,
+      "geometry": {
+        "height": 684.468811035156,
+        "left": 48,
+        "top": 5182.03125,
+        "width": 2796
+      },
+      "id": "c61b3662-f259-40f4-abb6-638b2a76dd2f",
+      "image": "evidence/8365410e50913be9165bd41c4157c785b5c294dac9e218a4b99e4de848e4be0a.png",
+      "lane": "SDR",
+      "range": "Chart: Chart 16",
+      "sheet": "Stove Uncertainty_GH"
+    },
+    {
+      "at": 1794399265033,
+      "geometry": {
+        "height": 684.468811035156,
+        "left": 48,
+        "top": 6082.03076171875,
+        "width": 2796
+      },
+      "id": "4e2842d2-37e3-40ac-985c-92d0819b6eeb",
+      "image": "evidence/3222f1029ac50beb2b13efc5324a0baf67b91cd4e295416a3e6dd410851b4db5.png",
+      "lane": "SDR",
+      "range": "Chart: Chart 17",
+      "sheet": "Stove Uncertainty_GH"
+    },
+    {
+      "at": 1794399265249,
+      "geometry": {
+        "height": 684.468811035156,
+        "left": 48,
+        "top": 6967.03125,
+        "width": 2796
+      },
+      "id": "b6670e6d-da0b-40ae-b9bb-07a5e214f875",
+      "image": "evidence/5dd2cc0c6f719de4349b40275af191cd102b23fe8d29a2a6a4bf0d02a4e09462.png",
+      "lane": "SDR",
+      "range": "Chart: Chart 18",
+      "sheet": "Stove Uncertainty_GH"
+    },
+    {
+      "at": 1794399265476,
+      "geometry": {
+        "height": 684.468811035156,
+        "left": 48,
+        "top": 7852.03173828125,
+        "width": 2796
+      },
+      "id": "4839c1e9-ec79-4d88-af14-bcccac7e73b1",
+      "image": "evidence/b8826b1f1d27de6eb47851f5203ee33f0750226dc2ab88bb6c82d060edfcc5a4.png",
+      "lane": "SDR",
+      "range": "Chart: Chart 19",
+      "sheet": "Stove Uncertainty_GH"
+    },
+    {
+      "at": 1794399265699,
+      "geometry": {
+        "height": 684.468811035156,
+        "left": 48,
+        "top": 8737.03125,
+        "width": 2796
+      },
+      "id": "867e4eae-7939-468a-a3f6-cd0fc0c3ee1a",
+      "image": "evidence/9287cddb5be61ff2bc52e04062c865f815f1c73a5552d37e3a68cb50e42b4cea.png",
+      "lane": "SDR",
+      "range": "Chart: Chart 20",
+      "sheet": "Stove Uncertainty_GH"
+    },
+    {
+      "at": 1794399265919,
+      "geometry": {
+        "height": 708.750061035156,
+        "left": 99,
+        "top": 3396.75,
+        "width": 2737.49975585938
+      },
+      "id": "5aee7d03-3c40-473f-9207-3892db93f8a5",
+      "image": "evidence/d809965a735d85991543d50f8eedcac0cca9321f2a82019cbac66865d8e18479.png",
+      "lane": "SDR",
+      "range": "Chart: Chart 1",
+      "sheet": "Stove Uncertainty_GH"
+    },
+    {
+      "at": 1794399266434,
+      "geometry": {
+        "height": 902.375122070312,
+        "left": 91.5,
+        "top": 733.803405761719,
+        "width": 3564.98193359375
+      },
+      "id": "8467c5e2-f6c7-4f55-8a6d-d2cccc977d75",
+      "image": "evidence/4e501cb2abf0274236a9ee3d403515413d305a0fe2a2a9faa519302f9843b7c2.png",
+      "lane": "SDR",
+      "range": "Chart: Chart 1",
+      "sheet": "Stove Efficiency Sensitivity"
+    },
+    {
+      "at": 1794399266878,
+      "geometry": {
+        "height": 319.750152587891,
+        "left": 40.1408653259277,
+        "top": 645.225219726562,
+        "width": 796.911987304688
+      },
+      "id": "e30ac7e9-c64d-4e98-9d8e-ddef71ff030f",
+      "image": "evidence/6a3841d54aa44a18911459f7102bbf66ca87f441a7add8f6886e813ee61ba6ab.png",
+      "lane": "SDR",
+      "range": "Chart: Chart 1",
+      "sheet": "Electricity Sensitivity"
+    },
+    {
+      "at": 1794399267087,
+      "geometry": {
+        "height": 640,
+        "left": 2175.25,
+        "top": 33.25,
+        "width": 694.999938964844
+      },
+      "id": "ebb535a4-bae9-42be-81ff-c9e84031340e",
+      "image": "evidence/bbd6b1f71bc08410d7a2a855c08a7057230fb7840127d589dcf8347399fc21ca.png",
+      "lane": "SDR",
+      "range": "Chart: Chart 1",
+      "sheet": "GH - Cooking Scenarios"
+    },
+    {
+      "at": 1794399267276,
+      "geometry": {
+        "height": 602.874938964844,
+        "left": 2167.125,
+        "top": 695.874938964844,
+        "width": 694.374938964844
+      },
+      "id": "809ba677-d94c-415d-8dab-d09c71761073",
+      "image": "evidence/c9613b409a1a85edc5676a92d456d9d482ce794a4e56c6c6d3b9097bfd51e2bb.png",
+      "lane": "SDR",
+      "range": "Chart: Chart 3",
+      "sheet": "GH - Cooking Scenarios"
+    },
+    {
+      "at": 1794399267430,
+      "geometry": {
+        "height": 632.5,
+        "left": 2976.4287109375,
+        "top": 33.6071662902832,
+        "width": 632.749816894531
+      },
+      "id": "604c24dd-a16f-48a2-bb8c-cd0a575ee115",
+      "image": "evidence/2340251cef26115d5f0405701cecadb8bef5a822f7b4f1582c006abddced2e56.png",
+      "lane": "SDR",
+      "range": "Chart: Chart 4",
+      "sheet": "GH - Cooking Scenarios"
+    },
+    {
+      "at": 1794399267578,
+      "geometry": {
+        "height": 622.562622070312,
+        "left": 2890.875,
+        "top": 693.687377929688,
+        "width": 668.874938964844
+      },
+      "id": "c0bfef20-6780-4c11-94b3-b127ed715468",
+      "image": "evidence/2f3e4e4831fd127a18f4a2813fc85a6a5e7182e062d5312484e008dc0f3b77f4.png",
+      "lane": "SDR",
+      "range": "Chart: Chart 5",
+      "sheet": "GH - Cooking Scenarios"
+    },
+    {
+      "at": 1794399267726,
+      "geometry": {
+        "height": 545.75,
+        "left": 1599.53576660156,
+        "top": 15.75,
+        "width": 674.964233398438
+      },
+      "id": "f726aa2d-79e3-4f36-8a1b-c3c568c2ae67",
+      "image": "evidence/8dd714eddad1b0b3a35a3d80a7022cf9a44279bec286d783568027a0b02fcf48.png",
+      "lane": "SDR",
+      "range": "Chart: Chart 2",
+      "sheet": "GH - Scenario Electricity"
+    },
+    {
+      "at": 1794399267877,
+      "geometry": {
+        "height": 577.0625,
+        "left": 1611.18737792969,
+        "top": 1063.6875,
+        "width": 660.8125
+      },
+      "id": "e917699a-9271-47d4-a6a7-fa17013129a9",
+      "image": "evidence/797bc2d4b6c4353bd069361126a37f8edbe94ef4993ad541ddcc8146fa3eddd4.png",
+      "lane": "SDR",
+      "range": "Chart: Chart 4",
+      "sheet": "GH - Scenario Electricity"
+    },
+    {
+      "at": 1794399268023,
+      "geometry": {
+        "height": 567.5,
+        "left": 1605.25012207031,
+        "top": 1648.25012207031,
+        "width": 664.25
+      },
+      "id": "2397015b-75d7-46a1-aaf5-ca86c9399935",
+      "image": "evidence/254647f2b2df8592dca9eedf1f6959c43a7a06d9f8ab78b698c5b5c03b611256.png",
+      "lane": "SDR",
+      "range": "Chart: Chart 5",
+      "sheet": "GH - Scenario Electricity"
+    },
+    {
+      "at": 1794399268218,
+      "geometry": {
+        "height": 481.625030517578,
+        "left": 1610.25012207031,
+        "top": 583.624877929688,
+        "width": 659.25
+      },
+      "id": "8fba6a5c-69c0-4aef-85fe-178d8b9f57c4",
+      "image": "evidence/41a120d2bc4ad81fcfafc28bd5f84c5a670a430d59a82b0078af8cd77bd32caf.png",
+      "lane": "SDR",
+      "range": "Chart: Chart 1",
+      "sheet": "GH - Scenario Electricity"
+    },
+    {
+      "at": 1794399268391,
+      "geometry": {
+        "height": 345.375030517578,
+        "left": 56.2499198913574,
+        "top": 348.374877929688,
+        "width": 1022.25
+      },
+      "id": "a5bf6004-eee4-48a0-8b68-92aa14e24b0e",
+      "image": "evidence/5035477413d29bc612bb3f8280353f362797745e7bae1c70f17afaa188d7a48b.png",
+      "lane": "SDR",
+      "range": "Chart: Chart 1",
+      "sheet": "Forestry Sensitivity - GH"
+    },
+    {
+      "at": 1794399268604,
+      "geometry": {
+        "height": 522.749938964844,
+        "left": 138.75,
+        "top": 345.565277099609,
+        "width": 1723.076171875
+      },
+      "id": "01b38992-90e9-4b22-96f4-c0e228eb1a64",
+      "image": "evidence/e42ebcdc709e97c2c5521addb9b434ab00cc2a822fa7ad508dfdecc80401a1b6.png",
+      "lane": "SDR",
+      "range": "Chart: Chart 1",
+      "sheet": "GCCP_GH"
+    },
+    {
+      "at": 1794399268773,
+      "geometry": {
+        "height": 444,
+        "left": 180.5,
+        "top": 342,
+        "width": 1660.74987792969
+      },
+      "id": "7e04e359-bc21-4ba0-94df-96fd7d5e94c4",
+      "image": "evidence/373f3636e8b506dc1f3f5f99805a84e8293084e609cd638f96d6b05993b6b74c.png",
+      "lane": "SDR",
+      "range": "Chart: Chart 1",
+      "sheet": "CED_GH"
+    },
+    {
+      "at": 1794399268947,
+      "geometry": {
+        "height": 444.211273193359,
+        "left": 160.28874206543,
+        "top": 346.700714111328,
+        "width": 1552.89074707031
+      },
+      "id": "88957118-d3aa-4aa1-86f1-a2dcf09d43d4",
+      "image": "evidence/69be359b27e978843cddb42c290a60b68611df202668a5ffb50a7f033e3f5eaf.png",
+      "lane": "SDR",
+      "range": "Chart: Chart 1",
+      "sheet": "FDP_GH"
+    },
+    {
+      "at": 1794399269122,
+      "geometry": {
+        "height": 443.782684326172,
+        "left": 179.195663452148,
+        "top": 337.380401611328,
+        "width": 1537.14135742188
+      },
+      "id": "70b039c8-fb01-4b79-82a5-efcc96d55000",
+      "image": "evidence/fd9e82ed8fb0b6dfdd7d085f495a4df0734ceb814a443c7f887659702b6ba4ad.png",
+      "lane": "SDR",
+      "range": "Chart: Chart 1",
+      "sheet": "WDP_GH"
+    },
+    {
+      "at": 1794399269293,
+      "geometry": {
+        "height": 443.589141845703,
+        "left": 189.30827331543,
+        "top": 336.606140136719,
+        "width": 1920.8525390625
+      },
+      "id": "d44bbb14-8bd9-48a9-aa04-955f5f75777d",
+      "image": "evidence/0b81a4440d16be874a46fb1c0b903f58952e5d0f750048620db247a961bc7a1b.png",
+      "lane": "SDR",
+      "range": "Chart: Chart 1",
+      "sheet": "PMFP_GH"
+    },
+    {
+      "at": 1794399269451,
+      "geometry": {
+        "height": 444.211273193359,
+        "left": 182.471893310547,
+        "top": 332.757080078125,
+        "width": 1876.23596191406
+      },
+      "id": "6c5cad69-7838-435d-ae96-34350cb40d33",
+      "image": "evidence/9d6cad0fad8ebf78fae4833f39524cda5a87cf153ac322b0e851c61d2661ef3e.png",
+      "lane": "SDR",
+      "range": "Chart: Chart 1",
+      "sheet": "POFP_GH"
+    },
+    {
+      "at": 1794399269856,
+      "geometry": {
+        "height": 444,
+        "left": 167.5,
+        "top": 333.25,
+        "width": 1824.25012207031
+      },
+      "id": "251f063f-7b09-49ef-a51a-3df275ad45da",
+      "image": "evidence/8d2e4015f0843c414f8e45ec6016a65c16a38b2a6bf05b7c35d93e42050d857a.png",
+      "lane": "SDR",
+      "range": "Chart: Chart 1",
+      "sheet": "FEP_GH"
+    },
+    {
+      "at": 1794399270064,
+      "geometry": {
+        "height": 443.615447998047,
+        "left": 184.961578369141,
+        "top": 332.865447998047,
+        "width": 1533.0576171875
+      },
+      "id": "d293be18-df82-4dc1-9953-65ee6398fa0e",
+      "image": "evidence/a665df65f80c693a6d2eae171c43a2a54ad75f190726839d05d6f09c652cb583.png",
+      "lane": "SDR",
+      "range": "Chart: Chart 1",
+      "sheet": "TAP_GH"
+    },
+    {
+      "at": 1794399270209,
+      "geometry": {
+        "height": 443.615447998047,
+        "left": 184.961578369141,
+        "top": 330.942291259766,
+        "width": 1822.55773925781
+      },
+      "id": "3dc9c60b-6578-452d-bb97-5d33c450a7ae",
+      "image": "evidence/c5dab8d5e99a30737a74b891ad7762c2b8e07dc43afa65c1b14d86298c3e51bd.png",
+      "lane": "SDR",
+      "range": "Chart: Chart 1",
+      "sheet": "ODP_GH"
+    },
+    {
+      "at": 1794399270403,
+      "geometry": {
+        "height": 444,
+        "left": 54,
+        "top": 337.5,
+        "width": 1654.5
+      },
+      "id": "f46dd294-c24c-4719-8046-dd2372db0d13",
+      "image": "evidence/f516ef6132cdae60f71b4da44683d7b10fe1ec8a6aecbc9382961d8463a0d3f9.png",
+      "lane": "SDR",
+      "range": "Chart: Chart 1",
+      "sheet": "BC_GH"
+    },
+    {
+      "at": 1794399271006,
+      "geometry": {
+        "comparison_core": {
+          "height": 1293.0,
+          "left": 0.0,
+          "top": 138.0,
+          "width": 4936.5
+        },
+        "height": 1293.0,
+        "left": 0.0,
+        "top": 138.0,
+        "width": 4936.5
+      },
+      "id": "be8d2b1b-8c96-40de-8bdb-f3a660ebaa2d",
+      "image": "evidence/7a12aed70b7dcb83e2305cf3d4ed282ff5dbd5021e9c4c955d6674334bf79be3.png",
+      "lane": "SDR",
+      "range": "A129:BL256",
+      "sheet": "GH Single Scenario Charts_Norm"
+    }
+  ],
+  "chart_capture_mode": "deterministic",
+  "chart_dependencies": [
+    {
+      "decisions": [
+        {
+          "chart": {
+            "index": 0,
+            "kind": "embedded",
+            "name": "Chart 1",
+            "sheet": "GH Single Fuel Charts"
+          },
+          "reason": "Unsupported chart package dependency: xl/comments1.xml",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 1,
+            "kind": "embedded",
+            "name": "Chart 2",
+            "sheet": "GH Single Fuel Charts"
+          },
+          "reason": "Unsupported chart package dependency: xl/comments1.xml",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 2,
+            "kind": "embedded",
+            "name": "Chart 3",
+            "sheet": "GH Single Fuel Charts"
+          },
+          "reason": "Unsupported chart package dependency: xl/comments1.xml",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 3,
+            "kind": "embedded",
+            "name": "Chart 4",
+            "sheet": "GH Single Fuel Charts"
+          },
+          "reason": "Unsupported chart package dependency: xl/comments1.xml",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 4,
+            "kind": "embedded",
+            "name": "Chart 5",
+            "sheet": "GH Single Fuel Charts"
+          },
+          "reason": "Unsupported chart package dependency: xl/comments1.xml",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 5,
+            "kind": "embedded",
+            "name": "Chart 6",
+            "sheet": "GH Single Fuel Charts"
+          },
+          "reason": "Unsupported chart package dependency: xl/comments1.xml",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 6,
+            "kind": "embedded",
+            "name": "Chart 7",
+            "sheet": "GH Single Fuel Charts"
+          },
+          "reason": "Unsupported chart package dependency: xl/comments1.xml",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 7,
+            "kind": "embedded",
+            "name": "Chart 8",
+            "sheet": "GH Single Fuel Charts"
+          },
+          "reason": "Unsupported chart package dependency: xl/comments1.xml",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 8,
+            "kind": "embedded",
+            "name": "Chart 9",
+            "sheet": "GH Single Fuel Charts"
+          },
+          "reason": "Unsupported chart package dependency: xl/comments1.xml",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 9,
+            "kind": "embedded",
+            "name": "Chart 10",
+            "sheet": "GH Single Fuel Charts"
+          },
+          "reason": "Unsupported chart package dependency: xl/comments1.xml",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 0,
+            "kind": "embedded",
+            "name": "Chart 1",
+            "sheet": "GH Single Fuel Summary Chart"
+          },
+          "reason": "Unsupported chart package dependency: xl/comments1.xml",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 0,
+            "kind": "embedded",
+            "name": "Chart 1",
+            "sheet": "GH Scenario Summary Results"
+          },
+          "reason": "Unsupported chart package dependency: xl/comments1.xml",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 0,
+            "kind": "embedded",
+            "name": "Chart 1",
+            "sheet": "GH Single Scenario Charts"
+          },
+          "reason": "Unsupported chart package dependency: xl/comments1.xml",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 1,
+            "kind": "embedded",
+            "name": "Chart 2",
+            "sheet": "GH Single Scenario Charts"
+          },
+          "reason": "Unsupported chart package dependency: xl/comments1.xml",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 2,
+            "kind": "embedded",
+            "name": "Chart 3",
+            "sheet": "GH Single Scenario Charts"
+          },
+          "reason": "Unsupported chart package dependency: xl/comments1.xml",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 3,
+            "kind": "embedded",
+            "name": "Chart 4",
+            "sheet": "GH Single Scenario Charts"
+          },
+          "reason": "Unsupported chart package dependency: xl/comments1.xml",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 4,
+            "kind": "embedded",
+            "name": "Chart 5",
+            "sheet": "GH Single Scenario Charts"
+          },
+          "reason": "Unsupported chart package dependency: xl/comments1.xml",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 5,
+            "kind": "embedded",
+            "name": "Chart 6",
+            "sheet": "GH Single Scenario Charts"
+          },
+          "reason": "Unsupported chart package dependency: xl/comments1.xml",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 6,
+            "kind": "embedded",
+            "name": "Chart 7",
+            "sheet": "GH Single Scenario Charts"
+          },
+          "reason": "Unsupported chart package dependency: xl/comments1.xml",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 7,
+            "kind": "embedded",
+            "name": "Chart 8",
+            "sheet": "GH Single Scenario Charts"
+          },
+          "reason": "Unsupported chart package dependency: xl/comments1.xml",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 8,
+            "kind": "embedded",
+            "name": "Chart 9",
+            "sheet": "GH Single Scenario Charts"
+          },
+          "reason": "Unsupported chart package dependency: xl/comments1.xml",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 9,
+            "kind": "embedded",
+            "name": "Chart 10",
+            "sheet": "GH Single Scenario Charts"
+          },
+          "reason": "Unsupported chart package dependency: xl/comments1.xml",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 0,
+            "kind": "embedded",
+            "name": "Chart 11",
+            "sheet": "GH Single Scenario Charts_Norm"
+          },
+          "reason": "Unsupported chart package dependency: xl/comments1.xml",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 0,
+            "kind": "embedded",
+            "name": "Chart 7",
+            "sheet": "Stove Uncertainty_GH"
+          },
+          "reason": "Unsupported chart package dependency: xl/comments1.xml",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 1,
+            "kind": "embedded",
+            "name": "Chart 10",
+            "sheet": "Stove Uncertainty_GH"
+          },
+          "reason": "Unsupported chart package dependency: xl/comments1.xml",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 2,
+            "kind": "embedded",
+            "name": "Chart 13",
+            "sheet": "Stove Uncertainty_GH"
+          },
+          "reason": "Unsupported chart package dependency: xl/comments1.xml",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 3,
+            "kind": "embedded",
+            "name": "Chart 15",
+            "sheet": "Stove Uncertainty_GH"
+          },
+          "reason": "Unsupported chart package dependency: xl/comments1.xml",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 4,
+            "kind": "embedded",
+            "name": "Chart 16",
+            "sheet": "Stove Uncertainty_GH"
+          },
+          "reason": "Unsupported chart package dependency: xl/comments1.xml",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 5,
+            "kind": "embedded",
+            "name": "Chart 17",
+            "sheet": "Stove Uncertainty_GH"
+          },
+          "reason": "Unsupported chart package dependency: xl/comments1.xml",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 6,
+            "kind": "embedded",
+            "name": "Chart 18",
+            "sheet": "Stove Uncertainty_GH"
+          },
+          "reason": "Unsupported chart package dependency: xl/comments1.xml",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 7,
+            "kind": "embedded",
+            "name": "Chart 19",
+            "sheet": "Stove Uncertainty_GH"
+          },
+          "reason": "Unsupported chart package dependency: xl/comments1.xml",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 8,
+            "kind": "embedded",
+            "name": "Chart 20",
+            "sheet": "Stove Uncertainty_GH"
+          },
+          "reason": "Unsupported chart package dependency: xl/comments1.xml",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 9,
+            "kind": "embedded",
+            "name": "Chart 1",
+            "sheet": "Stove Uncertainty_GH"
+          },
+          "reason": "Unsupported chart package dependency: xl/comments1.xml",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 0,
+            "kind": "embedded",
+            "name": "Chart 1",
+            "sheet": "Stove Efficiency Sensitivity"
+          },
+          "reason": "Unsupported chart package dependency: xl/comments1.xml",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 0,
+            "kind": "embedded",
+            "name": "Chart 1",
+            "sheet": "Electricity Sensitivity"
+          },
+          "reason": "Unsupported chart package dependency: xl/comments1.xml",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 0,
+            "kind": "embedded",
+            "name": "Chart 1",
+            "sheet": "GH - Cooking Scenarios"
+          },
+          "reason": "Unsupported chart package dependency: xl/comments1.xml",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 1,
+            "kind": "embedded",
+            "name": "Chart 3",
+            "sheet": "GH - Cooking Scenarios"
+          },
+          "reason": "Unsupported chart package dependency: xl/comments1.xml",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 2,
+            "kind": "embedded",
+            "name": "Chart 4",
+            "sheet": "GH - Cooking Scenarios"
+          },
+          "reason": "Unsupported chart package dependency: xl/comments1.xml",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 3,
+            "kind": "embedded",
+            "name": "Chart 5",
+            "sheet": "GH - Cooking Scenarios"
+          },
+          "reason": "Unsupported chart package dependency: xl/comments1.xml",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 0,
+            "kind": "embedded",
+            "name": "Chart 2",
+            "sheet": "GH - Scenario Electricity"
+          },
+          "reason": "Unsupported chart package dependency: xl/comments1.xml",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 1,
+            "kind": "embedded",
+            "name": "Chart 4",
+            "sheet": "GH - Scenario Electricity"
+          },
+          "reason": "Unsupported chart package dependency: xl/comments1.xml",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 2,
+            "kind": "embedded",
+            "name": "Chart 5",
+            "sheet": "GH - Scenario Electricity"
+          },
+          "reason": "Unsupported chart package dependency: xl/comments1.xml",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 3,
+            "kind": "embedded",
+            "name": "Chart 1",
+            "sheet": "GH - Scenario Electricity"
+          },
+          "reason": "Unsupported chart package dependency: xl/comments1.xml",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 0,
+            "kind": "embedded",
+            "name": "Chart 1",
+            "sheet": "Forestry Sensitivity - GH"
+          },
+          "reason": "Unsupported chart package dependency: xl/comments1.xml",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 0,
+            "kind": "embedded",
+            "name": "Chart 1",
+            "sheet": "GCCP_GH"
+          },
+          "reason": "Unsupported chart package dependency: xl/comments1.xml",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 0,
+            "kind": "embedded",
+            "name": "Chart 1",
+            "sheet": "CED_GH"
+          },
+          "reason": "Unsupported chart package dependency: xl/comments1.xml",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 0,
+            "kind": "embedded",
+            "name": "Chart 1",
+            "sheet": "FDP_GH"
+          },
+          "reason": "Unsupported chart package dependency: xl/comments1.xml",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 0,
+            "kind": "embedded",
+            "name": "Chart 1",
+            "sheet": "WDP_GH"
+          },
+          "reason": "Unsupported chart package dependency: xl/comments1.xml",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 0,
+            "kind": "embedded",
+            "name": "Chart 1",
+            "sheet": "PMFP_GH"
+          },
+          "reason": "Unsupported chart package dependency: xl/comments1.xml",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 0,
+            "kind": "embedded",
+            "name": "Chart 1",
+            "sheet": "POFP_GH"
+          },
+          "reason": "Unsupported chart package dependency: xl/comments1.xml",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 0,
+            "kind": "embedded",
+            "name": "Chart 1",
+            "sheet": "FEP_GH"
+          },
+          "reason": "Unsupported chart package dependency: xl/comments1.xml",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 0,
+            "kind": "embedded",
+            "name": "Chart 1",
+            "sheet": "TAP_GH"
+          },
+          "reason": "Unsupported chart package dependency: xl/comments1.xml",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 0,
+            "kind": "embedded",
+            "name": "Chart 1",
+            "sheet": "ODP_GH"
+          },
+          "reason": "Unsupported chart package dependency: xl/comments1.xml",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 0,
+            "kind": "embedded",
+            "name": "Chart 1",
+            "sheet": "BC_GH"
+          },
+          "reason": "Unsupported chart package dependency: xl/comments1.xml",
+          "references": 0,
+          "unchanged": false
+        }
+      ],
+      "left": "OR",
+      "mode": "deterministic",
+      "right": "SDR"
+    }
+  ],
+  "check_performance": "not_requested",
+  "check_performance_cache": null,
+  "check_performance_evidence": null,
+  "comparisons": [
+    {
+      "charts": [
+        {
+          "chart": "Chart 1",
+          "chart_index": 0,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 444,
+            "left": 54,
+            "top": 337.5,
+            "width": 1654.5
+          },
+          "left_image": "evidence/f516ef6132cdae60f71b4da44683d7b10fe1ec8a6aecbc9382961d8463a0d3f9.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 444,
+            "left": 54,
+            "top": 337.5,
+            "width": 1654.5
+          },
+          "right_image": "evidence/f516ef6132cdae60f71b4da44683d7b10fe1ec8a6aecbc9382961d8463a0d3f9.png",
+          "right_rendering": "captured",
+          "sheet": "BC_GH"
+        },
+        {
+          "chart": "Chart 1",
+          "chart_index": 0,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 444,
+            "left": 180.5,
+            "top": 342,
+            "width": 1660.74987792969
+          },
+          "left_image": "evidence/373f3636e8b506dc1f3f5f99805a84e8293084e609cd638f96d6b05993b6b74c.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 444,
+            "left": 180.5,
+            "top": 342,
+            "width": 1660.74987792969
+          },
+          "right_image": "evidence/373f3636e8b506dc1f3f5f99805a84e8293084e609cd638f96d6b05993b6b74c.png",
+          "right_rendering": "captured",
+          "sheet": "CED_GH"
+        },
+        {
+          "chart": "Chart 1",
+          "chart_index": 0,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 319.750152587891,
+            "left": 40.1408653259277,
+            "top": 645.225219726562,
+            "width": 796.911987304688
+          },
+          "left_image": "evidence/6a3841d54aa44a18911459f7102bbf66ca87f441a7add8f6886e813ee61ba6ab.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 319.750152587891,
+            "left": 40.1408653259277,
+            "top": 645.225219726562,
+            "width": 796.911987304688
+          },
+          "right_image": "evidence/6a3841d54aa44a18911459f7102bbf66ca87f441a7add8f6886e813ee61ba6ab.png",
+          "right_rendering": "captured",
+          "sheet": "Electricity Sensitivity"
+        },
+        {
+          "chart": "Chart 1",
+          "chart_index": 0,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 444.211273193359,
+            "left": 160.28874206543,
+            "top": 346.700714111328,
+            "width": 1552.89074707031
+          },
+          "left_image": "evidence/69be359b27e978843cddb42c290a60b68611df202668a5ffb50a7f033e3f5eaf.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 444.211273193359,
+            "left": 160.28874206543,
+            "top": 346.700714111328,
+            "width": 1552.89074707031
+          },
+          "right_image": "evidence/69be359b27e978843cddb42c290a60b68611df202668a5ffb50a7f033e3f5eaf.png",
+          "right_rendering": "captured",
+          "sheet": "FDP_GH"
+        },
+        {
+          "chart": "Chart 1",
+          "chart_index": 0,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 444,
+            "left": 167.5,
+            "top": 333.25,
+            "width": 1824.25012207031
+          },
+          "left_image": "evidence/8d2e4015f0843c414f8e45ec6016a65c16a38b2a6bf05b7c35d93e42050d857a.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 444,
+            "left": 167.5,
+            "top": 333.25,
+            "width": 1824.25012207031
+          },
+          "right_image": "evidence/8d2e4015f0843c414f8e45ec6016a65c16a38b2a6bf05b7c35d93e42050d857a.png",
+          "right_rendering": "captured",
+          "sheet": "FEP_GH"
+        },
+        {
+          "chart": "Chart 1",
+          "chart_index": 0,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 345.375030517578,
+            "left": 56.2499198913574,
+            "top": 348.374877929688,
+            "width": 1022.25
+          },
+          "left_image": "evidence/5035477413d29bc612bb3f8280353f362797745e7bae1c70f17afaa188d7a48b.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 345.375030517578,
+            "left": 56.2499198913574,
+            "top": 348.374877929688,
+            "width": 1022.25
+          },
+          "right_image": "evidence/5035477413d29bc612bb3f8280353f362797745e7bae1c70f17afaa188d7a48b.png",
+          "right_rendering": "captured",
+          "sheet": "Forestry Sensitivity - GH"
+        },
+        {
+          "chart": "Chart 1",
+          "chart_index": 0,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 522.749938964844,
+            "left": 138.75,
+            "top": 345.565277099609,
+            "width": 1723.076171875
+          },
+          "left_image": "evidence/e42ebcdc709e97c2c5521addb9b434ab00cc2a822fa7ad508dfdecc80401a1b6.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 522.749938964844,
+            "left": 138.75,
+            "top": 345.565277099609,
+            "width": 1723.076171875
+          },
+          "right_image": "evidence/e42ebcdc709e97c2c5521addb9b434ab00cc2a822fa7ad508dfdecc80401a1b6.png",
+          "right_rendering": "captured",
+          "sheet": "GCCP_GH"
+        },
+        {
+          "chart": "Chart 1",
+          "chart_index": 0,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 640,
+            "left": 2175.25,
+            "top": 33.25,
+            "width": 694.999938964844
+          },
+          "left_image": "evidence/bbd6b1f71bc08410d7a2a855c08a7057230fb7840127d589dcf8347399fc21ca.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 640,
+            "left": 2175.25,
+            "top": 33.25,
+            "width": 694.999938964844
+          },
+          "right_image": "evidence/bbd6b1f71bc08410d7a2a855c08a7057230fb7840127d589dcf8347399fc21ca.png",
+          "right_rendering": "captured",
+          "sheet": "GH - Cooking Scenarios"
+        },
+        {
+          "chart": "Chart 3",
+          "chart_index": 1,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 602.874938964844,
+            "left": 2167.125,
+            "top": 695.874938964844,
+            "width": 694.374938964844
+          },
+          "left_image": "evidence/c9613b409a1a85edc5676a92d456d9d482ce794a4e56c6c6d3b9097bfd51e2bb.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 602.874938964844,
+            "left": 2167.125,
+            "top": 695.874938964844,
+            "width": 694.374938964844
+          },
+          "right_image": "evidence/c9613b409a1a85edc5676a92d456d9d482ce794a4e56c6c6d3b9097bfd51e2bb.png",
+          "right_rendering": "captured",
+          "sheet": "GH - Cooking Scenarios"
+        },
+        {
+          "chart": "Chart 4",
+          "chart_index": 2,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 632.5,
+            "left": 2976.4287109375,
+            "top": 33.6071662902832,
+            "width": 632.749816894531
+          },
+          "left_image": "evidence/2340251cef26115d5f0405701cecadb8bef5a822f7b4f1582c006abddced2e56.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 632.5,
+            "left": 2976.4287109375,
+            "top": 33.6071662902832,
+            "width": 632.749816894531
+          },
+          "right_image": "evidence/2340251cef26115d5f0405701cecadb8bef5a822f7b4f1582c006abddced2e56.png",
+          "right_rendering": "captured",
+          "sheet": "GH - Cooking Scenarios"
+        },
+        {
+          "chart": "Chart 5",
+          "chart_index": 3,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 622.562622070312,
+            "left": 2890.875,
+            "top": 693.687377929688,
+            "width": 668.874938964844
+          },
+          "left_image": "evidence/2f3e4e4831fd127a18f4a2813fc85a6a5e7182e062d5312484e008dc0f3b77f4.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 622.562622070312,
+            "left": 2890.875,
+            "top": 693.687377929688,
+            "width": 668.874938964844
+          },
+          "right_image": "evidence/2f3e4e4831fd127a18f4a2813fc85a6a5e7182e062d5312484e008dc0f3b77f4.png",
+          "right_rendering": "captured",
+          "sheet": "GH - Cooking Scenarios"
+        },
+        {
+          "chart": "Chart 1",
+          "chart_index": 3,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 481.625030517578,
+            "left": 1610.25012207031,
+            "top": 583.624877929688,
+            "width": 659.25
+          },
+          "left_image": "evidence/41a120d2bc4ad81fcfafc28bd5f84c5a670a430d59a82b0078af8cd77bd32caf.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 481.625030517578,
+            "left": 1610.25012207031,
+            "top": 583.624877929688,
+            "width": 659.25
+          },
+          "right_image": "evidence/41a120d2bc4ad81fcfafc28bd5f84c5a670a430d59a82b0078af8cd77bd32caf.png",
+          "right_rendering": "captured",
+          "sheet": "GH - Scenario Electricity"
+        },
+        {
+          "chart": "Chart 2",
+          "chart_index": 0,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 545.75,
+            "left": 1599.53576660156,
+            "top": 15.75,
+            "width": 674.964233398438
+          },
+          "left_image": "evidence/8dd714eddad1b0b3a35a3d80a7022cf9a44279bec286d783568027a0b02fcf48.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 545.75,
+            "left": 1599.53576660156,
+            "top": 15.75,
+            "width": 674.964233398438
+          },
+          "right_image": "evidence/8dd714eddad1b0b3a35a3d80a7022cf9a44279bec286d783568027a0b02fcf48.png",
+          "right_rendering": "captured",
+          "sheet": "GH - Scenario Electricity"
+        },
+        {
+          "chart": "Chart 4",
+          "chart_index": 1,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 577.0625,
+            "left": 1611.18737792969,
+            "top": 1063.6875,
+            "width": 660.8125
+          },
+          "left_image": "evidence/797bc2d4b6c4353bd069361126a37f8edbe94ef4993ad541ddcc8146fa3eddd4.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 577.0625,
+            "left": 1611.18737792969,
+            "top": 1063.6875,
+            "width": 660.8125
+          },
+          "right_image": "evidence/797bc2d4b6c4353bd069361126a37f8edbe94ef4993ad541ddcc8146fa3eddd4.png",
+          "right_rendering": "captured",
+          "sheet": "GH - Scenario Electricity"
+        },
+        {
+          "chart": "Chart 5",
+          "chart_index": 2,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 567.5,
+            "left": 1605.25012207031,
+            "top": 1648.25012207031,
+            "width": 664.25
+          },
+          "left_image": "evidence/254647f2b2df8592dca9eedf1f6959c43a7a06d9f8ab78b698c5b5c03b611256.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 567.5,
+            "left": 1605.25012207031,
+            "top": 1648.25012207031,
+            "width": 664.25
+          },
+          "right_image": "evidence/254647f2b2df8592dca9eedf1f6959c43a7a06d9f8ab78b698c5b5c03b611256.png",
+          "right_rendering": "captured",
+          "sheet": "GH - Scenario Electricity"
+        },
+        {
+          "chart": "Chart 1",
+          "chart_index": 0,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 624.214172363281,
+            "left": 61.9506301879883,
+            "top": 599.68603515625,
+            "width": 3626.85693359375
+          },
+          "left_image": "evidence/0cd4ed07bc1a1ef5d82bc709772f25046c8144378b14ebfdfdab0b999e622367.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 624.214172363281,
+            "left": 61.9506301879883,
+            "top": 599.68603515625,
+            "width": 3626.85693359375
+          },
+          "right_image": "evidence/0cd4ed07bc1a1ef5d82bc709772f25046c8144378b14ebfdfdab0b999e622367.png",
+          "right_rendering": "captured",
+          "sheet": "GH Scenario Summary Results"
+        },
+        {
+          "chart": "Chart 1",
+          "chart_index": 0,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 272.25,
+            "left": 759,
+            "top": 181.5,
+            "width": 561.75
+          },
+          "left_image": "evidence/ada484153297321603533edf6f9ce5fda099b7fcfaea4c29e957082af81fcbfa.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 272.25,
+            "left": 759,
+            "top": 181.5,
+            "width": 561.75
+          },
+          "right_image": "evidence/ada484153297321603533edf6f9ce5fda099b7fcfaea4c29e957082af81fcbfa.png",
+          "right_rendering": "captured",
+          "sheet": "GH Single Fuel Charts"
+        },
+        {
+          "chart": "Chart 10",
+          "chart_index": 9,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 273.749908447266,
+            "left": 762.749938964844,
+            "top": 2875.50024414062,
+            "width": 558.750061035156
+          },
+          "left_image": "evidence/62721036dfb3831274d6f98c8249d7a75cfe132ae6bd308d52fcc7ee7142ce73.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 273.749908447266,
+            "left": 762.749938964844,
+            "top": 2875.50024414062,
+            "width": 558.750061035156
+          },
+          "right_image": "evidence/62721036dfb3831274d6f98c8249d7a75cfe132ae6bd308d52fcc7ee7142ce73.png",
+          "right_rendering": "captured",
+          "sheet": "GH Single Fuel Charts"
+        },
+        {
+          "chart": "Chart 2",
+          "chart_index": 1,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 280.5,
+            "left": 759,
+            "top": 479.25,
+            "width": 559.5
+          },
+          "left_image": "evidence/8ef32cc9eec2217a3c58ad8f456f36fca84567522d3e2dc8bfc64a8ea798265a.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 280.5,
+            "left": 759,
+            "top": 479.25,
+            "width": 559.5
+          },
+          "right_image": "evidence/8ef32cc9eec2217a3c58ad8f456f36fca84567522d3e2dc8bfc64a8ea798265a.png",
+          "right_rendering": "captured",
+          "sheet": "GH Single Fuel Charts"
+        },
+        {
+          "chart": "Chart 3",
+          "chart_index": 2,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 273.75,
+            "left": 762,
+            "top": 786.75,
+            "width": 558
+          },
+          "left_image": "evidence/32e7c0cd8056accc1da937d6cdde19c93243557641a91983a55d997918a99181.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 273.75,
+            "left": 762,
+            "top": 786.75,
+            "width": 558
+          },
+          "right_image": "evidence/32e7c0cd8056accc1da937d6cdde19c93243557641a91983a55d997918a99181.png",
+          "right_rendering": "captured",
+          "sheet": "GH Single Fuel Charts"
+        },
+        {
+          "chart": "Chart 4",
+          "chart_index": 3,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 270,
+            "left": 762.75,
+            "top": 1087.5,
+            "width": 555.75
+          },
+          "left_image": "evidence/3ab05bf5364b3973e9e36852273e9c26026941ecfc632d3bc9b6465e4ada3355.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 270,
+            "left": 762.75,
+            "top": 1087.5,
+            "width": 555.75
+          },
+          "right_image": "evidence/3ab05bf5364b3973e9e36852273e9c26026941ecfc632d3bc9b6465e4ada3355.png",
+          "right_rendering": "captured",
+          "sheet": "GH Single Fuel Charts"
+        },
+        {
+          "chart": "Chart 5",
+          "chart_index": 4,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 275.25,
+            "left": 765.75,
+            "top": 1383.74987792969,
+            "width": 553.5
+          },
+          "left_image": "evidence/be1f1903ecb6f0085c612e270e3f995c6847c0956f3e2dadac7e2916c152f23e.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 275.25,
+            "left": 765.75,
+            "top": 1383.74987792969,
+            "width": 553.5
+          },
+          "right_image": "evidence/be1f1903ecb6f0085c612e270e3f995c6847c0956f3e2dadac7e2916c152f23e.png",
+          "right_rendering": "captured",
+          "sheet": "GH Single Fuel Charts"
+        },
+        {
+          "chart": "Chart 6",
+          "chart_index": 5,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 268.5,
+            "left": 765,
+            "top": 1685.25012207031,
+            "width": 558
+          },
+          "left_image": "evidence/0efd93480c02b5581dce41c50c3849886525240cb445fe51a786db699077e895.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 268.5,
+            "left": 765,
+            "top": 1685.25012207031,
+            "width": 558
+          },
+          "right_image": "evidence/0efd93480c02b5581dce41c50c3849886525240cb445fe51a786db699077e895.png",
+          "right_rendering": "captured",
+          "sheet": "GH Single Fuel Charts"
+        },
+        {
+          "chart": "Chart 7",
+          "chart_index": 6,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 274.5,
+            "left": 765,
+            "top": 1979.25012207031,
+            "width": 555
+          },
+          "left_image": "evidence/20ce8088f928470d130457e6333a920bd7f22ec931822b2f7e9e49a30e3af837.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 274.5,
+            "left": 765,
+            "top": 1979.25012207031,
+            "width": 555
+          },
+          "right_image": "evidence/20ce8088f928470d130457e6333a920bd7f22ec931822b2f7e9e49a30e3af837.png",
+          "right_rendering": "captured",
+          "sheet": "GH Single Fuel Charts"
+        },
+        {
+          "chart": "Chart 8",
+          "chart_index": 7,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 273.75,
+            "left": 764.25,
+            "top": 2277.75,
+            "width": 557.25
+          },
+          "left_image": "evidence/aef261e7ba195d6b5342cab5f424a701462ba8c64b0b0d88077fcbd83677d4cd.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 273.75,
+            "left": 764.25,
+            "top": 2277.75,
+            "width": 557.25
+          },
+          "right_image": "evidence/aef261e7ba195d6b5342cab5f424a701462ba8c64b0b0d88077fcbd83677d4cd.png",
+          "right_rendering": "captured",
+          "sheet": "GH Single Fuel Charts"
+        },
+        {
+          "chart": "Chart 9",
+          "chart_index": 8,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 276.75,
+            "left": 764.25,
+            "top": 2577,
+            "width": 556.5
+          },
+          "left_image": "evidence/3ed51819b55655ec4ededee5689ca0c49f4d0b71be79f72ef90b640b3063c468.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 276.75,
+            "left": 764.25,
+            "top": 2577,
+            "width": 556.5
+          },
+          "right_image": "evidence/3ed51819b55655ec4ededee5689ca0c49f4d0b71be79f72ef90b640b3063c468.png",
+          "right_rendering": "captured",
+          "sheet": "GH Single Fuel Charts"
+        },
+        {
+          "chart": "Chart 1",
+          "chart_index": 0,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 1343.1083984375,
+            "left": 821.524230957031,
+            "top": 186.329208374023,
+            "width": 611.913208007812
+          },
+          "left_image": "evidence/2584c8bbd6ee90784a10550f943d45c58a909cade311f737f6654e59af41c191.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 1343.1083984375,
+            "left": 821.524230957031,
+            "top": 186.329208374023,
+            "width": 611.913208007812
+          },
+          "right_image": "evidence/2584c8bbd6ee90784a10550f943d45c58a909cade311f737f6654e59af41c191.png",
+          "right_rendering": "captured",
+          "sheet": "GH Single Fuel Summary Chart"
+        },
+        {
+          "chart": "Chart 1",
+          "chart_index": 0,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 341.850006103516,
+            "left": 1081.30700683594,
+            "top": 450.685668945312,
+            "width": 583.800048828125
+          },
+          "left_image": "evidence/7e96e16513686d17f9c2c37a1cc2d26fccccaeea9de6214259e3ab0a033be8d9.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 341.850006103516,
+            "left": 1081.30700683594,
+            "top": 450.685668945312,
+            "width": 583.800048828125
+          },
+          "right_image": "evidence/7e96e16513686d17f9c2c37a1cc2d26fccccaeea9de6214259e3ab0a033be8d9.png",
+          "right_rendering": "captured",
+          "sheet": "GH Single Scenario Charts"
+        },
+        {
+          "chart": "Chart 10",
+          "chart_index": 9,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 332.785827636719,
+            "left": 1068.23559570312,
+            "top": 110.25,
+            "width": 574.050048828125
+          },
+          "left_image": "evidence/1a73d722a68953a5be3d13fe68290179522aca1f075872227b83e424fe98b99e.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 332.785827636719,
+            "left": 1068.23559570312,
+            "top": 110.25,
+            "width": 574.050048828125
+          },
+          "right_image": "evidence/1a73d722a68953a5be3d13fe68290179522aca1f075872227b83e424fe98b99e.png",
+          "right_rendering": "captured",
+          "sheet": "GH Single Scenario Charts"
+        },
+        {
+          "chart": "Chart 2",
+          "chart_index": 1,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 326.250091552734,
+            "left": 1108.17846679688,
+            "top": 1149.74987792969,
+            "width": 576.321472167969
+          },
+          "left_image": "evidence/7b9ec4f6fd916f032276400a169d42e1266e82747472635e529ea69e91157860.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 326.250091552734,
+            "left": 1108.17846679688,
+            "top": 1149.74987792969,
+            "width": 576.321472167969
+          },
+          "right_image": "evidence/7b9ec4f6fd916f032276400a169d42e1266e82747472635e529ea69e91157860.png",
+          "right_rendering": "captured",
+          "sheet": "GH Single Scenario Charts"
+        },
+        {
+          "chart": "Chart 3",
+          "chart_index": 2,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 331.5,
+            "left": 1095.21423339844,
+            "top": 801,
+            "width": 581.035827636719
+          },
+          "left_image": "evidence/b14f82f3d01167a12085c456f3c7863444f30cb3e7ec06640ebb5048f501d54b.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 331.5,
+            "left": 1095.21423339844,
+            "top": 801,
+            "width": 581.035827636719
+          },
+          "right_image": "evidence/b14f82f3d01167a12085c456f3c7863444f30cb3e7ec06640ebb5048f501d54b.png",
+          "right_rendering": "captured",
+          "sheet": "GH Single Scenario Charts"
+        },
+        {
+          "chart": "Chart 4",
+          "chart_index": 3,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 340.5,
+            "left": 1107.75,
+            "top": 1490.25012207031,
+            "width": 578.25
+          },
+          "left_image": "evidence/3487d66f6fc84df204e6746d8d76321116e64dfe0a92a65260fded7c3ef241d6.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 340.5,
+            "left": 1107.75,
+            "top": 1490.25012207031,
+            "width": 578.25
+          },
+          "right_image": "evidence/3487d66f6fc84df204e6746d8d76321116e64dfe0a92a65260fded7c3ef241d6.png",
+          "right_rendering": "captured",
+          "sheet": "GH Single Scenario Charts"
+        },
+        {
+          "chart": "Chart 5",
+          "chart_index": 4,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 326.25,
+            "left": 1119.74987792969,
+            "top": 1852.5,
+            "width": 580.500183105469
+          },
+          "left_image": "evidence/a03d375786649155e06480df9da8f6d7ea448741a93f540e1fb4b8eb56bf59b5.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 326.25,
+            "left": 1119.74987792969,
+            "top": 1852.5,
+            "width": 580.500183105469
+          },
+          "right_image": "evidence/a03d375786649155e06480df9da8f6d7ea448741a93f540e1fb4b8eb56bf59b5.png",
+          "right_rendering": "captured",
+          "sheet": "GH Single Scenario Charts"
+        },
+        {
+          "chart": "Chart 6",
+          "chart_index": 5,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 331.5,
+            "left": 1124.25,
+            "top": 2189.25,
+            "width": 576
+          },
+          "left_image": "evidence/f8142189a6d2960fcb7eb8be7dff99994f78ba08065e1000a624aac3de34d333.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 331.5,
+            "left": 1124.25,
+            "top": 2189.25,
+            "width": 576
+          },
+          "right_image": "evidence/f8142189a6d2960fcb7eb8be7dff99994f78ba08065e1000a624aac3de34d333.png",
+          "right_rendering": "captured",
+          "sheet": "GH Single Scenario Charts"
+        },
+        {
+          "chart": "Chart 7",
+          "chart_index": 6,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 335.25,
+            "left": 1122.42846679688,
+            "top": 2533.5,
+            "width": 592.071594238281
+          },
+          "left_image": "evidence/727a0fc3cbbab71e859b08a0bfee1355103c6ac02403f85639adf32a795d00d6.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 335.25,
+            "left": 1122.42846679688,
+            "top": 2533.5,
+            "width": 592.071594238281
+          },
+          "right_image": "evidence/727a0fc3cbbab71e859b08a0bfee1355103c6ac02403f85639adf32a795d00d6.png",
+          "right_rendering": "captured",
+          "sheet": "GH Single Scenario Charts"
+        },
+        {
+          "chart": "Chart 8",
+          "chart_index": 7,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 331.5,
+            "left": 1121.14270019531,
+            "top": 2881.49975585938,
+            "width": 591.857238769531
+          },
+          "left_image": "evidence/e315a434aa070f28384db2b56ca727c7f2eac56668f17d8e51f7db563292a995.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 331.5,
+            "left": 1121.14270019531,
+            "top": 2881.49975585938,
+            "width": 591.857238769531
+          },
+          "right_image": "evidence/e315a434aa070f28384db2b56ca727c7f2eac56668f17d8e51f7db563292a995.png",
+          "right_rendering": "captured",
+          "sheet": "GH Single Scenario Charts"
+        },
+        {
+          "chart": "Chart 9",
+          "chart_index": 8,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 310.607177734375,
+            "left": 1124.35717773438,
+            "top": 3219.53564453125,
+            "width": 609.535766601562
+          },
+          "left_image": "evidence/1fce595060e18f73ac2e4fd93915a147cdb89115651bcb67e198a648c047e73e.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 310.607177734375,
+            "left": 1124.35717773438,
+            "top": 3219.53564453125,
+            "width": 609.535766601562
+          },
+          "right_image": "evidence/1fce595060e18f73ac2e4fd93915a147cdb89115651bcb67e198a648c047e73e.png",
+          "right_rendering": "captured",
+          "sheet": "GH Single Scenario Charts"
+        },
+        {
+          "chart": "Chart 11",
+          "chart_index": 0,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 614.804931640625,
+            "left": 176.660949707031,
+            "top": 376.222351074219,
+            "width": 1072.70556640625
+          },
+          "left_image": "evidence/60a3f2aec128a3da6007b270aaa94ddd08c9d58d61610a619dda1a513645024f.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 614.804931640625,
+            "left": 176.660949707031,
+            "top": 376.222351074219,
+            "width": 1072.70556640625
+          },
+          "right_image": "evidence/60a3f2aec128a3da6007b270aaa94ddd08c9d58d61610a619dda1a513645024f.png",
+          "right_rendering": "captured",
+          "sheet": "GH Single Scenario Charts_Norm"
+        },
+        {
+          "chart": "Chart 1",
+          "chart_index": 0,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 443.615447998047,
+            "left": 184.961578369141,
+            "top": 330.942291259766,
+            "width": 1822.55773925781
+          },
+          "left_image": "evidence/c5dab8d5e99a30737a74b891ad7762c2b8e07dc43afa65c1b14d86298c3e51bd.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 443.615447998047,
+            "left": 184.961578369141,
+            "top": 330.942291259766,
+            "width": 1822.55773925781
+          },
+          "right_image": "evidence/c5dab8d5e99a30737a74b891ad7762c2b8e07dc43afa65c1b14d86298c3e51bd.png",
+          "right_rendering": "captured",
+          "sheet": "ODP_GH"
+        },
+        {
+          "chart": "Chart 1",
+          "chart_index": 0,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 443.589141845703,
+            "left": 189.30827331543,
+            "top": 336.606140136719,
+            "width": 1920.8525390625
+          },
+          "left_image": "evidence/0b81a4440d16be874a46fb1c0b903f58952e5d0f750048620db247a961bc7a1b.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 443.589141845703,
+            "left": 189.30827331543,
+            "top": 336.606140136719,
+            "width": 1920.8525390625
+          },
+          "right_image": "evidence/0b81a4440d16be874a46fb1c0b903f58952e5d0f750048620db247a961bc7a1b.png",
+          "right_rendering": "captured",
+          "sheet": "PMFP_GH"
+        },
+        {
+          "chart": "Chart 1",
+          "chart_index": 0,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 444.211273193359,
+            "left": 182.471893310547,
+            "top": 332.757080078125,
+            "width": 1876.23596191406
+          },
+          "left_image": "evidence/9d6cad0fad8ebf78fae4833f39524cda5a87cf153ac322b0e851c61d2661ef3e.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 444.211273193359,
+            "left": 182.471893310547,
+            "top": 332.757080078125,
+            "width": 1876.23596191406
+          },
+          "right_image": "evidence/9d6cad0fad8ebf78fae4833f39524cda5a87cf153ac322b0e851c61d2661ef3e.png",
+          "right_rendering": "captured",
+          "sheet": "POFP_GH"
+        },
+        {
+          "chart": "Chart 1",
+          "chart_index": 0,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 902.375122070312,
+            "left": 91.5,
+            "top": 733.803405761719,
+            "width": 3564.98193359375
+          },
+          "left_image": "evidence/4e501cb2abf0274236a9ee3d403515413d305a0fe2a2a9faa519302f9843b7c2.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 902.375122070312,
+            "left": 91.5,
+            "top": 733.803405761719,
+            "width": 3564.98193359375
+          },
+          "right_image": "evidence/4e501cb2abf0274236a9ee3d403515413d305a0fe2a2a9faa519302f9843b7c2.png",
+          "right_rendering": "captured",
+          "sheet": "Stove Efficiency Sensitivity"
+        },
+        {
+          "chart": "Chart 1",
+          "chart_index": 9,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 708.750061035156,
+            "left": 99,
+            "top": 3396.75,
+            "width": 2737.49975585938
+          },
+          "left_image": "evidence/d809965a735d85991543d50f8eedcac0cca9321f2a82019cbac66865d8e18479.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 708.750061035156,
+            "left": 99,
+            "top": 3396.75,
+            "width": 2737.49975585938
+          },
+          "right_image": "evidence/d809965a735d85991543d50f8eedcac0cca9321f2a82019cbac66865d8e18479.png",
+          "right_rendering": "captured",
+          "sheet": "Stove Uncertainty_GH"
+        },
+        {
+          "chart": "Chart 10",
+          "chart_index": 1,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 684.468811035156,
+            "left": 30,
+            "top": 1612.03112792969,
+            "width": 2796
+          },
+          "left_image": "evidence/d6259470525b814a88ddf7a8c492713a0f569dc6a774cfc394015116b9edf12d.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 684.468811035156,
+            "left": 30,
+            "top": 1612.03112792969,
+            "width": 2796
+          },
+          "right_image": "evidence/d6259470525b814a88ddf7a8c492713a0f569dc6a774cfc394015116b9edf12d.png",
+          "right_rendering": "captured",
+          "sheet": "Stove Uncertainty_GH"
+        },
+        {
+          "chart": "Chart 13",
+          "chart_index": 2,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 684.468811035156,
+            "left": 48,
+            "top": 2527.03125,
+            "width": 2796
+          },
+          "left_image": "evidence/14337fb1ec02bed1a9f203527260c4be4a9578831f40013c71805cb65896141f.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 684.468811035156,
+            "left": 48,
+            "top": 2527.03125,
+            "width": 2796
+          },
+          "right_image": "evidence/14337fb1ec02bed1a9f203527260c4be4a9578831f40013c71805cb65896141f.png",
+          "right_rendering": "captured",
+          "sheet": "Stove Uncertainty_GH"
+        },
+        {
+          "chart": "Chart 15",
+          "chart_index": 3,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 684.468811035156,
+            "left": 48,
+            "top": 4297.03125,
+            "width": 2796
+          },
+          "left_image": "evidence/c8b9ae618324365c93811ea9ee9f479c162e32989bd0413130949030a8798d6d.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 684.468811035156,
+            "left": 48,
+            "top": 4297.03125,
+            "width": 2796
+          },
+          "right_image": "evidence/c8b9ae618324365c93811ea9ee9f479c162e32989bd0413130949030a8798d6d.png",
+          "right_rendering": "captured",
+          "sheet": "Stove Uncertainty_GH"
+        },
+        {
+          "chart": "Chart 16",
+          "chart_index": 4,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 684.468811035156,
+            "left": 48,
+            "top": 5182.03125,
+            "width": 2796
+          },
+          "left_image": "evidence/8365410e50913be9165bd41c4157c785b5c294dac9e218a4b99e4de848e4be0a.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 684.468811035156,
+            "left": 48,
+            "top": 5182.03125,
+            "width": 2796
+          },
+          "right_image": "evidence/8365410e50913be9165bd41c4157c785b5c294dac9e218a4b99e4de848e4be0a.png",
+          "right_rendering": "captured",
+          "sheet": "Stove Uncertainty_GH"
+        },
+        {
+          "chart": "Chart 17",
+          "chart_index": 5,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 684.468811035156,
+            "left": 48,
+            "top": 6082.03076171875,
+            "width": 2796
+          },
+          "left_image": "evidence/3222f1029ac50beb2b13efc5324a0baf67b91cd4e295416a3e6dd410851b4db5.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 684.468811035156,
+            "left": 48,
+            "top": 6082.03076171875,
+            "width": 2796
+          },
+          "right_image": "evidence/3222f1029ac50beb2b13efc5324a0baf67b91cd4e295416a3e6dd410851b4db5.png",
+          "right_rendering": "captured",
+          "sheet": "Stove Uncertainty_GH"
+        },
+        {
+          "chart": "Chart 18",
+          "chart_index": 6,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 684.468811035156,
+            "left": 48,
+            "top": 6967.03125,
+            "width": 2796
+          },
+          "left_image": "evidence/5dd2cc0c6f719de4349b40275af191cd102b23fe8d29a2a6a4bf0d02a4e09462.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 684.468811035156,
+            "left": 48,
+            "top": 6967.03125,
+            "width": 2796
+          },
+          "right_image": "evidence/5dd2cc0c6f719de4349b40275af191cd102b23fe8d29a2a6a4bf0d02a4e09462.png",
+          "right_rendering": "captured",
+          "sheet": "Stove Uncertainty_GH"
+        },
+        {
+          "chart": "Chart 19",
+          "chart_index": 7,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 684.468811035156,
+            "left": 48,
+            "top": 7852.03173828125,
+            "width": 2796
+          },
+          "left_image": "evidence/b8826b1f1d27de6eb47851f5203ee33f0750226dc2ab88bb6c82d060edfcc5a4.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 684.468811035156,
+            "left": 48,
+            "top": 7852.03173828125,
+            "width": 2796
+          },
+          "right_image": "evidence/b8826b1f1d27de6eb47851f5203ee33f0750226dc2ab88bb6c82d060edfcc5a4.png",
+          "right_rendering": "captured",
+          "sheet": "Stove Uncertainty_GH"
+        },
+        {
+          "chart": "Chart 20",
+          "chart_index": 8,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 684.468811035156,
+            "left": 48,
+            "top": 8737.03125,
+            "width": 2796
+          },
+          "left_image": "evidence/9287cddb5be61ff2bc52e04062c865f815f1c73a5552d37e3a68cb50e42b4cea.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 684.468811035156,
+            "left": 48,
+            "top": 8737.03125,
+            "width": 2796
+          },
+          "right_image": "evidence/9287cddb5be61ff2bc52e04062c865f815f1c73a5552d37e3a68cb50e42b4cea.png",
+          "right_rendering": "captured",
+          "sheet": "Stove Uncertainty_GH"
+        },
+        {
+          "chart": "Chart 7",
+          "chart_index": 0,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 644.718811035156,
+            "left": 48,
+            "top": 757.031188964844,
+            "width": 2774.25
+          },
+          "left_image": "evidence/8e1c954b522b0cda356cc04ab2e56d0c08aa1dad232841672d267bfbf9b42f99.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 644.718811035156,
+            "left": 48,
+            "top": 757.031188964844,
+            "width": 2774.25
+          },
+          "right_image": "evidence/8e1c954b522b0cda356cc04ab2e56d0c08aa1dad232841672d267bfbf9b42f99.png",
+          "right_rendering": "captured",
+          "sheet": "Stove Uncertainty_GH"
+        },
+        {
+          "chart": "Chart 1",
+          "chart_index": 0,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 443.615447998047,
+            "left": 184.961578369141,
+            "top": 332.865447998047,
+            "width": 1533.0576171875
+          },
+          "left_image": "evidence/a665df65f80c693a6d2eae171c43a2a54ad75f190726839d05d6f09c652cb583.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 443.615447998047,
+            "left": 184.961578369141,
+            "top": 332.865447998047,
+            "width": 1533.0576171875
+          },
+          "right_image": "evidence/a665df65f80c693a6d2eae171c43a2a54ad75f190726839d05d6f09c652cb583.png",
+          "right_rendering": "captured",
+          "sheet": "TAP_GH"
+        },
+        {
+          "chart": "Chart 1",
+          "chart_index": 0,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 443.782684326172,
+            "left": 179.195663452148,
+            "top": 337.380401611328,
+            "width": 1537.14135742188
+          },
+          "left_image": "evidence/fd9e82ed8fb0b6dfdd7d085f495a4df0734ceb814a443c7f887659702b6ba4ad.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 443.782684326172,
+            "left": 179.195663452148,
+            "top": 337.380401611328,
+            "width": 1537.14135742188
+          },
+          "right_image": "evidence/fd9e82ed8fb0b6dfdd7d085f495a4df0734ceb814a443c7f887659702b6ba4ad.png",
+          "right_rendering": "captured",
+          "sheet": "WDP_GH"
+        }
+      ],
+      "findings": [
+        {
+          "blank_margin_ignored": false,
+          "capture_extent_ignored": false,
+          "cell": "A129:BL256",
+          "geometry_differs": false,
+          "left_geometry": {
+            "comparison_core": {
+              "height": 1293.0,
+              "left": 0.0,
+              "top": 138.0,
+              "width": 4936.5
+            },
+            "height": 1293.0,
+            "left": 0.0,
+            "top": 138.0,
+            "width": 4936.5
+          },
+          "left_png": "evidence/7a12aed70b7dcb83e2305cf3d4ed282ff5dbd5021e9c4c955d6674334bf79be3.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "comparison_core": {
+              "height": 1293.0,
+              "left": 0.0,
+              "top": 138.0,
+              "width": 4936.5
+            },
+            "height": 1293.0,
+            "left": 0.0,
+            "top": 138.0,
+            "width": 4936.5
+          },
+          "right_png": "evidence/7a12aed70b7dcb83e2305cf3d4ed282ff5dbd5021e9c4c955d6674334bf79be3.png",
+          "right_rendering": "captured",
+          "sheet": "GH Single Scenario Charts_Norm"
+        }
+      ],
+      "label": "both rebuilt Default",
+      "left": "OR",
+      "right": "SDR",
+      "selected_region_count": 1
+    }
+  ],
+  "conditional_formatting": [
+    {
+      "decisions": [
+        {
+          "block_index": 0,
+          "catalogue_side": "both",
+          "changed_inputs": 0,
+          "comparison_extent": {
+            "bottom": 1048576,
+            "left": 1,
+            "right": 64,
+            "top": 1
+          },
+          "formula_input_observations": 120,
+          "layout_rows": 0,
+          "outcome": "partial",
+          "reason": "Literal cellIs: unchanged XML inputs and visual context; formula inputs remain captures.",
+          "referenced_formula_observations": 0,
+          "referenced_input_changes": 0,
+          "sheet": "GH Single Scenario Charts_Norm",
+          "sqref": "D175:BK175"
+        }
+      ],
+      "left": "OR",
+      "right": "SDR"
+    }
+  ],
+  "content_coverage": [
+    {
+      "background_tail_sampling": true,
+      "cf_blank_tail_excluded": false,
+      "clipped_to_content": 0,
+      "content_envelope_with_one_cell_margin": {
+        "bottom": 1048576,
+        "left": 1,
+        "right": 65,
+        "top": 1
+      },
+      "reason": "outside-content-envelope",
+      "requested_candidates": 60,
+      "selected_capture_regions": 1,
+      "selected_grid_tiles": 4,
+      "sheet": "GH Single Scenario Charts_Norm",
+      "skipped_outside_content": 0
+    }
+  ],
+  "control_artifacts_cache": null,
+  "equal_image_encoding": {
+    "compression": "best",
+    "filter": "adaptive",
+    "format": "PNG",
+    "pixel_preservation": "decoded RGBA equality checked before accepting a smaller encoding",
+    "scope": "verified equal images only; shared differing or unverified references preserve original bytes"
+  },
+  "excel_pids": null,
+  "execution_strategy": "paired-inplace-rebuild-v1",
+  "findings": [],
+  "formula_diagnostics": {
+    "note": "Optional dependency explanations; no visual verdict or coverage was changed.",
+    "omitted_regions": 0,
+    "regions": [],
+    "version": 1
+  },
+  "height_checks": [],
+  "image_comparison_statistics": {
+    "comparisons": 55,
+    "decoded_images": 55,
+    "encoded_bytes_read": 6595394,
+    "encoded_images_reused": 55,
+    "files_read": 110
+  },
+  "input_identity": {
+    "status": "different"
+  },
+  "limitations": [
+    "Gridlines are disabled consistently. Policy v10 compares only common pixels when measured capture/content origins match and content cores are contained. capture_extent_ignored records omitted right/bottom extent and retains both raw images and geometries. Changed overlapping pixels remain differences. Shifted origins, missing measurements and charts retain conservative verdicts. blank_margin_ignored records the stronger exact white-margin proof.",
+    "Row-height checks cover rows above and within the unpadded union of content envelopes, including potentially visible fill/border/conditional-formatting extents. Policy v12 excludes context rows below the union content boundary from both height dependencies and cell capture rectangles; upper and side context remain. Charts retain independent full-chart observations.",
+    "Strategy paired-inplace-rebuild-v1 compares rebuilt Original against rebuilt Default and optional rebuilt Check Performance. Each reuses its existing Excel process. Pre-rebuild captures are omitted for throughput; XML save/optimization/rebuild controls are retained. Volatility and exclusive causal attribution require follow-up.",
+    "Cell capture regions are intersected with the union of content-bearing cells and potentially visible fill/border/conditional-formatting extents in the compared rebuilt states, plus one row above and one column on either side. Opening/save XML controls retain separate provenance. Exterior regions outside that envelope are intentionally skipped, not visually confirmed identical; content_coverage records selection counts and bounds. Chart exports are independent of this policy.",
+    "Capture partition visible-geometry-v2 merges adjacent internal grid tiles without changing their union. It measures every live state and splits only for image budgets (30,000 pixels per edge, 32 million pixels total), estimating conservatively at two pixels per point plus a rounding margin. Actual exports are checked too. Zero-area ranges retain geometry and explicit non-rendering observations without images or pixel equality claims. Later states can repartition and backfill earlier retained workbooks.",
+    "CF decisions concern rule contributions within the recorded union of comparison extents. Literal cellIs exclusions require identical cell-XML fingerprints and visual context. Formula inputs remain captures; unknown or changed rules retain region captures. This is not a proof of whole-workbook visual equality.",
+    "Chart mode deterministic excludes only embedded charts with complete unchanged package, XML/cache, source-cell/style/layout/CF and live-geometry dependencies. Exclusions are not pixel comparisons. Unknown references, external or unsupported parts, ambiguous names and chart sheets retain full-chart exports. Mode conservative exports every chart. Other drawings and all worksheet geometry effects are not exhaustively discovered.",
+    "Charts with measured zero width or height retain geometry and an explicit zero-area-chart observation without a pixel verdict. A transition between visible and zero-area states is a rendering/geometry difference.",
+    "Disposable targeted copies are staged with calcMode=manual, fullCalcOnLoad=0, forceFullCalc=0 and calcOnSave=0 before Excel opens them. Cached formula values are retained until each resident workbook is explicitly rebuilt. Excel may still autonomously refresh content; observed save/rebuild transitions remain audited. Original inputs and prepared bundles are unchanged. This suppresses unintended open/save recalculation and changes the opening baseline relative to capture policy v4.",
+    "Opening/saving and the in-place SD rebuild are retained as separate XML controls. Exact content/context matches identify overlaps conservatively; absence of a match does not establish exclusive causality.",
+    "Worksheet cells are streamed into temporary fixed-size fingerprints without worksheet-byte or cell-count limits. Exterior empty-cell changes are counted before candidate allocation. Layout metadata and retained change evidence still require memory.",
+    "When content coverage marks background_tail_sampling, supported borderless solid-fill bands with known sheet-wide gridline settings are represented through their finite transitions and tail samples. Pixels beyond that envelope are not captured; this is not exhaustive whole-grid pixel coverage."
+  ],
+  "native_drawing_bounds": [],
+  "phases": [
+    "initial XML compared",
+    "Original and Default opened",
+    "Excel save effects inspected",
+    "Original and variants rebuilt in their existing processes"
+  ],
+  "portable_report": {
+    "diagnostics": {},
+    "different_regions": 0,
+    "failure": null,
+    "note": "Pixel diagnostics describe retained captures. They do not change the scientific comparison verdict or extend its coverage.",
+    "source_report": null,
+    "version": 1
+  },
+  "public_presentation": {
+    "meaning": "Derived presentation. Native evidence remains unchanged.",
+    "metadata_omissions": [
+      {
+        "pointer": "/report/excel_pids",
+        "source_value_sha256": "bcb0f26f9180fa7cabd332aea29d65fe3afee63d68094e2f46ca69520749d0e9"
+      },
+      {
+        "pointer": "/report/portable_report/source_report",
+        "source_value_sha256": "451a884b2f650e04f633bf7eeb85ec438ca310eeca276f3ffca40a7a677cb192"
+      },
+      {
+        "pointer": "/report/transitions/0/after_file",
+        "source_value_sha256": "2230607cdd3215fbcc5e5210e0a967c541b25141c51303d6d279e47670a8c8f2"
+      },
+      {
+        "pointer": "/report/transitions/0/before_file",
+        "source_value_sha256": "e2559e0f545f5238825bd5f0874d16058635a5128f1ca19c2b3d931e2772bbad"
+      },
+      {
+        "pointer": "/report/transitions/0/changes_file",
+        "source_value_sha256": "b1b4fdac347fd3cd363831c60f421ffb34cd5eedb34dddb3c76b9629a293ea44"
+      },
+      {
+        "pointer": "/report/transitions/1/after_file",
+        "source_value_sha256": "665450d84c077b78cfc4d42ea665e2aa72b7c6307825d47c514ee04a05501b8a"
+      },
+      {
+        "pointer": "/report/transitions/1/before_file",
+        "source_value_sha256": "e2559e0f545f5238825bd5f0874d16058635a5128f1ca19c2b3d931e2772bbad"
+      },
+      {
+        "pointer": "/report/transitions/1/changes_file",
+        "source_value_sha256": "e1ccdabe3bc1a690e5ac46e8b1e08afa9eecaf2f854c3c8abe084b85cc06057e"
+      },
+      {
+        "pointer": "/report/transitions/2/after_file",
+        "source_value_sha256": "e1806c50766c8151eb31ae2dff32b49dfb7382bbb3551413e845d2edb3c4464c"
+      },
+      {
+        "pointer": "/report/transitions/2/before_file",
+        "source_value_sha256": "665450d84c077b78cfc4d42ea665e2aa72b7c6307825d47c514ee04a05501b8a"
+      },
+      {
+        "pointer": "/report/transitions/2/changes_file",
+        "source_value_sha256": "b2c2d9cff35d0c2c85388d217db2e5d55aa0761ee3cbbcdd81ac0bb1db36e336"
+      },
+      {
+        "pointer": "/report/transitions/3/after_file",
+        "source_value_sha256": "973f108b8ae0c3ea484c123f58ae305d0ba52c47378d2b09aed912c5fa8b8c40"
+      },
+      {
+        "pointer": "/report/transitions/3/before_file",
+        "source_value_sha256": "2230607cdd3215fbcc5e5210e0a967c541b25141c51303d6d279e47670a8c8f2"
+      },
+      {
+        "pointer": "/report/transitions/3/changes_file",
+        "source_value_sha256": "00cc4e0cd0ac15fd105f67febb38baba9dcba024b7fdf4dc0c2371573dfdaa57"
+      },
+      {
+        "pointer": "/report/transitions/4/after_file",
+        "source_value_sha256": "ce47e39c4b0a01b1fbf42d418d989f49facf24300822aabed07d381f80ba4e6f"
+      },
+      {
+        "pointer": "/report/transitions/4/before_file",
+        "source_value_sha256": "e1806c50766c8151eb31ae2dff32b49dfb7382bbb3551413e845d2edb3c4464c"
+      },
+      {
+        "pointer": "/report/transitions/4/changes_file",
+        "source_value_sha256": "b90a2d0d166e760429505ef12b0b4909a66a18fd42747768508d1254fa94c7fb"
+      },
+      {
+        "pointer": "/validation_signature/environment_key",
+        "source_value_sha256": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126"
+      }
+    ],
+    "schema": 1,
+    "source_report_sha256": "41e2a1af562c25956a855159671aa1d2ab5e50060f14e3f0fd80631c9180c1da"
+  },
+  "rebuild_checks": {},
+  "state_decisions": {
+    "CP": {
+      "status": "disabled"
+    },
+    "CPR": {
+      "status": "disabled"
+    },
+    "O": {
+      "method": "open-save",
+      "status": "observed"
+    },
+    "OR": {
+      "method": "inplace-rebuild",
+      "status": "observed"
+    },
+    "SD": {
+      "method": "open-save",
+      "status": "observed"
+    },
+    "SDR": {
+      "method": "inplace-rebuild",
+      "status": "observed"
+    }
+  },
+  "status": "completed_with_limitations",
+  "timings_ms": {
+    "capture_selection_and_transport": 656,
+    "image_comparisons": 540
+  },
+  "transitions": [
+    {
+      "after_file": null,
+      "before_file": null,
+      "change_count": 3116609,
+      "changes_file": null,
+      "label": "original opening/saving control",
+      "skipped_outside_content_cell_changes": {},
+      "timings_ms": {
+        "attribution": 8217,
+        "differences": 8310,
+        "read_snapshots": 25,
+        "total": 21440,
+        "write_evidence": 4878
+      }
+    },
+    {
+      "after_file": null,
+      "before_file": null,
+      "change_count": 3116336,
+      "changes_file": null,
+      "label": "default input versus original input",
+      "skipped_outside_content_cell_changes": {},
+      "timings_ms": {
+        "attribution": 4960,
+        "differences": 8036,
+        "read_snapshots": 46,
+        "total": 17296,
+        "write_evidence": 4247
+      }
+    },
+    {
+      "after_file": null,
+      "before_file": null,
+      "change_count": 3116609,
+      "changes_file": null,
+      "label": "default opening/saving control",
+      "skipped_outside_content_cell_changes": {},
+      "timings_ms": {
+        "attribution": 4202,
+        "differences": 8427,
+        "read_snapshots": 24,
+        "total": 18364,
+        "write_evidence": 5677
+      }
+    },
+    {
+      "after_file": null,
+      "before_file": null,
+      "change_count": 0,
+      "changes_file": null,
+      "label": "O in-place rebuild and save",
+      "skipped_outside_content_cell_changes": {},
+      "timings_ms": {
+        "attribution": 0,
+        "differences": 2367,
+        "read_snapshots": 8836,
+        "total": 11218,
+        "write_evidence": 2
+      }
+    },
+    {
+      "after_file": null,
+      "before_file": null,
+      "change_count": 0,
+      "changes_file": null,
+      "label": "SD in-place rebuild and save",
+      "skipped_outside_content_cell_changes": {},
+      "timings_ms": {
+        "attribution": 0,
+        "differences": 3232,
+        "read_snapshots": 7488,
+        "total": 10730,
+        "write_evidence": 2
+      }
+    }
+  ],
+  "workbook_bytes": {
+    "OR-rebuilt.xlsx": 17866405,
+    "SDR-rebuilt.xlsx": 17866604,
+    "default.before-save.xlsx": 17850962,
+    "default.xlsx": 17866710,
+    "input_default": 17850962,
+    "input_original": 17852972,
+    "original.before-save.xlsx": 17852972,
+    "original.xlsx": 17866753
+  },
+  "workbook_inventory": {
+    "complete": true,
+    "original_sha256": "fbb1dbc6645b85cbe3f8397282409bfbff35e10678bb95689c897ffe4b539388",
+    "sheets": [
+      {
+        "id": "2",
+        "name": "TOC",
+        "order": 0,
+        "state": "visible"
+      },
+      {
+        "id": "30",
+        "name": "Background Information",
+        "order": 1,
+        "state": "visible"
+      },
+      {
+        "id": "6",
+        "name": "Input Tab",
+        "order": 2,
+        "state": "visible"
+      },
+      {
+        "id": "5",
+        "name": "Baseline Results_GH",
+        "order": 3,
+        "state": "visible"
+      },
+      {
+        "id": "14",
+        "name": "GH Single Fuel Charts",
+        "order": 4,
+        "state": "visible"
+      },
+      {
+        "id": "15",
+        "name": "GH Single Fuel Summary Chart",
+        "order": 5,
+        "state": "visible"
+      },
+      {
+        "id": "16",
+        "name": "GH Scenario Summary Results",
+        "order": 6,
+        "state": "visible"
+      },
+      {
+        "id": "13",
+        "name": "GH Single Scenario Charts",
+        "order": 7,
+        "state": "visible"
+      },
+      {
+        "id": "29",
+        "name": "GH Single Scenario Charts_Norm",
+        "order": 8,
+        "state": "visible"
+      },
+      {
+        "id": "27",
+        "name": "Stove Uncertainty_GH",
+        "order": 9,
+        "state": "visible"
+      },
+      {
+        "id": "31",
+        "name": "Stove Efficiency Sensitivity",
+        "order": 10,
+        "state": "visible"
+      },
+      {
+        "id": "1",
+        "name": "Electricity Sensitivity",
+        "order": 11,
+        "state": "visible"
+      },
+      {
+        "id": "33",
+        "name": "GH - Cooking Scenarios",
+        "order": 12,
+        "state": "visible"
+      },
+      {
+        "id": "34",
+        "name": "GH - Scenario Electricity",
+        "order": 13,
+        "state": "visible"
+      },
+      {
+        "id": "38",
+        "name": "Forestry Sensitivity - GH",
+        "order": 14,
+        "state": "visible"
+      },
+      {
+        "id": "10",
+        "name": "GCCP_GH",
+        "order": 15,
+        "state": "visible"
+      },
+      {
+        "id": "17",
+        "name": "CED_GH",
+        "order": 16,
+        "state": "visible"
+      },
+      {
+        "id": "18",
+        "name": "FDP_GH",
+        "order": 17,
+        "state": "visible"
+      },
+      {
+        "id": "20",
+        "name": "WDP_GH",
+        "order": 18,
+        "state": "visible"
+      },
+      {
+        "id": "21",
+        "name": "PMFP_GH",
+        "order": 19,
+        "state": "visible"
+      },
+      {
+        "id": "22",
+        "name": "POFP_GH",
+        "order": 20,
+        "state": "visible"
+      },
+      {
+        "id": "23",
+        "name": "FEP_GH",
+        "order": 21,
+        "state": "visible"
+      },
+      {
+        "id": "24",
+        "name": "TAP_GH",
+        "order": 22,
+        "state": "visible"
+      },
+      {
+        "id": "25",
+        "name": "ODP_GH",
+        "order": 23,
+        "state": "visible"
+      },
+      {
+        "id": "26",
+        "name": "BC_GH",
+        "order": 24,
+        "state": "visible"
+      },
+      {
+        "id": "37",
+        "name": "References",
+        "order": 25,
+        "state": "visible"
+      },
+      {
+        "id": "9",
+        "name": "Results DB",
+        "order": 26,
+        "state": "hidden"
+      },
+      {
+        "id": "8",
+        "name": "OLCAexport",
+        "order": 27,
+        "state": "visible"
+      },
+      {
+        "id": "28",
+        "name": "Uncertainty Export",
+        "order": 28,
+        "state": "visible"
+      },
+      {
+        "id": "11",
+        "name": "Lookups",
+        "order": 29,
+        "state": "visible"
+      }
+    ]
+  },
+  "xml_snapshot_statistics": {
+    "elapsed_ms": 55453,
+    "parsed_versions": 6,
+    "reads": 20,
+    "reused_versions": 14
+  }
+}
