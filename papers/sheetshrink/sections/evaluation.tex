@@ -82,14 +82,12 @@ styles, geometry, conditional dependencies and objects. Mutations that Excel
 normalizes away are reported separately.
 
 \subsection{Performance and comparison subjects}
-The comparison records each method's input representation, Excel dependency,
-use of native layout observations, removal policy and resulting workbook
-properties. The first-opening objective measures cleanup followed by loading
-the resulting workbook against direct loading of the source. An Excel-hosted
-cleaner includes its required source opening in the corresponding workflow.
-Cleanup, opening, saving and any required reopening have separate phase timings
-under a common readiness endpoint. Repeated-use experiments report preparation
-cost and subsequent opening cost separately.
+We compared direct open--save trials with fresh six-worker SheetShrink cleanup
+followed by the same library. Across three stress workbooks, all 48 SheetShrink
+trials completed under a 4\,GiB commit limit, compared with 33 original trials.
+Median elapsed time improved in ten of eleven fully completed pairs. Migration
+with openpyxl took 111.3\,s directly and 9.7\,s including cleanup. The accompanying
+benchmark receipts retain the individual phases and the second-pass measurements.
 
 Production cleanup time covers package analysis and output construction.
 Native preservation-validation cost has its own accounting. A corpus workbook

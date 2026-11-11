@@ -1,0 +1,1633 @@
+[
+  {
+    "case": "wanderungen",
+    "library": "openpyxl",
+    "tool": "Original",
+    "trials": 3,
+    "completed": 3,
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ],
+    "open_median_seconds": 53.74405180000031,
+    "save_median_seconds": 53.59405830000014,
+    "cleanup_seconds": 0,
+    "total_seconds": 111.2989233999997,
+    "direct_end_to_end_median_seconds": 111.2989233999997,
+    "peak_commit_mib": 2880.515625
+  },
+  {
+    "case": "wanderungen",
+    "library": "openpyxl",
+    "tool": "SheetShrink",
+    "trials": 3,
+    "completed": 3,
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ],
+    "open_median_seconds": 3.8871528999989096,
+    "save_median_seconds": 3.2910644999992655,
+    "cleanup_seconds": 1.4596854999999778,
+    "total_seconds": 9.668006199999581,
+    "direct_end_to_end_median_seconds": 9.668006199999581,
+    "repeat_sheetshrink_median_seconds": 0.7713081999991118,
+    "repeat_sheetshrink_byte_identical": false,
+    "peak_commit_mib": 576.45703125
+  },
+  {
+    "case": "wanderungen",
+    "library": "openpyxl",
+    "tool": "NXPowerLite",
+    "trials": 3,
+    "completed": 3,
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ],
+    "open_median_seconds": 39.990815700000894,
+    "save_median_seconds": 40.75279749999936,
+    "cleanup_seconds": 15.468999999997322,
+    "total_seconds": 96.21261319999758,
+    "peak_commit_mib": 2175.41796875
+  },
+  {
+    "case": "wanderungen",
+    "library": "openpyxl",
+    "tool": "XLStylesTool",
+    "trials": 3,
+    "completed": 3,
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ],
+    "open_median_seconds": 53.54126749999887,
+    "save_median_seconds": 53.128139100000226,
+    "cleanup_seconds": null,
+    "total_seconds": null,
+    "peak_commit_mib": 2880.73828125
+  },
+  {
+    "case": "wanderungen",
+    "library": "openpyxl",
+    "tool": "CheckPerformance",
+    "trials": 3,
+    "completed": 3,
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ],
+    "open_median_seconds": 4.252937799999927,
+    "save_median_seconds": 3.699007999999594,
+    "cleanup_seconds": null,
+    "total_seconds": null,
+    "peak_commit_mib": 411.12890625
+  },
+  {
+    "case": "wanderungen",
+    "library": "openpyxl",
+    "tool": "Inquire",
+    "trials": 3,
+    "completed": 3,
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ],
+    "open_median_seconds": 26.686267500001122,
+    "save_median_seconds": 25.51448309999978,
+    "cleanup_seconds": null,
+    "total_seconds": null,
+    "peak_commit_mib": 1720.66796875
+  },
+  {
+    "case": "wanderungen",
+    "library": "pandas",
+    "tool": "Original",
+    "trials": 3,
+    "completed": 0,
+    "statuses": [
+      "memory_limit",
+      "memory_limit",
+      "memory_limit"
+    ],
+    "abort_median_seconds": 20.839938399999937,
+    "peak_commit_mib": 4096.1328125
+  },
+  {
+    "case": "wanderungen",
+    "library": "pandas",
+    "tool": "SheetShrink",
+    "trials": 3,
+    "completed": 3,
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ],
+    "open_median_seconds": 4.542689699999755,
+    "save_median_seconds": 27.922556099999838,
+    "cleanup_seconds": 1.418359799999962,
+    "total_seconds": 35.828008400000726,
+    "direct_end_to_end_median_seconds": 35.828008400000726,
+    "repeat_sheetshrink_median_seconds": 0.7494290000004185,
+    "repeat_sheetshrink_byte_identical": false,
+    "peak_commit_mib": 1014.28515625
+  },
+  {
+    "case": "wanderungen",
+    "library": "pandas",
+    "tool": "NXPowerLite",
+    "trials": 3,
+    "completed": 0,
+    "statuses": [
+      "memory_limit",
+      "memory_limit",
+      "memory_limit"
+    ],
+    "abort_median_seconds": 20.754745000000185,
+    "peak_commit_mib": 4096.12890625
+  },
+  {
+    "case": "wanderungen",
+    "library": "pandas",
+    "tool": "XLStylesTool",
+    "trials": 3,
+    "completed": 0,
+    "statuses": [
+      "memory_limit",
+      "memory_limit",
+      "memory_limit"
+    ],
+    "abort_median_seconds": 20.82916750000004,
+    "peak_commit_mib": 4096.08984375
+  },
+  {
+    "case": "wanderungen",
+    "library": "pandas",
+    "tool": "CheckPerformance",
+    "trials": 3,
+    "completed": 0,
+    "statuses": [
+      "memory_limit",
+      "memory_limit",
+      "memory_limit"
+    ],
+    "abort_median_seconds": 8.67058680000082,
+    "peak_commit_mib": 4096.078125
+  },
+  {
+    "case": "wanderungen",
+    "library": "pandas",
+    "tool": "Inquire",
+    "trials": 3,
+    "completed": 0,
+    "statuses": [
+      "memory_limit",
+      "memory_limit",
+      "memory_limit"
+    ],
+    "abort_median_seconds": 9.330514100000073,
+    "peak_commit_mib": 4096.10546875
+  },
+  {
+    "case": "wanderungen",
+    "library": "excel",
+    "tool": "Original",
+    "trials": 3,
+    "completed": 3,
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ],
+    "open_median_seconds": 8.690084300000308,
+    "save_median_seconds": 9.103574300001128,
+    "cleanup_seconds": 0,
+    "total_seconds": 20.344575500000246,
+    "direct_end_to_end_median_seconds": 20.344575500000246,
+    "peak_commit_mib": 304.32421875
+  },
+  {
+    "case": "wanderungen",
+    "library": "excel",
+    "tool": "SheetShrink",
+    "trials": 3,
+    "completed": 3,
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ],
+    "open_median_seconds": 1.9421351999990293,
+    "save_median_seconds": 4.15449069999886,
+    "cleanup_seconds": 1.4107520000002296,
+    "total_seconds": 9.91973840000037,
+    "direct_end_to_end_median_seconds": 9.91973840000037,
+    "repeat_sheetshrink_median_seconds": 0.739060600000812,
+    "repeat_sheetshrink_byte_identical": false,
+    "peak_commit_mib": 606.12890625
+  },
+  {
+    "case": "wanderungen",
+    "library": "excel",
+    "tool": "NXPowerLite",
+    "trials": 3,
+    "completed": 3,
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ],
+    "open_median_seconds": 7.160856700000295,
+    "save_median_seconds": 8.288803200000075,
+    "cleanup_seconds": 15.468999999997322,
+    "total_seconds": 30.918659899997692,
+    "peak_commit_mib": 281.9765625
+  },
+  {
+    "case": "wanderungen",
+    "library": "excel",
+    "tool": "XLStylesTool",
+    "trials": 3,
+    "completed": 3,
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ],
+    "open_median_seconds": 8.620698400000038,
+    "save_median_seconds": 9.018369200000052,
+    "cleanup_seconds": null,
+    "total_seconds": null,
+    "peak_commit_mib": 303.5625
+  },
+  {
+    "case": "wanderungen",
+    "library": "excel",
+    "tool": "CheckPerformance",
+    "trials": 3,
+    "completed": 3,
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ],
+    "open_median_seconds": 2.0849974000002476,
+    "save_median_seconds": 0.6388076999992336,
+    "cleanup_seconds": null,
+    "total_seconds": null,
+    "peak_commit_mib": 139.7890625
+  },
+  {
+    "case": "wanderungen",
+    "library": "excel",
+    "tool": "Inquire",
+    "trials": 3,
+    "completed": 3,
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ],
+    "open_median_seconds": 4.6633583000002545,
+    "save_median_seconds": 2.753030599998965,
+    "cleanup_seconds": null,
+    "total_seconds": null,
+    "peak_commit_mib": 195.1328125
+  },
+  {
+    "case": "wanderungen",
+    "library": "r-openxlsx",
+    "tool": "Original",
+    "trials": 3,
+    "completed": 3,
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ],
+    "open_median_seconds": 15.08,
+    "save_median_seconds": 28.78,
+    "cleanup_seconds": 0,
+    "total_seconds": 44.383305700000165,
+    "direct_end_to_end_median_seconds": 44.383305700000165,
+    "peak_commit_mib": 835.1875
+  },
+  {
+    "case": "wanderungen",
+    "library": "r-openxlsx",
+    "tool": "SheetShrink",
+    "trials": 3,
+    "completed": 3,
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ],
+    "open_median_seconds": 4.41,
+    "save_median_seconds": 7.35,
+    "cleanup_seconds": 1.4106182999998964,
+    "total_seconds": 13.698791999999685,
+    "direct_end_to_end_median_seconds": 13.698791999999685,
+    "repeat_sheetshrink_median_seconds": 0.7532233000001725,
+    "repeat_sheetshrink_byte_identical": false,
+    "peak_commit_mib": 605.7890625
+  },
+  {
+    "case": "wanderungen",
+    "library": "r-openxlsx",
+    "tool": "NXPowerLite",
+    "trials": 3,
+    "completed": 3,
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ],
+    "open_median_seconds": 10.39,
+    "save_median_seconds": 19.14,
+    "cleanup_seconds": 15.468999999997322,
+    "total_seconds": 44.998999999997324,
+    "peak_commit_mib": 697.31640625
+  },
+  {
+    "case": "wanderungen",
+    "library": "r-openxlsx",
+    "tool": "XLStylesTool",
+    "trials": 3,
+    "completed": 3,
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ],
+    "open_median_seconds": 15.19,
+    "save_median_seconds": 29.2,
+    "cleanup_seconds": null,
+    "total_seconds": null,
+    "peak_commit_mib": 848.06640625
+  },
+  {
+    "case": "wanderungen",
+    "library": "r-openxlsx",
+    "tool": "CheckPerformance",
+    "trials": 3,
+    "completed": 3,
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ],
+    "open_median_seconds": 3.95,
+    "save_median_seconds": 7.23,
+    "cleanup_seconds": null,
+    "total_seconds": null,
+    "peak_commit_mib": 297.71875
+  },
+  {
+    "case": "wanderungen",
+    "library": "r-openxlsx",
+    "tool": "Inquire",
+    "trials": 3,
+    "completed": 3,
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ],
+    "open_median_seconds": 10.5,
+    "save_median_seconds": 21.21,
+    "cleanup_seconds": null,
+    "total_seconds": null,
+    "peak_commit_mib": 577.61328125
+  },
+  {
+    "case": "wanderungen",
+    "library": "r-readxl",
+    "tool": "Original",
+    "trials": 3,
+    "completed": 0,
+    "statuses": [
+      "memory_limit",
+      "memory_limit",
+      "memory_limit"
+    ],
+    "abort_median_seconds": 8.479860400000689,
+    "peak_commit_mib": 4096.2421875
+  },
+  {
+    "case": "wanderungen",
+    "library": "r-readxl",
+    "tool": "SheetShrink",
+    "trials": 3,
+    "completed": 3,
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ],
+    "open_median_seconds": 175.34,
+    "save_median_seconds": 0.87,
+    "cleanup_seconds": 1.40698650000013,
+    "total_seconds": 178.1674322000008,
+    "direct_end_to_end_median_seconds": 178.1674322000008,
+    "repeat_sheetshrink_median_seconds": 0.7724169000002803,
+    "repeat_sheetshrink_byte_identical": false,
+    "peak_commit_mib": 621.90234375
+  },
+  {
+    "case": "wanderungen",
+    "library": "r-readxl",
+    "tool": "NXPowerLite",
+    "trials": 3,
+    "completed": 0,
+    "statuses": [
+      "memory_limit",
+      "memory_limit",
+      "memory_limit"
+    ],
+    "abort_median_seconds": 8.362738300000274,
+    "peak_commit_mib": 4096.30859375
+  },
+  {
+    "case": "wanderungen",
+    "library": "r-readxl",
+    "tool": "XLStylesTool",
+    "trials": 3,
+    "completed": 0,
+    "statuses": [
+      "memory_limit",
+      "memory_limit",
+      "memory_limit"
+    ],
+    "abort_median_seconds": 8.40070949999972,
+    "peak_commit_mib": 4096.25
+  },
+  {
+    "case": "wanderungen",
+    "library": "r-readxl",
+    "tool": "CheckPerformance",
+    "trials": 3,
+    "completed": 0,
+    "statuses": [
+      "memory_limit",
+      "memory_limit",
+      "memory_limit"
+    ],
+    "abort_median_seconds": 7.593958399999792,
+    "peak_commit_mib": 4096.3359375
+  },
+  {
+    "case": "wanderungen",
+    "library": "r-readxl",
+    "tool": "Inquire",
+    "trials": 3,
+    "completed": 0,
+    "statuses": [
+      "memory_limit",
+      "memory_limit",
+      "memory_limit"
+    ],
+    "abort_median_seconds": 7.670397699999739,
+    "peak_commit_mib": 4096.44921875
+  },
+  {
+    "case": "wanderungen",
+    "library": "pandas-csv",
+    "tool": "Original",
+    "trials": 3,
+    "completed": 0,
+    "statuses": [
+      "memory_limit",
+      "memory_limit",
+      "memory_limit"
+    ],
+    "abort_median_seconds": 20.483029300001363,
+    "peak_commit_mib": 4096.1171875
+  },
+  {
+    "case": "wanderungen",
+    "library": "pandas-csv",
+    "tool": "SheetShrink",
+    "trials": 3,
+    "completed": 3,
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ],
+    "open_median_seconds": 4.499807700000019,
+    "save_median_seconds": 4.72950899999887,
+    "cleanup_seconds": 1.4167973000003258,
+    "total_seconds": 11.543794699999125,
+    "direct_end_to_end_median_seconds": 11.543794699999125,
+    "repeat_sheetshrink_median_seconds": 0.7382096999990608,
+    "repeat_sheetshrink_byte_identical": false,
+    "peak_commit_mib": 577.4609375
+  },
+  {
+    "case": "wanderungen",
+    "library": "pandas-csv",
+    "tool": "NXPowerLite",
+    "trials": 3,
+    "completed": 0,
+    "statuses": [
+      "memory_limit",
+      "memory_limit",
+      "memory_limit"
+    ],
+    "abort_median_seconds": 20.72345739999946,
+    "peak_commit_mib": 4096.109375
+  },
+  {
+    "case": "wanderungen",
+    "library": "pandas-csv",
+    "tool": "XLStylesTool",
+    "trials": 3,
+    "completed": 0,
+    "statuses": [
+      "memory_limit",
+      "memory_limit",
+      "memory_limit"
+    ],
+    "abort_median_seconds": 20.552171700001054,
+    "peak_commit_mib": 4096.0859375
+  },
+  {
+    "case": "wanderungen",
+    "library": "pandas-csv",
+    "tool": "CheckPerformance",
+    "trials": 3,
+    "completed": 0,
+    "statuses": [
+      "memory_limit",
+      "memory_limit",
+      "memory_limit"
+    ],
+    "abort_median_seconds": 8.47900380000101,
+    "peak_commit_mib": 4096.1328125
+  },
+  {
+    "case": "wanderungen",
+    "library": "pandas-csv",
+    "tool": "Inquire",
+    "trials": 3,
+    "completed": 0,
+    "statuses": [
+      "memory_limit",
+      "memory_limit",
+      "memory_limit"
+    ],
+    "abort_median_seconds": 9.297912100000758,
+    "peak_commit_mib": 4096.1328125
+  },
+  {
+    "case": "finance",
+    "library": "openpyxl",
+    "tool": "Original",
+    "trials": 3,
+    "completed": 0,
+    "statuses": [
+      "memory_limit",
+      "memory_limit",
+      "memory_limit"
+    ],
+    "abort_median_seconds": 79.56351089999998,
+    "peak_commit_mib": 4096.69921875
+  },
+  {
+    "case": "finance",
+    "library": "openpyxl",
+    "tool": "SheetShrink",
+    "trials": 3,
+    "completed": 3,
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ],
+    "open_median_seconds": 7.975546200000281,
+    "save_median_seconds": 9.050378799999635,
+    "cleanup_seconds": 5.953392999999778,
+    "total_seconds": 24.39452220000021,
+    "direct_end_to_end_median_seconds": 24.39452220000021,
+    "repeat_sheetshrink_median_seconds": 1.363721799999439,
+    "repeat_sheetshrink_byte_identical": false,
+    "peak_commit_mib": 1445.8671875
+  },
+  {
+    "case": "finance",
+    "library": "openpyxl",
+    "tool": "NXPowerLite",
+    "trials": 3,
+    "completed": 3,
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ],
+    "open_median_seconds": 4.452656299999944,
+    "save_median_seconds": 6.09967350000079,
+    "cleanup_seconds": 34.953000000008615,
+    "total_seconds": 45.50532980000935,
+    "peak_commit_mib": 403.9921875
+  },
+  {
+    "case": "finance",
+    "library": "openpyxl",
+    "tool": "XLStylesTool",
+    "trials": 3,
+    "completed": 0,
+    "statuses": [
+      "memory_limit",
+      "memory_limit",
+      "memory_limit"
+    ],
+    "abort_median_seconds": 79.95319089999975,
+    "peak_commit_mib": 4096.6796875
+  },
+  {
+    "case": "finance",
+    "library": "openpyxl",
+    "tool": "CheckPerformance",
+    "trials": 3,
+    "completed": 3,
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ],
+    "open_median_seconds": 4.278707999999824,
+    "save_median_seconds": 6.041968100000304,
+    "cleanup_seconds": null,
+    "total_seconds": null,
+    "peak_commit_mib": 403.5859375
+  },
+  {
+    "case": "finance",
+    "library": "openpyxl",
+    "tool": "Inquire",
+    "trials": 3,
+    "completed": 0,
+    "statuses": [
+      "memory_limit",
+      "memory_limit",
+      "memory_limit"
+    ],
+    "abort_median_seconds": 112.78882270000031,
+    "peak_commit_mib": 4096.87890625
+  },
+  {
+    "case": "finance",
+    "library": "pandas",
+    "tool": "Original",
+    "trials": 3,
+    "completed": 3,
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ],
+    "open_median_seconds": 183.6724223000001,
+    "save_median_seconds": 8.021246299999802,
+    "cleanup_seconds": 0,
+    "total_seconds": 192.93774070000018,
+    "direct_end_to_end_median_seconds": 192.93774070000018,
+    "peak_commit_mib": 835.59375
+  },
+  {
+    "case": "finance",
+    "library": "pandas",
+    "tool": "SheetShrink",
+    "trials": 3,
+    "completed": 3,
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ],
+    "open_median_seconds": 6.474142299999585,
+    "save_median_seconds": 7.750643400000627,
+    "cleanup_seconds": 5.381576999999652,
+    "total_seconds": 20.703373499999998,
+    "direct_end_to_end_median_seconds": 20.703373499999998,
+    "repeat_sheetshrink_median_seconds": 1.3799872999998115,
+    "repeat_sheetshrink_byte_identical": false,
+    "peak_commit_mib": 1451.69921875
+  },
+  {
+    "case": "finance",
+    "library": "pandas",
+    "tool": "NXPowerLite",
+    "trials": 3,
+    "completed": 3,
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ],
+    "open_median_seconds": 3.3868984000000637,
+    "save_median_seconds": 7.654619299999467,
+    "cleanup_seconds": 34.953000000008615,
+    "total_seconds": 45.994517700008146,
+    "peak_commit_mib": 374.80078125
+  },
+  {
+    "case": "finance",
+    "library": "pandas",
+    "tool": "XLStylesTool",
+    "trials": 3,
+    "completed": 3,
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ],
+    "open_median_seconds": 184.52238209999996,
+    "save_median_seconds": 7.727851300000111,
+    "cleanup_seconds": null,
+    "total_seconds": null,
+    "peak_commit_mib": 834.5859375
+  },
+  {
+    "case": "finance",
+    "library": "pandas",
+    "tool": "CheckPerformance",
+    "trials": 3,
+    "completed": 3,
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ],
+    "open_median_seconds": 3.4111666999997396,
+    "save_median_seconds": 7.770650399999795,
+    "cleanup_seconds": null,
+    "total_seconds": null,
+    "peak_commit_mib": 375.06640625
+  },
+  {
+    "case": "finance",
+    "library": "pandas",
+    "tool": "Inquire",
+    "trials": 3,
+    "completed": 3,
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ],
+    "open_median_seconds": 68.08927720000065,
+    "save_median_seconds": 7.612934400000086,
+    "cleanup_seconds": null,
+    "total_seconds": null,
+    "peak_commit_mib": 787.95703125
+  },
+  {
+    "case": "finance",
+    "library": "excel",
+    "tool": "Original",
+    "trials": 3,
+    "completed": 3,
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ],
+    "open_median_seconds": 27.738752399998702,
+    "save_median_seconds": 11.984080500000346,
+    "cleanup_seconds": 0,
+    "total_seconds": 42.46240900000021,
+    "direct_end_to_end_median_seconds": 42.46240900000021,
+    "peak_commit_mib": 889.2734375
+  },
+  {
+    "case": "finance",
+    "library": "excel",
+    "tool": "SheetShrink",
+    "trials": 3,
+    "completed": 3,
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ],
+    "open_median_seconds": 2.396063199999844,
+    "save_median_seconds": 1.3243093999999473,
+    "cleanup_seconds": 5.359317200000078,
+    "total_seconds": 69.76211130000047,
+    "direct_end_to_end_median_seconds": 69.76211130000047,
+    "repeat_sheetshrink_median_seconds": 1.3622636999998576,
+    "repeat_sheetshrink_byte_identical": false,
+    "peak_commit_mib": 1450.03125
+  },
+  {
+    "case": "finance",
+    "library": "excel",
+    "tool": "NXPowerLite",
+    "trials": 3,
+    "completed": 3,
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ],
+    "open_median_seconds": 2.0430682000005618,
+    "save_median_seconds": 0.6558913999997458,
+    "cleanup_seconds": 34.953000000008615,
+    "total_seconds": 37.65195960000892,
+    "peak_commit_mib": 284.3984375
+  },
+  {
+    "case": "finance",
+    "library": "excel",
+    "tool": "XLStylesTool",
+    "trials": 3,
+    "completed": 3,
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ],
+    "open_median_seconds": 27.911360699999932,
+    "save_median_seconds": 11.984787700000197,
+    "cleanup_seconds": null,
+    "total_seconds": null,
+    "peak_commit_mib": 889.06640625
+  },
+  {
+    "case": "finance",
+    "library": "excel",
+    "tool": "CheckPerformance",
+    "trials": 3,
+    "completed": 3,
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ],
+    "open_median_seconds": 1.5897039999999834,
+    "save_median_seconds": 0.549380100000235,
+    "cleanup_seconds": null,
+    "total_seconds": null,
+    "peak_commit_mib": 138.60546875
+  },
+  {
+    "case": "finance",
+    "library": "excel",
+    "tool": "Inquire",
+    "trials": 3,
+    "completed": 3,
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ],
+    "open_median_seconds": 23.268514700000196,
+    "save_median_seconds": 10.700027200000477,
+    "cleanup_seconds": null,
+    "total_seconds": null,
+    "peak_commit_mib": 501.625
+  },
+  {
+    "case": "finance",
+    "library": "r-openxlsx",
+    "tool": "Original",
+    "trials": 3,
+    "completed": 3,
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ],
+    "open_median_seconds": 46.1,
+    "save_median_seconds": 55.99,
+    "cleanup_seconds": 0,
+    "total_seconds": 102.65936429999965,
+    "direct_end_to_end_median_seconds": 102.65936429999965,
+    "peak_commit_mib": 2163.7734375
+  },
+  {
+    "case": "finance",
+    "library": "r-openxlsx",
+    "tool": "SheetShrink",
+    "trials": 3,
+    "completed": 3,
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ],
+    "open_median_seconds": 3.72,
+    "save_median_seconds": 8.87,
+    "cleanup_seconds": 5.442556800000602,
+    "total_seconds": 18.556066799999826,
+    "direct_end_to_end_median_seconds": 18.556066799999826,
+    "repeat_sheetshrink_median_seconds": 1.3411116000006587,
+    "repeat_sheetshrink_byte_identical": false,
+    "peak_commit_mib": 1446.04296875
+  },
+  {
+    "case": "finance",
+    "library": "r-openxlsx",
+    "tool": "NXPowerLite",
+    "trials": 3,
+    "completed": 3,
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ],
+    "open_median_seconds": 3,
+    "save_median_seconds": 8.2,
+    "cleanup_seconds": 34.953000000008615,
+    "total_seconds": 46.15300000000862,
+    "peak_commit_mib": 285.73828125
+  },
+  {
+    "case": "finance",
+    "library": "r-openxlsx",
+    "tool": "XLStylesTool",
+    "trials": 3,
+    "completed": 3,
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ],
+    "open_median_seconds": 46.03,
+    "save_median_seconds": 55.5,
+    "cleanup_seconds": null,
+    "total_seconds": null,
+    "peak_commit_mib": 2030.125
+  },
+  {
+    "case": "finance",
+    "library": "r-openxlsx",
+    "tool": "CheckPerformance",
+    "trials": 3,
+    "completed": 3,
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ],
+    "open_median_seconds": 2.63,
+    "save_median_seconds": 7.35,
+    "cleanup_seconds": null,
+    "total_seconds": null,
+    "peak_commit_mib": 285.078125
+  },
+  {
+    "case": "finance",
+    "library": "r-openxlsx",
+    "tool": "Inquire",
+    "trials": 3,
+    "completed": 3,
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ],
+    "open_median_seconds": 19.17,
+    "save_median_seconds": 33.29,
+    "cleanup_seconds": null,
+    "total_seconds": null,
+    "peak_commit_mib": 1256.828125
+  },
+  {
+    "case": "finance",
+    "library": "r-readxl",
+    "tool": "Original",
+    "trials": 3,
+    "completed": 3,
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ],
+    "open_median_seconds": 21.35,
+    "save_median_seconds": 0.9,
+    "cleanup_seconds": 0,
+    "total_seconds": 22.70861459999969,
+    "direct_end_to_end_median_seconds": 22.70861459999969,
+    "peak_commit_mib": 2114.89453125
+  },
+  {
+    "case": "finance",
+    "library": "r-readxl",
+    "tool": "SheetShrink",
+    "trials": 3,
+    "completed": 3,
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ],
+    "open_median_seconds": 14.83,
+    "save_median_seconds": 0.86,
+    "cleanup_seconds": 5.425046000000293,
+    "total_seconds": 21.623349899999994,
+    "direct_end_to_end_median_seconds": 21.623349899999994,
+    "repeat_sheetshrink_median_seconds": 1.3618673999999373,
+    "repeat_sheetshrink_byte_identical": false,
+    "peak_commit_mib": 1446.25
+  },
+  {
+    "case": "finance",
+    "library": "r-readxl",
+    "tool": "NXPowerLite",
+    "trials": 3,
+    "completed": 3,
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ],
+    "open_median_seconds": 14.97,
+    "save_median_seconds": 0.85,
+    "cleanup_seconds": 34.953000000008615,
+    "total_seconds": 50.773000000008615,
+    "peak_commit_mib": 248.78515625
+  },
+  {
+    "case": "finance",
+    "library": "r-readxl",
+    "tool": "XLStylesTool",
+    "trials": 3,
+    "completed": 3,
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ],
+    "open_median_seconds": 21.36,
+    "save_median_seconds": 0.88,
+    "cleanup_seconds": null,
+    "total_seconds": null,
+    "peak_commit_mib": 2114.734375
+  },
+  {
+    "case": "finance",
+    "library": "r-readxl",
+    "tool": "CheckPerformance",
+    "trials": 3,
+    "completed": 3,
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ],
+    "open_median_seconds": 14.78,
+    "save_median_seconds": 0.86,
+    "cleanup_seconds": null,
+    "total_seconds": null,
+    "peak_commit_mib": 246.98046875
+  },
+  {
+    "case": "finance",
+    "library": "r-readxl",
+    "tool": "Inquire",
+    "trials": 3,
+    "completed": 3,
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ],
+    "open_median_seconds": 18.98,
+    "save_median_seconds": 0.89,
+    "cleanup_seconds": null,
+    "total_seconds": null,
+    "peak_commit_mib": 756.6640625
+  },
+  {
+    "case": "qt-rr",
+    "library": "openpyxl",
+    "tool": "Original",
+    "trials": 3,
+    "completed": 0,
+    "statuses": [
+      "memory_limit",
+      "memory_limit",
+      "memory_limit"
+    ],
+    "abort_median_seconds": 79.41641329999948,
+    "peak_commit_mib": 4135.59375
+  },
+  {
+    "case": "qt-rr",
+    "library": "openpyxl",
+    "tool": "SheetShrink",
+    "trials": 3,
+    "completed": 3,
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ],
+    "open_median_seconds": 5.829854099999466,
+    "save_median_seconds": 5.191122999999607,
+    "cleanup_seconds": 7.64936200000011,
+    "total_seconds": 19.835326299999906,
+    "direct_end_to_end_median_seconds": 19.835326299999906,
+    "repeat_sheetshrink_median_seconds": 0.3847339000003558,
+    "repeat_sheetshrink_byte_identical": true,
+    "peak_commit_mib": 2078.97265625
+  },
+  {
+    "case": "qt-rr",
+    "library": "openpyxl",
+    "tool": "NXPowerLite",
+    "trials": 3,
+    "completed": 3,
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ],
+    "open_median_seconds": 5.930966400001125,
+    "save_median_seconds": 5.175870299999588,
+    "cleanup_seconds": 44.062000000005355,
+    "total_seconds": 55.16883670000607,
+    "peak_commit_mib": 474.640625
+  },
+  {
+    "case": "qt-rr",
+    "library": "openpyxl",
+    "tool": "XLStylesTool",
+    "trials": 3,
+    "completed": 0,
+    "statuses": [
+      "memory_limit",
+      "memory_limit",
+      "memory_limit"
+    ],
+    "abort_median_seconds": 78.68506870000056,
+    "peak_commit_mib": 4135.86328125
+  },
+  {
+    "case": "qt-rr",
+    "library": "openpyxl",
+    "tool": "CheckPerformance",
+    "trials": 3,
+    "completed": 3,
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ],
+    "open_median_seconds": 5.5493680999998105,
+    "save_median_seconds": 5.258194599999115,
+    "cleanup_seconds": null,
+    "total_seconds": null,
+    "peak_commit_mib": 475.4140625
+  },
+  {
+    "case": "qt-rr",
+    "library": "openpyxl",
+    "tool": "Inquire",
+    "trials": 3,
+    "completed": 3,
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ],
+    "open_median_seconds": 5.9075392000004285,
+    "save_median_seconds": 5.221875199998976,
+    "cleanup_seconds": null,
+    "total_seconds": null,
+    "peak_commit_mib": 478.36328125
+  },
+  {
+    "case": "qt-rr",
+    "library": "pandas",
+    "tool": "Original",
+    "trials": 3,
+    "completed": 3,
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ],
+    "open_median_seconds": 237.46666730000106,
+    "save_median_seconds": 10.196143099999972,
+    "cleanup_seconds": 0,
+    "total_seconds": 249.1335076000014,
+    "direct_end_to_end_median_seconds": 249.1335076000014,
+    "peak_commit_mib": 492.77734375
+  },
+  {
+    "case": "qt-rr",
+    "library": "pandas",
+    "tool": "SheetShrink",
+    "trials": 3,
+    "completed": 3,
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ],
+    "open_median_seconds": 4.526090400000612,
+    "save_median_seconds": 10.142189099999996,
+    "cleanup_seconds": 7.031535400001303,
+    "total_seconds": 22.989510600000358,
+    "direct_end_to_end_median_seconds": 22.989510600000358,
+    "repeat_sheetshrink_median_seconds": 0.366409799999019,
+    "repeat_sheetshrink_byte_identical": true,
+    "peak_commit_mib": 2080.3984375
+  },
+  {
+    "case": "qt-rr",
+    "library": "pandas",
+    "tool": "NXPowerLite",
+    "trials": 3,
+    "completed": 3,
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ],
+    "open_median_seconds": 4.507127700000638,
+    "save_median_seconds": 10.12610610000047,
+    "cleanup_seconds": 44.062000000005355,
+    "total_seconds": 58.69523380000646,
+    "peak_commit_mib": 492.98046875
+  },
+  {
+    "case": "qt-rr",
+    "library": "pandas",
+    "tool": "XLStylesTool",
+    "trials": 3,
+    "completed": 3,
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ],
+    "open_median_seconds": 235.06561169999986,
+    "save_median_seconds": 10.236069300000054,
+    "cleanup_seconds": null,
+    "total_seconds": null,
+    "peak_commit_mib": 493.01953125
+  },
+  {
+    "case": "qt-rr",
+    "library": "pandas",
+    "tool": "CheckPerformance",
+    "trials": 3,
+    "completed": 3,
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ],
+    "open_median_seconds": 4.270782300000064,
+    "save_median_seconds": 10.150926599999366,
+    "cleanup_seconds": null,
+    "total_seconds": null,
+    "peak_commit_mib": 493.10546875
+  },
+  {
+    "case": "qt-rr",
+    "library": "pandas",
+    "tool": "Inquire",
+    "trials": 3,
+    "completed": 3,
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ],
+    "open_median_seconds": 4.5362277000003814,
+    "save_median_seconds": 10.31364719999874,
+    "cleanup_seconds": null,
+    "total_seconds": null,
+    "peak_commit_mib": 493.03125
+  },
+  {
+    "case": "qt-rr",
+    "library": "excel",
+    "tool": "Original",
+    "trials": 3,
+    "completed": 3,
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ],
+    "open_median_seconds": 32.42435990000013,
+    "save_median_seconds": 4.592044799999712,
+    "cleanup_seconds": 0,
+    "total_seconds": 39.788288399999146,
+    "direct_end_to_end_median_seconds": 39.788288399999146,
+    "peak_commit_mib": 815.62890625
+  },
+  {
+    "case": "qt-rr",
+    "library": "excel",
+    "tool": "SheetShrink",
+    "trials": 3,
+    "completed": 3,
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ],
+    "open_median_seconds": 1.7429742999993323,
+    "save_median_seconds": 0.5707282000003033,
+    "cleanup_seconds": 7.096077800000785,
+    "total_seconds": 11.843873299999359,
+    "direct_end_to_end_median_seconds": 11.843873299999359,
+    "repeat_sheetshrink_median_seconds": 0.36415710000073886,
+    "repeat_sheetshrink_byte_identical": true,
+    "peak_commit_mib": 2092.44140625
+  },
+  {
+    "case": "qt-rr",
+    "library": "excel",
+    "tool": "NXPowerLite",
+    "trials": 3,
+    "completed": 3,
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ],
+    "open_median_seconds": 1.6813590999990993,
+    "save_median_seconds": 0.558242699999937,
+    "cleanup_seconds": 44.062000000005355,
+    "total_seconds": 46.30160180000439,
+    "peak_commit_mib": 136.26171875
+  },
+  {
+    "case": "qt-rr",
+    "library": "excel",
+    "tool": "XLStylesTool",
+    "trials": 3,
+    "completed": 3,
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ],
+    "open_median_seconds": 31.994962400000077,
+    "save_median_seconds": 4.501679400000285,
+    "cleanup_seconds": null,
+    "total_seconds": null,
+    "peak_commit_mib": 816.2890625
+  },
+  {
+    "case": "qt-rr",
+    "library": "excel",
+    "tool": "CheckPerformance",
+    "trials": 3,
+    "completed": 3,
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ],
+    "open_median_seconds": 1.622404199999437,
+    "save_median_seconds": 0.5296154999996361,
+    "cleanup_seconds": null,
+    "total_seconds": null,
+    "peak_commit_mib": 133.40234375
+  },
+  {
+    "case": "qt-rr",
+    "library": "excel",
+    "tool": "Inquire",
+    "trials": 3,
+    "completed": 3,
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ],
+    "open_median_seconds": 1.707526999998663,
+    "save_median_seconds": 0.5305491999997685,
+    "cleanup_seconds": null,
+    "total_seconds": null,
+    "peak_commit_mib": 133.06640625
+  },
+  {
+    "case": "qt-rr",
+    "library": "r-openxlsx",
+    "tool": "Original",
+    "trials": 3,
+    "completed": 3,
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ],
+    "open_median_seconds": 63.19,
+    "save_median_seconds": 75.45,
+    "cleanup_seconds": 0,
+    "total_seconds": 140.85707920000004,
+    "direct_end_to_end_median_seconds": 140.85707920000004,
+    "peak_commit_mib": 2592.62109375
+  },
+  {
+    "case": "qt-rr",
+    "library": "r-openxlsx",
+    "tool": "SheetShrink",
+    "trials": 3,
+    "completed": 3,
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ],
+    "open_median_seconds": 1.48,
+    "save_median_seconds": 2.32,
+    "cleanup_seconds": 7.027293299999656,
+    "total_seconds": 11.284513599999627,
+    "direct_end_to_end_median_seconds": 11.284513599999627,
+    "repeat_sheetshrink_median_seconds": 0.36320899999918765,
+    "repeat_sheetshrink_byte_identical": true,
+    "peak_commit_mib": 2105.7265625
+  },
+  {
+    "case": "qt-rr",
+    "library": "r-openxlsx",
+    "tool": "NXPowerLite",
+    "trials": 3,
+    "completed": 3,
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ],
+    "open_median_seconds": 1.44,
+    "save_median_seconds": 2.32,
+    "cleanup_seconds": 44.062000000005355,
+    "total_seconds": 47.82200000000535,
+    "peak_commit_mib": 236.46875
+  },
+  {
+    "case": "qt-rr",
+    "library": "r-openxlsx",
+    "tool": "XLStylesTool",
+    "trials": 3,
+    "completed": 3,
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ],
+    "open_median_seconds": 63.1,
+    "save_median_seconds": 76.7,
+    "cleanup_seconds": null,
+    "total_seconds": null,
+    "peak_commit_mib": 2592.796875
+  },
+  {
+    "case": "qt-rr",
+    "library": "r-openxlsx",
+    "tool": "CheckPerformance",
+    "trials": 3,
+    "completed": 3,
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ],
+    "open_median_seconds": 1.15,
+    "save_median_seconds": 1.87,
+    "cleanup_seconds": null,
+    "total_seconds": null,
+    "peak_commit_mib": 222.76171875
+  },
+  {
+    "case": "qt-rr",
+    "library": "r-openxlsx",
+    "tool": "Inquire",
+    "trials": 3,
+    "completed": 3,
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ],
+    "open_median_seconds": 1.47,
+    "save_median_seconds": 2.33,
+    "cleanup_seconds": null,
+    "total_seconds": null,
+    "peak_commit_mib": 236.7734375
+  },
+  {
+    "case": "qt-rr",
+    "library": "r-readxl",
+    "tool": "Original",
+    "trials": 3,
+    "completed": 3,
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ],
+    "open_median_seconds": 10.48,
+    "save_median_seconds": 1.02,
+    "cleanup_seconds": 0,
+    "total_seconds": 11.896588699999484,
+    "direct_end_to_end_median_seconds": 11.896588699999484,
+    "peak_commit_mib": 1492.1953125
+  },
+  {
+    "case": "qt-rr",
+    "library": "r-readxl",
+    "tool": "SheetShrink",
+    "trials": 3,
+    "completed": 3,
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ],
+    "open_median_seconds": 1.57,
+    "save_median_seconds": 1.01,
+    "cleanup_seconds": 7.054285399999571,
+    "total_seconds": 10.060219099999813,
+    "direct_end_to_end_median_seconds": 10.060219099999813,
+    "repeat_sheetshrink_median_seconds": 0.36424240000087593,
+    "repeat_sheetshrink_byte_identical": true,
+    "peak_commit_mib": 2162.94140625
+  },
+  {
+    "case": "qt-rr",
+    "library": "r-readxl",
+    "tool": "NXPowerLite",
+    "trials": 3,
+    "completed": 3,
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ],
+    "open_median_seconds": 1.53,
+    "save_median_seconds": 1,
+    "cleanup_seconds": 44.062000000005355,
+    "total_seconds": 46.592000000005356,
+    "peak_commit_mib": 256.0
+  },
+  {
+    "case": "qt-rr",
+    "library": "r-readxl",
+    "tool": "XLStylesTool",
+    "trials": 3,
+    "completed": 3,
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ],
+    "open_median_seconds": 10.45,
+    "save_median_seconds": 1.02,
+    "cleanup_seconds": null,
+    "total_seconds": null,
+    "peak_commit_mib": 1491.73046875
+  },
+  {
+    "case": "qt-rr",
+    "library": "r-readxl",
+    "tool": "CheckPerformance",
+    "trials": 3,
+    "completed": 3,
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ],
+    "open_median_seconds": 1.49,
+    "save_median_seconds": 0.97,
+    "cleanup_seconds": null,
+    "total_seconds": null,
+    "peak_commit_mib": 270.59765625
+  },
+  {
+    "case": "qt-rr",
+    "library": "r-readxl",
+    "tool": "Inquire",
+    "trials": 3,
+    "completed": 3,
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ],
+    "open_median_seconds": 1.55,
+    "save_median_seconds": 1.01,
+    "cleanup_seconds": null,
+    "total_seconds": null,
+    "peak_commit_mib": 255.796875
+  }
+]
