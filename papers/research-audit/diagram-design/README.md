@@ -4,11 +4,12 @@ Reviewed on 11 November 2026 against source revision
 `1b9ee98e3409c3584ffd12a661d0c19f8a5f0788` in `F:/repos/excel-shrink-rust`.
 This extends the [state-machine inventory](../state-machines/README.md).
 
-The request's word “Styling” can refer to Observatory presentation or to work
-stealing. Both are covered below. The inventory follows the relevant source
-contracts, orchestration, rendering and regression cases. Diagram proposals
-describe what the implementation can support and what further observations
-would be required.
+The author clarified that the SheetShrink scope is work stealing and scheduling
+at workbook, worksheet and worksheet-chunk level. The inventory follows the
+relevant source contracts, orchestration and regression cases. The presentation
+inventory supplies supporting visual encodings for those execution mechanisms.
+Diagram proposals describe what the implementation can support and what further
+observations would be required.
 
 ## Recommended figures
 
@@ -72,6 +73,11 @@ defined quantity. Time Curves would require a justified state-distance metric
 and are lower priority for explaining this pipeline.
 
 ## SheetShrink execution and work distribution
+
+The primary SheetShrink figure should combine a hierarchical fork/join graph
+with an observed thread timeline. A small admission inset should explain how
+pending chunks influence worksheet dispatch. Together these views distinguish
+task dependencies, admission decisions and actual execution assignment.
 
 | Source | Mechanism | Recommended representation |
 | --- | --- | --- |
