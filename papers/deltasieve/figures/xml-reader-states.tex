@@ -1,6 +1,7 @@
 \begin{figure}[t]
 \centering
 \begin{tikzpicture}[x=1cm,y=1cm]
+\path[use as bounding box] (-.65,1.3) rectangle (7.8,-3.3);
 \node[state work] (text) at (1,0) {Text};
 \node[state node] (open) at (3.8,0) {Open};
 \node[state node] (tag) at (6.6,0) {Tag\\quotes tracked};
@@ -11,10 +12,10 @@
 \draw[state edge] (-.25,0) -- (text.west);
 \draw[state edge] (text) -- node[state label,above] {\texttt{<}} (open);
 \draw[state edge] (open) -- node[state label,above] {element} (tag);
-\draw[state edge] (tag.north) to[out=90,in=90,looseness=.7]
+\draw[state edge] (tag.north) .. controls (6.6,1.05) and (1,1.05) ..
   node[state label,above] {unquoted \texttt{>} / emit validated tag} (text.north);
 \draw[state edge] (open.south west) --
-  node[state label,above left,pos=.6] {\texttt{<!--}} (comment.north east);
+  node[state label,above left,pos=.6] {\texttt{<!-{}-}} (comment.north east);
 \draw[state edge] (open.south) --
   node[state label,left] {\texttt{<?}} (pi.north);
 \draw[state edge] (open.south east) --
@@ -23,22 +24,18 @@
   (cdata.south) -- (6.6,-3.05) -- (-.55,-3.05) -- (-.55,-.65);
 \draw[state edge] (-.55,-.65) to[out=90,in=-145] (text.south west);
 \draw[draw=stateSlate!85,line width=.65pt] (comment.south) --
-  node[state label,left] {\texttt{-->}} (1,-3.05);
+  node[state label,left] {\texttt{-{}->}} (1,-3.05);
 \draw[draw=stateSlate!85,line width=.65pt] (pi.south) --
   node[state label,left] {\texttt{?>}} (3.8,-3.05);
 \node[state label,right] at (6.6,-2.7) {\texttt{]]>}};
 \fill[stateSlate] (1,-3.05) circle (1pt);
 \fill[stateSlate] (3.8,-3.05) circle (1pt);
-\node[state final,text width=7.0cm,minimum height=.65cm,anchor=north west]
-  at (.1,-3.65) {\textbf{\texttt{finish()} accepts}\quad
-    Text state, zero open depth, exactly one root};
-\node[state note,text width=7.3cm,anchor=north west] at (0,-4.6)
-  {Partial tags, quotes and delimiter prefixes survive read boundaries.
-   Invalid markup and resource-limit violations return errors.};
 \end{tikzpicture}
 \caption{DeltaSieve's six-state token reader. Quote tracking prevents
-\texttt{>} inside an attribute value from closing a tag. Comments, instructions and CDATA return
-to Text after their complete terminators. The bottom predicate governs final
-acceptance. Shared return lines denote merged transitions.}
+\texttt{>} inside an attribute value from closing a tag. Complete comment,
+instruction and CDATA terminators return to Text along shared edges.
+Final acceptance requires Text state, zero open-element depth and exactly one
+root. Partial tokens survive read boundaries. Invalid markup and resource-limit
+violations return errors.}
 \label{fig:xml-reader-states}
 \end{figure}

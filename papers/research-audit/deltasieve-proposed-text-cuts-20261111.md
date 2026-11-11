@@ -1,12 +1,14 @@
 # Proposed DeltaSieve text cuts
 
-The figure edits are implemented. The text blocks below remain proposals for
-review. They quote the manuscript source after the figure split. Figure numbers
+The figure edits and selected text cuts are implemented. The quoted blocks
+below record the reviewed source before those cuts. Figure numbers
 can change after later cuts. The previous run-state figure is retained as TikZ,
 PDF and SVG. Image transport is now Figure 11, and capture ownership is Figure 12.
 
-The first cut preserves the retained transport and ownership figures. Its purpose
-is to shorten operational exposition around the scientific comparison contract.
+The accepted cuts remove operational exposition, the preliminary Intel result
+lane and historical budget/adapter detail. Figure 6 is retained with a flatter
+return edge and acceptance conditions in its caption. The geometry and Office.js
+code figures remain candidates for a later edit.
 
 ## First text cut
 
@@ -89,20 +91,10 @@ is to shorten operational exposition around the scientific comparison contract.
 
 ### Retain
 
-Retain a short operational contract covering owned processes, verified progress,
-qualified paired evidence, retry identity and explicit failure outcomes. Retain
-the existing input/part, component and renderer/preparation compatibility rules
-once. Keep scientific limitations and coverage denominators.
+The retained method describes image transport, bounded capture ownership and
+cache compatibility. Coverage limits are stated with the results.
 
-Suggested replacement for the run-lifecycle and monitoring exposition follows.
-
-> Each comparison owns its native processes and capture profile. A progress
-> watchdog tracks verified native work separately from reachability. Retries
-> preserve command identity, and failed attempts retain explicit outcomes.
-> Portable reports preserve source identities, observation regions, findings
-> and resource measurements for subsequent inspection.
-
-When removing the Atlas paragraph, retain its reporting limitation in Discussion.
+The Atlas reporting limitation is retained in Discussion.
 
 > Current reports incompletely record whole-sheet fallback scope and
 > per-candidate direct or indirect XML provenance. Attribution requires
@@ -202,8 +194,8 @@ A general package-budget advantage would require matched workloads and repetitio
 
 Keep the streaming architecture, strict acceptance conditions, all-state geometry
 invariant and image qualification. The existing adaptive-partition schematic
-carries the main idea. Figures 6, 9 and 10 are candidates for the artifact in a
-later edit.
+carries the main idea. Figures 9 and 10 are candidates for the artifact in a later edit. Figure 6
+is retained at the author's request, with its prose and layout shortened.
 
 Suggested compact replacement for the synchronization introduction follows.
 

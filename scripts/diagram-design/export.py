@@ -16,6 +16,7 @@ FIGURES = (
     "papers/deltasieve/figures/communication.tex",
     "papers/deltasieve/figures/capture-ownership.tex",
     "papers/deltasieve/figures/run-states.tex",
+    "papers/deltasieve/figures/xml-reader-states.tex",
 )
 
 

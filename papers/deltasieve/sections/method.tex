@@ -88,11 +88,7 @@ untyped record can supply the same blank input to a conditional rule. The full
 visual fingerprint and the rule-input fingerprint therefore have different
 responsibilities.
 
-The token reader and the worksheet consumer have separate state.
-Figure~\ref{fig:xml-reader-states} shows the lexical reader. Its quote and delimiter-prefix memory survive reads,
-while an open-element stack checks hierarchy. Final acceptance requires a
-completed root and a balanced stack, preventing a truncated stream from
-contributing a successful partial observation.
+Figure~\ref{fig:xml-reader-states} shows the streaming XML token reader.
 \input{figures/xml-reader-states}
 
 \subsection{Dependency-aware candidate selection}
@@ -218,8 +214,7 @@ to image-size qualification. A range hidden in one state can be large in its
 partner, so any oversized state forces further splitting. Each child is checked
 again. Large hidden spans can yield zero-area leaves rather than thousands of
 identical image requests.
-Figure~\ref{fig:capture-02-all-state-geometry} shows the batch completeness and
-geometry checks.
+Figure~\ref{fig:capture-02-all-state-geometry} illustrates the all-state geometry checks.
 \input{figures/capture-methods/02-all-state-geometry}
 
 The planner respects both area and edge budgets. A conservative point-to-pixel
@@ -237,11 +232,8 @@ contextual parts and check seam consistency. Agreement of one seam is a local
 control, not a monolithic oracle for the workbook.
 
 \subsection{Native image qualification}
-Office.js requests images through \texttt{Range.getImage()}. Batching amortizes
-cross-runtime synchronization. Image results are consumed only after the pending
-synchronization completes, as shown in Figure~\ref{fig:capture-03-office-sync}.
-The adapter bounds both queued image count and aggregate pixels. Geometry,
-encoding, transient buffers and upload windows have separate limits.
+Native images use bounded batches of Office.js \texttt{Range.getImage()}
+requests, synchronized before consumption (Figure~\ref{fig:capture-03-office-sync}).
 \input{figures/capture-methods/03-office-sync}
 
 A successful API response does not prove complete capture. The worker verifies
@@ -278,32 +270,9 @@ transformation. Counterfactual restoration of a suspected removed witness tests
 a narrower causal mechanism. None of these operations increases pixel tolerance
 or automatically clears an unrelated finding.
 
-\subsection{Execution, omission and evidence reuse}
-
-Preparing can proceed directly to pairing when transformed inputs are supplied. Active
-phases can fail, with already durable pair records retained for accounting.
-Completion follows report publication. The finalized report still records
-individual failures, limitations and observed differences.
-
-Each comparison group owns its Excel processes, private desktop and WebView
-profile. Office calls are serial within a workbook. Independent groups can
-progress concurrently under memory admission. Cleanup distinguishes requested
-termination from confirmed process exit. Setup, opening, geometry, capture,
-comparison and persistence have separate timing boundaries.
-
-A finite-work watchdog advances after verified work, including validated geometry
-responses and completed image comparisons. Heartbeats establish reachability
-while a native call is pending, but do not extend a deadline by themselves.
-Durable commands and receipts reconcile reconnects. Repeated delivery cannot
-restart an already completed operation or silently duplicate a pending one.
-Failed attempts retain produced evidence and receive no equality verdict.
-Figure~\ref{fig:communication-panels} shows image transport and retained evidence.
-Figure~\ref{fig:capture-ownership} illustrates bounded capture ownership.
-Transport acknowledgment, native progress
-and process lifetime have independent evidence and failure conditions.
-The default transfers captured images and retains equal regions in portable
-reports. Verified-equal PNGs can receive a smaller lossless encoding after exact
-decoded-pixel checking, preserving their inspection resolution.
+\subsection{Omission and evidence reuse}
+Figures~\ref{fig:communication-panels} and~\ref{fig:capture-ownership} show
+image transport, retained evidence and bounded capture ownership.
 \input{figures/communication}
 
 Some observations can be omitted before native work. A direct byte comparison
@@ -322,67 +291,3 @@ part selection must cover every newly requested component. User-selected weaker
 component policies remain explicit evaluation choices, with correspondingly
 bounded claims. Interrupted runs and missing image receipts cannot supply
 completed evidence.
-
-The cache admission condition can be expressed as compatibility of four
-independent facts. The previous observation must be complete, its required
-package contents must match, its selected component set must cover the new
-request, and its renderer/preparation policy must remain compatible. Matching
-only a filename or producer binary is insufficient. Matching workbook bytes
-without the renderer contract is likewise insufficient for a native result.
-A changed compression level can preserve member identity, while a new ordinary
-save can change it and invalidate admission.
-
-Generation caches, completed-comparison caches and partial working evidence
-have different roles. An interrupted attempt may retain useful images for
-inspection, but its missing coverage cannot be supplied by relabeling the attempt
-complete. Publication records retain the original result and later classification
-rather than overwriting the evidence after a retry. This is important in a
-corpus campaign where several machines or attempts contribute observations.
-
-Portable reports preserve input identities, observation regions, exclusions,
-raw findings, attribution and resource measurements. The Observatory supports
-inspection and replay without becoming a source of visual truth. Detailed
-transport schemas, UI controls, experiment launchers and historical failed
-attempts belong to the versioned artifact. They do not change the selection
-or pixel-observation contract described here.
-
-The companion cleanup runs have a separately labelled
-\href{https://alexander-aue-johr.github.io/excel-shrink-paper/replays/corpus-distributions-20261111/}{public preparation replay collection}.
-It reconstructs recorded workbook, worksheet and chunk execution with seeking
-and speed controls. Source and publication event checksums preserve the lineage
-of the local-path projection. This preparation history is separate from native
-validation observations. Complete histories currently load into browser memory.
-
-The Atlas separates outcome from planning evidence. Its light/dark views use
-symbols alongside color for observed differences, unchanged compared captures
-and unavailable pixel evidence. Independent badges expose retained capture
-plans, conditional-formatting dependency candidates and conservative rule
-captures. A rule fallback can cover a small range. Existing reports do not
-consistently preserve whole-sheet fallback scope or per-candidate direct/indirect
-XML provenance. Rendering and volatile-formula causes therefore remain
-unclassified until supported by a separate review.
-
-
-\subsection{Machine-Accessible Campaign Monitoring}
-The source inventories described in Section IV motivate monitoring across
-long-running campaigns. They contain 34,065 content-addressed Enron table
-candidates, 9,117 Data.gov XLSX files and 1,182 Destatis XLSX files. Candidate
-inventory size, successful preparation and completed comparison coverage remain
-separate quantities.
-
-The control room exposes a local HTTP/JSON interface for compact run summaries,
-worker and workbook state, comparison reports and retained evidence. Bounded
-summaries preserve active attempts while limiting completed-item detail. Run
-and attempt identities prevent observations from earlier executions from being
-reported as current work. Process liveness, heartbeats and the time of last
-verified progress are represented separately, allowing an external monitor to
-distinguish a reachable process from a progressing attempt. A WebSocket stream
-provides bounded snapshots and incremental status updates for live clients.
-
-These interfaces supported local agent workflows during overnight runs.
-Agents could inspect stalled attempts and record suspected visual differences
-for subsequent author review. Capture receipts, pixel comparisons and retained
-images supply the validation evidence. Agent annotations do not establish
-visual equality or convert incomplete coverage into a completed result.
-Explicit control requests and command-status queries support intervention
-without requiring an agent to infer state from the rendered dashboard.
