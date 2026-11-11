@@ -1,0 +1,169 @@
+﻿{
+    "collected_utc":  "2026-11-11T11:23:55.7494554Z",
+    "computer":  {
+                     "Name":  "LV-ANB-001P-BS",
+                     "Manufacturer":  "HP",
+                     "Model":  "HP EliteBook 645 14 inch G11 Notebook PC",
+                     "TotalPhysicalMemory":  33622597632,
+                     "NumberOfLogicalProcessors":  12
+                 },
+    "processors":  [
+                       {
+                           "Name":  "AMD Ryzen 5 Pro 7535U with Radeon Graphics     ",
+                           "NumberOfCores":  6,
+                           "NumberOfLogicalProcessors":  12,
+                           "MaxClockSpeed":  2901
+                       }
+                   ],
+    "memory_modules":  [
+                           {
+                               "Capacity":  17179869184,
+                               "Speed":  5600,
+                               "ConfiguredClockSpeed":  4800,
+                               "Manufacturer":  "Micron",
+                               "PartNumber":  "CT16G56C46S5.M8D1             "
+                           },
+                           {
+                               "Capacity":  17179869184,
+                               "Speed":  5600,
+                               "ConfiguredClockSpeed":  4800,
+                               "Manufacturer":  "Micron",
+                               "PartNumber":  "CT16G56C46S5.M8D1             "
+                           }
+                       ],
+    "operating_system":  {
+                             "Caption":  "Microsoft Windows 11 Enterprise",
+                             "Version":  "10.0.26200",
+                             "BuildNumber":  "26200",
+                             "OSArchitecture":  "64-Bit",
+                             "LastBootUpTime":  "\/Date(1794059743500)\/"
+                         },
+    "windows_release":  {
+                            "DisplayVersion":  "25H2",
+                            "UBR":  9711,
+                            "EditionID":  "Enterprise"
+                        },
+    "office":  {
+                   "ProductReleaseIds":  "ProPlus2024Volume",
+                   "VersionToReport":  "16.0.17932.21056",
+                   "Platform":  "x64",
+                   "ClientCulture":  "de-de"
+               },
+    "power_scheme":  "GUID des Energieschemas: db310065-829b-4671-9647-2261c00e86ef  (Thünen-Institut - Standard (ConfigMgr))",
+    "battery":  [
+                    {
+                        "BatteryStatus":  2,
+                        "EstimatedChargeRemaining":  98
+                    }
+                ],
+    "system_disk":  [
+                        {
+                            "FriendlyName":  "SOLIDIGM SSDPFKNU512GZH",
+                            "BusType":  "NVMe",
+                            "Size":  512110190592
+                        },
+                        {
+                            "FriendlyName":  "Samsung SSD 870 QVO 4TB",
+                            "BusType":  "USB",
+                            "Size":  4000787030016
+                        },
+                        {
+                            "FriendlyName":  "Kingston DataTraveler 3.0",
+                            "BusType":  "USB",
+                            "Size":  61991813120
+                        }
+                    ],
+    "concurrent_processes":  [
+                                 {
+                                     "Name":  "Taskmgr",
+                                     "Id":  17216,
+                                     "CPU":  70186.03125,
+                                     "WorkingSet64":  284282880
+                                 },
+                                 {
+                                     "Name":  "msedge",
+                                     "Id":  20680,
+                                     "CPU":  30386.640625,
+                                     "WorkingSet64":  13201408
+                                 },
+                                 {
+                                     "Name":  "explorer",
+                                     "Id":  6432,
+                                     "CPU":  27501.203125,
+                                     "WorkingSet64":  768454656
+                                 },
+                                 {
+                                     "Name":  "audiodg",
+                                     "Id":  8560,
+                                     "CPU":  23435.984375,
+                                     "WorkingSet64":  79011840
+                                 },
+                                 {
+                                     "Name":  "vlc",
+                                     "Id":  32492,
+                                     "CPU":  13946.234375,
+                                     "WorkingSet64":  195436544
+                                 },
+                                 {
+                                     "Name":  "SystemSettings",
+                                     "Id":  16520,
+                                     "CPU":  11008.921875,
+                                     "WorkingSet64":  114024448
+                                 },
+                                 {
+                                     "Name":  "msedge",
+                                     "Id":  22672,
+                                     "CPU":  6480.6875,
+                                     "WorkingSet64":  780541952
+                                 },
+                                 {
+                                     "Name":  "CiscoCollabHost",
+                                     "Id":  34140,
+                                     "CPU":  5959.84375,
+                                     "WorkingSet64":  611237888
+                                 },
+                                 {
+                                     "Name":  "Code",
+                                     "Id":  15504,
+                                     "CPU":  5845.09375,
+                                     "WorkingSet64":  307294208
+                                 },
+                                 {
+                                     "Name":  "Code",
+                                     "Id":  36460,
+                                     "CPU":  4361.0625,
+                                     "WorkingSet64":  273543168
+                                 },
+                                 {
+                                     "Name":  "atmgr",
+                                     "Id":  41656,
+                                     "CPU":  4044.421875,
+                                     "WorkingSet64":  73719808
+                                 },
+                                 {
+                                     "Name":  "ncpmon",
+                                     "Id":  21708,
+                                     "CPU":  3904.90625,
+                                     "WorkingSet64":  56270848
+                                 },
+                                 {
+                                     "Name":  "msedge",
+                                     "Id":  24668,
+                                     "CPU":  3228.5625,
+                                     "WorkingSet64":  603455488
+                                 },
+                                 {
+                                     "Name":  "msedge",
+                                     "Id":  39304,
+                                     "CPU":  3013.421875,
+                                     "WorkingSet64":  349147136
+                                 },
+                                 {
+                                     "Name":  "Code",
+                                     "Id":  25296,
+                                     "CPU":  2176.53125,
+                                     "WorkingSet64":  541462528
+                                 }
+                             ],
+    "concurrent_workload_note":  "Windows background services and Codex orchestration active; no concurrent Excel comparator while native benchmarks run"
+}

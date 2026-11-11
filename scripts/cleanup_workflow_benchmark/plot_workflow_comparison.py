@@ -73,9 +73,11 @@ def read_outcomes(paths, rows):
             if identity in seen:
                 raise ValueError(f"Duplicate outcome identity: {identity}")
             seen.add(identity)
-            counts = outcomes.setdefault(group, [0] * 5)
+            counts = outcomes.setdefault(group, [0] * 6)
             if identity in plotted:
                 category = 0
+            elif record["conversion"] == "partial":
+                category = 5
             elif record["conversion"] == "failed":
                 category = 2
             elif record["eligible_for_formatting_comparison"]:
@@ -91,8 +93,8 @@ def read_outcomes(paths, rows):
 
 
 def draw_outcomes(axis, groups, outcomes):
-    colors = ["#0072B2", "#56B4E9", "#D55E00", "#E69F00", "#CCCCCC"]
-    hatches = ["", "//", "xx", "..", "\\\\"]
+    colors = ["#0072B2", "#56B4E9", "#D55E00", "#E69F00", "#CCCCCC", "#CC79A7"]
+    hatches = ["", "//", "xx", "..", "\\\\", "++"]
     for position, group in enumerate(groups):
         counts = outcomes[group]
         left = 0
@@ -100,10 +102,10 @@ def draw_outcomes(axis, groups, outcomes):
             axis.barh(position, count, left=left, height=0.44, color=color,
                       hatch=hatch, edgecolor="white", linewidth=0.4)
             left += count
-        axis.text(0, position + 0.34, "/".join(str(n) for n in counts), fontsize=6.5)
+        axis.text(0, position + 0.34, "/".join(str(n) for n in counts) + f" = {sum(counts)}", fontsize=6.5)
     axis.set_ylim(len(groups) - 0.5, -0.5)
     axis.set_xlim(0, max(sum(outcomes[g]) for g in groups))
-    axis.set_xticks([0, 49])
+    axis.set_xticks([0, max(sum(outcomes[g]) for g in groups)])
     axis.set_yticks([])
     axis.set_xlabel("Selection outcomes (files)")
     for side in ("left", "right", "top"):
@@ -124,7 +126,7 @@ def draw_comparison(rows, output, outcomes=None):
     plt.rcParams.update({"font.family": "DejaVu Sans", "font.size": 8,
                          "pdf.fonttype": 42, "svg.fonttype": "none"})
     figure, axes = plt.subplots(1, 3 if outcomes else 2,
-                                figsize=(7.15, 1.8 + 0.47 * len(groups)),
+                                figsize=(7.15, 1.8 + 0.50 * len(groups)),
                                 gridspec_kw={"width_ratios": [1, 1, 0.85]} if outcomes else None)
     labels = []
     for position, group in enumerate(groups):
@@ -138,13 +140,26 @@ def draw_comparison(rows, output, outcomes=None):
         if multiple_tools:
             label = f"{group[1]}\n{label}"
         if multiple_hosts:
-            label = f"{group[0]}\n{label}"
+            host_label = {"LAPTOP-H86KBIH3": "Lenovo", "LV-ANB-001P-BS": "HP"}.get(group[0], group[0])
+            label = f"{host_label} · {label}"
         labels.append(label)
         draw_time_summary(axes[0], position - 0.09, original, marker, color, 7)
         draw_time_summary(axes[0], position + 0.09, cleaned, "o", "#0072B2", -10)
         jitter = np.linspace(-0.17, 0.17, len(ratios))
         np.random.default_rng(20261110).shuffle(jitter)
-        axes[1].scatter(ratios, position + jitter, s=11, color=color, marker=marker, alpha=0.45, linewidths=0)
+        if group[1] == "Inquire":
+            storage = np.array([row["historical_storage"] for row in selected])
+            for medium, filled in (("C_local_NVMe_root", True), ("D_USB_root", False)):
+                mask = storage == medium
+                axes[1].scatter(ratios[mask], position + jitter[mask], s=13,
+                                facecolors=color if filled else "none", edgecolors=color,
+                                marker=marker, alpha=0.65, linewidths=0.6)
+            mask = storage == "legacy_storage_not_fully_recorded"
+            axes[1].scatter(ratios[mask], position + jitter[mask], s=16,
+                            color=color, marker="x", linewidths=0.8)
+        else:
+            axes[1].scatter(ratios, position + jitter, s=11, color=color,
+                            marker=marker, alpha=0.45, linewidths=0)
         quartiles = np.percentile(ratios, [25, 50, 75])
         axes[1].plot(quartiles[[0, 2]], [position, position], color="black", linewidth=2)
         axes[1].scatter(quartiles[1], position, color="black", marker="D", s=20, zorder=4)
@@ -154,7 +169,7 @@ def draw_comparison(rows, output, outcomes=None):
     format_axes(axes[:2], labels)
     if outcomes:
         draw_outcomes(axes[2], groups, outcomes)
-    heading = f"Cleanup workflow comparisons  ·  {', '.join(hosts)}"
+    heading = "Cleanup workflow observations by host and corpus"
     figure.text(0.02, 0.98, heading, va="top", fontsize=8)
     for name, (marker, color) in styles.items():
         axes[0].scatter([], [], color=color, marker=marker, label=name)
@@ -162,14 +177,14 @@ def draw_comparison(rows, output, outcomes=None):
     figure.legend(*axes[0].get_legend_handles_labels(), frameon=False, loc="upper left",
                   bbox_to_anchor=(0.20, 0.93), ncol=len(tool_names) + 1, fontsize=7)
     figure.text(0.02, 0.025, "Absolute times show workbook medians and quartiles. Ratio dots represent paired workbooks.\n"
-                "Black diamonds and lines mark the median and IQR across workbooks.\n"
-                "Each external tool n=1. Sheet Shrink n=9 after warm-up. Native visual validation pending.", fontsize=6.8)
+                "Black diamonds/lines: median/IQR. Inquire dots: filled NVMe, hollow USB, x unrecorded; Sheet Shrink on NVMe.\n"
+                "One primary comparator attempt. Sheet Shrink: Lenovo 9 repetitions; HP 7–11. Visual validation separate.", fontsize=6.8)
     if outcomes:
         figure.text(0.02, 0.13,
-                    "Status counts: plotted / other eligible / failed / payload excluded / incomplete receipt.\n"
-                    "Blue / hatched blue / crosshatched orange / dotted yellow / hatched gray; each row totals 49.",
+                    "Status: plotted / other eligible / failed / payload excluded / incomplete receipt / partial.\n"
+                    "Blue / hatched blue / crosshatched orange / dotted yellow / hatched gray / crosshatched purple.",
                     fontsize=6.8)
-    figure.subplots_adjust(left=0.29 if multiple_hosts else 0.23, right=0.985, top=0.80, bottom=0.29 if outcomes else 0.20, wspace=0.40)
+    figure.subplots_adjust(left=0.25 if multiple_hosts else 0.23, right=0.985, top=0.80, bottom=0.29 if outcomes else 0.20, wspace=0.40)
     output.parent.mkdir(parents=True, exist_ok=True)
     figure.savefig(output)
     figure.savefig(output.with_suffix(".png"), dpi=200)

@@ -89,3 +89,11 @@ compressed per-tool receipt inventories. Counts distinguish plotted pairs,
 other eligible inputs, failed conversions, protected-payload exclusions and
 incomplete timing receipts. The current manuscript command adds
 `--receipts papers/sheetshrink/evidence/top49-nxpowerlite-receipts.json.gz papers/sheetshrink/evidence/top49-xlstyles-receipts.json.gz`.
+
+For the HP Inquire lane, run `export_inquire.py` first, then add
+`papers/sheetshrink/evidence/top49-inquire-pairs.csv` to `--pairs` and
+`papers/sheetshrink/evidence/top49-inquire-receipts.json.gz` to `--receipts`.
+The Inquire lane uses the frozen shared 110-input cohort and retains its own
+host, repetition counts, workflow endpoints and historical storage conditions.
+Partial attempts have a separate status category. Storage markers distinguish
+NVMe, USB and incompletely recorded historical roots.

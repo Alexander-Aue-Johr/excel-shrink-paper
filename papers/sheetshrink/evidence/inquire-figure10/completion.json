@@ -1,0 +1,70 @@
+{
+  "completed_utc": "2026-11-11T12:00:36.240114+00:00",
+  "cohort": 110,
+  "original_hashes_verified_before_after": true,
+  "sheetshrink": {
+    "complete": true,
+    "cohort": 110,
+    "status_counts": {
+      "success": 110,
+      "partial": 0,
+      "failed": 0
+    },
+    "inputs_verified_before_and_after": true,
+    "sqlite_integrity": "ok",
+    "finished_utc": "2026-11-11T11:57:57.975854+00:00"
+  },
+  "inquire_primary": {
+    "success": 90,
+    "success_with_warnings": 6,
+    "failed": 14
+  },
+  "inquire_diagnostic_retries_separate": {
+    "marked_final_readonly": 1,
+    "open_failure_unresolved": 1,
+    "recovered_window": 1,
+    "recovered_worksheet": 11
+  },
+  "check_performance": {
+    "success": 0,
+    "delegated_to_other_computer": 110,
+    "workflow_attempts_here": 0,
+    "remaining_task_here": null,
+    "external_task": "User assigned Check Performance to another computer; use that host own matching baseline and retain host attribution."
+  },
+  "by_corpus": {
+    "datagov": {
+      "files": 48,
+      "sheetshrink_success": 48,
+      "inquire_full_success": 43,
+      "median_inquire_workflow_to_sheetshrink_ratio": 12.036516166225018
+    },
+    "destatis": {
+      "files": 21,
+      "sheetshrink_success": 21,
+      "inquire_full_success": 19,
+      "median_inquire_workflow_to_sheetshrink_ratio": 19.362783577863652
+    },
+    "enron": {
+      "files": 41,
+      "sheetshrink_success": 41,
+      "inquire_full_success": 28,
+      "median_inquire_workflow_to_sheetshrink_ratio": 15.176499700274722
+    }
+  },
+  "visual_validation_performed": false,
+  "by_historical_inquire_storage": {
+    "C_local_NVMe_root": {
+      "eligible_full_success_pairs": 41,
+      "median_descriptive_workflow_ratio": 13.903112399764476
+    },
+    "D_USB_root": {
+      "eligible_full_success_pairs": 48,
+      "median_descriptive_workflow_ratio": 12.356737497311464
+    },
+    "legacy_storage_not_fully_recorded": {
+      "eligible_full_success_pairs": 1,
+      "median_descriptive_workflow_ratio": 13.783004437877679
+    }
+  }
+}

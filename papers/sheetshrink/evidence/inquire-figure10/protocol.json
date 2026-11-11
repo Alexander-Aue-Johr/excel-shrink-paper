@@ -1,0 +1,27 @@
+{
+  "threads": 12,
+  "warmups_per_file": 1,
+  "initial_measured_rounds": 7,
+  "extended_measured_rounds": 11,
+  "extension_rule": "After 7 successful measured trials: IQR/median > 0.10",
+  "scheduling": "One complete warmup pass, then shuffled case order per measured round; fixed RNG seed",
+  "seed": 20261110,
+  "sampling_interval_seconds": 0.02,
+  "timeout_seconds": 1800,
+  "timing": "perf_counter immediately before process creation through native process completion; validation/hashing/DB writes excluded",
+  "memory": "OS lifetime peak working set and peak private commit; 20ms sampled RSS/private bytes/CPU/threads",
+  "caches": "Warm filesystem cache; no forced cache flush; fresh output directory each trial",
+  "cli_flags": [
+    "--writer-workers",
+    "12",
+    "--max-active-workbooks",
+    "1",
+    "--console-log-level",
+    "error",
+    "--file-log-level",
+    "error"
+  ],
+  "rayon_num_threads": 12,
+  "one_active_workbook": true,
+  "executable_sha256": "8feb1537fa76b9e604c9440beb7b633097c0d33d7a72bf51f99121052759e428"
+}

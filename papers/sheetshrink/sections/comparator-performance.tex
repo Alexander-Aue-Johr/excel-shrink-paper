@@ -54,13 +54,39 @@ each plotted corpus group. The larger individual receipt sets remain available
 in the artifact. Table~\ref{tab:top49-resources} retains the full 133-input
 NXPowerLite resource lane.
 
-Inquire timings cover the full Excel workflow and are paired with repeated
-Sheet Shrink process timings for the same input and host. The retained
-Inquire workflow observations have one attempt per input; partial and failed
-attempts receive no completed-runtime ratio.
+The Inquire lane uses an HP EliteBook 645 G11 with an AMD Ryzen 5 PRO 7535U
+(six physical cores, twelve logical processors), 32 GiB installed RAM,
+a 512 GB SOLIDIGM NVMe SSD and Windows 11 Enterprise build 26200.9711.
+Excel and Inquire file versions are 16.0.17932.21056 and 16.0.16626.20076.
+Of the same 110 originals, 90 have full primary Inquire successes, six partial
+outcomes and fourteen failures. Diagnostic retries remain separate. Full
+successes comprise 19 Destatis, 28 Enron and 43 Data.gov workbooks.
+
+Inquire records single historical Excel workflow observations, including opening,
+cleanup with internal saving, explicit saving and shutdown; detailed boundaries
+remain in the per-case receipts. Partial and failed attempts receive no
+completed-runtime ratio. Historical hardware and version attribution partly
+uses execution-session provenance and later inventory rather than per-trial
+capture. Among the 90 complete pairs, 41 Inquire work directories were on local
+NVMe, 48 on a USB-connected Samsung 870 QVO SSD, and one has incomplete storage
+attribution. All paired Sheet Shrink trials used local NVMe. Figure~\ref{fig:paired-cleanup-workflows}
+marks these storage conditions separately. The median descriptive workflow
+ratios are 19.36, 15.18 and 12.04 for Destatis, Enron and Data.gov, respectively.
+Different endpoints and storage conditions constrain their interpretation.
+
+The HP Sheet Shrink lane freezes revision \texttt{75e85035}, twelve Rayon and
+twelve writer workers, and one active workbook. One warm-up precedes seven
+measured trials per input, extended to eleven when the relative interquartile
+range exceeds 10\%. All 110 inputs completed: 110 warm-ups and 806 measured
+trials, with identical uncompressed output contents across repetitions for each
+input. Trials used fresh native Windows processes, warm filesystem caches,
+seeded shuffled ordering and a 1,800 s timeout. Hashing and verification are
+outside process-start-to-exit timing. The host retained its institutional power
+scheme and background workload. No comparator Excel process ran concurrently
+with these timed Sheet Shrink trials.
 
 \paragraph{Timing and resources}
-Each included GUI observation has one primary timing measurement per input. Its operational cost
+Each included Lenovo GUI observation has one primary timing measurement per input. Its operational cost
 limits replication, and its timing variability therefore remains unestimated.
 Diagnostic retries remain separate attempts. Elapsed time covers automated GUI
 orchestration through output confirmation and initial package verification.
@@ -69,7 +95,7 @@ Working-set and private-byte peaks use a nominal 250 ms sampling interval. The e
 application is reused, with one conversion worker and a 512 MiB RAM and commit
 reserve. The exact profile and per-attempt evidence accompany the results.
 
-The paired Sheet Shrink experiment uses an optimized release build from revision
+The Lenovo Sheet Shrink experiment uses an optimized release build from revision
 \texttt{765c480}, one active workbook, one Rayon worker and one writer, with the
 default cleanup policy. One complete warm-up round precedes nine measured rounds
 over the same 147 source identities. Each round independently shuffles workbook
@@ -85,7 +111,8 @@ Across inputs, the median relative within-input interquartile range,
 $(Q_3-Q_1)/\widetilde{t}$, was 0.84\% over the nine measured repetitions.
 
 Figure~\ref{fig:paired-cleanup-workflows} retains raw times and workbook-level
-same-host ratios. Each denominator is the median of nine Sheet Shrink trials,
+same-host ratios. Each denominator is the same-host Sheet Shrink median (nine Lenovo trials or
+seven to eleven HP trials),
 and each numerator is the primary comparator observation. Across-workbook quartiles
 describe heterogeneity in this deliberately selected stress panel. They are
 distinct from uncertainty over repeated trials~\cite{scientificbenchmarking}.
@@ -99,17 +126,17 @@ their own readiness endpoints, as in the separate historical opening experiment.
 \begin{figure*}[t]
 \centering
 \includegraphics[width=\textwidth]{figures/paired-cleanup-workflows.pdf}
-\caption{Same-host NXPowerLite and XLStylesTool cleanup workflow observations
-on the same 110 originals, paired with Sheet Shrink. Corpus labels give the
-shared input counts for each tool.
-Left, absolute times summarized across paired workbooks. Middle, workbook-level
-comparator time divided by the median Sheet Shrink time, on a logarithmic scale.
-A ratio above one indicates a shorter observed Sheet Shrink workflow. Interval
-marks show the interquartile range across workbooks. Right, all 49 selected
-inputs per corpus and tool, partitioned into plotted, other eligible, failed,
-protected-payload exclusions and incomplete timing receipts. Other eligible
-inputs lack an eligible counterpart in the other tool. Incomplete receipts
-do not imply conversion failure. No native visual-equivalence claim follows
-from timing eligibility.}
+\caption{Observed cleanup workflows paired with same-host Sheet Shrink trials.
+Lenovo groups use the shared 110-input NXPowerLite/XLStylesTool cohort; HP groups
+show the 90 complete Inquire pairs from that cohort. Left, absolute times with
+across-workbook quartiles. Middle, workbook-level workflow ratios, with black
+median/IQR marks. Inquire points distinguish historical local NVMe (filled),
+USB SSD (hollow) and incompletely recorded storage (cross); all HP Sheet Shrink
+trials used NVMe. Different storage, workflow boundaries, builds and worker
+counts qualify these descriptive ratios. Right, selection outcomes include all
+49 inputs per corpus for Lenovo tools and 21/41/48 for HP Inquire, including
+partial attempts. Other eligible inputs lack a paired-tool counterpart.
+Incomplete receipts do not imply conversion failure. Timing eligibility does
+not establish native visual equivalence.}
 \label{fig:paired-cleanup-workflows}
 \end{figure*}
