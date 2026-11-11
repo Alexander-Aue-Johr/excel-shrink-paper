@@ -81,11 +81,12 @@ plans, with adaptive targeted partitions and fixed 256-row reference
 tiles~\cite{preparedenronreference}.
 
 A fixed-seed Data.gov sample selected one member per size quartile from the
-9,117-entry inventory before joining cleanup outcomes. Two references completed
-over eleven areas with equal dimensions and pixels. The other two failed
-native image-size preflight and remain in the denominator. Targeted selection
-used zero and eight equal image pairs for the completed inputs. Prior exposure
-is unclassified; this sample does not establish recall~\cite{datagovreference}.
+9,117-entry inventory before joining cleanup outcomes. Two initial references
+failed size preflight. Smaller independent partitions subsequently completed
+those inputs, retaining the failed attempts. All four references cover 188 areas
+with equal dimensions and pixels. Targeted selection used eleven equal pairs.
+Prior exposure is unclassified; this all-equal sample cannot estimate recall
+on changed inputs~\cite{datagovreference,datagovsupplementary}.
 
 A separate twelve-occurrence Destatis sample used the same fixed-seed,
 size-quartile selection policy. All twelve selected packages contain graphical
@@ -117,15 +118,12 @@ explicit outcomes. Report both completed-reference detection and the fraction
 of all selected cases with usable reference evidence.
 
 \subsection{Mutation strata and statistical scope}
-The broader mutation matrix, including unresolved references and spreadsheet
-error values, remains incomplete.
+Unresolved-reference and error-value mutation strata remain incomplete.
 
-Repeated identical-input native controls characterize renderer variation.
-Volatile-function cases include NOW and RAND, with INDIRECT and OFFSET also
-requiring reference-policy controls~\cite{excelrecalculation}. The full rebuild
-and save policy applies to both states. An unchanged formula can therefore
-produce different rebuilt values. Such observations retain their raw pixels
-and calculation context for attribution.
+Identical-input controls characterize renderer variation. NOW, RAND, INDIRECT
+and OFFSET require reference-policy controls~\cite{excelrecalculation}.
+Both states are rebuilt and saved, so unchanged formulas can produce different
+values. Raw pixels and calculation context remain available for attribution.
 
 For zero misses in $n$ independent trials with common miss probability, the
 exact one-sided 95\% upper bound is $1-0.05^{1/n}$, approximately 9.5\% at
