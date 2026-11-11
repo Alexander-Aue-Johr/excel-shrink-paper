@@ -1,12 +1,9 @@
 % Working prose derived from the versioned preservation contract; evaluation is pending.
 \subsection{Observable spreadsheet behavior}
-A spreadsheet package contains more than the populated table that a user sees.
-Individual cell records can carry formatting, protection, references, or values
-that affect other cells. Conversely, the presence of a stored record does not
-establish that it contributes to the intended presentation. SheetShrink targets
-production cleanup of such packages while retaining the structures needed by its
-preservation contract. Aggressive historical configurations are separate test
-artifacts and are excluded from the production subject of this paper.
+Cell records can contain formatting, protection, references and values that
+affect other cells. SheetShrink removes redundant records while retaining those
+required by its preservation contract. This paper evaluates the production
+cleanup policy.
 
 The relevant visual area includes cells with meaningful values or formulas,
 visible fills or borders, and graphical objects. Row and column formats,

@@ -22,13 +22,10 @@ and calculated row heights are used later to validate the output.
 The output remains an editable XLSX workbook and must preserve required data,
 dependencies and appearance. File-size reduction alone is insufficient.
 
-Figure~\ref{fig:cleanup-overview} summarizes guarded reductions across cells,
-rows, columns and workbook metadata. SheetShrink reuses existing style indices
-and compact witnesses to preserve required effects. Native saving can additionally
-compact style and shared-string tables.
+Figure~\ref{fig:cleanup-overview} summarizes cleanup of cells, rows, columns and
+workbook metadata. Existing styles and representative records preserve required
+effects. Saving in Excel can further compact style and shared-string tables.
 
-The performance objective includes the complete user operation. For a sufficiently
-bloated workbook, we seek to make cleanup followed by opening the cleaned file
-faster than directly opening its original. A single-thread comparison
-separates improvements in work performed from gains due to extra processing
-resources. Parallel corpus experiments then examine throughput and memory.
+We aim to make cleanup followed by opening faster than opening the original
+bloated workbook. Single-thread comparisons isolate improvements in the work
+performed. Parallel corpus experiments measure throughput and memory use.
