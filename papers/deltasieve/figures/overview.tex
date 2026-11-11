@@ -1,25 +1,71 @@
 \begin{figure}[!ht]
 \centering
-\begin{tikzpicture}[font=\footnotesize,
-  stage/.style={draw=stateBlue!75,fill=stateBlue!6,rounded corners=2pt,
-    text width=6.6cm,align=center,minimum height=.95cm,inner sep=3pt},
-  link/.style={-{Stealth[length=3.2pt]},draw=stateSlate!85,line width=.65pt}]
-\path[use as bounding box] (-3.55,.6) rectangle (3.55,-4.3);
-\node[stage] (partners) at (0,0)
-  {Compare rebuilt partners\\Values, effective styles and layout};
-\node[stage] (dependencies) at (0,-1.25)
-  {Follow changed dependencies\\Conditional rules and charts};
-\node[stage] (capture) at (0,-2.5)
-  {Qualify and capture both states\\Native geometry and bounded image tiles};
-\node[stage] (evidence) at (0,-3.75)
-  {Compare pixels and retain evidence\\Outcomes, coverage, timings and provenance};
-\draw[link] (partners.south) -- (dependencies.north);
-\draw[link] (dependencies.south) -- (capture.north);
-\draw[link] (capture.south) -- (evidence.north);
+\begin{tikzpicture}[x=1cm,y=1cm,
+  label/.style={font=\scriptsize,text=stateSlate,align=center},
+  value/.style={font=\scriptsize,inner sep=0pt},
+  selected/.style={draw=stateTeal,line width=.9pt},
+  reference/.style={draw=stateSlate!60,dashed,line width=.65pt},
+  effect/.style={-{Stealth[length=3pt]},draw=stateRose,line width=.8pt,dashed}]
+\path[use as bounding box] (-.1,1.85) rectangle (8.35,-4.15);
+\definecolor{nativeBlue}{HTML}{99CCFF}
+\definecolor{nativeRed}{HTML}{FF0000}
+\definecolor{editedCell}{HTML}{A46510}
+\node[label] at (4.15,1.4)
+  {Unchanged rule on A1:A3\\\texttt{INDIRECT(\$Z\$1)>5}};
+
+% Both panels use the same address layout. The omitted columns and empty rows
+% make room for legible values while preserving the tested range endpoints.
+\foreach \offset/\title/\changed/\input in {0/Original/0/1,4.3/{X1 changed: $1\rightarrow9$}/1/9} {
+  \begin{scope}[xshift=\offset cm]
+  \node[label,font=\footnotesize] at (1.98,.8) {\title};
+  \draw[reference] (.3,.2) rectangle (3.65,-2.2);
+  \ifnum\changed=1
+    \fill[nativeRed] (.3,.2) rectangle (.7,-1);
+  \else
+    \fill[nativeBlue] (.3,.2) rectangle (.7,-.2);
+  \fi
+  \foreach \xx in {.3,.7,1.1,1.5,2.05,2.45,2.85,3.25,3.65} {
+    \draw[stateSlate!20,line width=.3pt] (\xx,.2) -- (\xx,-2.2);
+  }
+  \foreach \yy in {.2,-.2,-.6,-1,-1.4,-1.8,-2.2} {
+    \draw[stateSlate!20,line width=.3pt] (.3,\yy) -- (3.65,\yy);
+  }
+  \foreach \xx/\column in {.5/A,.9/B,1.3/C,1.775/{$\cdots$},2.25/X,2.65/Y,3.05/Z,3.45/AA} {
+    \node[label] at (\xx,.37) {\column};
+  }
+  \foreach \yy/\row in {0/1,-.4/2,-.8/3,-1.2/4,-1.6/{$\vdots$},-2/30} {
+    \node[label] at (.1,\yy) {\row};
+  }
+  \foreach \xx/\yy/\number in {.5/0/1,.9/0/1,1.3/0/3,.5/-.4/2,.9/-.4/2,.5/-.8/3,.9/-.8/3} {
+    \node[value] at (\xx,\yy) {\number};
+  }
+  \node[value] at (2.25,0) {\input};
+  \node[value] at (3.05,0) {X1};
+  \draw[editedCell,line width=.9pt] (2.05,.2) rectangle (2.45,-.2);
+  \draw[selected] (.3,.2) rectangle (3.65,-1);
+  \end{scope}
+}
+
+% This arrow depicts the observed native effect. The tested selector records
+% unsupported rule semantics and captures conservatively rather than resolving it.
+\draw[effect] (6.55,-.2) .. controls (6.7,-1.7) and (4.8,-1.7) .. (4.8,-1);
+\node[label,text=stateRose,fill=white,inner sep=1pt] at (5.7,-1.7)
+  {Native rule effect};
+\draw[selected] (.35,-2.6) -- (1,-2.6);
+\node[label,anchor=west] at (1.1,-2.6) {Selected A1:AA3};
+\draw[reference] (4.5,-2.6) -- (5.15,-2.6);
+\node[label,anchor=west] at (5.25,-2.6) {Reference A1:AA30};
+\node[label] at (4.15,-3.05)
+  {Unsupported rule semantics $\rightarrow$ conservative capture};
+\node[draw=stateTeal!65,fill=stateTeal!5,rounded corners=2pt,
+  text width=6.9cm,align=center,font=\scriptsize,inner sep=4pt] at (4.15,-3.75)
+  {\textbf{5,070 changed RGBA pixels}\\Matching selected/reference change masks};
 \end{tikzpicture}
-\caption{DeltaSieve's comparison workflow. Changed conditional-rule and chart
-dependencies select affected regions. Unresolved dependencies retain conservative
-fallbacks. Native geometry determines bounded captures in both states. Reports
-retain pixel outcomes, achieved coverage, unfinished work and provenance.}
+\caption{Schematic reconstruction of a native-tested synthetic control~\cite{indirectcontrols}.
+X1 changes from 1 to 9 while Z1 retains ``X1'' and the conditional rule remains
+unchanged. The rule turns A1:A3 red. The tested selector uses conservative capture
+of A1:AA3 because the rule is unsupported. Its change mask matches the independent
+A1:AA30 reference. Intermediate
+columns and empty rows are compressed.}
 \label{fig:validation-overview}
 \end{figure}

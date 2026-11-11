@@ -1,0 +1,116 @@
+{
+  "case": "dynamic-indirect",
+  "schematic": true,
+  "source_receipt_sha256": "aa0f009bd931db47959853c0eac9a55778bbe3a66015cef6f8a1c8003e58ed81",
+  "fixture_hashes_reproduced": true,
+  "fixture_observations": {
+    "original": {
+      "values": {
+        "A1": "1",
+        "B1": "1",
+        "C1": "3",
+        "X1": "1",
+        "Z1": "X1",
+        "A2": "2",
+        "B2": "2",
+        "A3": "3",
+        "B3": "3"
+      },
+      "application": "A1:A3",
+      "formula": "INDIRECT($Z$1)>5",
+      "sha256": "2214ae2d067fb3c0cb9a6ed140055e1157ff8bc8f1cbe8800ccd2f2523f06320"
+    },
+    "candidate": {
+      "values": {
+        "A1": "1",
+        "B1": "1",
+        "C1": "3",
+        "X1": "9",
+        "Z1": "X1",
+        "A2": "2",
+        "B2": "2",
+        "A3": "3",
+        "B3": "3"
+      },
+      "application": "A1:A3",
+      "formula": "INDIRECT($Z$1)>5",
+      "sha256": "c0dbcee81ee506f1df5b1d0fa17461cdb3030c722b07124ece7b88fce959f013"
+    }
+  },
+  "native_observations": {
+    "case": "dynamic-indirect",
+    "reference_status": "completed",
+    "targeted_status": "completed_with_limitations",
+    "reference_dimensions": [
+      1749,
+      601
+    ],
+    "targeted_dimensions": [
+      1749,
+      61
+    ],
+    "selected_range": "A1:AA3",
+    "reference_pixels": {
+      "changed_rgba_pixels": 5070,
+      "red_pixels_first_column_before": 0,
+      "red_pixels_first_column_after": 4869,
+      "images": [
+        {
+          "sha256": "e59519ed989d0b301ff4ba6e30adfda836a0a8ca42c285fcd8c6d438ef60d94d",
+          "file": "dynamic-indirect-reference\\reference-0-O.png"
+        },
+        {
+          "sha256": "73301eaba40bdeff4a13fe805e57f020d9342c4ae1cddfaffc8d6bcedefbcc8e",
+          "file": "dynamic-indirect-reference\\reference-0-SD.png"
+        }
+      ]
+    },
+    "targeted_pixels": {
+      "changed_rgba_pixels": 5070,
+      "red_pixels_first_column_before": 0,
+      "red_pixels_first_column_after": 4869,
+      "images": [
+        {
+          "sha256": "5738bbb7eb486d8ba20bc281336840c82708838baa82617949854a8ae9c19914",
+          "file": "dynamic-indirect-targeted\\evidence-OR\\8bb55181a52507cc0da7decc49c794d3bdd2025b36b0ffbd7ea430ae2f46cd53.png"
+        },
+        {
+          "sha256": "2a57e364feebb974f36a26d73db4f6765be11c6fe98b0586230a51817b082025",
+          "file": "dynamic-indirect-targeted\\evidence-SDR\\8bb55181a52507cc0da7decc49c794d3bdd2025b36b0ffbd7ea430ae2f46cd53.png"
+        }
+      ]
+    },
+    "change_masks_equal_at_common_A1_origin": true,
+    "conditional_formatting_decisions": [
+      {
+        "left": "OR",
+        "right": "SDR",
+        "decisions": [
+          {
+            "sheet": "Data",
+            "block_index": 0,
+            "sqref": "A1:A3",
+            "catalogue_side": "both",
+            "outcome": "capture",
+            "reason": "unsupported-rule-semantics",
+            "changed_inputs": 0,
+            "referenced_input_changes": 0,
+            "referenced_formula_observations": 0,
+            "formula_input_observations": 0,
+            "layout_rows": 0,
+            "comparison_extent": {
+              "top": 1,
+              "left": 1,
+              "bottom": 3,
+              "right": 26
+            }
+          }
+        ]
+      }
+    ],
+    "reference_receipt_sha256": "062fcd269f1f6161b3e5a66022e730577d755165ceb647efe4b3e9f8cd74bb3b",
+    "targeted_receipt_sha256": "d612efc8368f7b652bbd2cb299507861ed0892c0c5ea3b6e85aa2b035df872bb"
+  },
+  "reference_range": "Data!A1:AA30",
+  "layout_compression": "Columns D:W and empty rows 4:29 are abbreviated in the drawing."
+}
