@@ -16,7 +16,7 @@
     font=\scriptsize},
   heading/.style={font=\small\bfseries,anchor=west}]
 \path[use as bounding box] (-.05,.65) rectangle (17.1,-12.25);
-\node[heading] at (0,.35) {A\quad One capture round};
+\node[heading] at (0,.35) {A\quad Default image transport and retained evidence};
 \node[actor,draw=stateBlue,fill=stateBlue!7] (original) at (1.4,-.35)
   {Original add-in};
 \node[actor] (host) at (5.65,-.35) {Resident host};
@@ -24,45 +24,44 @@
 \node[actor,draw=stateTeal,fill=stateTeal!7] (variant) at (15.4,-.35)
   {Variant add-in};
 \foreach \xx in {1.4,5.65,10.25,15.4} {
-  \draw[stateSlate!25,dashed,line width=.45pt] (\xx,-.65) -- (\xx,-6.55);
+  \draw[stateSlate!25,dashed,line width=.45pt] (\xx,-.65) -- (\xx,-4.85);
 }
 \draw[msg] (10.25,-1.03) -- node[label,above=2pt]
-  {Publish \texttt{capture\_hashes}} (5.65,-1.03);
+  {Publish capture command} (5.65,-1.03);
 \draw[msg] (5.65,-1.62) -- node[label,above=2pt] {Dispatch command} (1.4,-1.62);
 \draw[msg] (5.65,-1.62) -- node[label,above=2pt] {Dispatch the matching round} (15.4,-1.62);
 \foreach \xx/\col in {1.4/stateBlue,15.4/stateTeal} {
   \fill[\col] (\xx,-1.62) circle (1.7pt);
   \fill[\col] (\xx,-2.28) circle (1.7pt);
 }
-\draw[msg] (1.4,-2.28) -- node[label,above=2pt] {PNG digest + geometry} (5.65,-2.28);
-\draw[msg] (15.4,-2.28) -- node[label,above=2pt] {PNG digest + geometry} (5.65,-2.28);
-\draw[ack] (5.65,-2.8) -- node[label,above=1pt] {Result committed / ACK} (1.4,-2.8);
-\draw[ack] (5.65,-2.8) -- node[label,above=1pt] {Result committed / ACK} (15.4,-2.8);
-\draw[msg] (5.65,-3.38) -- node[label,above=2pt] {Durable results} (10.25,-3.38);
-\node[draw=stateSlate!40,fill=stateSlate!4,rounded corners=2pt,
-  text width=3.65cm,inner sep=3pt,font=\scriptsize,align=center]
-  at (12.75,-3.52) {Match tile IDs\\dimensions and digests};
-\draw[stateSlate!50,line width=.5pt] (10.25,-3.38) -- (10.82,-3.38);
-
+\draw[payload] (1.4,-2.28) -- node[label,above=2pt] {Finalized PNG bytes} (5.65,-2.28);
+\draw[payload] (15.4,-2.28) -- node[label,above=2pt] {Finalized PNG bytes} (5.65,-2.28);
+\draw[ack] (5.65,-2.8) -- node[label,above=1pt] {Image receipt} (1.4,-2.8);
+\draw[ack] (5.65,-2.8) -- node[label,above=1pt] {Image receipt} (15.4,-2.8);
+\draw[msg] (1.4,-3.38) -- node[label,above=2pt] {Result with image receipts} (5.65,-3.38);
+\draw[msg] (15.4,-3.38) -- node[label,above=2pt] {Result with image receipts} (5.65,-3.38);
+\draw[ack] (5.65,-3.95) -- node[label,above=1pt] {Result committed / ACK} (1.4,-3.95);
+\draw[ack] (5.65,-3.95) -- node[label,above=1pt] {Result committed / ACK} (15.4,-3.95);
+\draw[msg] (5.65,-4.52) -- node[label,above=2pt] {Durable results + image paths} (10.25,-4.52);
+\node[tinylabel,text width=4.8cm] at (13.45,-4.52)
+  {Match identities and geometry.\\Compare exact host pixels.};
 \draw[stateTeal!35,rounded corners=3pt,line width=.6pt]
-  (.2,-3.98) rectangle (16.85,-6.36);
-\node[label,anchor=west,text=stateTeal] at (.4,-3.98)
-  {Optional retained-image exchange};
-\draw[msg] (10.25,-4.43) -- node[label,above=2pt]
-  {Publish \texttt{upload\_retained}} (5.65,-4.43);
-\draw[msg] (5.65,-4.98) -- node[label,above=2pt] {Request retained PNG} (1.4,-4.98);
-\draw[msg] (5.65,-4.98) -- node[label,above=2pt] {Request retained PNG} (15.4,-4.98);
-\draw[payload] (1.4,-5.53) -- node[label,above=2pt] {Finalized PNG bytes} (5.65,-5.53);
-\draw[payload] (15.4,-5.53) -- node[label,above=2pt] {Finalized PNG bytes} (5.65,-5.53);
-\draw[msg] (5.65,-6.08) -- node[label,above=2pt] {Validated image receipts} (10.25,-6.08);
-\node[tinylabel,text width=5.1cm] at (13.45,-6.05)
-  {Exact host pixel comparison\\and retained context};
+  (.2,-5.05) rectangle (16.85,-6.36);
+\node[label,anchor=west,text=stateTeal] at (.4,-5.05) {Report publication};
+\node[actor,text width=2.9cm] (compared) at (2.75,-5.7)
+  {Compared captures\\including equal regions};
+\node[actor,text width=4.0cm,draw=stateTeal,fill=stateTeal!5] (compress) at (8.35,-5.7)
+  {Verified-equal PNGs\\Pixel-checked lossless recompression};
+\node[actor,text width=3.5cm] (stored) at (14.25,-5.7)
+  {Retained report evidence\\Content-addressed PNGs};
+\draw[msg] (compared) -- (compress);
+\draw[msg] (compress) -- (stored);
 \node[tinylabel,anchor=west] at (.3,-6.72)
   {ACK loss replays the same serialized result and command ID.};
-\foreach \yy in {-1.03,-1.62,-2.28,-2.8,-3.38,-4.43,-4.98,-5.53,-6.08} {
+\foreach \yy in {-1.03,-1.62,-2.28,-2.8,-3.38,-3.95,-4.52} {
   \fill[stateSlate!80] (5.65,\yy) circle (1.3pt);
 }
-\foreach \yy in {-1.03,-3.38,-4.43,-6.08} {
+\foreach \yy in {-1.03,-4.52} {
   \fill[stateSlate!80] (10.25,\yy) circle (1.3pt);
 }
 
@@ -138,10 +137,12 @@
 \node[tinylabel,anchor=north] at (13.45,-11.77) {Illustrative capture / comparison progress};
 \end{tikzpicture}
 \caption{DeltaSieve communication and supervision, illustrated schematically.
-(A) Add-ins offer finalized PNG digests and geometry through the resident host.
-The coordinator requests retained bytes for exact comparison or context when
-required. Result commit and acknowledgment are distinct events. Startup and
-lower-level upload acknowledgments are abstracted.
+(A) The default image transport uploads finalized PNGs and returns image
+receipts before acknowledging completed commands. The host exposes durable
+results to the coordinator. Equal captures remain inspectable in the report.
+Packaging accepts a smaller lossless PNG encoding only after decoded RGBA
+equality is verified. Differing or unverified image references preserve their
+source encoding. Startup is abstracted.
 (B) An add-in can remain reachable while verified work stalls. The separate
 parent-runner heartbeat expiry can trigger owned cleanup. Process exit still
 requires confirmation. (C) A fast original client retains pending work while

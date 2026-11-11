@@ -8,6 +8,8 @@ protocol, classic paired capture, targeted native-operation transport,
 coordinator lifetime and the Control Room observation/control interface.
 The companion [visualization review](visualization-references.md) maps this
 protocol to evaluated and award-recognized visual representations.
+The [current-default audit](capture-defaults.md) records the newer checked
+revision, live-image default and lossless equal-image report packaging.
 
 ## Actors and ownership
 
