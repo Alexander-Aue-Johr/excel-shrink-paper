@@ -1,0 +1,456 @@
+{
+  "candidate_count": 4742,
+  "capture_counts": {
+    "OR": 4454,
+    "OR:charts": 0,
+    "SDR": 4454,
+    "SDR:charts": 0
+  },
+  "capture_partition": "visible-geometry-v2",
+  "capture_policy": "targeted-content-grid-v17",
+  "capture_receipts": [],
+  "chart_capture_mode": "deterministic",
+  "chart_dependencies": [
+    {
+      "decisions": [],
+      "left": "OR",
+      "mode": "deterministic",
+      "right": "SDR"
+    }
+  ],
+  "check_performance": "not_requested",
+  "check_performance_cache": null,
+  "check_performance_evidence": null,
+  "comparisons": [],
+  "conditional_formatting": [
+    {
+      "decisions": [],
+      "left": "OR",
+      "right": "SDR"
+    }
+  ],
+  "content_coverage": [
+    {
+      "background_tail_sampling": false,
+      "cf_blank_tail_excluded": false,
+      "clipped_to_content": 1,
+      "content_envelope_with_one_cell_margin": {
+        "bottom": 5,
+        "left": 1,
+        "right": 11,
+        "top": 1
+      },
+      "reason": "outside-content-envelope",
+      "requested_candidates": 1,
+      "selected_capture_regions": 1,
+      "selected_grid_tiles": 1,
+      "sheet": "Economic Risk Datasets",
+      "skipped_outside_content": 0
+    },
+    {
+      "background_tail_sampling": true,
+      "cf_blank_tail_excluded": false,
+      "clipped_to_content": 0,
+      "content_envelope_with_one_cell_margin": {
+        "bottom": 1048449,
+        "left": 1,
+        "right": 12,
+        "top": 1
+      },
+      "reason": "outside-content-envelope",
+      "requested_candidates": 1048440,
+      "selected_capture_regions": 4738,
+      "selected_grid_tiles": 8192,
+      "sheet": "Low-T_GHC.GHX_NationalDatasets",
+      "skipped_outside_content": 0
+    },
+    {
+      "background_tail_sampling": false,
+      "cf_blank_tail_excluded": false,
+      "clipped_to_content": 3,
+      "content_envelope_with_one_cell_margin": {
+        "bottom": 31,
+        "left": 1,
+        "right": 11,
+        "top": 1
+      },
+      "reason": "outside-content-envelope",
+      "requested_candidates": 4,
+      "selected_capture_regions": 2,
+      "selected_grid_tiles": 1,
+      "sheet": "Low-T_NationalDataset",
+      "skipped_outside_content": 1
+    },
+    {
+      "background_tail_sampling": false,
+      "cf_blank_tail_excluded": false,
+      "clipped_to_content": 18,
+      "content_envelope_with_one_cell_margin": {
+        "bottom": 8,
+        "left": 1,
+        "right": 11,
+        "top": 1
+      },
+      "reason": "outside-content-envelope",
+      "requested_candidates": 29,
+      "selected_capture_regions": 1,
+      "selected_grid_tiles": 1,
+      "sheet": "Low-T_O&Gwells_NationalDatasets",
+      "skipped_outside_content": 11
+    }
+  ],
+  "control_artifacts_cache": null,
+  "equal_image_encoding": {
+    "compression": "best",
+    "filter": "adaptive",
+    "format": "PNG",
+    "pixel_preservation": "decoded RGBA equality checked before accepting a smaller encoding",
+    "scope": "verified equal images only; shared differing or unverified references preserve original bytes"
+  },
+  "excel_pids": null,
+  "execution_strategy": "paired-inplace-rebuild-v1",
+  "findings": [],
+  "formula_diagnostics": null,
+  "height_checks": [
+    {
+      "checked_spans": [
+        [
+          1,
+          1
+        ]
+      ],
+      "complete": true,
+      "differences": [],
+      "left": "OR",
+      "right": "SDR",
+      "sheet": "Economic Risk Datasets",
+      "unchanged_fixed_rows": 0
+    },
+    {
+      "checked_spans": [
+        [
+          1,
+          7
+        ],
+        [
+          12,
+          12
+        ],
+        [
+          18,
+          1048448
+        ]
+      ],
+      "complete": true,
+      "differences": [],
+      "left": "OR",
+      "right": "SDR",
+      "sheet": "Low-T_GHC.GHX_NationalDatasets",
+      "unchanged_fixed_rows": 0
+    },
+    {
+      "checked_spans": [
+        [
+          1,
+          1
+        ],
+        [
+          13,
+          13
+        ]
+      ],
+      "complete": true,
+      "differences": [],
+      "left": "OR",
+      "right": "SDR",
+      "sheet": "Low-T_NationalDataset",
+      "unchanged_fixed_rows": 0
+    },
+    {
+      "checked_spans": [
+        [
+          1,
+          2
+        ],
+        [
+          5,
+          7
+        ]
+      ],
+      "complete": true,
+      "differences": [],
+      "left": "OR",
+      "right": "SDR",
+      "sheet": "Low-T_O&Gwells_NationalDatasets",
+      "unchanged_fixed_rows": 2
+    }
+  ],
+  "image_comparison_statistics": {
+    "comparisons": 0,
+    "decoded_images": 0,
+    "encoded_bytes_read": 0,
+    "encoded_images_reused": 0,
+    "files_read": 0
+  },
+  "input_identity": {
+    "status": "different"
+  },
+  "limitations": [
+    "Gridlines are disabled consistently. Policy v10 compares only common pixels when measured capture/content origins match and content cores are contained. capture_extent_ignored records omitted right/bottom extent and retains both raw images and geometries. Changed overlapping pixels remain differences. Shifted origins, missing measurements and charts retain conservative verdicts. blank_margin_ignored records the stronger exact white-margin proof.",
+    "Row-height checks cover rows above and within the unpadded union of content envelopes, including potentially visible fill/border/conditional-formatting extents. Policy v12 excludes context rows below the union content boundary from both height dependencies and cell capture rectangles; upper and side context remain. Charts retain independent full-chart observations.",
+    "Strategy paired-inplace-rebuild-v1 compares rebuilt Original against rebuilt Default and optional rebuilt Check Performance. Each reuses its existing Excel process. Pre-rebuild captures are omitted for throughput; XML save/optimization/rebuild controls are retained. Volatility and exclusive causal attribution require follow-up.",
+    "Cell capture regions are intersected with the union of content-bearing cells and potentially visible fill/border/conditional-formatting extents in the compared rebuilt states, plus one row above and one column on either side. Opening/save XML controls retain separate provenance. Exterior regions outside that envelope are intentionally skipped, not visually confirmed identical; content_coverage records selection counts and bounds. Chart exports are independent of this policy.",
+    "Capture partition visible-geometry-v2 merges adjacent internal grid tiles without changing their union. It measures every live state and splits only for image budgets (30,000 pixels per edge, 32 million pixels total), estimating conservatively at two pixels per point plus a rounding margin. Actual exports are checked too. Zero-area ranges retain geometry and explicit non-rendering observations without images or pixel equality claims. Later states can repartition and backfill earlier retained workbooks.",
+    "CF decisions concern rule contributions within the recorded union of comparison extents. Literal cellIs exclusions require identical cell-XML fingerprints and visual context. Formula inputs remain captures; unknown or changed rules retain region captures. This is not a proof of whole-workbook visual equality.",
+    "Chart mode deterministic excludes only embedded charts with complete unchanged package, XML/cache, source-cell/style/layout/CF and live-geometry dependencies. Exclusions are not pixel comparisons. Unknown references, external or unsupported parts, ambiguous names and chart sheets retain full-chart exports. Mode conservative exports every chart. Other drawings and all worksheet geometry effects are not exhaustively discovered.",
+    "Charts with measured zero width or height retain geometry and an explicit zero-area-chart observation without a pixel verdict. A transition between visible and zero-area states is a rendering/geometry difference.",
+    "Disposable targeted copies are staged with calcMode=manual, fullCalcOnLoad=0, forceFullCalc=0 and calcOnSave=0 before Excel opens them. Cached formula values are retained until each resident workbook is explicitly rebuilt. Excel may still autonomously refresh content; observed save/rebuild transitions remain audited. Original inputs and prepared bundles are unchanged. This suppresses unintended open/save recalculation and changes the opening baseline relative to capture policy v4.",
+    "Opening/saving and the in-place SD rebuild are retained as separate XML controls. Exact content/context matches identify overlaps conservatively; absence of a match does not establish exclusive causality.",
+    "Worksheet cells are streamed into temporary fixed-size fingerprints without worksheet-byte or cell-count limits. Exterior empty-cell changes are counted before candidate allocation. Layout metadata and retained change evidence still require memory.",
+    "When content coverage marks background_tail_sampling, supported borderless solid-fill bands with known sheet-wide gridline settings are represented through their finite transitions and tail samples. Pixels beyond that envelope are not captured; this is not exhaustive whole-grid pixel coverage."
+  ],
+  "native_drawing_bounds": [],
+  "phases": [
+    "initial XML compared",
+    "Original and Default opened",
+    "Excel save effects inspected"
+  ],
+  "portable_report": {
+    "diagnostics": {},
+    "different_regions": 0,
+    "failure": {
+      "error": null,
+      "status": "failed"
+    },
+    "note": "Pixel diagnostics describe retained captures. They do not change the scientific comparison verdict or extend its coverage.",
+    "source_report": null,
+    "version": 1
+  },
+  "public_presentation": {
+    "meaning": "Derived presentation. Native evidence remains unchanged.",
+    "metadata_omissions": [
+      {
+        "pointer": "/report/excel_pids",
+        "source_value_sha256": "5449d3059c271d93de8a904991fb76a61c2266d43f789f2f0994f73924ec25ef"
+      },
+      {
+        "pointer": "/report/portable_report/failure/error",
+        "source_value_sha256": "f62bb71b63db2e018264ca5ec3be4637f4ac8382fbac82b32a8e444f8b69e349"
+      },
+      {
+        "pointer": "/report/portable_report/source_report",
+        "source_value_sha256": "01ed14a8f40d53df8772a76fd0a4e6cddaedcd70831763914ad4172b32c4c49a"
+      },
+      {
+        "pointer": "/report/transitions/0/after_file",
+        "source_value_sha256": "2b701e257df0a8e927c792ec06417389ff139908a1e0f415e2734ec7ad1736d1"
+      },
+      {
+        "pointer": "/report/transitions/0/before_file",
+        "source_value_sha256": "f097bddf7cb5f748d153080f4975e500a95a666ab384a6c8b1b5114add5c8744"
+      },
+      {
+        "pointer": "/report/transitions/0/changes_file",
+        "source_value_sha256": "480cee8aaa326db87ab7b62345907147faa1bf0fe24c378178c99605501ce454"
+      },
+      {
+        "pointer": "/report/transitions/1/after_file",
+        "source_value_sha256": "ce61b7f55fa08fdd8f753cd9bc1c07a4164aa500f7a5c2e734b15357fd0e8960"
+      },
+      {
+        "pointer": "/report/transitions/1/before_file",
+        "source_value_sha256": "f097bddf7cb5f748d153080f4975e500a95a666ab384a6c8b1b5114add5c8744"
+      },
+      {
+        "pointer": "/report/transitions/1/changes_file",
+        "source_value_sha256": "47c71a1834502f825da4b52dd405be70bb2a006297b3584e2b9bacdb759c7b3d"
+      },
+      {
+        "pointer": "/report/transitions/2/after_file",
+        "source_value_sha256": "1d4bce59df45ccdb0801003ce7491133a51fd55902ae8306e2232b301fd17d91"
+      },
+      {
+        "pointer": "/report/transitions/2/before_file",
+        "source_value_sha256": "ce61b7f55fa08fdd8f753cd9bc1c07a4164aa500f7a5c2e734b15357fd0e8960"
+      },
+      {
+        "pointer": "/report/transitions/2/changes_file",
+        "source_value_sha256": "63d195fbebed1365acd6af3f04215eb22a97cbf9b5b7485ad0d68c175b06137b"
+      },
+      {
+        "pointer": "/report/transitions/3/after_file",
+        "source_value_sha256": "535030dbfe5337df6f45cf6a8a851b90d602fa75f9f29ab1c270fb806c81dacf"
+      },
+      {
+        "pointer": "/report/transitions/3/before_file",
+        "source_value_sha256": "2b701e257df0a8e927c792ec06417389ff139908a1e0f415e2734ec7ad1736d1"
+      },
+      {
+        "pointer": "/report/transitions/3/changes_file",
+        "source_value_sha256": "d3f7ca58723f95529f2381567e1721d6497be442870382834bea2029e927c393"
+      },
+      {
+        "pointer": "/report/transitions/4/after_file",
+        "source_value_sha256": "02e8d452e0d0be6e616054b62670800b33c2592ba8bffe13b4eff6e1b09f45fd"
+      },
+      {
+        "pointer": "/report/transitions/4/before_file",
+        "source_value_sha256": "1d4bce59df45ccdb0801003ce7491133a51fd55902ae8306e2232b301fd17d91"
+      },
+      {
+        "pointer": "/report/transitions/4/changes_file",
+        "source_value_sha256": "1746b15869d40c3d28a53b25d8f293f0e16962e8f75987b59067a9249a3e831d"
+      },
+      {
+        "pointer": "/validation_signature/environment_key",
+        "source_value_sha256": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126"
+      }
+    ],
+    "schema": 1,
+    "source_report_sha256": "bbe438fa786049a0e65a040e641bf8c53e2e0b80b2f82abfaa374631466a3593"
+  },
+  "rebuild_checks": {},
+  "state_decisions": {
+    "CP": {
+      "status": "disabled"
+    },
+    "CPR": {
+      "status": "disabled"
+    },
+    "O": {
+      "method": "open-save",
+      "status": "observed"
+    },
+    "OR": {
+      "method": "inplace-rebuild",
+      "status": "observed"
+    },
+    "SD": {
+      "method": "open-save",
+      "status": "observed"
+    },
+    "SDR": {
+      "method": "inplace-rebuild",
+      "status": "observed"
+    }
+  },
+  "status": "failed",
+  "timings_ms": {},
+  "transitions": [
+    {
+      "after_file": null,
+      "before_file": null,
+      "change_count": 3145392,
+      "changes_file": null,
+      "label": "original opening/saving control",
+      "skipped_outside_content_cell_changes": {},
+      "timings_ms": {
+        "attribution": 3589,
+        "differences": 4941,
+        "read_snapshots": 20,
+        "total": 9711,
+        "write_evidence": 1152
+      }
+    },
+    {
+      "after_file": null,
+      "before_file": null,
+      "change_count": 4193865,
+      "changes_file": null,
+      "label": "default input versus original input",
+      "skipped_outside_content_cell_changes": {
+        "Low-T_NationalDataset": 1048405,
+        "Low-T_O&Gwells_NationalDatasets": 1048502
+      },
+      "timings_ms": {
+        "attribution": 3969,
+        "differences": 4388,
+        "read_snapshots": 12,
+        "total": 9942,
+        "write_evidence": 1564
+      }
+    },
+    {
+      "after_file": null,
+      "before_file": null,
+      "change_count": 0,
+      "changes_file": null,
+      "label": "default opening/saving control",
+      "skipped_outside_content_cell_changes": {},
+      "timings_ms": {
+        "attribution": 0,
+        "differences": 0,
+        "read_snapshots": 0,
+        "total": 16,
+        "write_evidence": 4
+      }
+    },
+    {
+      "after_file": null,
+      "before_file": null,
+      "change_count": 0,
+      "changes_file": null,
+      "label": "O in-place rebuild and save",
+      "skipped_outside_content_cell_changes": {},
+      "timings_ms": {
+        "attribution": 0,
+        "differences": 3047,
+        "read_snapshots": 8024,
+        "total": 11080,
+        "write_evidence": 2
+      }
+    },
+    {
+      "after_file": null,
+      "before_file": null,
+      "change_count": 0,
+      "changes_file": null,
+      "label": "SD in-place rebuild and save",
+      "skipped_outside_content_cell_changes": {},
+      "timings_ms": {
+        "attribution": 0,
+        "differences": 0,
+        "read_snapshots": 5,
+        "total": 14,
+        "write_evidence": 2
+      }
+    }
+  ],
+  "workbook_bytes": {},
+  "workbook_inventory": {
+    "complete": true,
+    "original_sha256": "5aeeff20b76ef2283846c392d3e8463055e428ce1c16221029edc6b0e66c61df",
+    "sheets": [
+      {
+        "id": "3",
+        "name": "Low-T_NationalDataset",
+        "order": 0,
+        "state": "visible"
+      },
+      {
+        "id": "5",
+        "name": "Low-T_GHC.GHX_NationalDatasets",
+        "order": 1,
+        "state": "visible"
+      },
+      {
+        "id": "4",
+        "name": "Low-T_O&Gwells_NationalDatasets",
+        "order": 2,
+        "state": "visible"
+      },
+      {
+        "id": "6",
+        "name": "Economic Risk Datasets",
+        "order": 3,
+        "state": "visible"
+      }
+    ]
+  },
+  "xml_snapshot_statistics": {
+    "elapsed_ms": 0,
+    "parsed_versions": 0,
+    "reads": 0,
+    "reused_versions": 0
+  }
+}

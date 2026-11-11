@@ -4,7 +4,7 @@
     "Review workbook names, cell values, formulas, screenshots, and source-corpus distribution terms.",
     "Scientific reports and integrity manifests are preserved without automatic redaction."
   ],
-  "metadata_finding_count": 403,
+  "metadata_finding_count": 408,
   "metadata_findings": [
     {
       "category": "sensitive_metadata_field",
@@ -288,6 +288,11 @@
     },
     {
       "category": "sensitive_metadata_field",
+      "file": "atlas-data/1dad1ec173515b85a90d4350569314b755e32fba163444a288b4c83ec0e408ea.json.gz",
+      "pointer": "/validation_signature/environment_key"
+    },
+    {
+      "category": "sensitive_metadata_field",
       "file": "atlas-data/1e4e8928253a44d934e7f030c611d3cf39b23b11369b557bd8dd0ea781e79274.json.gz",
       "pointer": "/validation_signature/environment_key"
     },
@@ -474,6 +479,11 @@
     {
       "category": "sensitive_metadata_field",
       "file": "atlas-data/3ace730a6c8d471eb8dbaef31e6ea4f765557545de304fb196b571bea742a0d3.json.gz",
+      "pointer": "/validation_signature/environment_key"
+    },
+    {
+      "category": "sensitive_metadata_field",
+      "file": "atlas-data/3ae7c69b7a85250187850dfd0f49f41383822dceb625e8fad020dee183e11c97.json.gz",
       "pointer": "/validation_signature/environment_key"
     },
     {
@@ -779,6 +789,11 @@
     {
       "category": "sensitive_metadata_field",
       "file": "atlas-data/64a5a1b96b273ed073cdec19889e185459c1707257d78125add4923063e4a3e0.json.gz",
+      "pointer": "/validation_signature/environment_key"
+    },
+    {
+      "category": "sensitive_metadata_field",
+      "file": "atlas-data/657a9fa1c1e56ed91f8948cd271a6f9c3ef8f8222296ec3971cb1fdb5b830ebf.json.gz",
       "pointer": "/validation_signature/environment_key"
     },
     {
@@ -1438,6 +1453,11 @@
     },
     {
       "category": "sensitive_metadata_field",
+      "file": "atlas-data/b5a9e88bc60fee3fa1eb96cff21220c1b1c310df1e46835efce3549d38a1ceed.json.gz",
+      "pointer": "/validation_signature/environment_key"
+    },
+    {
+      "category": "sensitive_metadata_field",
       "file": "atlas-data/b893015f6b6ed167cadf7b9868dcb2a449104e23e8b683a57e65af4b31c94351.json.gz",
       "pointer": "/validation_signature/environment_key"
     },
@@ -1898,6 +1918,11 @@
     },
     {
       "category": "sensitive_metadata_field",
+      "file": "atlas-data/f403266fc3a67b5287e6f8fd8141db176cb7a1fd771720e758e8b3b7d2480bfa.json.gz",
+      "pointer": "/validation_signature/environment_key"
+    },
+    {
+      "category": "sensitive_metadata_field",
       "file": "atlas-data/f462478630c186756b0d4c4a342a4eaf25ce37a5c06cd96098add42bf366629e.json.gz",
       "pointer": "/validation_signature/environment_key"
     },
@@ -2023,8 +2048,8 @@
     }
   ],
   "metadata_findings_truncated": false,
-  "scanned_embedded_reports": 403,
-  "scanned_json_files": 808,
+  "scanned_embedded_reports": 408,
+  "scanned_json_files": 818,
   "status": "publication_review_required",
   "version": 1
 }
