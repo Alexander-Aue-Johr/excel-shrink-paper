@@ -9,13 +9,11 @@ preservation contract. Aggressive historical configurations are separate test
 artifacts and are excluded from the production subject of this paper.
 
 The relevant visual area includes cells with meaningful values or formulas,
-empty cells with effective visible fills or borders, and graphical objects.
-Formatting inherited from rows or columns can contribute to this area. Conditional
-formatting and text extending into adjacent cells can also affect what is visible.
-The union of the original and transformed relevant areas is required when checking
-removed content. Layout changes in otherwise empty trailing rows or columns are
-permitted by the contract. Changes that move or alter relevant content remain
-subject to validation.
+visible fills or borders, and graphical objects. Row and column formats,
+conditional formatting and overflowing text can also affect it. Validation covers
+the union of the original and transformed areas to include removed content.
+The contract permits layout changes in empty trailing rows or columns. Changes
+that move or alter relevant content remain subject to validation.
 
 \subsection{Information available before native loading}
 The cleanup decision uses stored values, formulas, styles, references and layout

@@ -19,11 +19,8 @@ Cleanup decisions use stored values, styles and references. SheetShrink retains
 compact records needed to preserve required workbook behavior. Excel rendering
 and calculated row heights are used later to validate the output.
 
-Specialized spreadsheet parsing has demonstrated the importance of decompression,
-parsing, memory use and parallel execution for data loading~\cite{sheetreader}.
-Our problem adds a transformation obligation. The output remains an editable XLSX
-workbook and must retain required data, dependencies and visible presentation
-under a stated contract. File size alone is an inadequate measure of success.
+The output remains an editable XLSX workbook and must preserve required data,
+dependencies and appearance. File-size reduction alone is insufficient.
 
 Figure~\ref{fig:cleanup-overview} summarizes guarded reductions across cells,
 rows, columns and workbook metadata. SheetShrink reuses existing style indices
