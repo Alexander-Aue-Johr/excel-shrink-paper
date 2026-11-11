@@ -1,16 +1,25 @@
 \begin{figure}[!ht]
 \centering
 \begin{tikzpicture}[font=\footnotesize,
-  stage/.style={draw,rounded corners=2pt,text width=6.6cm,align=center,minimum height=.7cm},
-  link/.style={-{Stealth},thick}]
-\node[stage,fill=black!4] (partners) at (0,0) {Compare rebuilt partners\\Values, effective styles, and layout};
-\node[stage,fill=blue!8] (dependencies) at (0,-1.05) {Follow changed dependencies\\Conditional rules and charts};
-\node[stage,fill=black!4] (capture) at (0,-2.1) {Render selected regions\\Include unresolved-dependency fallbacks};
-\node[stage,fill=blue!8] (evidence) at (0,-3.15) {Retain inspectable evidence\\Pixels, coverage, timings, and provenance};
-\draw[link] (partners) -- (dependencies);
-\draw[link] (dependencies) -- (capture);
-\draw[link] (capture) -- (evidence);
+  stage/.style={draw=stateBlue!75,fill=stateBlue!6,rounded corners=2pt,
+    text width=6.6cm,align=center,minimum height=.95cm,inner sep=3pt},
+  link/.style={-{Stealth[length=3.2pt]},draw=stateSlate!85,line width=.65pt}]
+\path[use as bounding box] (-3.55,.6) rectangle (3.55,-4.3);
+\node[stage] (partners) at (0,0)
+  {Compare rebuilt partners\\Values, effective styles and layout};
+\node[stage] (dependencies) at (0,-1.25)
+  {Follow changed dependencies\\Conditional rules and charts};
+\node[stage] (capture) at (0,-2.5)
+  {Qualify and capture both states\\Native geometry and bounded image tiles};
+\node[stage] (evidence) at (0,-3.75)
+  {Compare pixels and retain evidence\\Outcomes, coverage, timings and provenance};
+\draw[link] (partners.south) -- (dependencies.north);
+\draw[link] (dependencies.south) -- (capture.north);
+\draw[link] (capture.south) -- (evidence.north);
 \end{tikzpicture}
-\caption{DeltaSieve separates dependency-aware selection, native observation, and evidence. A proven unchanged dependency can exclude rendering. An unresolved dependency retains its recorded fallback. Targeted coverage remains explicit.}
+\caption{DeltaSieve's comparison workflow. Changed conditional-rule and chart
+dependencies select affected regions. Unresolved dependencies retain conservative
+fallbacks. Native geometry determines bounded captures in both states. Reports
+retain pixel outcomes, achieved coverage, unfinished work and provenance.}
 \label{fig:validation-overview}
 \end{figure}

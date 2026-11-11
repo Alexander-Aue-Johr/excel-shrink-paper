@@ -10,6 +10,7 @@ import subprocess
 
 REPOSITORY = Path(__file__).resolve().parents[2]
 FIGURES = (
+    "papers/deltasieve/figures/overview.tex",
     "papers/sheetshrink/figures/scheduling.tex",
     "papers/deltasieve/figures/artifact-lineage.tex",
     "papers/deltasieve/figures/capture-partition.tex",
