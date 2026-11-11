@@ -105,11 +105,11 @@ and XLStylesTool pair CSVs instead of `--common-inputs` to freeze the original
 110-input cohort and retain each tool's available successful subset.
 
 The manuscript uses `--single-column` for a corpus-grouped two-panel figure.
-It retains the complete-pair counts in row labels and historical Inquire
-storage markers. Selection outcome totals remain in the manuscript setup and
+It retains the complete-pair counts in row labels. Selection outcome totals remain in the manuscript setup and
 receipt inventories. Omit the flag to reproduce the wider outcome-panel view.
 
 The compact view labels tools NXPL (NXPowerLite), XLST (XLStylesTool), CP
 (Check Performance) and INQ (Inquire). SheetShrink remains spelled out. Add
 `--a4-landscape` to `--single-column` to export the same observations on a
-297 by 210 mm page. Unknown-storage crosses are drawn above the point cloud.
+297 by 210 mm page. Storage conditions remain in the receipts and experimental setup. Add
+`--two-column` instead of `--a4-landscape` for a full-width paper figure.

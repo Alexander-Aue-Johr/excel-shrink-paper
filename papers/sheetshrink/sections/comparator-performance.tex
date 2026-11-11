@@ -87,8 +87,7 @@ completed-runtime ratio. Historical hardware and version attribution partly
 uses execution-session provenance and later inventory rather than per-trial
 capture. Among the 90 complete pairs, 41 Inquire work directories were on local
 NVMe, 48 on a USB-connected Samsung 870 QVO SSD, and one has incomplete storage
-attribution. All paired SheetShrink trials used local NVMe. Figure~\ref{fig:paired-cleanup-workflows}
-marks these storage conditions separately. The median descriptive workflow
+attribution. All paired SheetShrink trials used local NVMe. The source receipts retain these storage conditions. The median descriptive workflow
 ratios are 19.36, 15.18 and 12.04 for Destatis, Enron and Data.gov, respectively.
 Different endpoints and storage conditions constrain their interpretation.
 
@@ -146,12 +145,9 @@ their own readiness endpoints, as in the separate historical opening experiment.
 \includegraphics[width=\columnwidth]{figures/paired-cleanup-workflows.pdf}
 \caption{Cleanup workflows grouped by corpus; parentheses give complete pair
 counts. NXPL, XLST, CP and INQ denote NXPowerLite, XLStylesTool, Check Performance
-and Inquire. Inquire uses the HP host; the other comparators use the Lenovo host,
-each paired with its same-host SheetShrink baseline. Left, median and IQR of
-absolute times. Right, workbook ratios with black median/IQR marks.
-Inquire points mark NVMe (filled), USB SSD (hollow) and unknown storage (cross);
-all paired SheetShrink trials use NVMe. Storage, worker counts and workflow
-endpoints differ as described in the setup. Failures and partial outcomes are
-reported in the text.}
+and Inquire. Left, median and interquartile range across workbook times;
+blue circles show the matched SheetShrink baselines. Right, per-workbook
+tool/SheetShrink time ratios; black diamonds and bars show the median and
+interquartile range. The dashed line at 1 denotes equal time.}
 \label{fig:paired-cleanup-workflows}
 \end{figure}

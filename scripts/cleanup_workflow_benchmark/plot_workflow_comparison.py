@@ -25,7 +25,11 @@ def main():
                         help="Group tools by corpus in two compact timing panels")
     parser.add_argument("--a4-landscape", action="store_true",
                         help="Render the corpus-grouped chart on an A4 landscape page")
+    parser.add_argument("--two-column", action="store_true",
+                        help="Render the corpus-grouped chart at full two-column paper width")
     args = parser.parse_args()
+    if args.two_column and (not args.single_column or args.a4_landscape):
+        parser.error("--two-column requires --single-column and excludes --a4-landscape")
     if args.a4_landscape and not args.single_column:
         parser.error("--a4-landscape requires --single-column")
     rows = read_pairs(args.pairs)
@@ -37,7 +41,7 @@ def main():
         rows = shared_input_pairs(rows)
     outcomes = read_outcomes(args.receipts, rows) if args.receipts else None
     if args.single_column:
-        draw_single_column(rows, args.output, args.a4_landscape)
+        draw_single_column(rows, args.output, args.a4_landscape, args.two_column)
     else:
         draw_comparison(rows, args.output, outcomes)
 
@@ -162,19 +166,8 @@ def draw_comparison(rows, output, outcomes=None):
         draw_time_summary(axes[0], position + 0.09, cleaned, "o", "#0072B2", -7)
         jitter = np.linspace(-0.17, 0.17, len(ratios))
         np.random.default_rng(20261110).shuffle(jitter)
-        if group[1] == "Inquire":
-            storage = np.array([row["historical_storage"] for row in selected])
-            for medium, filled in (("C_local_NVMe_root", True), ("D_USB_root", False)):
-                mask = storage == medium
-                axes[1].scatter(ratios[mask], position + jitter[mask], s=13,
-                                facecolors=color if filled else "none", edgecolors=color,
-                                marker=marker, alpha=0.65, linewidths=0.6)
-            mask = storage == "legacy_storage_not_fully_recorded"
-            axes[1].scatter(ratios[mask], position + jitter[mask], s=16,
-                            color=color, marker="x", linewidths=0.8)
-        else:
-            axes[1].scatter(ratios, position + jitter, s=11, color=color,
-                            marker=marker, alpha=0.45, linewidths=0)
+        axes[1].scatter(ratios, position + jitter, s=11, color=color,
+                        marker=marker, alpha=0.45, linewidths=0)
         quartiles = np.percentile(ratios, [25, 50, 75])
         axes[1].plot(quartiles[[0, 2]], [position, position], color="black", linewidth=2)
         axes[1].scatter(quartiles[1], position, color="black", marker="D", s=20, zorder=4)
@@ -192,7 +185,7 @@ def draw_comparison(rows, output, outcomes=None):
     figure.legend(*axes[0].get_legend_handles_labels(), frameon=False, loc="upper left",
                   bbox_to_anchor=(0.10, 0.93), ncol=3, fontsize=7)
     figure.text(0.02, 0.025, "Absolute times show workbook medians and quartiles. Ratio dots represent paired workbooks.\n"
-                "Black diamonds/lines: median/IQR. Inquire dots: filled NVMe, hollow USB, x unrecorded; SheetShrink on NVMe.\n"
+                "Black diamonds/lines: median/IQR.\n"
                 "One primary comparator attempt. SheetShrink: Lenovo 9 repetitions; HP 7–11. Visual validation separate.", fontsize=6.8)
     if outcomes:
         figure.text(0.02, 0.13,
@@ -214,7 +207,7 @@ def draw_time_summary(axis, position, values, marker, color, label_offset):
                   textcoords="offset points", fontsize=7, color=color)
 
 
-def draw_single_column(rows, output, a4_landscape=False):
+def draw_single_column(rows, output, a4_landscape=False, two_column=False):
     """Draw matched times and ratios with compact tool labels and shared corpus headings."""
     short_names = {"NXPowerLite": "NXPL", "XLStylesTool": "XLST",
                    "Check Performance": "CP", "Inquire": "INQ"}
@@ -223,7 +216,11 @@ def draw_single_column(rows, output, a4_landscape=False):
                                 ["#D55E00", "#009E73", "#E69F00", "#CC79A7"])))
     plt.rcParams.update({"font.family": "DejaVu Sans", "font.size": 7,
                          "pdf.fonttype": 42, "svg.fonttype": "none"})
-    page_size = (297 / 25.4, 210 / 25.4) if a4_landscape else (3.5, 4.35)
+    page_size = (3.5, 4.35)
+    if two_column:
+        page_size = (7.16, 3.6)
+    if a4_landscape:
+        page_size = (297 / 25.4, 210 / 25.4)
     label_size = 10 if a4_landscape else 6
     heading_size = 12 if a4_landscape else 7
     figure, axes = plt.subplots(1, 2, figsize=page_size)
@@ -231,7 +228,7 @@ def draw_single_column(rows, output, a4_landscape=False):
     for corpus_index, (corpus, title) in enumerate(
             (("destatis", "Destatis"), ("enron", "Enron"), ("datagov", "Data.gov"))):
         heading = corpus_index * 5
-        axes[0].text(-0.48 if not a4_landscape else -0.24, heading, title, transform=axes[0].get_yaxis_transform(),
+        axes[0].text(-0.24 if a4_landscape or two_column else -0.48, heading, title, transform=axes[0].get_yaxis_transform(),
                      fontweight="bold", fontsize=heading_size, va="center", clip_on=False)
         for tool_index, tool in enumerate(tools):
             selected = [r for r in rows if r["corpus"] == corpus and r["comparator"] == tool]
@@ -251,15 +248,9 @@ def draw_single_column(rows, output, a4_landscape=False):
             ratios = times / baseline
             jitter = np.linspace(-0.2, 0.2, len(selected))
             np.random.default_rng(20261110).shuffle(jitter)
-            for i, row in enumerate(selected):
-                storage = row.get("historical_storage", "")
-                unknown = storage == "legacy_storage_not_fully_recorded"
-                axes[1].scatter(ratios[i], position + jitter[i], s=22 if unknown else 9,
-                                marker="x" if unknown else marker,
-                                facecolors="none" if storage == "D_USB_root" else color,
-                                linewidths=1.1 if unknown else 0.5,
-                                alpha=1 if unknown else 0.55, zorder=6 if unknown else 2,
-                                **({} if unknown else {"edgecolors": color}))
+            axes[1].scatter(ratios, position + jitter, s=9, marker=marker,
+                            facecolors=color, edgecolors=color,
+                            linewidths=0.5, alpha=0.55, zorder=2)
             q1, median, q3 = np.percentile(ratios, [25, 50, 75])
             axes[1].plot([q1, q3], [position] * 2, color="black", linewidth=1.5)
             axes[1].scatter(median, position, s=12, marker="D", color="black")
@@ -281,7 +272,7 @@ def draw_single_column(rows, output, a4_landscape=False):
     figure.legend(*axes[0].get_legend_handles_labels(), loc="upper right",
                   bbox_to_anchor=(1, 1), ncol=2, frameon=False, fontsize=label_size)
     # Reserve only the compact labels; corpus headings share their left edge.
-    figure.subplots_adjust(left=0.12 if a4_landscape else 0.23,
+    figure.subplots_adjust(left=0.12 if a4_landscape or two_column else 0.23,
                            right=0.99, top=0.91, bottom=0.14, wspace=0.28)
     if a4_landscape:
         figure.text(0.12, 0.025,
