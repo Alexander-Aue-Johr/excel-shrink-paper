@@ -1,0 +1,9 @@
+{
+  "schema": 1,
+  "source_gzip_sha256": "a9e4958e078f2db986415db33b26bc58687d6dcb3a447d2a2e52a7e6f82cf03a",
+  "public_gzip_sha256": "5a6d42ce4543f8b373ee8f50be6b3e170fa78afbe09639d2df2ff049afbef07a",
+  "rows": 288,
+  "field": "cleanup_provenance",
+  "relabelled_rows": 63,
+  "scope": "Replaced a private producer-host name with 'a separate host'. All other JSON fields and values are preserved."
+}

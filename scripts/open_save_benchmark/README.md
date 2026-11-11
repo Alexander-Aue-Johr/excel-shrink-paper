@@ -2,7 +2,7 @@
 
 The selected cases are the hidden-zero-tail Wanderungen workbook, the large Destatis municipal finance workbook, and the data-heavy Data.gov QT/RR workbook. Their original identities and every supplied output used in a trial are checked with SHA-256 before any trial starts.
 
-Each SheetShrink trial starts from the verified original and runs the frozen SheetShrink CLI immediately before the selected library. Previously prepared SheetShrink outputs are excluded from input verification and processing for this mode. The CLI uses the host's logical-processor count for both Rayon workers and writer workers. LAPTOP-H86KBIH3 exposes six logical processors. One workbook is active in each serial trial.
+Each SheetShrink trial starts from the verified original and runs the frozen SheetShrink CLI immediately before the selected library. Previously prepared SheetShrink outputs are excluded from input verification and processing for this mode. The CLI uses the host's logical-processor count for both Rayon workers and writer workers. The measured laptop exposes six logical processors. One workbook is active in each serial trial.
 
 The first cleanup and library execution share the same bounded Windows job. The receipt records directly measured pipeline time, cleanup time, native SheetShrink memory peaks, phase-level process-tree memory samples, and per-process sampled memory peaks. Pipeline time includes interpreter startup and application shutdown. Excel's separate open, save and close/quit durations remain available. Timing excludes output hashing and temporary-file removal.
 
@@ -20,7 +20,7 @@ The process-tree counters cover the library and its owned descendants. The bench
 
 The standalone launcher can run after the chat application closes. Completed trial identities are resumed from durable JSONL receipts. A file lock prevents simultaneous controllers from using the same result directory. An interrupted trial is retried after stale checkpoint and Excel-handshake files are removed. Temporary exports are hashed after successful completion and removed to limit disk use. All trial checkpoints, logs, timings, and memory receipts remain available.
 
-Cleanup costs are included only where a measured, compatible local receipt exists. Gotham-produced cleanup measurements retain their host provenance separately. Missing cleanup timings remain unavailable. A completed open/save operation does not establish visual equivalence. Red failure markers on the comparison chart show termination times and retain their failure status in the machine-readable summary.
+Cleanup costs are included only where a measured, compatible local receipt exists. Remote-producer cleanup measurements retain their host provenance separately. Missing cleanup timings remain unavailable. A completed open/save operation does not establish visual equivalence. Red failure markers on the comparison chart show termination times and retain their failure status in the machine-readable summary.
 
 The original Wanderungen workload is included under this bounded protocol. The earlier cleanup-only harness has a narrower scope and does not open workbooks.
 
@@ -30,7 +30,7 @@ For another Windows host, invoke `run_bounded.py` with its Python interpreter, a
 
 ## Completion checklist
 
-- [x] Verify all four requested Gotham outputs against their transfer manifest and original hashes.
+- [x] Verify all four requested remote-producer outputs against their transfer manifest and original hashes.
 - [x] Exercise the job memory limit with an allocation probe.
 - [x] Exercise all five library entry points on a tiny workbook.
 - [x] Prepare resumable independent launch, environment snapshots, input verification and exclusive result-directory locking.
