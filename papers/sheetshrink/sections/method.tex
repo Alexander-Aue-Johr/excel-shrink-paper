@@ -33,21 +33,6 @@ without consuming an unfinished row. Reconstruction follows successful arrival
 at the worksheet end.
 \input{figures/worksheet-states}
 
-The byte-search layer uses \texttt{memchr} 2.8.1 with its default
-\texttt{std} feature~\cite{memchr281}. On x86-64, the library selects
-AVX2-capable routines through runtime CPU detection and provides SSE2 paths.
-Substring search chooses among SIMD-assisted search, prefiltered Two-Way search
-and short-input strategies according to the pattern and input. Our central
-\texttt{find\_bytes} helper retains eight immutable \texttt{memmem::Finder}
-instances in \texttt{OnceLock} storage for recurring XML tokens, including cell,
-row, value, formula and inline-string delimiters. Their preparation is shared
-across worksheet and worker calls. Conditional-layout and streaming scanners
-also invoke \texttt{memchr} and \texttt{memmem} directly. Other attribute and
-delimiter readers use ordinary byte loops. The reported end-to-end measurements
-include these mechanisms together with allocation, concurrency and ZIP processing.
-Section~\ref{sec:search-dispatch-ablation} isolates the contribution of this
-library's x86-64 dispatch in complete single-thread cleanup trials.
-
 \subsection{Parser correctness and regression controls}
 Byte-oriented scanning transfers XML recognition and state-transition obligations
 to the implementation. Mature SAX and DOM libraries provide extensively exercised
