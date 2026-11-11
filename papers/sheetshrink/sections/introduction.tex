@@ -3,24 +3,21 @@ and redundant row and column records. Decompressing and parsing these records
 adds work. Removing every empty-looking record is
 unsafe. An empty cell can preserve a border, override an inherited fill, or
 influence automatic row height through its font. A whitespace value can prevent
-text from extending into its neighbour. Cleanup therefore requires a model of
-the effects that stored structures have on the document.
+text from extending into its neighbour. Cleanup must account for how stored records affect the workbook.
 
-A motivating case is the Destatis migration workbook
-\texttt{wanderungen-2010120217005.xlsx}. In worksheet \texttt{Tabelle 3.4},
-21 rows each contain numeric zeros from column L through Excel's final column
-XFD. Those tails alone contain 343,833 stored values. They are hidden content,
-so removing them requires a stated admission policy and dependency checks in
-addition to empty-format cleanup. Section~\ref{sec:wanderungen} describes the
-case and the values that the conservative policy deliberately retains.
+The Destatis migration workbook \texttt{wanderungen-2010120217005.xlsx}
+illustrates the problem. In \texttt{Tabelle 3.4}, 21 rows contain zeros from
+column L to Excel's last column, XFD, totaling 343,833 values. Removing this
+hidden content requires explicit removal rules and dependency checks.
+Section~\ref{sec:wanderungen} explains the rule and which values it retains.
 
-For an XLSX input, SheetShrink makes these decisions from the stored package
-before loading the workbook in Excel. Its cleanup stage has no native rendering
-or calculated row-height observations. An Excel-hosted method can inspect the
-loaded layout and evaluate candidate edits against native observations. Our
-method instead retains compact source structures whose required effects follow
-from package analysis and the preservation rules. Native Excel is used later
-to evaluate the output.
+We designed SheetShrink for use without Windows or Excel, including Python
+and R workflows. Direct package processing also avoids Excel's opening cost,
+which was high in our experiments.
+
+Cleanup decisions use stored values, styles and references. SheetShrink retains
+compact records needed to preserve required workbook behavior. Excel rendering
+and calculated row heights are used later to validate the output.
 
 Specialized spreadsheet parsing has demonstrated the importance of decompression,
 parsing, memory use and parallel execution for data loading~\cite{sheetreader}.
