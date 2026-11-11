@@ -14,6 +14,13 @@ python scripts/xml-methods/render.py
 python scripts/xml-methods/verify.py
 ```
 
+For the compact manuscript snippets alone, run
+`python scripts/xml-methods/render_manuscript.py`. The full renderer also
+refreshes these exports after building the annotated review atlas. Manuscript
+figures keep prose in LaTeX captions. Native font and fill controls are assembled
+with borderless LaTeX tables using the retained vector exports at a common scale.
+Connected source/result diffs remain one PDF so their correspondence bands align.
+
 The LaTeX build consumes the generated PDFs and needs no Python or shell escape.
 PDF text is selectable. SVG text and its font files are embedded for editing.
 The bundled DejaVu and Tinos fonts retain their licenses in `fonts/`.

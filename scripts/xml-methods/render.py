@@ -583,6 +583,8 @@ def main() -> None:
               'code_font_size_points': FONT_SIZE, 'column_width_points': COLUMN,
               'maximum_card_height_points': max(d.height for d in drawings), **native}
     (EVIDENCE / 'verification.json').write_text(json.dumps(result, indent=2) + '\n', encoding='utf-8')
+    from render_manuscript import render_manuscript
+    render_manuscript(data['cases'])
     print(json.dumps({key: value for key, value in result.items() if key != 'input_sha256'}, indent=2))
 
 

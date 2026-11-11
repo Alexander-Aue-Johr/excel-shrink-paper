@@ -1,6 +1,8 @@
 \begin{figure}[t]
 \centering
 \includegraphics[width=\columnwidth]{figures/capture-methods/06-cell-record.pdf}
-\caption{The fixed-size cell evidence stream. Coordinates and flags accompany the content/style digest. Abbreviated Rust.}
+\caption{The serialized 40-byte cell record contains coordinates, two flag bytes
+and a 32-byte content/style digest. Ordered records support streaming comparison.
+Styles, changes and native images retain separate memory costs. Abbreviated Rust.}
 \label{fig:cell-record}
 \end{figure}

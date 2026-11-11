@@ -13,12 +13,12 @@ from pygments import lex
 from pygments.lexers import get_lexer_by_name
 from pypdf import PdfReader
 from reportlab.graphics import renderPDF, renderSVG
-from reportlab.graphics.shapes import Drawing, Group
+from reportlab.graphics.shapes import Drawing
 from reportlab.pdfbase import pdfmetrics
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / 'scripts/xml-methods'))
-from render import INK, MUTED, embed_svg_fonts, paragraph, rect, register_fonts, text, token_color
+from render import embed_svg_fonts, rect, register_fonts, text, token_color
 
 EVIDENCE = ROOT / 'papers/deltasieve/evidence/capture-development'
 OUTPUT = ROOT / 'papers/deltasieve/figures/capture-methods'
@@ -26,27 +26,18 @@ OUTPUT = ROOT / 'papers/deltasieve/figures/capture-methods'
 
 def draw_panel(case: dict) -> Drawing:
     """Keep code at column scale and fail on lines exceeding the code box."""
-    height = 65 + 11.5 * len(case['code'])
-    drawing = Drawing(252, height + 100)
-    text(drawing, 0, 0, case['title'], 10, INK, 'PaperSerif-Bold')
-    text(drawing, 0, 18, case['language_label'], 7.5, MUTED)
-    rect(drawing, 0, 35, 252, 15 + 11.5 * len(case['code']), '#f8fafc', '#d9e1e8')
+    height = 14 + 11.5 * len(case['code'])
+    drawing = Drawing(252, height)
+    rect(drawing, 0, 0, 252, height, '#f8fafc', '#d9e1e8')
     lexer = get_lexer_by_name(case['lexer'], stripnl=False, ensurenl=False)
     for index, line in enumerate(case['code']):
         if pdfmetrics.stringWidth(line, 'Code', 8.2) > 236:
             raise ValueError(f"Line exceeds the column in {case['id']}: {line}")
         x = 8
         for token, value in lex(line, lexer):
-            text(drawing, x, 42 + index * 11.5, value, 8.2, token_color(token), 'Code')
+            text(drawing, x, 6 + index * 11.5, value, 8.2, token_color(token), 'Code')
             x += pdfmetrics.stringWidth(value, 'Code', 8.2)
-    end = paragraph(drawing, 0, height - 4, case['explanation'], 252, 8.4)
-    end = paragraph(drawing, 0, end + 5, case['boundary'], 252, 8.1, MUTED)
-    # Render only the occupied portion while preserving the top coordinates.
-    group = Group(*drawing.contents)
-    group.translate(0, end + 4 - drawing.height)
-    result = Drawing(252, end + 4)
-    result.add(group)
-    return result
+    return drawing
 
 
 def main() -> None:
@@ -62,6 +53,9 @@ def main() -> None:
         embed_svg_fonts(svg, case['id'])
         page = PdfReader(pdf).pages[0]
         extracted = ''.join(page.extract_text().split())
+        assert ''.join(case['title'].split()) not in extracted
+        assert ''.join(case['explanation'].split()) not in extracted
+        assert ''.join(case['boundary'].split()) not in extracted
         for line in case['code']:
             assert ''.join(line.split()) in extracted, (case['id'], line)
         assert not page['/Resources'].get('/XObject')
