@@ -1,10 +1,14 @@
 param(
     [Parameter(Mandatory=$true)][string]$StudyRoot,
-    [switch]$SmokeTest
+    [switch]$SmokeTest,
+    [string]$Python = (Join-Path $env:USERPROFILE '.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe')
 )
 $ErrorActionPreference = 'Stop'
 $StudyRoot = [IO.Path]::GetFullPath($StudyRoot).TrimEnd([IO.Path]::DirectorySeparatorChar)
-$python = 'C:\Users\saue1\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe'
+if (!(Test-Path -LiteralPath $Python -PathType Leaf)) {
+    throw 'Python was not found. Supply its executable path with -Python.'
+}
+$python = (Resolve-Path -LiteralPath $Python).Path
 $resultName = if ($SmokeTest) { 'standalone-smoke-pipeline-4096mib' } else { 'standalone-pipeline-4096mib' }
 $resultRoot = Join-Path $StudyRoot $resultName
 New-Item -ItemType Directory -Path $resultRoot -Force | Out-Null
