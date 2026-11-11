@@ -65,6 +65,13 @@ equal-size outputs in these runs. Data.gov also had 494 unsupported-namespace
 skips. With sixteen workbook slots and sixteen Rayon threads, elapsed times
 were 119.7, 1,134.5, and 181.6\,s, respectively, including analysis statistics
 and full replay events alongside concurrent native validation~\cite{corpusdistributions}.
+The complete recorded executions are available as
+\href{https://alexander-aue-johr.github.io/excel-shrink-paper/replays/corpus-distributions-20261111/}{interactive corpus replays}.
+Their terminal event clocks include final reporting and can differ slightly
+from the cleanup timing endpoint above. Each recording retains source and
+publication checksums, with local output paths projected to basenames.
+Playback loads the complete history into browser memory and supports seeking
+and accelerated inspection of workbook, worksheet and chunk events.
 All three runs reached completion with zero reported processing failures.
 These namespace exclusions occurred only in Data.gov in the evaluated runs.
 These descriptive results include files that grew and use only processed
