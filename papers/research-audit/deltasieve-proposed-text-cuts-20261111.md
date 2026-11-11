@@ -8,8 +8,7 @@ PDF and SVG. Image transport is now Figure 11, and capture ownership is Figure 1
 The accepted cuts remove operational exposition, the preliminary Intel result
 lane and historical budget/adapter detail. Figure 6 is retained with a flatter
 return edge and acceptance conditions in its caption. The geometry code figure is omitted from the manuscript, with its source and
-vector files retained. The Office.js synchronization figure remains the next
-illustration candidate. Figure 4 now describes default preparation without
+vector files retained. The Office.js synchronization figure is also omitted. Figure 4 now describes default preparation without
 the optional internal Check Performance branch or the duplicate reuse gate.
 
 ## First text cut

@@ -229,8 +229,7 @@ control, not a monolithic oracle for the workbook.
 
 \subsection{Native image qualification}
 Native images use bounded batches of Office.js \texttt{Range.getImage()}
-requests, synchronized before consumption (Figure~\ref{fig:capture-03-office-sync}).
-\input{figures/capture-methods/03-office-sync}
+requests, synchronized before consumption.
 
 A successful API response does not prove complete capture. The worker verifies
 expected dimensions, budget compliance and crop geometry before accepting the
