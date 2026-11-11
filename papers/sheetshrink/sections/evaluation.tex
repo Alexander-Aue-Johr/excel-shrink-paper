@@ -65,9 +65,18 @@ equal-size outputs in these runs. Data.gov also had 494 unsupported-namespace
 skips. With sixteen workbook slots and sixteen Rayon threads, elapsed times
 were 119.7, 1,134.5, and 181.6\,s, respectively, including analysis statistics
 and full replay events alongside concurrent native validation~\cite{corpusdistributions}.
+All three runs reached completion with zero reported processing failures.
+The Data.gov namespace exclusions remain explicit skipped outcomes.
 These descriptive results include files that grew and use only processed
 input bytes as the denominator. Enron's denominator begins after
 preparation. Visual preservation is evaluated separately.
+
+Corpus-driven development exposed both recognition and preservation defects.
+The Data.gov attributed-value failure is described in the method, and the
+Destatis automatic-height correction is examined below. Earlier Enron controls
+isolated deleted center-across-selection spans and fill masks by restoring only
+the affected original cell records. These findings motivate retained fixtures
+and native controls alongside the screening counts~\cite{enrondefaultcontrols}.
 \subsection{Sampling and reference controls}
 The random evaluation sample is selected from a frozen eligible frame with a
 recorded seed before inspecting visual findings. Strata use corpus identity,
@@ -114,6 +123,24 @@ have different cleanup decisions. A timing comparison must therefore include
 output differences and preservation outcomes for each version.
 
 \input{sections/comparator-performance}
+
+\subsection{An external parser failure found during baseline testing}
+Baseline ingestion exposed an analogous failure in SheetReader. The XLSX
+conversion of an EDRM Enron workbook terminated its Windows parser while reading
+\texttt{Opt!O306}, a styled empty cell serialized as
+\texttt{<c r="O306" s="105"/>}. Retained value-parser state caused an unsigned
+length subtraction to underflow before a buffer write. The upstream build
+terminated in all six targeted trials. With the proposed correction, all six
+completed over seven worksheets and 24,299 stored values, with stable
+location/value fingerprints. Trials used one and ten parser threads.
+
+We submitted the correction and synthetic regression fixtures upstream in
+pull request~5~\cite{sheetreaderparserfix}. The patch also preserves inferred
+column positions after skipped empty cells. Its fixture suite passed 54
+case/thread combinations on Windows x64. The pull request is a submitted
+contribution, with upstream acceptance pending at this writing. These observations
+characterize the tested revision and input. They illustrate the need to verify
+parser transitions and value positions before interpreting ingestion timings.
 
 \subsection{Six-file cleanup stress panel}
 A separate stress panel selects six Destatis workbooks from a 100-file

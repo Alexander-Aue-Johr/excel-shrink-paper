@@ -1,0 +1,21 @@
+{
+  "source_revision": "1b9ee98e3409c3584ffd12a661d0c19f8a5f0788",
+  "platform": "Windows x64",
+  "runs": [
+    {
+      "command": "cargo test -p excel-shrink-core --lib",
+      "summary": "test result: ok. 298 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 3.88s",
+      "log_sha256": "1e7520cabbfc84db282a4ea5e8c237837632d7f3a86ebd353e7a2fe5cde650c9"
+    },
+    {
+      "command": "cargo test -p excel-shrink-cli --lib streaming_xml::tests -- --nocapture",
+      "summary": "test result: ok. 8 passed; 0 failed; 0 ignored; 0 measured; 1040 filtered out; finished in 0.43s",
+      "log_sha256": "6e3f2ca18e78d327128e5a63985e53b30f2ad431f874095e802d2d588307a9d1"
+    },
+    {
+      "command": "cargo test -p excel-shrink-cli --lib pipeline::regression_tests",
+      "summary": "test result: ok. 39 passed; 0 failed; 0 ignored; 0 measured; 1009 filtered out; finished in 2.06s",
+      "log_sha256": "84d3fc126d83a12f169ddd1683a38d9a963881186304856a7bda6b1e4172f9fa"
+    }
+  ]
+}

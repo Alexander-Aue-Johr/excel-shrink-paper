@@ -1,0 +1,30 @@
+{
+  "upstream": {
+    "outcomes": {
+      "failed": 6
+    },
+    "exit_codes": [
+      "0xc0000409"
+    ]
+  },
+  "fixed": {
+    "outcomes": {
+      "completed": 6
+    },
+    "exit_codes": [
+      "0x0"
+    ],
+    "worksheets": 7,
+    "value_count": 24299,
+    "opt_value_count": 10719,
+    "stable_fingerprints": true
+  },
+  "cell_check": {
+    "public_iterator_exit": 0,
+    "public_iterator_output": "Opt!O306 is empty after parsing and public row iteration\n",
+    "xml_part": "xl/worksheets/sheet4.xml",
+    "xml_cell": "<ns0:c xmlns:ns0=\"http://schemas.openxmlformats.org/spreadsheetml/2006/main\" r=\"O306\" s=\"105\" />",
+    "xml_nonempty_value_count": 10719
+  },
+  "regression_tests": "54/54 passed on Windows x64 with MSVC"
+}
