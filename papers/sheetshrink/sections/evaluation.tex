@@ -66,10 +66,29 @@ skips. With sixteen workbook slots and sixteen Rayon threads, elapsed times
 were 119.7, 1,134.5, and 181.6\,s, respectively, including analysis statistics
 and full replay events alongside concurrent native validation~\cite{corpusdistributions}.
 All three runs reached completion with zero reported processing failures.
-The Data.gov namespace exclusions remain explicit skipped outcomes.
+These namespace exclusions occurred only in Data.gov in the evaluated runs.
 These descriptive results include files that grew and use only processed
 input bytes as the denominator. Enron's denominator begins after
 preparation. Visual preservation is evaluated separately.
+
+A separate inventory of the 9,117 Data.gov inputs identified 493 workbooks
+with explicitly prefixed worksheet data elements. Experimental copies underwent
+namespace normalization followed by Default cleanup, with savings measured
+against the normalized baseline. Only two produced smaller compressed packages,
+with reductions of 6.415\% and 0.047\%. Other outputs could lose redundant cell
+records without becoming smaller as ZIP packages. The observed compressed-size
+benefit was therefore concentrated in two inputs~\cite{prefixeddataexperiment}.
+
+Earlier exploratory inspection associated prefixed serializations with generated
+exports. The subsequent inventory found a maximum row coordinate of 694,981
+across the 493 matches, within Excel's row limit. Producer attribution and
+application compatibility require additional evidence. Excel itself supports
+Strict Open XML output~\cite{excelstrictformat}. Production eligibility checks
+use bounded package-root headers and declarations encountered during streaming,
+allowing unsupported representations to be identified before native opening.
+The measured opportunity supports retaining the current parser scope and
+reporting excluded inputs explicitly, with the experimental normalized copies
+available for further investigation.
 
 Corpus-driven development exposed both recognition and preservation defects.
 The Data.gov attributed-value failure is described in the method, and the

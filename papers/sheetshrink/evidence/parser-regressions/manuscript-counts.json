@@ -1,0 +1,752 @@
+{
+  "source_revision": "1b9ee98e3409c3584ffd12a661d0c19f8a5f0788",
+  "counting_rule": "Correctness test functions in the named module groups. Timing benchmarks are excluded. Fixture iterations are counted once. Other modules contain additional parsing and preservation controls.",
+  "parsing_correctness": [
+    {
+      "file": "excel-shrink-cli/src/regression/streaming_xml_tests.rs",
+      "name": "byte_views_and_streaming_tags_agree_at_every_chunk_size"
+    },
+    {
+      "file": "excel-shrink-cli/src/regression/streaming_xml_tests.rs",
+      "name": "comment_and_processing_instruction_delimiters_survive_all_splits"
+    },
+    {
+      "file": "excel-shrink-cli/src/regression/streaming_xml_tests.rs",
+      "name": "cdata_survives_all_chunk_boundaries_and_preserves_cell_text"
+    },
+    {
+      "file": "excel-shrink-cli/src/regression/streaming_xml_tests.rs",
+      "name": "malformed_or_unsupported_xml_never_finishes_successfully"
+    },
+    {
+      "file": "excel-shrink-cli/src/regression/streaming_xml_tests.rs",
+      "name": "long_text_and_comments_do_not_grow_the_token_buffer"
+    },
+    {
+      "file": "excel-shrink-cli/src/regression/streaming_xml_tests.rs",
+      "name": "tag_and_hierarchy_limits_fail_explicitly_instead_of_allocating_without_bound"
+    },
+    {
+      "file": "excel-shrink-cli/src/regression/streaming_xml_tests.rs",
+      "name": "sibling_names_reuse_stack_storage"
+    },
+    {
+      "file": "excel-shrink-cli/src/regression/streaming_xml_tests.rs",
+      "name": "absolute_offsets_preserve_raw_nodes_across_every_chunk_boundary"
+    },
+    {
+      "file": "excel-shrink-core/src/shared_strings_tests.rs",
+      "name": "prefixed_shared_strings_are_never_classified_as_whitespace"
+    },
+    {
+      "file": "excel-shrink-core/src/shared_strings_tests.rs",
+      "name": "detects_only_whitespace_shared_strings"
+    },
+    {
+      "file": "excel-shrink-core/src/shared_strings_tests.rs",
+      "name": "detects_self_closing_empty_text_shared_string_as_whitespace"
+    },
+    {
+      "file": "excel-shrink-core/src/shared_strings_tests.rs",
+      "name": "detects_rich_text_shared_string_as_whitespace_only_when_all_runs_are_whitespace"
+    },
+    {
+      "file": "excel-shrink-core/src/shared_strings_tests.rs",
+      "name": "ignores_similarly_named_tags_when_finding_shared_strings"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/ranges_regression_tests.rs",
+      "name": "does_not_treat_spans_as_style_attribute"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/ranges_regression_tests.rs",
+      "name": "finds_real_row_style_attribute_after_cell_range"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/ranges_regression_tests.rs",
+      "name": "last_visible_row_end_reports_row_at_boundary"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/ranges_regression_tests.rs",
+      "name": "preserve_through_row_extends_range_after_last_visible_row"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/streaming.rs",
+      "name": "marker_is_detected_across_every_input_boundary"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/streaming.rs",
+      "name": "incomplete_marker_does_not_trigger_passthrough"
+    },
+    {
+      "file": "excel-shrink-core/src/workbook.rs",
+      "name": "aliases_on_different_sheets_are_not_duplicates_when_scope_precedes_name"
+    },
+    {
+      "file": "excel-shrink-core/src/workbook.rs",
+      "name": "equivalent_alias_scope_is_independent_of_attribute_order_and_quotes"
+    },
+    {
+      "file": "excel-shrink-core/src/workbook.rs",
+      "name": "a_self_closing_name_does_not_consume_a_following_element"
+    },
+    {
+      "file": "excel-shrink-core/src/xml.rs",
+      "name": "cached_tokens_preserve_general_search_semantics"
+    },
+    {
+      "file": "excel-shrink-core/src/xml/namespaces.rs",
+      "name": "detects_prefixed_main_namespace_at_every_chunk_boundary"
+    },
+    {
+      "file": "excel-shrink-core/src/xml/namespaces.rs",
+      "name": "allows_default_main_namespace_and_normal_extension_prefixes"
+    },
+    {
+      "file": "excel-shrink-core/src/xml/namespaces.rs",
+      "name": "preserves_namespace_representations_that_cannot_be_checked"
+    },
+    {
+      "file": "excel-shrink-core/src/xml/namespaces/header.rs",
+      "name": "supports_excel_headers_and_ignores_prolog_text_at_every_read_boundary"
+    },
+    {
+      "file": "excel-shrink-core/src/xml/namespaces/header.rs",
+      "name": "rejects_unsupported_or_ambiguous_headers"
+    },
+    {
+      "file": "excel-shrink-core/src/xml/namespaces/header.rs",
+      "name": "ordinary_root_cost_is_constant_even_for_a_gigabyte_body"
+    },
+    {
+      "file": "excel-shrink-core/src/xml/namespaces/header.rs",
+      "name": "body_declarations_are_left_for_the_normal_stream_guard"
+    },
+    {
+      "file": "excel-shrink-core/src/xml/namespaces/header.rs",
+      "name": "overlong_header_is_rejected_without_reading_beyond_its_budget"
+    }
+  ],
+  "cell_row_tail_correctness": [
+    {
+      "file": "excel-shrink-core/src/sheet/cells_regression_tests.rs",
+      "name": "keeps_hidden_cell_with_content_without_advanced_cleanup"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/cells_regression_tests.rs",
+      "name": "removes_empty_hidden_cell_without_style_representative"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/cells_regression_tests.rs",
+      "name": "keeps_empty_hidden_column_cell_when_style_has_visible_fill"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/cells_regression_tests.rs",
+      "name": "keeps_empty_cell_when_apply_font_differs_from_column_apply_font"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/cells_regression_tests.rs",
+      "name": "removes_empty_hidden_column_cell_when_apply_font_differs_from_column_apply_font"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/cells_regression_tests.rs",
+      "name": "removes_empty_hidden_column_cell_when_only_font_differs_from_column_font"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/cells_regression_tests.rs",
+      "name": "keeps_empty_cell_when_nonzero_font_differs_from_column_without_cell_apply_font"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/cells_regression_tests.rs",
+      "name": "nonzero_font_override_stays_explicit_when_it_duplicates_font_zero"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/cells_regression_tests.rs",
+      "name": "keeps_empty_cell_when_apply_font_resets_column_font_to_default"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/cells_regression_tests.rs",
+      "name": "keeps_empty_cell_when_apply_font_differs_from_column_font_without_column_apply_font"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/cells_regression_tests.rs",
+      "name": "removes_empty_cell_when_apply_font_matches_column_apply_font"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/cells_regression_tests.rs",
+      "name": "removes_empty_cell_when_apply_font_matches_column_font_without_column_apply_font"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/cells_regression_tests.rs",
+      "name": "removes_empty_cell_when_default_font_differs_from_column_without_cell_apply_font"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/cells_regression_tests.rs",
+      "name": "keeps_empty_default_font_cell_in_auto_height_row_when_column_font_differs"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/cells_regression_tests.rs",
+      "name": "keeps_empty_cell_in_auto_height_row_when_column_font_matches_cell_but_row_font_differs"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/cells_regression_tests.rs",
+      "name": "removes_empty_cell_when_default_font_and_same_fill_do_not_apply_font"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/cells_regression_tests.rs",
+      "name": "opt_out_removes_empty_cell_when_apply_font_differs_from_column_apply_font"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/cells_regression_tests.rs",
+      "name": "keeps_formula_cell_with_attributes_and_empty_cached_value"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/cells_regression_tests.rs",
+      "name": "keeps_empty_cell_when_style_applies_default_border_override"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/cells_regression_tests.rs",
+      "name": "removes_empty_cell_when_default_border_override_matches_borderless_column_style"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/cells_regression_tests.rs",
+      "name": "keeps_empty_cell_when_default_border_override_clears_visible_row_border"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/cells_regression_tests.rs",
+      "name": "removes_empty_cell_when_default_fill_override_has_nothing_to_clear"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/cells_regression_tests.rs",
+      "name": "removes_empty_cell_when_default_fill_override_matches_fillless_column_style"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/cells_regression_tests.rs",
+      "name": "keeps_empty_cell_when_default_fill_override_clears_visible_row_fill"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/cells_regression_tests.rs",
+      "name": "does_not_mark_hidden_formula_cell_as_advanced_cleanup_candidate"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/cells_regression_tests.rs",
+      "name": "marks_hidden_content_as_candidate_with_advanced_cleanup"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/cells_regression_tests.rs",
+      "name": "does_not_mark_hidden_content_candidate_when_cell_is_style_representative"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/cells_regression_tests.rs",
+      "name": "does_not_mark_candidate_when_cell_style_has_apply_protection_and_sheet_is_protected"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/cells_regression_tests.rs",
+      "name": "default_marks_candidate_when_cell_style_has_apply_protection_without_sheet_protection"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/cells_regression_tests.rs",
+      "name": "protected_cell_also_anchors_tail_when_it_masks_a_visible_column_fill"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/cells_regression_tests.rs",
+      "name": "keep_all_does_not_mark_candidate_when_cell_style_has_apply_protection_without_sheet_protection"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/cells_regression_tests.rs",
+      "name": "keeps_empty_font_only_cell_when_row_has_non_default_fill"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/cells_regression_tests.rs",
+      "name": "keeps_empty_cell_with_fill_zero_when_column_has_non_default_fill_without_apply_fill"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/cells_regression_tests.rs",
+      "name": "keeps_unstyled_empty_cells_that_mask_a_colored_column"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/cells_regression_tests.rs",
+      "name": "styleless_cells_preserve_local_column_font_overrides_on_auto_height_rows"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/cells_regression_tests.rs",
+      "name": "keeps_colored_cells_when_the_row_overrides_the_same_colored_column"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/cells_regression_tests.rs",
+      "name": "custom_format_without_style_uses_default_row_style"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/cells_regression_tests.rs",
+      "name": "removes_empty_cell_when_row_and_column_apply_same_fill_as_cell"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/cells_regression_tests.rs",
+      "name": "keeps_empty_cell_when_row_and_column_apply_fill_and_only_column_differs"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/cells_regression_tests.rs",
+      "name": "removes_empty_cell_when_row_applies_same_visible_fill_as_cell"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/cells_regression_tests.rs",
+      "name": "removes_empty_cell_when_column_applies_same_visible_fill_as_cell"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/cells_regression_tests.rs",
+      "name": "keeps_empty_cell_when_no_row_or_column_apply_fill_and_cell_has_visible_fill"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/cells_regression_tests.rs",
+      "name": "keeps_empty_cell_when_row_applies_fill_and_cell_overrides_with_default_fill"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/cells_regression_tests.rs",
+      "name": "marks_x4_whitespace_candidate_when_cell_and_column_apply_default_fill"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/cells_regression_tests.rs",
+      "name": "does_not_mark_whitespace_candidate_when_cell_is_style_representative"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/cells_regression_tests.rs",
+      "name": "marks_x4_whitespace_candidate_when_shared_string_text_is_self_closing"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/cells_regression_tests.rs",
+      "name": "traces_d1048576_removed_when_empty_cell_style_only_affects_font"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/cells_regression_tests.rs",
+      "name": "row_context_does_not_apply_to_a_different_cell_reference"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/cells_regression_tests.rs",
+      "name": "fixed_height_still_requires_column_font_override_protection"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/cells_regression_tests.rs",
+      "name": "hidden_column_content_preserves_automatic_row_height"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/cells_regression_tests.rs",
+      "name": "data_range_policy_bounds_active_protection_without_retaining_empty_tail_cells"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/rows_regression_tests.rs",
+      "name": "fixed_height_text_row_keeps_explicit_default_font_with_no_fill"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/rows_regression_tests.rs",
+      "name": "unstyled_visual_masks_are_not_tentative_font_sentinels"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/rows_regression_tests.rs",
+      "name": "keeps_empty_cell_when_cell_style_has_fill_or_border_regression_row_15"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/rows_regression_tests.rs",
+      "name": "keeps_empty_cell_when_cell_style_has_no_empty_cell_visible_style_and_row_has_height"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/rows_regression_tests.rs",
+      "name": "keeps_one_empty_no_empty_cell_visible_style_cell_per_style_when_row_has_no_custom_height"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/rows_regression_tests.rs",
+      "name": "keeps_one_empty_no_empty_cell_visible_style_footer_cell_after_content"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/rows_regression_tests.rs",
+      "name": "keeps_one_empty_default_style_footer_cell_after_content"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/rows_regression_tests.rs",
+      "name": "disables_default_styleless_representatives_without_disabling_font_style_representatives"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/rows_regression_tests.rs",
+      "name": "disables_font_style_representatives_without_disabling_default_styleless_representatives"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/rows_regression_tests.rs",
+      "name": "removes_empty_representatives_when_both_features_are_disabled"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/rows_regression_tests.rs",
+      "name": "removes_empty_no_empty_cell_visible_style_cells_when_row_already_has_custom_height"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/rows_regression_tests.rs",
+      "name": "keeps_all_empty_cells_that_reset_custom_height_row_fill"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/rows_regression_tests.rs",
+      "name": "keeps_one_font_sentinel_with_explicit_default_fill_and_border"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/rows_regression_tests.rs",
+      "name": "merged_text_keeps_one_local_font_even_without_apply_font"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/rows_regression_tests.rs",
+      "name": "merged_font_representatives_are_local_to_each_merge"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/rows_regression_tests.rs",
+      "name": "keeps_empty_default_font_cell_in_auto_height_row_to_preserve_spacing"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/rows_regression_tests.rs",
+      "name": "keeps_empty_cell_that_activates_column_font_in_auto_height_row"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/rows_regression_tests.rs",
+      "name": "keeps_empty_row_even_without_height_when_cells_are_removed"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/rows_regression_tests.rs",
+      "name": "keeps_empty_row_after_cell_range_even_without_height"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/rows_regression_tests.rs",
+      "name": "preserves_font_representatives_even_at_fixed_height"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/rows_regression_tests.rs",
+      "name": "keeps_structural_empty_style_anchor_when_custom_height_row_would_lose_style"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/rows_regression_tests.rs",
+      "name": "preserves_distinct_font_only_cell_at_fixed_height"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/rows_regression_tests.rs",
+      "name": "preserves_font_representative_in_hidden_fixed_height_row"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/rows_regression_tests.rs",
+      "name": "keeps_column_font_style_representative_without_tail_anchor_when_row_has_no_custom_height"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/rows_regression_tests.rs",
+      "name": "automatic_height_keeps_font_without_apply_font_or_row_style"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/rows_regression_tests.rs",
+      "name": "keeps_hidden_column_font_style_representative_without_tail_anchor_when_row_has_no_custom_height"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/rows_regression_tests.rs",
+      "name": "keeps_column_font_style_representative_when_row_has_content_cell"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/rows_regression_tests.rs",
+      "name": "keeps_column_font_style_representative_when_only_other_content_cell_is_hidden"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/rows_regression_tests.rs",
+      "name": "keeps_column_font_style_representative_when_row_has_visible_fill_cell"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/rows_regression_tests.rs",
+      "name": "visible_row_style_keeps_column_font_style_representative_as_tail_part"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/rows_regression_tests.rs",
+      "name": "removing_later_custom_height_representative_recomputes_tail_anchor"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/rows_regression_tests.rs",
+      "name": "does_not_add_custom_height_to_already_empty_row_with_height"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/rows_regression_tests.rs",
+      "name": "does_not_add_custom_height_to_empty_row_after_cell_range_with_height"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/rows_regression_tests.rs",
+      "name": "postprocess_preserves_hidden_empty_rows_but_cleans_attributes"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/rows_regression_tests.rs",
+      "name": "row_view_borrows_header_and_style_in_arbitrary_attribute_order"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/rows_regression_tests.rs",
+      "name": "invalid_row_header_is_preserved_without_partial_cleanup"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/rows_regression_tests.rs",
+      "name": "self_closing_row_stays_borrowed_and_still_records_visible_style"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/rows_regression_tests.rs",
+      "name": "recleaned_row_does_not_reuse_old_content_or_remove_old_cell_records"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/rows_regression_tests.rs",
+      "name": "spans_use_only_current_row_cells_after_recleaning"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/rows_regression_tests.rs",
+      "name": "spans_exclude_pruned_representatives_but_include_retained_visible_cells"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/rows_regression_tests.rs",
+      "name": "cell_attributes_are_scanned_once_in_any_order_and_quoted_values_are_skipped"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/rows_regression_tests.rs",
+      "name": "spans_match_numeric_row_references_with_leading_zeroes"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/rows_regression_tests.rs",
+      "name": "fused_cell_scan_preserves_content_and_boundary_semantics"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/rows_regression_tests.rs",
+      "name": "explicit_row_font_keeps_cell_overrides_even_without_content_or_automatic_height"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/rows_regression_tests.rs",
+      "name": "row_font_promotion_reuses_existing_font_xf_and_preserves_text"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/rows_regression_tests.rs",
+      "name": "row_font_promotion_requires_a_font_target_but_accepts_a_separate_representative"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/rows_regression_tests.rs",
+      "name": "row_font_promotion_rejects_different_implicit_font_or_unstyled_value"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/rows_regression_tests.rs",
+      "name": "row_font_promotion_keeps_existing_row_formats_and_merged_rows"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/rows_regression_tests.rs",
+      "name": "dense_full_width_row_compacts_identical_empty_styles_into_row_header"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/rows_regression_tests.rs",
+      "name": "dense_row_preserves_internal_and_trailing_column_styles_on_repeat_cleanup"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/rows_regression_tests.rs",
+      "name": "dense_empty_row_retains_default_font_exceptions_without_column_definitions"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/rows_regression_tests.rs",
+      "name": "dense_row_restores_full_column_format_including_fill_and_alignment"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/rows_regression_tests.rs",
+      "name": "dense_row_does_not_restore_unknown_or_ambiguous_column_formats"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/rows_regression_tests.rs",
+      "name": "dense_row_limits_added_cells_and_respects_disabled_font_protection"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/rows_regression_tests.rs",
+      "name": "column_font_coverage_checks_exact_overrides_inside_ranges"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/rows_regression_tests.rs",
+      "name": "row_font_promotion_does_not_replace_a_different_inherited_fill"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/rows_regression_tests.rs",
+      "name": "row_font_promotion_reuses_full_style_when_other_inherited_components_match"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/rows_regression_tests.rs",
+      "name": "hidden_font_representatives_are_deduplicated_across_style_ids"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/rows_regression_tests.rs",
+      "name": "preceding_visible_content_represents_hidden_font"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/rows_regression_tests.rs",
+      "name": "removes_repeated_empty_cells_when_column_font_records_are_identical"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/rows_regression_tests.rs",
+      "name": "keeps_empty_column_font_overrides_when_font_records_differ"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/rows_regression_tests.rs",
+      "name": "full_width_row_promotes_uniform_fill_and_preserves_merged_cells"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/rows_regression_tests.rs",
+      "name": "full_width_fill_promotion_requires_the_same_explicit_fill_on_content_cells"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/rows_regression_tests.rs",
+      "name": "full_width_fill_promotion_keeps_border_and_protection_guards"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/rows_regression_tests.rs",
+      "name": "preserves_value_and_inline_string_elements_with_attributes"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/rows_regression_tests.rs",
+      "name": "content_scan_accepts_xml_whitespace_and_rejects_longer_tag_names"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/rows_regression_tests.rs",
+      "name": "chart_format_anchor_survives_empty_row_representative_pruning"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/rows_regression_tests.rs",
+      "name": "automatic_row_preserves_masks_without_retaining_redundant_font_bloat"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/rows_regression_tests.rs",
+      "name": "dense_row_promotion_requires_an_explicit_fixed_height"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/rows_regression_tests.rs",
+      "name": "automatic_row_keeps_one_default_font_override_without_apply_font"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/rows_regression_tests.rs",
+      "name": "empty_no_fill_row_masks_inherited_column_fill"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/rows_regression_tests.rs",
+      "name": "automatic_row_keeps_each_mask_of_an_unrepresented_hidden_column_font"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/rows_regression_tests.rs",
+      "name": "row_font_promotion_accepts_standard_attributes_in_any_order"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/rows_regression_tests.rs",
+      "name": "row_font_promotion_leaves_nonstandard_cell_metadata_on_the_normal_path"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/rows_regression_tests.rs",
+      "name": "row_font_promotion_preserves_fallback_for_malformed_cells_and_unknown_styles"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/rows_regression_tests.rs",
+      "name": "row_font_promotion_does_not_substitute_a_promotable_minority_style"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/rows_regression_tests.rs",
+      "name": "row_font_promotion_ties_keep_the_lower_style_id_even_when_unsuitable"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/rows_regression_tests.rs",
+      "name": "row_font_promotion_can_use_a_font_target_when_the_dominant_xf_does_not_apply_font"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/rows_regression_tests.rs",
+      "name": "one_style_representative_is_selected_again_in_each_row"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/rows_regression_tests.rs",
+      "name": "first_style_stays_represented_after_two_other_styles"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/rows_regression_tests.rs",
+      "name": "explicit_zero_style_and_styleless_cells_keep_separate_representatives"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/rows_regression_tests.rs",
+      "name": "multi_style_fixed_height_pruning_keeps_previous_row_metrics"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/rows_regression_tests.rs",
+      "name": "performance_counts_four_styles_choose_lowest_id_on_ties"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/rows_regression_tests.rs",
+      "name": "performance_counts_fifth_style_can_win_a_tie"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/rows_regression_tests.rs",
+      "name": "performance_counts_preserve_earlier_occurrences_after_fifth_style"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/rows_regression_tests.rs",
+      "name": "performance_counts_do_not_ignore_an_ineligible_dominant_style"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/rows_regression_tests.rs",
+      "name": "performance_counts_style_zero_remains_a_real_counted_candidate"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/rows_regression_tests.rs",
+      "name": "exterior_protection_style_can_still_supply_a_required_font_sentinel"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/tail_fill_regression_tests.rs",
+      "name": "conditional_regions_preserve_empty_row_heights_without_restoring_cells"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/tail_fill_regression_tests.rs",
+      "name": "unfilled_borderless_headers_survive_initial_tail_range_selection"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/tail_fill_regression_tests.rs",
+      "name": "borderless_tail_row_masks_a_visible_column_border_without_retaining_cells"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/tail_fill_regression_tests.rs",
+      "name": "enron_nov_styleless_representatives_do_not_anchor_a_content_free_sheet"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/tail_fill_regression_tests.rs",
+      "name": "styleless_font_representative_before_content_is_preserved"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/tail_fill_regression_tests.rs",
+      "name": "styleless_cells_masking_row_or_column_formats_remain_tail_anchors"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/tail_fill_regression_tests.rs",
+      "name": "enron_august_no_fill_overrides_do_not_anchor_an_empty_sheet"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/tail_fill_regression_tests.rs",
+      "name": "no_fill_overrides_preserve_inherited_white_and_blue_fill_masks"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/tail_fill_regression_tests.rs",
+      "name": "fill_only_sheet_uses_the_same_tail_rule_without_a_content_boundary"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/tail_fill_regression_tests.rs",
+      "name": "redundant_white_fill_and_font_override_do_not_anchor_an_empty_tail"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/tail_fill_regression_tests.rs",
+      "name": "font_override_is_preserved_when_content_follows"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/tail_fill_regression_tests.rs",
+      "name": "font_override_without_content_below_does_not_anchor_the_tail"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/tail_fill_regression_tests.rs",
+      "name": "blue_tail_over_white_columns_remains_visible"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/tail_fill_regression_tests.rs",
+      "name": "column_exceptions_and_uncovered_columns_preserve_the_white_tail"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/tail_fill_regression_tests.rs",
+      "name": "uniform_fill_across_ranges_does_not_hide_borders_or_row_metadata"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/tail_fill_regression_tests.rs",
+      "name": "masking_cells_and_unknown_styles_remain_anchors"
+    }
+  ]
+}

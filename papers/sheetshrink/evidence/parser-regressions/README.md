@@ -16,6 +16,11 @@ iterations as separate tests or assert that every test was executed.
 | Core cell, row and tail regression suites | 156 |
 | Remaining core unit tests | 120 |
 
+`manuscript-counts.json` identifies the 31 parsing-module correctness tests and
+155 cell/row/tail correctness tests used in the prose. Timing benchmarks are
+excluded from these manuscript counts. Other modules contain additional parsing
+and preservation controls.
+
 The core total is 299. One of the row tests is an ignored manual timing benchmark.
 The remaining workspace tests cover validation, orchestration, acquisition and
 other components. Module groups describe the source organization. Several tests
@@ -70,3 +75,19 @@ reported processing failures. It records 1,182 Destatis, 8,623 Data.gov and
 The earlier `../cleanup-screening.json` describes historical ranking runs,
 including recovered outputs and a failed retry. The paper now cites the fresh
 release runs. Corpus-wide visual equivalence remains unestablished.
+
+## Namespace follow-up
+
+The prefixed-data experiment at Rust revision `44d73f3` inventories 493 actual
+prefixed-data matches among 9,117 Data.gov workbooks. This selection predicate
+explains its scope alongside the 494 production namespace exclusions. All 493
+normalization/cleanup trials completed. Two compressed outputs became smaller,
+by 6.415% and 0.047%. The maximum row coordinate was 694,981. The inventory
+therefore supplies no evidence of exceeded Excel row limits in these 493 cases.
+
+The historical manuscript `excel-shrink-paper.tex`, line 296 at revision
+`f7f6f8b3`, associates the inspected prefixed files with machine-generated
+spreadsheets. This is an exploratory observation. There is no per-file producer
+audit establishing the generator of all excluded workbooks. Microsoft also
+documents Excel's Strict Open XML output option. The paper retains the measured
+savings, scoped observation and production eligibility policy.

@@ -90,6 +90,23 @@ def main():
     options.output.mkdir(parents=True, exist_ok=True)
     write_json(options.output / "rust-tests.json", tests)
     write_json(options.output / "commit-messages.json", commits)
+    parsing = [
+        {"file": test["file"], "name": test["name"]}
+        for test in tests
+        if test["primary_suite"] == "lexical modules"
+    ]
+    preservation = [
+        {"file": test["file"], "name": test["name"]}
+        for test in tests
+        if test["primary_suite"] == "cell, row and tail suites"
+        and test["name"] != "benchmark_fused_cell_scan"
+    ]
+    write_json(options.output / "manuscript-counts.json", {
+        "source_revision": git(options.repository, "rev-parse", "HEAD").strip(),
+        "counting_rule": "Correctness test functions in the named module groups. Timing benchmarks are excluded. Fixture iterations are counted once. Other modules contain additional parsing and preservation controls.",
+        "parsing_correctness": parsing,
+        "cell_row_tail_correctness": preservation,
+    })
     write_json(options.output / "inventory.json", {
         "source_revision": git(options.repository, "rev-parse", "HEAD").strip(),
         "commit_scope": "All commits reachable from locally available refs (git log --all).",

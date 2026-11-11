@@ -53,16 +53,14 @@ comments, CDATA, quotes, nesting limits and source offsets across every input
 chunk size of their small fixtures. These diagnostic readers and the cleanup
 scanner have separate regression coverage.
 
-At revision \texttt{1b9ee98}, the core library contains 299 unit-test declarations.
-A fresh Windows run passed 298 and left one manual timing benchmark ignored.
-The inventory identifies 23 declarations in core XML, namespace, shared-string,
-range, defined-name and streaming modules, plus eight tests of the diagnostic
-streaming reader. Cell, row and tail suites contain another 156 declarations,
-including that ignored benchmark. Their controls cover preservation witnesses,
-inheritance masks and content boundaries. Other core tests cover dependencies,
-styles, output construction and execution behavior. Counts refer to declared test
-functions, with parameterized fixture iterations counted once. The artifact
-records their paths and the complete revision-specific inventory.
+At the time of writing, 31 correctness tests in the dedicated XML, namespace,
+shared-string, range, defined-name and streaming-reader modules exercise parsing
+and recognition behavior. A further 155 correctness tests in the cell, row and
+tail suites cover preservation witnesses, inheritance masks and content
+boundaries. Additional tests cover dependencies, styles, output construction and
+execution behavior. Counts refer to test functions, with parameterized fixture
+iterations counted once. The artifact records the source revision, test paths
+and counting criteria.
 
 \subsection{Effects and compact preservation witnesses}
 A numeric value, formula or inline string is content. In particular, zero and a
