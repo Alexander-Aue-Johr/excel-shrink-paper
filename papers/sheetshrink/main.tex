@@ -34,9 +34,12 @@ OOXML cleanup system that rewrites stored XLSX packages before opening them in
 Excel. It combines workbook-context analysis, local rewrite decisions, compact
 formatting representatives, and bounded parallel execution. We define its
 preservation contract and separate intentional policy choices from defects.
-This working manuscript reports bounded implementation checks and an ongoing
-native-rendering validation workflow. Matched cleanup-plus-opening costs and final corpus coverage remain to be
-established.
+In a stress cohort of 147 workbooks chosen for large absolute reductions,
+134 had targeted native comparisons against their selected originals
+and seven further observations used documented normalized baselines.
+Six lacked an eligible comparison. Independent native controls illustrate
+how retaining small formatting witnesses can preserve Excel's rendering.
+These measurements describe the selected capture scope.
 \end{abstract}
   \end{multicols}
   \end{minipage}%
