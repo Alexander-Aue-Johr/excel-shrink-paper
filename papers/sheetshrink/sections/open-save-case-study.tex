@@ -13,8 +13,9 @@ are retained alongside affected worksheets and geometry findings. Total
 comparable-pixel denominators remain pending. The artifact contains source
 identities, report hashes, per-region diagnostic counts and all trial receipts.
 
-The resource table separates physical working-set samples from the job's
-committed-memory peak. Each displayed time is a median of completed attempts,
+The compact resource table reports total elapsed time and library working-set
+peaks. The artifact separately retains pipeline working sets and job-commit
+peaks. Each displayed time is a median of completed attempts,
 with memory maxima over all three attempts. Stopped attempts retain their
 elapsed time and memory boundary. CPU totals, individual timings and ranges
 remain available in the machine-readable artifact. Existing prepared-output
@@ -29,3 +30,8 @@ require their own identified measurement lanes.
 
 \input{evidence/open-save-case-study/transformations}
 \input{evidence/open-save-case-study/resources}
+
+\noindent\textcolor{red}{Editorial TODO --- Repeat the Municipal Finance/Excel
+comparison on the Ryzen 7 7800X3D host with a 4 GiB process-tree commit cap,
+record cleanup, opening, saving and process shutdown separately, check whether
+cleanup completes in 1--3 s, and compare earlier commits if the slowdown persists.}

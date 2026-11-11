@@ -1,6 +1,6 @@
 # Opening and memory case-study tables
 
-The transformation table and the continued resource table are generated with
+The transformation table and the compact resource table are generated with
 `python scripts/open_save_benchmark/prepare_case_study_tables.py`.
 
 `sizes.json` records SHA-256-verified local manifest inputs and prepared outputs.
@@ -39,7 +39,7 @@ times from other workflows are excluded from these end-to-end columns.
 
 CPU medians, trial statuses and elapsed ranges are retained in the JSON.
 The underlying receipts preserve individual phase values and all repetitions.
-An M@time value means time until a memory-limit stop. P marks pending evidence.
+The compact table shows total seconds above library-phase RSS for every workbook/library/tool condition. M marks three memory-limit stops. Full phase values, stop times, pipeline RSS and job-commit peaks remain in the JSON and trial receipts. Pending marks unavailable evidence.
 The further Enron lane remains pending. The larger-memory-host follow-up is
 recorded separately in `../bounded-open-save-followup` and its manuscript table.
 

@@ -99,66 +99,73 @@ def transformation_table(cases, visuals):
     return "\n".join(lines) + "\n"
 
 
-def resource_tables(cases, records):
-    output = []
+def resource_summaries(cases, records):
     summaries = []
-    for index, case in enumerate(cases[:3]):
-        caption = f"Opening/saving resources on the Ryzen 5 4500U laptop, 8 GiB installed RAM, six logical processors. {CASES[case['case_id']]}. Part {index + 1} of 3. Each row has three attempts under a 4 GiB job-commit cap and 900 s timeout."
-        lines = table_start(caption, "lrrrrrrrc", continued=index > 0, label="tab:case-study-resources" if index == 0 else None)
-        lines.append(r"Variant & Cleanup & Open & Save & End-to-end & RSS lib. & RSS all & Commit & Outcome \\")
-        lines.append(r" & \multicolumn{4}{c}{seconds, median of completed trials} & \multicolumn{3}{c}{MiB, maximum across attempts} & \\")
-        for library, title in LIBRARIES.items():
+    for case in cases[:3]:
+        for library in LIBRARIES:
             group = [r for r in records if r["case_id"] == case["case_id"] and r["library"] == library]
             if not group:
                 continue
-            lines.extend([r"\hline", r"\multicolumn{9}{l}{\textit{" + title + r"}} \\"])
-            original_complete = [r for r in group if r["tool"] == "Original" and r["status"] == "completed"]
-            original_total = median(original_complete, lambda r: r["wall_seconds"])
-            original_rss = max((sampled_rss(r, True) for r in original_complete), default=None) if len(original_complete) == 3 else None
-            completed_totals = []
-            completed_memory = []
-            for candidate_tool in TOOLS:
-                completed_rows = [r for r in group if r["tool"] == candidate_tool and r["status"] == "completed"]
-                if len(completed_rows) == 3:
-                    elapsed = median(completed_rows, lambda r: r.get("pipeline", {}).get("pipeline_seconds") if candidate_tool == "SheetShrink" else r["wall_seconds"])
-                    completed_totals.append(elapsed)
-                    completed_memory.append(max(sampled_rss(r, True) for r in completed_rows))
-            time_scale = max([1] + [t / original_total for t in completed_totals]) if original_total else 1
-            memory_scale = max([1] + [m / original_rss for m in completed_memory]) if original_rss else 1
             for tool in TOOLS:
                 trials = [r for r in group if r["tool"] == tool]
                 completed = [r for r in trials if r["status"] == "completed"]
-                cleanup = median(completed, lambda r: r.get("cleanup_seconds")) if tool == "SheetShrink" else None
-                opened = median(completed, lambda r: r["worker_state"].get("open_seconds"))
-                saved = median(completed, lambda r: r["worker_state"].get("save_seconds"))
-                total = median(completed, lambda r: r.get("pipeline", {}).get("pipeline_seconds") if tool == "SheetShrink" else r["wall_seconds"])
-                rss_library = max(sampled_rss(r, True) for r in trials)
-                rss_all = max(sampled_rss(r) for r in trials)
-                commit = max(r["resources"]["peak_job_committed_bytes"] for r in trials) / 2**20
-                cpu = median(trials, lambda r: r["resources"]["cpu_user_seconds"] + r["resources"]["cpu_kernel_seconds"])
-                outcome = f"{len(completed)}/{len(trials)}"
-                display_total = seconds(total)
-                if not completed:
-                    stopped = median(trials, lambda r: r["wall_seconds"])
-                    display_total = cell(f"M@{stopped:.2f}", "caseadverse")
-                    outcome = cell(outcome + " M", "caseadverse")
-                elif tool == "SheetShrink" and original_total is not None:
-                    display_total = cell(f"{total:.2f}", "casegood" if total < original_total else "caseadverse")
-                if len(completed) == 3 and len(original_complete) == 3:
-                    display_total = paired_bar(seconds(total), total, original_total, time_scale, width=2.2)
-                    display_rss = paired_bar(f"{rss_library:.0f}", rss_library, original_rss, memory_scale, width=2.2)
-                else:
-                    display_rss = f"{rss_library:.0f}"
-                cleanup_display = seconds(cleanup) if tool == "SheetShrink" else "--" if tool == "Original" else "prep."
-                lines.append(" & ".join([NAMES[tool], cleanup_display, seconds(opened), seconds(saved), display_total, display_rss, f"{rss_all:.0f}", f"{commit:.0f}", outcome]) + r" \\")
-                summaries.append(dict(case=case["case_id"], library=library, tool=tool, completed=len(completed), attempts=len(trials), cleanup_median_seconds=cleanup, open_median_seconds=opened, save_median_seconds=saved, end_to_end_median_seconds=total, sampled_library_rss_max_mib=rss_library, sampled_pipeline_rss_max_mib=rss_all, peak_job_commit_max_mib=commit, cpu_median_seconds=cpu, wall_time_range_seconds=[min(r["wall_seconds"] for r in trials), max(r["wall_seconds"] for r in trials)], statuses=[r["status"] for r in trials]))
-        if index == 2:
-            lines.extend([r"\hline", r"\multicolumn{9}{l}{Enron fourth-case measurements use a separate host lane in Section~\ref{sec:enron-open-save-followup}.} \\"])
-        note = r"Sheet Shrink runs fresh cleanup immediately before the library. Its end-to-end clock spans cleanup launch through library exit. Original and prepared NXPowerLite, XLStylesTool, Check Performance and Inquire rows report library process lifetime. prep. denotes preparation outside this trial. Open and save measure the retained operation endpoints. End-to-end includes startup/shutdown and is measured directly. RSS lib. is the maximum sampled process-tree working set in importing, opening, saving and completed phases. RSS all includes cleanup and other recorded phases. Sampling is nominally 20 ms. Commit is the Windows job peak. The columns have different counter semantics. Outcome gives completed/attempted. M@t is elapsed time until the memory-limit stop, with missing completion phases marked Pending. Blue/orange bars indicate values at or below/above the original on the same host and endpoint. Paired bars in end-to-end and library RSS cells use original = 100\%, a common zero and a shared linear scale per library/workbook/host. Gray denotes the original and blue/orange the compared value. Bars require three completed attempts in both conditions. Other hosts, dispersion and CPU fields remain explicit in the machine-readable artifact."
-        lines.extend(table_end(note))
-        output.append("\n".join(lines))
+                summaries.append(dict(
+                    case=case["case_id"],
+                    library=library,
+                    tool=tool,
+                    completed=len(completed),
+                    attempts=len(trials),
+                    cleanup_median_seconds=median(completed, lambda r: r.get("cleanup_seconds")) if tool == "SheetShrink" else None,
+                    open_median_seconds=median(completed, lambda r: r["worker_state"].get("open_seconds")),
+                    save_median_seconds=median(completed, lambda r: r["worker_state"].get("save_seconds")),
+                    end_to_end_median_seconds=median(completed, lambda r: r.get("pipeline", {}).get("pipeline_seconds") if tool == "SheetShrink" else r["wall_seconds"]),
+                    sampled_library_rss_max_mib=max(sampled_rss(r, True) for r in trials),
+                    sampled_pipeline_rss_max_mib=max(sampled_rss(r) for r in trials),
+                    peak_job_commit_max_mib=max(r["resources"]["peak_job_committed_bytes"] for r in trials) / 2**20,
+                    cpu_median_seconds=median(trials, lambda r: r["resources"]["cpu_user_seconds"] + r["resources"]["cpu_kernel_seconds"]),
+                    wall_time_range_seconds=[min(r["wall_seconds"] for r in trials), max(r["wall_seconds"] for r in trials)],
+                    statuses=[r["status"] for r in trials],
+                ))
+    return summaries
+
+
+def resource_tables(cases, records):
+    summaries = resource_summaries(cases, records)
     (EVIDENCE / "resource-summary.json").write_text(json.dumps(summaries, indent=2) + "\n")
-    return "\n\n".join(output) + "\n"
+    caption = "Opening/saving summary on the Ryzen 5 4500U laptop with 8 GiB RAM. Each cell shows median total seconds above maximum sampled library working set in MiB. Three attempts per condition, 4 GiB job-commit cap, 900 s timeout."
+    lines = table_start(caption, "lrrrrrr", label="tab:case-study-resources")
+    lines.append(r"Endpoint & Original & Sheet Shrink & NXPowerLite & XLStylesTool & \shortstack{Check\\Performance} & Inquire \\")
+    for case in cases[:3]:
+        lines.extend([r"\hline", r"\multicolumn{7}{l}{\textbf{" + CASES[case["case_id"]] + r"}} \\"])
+        for library, title in LIBRARIES.items():
+            group = [r for r in summaries if r["case"] == case["case_id"] and r["library"] == library]
+            if not group:
+                continue
+            original = group[0]
+            completed = [r for r in group if r["completed"] == r["attempts"]]
+            time_baseline = original["end_to_end_median_seconds"]
+            rss_baseline = original["sampled_library_rss_max_mib"]
+            time_scale = max([1] + [r["end_to_end_median_seconds"] / time_baseline for r in completed]) if time_baseline else 1
+            rss_scale = max([1] + [r["sampled_library_rss_max_mib"] / rss_baseline for r in completed])
+            values = [title]
+            for row in group:
+                total = row["end_to_end_median_seconds"]
+                rss = row["sampled_library_rss_max_mib"]
+                time_display = seconds(total)
+                rss_display = f"{rss:.0f}"
+                if not row["completed"]:
+                    assert set(row["statuses"]) == {"memory_limit"}
+                    time_display = cell("M", "caseadverse")
+                elif row["completed"] == row["attempts"] and original["completed"] == original["attempts"]:
+                    time_display = paired_bar(time_display, total, time_baseline, time_scale, width=2.2)
+                    rss_display = paired_bar(rss_display, rss, rss_baseline, rss_scale, width=2.2)
+                elif row["completed"] != row["attempts"]:
+                    time_display += f" ({row['completed']}/{row['attempts']})"
+                values.append(r"\shortstack[r]{" + time_display + r"\\" + rss_display + "}")
+            lines.append(" & ".join(values) + r" \\")
+    note = r"Sheet Shrink includes fresh cleanup through library exit. Other columns measure processing of prepared outputs, with their cleanup excluded. Completed cells have three successful attempts. M means all three attempts stopped at the memory limit, with reached library RSS retained below. Bars compare original (gray) and measured value (blue at or below, orange above) on a common linear scale per endpoint and metric, requiring completed originals. The Finance/Excel total increases from 42.46 to 69.76 s. RSS covers library phases, with nominal 20 ms sampling. Pipeline working sets, OS job-commit peaks, cleanup/open/save phases, stopped elapsed times, CPU, ranges and all 288 receipts remain in the artifact. Separate host results follow below."
+    lines.extend(table_end(note))
+    return "\n".join(lines) + "\n"
 
 
 def main():
