@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SheetShrink corpus replays</title>
+  <style>
+    body { max-width: 52rem; margin: 3rem auto; padding: 0 1rem; font: 18px/1.6 system-ui, sans-serif; color: #172c36; }
+    a { color: #155b88; }
+    li { margin: 1rem 0; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>SheetShrink corpus replays</h1>
+    <p>Complete recorded cleanup runs from 11 November 2026, with sixteen workbook slots, sixteen Rayon threads and sixteen writer workers on an AMD Ryzen 7 7800X3D host.</p>
+    <ul>
+      <li><a href="destatis/">Destatis</a> — 1,182 inputs, 136,630 events, 119.80 seconds.</li>
+      <li><a href="datagov/">Data.gov</a> — 9,117 inputs, 228,685 events, 1,135.53 seconds. 8,623 processed and 494 unsupported-namespace skips. The historical UI groups skips under failed jobs.</li>
+      <li><a href="enron/">Enron prepared XLSX population</a> — 30,301 inputs, 574,159 events, 185.06 seconds. Raw candidates without valid XLSX preparation are outside this population.</li>
+    </ul>
+    <p>Use Play, the speed selector and the position slider to inspect the recorded execution. Playback loads the complete event history into browser memory. Native visual comparisons ran concurrently during recording. These traces describe instrumented cleanup runs.</p>
+    <p>Standalone local file paths were projected to basenames. Original and exported event checksums are retained in each recording manifest. Workbook and worksheet names remain visible. Source workbooks and cell values are excluded from these replay packages.</p>
+    <p><a href="publication-review.json">Publication review and checksums</a> · <a href="../../atlas/stage-09/?theme=light">Native visual comparison Atlas</a></p>
+  </main>
+</body>
+</html>

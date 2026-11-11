@@ -1,0 +1,50 @@
+{
+  "schema": 1,
+  "events_file": "events.jsonl.gz",
+  "event_count": 136630,
+  "events_bytes": 3341809,
+  "events_sha256": "2af6a57115676042e3e96bc6a2c98e48f79239f2cb438230eb5f94060c741f4c",
+  "source_events_sha256": "16b8e261b47b0ff03dd8bacb298695baab44c0c3bb3d684d355c4303566cb3ce",
+  "path_projection": "standalone_windows_paths_to_basename",
+  "source": {
+    "run_id": "16b8e261b47b0ff03dd8bacb298695baab44c0c3bb3d684d355c4303566cb3ce",
+    "operation": "sheet-shrink",
+    "status": "completed",
+    "error": null,
+    "elapsed_ms": 119796,
+    "next": 136630,
+    "reset": false,
+    "jobs": [],
+    "tasks": [],
+    "events": [],
+    "history_limit": 256,
+    "defaults": {
+      "inputs": [
+        "destatis"
+      ],
+      "max_active_workbooks": 16,
+      "output": null,
+      "parallel_range_chunk_size": 16777216,
+      "recursive": false,
+      "reserve_mib": 8192,
+      "reuse_from": null,
+      "source_manifest": null,
+      "workers": 16
+    },
+    "counts": {
+      "total": 1182,
+      "prepared": 0,
+      "failed": 0,
+      "reused": 0,
+      "before_bytes": 0,
+      "after_bytes": 0
+    }
+  },
+  "producer_revision": "e7b91538",
+  "producer_sha256": "85dc6c215006bfe8cdecc3885e3d9646ab743473d2be12e6f30d3e409231e658",
+  "publication_status": "review_required",
+  "limitations": [
+    "Full event history is loaded into browser memory.",
+    "Recorded names, errors and sheet metadata require publication review."
+  ]
+}
