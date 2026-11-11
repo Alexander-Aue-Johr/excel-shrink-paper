@@ -1,6 +1,8 @@
 \documentclass[conference]{IEEEtran}
+\IEEEoverridecommandlockouts
 \usepackage[T1]{fontenc}
 \usepackage{graphicx}
+\usepackage{multicol}
 \usepackage{url}
 \usepackage{algpseudocode}
 \usepackage{tikz}
@@ -18,7 +20,10 @@ Doctoral Candidate, Germany \\
 ORCID 0009-0001-8683-3630}
 }
 \begin{document}
-\maketitle
+\IEEEaftertitletext{\input{figures/atlas-stage09}
+\noindent\begin{minipage}[t]{\textwidth}
+\setlength{\multicolsep}{0pt}
+\begin{multicols}{2}
 \begin{abstract}
 Native visual validation of spreadsheet transformations is expensive when every
 worksheet must be rendered. DeltaSieve selects potentially affected regions
@@ -35,7 +40,10 @@ coverage limits. Independent native controls illustrate both a removed heading
 fill and an inherited border extending beyond populated cells. These results
 do not estimate corpus-wide detection recall.
 \end{abstract}
-\input{figures/atlas-stage09}
+\end{multicols}
+\end{minipage}}
+\maketitle
+
 \section{Introduction}
 \input{sections/introduction}
 \section{Preservation and Comparison Contract}
