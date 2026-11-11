@@ -58,3 +58,32 @@ timed fresh outputs, whose archive hashes remain in the receipts. These
 qualifications delimit the native/resource association. A second cleanup was
 measured after each completed fresh pipeline, outside the timed endpoint.
 Its recorded ZIP identity flags do not establish general cleanup idempotence.
+
+\subsection{Enron selected-case follow-up}
+\label{sec:enron-open-save-followup}
+The fourth case uses the Enron workbook whose original SHA-256 begins
+\texttt{7298df9a6a76}. Its original archive contains 42,710,945 compressed
+bytes and 353,151,842 uncompressed member bytes. On the same larger-memory
+host, six variants each received three openpyxl 3.1.5 round-trip attempts,
+with a 4\,GiB process-tree commit limit, an 8\,GiB physical-RAM and commit
+reserve and a 300-second timeout~\cite{enronopenmemory}.
+All eighteen attempts have terminal receipts. Original and XLStylesTool
+reached the memory limit in all three attempts. Fresh Sheet Shrink cleanup
+followed by the library round trip completed with a median process-creation-to-exit
+time of 3.021 seconds and a maximum job-commit peak of 891.4\,MiB.
+Prepared Check Performance, Inquire and NXPowerLite outputs completed their
+library round trips with respective medians of 1.036, 1.054 and 1.101 seconds,
+and maximum job-commit peaks of approximately 535.6\,MiB.
+
+The external prepared-output endpoints omit their tools' preparation cost.
+The Sheet Shrink endpoint includes fresh cleanup, so these observations do
+not establish an end-to-end speed ranking among cleaners. Memory-limited
+attempts remain censored. Recorded commit peaks slightly exceed the configured
+4\,GiB boundary and are retained without clamping. Concurrent native
+comparisons and retained filesystem caches qualify this selected-case result.
+After the timed series, a separate fresh Sheet Shrink control matched all
+eighteen uncompressed member names, lengths and hashes of the retained native
+candidate. Its output has 384,724 compressed bytes and 2,581,673 uncompressed
+member bytes. This representative identity check links the control to the
+visual audit, while preserving that audit's selected-coverage limitations.
+The timed trials retain archive hashes, without full per-trial member inventories.
