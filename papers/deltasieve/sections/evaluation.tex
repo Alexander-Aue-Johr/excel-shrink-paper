@@ -118,16 +118,18 @@ explicit outcomes. Report both completed-reference detection and the fraction
 of all selected cases with usable reference evidence.
 
 \subsection{Mutation strata and statistical scope}
-Table~\ref{tab:mutation-masks} summarizes six designed controls with exact
+Table~\ref{tab:mutation-masks} summarizes nine designed controls with exact
 reference-mask coverage. INDIRECT used the unsupported-rule fallback.
-dependency resolution and broader unresolved-dependency strata remain open.
+Dependency resolution and broader unresolved-dependency strata remain open.
+The defined-name case changes only the range binding, rebuilding its unchanged
+SUM formula from 3 to 6. The color-scale and data-bar cases change rule colors.
 
 \begin{table}[t]
 \centering
 \caption{Designed mutations after native rebuild. Pixels count changed RGBA
 locations in independently fixed references. Every selected mask exactly
 matched its reference mask at their common A1 origin. These controls do not
-estimate population recall~\cite{layoutcontrols,indirectcontrols,errorcontrols}.}
+estimate population recall~\cite{layoutcontrols,indirectcontrols,errorcontrols,formattingcontrols}.}
 \label{tab:mutation-masks}
 \begin{tabular}{lrrl}
 \hline
@@ -137,6 +139,9 @@ Wrapping & 1 & 1,775 & A1:D3 \\
 Merge A1:D1 & 1 & 3,873 & A1:D3 \\
 INDIRECT conditional fill & 2 & 5,070 each & A1:AA3 \\
 Formula errors & 2 & 366 / 358 & A1:D3 \\
+Color scale & 1 & 5,727 & A1:D3 \\
+Data bar & 1 & 4,304 & A1:D3 \\
+Defined-name binding & 1 & 53 & A1:D3 \\
 \hline
 \end{tabular}
 \end{table}
