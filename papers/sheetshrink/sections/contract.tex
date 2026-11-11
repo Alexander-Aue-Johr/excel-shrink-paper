@@ -57,6 +57,8 @@ blockers. Such a stage is outside the implementation evaluated here.
 Our fast visual validation compares independently rebuilt original and Sheet Shrink
 states using the same installed Excel environment. Ordinary-save and rebuild
 controls retain information for attributing differences introduced by Excel.
+Excel save-only controls distinguish cleanup effects from changes introduced
+by serialization and recalculation.
 For XLS sources, conversion precedes the XLSX cleanup subject and has its own
 failure accounting. A file requiring repair or inaccessible protected content
 receives an explicit unsuccessful outcome.
