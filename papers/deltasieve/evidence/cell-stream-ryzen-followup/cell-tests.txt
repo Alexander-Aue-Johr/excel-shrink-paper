@@ -1,0 +1,13 @@
+
+running 8 tests
+test regression::targeted_comparison::cell_stream::verification::measure_figure5_stream_comparison ... ignored, explicit Figure 5 benchmark; requires input paths
+test regression::targeted_comparison::cell_stream::tests::scratch_file_lives_until_the_last_snapshot_is_dropped ... ok
+test regression::targeted_comparison::cell_stream::tests::merge_preserves_numeric_order_and_deleted_cells ... ok
+test regression::targeted_comparison::cell_stream::tests::content_bounds_ignore_styles_but_preserve_deleted_values_and_formulas ... ok
+test regression::targeted_comparison::cell_stream::verification::invalid_xml_and_cell_order_fail_without_retaining_scratch ... ok
+test regression::targeted_comparison::cell_stream::verification::fragmented_xml_preserves_cell_evidence_and_style_changes ... ok
+test regression::targeted_comparison::cell_stream::verification::incomplete_record_and_consumer_failure_are_reported ... ok
+test regression::targeted_comparison::cell_stream::verification::all_small_stream_pairs_match_coordinate_value_oracle ... ok
+
+test result: ok. 7 passed; 0 failed; 1 ignored; 0 measured; 1065 filtered out; finished in 0.40s
+

@@ -186,10 +186,32 @@ ZIP decompression and input preparation precede these timers. Filesystem-cache
 memory is outside the process counters. These observations characterize the
 streaming component and its result-storage trade-off.
 
-\textcolor{red}{Repeat this preliminary experiment on the AMD Ryzen 7 7800X3D
-configuration with 16 logical processors, Windows 11 and approximately
-95.1\,GiB OS-reported physical memory, to consolidate the final evaluation on
-fewer measurement-host configurations.}
+A same-protocol follow-up completed all 63 fresh-process trials on an AMD
+Ryzen 7 7800X3D with sixteen logical processors, Windows 11 and
+102,066,212,864 OS-reported physical bytes~\cite{cellstreamryzen}.
+The release executable uses rustc 1.96.0 and LLVM 22.1.2. All expected mutation
+counts passed, as did the 27 focused correctness tests on this executable.
+For one million densely changed cells, immediate consumption and retained
+changes had maximum process working sets of 5.703 and 94.973\,MiB,
+respectively, a 94.0\% reduction for immediate consumption. Median combined
+stream-construction times were 671.849 and 755.226\,ms, with median merge
+times of 66.536 and 94.204\,ms. Both wrote 80,000,000 scratch bytes.
+
+The three real worksheets again emitted exactly one change per fixed
+single-value mutation. The largest 6,486,777-cell pair had median construction
+and merge times of 4,886.604 and 393.002\,ms, 518,942,160 scratch bytes and a
+5.934\,MiB maximum working set. Across the real-input trials, one repetition
+of a 3,060,845-cell case peaked at 42.121\,MiB working set. Its other two
+repetitions peaked at 6.105 and 6.078\,MiB. The higher peak remains in the
+receipts and maxima without a causal attribution. Working set and private
+commit retain their separate counter semantics. A 4\,GiB owned-job commit
+limit covered the controller and descendants, with sampled physical RAM and
+commit headroom above the 8\,GiB reserve. Native comparisons continued
+concurrently and normal filesystem caching remained enabled. The earlier
+Intel i7-8700/rustc 1.99.1 lane stays separate, so these measurements do not
+isolate a hardware effect. Input preparation and decompression remain outside
+the timed component, and full-pipeline evidence retention is outside this
+result-retention comparison.
 
 \subsection{Opening, batching and independent Excel pairs}
 A bounded opening experiment used four copies of a synthetic workbook with eight

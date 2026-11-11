@@ -1,0 +1,460 @@
+{
+  "cases": [
+    {
+      "name": "synthetic-10000-identical",
+      "before": "synthetic-10000-before.xml",
+      "after": "synthetic-10000-before.xml",
+      "cells_before": 10000,
+      "expected": {
+        "added": 0,
+        "removed": 0,
+        "changed": 0
+      },
+      "collect": false,
+      "before_sha256": "f6e73bf80ec35dfd57b44c11e9711e1c8eee49c1af44fb0d543f94ddad9e9121",
+      "after_sha256": "f6e73bf80ec35dfd57b44c11e9711e1c8eee49c1af44fb0d543f94ddad9e9121"
+    },
+    {
+      "name": "synthetic-10000-sparse",
+      "before": "synthetic-10000-before.xml",
+      "after": "synthetic-10000-sparse.xml",
+      "cells_before": 10000,
+      "expected": {
+        "added": 0,
+        "removed": 0,
+        "changed": 1
+      },
+      "collect": false,
+      "before_sha256": "f6e73bf80ec35dfd57b44c11e9711e1c8eee49c1af44fb0d543f94ddad9e9121",
+      "after_sha256": "a7f6ddef5e89bbb8fa9d95b813ec30743d944585ed3d12d431f4d37344ee072e"
+    },
+    {
+      "name": "synthetic-10000-dense",
+      "before": "synthetic-10000-before.xml",
+      "after": "synthetic-10000-dense.xml",
+      "cells_before": 10000,
+      "expected": {
+        "added": 0,
+        "removed": 0,
+        "changed": 10000
+      },
+      "collect": false,
+      "before_sha256": "f6e73bf80ec35dfd57b44c11e9711e1c8eee49c1af44fb0d543f94ddad9e9121",
+      "after_sha256": "ff0130dd9640e23abce2a6f3d50af4dc56c289902bdb92fd84b502e553b94e6f"
+    },
+    {
+      "name": "synthetic-10000-dense-collected",
+      "before": "synthetic-10000-before.xml",
+      "after": "synthetic-10000-dense.xml",
+      "cells_before": 10000,
+      "expected": {
+        "added": 0,
+        "removed": 0,
+        "changed": 10000
+      },
+      "collect": true,
+      "before_sha256": "f6e73bf80ec35dfd57b44c11e9711e1c8eee49c1af44fb0d543f94ddad9e9121",
+      "after_sha256": "ff0130dd9640e23abce2a6f3d50af4dc56c289902bdb92fd84b502e553b94e6f"
+    },
+    {
+      "name": "synthetic-10000-empty",
+      "before": "synthetic-10000-before.xml",
+      "after": "synthetic-10000-empty.xml",
+      "cells_before": 10000,
+      "expected": {
+        "added": 0,
+        "removed": 10000,
+        "changed": 0
+      },
+      "collect": false,
+      "before_sha256": "f6e73bf80ec35dfd57b44c11e9711e1c8eee49c1af44fb0d543f94ddad9e9121",
+      "after_sha256": "6d73e41828c2e040c2474497dc54f1772cc63a18efe1f3537b1eeefe0c42a6d8"
+    },
+    {
+      "name": "synthetic-100000-identical",
+      "before": "synthetic-100000-before.xml",
+      "after": "synthetic-100000-before.xml",
+      "cells_before": 100000,
+      "expected": {
+        "added": 0,
+        "removed": 0,
+        "changed": 0
+      },
+      "collect": false,
+      "before_sha256": "97faf3aaa18d15945d8662ee93fa7b98b3d0a1d9c3ffaac420c3b507da2250c3",
+      "after_sha256": "97faf3aaa18d15945d8662ee93fa7b98b3d0a1d9c3ffaac420c3b507da2250c3"
+    },
+    {
+      "name": "synthetic-100000-sparse",
+      "before": "synthetic-100000-before.xml",
+      "after": "synthetic-100000-sparse.xml",
+      "cells_before": 100000,
+      "expected": {
+        "added": 0,
+        "removed": 0,
+        "changed": 1
+      },
+      "collect": false,
+      "before_sha256": "97faf3aaa18d15945d8662ee93fa7b98b3d0a1d9c3ffaac420c3b507da2250c3",
+      "after_sha256": "48125a728f9aada59152892cd97b7e853446433f77949b30619f9eff6dac7107"
+    },
+    {
+      "name": "synthetic-100000-dense",
+      "before": "synthetic-100000-before.xml",
+      "after": "synthetic-100000-dense.xml",
+      "cells_before": 100000,
+      "expected": {
+        "added": 0,
+        "removed": 0,
+        "changed": 100000
+      },
+      "collect": false,
+      "before_sha256": "97faf3aaa18d15945d8662ee93fa7b98b3d0a1d9c3ffaac420c3b507da2250c3",
+      "after_sha256": "b1dec4672697c1b53def3e233a6c6d2ad90776222bc0d540b199245aa3abcaf3"
+    },
+    {
+      "name": "synthetic-100000-dense-collected",
+      "before": "synthetic-100000-before.xml",
+      "after": "synthetic-100000-dense.xml",
+      "cells_before": 100000,
+      "expected": {
+        "added": 0,
+        "removed": 0,
+        "changed": 100000
+      },
+      "collect": true,
+      "before_sha256": "97faf3aaa18d15945d8662ee93fa7b98b3d0a1d9c3ffaac420c3b507da2250c3",
+      "after_sha256": "b1dec4672697c1b53def3e233a6c6d2ad90776222bc0d540b199245aa3abcaf3"
+    },
+    {
+      "name": "synthetic-100000-empty",
+      "before": "synthetic-100000-before.xml",
+      "after": "synthetic-100000-empty.xml",
+      "cells_before": 100000,
+      "expected": {
+        "added": 0,
+        "removed": 100000,
+        "changed": 0
+      },
+      "collect": false,
+      "before_sha256": "97faf3aaa18d15945d8662ee93fa7b98b3d0a1d9c3ffaac420c3b507da2250c3",
+      "after_sha256": "f2b3f547ecfdd8d782a9d73a9604378f1c5f4f86f9d8cd285e18bb6155cab121"
+    },
+    {
+      "name": "synthetic-1000000-identical",
+      "before": "synthetic-1000000-before.xml",
+      "after": "synthetic-1000000-before.xml",
+      "cells_before": 1000000,
+      "expected": {
+        "added": 0,
+        "removed": 0,
+        "changed": 0
+      },
+      "collect": false,
+      "before_sha256": "11dc874db631c67a76fa569bc8b74965b11f237d1489f8af0794f87effc37844",
+      "after_sha256": "11dc874db631c67a76fa569bc8b74965b11f237d1489f8af0794f87effc37844"
+    },
+    {
+      "name": "synthetic-1000000-sparse",
+      "before": "synthetic-1000000-before.xml",
+      "after": "synthetic-1000000-sparse.xml",
+      "cells_before": 1000000,
+      "expected": {
+        "added": 0,
+        "removed": 0,
+        "changed": 1
+      },
+      "collect": false,
+      "before_sha256": "11dc874db631c67a76fa569bc8b74965b11f237d1489f8af0794f87effc37844",
+      "after_sha256": "32f8dcac13c19112ba2e760a19867ce184ea37237298232c23198ee4740c3040"
+    },
+    {
+      "name": "synthetic-1000000-dense",
+      "before": "synthetic-1000000-before.xml",
+      "after": "synthetic-1000000-dense.xml",
+      "cells_before": 1000000,
+      "expected": {
+        "added": 0,
+        "removed": 0,
+        "changed": 1000000
+      },
+      "collect": false,
+      "before_sha256": "11dc874db631c67a76fa569bc8b74965b11f237d1489f8af0794f87effc37844",
+      "after_sha256": "0ef7ebe01e4aa885545d4897d0a9a550765d563e50354ec5971e0246fb6fbfc5"
+    },
+    {
+      "name": "synthetic-1000000-dense-collected",
+      "before": "synthetic-1000000-before.xml",
+      "after": "synthetic-1000000-dense.xml",
+      "cells_before": 1000000,
+      "expected": {
+        "added": 0,
+        "removed": 0,
+        "changed": 1000000
+      },
+      "collect": true,
+      "before_sha256": "11dc874db631c67a76fa569bc8b74965b11f237d1489f8af0794f87effc37844",
+      "after_sha256": "0ef7ebe01e4aa885545d4897d0a9a550765d563e50354ec5971e0246fb6fbfc5"
+    },
+    {
+      "name": "synthetic-1000000-empty",
+      "before": "synthetic-1000000-before.xml",
+      "after": "synthetic-1000000-empty.xml",
+      "cells_before": 1000000,
+      "expected": {
+        "added": 0,
+        "removed": 1000000,
+        "changed": 0
+      },
+      "collect": false,
+      "before_sha256": "11dc874db631c67a76fa569bc8b74965b11f237d1489f8af0794f87effc37844",
+      "after_sha256": "b645d7f4350ec2b56c3f71109002803e9bafd188d26fd7272d4066c80b79120f"
+    },
+    {
+      "name": "enron-b2d0dfef6a1c-identical",
+      "before": "enron-b2d0dfef6a1ce21cf3896241052a4a28ffdad659b6bbb6b1ea44f47e4d589c86.xml",
+      "after": "enron-b2d0dfef6a1ce21cf3896241052a4a28ffdad659b6bbb6b1ea44f47e4d589c86.xml",
+      "styles": "enron-b2d0dfef6a1ce21cf3896241052a4a28ffdad659b6bbb6b1ea44f47e4d589c86-styles.xml",
+      "cells_before": 6486777,
+      "collect": false,
+      "provenance": {
+        "workbook": "b2d0dfef6a1ce21cf3896241052a4a28ffdad659b6bbb6b1ea44f47e4d589c86.xlsx",
+        "sheet": "xl/worksheets/sheet2.xml",
+        "sheet_crc32": 375410850,
+        "sheet_xml_bytes": 151223327,
+        "workbook_sha256": "7298df9a6a76d0b69599c21d1653287adc863a5c7dbb9b5eaca275ea23ffada0"
+      },
+      "oracle": {
+        "cells": 6486777,
+        "cell_value_digest": "e119f1ce498576b66c3003cfd302c315e50dd2f0e2a85b2ec8e5a04908ac674c"
+      },
+      "mutation": {
+        "byte_offset": 3376,
+        "before": "6",
+        "after": "7"
+      },
+      "expected": {
+        "added": 0,
+        "removed": 0,
+        "changed": 0
+      },
+      "before_sha256": "5dba9e44dfb487c5e81474b559d4901b1ab80ae78c78cc8c53794dabacf4db4f",
+      "after_sha256": "5dba9e44dfb487c5e81474b559d4901b1ab80ae78c78cc8c53794dabacf4db4f",
+      "styles_sha256": "8b8a4ea2affc4c66054325ee766d99baa4654bed4c3af28680d60a3855df2425"
+    },
+    {
+      "name": "enron-b2d0dfef6a1c-one-change",
+      "before": "enron-b2d0dfef6a1ce21cf3896241052a4a28ffdad659b6bbb6b1ea44f47e4d589c86.xml",
+      "after": "enron-b2d0dfef6a1ce21cf3896241052a4a28ffdad659b6bbb6b1ea44f47e4d589c86-one-change.xml",
+      "styles": "enron-b2d0dfef6a1ce21cf3896241052a4a28ffdad659b6bbb6b1ea44f47e4d589c86-styles.xml",
+      "cells_before": 6486777,
+      "collect": false,
+      "provenance": {
+        "workbook": "b2d0dfef6a1ce21cf3896241052a4a28ffdad659b6bbb6b1ea44f47e4d589c86.xlsx",
+        "sheet": "xl/worksheets/sheet2.xml",
+        "sheet_crc32": 375410850,
+        "sheet_xml_bytes": 151223327,
+        "workbook_sha256": "7298df9a6a76d0b69599c21d1653287adc863a5c7dbb9b5eaca275ea23ffada0"
+      },
+      "oracle": {
+        "cells": 6486777,
+        "cell_value_digest": "e119f1ce498576b66c3003cfd302c315e50dd2f0e2a85b2ec8e5a04908ac674c"
+      },
+      "mutation": {
+        "byte_offset": 3376,
+        "before": "6",
+        "after": "7"
+      },
+      "expected": {
+        "added": 0,
+        "removed": 0,
+        "changed": 1
+      },
+      "before_sha256": "5dba9e44dfb487c5e81474b559d4901b1ab80ae78c78cc8c53794dabacf4db4f",
+      "after_sha256": "9f657e6672749fd42daf730d582be77a4cb2d2d1b993e58f7dcbf644e2d21d69",
+      "styles_sha256": "8b8a4ea2affc4c66054325ee766d99baa4654bed4c3af28680d60a3855df2425"
+    },
+    {
+      "name": "enron-70a7994fc2a6-identical",
+      "before": "enron-70a7994fc2a6ce011743a2868e81832bcf58c0e05c42b9d907cb6cc012e00921.xml",
+      "after": "enron-70a7994fc2a6ce011743a2868e81832bcf58c0e05c42b9d907cb6cc012e00921.xml",
+      "styles": "enron-70a7994fc2a6ce011743a2868e81832bcf58c0e05c42b9d907cb6cc012e00921-styles.xml",
+      "cells_before": 3060845,
+      "collect": false,
+      "provenance": {
+        "workbook": "70a7994fc2a6ce011743a2868e81832bcf58c0e05c42b9d907cb6cc012e00921.xlsx",
+        "sheet": "xl/worksheets/sheet6.xml",
+        "sheet_crc32": 2112798541,
+        "sheet_xml_bytes": 75434641,
+        "workbook_sha256": "e3fbe2b44f676f28d881bcd81cae604a5c872e7647f6ee4bd1610f2d74df6884"
+      },
+      "oracle": {
+        "cells": 3060845,
+        "cell_value_digest": "74e999c379fdcbd8ce2529d0a89a06623ed8b25da857abf9d4f4174f0d70ea41"
+      },
+      "mutation": {
+        "byte_offset": 5784,
+        "before": "3",
+        "after": "4"
+      },
+      "expected": {
+        "added": 0,
+        "removed": 0,
+        "changed": 0
+      },
+      "before_sha256": "c32d776c5a3c2431254abbf2a2ad718cbe5d99343d9f6c5f9bb373b89b327a67",
+      "after_sha256": "c32d776c5a3c2431254abbf2a2ad718cbe5d99343d9f6c5f9bb373b89b327a67",
+      "styles_sha256": "25120a5e041fd200da13372ff6ea61684e6d4c7b1766f6b6aba8321c9c9a1098"
+    },
+    {
+      "name": "enron-70a7994fc2a6-one-change",
+      "before": "enron-70a7994fc2a6ce011743a2868e81832bcf58c0e05c42b9d907cb6cc012e00921.xml",
+      "after": "enron-70a7994fc2a6ce011743a2868e81832bcf58c0e05c42b9d907cb6cc012e00921-one-change.xml",
+      "styles": "enron-70a7994fc2a6ce011743a2868e81832bcf58c0e05c42b9d907cb6cc012e00921-styles.xml",
+      "cells_before": 3060845,
+      "collect": false,
+      "provenance": {
+        "workbook": "70a7994fc2a6ce011743a2868e81832bcf58c0e05c42b9d907cb6cc012e00921.xlsx",
+        "sheet": "xl/worksheets/sheet6.xml",
+        "sheet_crc32": 2112798541,
+        "sheet_xml_bytes": 75434641,
+        "workbook_sha256": "e3fbe2b44f676f28d881bcd81cae604a5c872e7647f6ee4bd1610f2d74df6884"
+      },
+      "oracle": {
+        "cells": 3060845,
+        "cell_value_digest": "74e999c379fdcbd8ce2529d0a89a06623ed8b25da857abf9d4f4174f0d70ea41"
+      },
+      "mutation": {
+        "byte_offset": 5784,
+        "before": "3",
+        "after": "4"
+      },
+      "expected": {
+        "added": 0,
+        "removed": 0,
+        "changed": 1
+      },
+      "before_sha256": "c32d776c5a3c2431254abbf2a2ad718cbe5d99343d9f6c5f9bb373b89b327a67",
+      "after_sha256": "2d7cd7aab7a9f2c197b266264c2929de32ec415d0bb6e6b8f349fe8e6f251957",
+      "styles_sha256": "25120a5e041fd200da13372ff6ea61684e6d4c7b1766f6b6aba8321c9c9a1098"
+    },
+    {
+      "name": "enron-ef58bd71ed25-identical",
+      "before": "enron-ef58bd71ed25f5fba28fdd2d5cddba39f8ee39961bf1030f983f3d9b3b00690b.xml",
+      "after": "enron-ef58bd71ed25f5fba28fdd2d5cddba39f8ee39961bf1030f983f3d9b3b00690b.xml",
+      "styles": "enron-ef58bd71ed25f5fba28fdd2d5cddba39f8ee39961bf1030f983f3d9b3b00690b-styles.xml",
+      "cells_before": 3060845,
+      "collect": false,
+      "provenance": {
+        "workbook": "ef58bd71ed25f5fba28fdd2d5cddba39f8ee39961bf1030f983f3d9b3b00690b.xlsx",
+        "sheet": "xl/worksheets/sheet6.xml",
+        "sheet_crc32": 1524714067,
+        "sheet_xml_bytes": 75432159,
+        "workbook_sha256": "ec45600e13323a9d705744f25d4f6d8785c0f05b0273052af915a4ef4b8ce15d"
+      },
+      "oracle": {
+        "cells": 3060845,
+        "cell_value_digest": "ae5540583e6ddb4fba5470433135aa901eb61af09af449bb709acc32fbfd7d66"
+      },
+      "mutation": {
+        "byte_offset": 5784,
+        "before": "3",
+        "after": "4"
+      },
+      "expected": {
+        "added": 0,
+        "removed": 0,
+        "changed": 0
+      },
+      "before_sha256": "783dcc2c98498e15f9e2d7c051051468801c5c4f8a4ea4a0c3eb4d624f626e92",
+      "after_sha256": "783dcc2c98498e15f9e2d7c051051468801c5c4f8a4ea4a0c3eb4d624f626e92",
+      "styles_sha256": "e7dfdd89f9b27e57e9ce2ea1b8e4b75d794d240e5d79e8b9c68e45d37c5dddf4"
+    },
+    {
+      "name": "enron-ef58bd71ed25-one-change",
+      "before": "enron-ef58bd71ed25f5fba28fdd2d5cddba39f8ee39961bf1030f983f3d9b3b00690b.xml",
+      "after": "enron-ef58bd71ed25f5fba28fdd2d5cddba39f8ee39961bf1030f983f3d9b3b00690b-one-change.xml",
+      "styles": "enron-ef58bd71ed25f5fba28fdd2d5cddba39f8ee39961bf1030f983f3d9b3b00690b-styles.xml",
+      "cells_before": 3060845,
+      "collect": false,
+      "provenance": {
+        "workbook": "ef58bd71ed25f5fba28fdd2d5cddba39f8ee39961bf1030f983f3d9b3b00690b.xlsx",
+        "sheet": "xl/worksheets/sheet6.xml",
+        "sheet_crc32": 1524714067,
+        "sheet_xml_bytes": 75432159,
+        "workbook_sha256": "ec45600e13323a9d705744f25d4f6d8785c0f05b0273052af915a4ef4b8ce15d"
+      },
+      "oracle": {
+        "cells": 3060845,
+        "cell_value_digest": "ae5540583e6ddb4fba5470433135aa901eb61af09af449bb709acc32fbfd7d66"
+      },
+      "mutation": {
+        "byte_offset": 5784,
+        "before": "3",
+        "after": "4"
+      },
+      "expected": {
+        "added": 0,
+        "removed": 0,
+        "changed": 1
+      },
+      "before_sha256": "783dcc2c98498e15f9e2d7c051051468801c5c4f8a4ea4a0c3eb4d624f626e92",
+      "after_sha256": "ff6ac2b212208fc4d048e82f51d221779c096a790703ca9ade06aef9cba12581",
+      "styles_sha256": "e7dfdd89f9b27e57e9ce2ea1b8e4b75d794d240e5d79e8b9c68e45d37c5dddf4"
+    }
+  ],
+  "repeats": 3,
+  "cache_policy": "normal filesystem caching; inputs generated before measurement",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "processor": "AMD64 Family 25 Model 97 Stepping 2, AuthenticAMD",
+  "logical_cpus": 16,
+  "rustc": "rustc 1.96.0 (ac68faa20 2026-05-25)\nbinary: rustc\ncommit-hash: ac68faa20c58cbccd01ee7208bf3b6e93a7d7f96\ncommit-date: 2026-05-25\nhost: x86_64-pc-windows-msvc\nrelease: 1.96.0\nLLVM version: 22.1.2\n",
+  "revision": "366c7e758ddb23ee8ea7ac48ff3776ece85aa853",
+  "binary_sha256": "b09375df37fd14d32ebf0b0369660ba3b782badcf4e9f8d3ba9ba47c3bf2d2d6",
+  "rustflags": "",
+  "source_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "source_files_sha256": {
+    "excel-shrink-cli\\src\\regression\\targeted_comparison\\cell_stream.rs": "7b3364dfd10addbbb13e1e24fd5a3ea4b2a2954f2ea9dd2f45d2d6d7f164a7cf",
+    "excel-shrink-cli\\src\\regression\\targeted_comparison\\cell_stream\\verification.rs": "f609759423c5aad822283cbe4c08775037a84962baa071f3109b73a12bdb5b55",
+    "excel-shrink-cli\\src\\regression\\streaming_xml.rs": "e0373a719190ffcbfc1a4615941095694b101afe8fbb7b318b1172cba5e8fe06",
+    "Cargo.lock": "2a6feb67bc1c775c717a1b7334894af0f8a8e448365503e618ef2d57fcb5fd90"
+  },
+  "processor_details": "{\"Name\":\"AMD Ryzen 7 7800X3D 8-Core Processor           \",\"NumberOfLogicalProcessors\":16}",
+  "cpu": "AMD Ryzen 7 7800X3D",
+  "total_physical_bytes": 102066212864,
+  "source_snapshot_sha256": {
+    "Cargo.lock": "2a6feb67bc1c775c717a1b7334894af0f8a8e448365503e618ef2d57fcb5fd90",
+    "cell_stream.rs": "7b3364dfd10addbbb13e1e24fd5a3ea4b2a2954f2ea9dd2f45d2d6d7f164a7cf",
+    "measure-cell-stream.py": "031c2a6b50270f9bab601db8c9c3a69b1def90b8695eee85342ab7226f5dff50",
+    "streaming_xml.rs": "e0373a719190ffcbfc1a4615941095694b101afe8fbb7b318b1172cba5e8fe06",
+    "verification.rs": "f609759423c5aad822283cbe4c08775037a84962baa071f3109b73a12bdb5b55"
+  },
+  "memory_guard": {
+    "reserve_bytes": 8589934592,
+    "job_commit_limit_bytes": 4294967296,
+    "minimum_free_ram_bytes": 67750486016,
+    "minimum_commit_headroom_bytes": 50780880896,
+    "resources": {
+      "peak_job_committed_bytes": 159244288,
+      "peak_process_committed_bytes": 141303808,
+      "cpu_user_seconds": 115.078125,
+      "cpu_kernel_seconds": 6.03125,
+      "active_processes": 0
+    }
+  },
+  "context": "Concurrent native DeltaSieve comparisons; normal filesystem caching; fresh test process per trial",
+  "scope": "Same-protocol host follow-up; immediate versus retained CellChange results; full pipeline evidence storage is outside this comparison",
+  "source_path_projection": "Absolute input paths projected to basenames; source event numbers and measurements retained",
+  "trial_projection_sha256": "79f27aa09c340c3fe733983cbe351ae61aac56803af0c293b57ab0c462984e49",
+  "memory_guard_source_references": {
+    "memory_job.py": {
+      "sha256": "6da8d29a6cea93af21dc1cae5f122b083d0f3c36184b661658b6258467549535",
+      "artifact": "../../../sheetshrink/evidence/bounded-open-save-followup/measured-code/memory_job.py"
+    },
+    "owned_process.py": {
+      "sha256": "a62de7a2da840f68e998c7a772dd61aa702931873ea21f7d33c685d729a0db30",
+      "artifact": "../../../sheetshrink/evidence/bounded-open-save-followup/measured-code/owned_process.py"
+    }
+  },
+  "private_supervisor_sha256": "e1a04be977841fadd8123ae64cedc122b87a17156578da75e9ad4086f2038dbf"
+}
