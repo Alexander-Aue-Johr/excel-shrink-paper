@@ -29,7 +29,6 @@ parsing, memory use and parallel execution for data loading~\cite{sheetreader}.
 Our problem adds a transformation obligation. The output remains an editable XLSX
 workbook and must retain required data, dependencies and visible presentation
 under a stated contract. File size alone is an inadequate measure of success.
-A smaller file that changes an important row height has failed that obligation.
 
 Figure~\ref{fig:cleanup-overview} summarizes guarded reductions across cells,
 rows, columns and workbook metadata. Sheet Shrink reuses existing style indices
@@ -41,6 +40,3 @@ bloated workbook, we seek to make cleanup followed by opening the cleaned file
 faster than directly opening its original. A single-thread comparison
 separates improvements in work performed from gains due to extra processing
 resources. Parallel corpus experiments then examine throughput and memory.
-
-The evaluation distinguishes completed observations, unsupported
-inputs and unresolved differences.

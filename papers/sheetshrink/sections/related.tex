@@ -19,12 +19,6 @@ guarded removal rules, compact row-font witnesses or native preservation
 outcomes examined here. Sheet Shrink's positioning therefore includes its
 effect-aware rules, retained
 representatives and measured costs alongside its execution before native loading.
-Its removal decisions use persisted OOXML properties and workbook context.
-The cleanup phase has no native rendering observations or measured automatic
-row heights available to guide deletion or reconstruct layout. Small retained
-font and inheritance witnesses must preserve these effects when Excel later
-opens the result. Native validation supplies subsequent experimental evidence
-for the decisions described in the method.
 
 \subsection{Spreadsheet scalability and system optimization}
 Mack et al.'s CHI Extended Abstracts case study characterizes scalability
@@ -50,9 +44,7 @@ preservation contract.
 SheetReader studies specialized XML parsing for efficient spreadsheet ingestion,
 including the coupling of decompression, parsing and parallel
 execution~\cite{sheetreader}.
-Specialized scanners assume syntax-recognition and state-transition obligations
-otherwise handled by established DOM or SAX implementations. Rare valid
-serializations can expose defects after many successful inputs. During baseline
+During baseline
 ingestion, we encountered an empty-cell parsing defect in SheetReader and
 submitted a correction with regression fixtures~\cite{sheetreaderparserfix}.
 
@@ -62,8 +54,6 @@ presentation must survive cleanup. Its byte-oriented scanner therefore combines
 XML recognition with preservation-specific guards. Corpus-scale processing and
 targeted regression controls exercise this implementation within its supported
 domain, while additional serializations and semantic cases can remain untested.
-The two systems address complementary sources of ingestion cost through the
-reader's processing strategy and the representation supplied to it.
 
 \subsection{Spreadsheet refactoring and validation}
 Hermans et al. detect formula smells and suggest refactorings to improve

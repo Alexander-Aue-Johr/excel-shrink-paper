@@ -17,8 +17,7 @@ The present NXPowerLite lane uses a Lenovo 81YQ laptop with an AMD Ryzen 5 4500U
 (7.37 GiB OS-visible), a 512 GB Samsung MZALQ512HALU NVMe SSD and Windows 11 Home,
 build 26200.
 The recorded Windows power scheme is Energy Star. Other open Excel and validation
-processes are retained in the resource receipts. These observations characterize
-the recorded workstation workload, including any contention.
+processes are retained in the resource receipts.
 
 \paragraph{Comparator configuration}
 NXPowerLite Desktop 11.0.1 x64 uses the custom profile
@@ -27,8 +26,8 @@ enabled. In the Excel profile, image resizing, JPEG conversion, cropped-area
 deletion, embedded-object flattening, PNG color-depth reduction and embedded
 chart-data removal are disabled. Lossy image modification conflicts with the
 objective of exact visible preservation and is deliberately excluded from the
-comparison policy. The interface retains a JPEG quality control, set to 9.
-Verification of unchanged images therefore requires the output-level audit.
+comparison policy.
+Verification of unchanged images requires the output-level audit.
 
 Consequently, every retained output is audited against the original bytes of
 media, drawings, charts and embedded objects. Of 147 attempted workbooks,
@@ -50,8 +49,7 @@ the timing figure. All 122 included outputs preserve the audited media and objec
 parts byte-for-byte. The joint figure uses the intersection of 110 original
 workbooks, comprising 21 Destatis, 41 Enron and 48 Data.gov inputs. Both tools
 therefore use the same original files and repeated Sheet Shrink baselines within
-each plotted corpus group. The larger individual receipt sets remain available
-in the artifact. Table~\ref{tab:top49-resources} retains the full 133-input
+each plotted corpus group. Table~\ref{tab:top49-resources} retains the full 133-input
 NXPowerLite resource lane.
 
 Check Performance uses Excel 16.0.20527.20150 on the Lenovo host, with one
@@ -113,7 +111,7 @@ orchestration through output confirmation and initial package verification.
 CPU measurements accumulate attributed process-tree user and kernel time.
 Working-set and private-byte peaks use a nominal 250 ms sampling interval. The existing warm
 application is reused, with one conversion worker and a 512 MiB RAM and commit
-reserve. The exact profile and per-attempt evidence accompany the results.
+reserve.
 
 The Lenovo Sheet Shrink experiment uses an optimized release build from revision
 \texttt{765c480}, one active workbook, one Rayon worker and one writer, with the

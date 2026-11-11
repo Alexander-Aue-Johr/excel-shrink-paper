@@ -26,8 +26,7 @@ still require a representative even when its payload is empty.
 
 An Excel-hosted alternative could measure a row, remove candidates and write the
 measured height as an explicit custom height. SpreadsheetML provides a
-\emph{customHeight} attribute for that policy~\cite{customheight}. The evaluated cleanup
-derives its compact preservation decisions from package context.
+\emph{customHeight} attribute for that policy~\cite{customheight}.
 
 \subsection{Removal decisions and compact preservation}
 The preservation strategy retains a small representative when that representative
@@ -39,18 +38,14 @@ An unresolved case retains the required source representation.
 The production policy admits separately guarded hidden constant tails and retains
 ordinary nonempty hidden tables, including unreferenced values. Tail admission
 depends on dependency and layout checks~\cite{sheetshrinkcontract}. Absence of a
-reference alone does not authorize general hidden-data removal. A future Excel-hosted
-cleanup stage could
-measure native layout before replacing additional sentinels or whitespace
-blockers. Such a stage is outside the implementation evaluated here.
+reference alone does not authorize general hidden-data removal.
 
 \subsection{Validation and attribution boundaries}
 DeltaSieve compares selected regions of independently rebuilt original and
 Sheet Shrink workbooks in the same installed Excel
 environment~\cite{deltasievecompanion}. Ordinary-save and rebuild
 controls retain information for attributing differences introduced by Excel.
-Excel save-only controls distinguish cleanup effects from changes introduced
-by serialization and recalculation.
+
 For XLS sources, conversion precedes the XLSX cleanup subject and has its own
 failure accounting. A file requiring repair or inaccessible protected content
 receives an explicit unsuccessful outcome.

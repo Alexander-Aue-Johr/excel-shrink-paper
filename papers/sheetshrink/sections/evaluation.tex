@@ -10,8 +10,7 @@ corpus version. Legacy XLS conversion is reported separately from XLSX cleanup.
 Recursive extraction of the EDRM Enron v2 XML archives from Internet Archive
 inspected nested archives and embedded containers, yielding 34,065 distinct
 SHA-256-addressed candidates, including legacy Excel and other OLE objects. This input frame is
-separate from the prepared Enron XLSX population evaluated below. Extraction
-provenance, manifests and import checks accompany the experiment.
+separate from the prepared Enron XLSX population evaluated below.
 
 The native visual stress cohort selects the 49 whole workbooks with the largest
 absolute compressed-file byte reduction in each corpus, totaling 147 original
@@ -63,8 +62,7 @@ relative to the normalized baseline. Cell-record removal in other outputs did
 not reduce package size~\cite{prefixeddataexperiment}.
 
 Corpus-driven development exposed both recognition and preservation defects.
-The Data.gov attributed-value failure is described in the method, and the
-Destatis automatic-height correction is examined below. Earlier Enron controls
+Earlier Enron controls
 isolated deleted center-across-selection spans and fill masks by restoring only
 the affected original cell records. These findings motivate retained fixtures
 and native controls alongside the screening counts~\cite{enrondefaultcontrols}.
@@ -88,8 +86,7 @@ We compared direct open--save trials with fresh six-worker Sheet Shrink cleanup
 followed by the same library. Across the two displayed laptop workbooks, all 33 Sheet Shrink
 trials completed under a 4\,GiB commit limit, compared with 21 original trials.
 Median elapsed time improved in all seven fully completed pairs. Migration
-with openpyxl took 111.3\,s directly and 9.7\,s including cleanup. The accompanying
-benchmark receipts retain the individual phases and the second-pass measurements.
+with openpyxl took 111.3\,s directly and 9.7\,s including cleanup.
 
 \input{sections/open-save-case-study}
 \input{sections/open-save-followup}
@@ -152,5 +149,4 @@ failures. They do not estimate corpus-wide defect prevalence. Reduction results
 cover the frozen XLSX inventories. Matched cleanup-plus-opening measurements and
 independent native references cover selected cases. Broader reference coverage
 and matched whole-corpus cost remain open. Detailed development attempts, input hashes, native images and
-producer versions remain in the source-linked artifact. The main comparison
-separates those receipts from the reported completed observations.
+producer versions remain in the source-linked artifact.

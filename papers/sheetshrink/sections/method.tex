@@ -40,8 +40,7 @@ to the implementation. Mature SAX and DOM libraries provide extensively exercise
 syntax handling, while application-specific scanners require explicit checks for
 element boundaries, quoted attributes, empty elements and incomplete input.
 Memory-safe execution still permits a scanner to misclassify content and emit an
-incorrect workbook. A rare serialization can expose such a defect after many
-successful inputs.
+incorrect workbook.
 
 Our development history supplies a concrete example. A Data.gov workbook used
 \texttt{<v xml:space="preserve">} for visible string values. A scanner recognizing
@@ -58,8 +57,7 @@ removes partial output and preserves any existing destination. Integration
 fixtures exercise this failure after another worksheet has already been
 processed~\cite{incompleteparsefix}. Streaming diagnostics additionally test
 comments, CDATA, quotes, nesting limits and source offsets across every input
-chunk size of their small fixtures. These diagnostic readers and the cleanup
-scanner have separate regression coverage.
+chunk size of their small fixtures.
 
 At the time of writing, 31 correctness tests in the dedicated XML, namespace,
 shared-string, range, defined-name and streaming-reader modules exercise parsing
@@ -151,8 +149,7 @@ The motivating migration workbook contains 21 such zero tails in
 16,373 zeros, totaling 343,833. Source ZIP inspection confirms these counts and
 retains the source hash. The historical cleanup investigation records 376,573
 removed zeros across two worksheets, alongside 243 preserved nonzero values and
-a retained short 237-zero tail~\cite{hiddentailcase}. The full abbreviated XML
-example is included in the companion atlas. These are content removals under an
+a retained short 237-zero tail~\cite{hiddentailcase}. These are content removals under an
 explicit structural policy. A deliberate constant full-width matrix can meet
 the same heuristic, so repetition alone does not establish user intent.
 
@@ -196,9 +193,7 @@ rows. Small ranges use the serial path. Each chunk receives isolated metrics,
 and results are assembled in source order.
 
 Ready chunks participate in admission decisions for new worksheets. A smaller
-sheet can yield admission while larger chunk work is pending. This priority is
-an implementation policy over the common work-stealing pool, not a distinct
-semantic rule. Batches retain only a bounded number of chunk results while the
+sheet can yield admission while larger chunk work is pending. Batches retain only a bounded number of chunk results while the
 assembled output grows. Workbook contexts, the output buffer and deferred
 candidates remain additional memory consumers. Thread count, active-workbook
 count and writer count are separate experimental parameters.
@@ -210,10 +205,8 @@ If all entries are original, the source workbook is copied byte for byte.
 A fast unchanged-entry classification can use CRC32 and uncompressed length.
 That shortcut is collision-prone, and exact byte verification is available.
 Preservation and timing experiments must record which identity policy was used.
-Cryptographic evidence reuse is a separate validation mechanism.
 
 The method retains existing style and shared-string indices rather than globally
 renumbering their tables. This avoids unrelated rewrites and permits copy-through
 of unaffected members. It also leaves reductions requiring native save or global
-table compaction outside the cleanup subject. Work events retain the relation
-between workbook, worksheet and chunk jobs for diagnosis and replay.
+table compaction outside the cleanup subject.
