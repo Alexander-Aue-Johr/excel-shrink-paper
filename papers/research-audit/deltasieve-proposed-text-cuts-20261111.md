@@ -7,8 +7,10 @@ PDF and SVG. Image transport is now Figure 11, and capture ownership is Figure 1
 
 The accepted cuts remove operational exposition, the preliminary Intel result
 lane and historical budget/adapter detail. Figure 6 is retained with a flatter
-return edge and acceptance conditions in its caption. The geometry and Office.js
-code figures remain candidates for a later edit.
+return edge and acceptance conditions in its caption. The geometry code figure is omitted from the manuscript, with its source and
+vector files retained. The Office.js synchronization figure remains the next
+illustration candidate. Figure 4 now describes default preparation without
+the optional internal Check Performance branch or the duplicate reuse gate.
 
 ## First text cut
 
@@ -205,3 +207,14 @@ Suggested compact replacement for the synchronization introduction follows.
 
 Correctness controls support these safety obligations. A parser-speed claim
 would additionally need a matched parser baseline.
+
+## Default-control verification
+
+The targeted-comparison entry point sets `skip_check_performance` from the explicit
+`check_performance` option. Its default leaves that internal branch disabled.
+The staged workflow rebuilds the original and supplied transformed input in their
+existing Excel sessions. The reviewed first-stage ledger contains 27 separate
+Check Performance tool slots against selected original baselines. The Adage
+reference manifest identifies a distinct Check Performance candidate and original.
+These findings support Figure 4's reduced default preparation sequence.
+Historical optional controls remain documented in their original evidence.

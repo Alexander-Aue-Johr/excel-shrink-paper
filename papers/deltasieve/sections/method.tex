@@ -21,19 +21,15 @@ Opening a workbook can repair or normalize its stored representation, saving
 can remove structure, and recalculation can change cached results. The comparison
 therefore names the operations that produced each observed state. Let $W_0$ be
 the raw package, $W_s$ its ordinary-save control and $W_r$ the rebuilt saved
-control. A native optimization comparison additionally retains $W_{cp}$ after
-Check Performance and Save As, and $W_{cpr}$ after rebuilding that result.
-The transformed workbook has its own corresponding controls.
-Figure~\ref{fig:artifact-lineage} shows these generation recipes and the
-provenance required to interpret or reuse their results.
+control. The transformed workbook has corresponding controls.
+Figure~\ref{fig:artifact-lineage} shows the default preparation sequence.
+Separately prepared Check Performance outputs enter as transformed inputs.
 \input{figures/artifact-lineage}
 
 The primary observation compares independently prepared rebuilt partners.
-Control differences explain which changes arose while opening, saving,
-optimizing or rebuilding. Ordinary Save and Save As remain distinct generation
-recipes. One cannot substitute a cheaper recipe under an existing control name
-and retain its evidence meaning. Legacy format conversion and explicit repair
-also produce separately identified artifacts.
+Control differences explain changes introduced by opening, saving or rebuilding.
+Legacy format conversion and explicit repair produce
+separately identified artifacts.
 
 Each control records its parent identity, native environment and generation
 recipe. A reusable control artifact saves preparation work but supplies no new
@@ -214,8 +210,8 @@ to image-size qualification. A range hidden in one state can be large in its
 partner, so any oversized state forces further splitting. Each child is checked
 again. Large hidden spans can yield zero-area leaves rather than thousands of
 identical image requests.
-Figure~\ref{fig:capture-02-all-state-geometry} illustrates the all-state geometry checks.
-\input{figures/capture-methods/02-all-state-geometry}
+Every candidate must satisfy the image-size limits in every compared state.
+Otherwise, it is partitioned further.
 
 The planner respects both area and edge budgets. A conservative point-to-pixel
 allowance guides partitioning, but returned image dimensions are independently
