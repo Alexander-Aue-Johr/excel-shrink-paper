@@ -1,0 +1,30 @@
+{
+  "kind": "case-study-navigation-derivation",
+  "source": "compact-atlas-preview-06-light",
+  "frontend_revision": "fa225a92a5ef4dd8905ea3a5dffd16c5ac9eafe3",
+  "original_members": [
+    {
+      "corpus": "destatis",
+      "original_identity": "b4a3dd77023756e06c3b7c9b04a55a8d3fbf4334f8803f44460a8dc8cd4dc603"
+    },
+    {
+      "corpus": "destatis",
+      "original_identity": "bedf8677328fb15ffd967d03ebdf860ae4b1d0942d38091b4b4bef90e574f712"
+    },
+    {
+      "corpus": "datagov",
+      "original_identity": "84eb838fbc4627fb2ca1dd8461e8a05493a0b31ade8e27c66b437a22d932a577"
+    },
+    {
+      "corpus": "enron",
+      "original_identity": "7298df9a6a76d0b69599c21d1653287adc863a5c7dbb9b5eaca275ea23ffada0"
+    }
+  ],
+  "retained_detail_payloads_byte_identical": 125,
+  "scope": "Additional identity-based collection; original corpus memberships and scientific observations unchanged",
+  "catalog_sha256": "2233f7bacbf699d927e8d688f2f1c1eeb703de810a6f5978ed9999724f2b9370",
+  "frontend_sha256": {
+    "app.js": "8df399f97412a68ca0159f6f67e7bb550e89116e121d17683e563e5f237c0a43",
+    "model.js": "68a571676f59251004c4b8f54f9a6c7e451f98600cc3745438fc5558219b5e24"
+  }
+}
