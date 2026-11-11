@@ -165,74 +165,41 @@ output differences and preservation outcomes for each version.
 
 \input{sections/comparator-performance}
 
-\subsection{Automatic-height regression and correction}
-The Traffic workbook supplies a concrete counterexample to promotion based only
-on repeated font formatting~\cite{rowpromotionfix}. On worksheet
-\texttt{3.8\_(1)}, row 105 originally inherits a 12.75-point height without an
-explicit height or row style. The earlier cleanup promotes its dense empty-cell
-format into the row. Excel then measures 9 points, moving the following footer.
-The independently supplied \texttt{A1:U110} reference rectangle contains 3,408
-changed pixels in the common image area, and its candidate image is five pixels
-shorter. This is a native presentation failure with retained input, producer and
-image identities.
+\subsection{Native validation of preservation rules}
+\paragraph{Row-height preservation.}
+In the Traffic workbook, promoting repeated empty-cell formatting into a row style
+changed an automatically determined height from 12.75 to 9 points, shifting
+subsequent content and changing 3,408 pixels in an independently specified reference
+region. Requiring an explicit custom height before promotion restored byte-identical
+native captures~\cite{rowpromotionfix}.
 
-Requiring an explicit custom height before promotion restores the original
-12.75-point row. Fresh rebuilt original and corrected images both measure
-1,358 by 1,327 pixels and are byte-identical. The corrected workbook occupies
-2,654,536 bytes against a 37,207,883-byte original. The retained development
-cleanup took 13.28 seconds with statistics enabled. This single observation
-does not estimate guard overhead. The source change checks two existing parsed
-attributes before promotion and retains fixed-height promotion coverage in the
-regression suite.
+\paragraph{Font representatives.}
+Two Destatis cases validate complementary font-preservation conditions. In a
+higher-education workbook, removing 87 blank cells carrying explicit default-font and
+no-fill metadata changed 25,640 pixels despite equal capture geometry and a
+pixel-identical original-versus-original control. Retaining the required
+representatives restored equality in an independently specified reference region.
+Legacy print-name aliases were normalized for opening and recorded separately. In a
+cultural-finance workbook, a blank cell's non-default font affected automatic row
+height despite an omitted \texttt{applyFont} flag; a stored height without
+\texttt{customHeight} did not prevent the change from 15 to 12.75 points. Retaining
+the representative restored pixel and geometry equality in the independent control
+and all 350 regions selected by the targeted capture policy.
 
-A separate current-cleaner Migration repeat produced 1,804,772 bytes from the
-16,926,818-byte source. Under DeltaSieve policy v12, 37 image pairs had no pixel
-differences. A former 12.75-point discrepancy in a zero-width range disappeared
-when its empty lower context row was excluded. Separate effective-height
-observations on two other sheets remain in the report. Consequently this repeat
-supports the recorded image scope and the corrected exclusion, with those
-remaining observations explicitly retained~\cite{trailingrowvalidation}.
+\paragraph{Background definitions.}
+In a Destatis horticulture workbook, Sheet Shrink reduced column definitions from
+128,912 to 2,197. A corrected DeltaSieve background-envelope guard reduced the
+capture selection from 16,101 to 165 regions; all 165 resulting image pairs were
+pixel-identical.
 
-\subsection{Validation cost of redundant background definitions}
-The Destatis workbook
-\texttt{anbau-}\allowbreak\texttt{gartenbaugewaechse-}\allowbreak\texttt{2030224169005.xlsx} contains repeated column-width
-records over a uniform full-width background. Rebuilt original and Sheet Shrink
-outputs contain 128,912 and 2,197 column definitions, respectively. A corrected
-DeltaSieve background-envelope guard reduced the native selection from 16,101
-to 165 regions. All 165 image pairs were identical in the fresh comparison.
-This observation supports the recorded targeted scope. It does not replace the
-remaining corpus validation or establish exhaustive visual preservation.
-
-
-\paragraph{Explicit no-fill font representatives.}
-The Destatis workbook
-\texttt{pruefungen-hochschulen-2110420217005.xlsx} exposed a reproducible
-text-baseline regression on sheet \texttt{TAB-04}. An original-versus-original
-reference control was pixel-identical, whereas the transformed output repeatedly
-changed 25,640 pixels despite equal capture geometry. Restoring 87 removed blank
-cells with an explicit default font and no-fill metadata recovered the original
-image hash. The correction allows this metadata combination to supply the
-existing per-row font representative, including fixed-height rows with content.
-A fresh output from the corrected cleaner matched the original over the
-independent \texttt{A1:L916} reference area. The corpus's conflicting legacy
-print-name aliases were explicitly normalized for opening, with separate hashes
-and preserved name definitions.
-
-\paragraph{Automatic height without an explicit font-application flag.}
-In \texttt{kulturfinanzbericht-}\allowbreak\texttt{gesamtmaterial-}\allowbreak\texttt{1023003229005.xlsx},
-removing the blank cell \texttt{Impressum!B16} reduced rebuilt row 16 from
-15 to 12.75 points. Its XF references Arial MT 12 without an explicit
-\texttt{applyFont}, whereas the text cell uses Arial 10. The stored
-\texttt{ht="15"} has no \texttt{customHeight} and does not freeze automatic
-sizing. The correction admits this non-default font to the existing per-row
-representative policy and still removes redundant representatives. A separate
-native control rebuilt both complete workbooks and captured the preselected
-\texttt{Impressum!A1:J43} area. The 832 by 743 images were byte-identical with
-equal geometry. This local control completed in 13.07 seconds. A subsequent
-complete targeted comparison under capture policy version 15 completed all
-350 selected workbook regions without a pixel, geometry or rendering difference.
-Historical findings remain retained with their original planning policy.
-
+\paragraph{Validation boundaries.}
+In Wanderungen, excluding an empty trailing context row removed a spurious height
+finding. All 37 captured image pairs were pixel-identical under the DeltaSieve
+capture policy, while separate effective-height observations on two other worksheets
+remained unresolved~\cite{trailingrowvalidation}.
+These case studies validate specific preservation conditions within the recorded
+capture scopes; they do not establish exhaustive workbook or corpus-wide visual
+equivalence.
 
 \subsection{Historical Inquire workflow observations}
 A separate 46-input subset fills missing historical Inquire observations from the
