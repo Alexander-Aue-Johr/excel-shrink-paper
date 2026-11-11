@@ -124,32 +124,23 @@ and save policy applies to both states. An unchanged formula can therefore
 produce different rebuilt values. Such observations retain their raw pixels
 and calculation context for attribution.
 
-Report sample counts and binomial uncertainty for independently sampled units
-within each declared population~\cite{binomialintervals}. For zero misses in
-$n$ independent trials with common miss probability, the exact one-sided
-95\% upper bound is $1-0.05^{1/n}$. This is approximately 9.5\% for 30 trials
-and 5.8\% for 50. Multiple mutations of one workbook share a cluster and do
-not establish that many independent workbook observations. Development stress
-cases remain separately labelled. Population estimates must account for the
-sampling strata and inclusion probabilities.
+For zero misses in $n$ independent trials with common miss probability, the
+exact one-sided 95\% upper bound is $1-0.05^{1/n}$, approximately 9.5\% at
+30 trials and 5.8\% at 50~\cite{binomialintervals}. Mutations within one
+workbook share a cluster. Population estimates require sampling strata and
+inclusion probabilities, with development cases reported separately.
 
 \subsection{Matched cost accounting}
 
-Cost measurements separate XML planning, geometry, native rendering, transfer,
-image comparison and persistence where instrumentation permits. Report image
-count, rendered pixels in each state, compared pixels and retained bytes
-alongside elapsed time. Overlapping captures count as repeated rendering work;
-coverage-union size is reported separately. Matched selective and independent
-reference runs use the same state-preparation policy, environment, image budget
-and reuse configuration. Analysis, opening, rebuild and save remain part of the
-declared end-to-end timing even when capture-phase timings are also reported.
-Batch and
-concurrency experiments use matched inputs and repeated runs. A changing
-production queue does not identify the causal benefit of a tuning parameter.
-Matched timing summaries report paired distributions and repeated-run variation.
-Full-reference timeouts remain censored observations alongside completion counts.
-Full-corpus cost estimates use measured visible geometry and stratified samples,
-with uncertainty and assumptions about hidden regions and object extents.
+Cost accounting separates planning, geometry, rendering, transfer, comparison
+and persistence where measured. Image counts, rendered and compared pixels,
+retained bytes and elapsed time accompany coverage-union size. Overlapping
+captures count as repeated work. Matched trials require the same preparation,
+environment, image budget and reuse configuration, retaining opening, rebuild
+and save in end-to-end time. Repeated paired trials characterize variation.
+Production queues cannot isolate tuning effects. Reference timeouts remain
+censored outcomes. Full-corpus projections require geometry-calibrated,
+stratified samples with explicit hidden-region and object-extent assumptions.
 
 \subsection{Opening, batching and independent Excel pairs}
 A bounded opening experiment used four copies of a synthetic workbook with eight
@@ -296,6 +287,13 @@ remapping their cell references. Independent \texttt{Data!A1:N30} renders
 were pixel-identical within both pairs. The style permutation selected zero
 regions. The shared-string permutation retained one equal image pair at
 \texttt{A1:D4}, exposing unnecessary capture work under the tested policy v15.
+
+Two further controls changed wrapping alignment and merged \texttt{A1:D1}.
+Independent \texttt{A1:N30} references changed 1,775 and 3,873 RGBA pixels.
+The selected \texttt{A1:D3} masks matched both complete reference change masks
+at their common origin. The merge includes populated cells and exercises native
+merge behavior. These two designed controls establish bounded pixel coverage,
+without estimating population recall~\cite{layoutcontrols}.
 
 Two additional comparator pairs contained 107 and 215 worksheets. The observed
 xlCompare times were 53.748 and 21.711 seconds. DiffEngineX required 131.692 and
