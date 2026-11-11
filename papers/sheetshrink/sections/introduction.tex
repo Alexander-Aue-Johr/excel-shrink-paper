@@ -5,7 +5,7 @@ unsafe. An empty cell can preserve a border, override an inherited fill, or
 influence automatic row height through its font. A whitespace value can prevent
 text from extending into its neighbour. Cleanup must account for how stored records affect the workbook.
 
-The Destatis migration workbook \texttt{wanderungen-2010120217005.xlsx}
+The Destatis migration workbook \texttt{wanderungen-\allowbreak 2010120217005.xlsx}
 illustrates the problem. In \texttt{Tabelle 3.4}, 21 rows contain zeros from
 column L to Excel's last column, XFD, totaling 343,833 values. Removing this
 hidden content requires explicit removal rules and dependency checks.

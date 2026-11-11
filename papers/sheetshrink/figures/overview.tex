@@ -47,11 +47,10 @@
   {Unreferenced spaces}
   {Required style retained}
 \end{tikzpicture}
-\caption{Schematic cleanup families. Redundant cell formatting includes inherited
-fills and borders. Every pair has layout, protection and dependency guards.
-Row promotion requires compatible fixed-height context. Hidden-value removal
-admits guarded constant tails of at least 4,096 cells ending at XFD.
+\caption{Cleanup rules with layout, protection and dependency checks. Cell cleanup
+accounts for inherited fills and borders. Row promotion requires compatible fixed
+heights. Hidden constant tails require at least 4,096 cells ending at XFD.
 \textsuperscript{*}Whitespace removal is optional. Required witnesses and
-cell coordinates are retained.}
+coordinates remain.}
 \label{fig:cleanup-overview}
 \end{figure}

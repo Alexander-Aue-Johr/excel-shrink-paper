@@ -13,14 +13,15 @@ The contract permits layout changes in empty trailing rows or columns. Changes
 that move or alter relevant content remain subject to validation.
 
 \subsection{Information available before native loading}
-Cleanup uses stored values, formulas, styles, references and layout attributes.
+Cleanup uses stored values, formulas, styles, references and layout attributes
+to establish which records can be removed before Excel renders the workbook.
 Native row heights and before/after images are available only in the separate
-validation workflow. Explicit custom heights can be retained directly. For
-automatic heights, an empty cell's font can require a retained representative.
+validation workflow.
 
-An Excel-hosted alternative could measure a row, remove candidates and write the
-measured height as an explicit custom height. SpreadsheetML provides a
-\emph{customHeight} attribute for that policy~\cite{customheight}.
+An Excel-hosted cleaner could use these observations to guide removal, for example
+by preserving a measured row height with \emph{customHeight} enabled~\cite{customheight}.
+It would require Excel and incur its opening cost, including in Python and R
+workflows.
 
 \subsection{Removal decisions and compact preservation}
 SheetShrink retains a representative record when it preserves a required effect.
@@ -34,10 +35,9 @@ unreferenced values. A missing reference alone is insufficient grounds for
 deleting hidden data.
 
 \subsection{Validation and attribution boundaries}
-DeltaSieve compares selected regions of independently rebuilt original and
-SheetShrink workbooks in the same installed Excel
-environment~\cite{deltasievecompanion}. Ordinary-save and rebuild
-controls retain information for attributing differences introduced by Excel.
+DeltaSieve compares selected regions after independently rebuilding both
+workbooks in the same Excel environment~\cite{deltasievecompanion}. Save and
+rebuild controls help identify changes introduced by Excel.
 
 For XLS sources, conversion precedes the XLSX cleanup subject and has its own
 failure accounting. A file requiring repair or inaccessible protected content
