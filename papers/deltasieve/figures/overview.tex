@@ -6,12 +6,12 @@
   selected/.style={draw=stateTeal,line width=.9pt},
   reference/.style={draw=stateSlate!60,dashed,line width=.65pt},
   effect/.style={-{Stealth[length=3pt]},draw=stateRose,line width=.8pt,dashed}]
-\path[use as bounding box] (-.1,1.85) rectangle (8.35,-4.15);
+\path[use as bounding box] (-.1,2.25) rectangle (8.35,-4.15);
 \definecolor{nativeBlue}{HTML}{99CCFF}
 \definecolor{nativeRed}{HTML}{FF0000}
 \definecolor{editedCell}{HTML}{A46510}
 \node[label] at (4.15,1.4)
-  {Unchanged rule on A1:A3\\\texttt{INDIRECT(\$Z\$1)>5}};
+  {Conditional formatting on A1:A3\\\texttt{INDIRECT(\$Z\$1)>5} $\rightarrow$ red fill};
 
 % Both panels use the same address layout. The omitted columns and empty rows
 % make room for legible values while preserving the tested range endpoints.
@@ -43,6 +43,8 @@
   \node[value] at (3.05,0) {X1};
   \draw[editedCell,line width=.9pt] (2.05,.2) rectangle (2.45,-.2);
   \draw[selected] (.3,.2) rectangle (3.65,-1);
+  \draw[stateRose,line width=.8pt,densely dotted]
+    (.32,.18) rectangle (.68,-.98);
   \end{scope}
 }
 
@@ -50,7 +52,9 @@
 % unsupported rule semantics and captures conservatively rather than resolving it.
 \draw[effect] (6.55,-.2) .. controls (6.7,-1.7) and (4.8,-1.7) .. (4.8,-1);
 \node[label,text=stateRose,fill=white,inner sep=1pt] at (5.7,-1.7)
-  {Native rule effect};
+  {Excel applies the red fill};
+\draw[stateRose,line width=.8pt,densely dotted] (.35,-2.35) -- (1,-2.35);
+\node[label,anchor=west] at (1.1,-2.35) {Conditional-formatting region A1:A3};
 \draw[selected] (.35,-2.6) -- (1,-2.6);
 \node[label,anchor=west] at (1.1,-2.6) {Selected A1:AA3};
 \draw[reference] (4.5,-2.6) -- (5.15,-2.6);
