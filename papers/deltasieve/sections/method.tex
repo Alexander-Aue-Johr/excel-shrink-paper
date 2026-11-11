@@ -187,8 +187,10 @@ borderless solid fills, the analyzer retains explicit cells, row and column
 transitions, contextual neighbors and supported conditional application areas.
 Uniform unfilled column styles beneath a solid row background introduce no
 additional horizontal fill edge. Fonts and widths alone do not create such an
-edge in an empty band. Visible column fills, borders, unknown styles and
-unsupported rules prevent that exclusion. Supported finite filters and
+edge in an empty band. Column fill transitions, inherited column borders,
+unknown styles and unsupported rules remain relevant. Finite row borders retain
+the full width through XFD, ending vertically at the last finite row transition
+and its following context~\cite{rowborderbackground}. Supported finite filters and
 conditional regions remain in the envelope with following context. Full-grid
 or unresolved application areas retain the conservative path.
 

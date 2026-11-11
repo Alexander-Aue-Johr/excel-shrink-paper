@@ -478,7 +478,16 @@ crop coordinates. The reference manifest records source and image
 hashes~\cite{adagefixedreference}. This localized result supplies no
 recall estimate.
 
-\subsection{Geometry without a visible surface}
+\subsection{Geometry and finite background coverage}
+\paragraph{Finite backgrounds with row borders}
+A designed fixed-default-height change previously produced an unbounded
+A1:XFD1048576 plan and stopped at the guard. Policy v17 completed 69 regions
+from A1:XFD4, retaining the far-right row border. Aligned change masks matched
+independent A1:D5 and XFA1:XFD5 references at 1,170 and 674 common pixels.
+An initial control without customHeight rebuilt to the same 15-point default
+in both states, yielding equal references and zero selected regions. It remains
+an invariance outcome~\cite{rowborderbackground}.
+
 Nine zero-width \texttt{LCCA} ranges differed in measured height (2000.25 versus
 1827 points) without images. Version 16 retains their geometry but excludes
 these changes from visual findings after validating both zero surfaces.
