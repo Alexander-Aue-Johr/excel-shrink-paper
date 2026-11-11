@@ -1,0 +1,47 @@
+\subsection{Byte-search dispatch ablation}
+\label{sec:search-dispatch-ablation}
+We froze revision \texttt{6568787c} and built two release executables with
+rustc 1.96.0 and LLVM 22.1.2 on an AMD Ryzen 7 7800X3D. Both use the same
+memchr 2.8.1 dependency copy. An experimental feature disables its x86-64
+architecture dispatch, including cached substring finders and reverse-search
+conditions. Compiler auto-vectorization, compression and checksum routines
+remain enabled. The comparison therefore isolates the selected dependency
+dispatch within the full cleanup pipeline.
+
+A separate runtime probe logs an AVX2 cached substring searcher in the normal
+configuration and a scalar Two-Way searcher with a portable prefilter in the
+experimental configuration. Each passes 161 forward/reverse byte and cached
+substring controls. The existing nine focused XML tests pass in both release
+configurations. Three developer-selected stress workbooks receive three trials
+per configuration, using one Rayon thread, one writer and one active-workbook
+slot. Configuration order alternates by repetition. All 18 outputs have equal
+uncompressed member names, byte lengths and SHA-256 values within each case.
+ZIP entry order is excluded from that equality check~\cite{searchdispatchartifact}.
+
+\begin{table}[t]
+\caption{Single-thread cleanup elapsed time in seconds. Each entry gives the
+median of three trials with the observed minimum and maximum in parentheses.}
+\label{tab:search-dispatch-ablation}
+\centering
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{lrr}
+\hline
+Workbook & Normal dispatch & Portable dispatch \\
+\hline
+Migration & 3.578 (3.063--3.672) & 3.328 (3.265--3.828) \\
+Finance & 17.750 (17.641--17.796) & 18.437 (18.172--18.531) \\
+QT/RR & 22.671 (22.578--23.031) & 24.125 (24.094--24.500) \\
+\hline
+\end{tabular}
+\end{table}
+
+Elapsed time covers process creation through exit and excludes subsequent
+member verification. Each process tree has an 8\,GiB commit ceiling, an
+8\,GiB system RAM/commit reserve and a 180-second timeout. Native visual
+comparisons and the bounded library follow-up run concurrently, and filesystem
+caches are retained. Portable/normal median elapsed-time ratios are 0.930,
+1.039 and 1.064 for Migration, Finance and QT/RR respectively. Migration's
+ranges overlap and its median ordering reverses. Normal median user CPU time
+is lower in all three cases. These observations show small selected-case
+end-to-end effects under concurrent work. Corpus-level effects, logical-core
+parallelism and the contribution of all SIMD remain separate measurements.

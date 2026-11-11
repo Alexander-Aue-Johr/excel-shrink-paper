@@ -45,7 +45,8 @@ across worksheet and worker calls. Conditional-layout and streaming scanners
 also invoke \texttt{memchr} and \texttt{memmem} directly. Other attribute and
 delimiter readers use ordinary byte loops. The reported end-to-end measurements
 include these mechanisms together with allocation, concurrency and ZIP processing.
-A controlled search-backend ablation is required to quantify SIMD's contribution.
+Section~\ref{sec:search-dispatch-ablation} isolates the contribution of this
+library's x86-64 dispatch in complete single-thread cleanup trials.
 
 \subsection{Parser correctness and regression controls}
 Byte-oriented scanning transfers XML recognition and state-transition obligations
