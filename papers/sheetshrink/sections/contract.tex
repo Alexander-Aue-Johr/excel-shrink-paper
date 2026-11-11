@@ -34,10 +34,10 @@ Examples include row-font sentinels and reuse of an existing cell style as a row
 format. The checks account for inherited formatting, gaps, merges, protection
 and available styles. Unresolved cases retain the required original records.
 
-The production policy admits separately guarded hidden constant tails and retains
-ordinary nonempty hidden tables, including unreferenced values. Tail admission
-depends on dependency and layout checks~\cite{sheetshrinkcontract}. Absence of a
-reference alone does not authorize general hidden-data removal.
+The production policy removes hidden constant tails only after dependency and
+layout checks~\cite{sheetshrinkcontract}. Ordinary nonempty hidden tables remain intact, including
+unreferenced values. A missing reference alone is insufficient grounds for
+deleting hidden data.
 
 \subsection{Validation and attribution boundaries}
 DeltaSieve compares selected regions of independently rebuilt original and
