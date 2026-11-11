@@ -1,0 +1,378 @@
+{
+  "source_revision": "1b9ee98e3409c3584ffd12a661d0c19f8a5f0788",
+  "review_date": "2026-11-11",
+  "scope": "Resident, classic paired, targeted host, warm pool, parent supervision and Control Room protocols",
+  "verification": {
+    "javascript_connection_tests": {
+      "passed": 11,
+      "failed": 0
+    },
+    "powershell_control_suite": "passed",
+    "powershell_cleanup_suite": "passed",
+    "native_excel_run": "not performed"
+  },
+  "sources": [
+    {
+      "path": "excel-shrink-cli/src/capture_host/resident.rs",
+      "sha256": "98a9dc0177fec11f09ee53d2654e580616d9e60e11b5907a8598ec11afa9c064",
+      "declared_routes": [
+        {
+          "path": "/events",
+          "line": 200
+        },
+        {
+          "path": "/health",
+          "line": 201
+        },
+        {
+          "path": "/config",
+          "line": 202
+        },
+        {
+          "path": "/ready",
+          "line": 203
+        },
+        {
+          "path": "/heartbeat",
+          "line": 204
+        },
+        {
+          "path": "/job",
+          "line": 205
+        },
+        {
+          "path": "/launcher/startup-sampled/{id}",
+          "line": 206
+        },
+        {
+          "path": "/launcher/reset/{id}",
+          "line": 207
+        },
+        {
+          "path": "/launcher/diagnostics",
+          "line": 208
+        },
+        {
+          "path": "/image/{id}/{command}/{sheet}/{tile}",
+          "line": 209
+        },
+        {
+          "path": "/diagnosis-image/{id}/{command}",
+          "line": 210
+        },
+        {
+          "path": "/result/{id}/{command}",
+          "line": 214
+        }
+      ]
+    },
+    {
+      "path": "excel-shrink-cli/src/capture_host/resident_events.rs",
+      "sha256": "c50a2d4c765d63e2fee1ce0d548ad55f00ca0eba375ea8f98bbbe1101e7f9e45"
+    },
+    {
+      "path": "excel-shrink-cli/src/capture_host/resident_telemetry.rs",
+      "sha256": "41624a2884501216792af68c5b7884b21e5e1df22c16796156602d4822a14d1f"
+    },
+    {
+      "path": "excel-shrink-cli/src/capture_host/resident_events_tests.rs",
+      "sha256": "b2cbc1b65315e8602ad52c2f4cc34564107dd940644ad6608bf3707086bf8a03",
+      "declared_routes": [
+        {
+          "path": "/events",
+          "line": 78
+        }
+      ]
+    },
+    {
+      "path": "excel-shrink-cli/src/capture_host/classic.rs",
+      "sha256": "574103d80a96c61ff021d6e99e3bdecf119f0ef8b66fee4bd9fb4048d0c082b0",
+      "declared_routes": [
+        {
+          "path": "/health",
+          "line": 176
+        },
+        {
+          "path": "/config",
+          "line": 177
+        },
+        {
+          "path": "/telemetry",
+          "line": 178
+        },
+        {
+          "path": "/pair/geometry",
+          "line": 182
+        },
+        {
+          "path": "/pair/heights",
+          "line": 183
+        },
+        {
+          "path": "/pair/sheet",
+          "line": 184
+        },
+        {
+          "path": "/pair/image",
+          "line": 185
+        },
+        {
+          "path": "/image",
+          "line": 186
+        },
+        {
+          "path": "/result",
+          "line": 187
+        }
+      ]
+    },
+    {
+      "path": "excel-shrink-cli/src/capture_host/classic_telemetry.rs",
+      "sha256": "7d5ed5638daf671cab502374503f06b6878a8ac3af12c80122e8695d164fdb8a"
+    },
+    {
+      "path": "excel-shrink-cli/src/capture_host/paired.rs",
+      "sha256": "09d5cb29e207fdf04484c3d790d9d9ff7f4c5f8084181c6ca744930a0fab3ed7"
+    },
+    {
+      "path": "excel-shrink-cli/src/capture_host/control_room.rs",
+      "sha256": "8eed21ff248eaceec2ac6b5b5d3731335585d1176614f098642ec775f7218658",
+      "declared_routes": [
+        {
+          "path": "/health",
+          "line": 93
+        },
+        {
+          "path": "/api/state",
+          "line": 94
+        },
+        {
+          "path": "/api/live",
+          "line": 95
+        },
+        {
+          "path": "/api/summary",
+          "line": 96
+        },
+        {
+          "path": "/api/workbooks",
+          "line": 97
+        },
+        {
+          "path": "/api/workers",
+          "line": 98
+        },
+        {
+          "path": "/api/targeted-comparisons",
+          "line": 99
+        },
+        {
+          "path": "/api/groups/{id}",
+          "line": 100
+        },
+        {
+          "path": "/api/groups/{id}/targeted-compare",
+          "line": 101
+        },
+        {
+          "path": "/api/groups/{id}/targeted-report",
+          "line": 102
+        },
+        {
+          "path": "/api/groups/{id}/pixel-diagnostics",
+          "line": 103
+        },
+        {
+          "path": "/api/evidence/{*path}",
+          "line": 107
+        },
+        {
+          "path": "/api/groups/{id}/formula-diagnostics",
+          "line": 108
+        },
+        {
+          "path": "/api/groups/{id}/capture-sheet",
+          "line": 109
+        },
+        {
+          "path": "/api/manual-captures/{id}",
+          "line": 113
+        },
+        {
+          "path": "/api/run/stop",
+          "line": 114
+        },
+        {
+          "path": "/api/run/terminate",
+          "line": 115
+        },
+        {
+          "path": "/api/control",
+          "line": 116
+        },
+        {
+          "path": "/api/groups/{id}/restart",
+          "line": 117
+        },
+        {
+          "path": "/api/groups/{id}/inspect",
+          "line": 118
+        },
+        {
+          "path": "/api/groups/{id}/inspect-region",
+          "line": 119
+        },
+        {
+          "path": "/api/groups/{id}/capture-regions",
+          "line": 120
+        },
+        {
+          "path": "/api/groups/{id}/copy-original",
+          "line": 121
+        },
+        {
+          "path": "/api/groups/{id}/variants/{profile}",
+          "line": 122
+        },
+        {
+          "path": "/api/commands/{id}",
+          "line": 123
+        },
+        {
+          "path": "/data/{*path}",
+          "line": 124
+        }
+      ]
+    },
+    {
+      "path": "excel-shrink-cli/src/capture_host/control_room/live_stream.rs",
+      "sha256": "869652b163dd1a4353ebca092ece02ef8bd99ffa94171da1f3b4340ab1c48c8d"
+    },
+    {
+      "path": "excel-shrink-cli/src/regression/office_capture/resident_capture.rs",
+      "sha256": "829465cf5f8be8b2692fb07dc0b8d9747d8d0f4363cd117289f8e5c19a5d5ef9"
+    },
+    {
+      "path": "excel-shrink-cli/src/regression/office_capture/resident_capture_hashes.rs",
+      "sha256": "03ea34321971bdd7e178e75fc558acf040dae01048009800759e9fe77aa851a4"
+    },
+    {
+      "path": "excel-shrink-cli/src/regression/office_capture/resident_capture_pipeline.rs",
+      "sha256": "964bb9ca0cb15120757a17c0fa3de1ec8099f88fb72fb455112e8cca57099d27"
+    },
+    {
+      "path": "excel-shrink-cli/src/regression/office_capture/resident_capture_live.rs",
+      "sha256": "99456682e1e6d107309b38191a736a5a668da30daa632b58811eda3a523c3a4a"
+    },
+    {
+      "path": "excel-shrink-cli/src/regression/office_capture/resident_events.rs",
+      "sha256": "244a0145549ae53a0c03cbb2cbc6c77f73262f25f929df8f96bdac5fee95fa1d"
+    },
+    {
+      "path": "excel-shrink-cli/src/regression/targeted_comparison/host.rs",
+      "sha256": "57372e022e81716efd1af526c1c1895e249b9a14632bd7f928d392039c8677c3"
+    },
+    {
+      "path": "excel-shrink-cli/src/regression/targeted_comparison/telemetry.rs",
+      "sha256": "64afb9bc6a22f678ec788418e38fee23b637bc65683175324d4b2a0fb58598e2"
+    },
+    {
+      "path": "excel-shrink-cli/src/regression/archive/batch_cleanup.rs",
+      "sha256": "fcd9da4b245e37a7da770ddc80de865cb61b1a81a289c5df68fb402a41088da0"
+    },
+    {
+      "path": "excel-shrink-cli/src/regression/archive/worker.rs",
+      "sha256": "beb438234f30e3225c9966613b4a5f90e8bfd830a0fa3959e56c945ed4e8a12e"
+    },
+    {
+      "path": "excel-shrink-cli/src/regression/archive/study/execution.rs",
+      "sha256": "c3cdafdbeaa91e0fdd0743cf430c69ab569ac1f7329077e668e7c40fa78b8c6e"
+    },
+    {
+      "path": "excel-shrink-cli/src/regression/archive/study/preparation_slots.rs",
+      "sha256": "e581e78a07b10fa1d65a3c5b2023a48b2d30f22fa59e7c4db584b7ce3abfcdaa"
+    },
+    {
+      "path": "excel-shrink-cli/src/regression/workbook_worker/pool.rs",
+      "sha256": "9d93ad6b283ef1f180a3b385de21f485f5ddc9aafc7a060fb7b231cfba87228c",
+      "declared_routes": [
+        {
+          "path": "/health",
+          "line": 605
+        },
+        {
+          "path": "/acquire",
+          "line": 606
+        },
+        {
+          "path": "/command/{index}",
+          "line": 607
+        },
+        {
+          "path": "/release/{index}",
+          "line": 608
+        }
+      ]
+    },
+    {
+      "path": "excel-shrink-cli/src/regression/visual_diagnostics.rs",
+      "sha256": "faff35476e505dceca2eebbdcc969e665bd72e09f5eb2c8a0551c6723b846c28"
+    },
+    {
+      "path": "excel-shrink-cli/office-capture/web/resident.js",
+      "sha256": "97632b2522014f45dbd1ccc71cac0a9a80bf0626f08d42a319bddf28bcf480d2"
+    },
+    {
+      "path": "excel-shrink-cli/office-capture/web/resident-connection.js",
+      "sha256": "3e3375cecef64a5c04c8c6fb7050d3d8ff69ad9e484e07e92c988917cb774b28"
+    },
+    {
+      "path": "excel-shrink-cli/office-capture/web/app.js",
+      "sha256": "df155e28fbb03db0c90d3d9f248312d3e95ca0d1820b3e1893e1758f849c8858"
+    },
+    {
+      "path": "excel-shrink-cli/office-capture/resident.ps1",
+      "sha256": "4b00094a6985ea0c70019433aaa7c7dbb5861f3670887ba6f9206259d91eb0d6"
+    },
+    {
+      "path": "excel-shrink-cli/office-capture/resident/Opening.ps1",
+      "sha256": "aa2176fd3ab833a230622e9b64b5a02ae759b018fe3708f68aa69588ab238918"
+    },
+    {
+      "path": "excel-shrink-cli/office-capture/ResidentProcesses.cs",
+      "sha256": "9a1218b94bd1079d6bfaf96fe19d50e77308fb4ca1e32f496378a64550042822"
+    },
+    {
+      "path": "excel-shrink-cli/office-capture/targeted-comparison-host.ps1",
+      "sha256": "60dcfb254f6605ecdea8e1003673a03cc7aa549451e45320c5c6673f9a82b381"
+    },
+    {
+      "path": "excel-shrink-cli/office-capture/TargetedResident.psm1",
+      "sha256": "44784bb294e3e2316d7e3e792a042a434b3db7db31378e7892b9548a9dc9fc98"
+    },
+    {
+      "path": "excel-shrink-cli/office-capture/WorkbookPool.psm1",
+      "sha256": "da0317d609c3b3e7c400c1e50cc9edba2de4d13bfe72a3254b209518dc13be78"
+    },
+    {
+      "path": "excel-shrink-cli/office-capture/CaptureWorkbookWorker.cs",
+      "sha256": "7a6602c4e7b950cff542b65781a81392b1de39ec4741dcc00e69f2b0c7ce3868"
+    },
+    {
+      "path": "excel-shrink-cli/office-capture/run-targeted-comparison.ps1",
+      "sha256": "5f2b9b8db79fc5e92e08c3f93b7bde78e0ed2e05a0d634976e7ccf8c817a0fc2"
+    },
+    {
+      "path": "excel-shrink-cli/office-capture/tests/resident-control.tests.ps1",
+      "sha256": "c20112dd9901ea161ff7e5a2270a65b037a263cfb78844cb484521d8d424eaeb"
+    },
+    {
+      "path": "excel-shrink-cli/office-capture/tests/resident-cleanup.tests.ps1",
+      "sha256": "ecd7ba535a67d5abaa5d0d885a75bfef1c4666e31c030c32ebbe3d3f48e52b1a"
+    },
+    {
+      "path": "excel-shrink-cli/office-capture/resident-host/resident-connection.test.cjs",
+      "sha256": "fa96d44d09ac216cbd5464c8af08016f4f6cdbcb191f70c0b19053eb553886b0"
+    }
+  ]
+}
