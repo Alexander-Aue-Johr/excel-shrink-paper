@@ -1,7 +1,6 @@
 \subsection{Spreadsheet change inference}
 SheetDiff infers changes between spreadsheet versions and presents them in a
-single contextual view~\cite{sheetdiff}. This establishes spreadsheet change
-inference as prior work. RowColAlign extends longest-common-subsequence reasoning
+single contextual view~\cite{sheetdiff}. RowColAlign extends longest-common-subsequence reasoning
 to two-dimensional alignment and evaluates edit recovery using generated pairs
 with planted changes~\cite{rowcolalign}. Its known edit history provides a
 methodological precedent for controlled mutations. Our evaluation additionally
@@ -15,8 +14,7 @@ fault localization~\cite{slicing}. DeltaSieve uses supported dependencies to
 select native observation regions. Fisher et al. retain spreadsheet test cases
 and use change-impact analysis to support their reuse~\cite{fisher2002testreuse}.
 TACO compresses formula graphs using regularity in cell references and supports
-queries over the compressed representation~\cite{tang2023taco}. These precedents
-establish dependency analysis and compact representations in spreadsheet systems.
+queries over the compressed representation~\cite{tang2023taco}.
 DeltaSieve follows supported conditional-formatting and chart inputs to affected
 presentation regions. Its coverage obligations include inherited formatting,
 automatic row geometry and object bounds alongside formula dependencies.
@@ -42,8 +40,7 @@ of treating every comparator as an interchangeable visual oracle.
 Synkronizer's edition documentation lists content, formatting and Excel-name
 comparison features~\cite{synkronizer}. SpreadsheetsDiff advertises two- and
 three-way comparison, key-column matching, and workbook/VBA comparison
-features~\cite{spreadsheetsdiff}. These vendor descriptions identify further
-comparison candidates. A native pixel-observation contract and its tested
+features~\cite{spreadsheetsdiff}. A native pixel-observation contract and its tested
 coverage require separate verification for each product and version.
 
 \subsection{Cross-system testing and parsing}
@@ -53,7 +50,6 @@ recording the renderer and environment when reusing observations. The analogy
 does not transfer database test adequacy guarantees to spreadsheet rendering.
 SheetReader's specialized parsing work~\cite{sheetreader} is relevant to efficient
 package inspection, whose cost must be separated from native rendering cost.
-
 
 \subsection{Selective regression testing and visual models}
 Ekstazi selects regression tests through recorded file dependencies~\cite{ekstazi}.
@@ -89,9 +85,4 @@ would require a spreadsheet-specific dependency and geometry model. Applying
 AHRTS through PDF export would introduce print areas, pagination and scaling
 into the observation contract. These input and observation differences motivate
 methodological comparison with these systems. Direct runtime rankings would
-require a common task, preparation policy and capture scope. Within DeltaSieve's
-scope, independent native references and matched capture configurations assess
-selection coverage and rendering cost. Product comparisons are interpreted
-through their tested options and exported findings. The evidence supports claims
-about those executions, with broader product capabilities established separately
-through documentation.
+require a common task, preparation policy and capture scope.

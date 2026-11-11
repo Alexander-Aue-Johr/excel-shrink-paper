@@ -23,16 +23,14 @@ the raw package, $W_s$ its ordinary-save control and $W_r$ the rebuilt saved
 control. The transformed workbook has corresponding controls.
 Separately prepared Check Performance outputs enter as transformed inputs.
 
-The primary observation compares independently prepared rebuilt partners.
 Control differences explain changes introduced by opening, saving or rebuilding.
 Legacy format conversion and explicit repair produce
 separately identified artifacts.
 
 Each control records its parent identity, native environment and generation
 recipe. A reusable control artifact saves preparation work but supplies no new
-visual verdict. A comparison still needs compatible observations of both
-partners. If opening or a required operation fails, that state remains
-unavailable. The workflow does not manufacture its image from another state.
+visual verdict. If opening or a required operation fails, that state remains
+unavailable.
 This separation also permits attributing a reduced package to Excel's save
 behavior without crediting that reduction to the tested cleanup operation.
 
@@ -41,8 +39,7 @@ The package analyzer uses borrowed XML byte views with bounded hierarchy and
 attribute state. It resolves shared strings, cell formats and relationships before
 interpreting a coordinate change. String and formula interpretation can require
 decoding, but worksheet analysis does not instantiate a general XML DOM or an
-Excel object per cell. This is important on bloated inputs with many empty
-formatting records.
+Excel object per cell.
 
 Cell evidence is written as fixed-size records containing coordinates, a
 SHA-256 fingerprint and classification flags. The current record is 40 bytes.
@@ -67,9 +64,7 @@ The fingerprint preserves distinctions that the model has not justified merging.
 Unsupported serialization can therefore produce conservative extra work rather
 than a semantic-equivalence claim. Canonicalizing style-table references is a
 specific supported operation, not a general normalization of arbitrary formulas,
-XML extensions or renderer behavior. The same byte-processing substrate serves
-content comparison, supported reference scans and rebuild-eligibility facts,
-while their decision predicates remain separate.
+XML extensions or renderer behavior.
 
 A format index has no cross-package meaning. Style identity resolves fonts,
 fills, borders, number formats and base-format inheritance, so a permutation
@@ -137,8 +132,7 @@ values are insufficient because source cells can change independently of the
 cache. The exclusion gate requires unchanged chart parts, supported source
 references, source values and styles, source layout and visibility, conditional
 dependencies, shared package context and complete equal native placement.
-Chart sources are inspected beyond the worksheet capture envelope. A source
-outside the visible table cannot disappear from this dependency check. Missing
+Chart sources are inspected beyond the worksheet capture envelope. Missing
 partners, ambiguous names, user-shape dependencies and unsupported references
 retain chart capture. A conservative mode exports every chart.
 
@@ -194,7 +188,7 @@ conditional regions remain in the envelope with following context. Full-grid
 or unresolved application areas retain the conservative path.
 
 These conditions permit less rendering without sampling the selected union.
-They are relative to the supported model. An unresolved outlying object can
+An unresolved outlying object can
 still force a full-grid plan and exhaust the available rendering budget.
 
 \subsection{All-state adaptive geometry}
@@ -207,8 +201,6 @@ to image-size qualification. A range hidden in one state can be large in its
 partner, so any oversized state forces further splitting. Each child is checked
 again. Large hidden spans can yield zero-area leaves rather than thousands of
 identical image requests.
-Every candidate must satisfy the image-size limits in every compared state.
-Otherwise, it is partitioned further.
 
 The planner respects both area and edge budgets. A conservative point-to-pixel
 allowance guides partitioning, but returned image dimensions are independently
@@ -256,7 +248,7 @@ explicit. The search budget limits explanation work, not capture coverage.
 A path to a volatile function establishes a dependency, not exclusive causation.
 Other changed pixels in the same region can have another cause. Source cached
 values also cannot stand in for values saved from the compared rebuilt states.
-The report distinguishes their provenance. Repeated original/original controls
+Repeated original/original controls
 and unchanged-package controls test renderer behavior independently of the
 transformation. Counterfactual restoration of a suspected removed witness tests
 a narrower causal mechanism. None of these operations increases pixel tolerance
@@ -276,8 +268,7 @@ unresolved metadata keep rebuilding enabled. Cached values or an empty capture
 plan do not establish calculation independence.
 
 Completed-result reuse requires compatible source identities, selected parts,
-implementation, state-preparation policy and rendering environment. Static
-report-viewer assets are excluded from the renderer recipe. Uncompressed member
+implementation, state-preparation policy and rendering environment. Uncompressed member
 digests make identity independent of ZIP order and compression. A prior
 part selection must cover every newly requested component. User-selected weaker
 component policies remain explicit evaluation choices, with correspondingly

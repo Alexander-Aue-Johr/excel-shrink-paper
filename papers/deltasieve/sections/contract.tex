@@ -3,7 +3,7 @@
 DeltaSieve validates a pair of spreadsheet states produced by a transformation.
 The package representation supplies evidence about where visible changes could
 occur. Native Excel rendering supplies the image observations for selected
-regions. The two sources of evidence serve different roles. A candidate is a
+regions. A candidate is a
 reason to inspect a region; pixel inequality is an observation that still needs
 attribution.
 
@@ -32,16 +32,11 @@ reference semantics require explicit fallback coverage.
 A selected-region comparison does not by itself demonstrate that every relevant
 change in the workbook was selected. We evaluate that property using independently
 rendered reference areas and controlled mutations. The evaluation must record
-which reference cases completed and which exceeded their budgets. The paper's
-coverage claims are bounded by these observations and the supported dependency
-model.
+which reference cases completed and which exceeded their budgets.
 
 \subsection{Verdicts, failures, and reusable evidence}
 A successful comparison requires usable evidence from both partners. Missing
 hashes, failed native commands, and timeouts remain unsuccessful outcomes.
-Heartbeats establish add-in reachability and do not establish calculation or
-capture progress. Durable operation receipts and phase measurements support
-investigation of stalls.
 
 The raw pixel and geometry observations remain attached to a finding after
 review. Product regressions, rendering variation, environment-dependent values,
