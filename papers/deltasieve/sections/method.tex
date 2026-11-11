@@ -61,14 +61,14 @@ style resolution, hashing and selected dependency work. Scratch I/O is an explic
 cost of this memory organization. Shared strings, styles, layout records,
 selected changes and native images remain additional memory consumers.
 
-Figure~\ref{fig:cell-record} shows the serialized evidence layout. The writer
+Figure~\ref{fig:cell-record} gives the streaming comparison algorithm. The writer
 requires unique ascending numeric coordinates, rejects nested or unclosed cells,
 and hashes a cell's text incrementally. A very large cell body therefore need
 not become one temporary string. Record readers require complete records. A
 truncated scratch file cannot become a shorter valid sheet. This strict stream
 contract permits a two-way merge without a separate sorting pass for supported
 ordered worksheets.
-\input{figures/capture-methods/06-cell-record}
+\input{figures/cell-stream-algorithm}
 
 The fingerprint preserves distinctions that the model has not justified merging.
 Unsupported serialization can therefore produce conservative extra work rather

@@ -1,0 +1,44 @@
+\begin{figure}[t]
+\footnotesize
+\begin{algorithmic}[1]
+\Require Worksheet states $A,B$ and resolved style contexts
+\Ensure Added, removed and changed cell records
+\Function{WriteStream}{$W$}
+  \State Create an owned scratch stream $F$ and stream hash $H$
+  \ForAll{XML events in $W$}
+    \State Update the current cell's key, flags and incremental hash
+    \If{a cell completes}
+      \State Require a unique, strictly ascending coordinate
+      \State Encode its key, flags and digest as a 40-byte record
+      \State Append the record to $F$ and update $H$
+    \EndIf
+  \EndFor
+  \State Require no unclosed cell; flush $F$
+  \State \Return $(F,H)$
+\EndFunction
+\State $(F_A,H_A) \gets \Call{WriteStream}{A}$
+\State $(F_B,H_B) \gets \Call{WriteStream}{B}$
+\If{$H_A = H_B$}
+  \State \Return no cell changes
+\EndIf
+\State $a \gets \Call{Next}{F_A}$; $b \gets \Call{Next}{F_B}$
+\While{$a \neq \bot$ or $b \neq \bot$}
+  \If{$b=\bot$ or ($a\neq\bot$ and $a.key < b.key$)}
+    \State Emit removed $a$; $a \gets \Call{Next}{F_A}$
+  \ElsIf{$a=\bot$ or $b.key < a.key$}
+    \State Emit added $b$; $b \gets \Call{Next}{F_B}$
+  \Else
+    \If{$a.digest \neq b.digest$}
+      \State Emit changed pair $(a,b)$
+    \EndIf
+    \State $a \gets \Call{Next}{F_A}$; $b \gets \Call{Next}{F_B}$
+  \EndIf
+\EndWhile
+\end{algorithmic}
+\caption{Streaming cell comparison. Keys are numeric $(row,column)$ pairs.
+Cell hashes use resolved style identities. \textsc{Next} reads one complete
+record, returns $\bot$ at end of stream and rejects truncated records.
+Nested cells and invalid coordinates also fail analysis. The merge retains
+only its current records; emitted changes are collected separately.}
+\label{fig:cell-record}
+\end{figure}
