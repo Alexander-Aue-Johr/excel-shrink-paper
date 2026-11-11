@@ -102,9 +102,9 @@ normalizes away are reported separately.
 
 \subsection{Performance and comparison subjects}
 We compared direct open--save trials with fresh six-worker Sheet Shrink cleanup
-followed by the same library. Across three stress workbooks, all 48 Sheet Shrink
-trials completed under a 4\,GiB commit limit, compared with 33 original trials.
-Median elapsed time improved in ten of eleven fully completed pairs. Migration
+followed by the same library. Across the two displayed laptop workbooks, all 33 Sheet Shrink
+trials completed under a 4\,GiB commit limit, compared with 21 original trials.
+Median elapsed time improved in all seven fully completed pairs. Migration
 with openpyxl took 111.3\,s directly and 9.7\,s including cleanup. The accompanying
 benchmark receipts retain the individual phases and the second-pass measurements.
 
@@ -171,16 +171,6 @@ remained unresolved~\cite{trailingrowvalidation}.
 These case studies validate specific preservation conditions within the recorded
 capture scopes; they do not establish exhaustive workbook or corpus-wide visual
 equivalence.
-
-\subsection{Historical Inquire workflow observations}
-A separate 46-input subset fills missing historical Inquire observations from the
-same stress selection. All 46 repeated Sheet Shrink process measurements completed.
-The retained Inquire outcomes comprise 24 complete, three partial, 18 failed and
-one unsupported attempt. Its complete workflows include startup, opening, cleanup,
-saving and termination. They are compared descriptively with repeated Sheet Shrink
-process times and have different endpoints and repetition counts. Their median
-ratio is 13.38 over the 24 complete pairs. Partial and failed attempts receive no
-ratio. These measurements cannot isolate algorithm execution cost.
 
 \subsection{Targeted visual outcomes on the Top49 selection}
 A version-matched audit of the 49 workbooks with the largest absolute
