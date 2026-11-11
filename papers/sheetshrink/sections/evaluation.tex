@@ -170,72 +170,6 @@ contribution, with upstream acceptance pending at this writing. These observatio
 characterize the tested revision and input. They illustrate the need to verify
 parser transitions and value positions before interpreting ingestion timings.
 
-\subsection{Six-file cleanup stress panel}
-A separate stress panel selects six Destatis workbooks from a 100-file
-historical-reduction screening, including the Migration workbook's hidden zero
-tail. Each cleaner receives a separate hash-verified original copy.
-Sheet Shrink uses revision \texttt{a7eef1a}. The comparison subjects are
-NXPowerLite Desktop 11.0.1 with its Balanced profile, native Excel Check
-Performance in Excel 16.0.20527.20150, and XLStylesTool UWP 3.0.1.0 with optional
-style normalization, name unhiding and wholesale external-name removal disabled.
-All 18 external cleanup operations produced retained XLSX outputs with valid
-ZIP CRCs. Table~\ref{tab:cleanup-stress-panel} reports compressed package sizes.
-The artifact records full member names, input/output hashes and exact settings.
-This historical Balanced lane permits image changes. Its observations remain
-separate from the subsequent preservation-oriented Top49 profile.
-
-\begin{table*}[t]
-\caption{Selected Destatis stress panel. Original size is decimal MB. Other columns give package reduction (\%).}
-\label{tab:cleanup-stress-panel}
-\centering
-\setlength{\tabcolsep}{3pt}
-\begin{tabular}{lrrrrr}
-\hline
-Workbook & Original & Sheet Shrink & NXPowerLite & Check Performance & XLStylesTool \\
-\hline
-Finance & 89.37 & 94.85 & 97.09 & 96.85 & 0.01 \\
-Traffic & 37.21 & 92.99 & 65.83 & 94.04 & 0.02 \\
-Migration & 16.93 & 90.67 & 30.64 & 89.27 & 0.02 \\
-Electricity & 1.43 & 89.86 & 91.92 & 63.96 & 0.11 \\
-Doctors & 15.24 & 78.22 & 79.52 & 82.00 & 0.02 \\
-Time use & 3.84 & 81.38 & 83.14 & 81.66 & 0.32 \\
-\hline
-\end{tabular}
-\end{table*}
-
-The Migration workbook contains 343,833 numeric zero constants in hidden
-columns of worksheet \texttt{Tabelle 3.4}. NXPowerLite, Check Performance and
-XLStylesTool retain all of them. Sheet Shrink removes these constants under its
-unreferenced-hidden-content policy, reducing that worksheet from 361,086 to
-787 stored cells while retaining the hidden-column interval. This package
-observation distinguishes the cleanup footprints even when package reduction
-alone appears similar.
-
-Native rendering also exposes formatting witnesses. In the Doctors workbook,
-NXPowerLite removes empty 11-point-font cells Q36:AB36 from worksheet
-\texttt{10.2 T1}. The stored automatic-height row remains, but rebuilt Excel
-measures row 36 at 12 points instead of the original 15 points. An independent
-\texttt{A1:AC41} repeat retains identical original images across fresh sessions.
-Original against original has zero differing pixels. NXPowerLite and Check
-Performance differ in 47,383 and 34,762 pixels, respectively, inside the common
-image rectangle. Sheet Shrink has zero differing common pixels and a one-pixel
-white bottom-extent difference. This diagnostic was selected after observing
-the initial finding.
-
-For Migration, a separate original-derived reference plan covers 48 rectangles
-over the visible value/formula envelopes of its 36 worksheets. NXPowerLite and
-Check Performance change overlapping pixels in two and one rectangles,
-respectively. Sheet Shrink and XLStylesTool preserve common pixels in all 48,
-with white extent differences accounted for separately. The repeated original
-image identities agree across all four subjects. Formatting-only exterior
-tails, overflow beyond supplied rectangles and outlying object effects remain
-outside this reference scope. A targeted Traffic attempt exceeded available
-memory, and targeted Migration attempts encountered full-grid and idle-progress
-limits. Their failures remain recorded alongside bounded reference follow-ups.
-These observations describe the selected stress panel. Corpus prevalence,
-exhaustive rendering coverage and matched execution costs remain separate
-measurements.
-
 \subsection{Automatic-height regression and correction}
 The Traffic workbook supplies a concrete counterexample to promotion based only
 on repeated font formatting~\cite{rowpromotionfix}. On worksheet
@@ -254,8 +188,7 @@ Requiring an explicit custom height before promotion restores the original
 cleanup took 13.28 seconds with statistics enabled. This single observation
 does not estimate guard overhead. The source change checks two existing parsed
 attributes before promotion and retains fixed-height promotion coverage in the
-regression suite. This correction postdates the six-file panel's pinned
-\texttt{a7eef1a} cleaner and therefore does not retroactively replace its outputs.
+regression suite.
 
 A separate current-cleaner Migration repeat produced 1,804,772 bytes from the
 16,926,818-byte source. Under DeltaSieve policy v12, 37 image pairs had no pixel
