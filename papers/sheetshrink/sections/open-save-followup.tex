@@ -14,10 +14,11 @@ At 4\,GiB, all twelve Original attempts reached the memory limit, while
 all twelve fresh-cleanup pipelines completed. At 24\,GiB, the six Original
 attempts for Migration/readxl and QT/RR/openpyxl completed.
 Migration's two pandas endpoints reached the memory limit in all six attempts.
-All twelve fresh-cleanup pipelines completed at that limit. Table~\ref{tab:case-study-resources}
-retains these censored endpoints alongside successful medians. A memory-stop
+All twelve fresh-cleanup pipelines completed at that limit. The artifact
+retains all completed and memory-limited endpoints. A memory-stop
 termination time receives no completed-runtime ratio. The completed Migration/readxl
-and QT/RR/openpyxl pipelines were 2.97 and 24.28 times faster, respectively.
+and QT/RR/openpyxl pipelines were 2.97 and 24.28 times faster, respectively
+(392.149/131.953 s and 279.638/11.519 s for Original/fresh cleanup plus processing).
 
 The larger limit distinguishes memory censoring from completed processing cost
 for these selected cases. Native visual comparisons, a separate cleanup

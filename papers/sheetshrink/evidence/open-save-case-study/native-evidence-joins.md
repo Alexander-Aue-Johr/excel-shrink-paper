@@ -38,3 +38,17 @@ Regenerate with
 python scripts/open_save_benchmark/prepare_native_case_summary.py
 python scripts/open_save_benchmark/prepare_case_study_tables.py
 ```
+
+## Compact manuscript views
+
+`plot_case_study.py` renders the remaining-payload figure, five selected
+library time/working-set panels and the measured native evidence table.
+The resource panels retain all six variants for each included endpoint.
+Library selection covers openpyxl for all three cases and native Excel for
+the two laptop cases with measured Excel data. Other libraries and all trial
+receipts remain available. The 24 GiB pandas memory-stop result and completed
+larger-host ratios remain in the main results text.
+
+```powershell
+python scripts/open_save_benchmark/plot_case_study.py
+```
