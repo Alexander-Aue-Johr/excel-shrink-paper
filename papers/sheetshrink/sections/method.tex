@@ -180,6 +180,10 @@ cleanup currently matches name and local scope without proving equality of the
 two formula bodies. This is a specific limitation of that policy.
 
 \subsection{Parallel work and output ownership}
+Figure~\ref{fig:hierarchical-scheduling} relates the task hierarchy to a
+schematic execution across threads. Worksheet identity remains shared across
+its chunks, while ordered assembly separates execution order from output order.
+\input{figures/scheduling}
 Workbook, worksheet and row-chunk work share the cleanup execution budget.
 A permit limits active workbooks and remains held through output finalization.
 Workers can process other workbooks while one long worksheet remains active.

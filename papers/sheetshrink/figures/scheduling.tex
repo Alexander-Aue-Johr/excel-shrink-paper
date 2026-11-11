@@ -1,0 +1,84 @@
+\begin{figure*}[t]
+\centering
+\begin{tikzpicture}[x=1cm,y=1cm,
+  task/.style={rounded corners=2pt,draw=stateSlate!45,fill=white,
+    minimum height=.48cm,inner sep=3pt,font=\scriptsize,align=center},
+  edge/.style={-{Stealth[length=3pt]},draw=stateSlate!75,line width=.6pt},
+  small/.style={font=\scriptsize,text=stateSlate,align=center}]
+\definecolor{scheduleAmber}{HTML}{AD762B}
+\path[use as bounding box] (-.15,.55) rectangle (17,-6.25);
+\node[anchor=west,font=\small\bfseries] at (0,.3) {Task hierarchy};
+\node[anchor=west,font=\small\bfseries] at (6.1,.3) {One possible execution};
+
+\node[task,text width=1.45cm] (w1) at (1,-.45) {Workbook 1};
+\node[task,text width=1.45cm] (w2) at (4,-.45) {Workbook 2};
+\node[task,draw=stateBlue,fill=stateBlue!9] (a) at (.45,-1.55) {Sheet A};
+\node[task,draw=stateTeal,fill=stateTeal!10] (b) at (2.1,-1.55) {Sheet B};
+\node[task,draw=scheduleAmber,fill=scheduleAmber!10] (c) at (4.55,-1.55) {Sheet C};
+\draw[edge] (w1) -- (a);
+\draw[edge] (w1) -- (b);
+\draw[edge] (w2) -- (c);
+\foreach \id/\xx in {1/.7,2/2.1,3/3.5} {
+  \node[task,draw=stateTeal,fill=stateTeal!10,minimum width=1cm]
+    (chunk\id) at (\xx,-2.7) {B\,\id};
+  \draw[edge] (b) -- (chunk\id);
+}
+\node[task,text width=2.45cm] (join) at (2.1,-3.8) {Assemble B\,1, B\,2, B\,3};
+\foreach \id in {1,2,3} {\draw[edge] (chunk\id) -- (join);}
+\node[small,anchor=north,text width=5.2cm] at (2.3,-4.25)
+  {Complete rows stay together.\\Chunk results retain source order.};
+
+% All bars share the same time scale. Their lengths are illustrative.
+\foreach \yy/\name in {-.95/1,-2.05/2,-3.15/3} {
+  \draw[stateSlate!14,line width=.4pt] (7.25,\yy-.3) -- (16.75,\yy-.3);
+  \node[small,anchor=east] at (7.05,\yy) {Thread \name};
+}
+\foreach \xx in {7.35,9.1,10.85,12.6,14.35,16.1} {
+  \draw[stateSlate!10,line width=.35pt] (\xx,-.5) -- (\xx,-3.65);
+}
+\filldraw[fill=stateTeal!12,draw=stateTeal!65,rounded corners=1.5pt]
+  (7.35,-1.19) rectangle (8.45,-.71);
+\node[small] at (7.9,-.95) {B init};
+\filldraw[fill=stateTeal!22,draw=stateTeal,rounded corners=1.5pt]
+  (8.55,-1.19) rectangle (12.6,-.71);
+\node[small] at (10.575,-.95) {B\,1};
+\filldraw[fill=stateBlue!17,draw=stateBlue,rounded corners=1.5pt]
+  (7.35,-2.29) rectangle (9.1,-1.81);
+\node[small] at (8.225,-2.05) {A};
+\filldraw[fill=stateTeal!38,draw=stateTeal,line width=.9pt,rounded corners=1.5pt]
+  (9.2,-2.29) rectangle (13.5,-1.81);
+\node[small] at (11.35,-2.05) {B\,2};
+\filldraw[fill=scheduleAmber!19,draw=scheduleAmber,rounded corners=1.5pt]
+  (7.35,-3.39) rectangle (8.75,-2.91);
+\node[small] at (8.05,-3.15) {C};
+\filldraw[fill=stateTeal!22,draw=stateTeal,rounded corners=1.5pt]
+  (8.85,-3.39) rectangle (12.05,-2.91);
+\node[small] at (10.45,-3.15) {B\,3};
+\draw[stateTeal!65,dashed,line width=.6pt] (13.5,-3.55) -- (13.5,-.43);
+\filldraw[fill=stateTeal!12,draw=stateTeal!65,rounded corners=1.5pt]
+  (13.65,-1.19) rectangle (15.5,-.71);
+\node[small] at (14.575,-.95) {B finalize};
+\node[small,anchor=north] at (13.5,-3.72) {All B chunks joined};
+\draw[edge] (7.35,-4.5) -- (16.65,-4.5);
+\node[small,fill=white,inner sep=2pt] at (11.6,-4.5)
+  {Relative time \quad (schematic)};
+
+\draw[stateSlate!20,line width=.5pt] (0,-4.98) -- (16.8,-4.98);
+\node[anchor=west,font=\scriptsize\bfseries] at (0,-5.38) {Worksheet admission};
+\node[task,text width=3cm] (next) at (4.05,-5.55) {Next worksheet in size order};
+\node[task,text width=4.35cm,fill=stateTeal!5,draw=stateTeal!60]
+  (gate) at (8.7,-5.55) {Larger submitted chunk pending?};
+\node[task,text width=3.5cm] (action) at (14.1,-5.55)
+  {Yes: yield \quad No: claim sheet};
+\draw[edge] (next) -- (gate);
+\draw[edge] (gate) -- (action);
+\end{tikzpicture}
+\caption{Hierarchical parallelism in SheetShrink. Workbook admission bounds
+active inputs, while worksheet tasks and row-aligned chunks use the common
+Rayon pool. Matching colors connect the hierarchy to an illustrative thread
+schedule. B\,1--B\,3 belong to one worksheet and can execute on different threads.
+Their results are assembled in source order. A submitted larger chunk can defer
+a smaller worksheet. Bar lengths are schematic. Individual steal events are
+not recorded by the current work observer.}
+\label{fig:hierarchical-scheduling}
+\end{figure*}

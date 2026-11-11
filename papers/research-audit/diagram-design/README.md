@@ -157,3 +157,15 @@ grayscale reproduction. Keep status symbols distinguishable from task identity
 colors, show unknown values explicitly, and print units beside quantitative
 axes. State which observations are measured, aggregated, reused or schematic.
 Every proposed figure above can then be reviewed against its source contract.
+
+## Integrated examples
+
+The method sections now include `sheetshrink/figures/scheduling.tex`,
+`deltasieve/figures/artifact-lineage.tex` and
+`deltasieve/figures/capture-partition.tex`. Scheduling intervals and capture
+geometry are explicitly schematic. Their adjacent PDFs are standalone vector
+exports. The papers render the TikZ sources directly using manuscript fonts.
+
+Regenerate the standalone PDFs from the repository root with
+`python scripts/diagram-design/export.py --texlive D:/Alex/Programs/TeXLive`.
+The exporter keeps auxiliary files inside the selected TeX Live directory.

@@ -1,0 +1,38 @@
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}[x=1cm,y=1cm,
+  artifact/.style={rounded corners=3pt,draw=stateBlue!75,fill=stateBlue!6,
+    minimum width=1.55cm,minimum height=.7cm,inner sep=3pt,
+    font=\small,align=center},
+  op/.style={font=\scriptsize,text=stateSlate,align=center,
+    fill=white,inner sep=2pt},
+  flow/.style={-{Stealth[length=3.5pt]},draw=stateSlate!80,line width=.7pt}]
+\path[use as bounding box] (-.05,.55) rectangle (8.25,-5.75);
+\node[artifact] (raw) at (1,.05) {$W_0$\\[-1pt]\scriptsize Raw package};
+\node[artifact] (saved) at (1,-1.75) {$W_s$\\[-1pt]\scriptsize Save control};
+\node[artifact,draw=stateTeal,fill=stateTeal!9] (rebuilt) at (6.65,-1.75)
+  {$W_r$\\[-1pt]\scriptsize Rebuilt control};
+\node[artifact] (cp) at (1,-4.05) {$W_{cp}$\\[-1pt]\scriptsize Optimized control};
+\node[artifact,draw=stateTeal,fill=stateTeal!9] (cpr) at (6.65,-4.05)
+  {$W_{cpr}$\\[-1pt]\scriptsize Rebuilt optimized};
+\draw[flow] (raw) -- node[op,right=5pt] {Copy, open, Save} (saved);
+\draw[flow] (saved) -- node[op,above=5pt] {Copy, open, full rebuild, Save} (rebuilt);
+\draw[flow] (saved) -- node[op,right=5pt,text width=3.1cm]
+  {Copy, open, Optimize all,\\Save As} (cp);
+\draw[flow] (cp) -- node[op,above=5pt] {Full rebuild, Save} (cpr);
+\node[op,text width=3.1cm] at (6.35,-2.82)
+  {Compare with the corresponding\\rebuilt transformed partner};
+\draw[stateTeal!65,dashed,line width=.6pt] (rebuilt.south) -- (6.65,-2.23);
+\node[draw=stateSlate!30,fill=stateSlate!3,rounded corners=3pt,
+  text width=7.6cm,inner sep=5pt,anchor=north west,
+  font=\scriptsize,align=left] at (0,-4.85)
+  {\textbf{Reuse gate}\quad Parent identity, generation recipe and native
+  environment qualify prepared artifacts. Compatible observations of both
+  partners are still required for a comparison.};
+\end{tikzpicture}
+\caption{Attribution controls for one input branch. Each arrow names the
+operations that produce the next artifact. Rebuilding the optimized control
+continues after Save As. The transformed input has its own controls. Artifact
+reuse retains the provenance and evidence requirements of the requested state.}
+\label{fig:artifact-lineage}
+\end{figure}

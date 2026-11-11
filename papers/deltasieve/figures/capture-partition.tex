@@ -1,0 +1,61 @@
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}[x=1cm,y=1cm,
+  note/.style={font=\scriptsize,text=stateSlate,align=center},
+  flow/.style={-{Stealth[length=3pt]},draw=stateSlate!75,line width=.65pt}]
+\path[use as bounding box] (-.1,.6) rectangle (8.25,-6.2);
+\node[font=\small\bfseries,anchor=west] at (0,.3) {Selected coverage};
+\node[font=\small\bfseries,anchor=west] at (4.55,.3) {Shared leaf partition};
+% Both maps represent exactly the same selected cells, including their hole.
+\foreach \xx in {0,4.55} {
+  \fill[stateBlue!10] (\xx,0) rectangle (\xx+3.25,-2.7);
+  \fill[white] (\xx+.65,-.6) rectangle (\xx+1.3,-1.2);
+  \foreach \col in {0,...,5} {
+    \draw[stateSlate!15,line width=.3pt]
+      (\xx+\col*.65,0) -- (\xx+\col*.65,-2.7);
+  }
+  \foreach \row in {0,...,9} {
+    \draw[stateSlate!15,line width=.3pt]
+      (\xx,-\row*.3) -- (\xx+3.25,-\row*.3);
+  }
+  \draw[stateBlue!65,line width=.65pt]
+    (\xx,0) rectangle (\xx+3.25,-2.7);
+  \draw[stateSlate!55,line width=.55pt]
+    (\xx+.65,-.6) rectangle (\xx+1.3,-1.2);
+}
+\draw[flow] (3.45,-1.35) -- (4.3,-1.35);
+\fill[stateTeal!14] (4.55,-1.5) rectangle (7.8,-2.1);
+\fill[stateTeal!25] (4.55,-2.1) rectangle (7.8,-2.7);
+\draw[stateTeal,line width=.8pt] (4.55,-1.5) rectangle (7.8,-2.1);
+\draw[stateTeal,line width=.8pt] (4.55,-2.1) rectangle (7.8,-2.7);
+\node[note,fill=white,inner sep=1pt] at (6.175,-1.8) {Leaf 1};
+\node[note,fill=white,inner sep=1pt] at (6.175,-2.4) {Leaf 2};
+\node[note,fill=white,inner sep=1pt] at (2.18,-2.05) {Tall selected band};
+\node[note,anchor=north] at (1.62,-2.85) {Unselected hole stays outside coverage};
+
+\draw[stateSlate!20] (0,-3.35) -- (8,-3.35);
+\node[font=\small\bfseries,anchor=west] at (0,-3.7)
+  {Measure each candidate in every enabled state};
+\node[note,anchor=east] at (1.4,-4.25) {State A};
+\node[note,anchor=east] at (1.4,-4.85) {State B};
+\filldraw[fill=stateBlue!12,draw=stateBlue!70,rounded corners=1pt]
+  (1.65,-4.44) rectangle (3.45,-4.06);
+\node[note] at (2.55,-4.25) {Fits};
+\filldraw[fill=stateRose!12,draw=stateRose,rounded corners=1pt]
+  (1.65,-5.04) rectangle (4.7,-4.66);
+\node[note] at (3.175,-4.85) {Exceeds image budget};
+\draw[flow] (4.95,-4.85) -- (5.4,-4.85);
+\node[draw=stateTeal,fill=stateTeal!7,rounded corners=3pt,
+  text width=2.25cm,minimum height=1.05cm,font=\scriptsize,align=center]
+  at (6.75,-4.62) {Split the candidate.\\Recheck every child\\in both states.};
+\node[note,text width=7.85cm,anchor=north west,align=left] at (0,-5.48)
+  {The same cell-address leaves are captured across states. Zero-area leaves
+  retain geometry receipts. An indivisible oversized cell fails qualification.};
+\end{tikzpicture}
+\caption{Coverage-preserving adaptive capture partitioning, shown schematically.
+Coalescing retains holes. If a candidate exceeds the image budget in any enabled
+state, measured geometry drives a finer partition, which is checked again in
+every state. Cell-address coverage stays fixed while native image geometry can
+differ. Other selected regions are omitted from the lower detail.}
+\label{fig:capture-partition}
+\end{figure}
