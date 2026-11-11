@@ -73,24 +73,11 @@ account for prominent worksheet XML reductions. The contribution of column
 range merging is especially visible in Destatis. The worksheet panels exclude
 88 prepared Enron workbooks without worksheet XML observations. Workbook payload sizes use all uncompressed ZIP member sizes.
 \input{figures/corpus-distributions}
-A separate inventory of the 9,117 Data.gov inputs identified 493 workbooks
-with explicitly prefixed worksheet data elements. Experimental copies underwent
-namespace normalization followed by Default cleanup, with savings measured
-against the normalized baseline. Only two produced smaller compressed packages,
-with reductions of 6.415\% and 0.047\%. Other outputs could lose redundant cell
-records without becoming smaller as ZIP packages. The observed compressed-size
-benefit was therefore concentrated in two inputs~\cite{prefixeddataexperiment}.
-
-Earlier exploratory inspection associated prefixed serializations with generated
-exports. The subsequent inventory found a maximum row coordinate of 694,981
-across the 493 matches, within Excel's row limit. Producer attribution and
-application compatibility require additional evidence. Excel itself supports
-Strict Open XML output~\cite{excelstrictformat}. Production eligibility checks
-use bounded package-root headers and declarations encountered during streaming,
-allowing unsupported representations to be identified before native opening.
-The measured opportunity supports retaining the current parser scope and
-reporting excluded inputs explicitly, with the experimental normalized copies
-available for further investigation.
+Among 9,117 Data.gov inputs, 493 workbooks contained explicitly prefixed
+worksheet data elements. After experimental namespace normalization and Default
+cleanup, only two produced smaller compressed packages, by 6.415\% and 0.047\%
+relative to the normalized baseline. Cell-record removal in other outputs did
+not reduce package size~\cite{prefixeddataexperiment}.
 
 Corpus-driven development exposed both recognition and preservation defects.
 The Data.gov attributed-value failure is described in the method, and the

@@ -25,6 +25,9 @@ rewriting, compression and retained analysis structures all contribute to peak
 memory. The supported input domain is normal unprefixed Transitional
 SpreadsheetML. Unsupported namespaces, encodings and ambiguous core structures
 follow explicit preservation or exclusion paths~\cite{sheetshrinkcontract}.
+Eligibility checks inspect bounded package-root headers and declarations
+encountered during streaming to identify unsupported representations before
+native opening.
 
 Figure~\ref{fig:worksheet-states} makes the worksheet preprocessor's control
 states explicit. The dispatcher separates column, cell and merge contexts.
