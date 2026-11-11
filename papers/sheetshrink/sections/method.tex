@@ -32,31 +32,27 @@ check element boundaries, quoted attributes, empty elements and incomplete input
 Established SAX and DOM parsers provide extensively tested syntax handling.
 Memory-safe code can still misclassify content and produce an incorrect workbook.
 
-Our development history supplies a concrete example. A Data.gov workbook used
-\texttt{<v xml:space="preserve">} for visible string values. A scanner recognizing
-only the literal \texttt{<v>} classified these cells as empty and removed a heading
-and other strings. The correction recognizes valid element-name delimiters and
-retains attributed value and inline-string elements. Negative controls reject
-longer lookalike names such as \texttt{<value>}~\cite{attributedvaluefix}.
-A separate defined-name regression ensures that a self-closing element cannot
-consume the following paired element during replacement~\cite{definednamefix}.
+A Data.gov workbook exposed a parsing error. Its visible strings used
+\texttt{<v xml:space="preserve">}. The scanner recognized only \texttt{<v>},
+misclassified these cells as empty and removed a heading and other strings. It now
+accepts valid element-name delimiters and retains value and inline-string elements
+with attributes. Tests reject lookalike names such as
+\texttt{<value>}~\cite{attributedvaluefix}. Another regression test checks that
+replacing a self-closing defined-name element leaves the following paired element
+intact~\cite{definednamefix}.
 
-The worksheet stream must reach its
-closing state before output publication. An incomplete parse raises an error,
-removes partial output and preserves any existing destination. Integration
-fixtures exercise this failure after another worksheet has already been
-processed~\cite{incompleteparsefix}. Streaming diagnostics additionally test
-comments, CDATA, quotes, nesting limits and source offsets across every input
-chunk size of their small fixtures.
+SheetShrink publishes output only after parsing reaches the worksheet end. An
+incomplete parse raises an error, deletes partial output and leaves any existing
+destination unchanged. Integration tests cover failure after another worksheet has
+been processed~\cite{incompleteparsefix}. Small fixtures test comments, CDATA,
+quotes, nesting limits and source offsets at every input chunk size.
 
-At the time of writing, 31 correctness tests in the dedicated XML, namespace,
-shared-string, range, defined-name and streaming-reader modules exercise parsing
-and recognition behavior. A further 155 correctness tests in the cell, row and
-tail suites cover preservation witnesses, inheritance masks and content
-boundaries. Additional tests cover dependencies, styles, output construction and
-execution behavior. Counts refer to test functions, with parameterized fixture
-iterations counted once. The artifact records the source revision, test paths
-and counting criteria.
+At the time of writing, 31 tests cover XML parsing, namespaces, shared strings,
+ranges, defined names and streaming readers. Another 155 tests cover cell, row and
+tail preservation, including inherited formatting and content boundaries. Further
+tests cover dependencies, styles, output construction and execution. Each test
+function counts once, including parameterized tests. The artifact documents the
+revision, test paths and counting criteria.
 
 \subsection{Effects and compact preservation witnesses}
 A numeric value, formula or inline string is content. In particular, zero and a
