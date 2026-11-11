@@ -55,15 +55,16 @@ check, but a failed capture cannot contribute an equality observation. The full
 recursive Enron XML-derived corpus is a separately identified population.
 
 \subsection{Cleanup screening outcomes}
-The ranking runs produced 1,182 Destatis, 8,623 Data.gov, and 30,301
+Fresh release-build runs produced 1,182 Destatis, 8,623 Data.gov, and 30,301
 prepared Enron XLSX outputs. Across those outputs, aggregate compressed
-file bytes fell by 15.48\%, 5.29\%, and 18.92\%, respectively.
+file bytes fell by 15.48\%, 5.27\%, and 18.87\%, respectively.
 The smaller, equal-size, and larger output counts were
-1,045/30/107 for Destatis, 4,805/3,477/341 for Data.gov, and
-21,639/8,341/321 for Enron. Equal size alone does not imply identical
-bytes. Data.gov also had 494 unsupported-namespace skips. Its output
-counts combine seven recovered results with a retry whose telemetry
-ended in a run-level failure, so we omit a Data.gov screening time.
+1,045/30/107 for Destatis, 4,755/3,522/346 for Data.gov, and
+21,565/8,415/321 for Enron. Hash checks confirmed byte identity for all
+equal-size outputs in these runs. Data.gov also had 494 unsupported-namespace
+skips. With sixteen workbook slots and sixteen Rayon threads, elapsed times
+were 119.7, 1,134.5, and 181.6\,s, respectively, including analysis statistics
+and full replay events alongside concurrent native validation~\cite{corpusdistributions}.
 These descriptive results include files that grew and use only processed
 input bytes as the denominator. Enron's denominator begins after
 preparation. Visual preservation is evaluated separately.
