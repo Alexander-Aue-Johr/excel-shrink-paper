@@ -19,8 +19,14 @@ def main():
                         help="Restrict each host/corpus group to input identities shared by its tools")
     parser.add_argument("--receipts", type=Path, nargs="+",
                         help="Complete per-tool selection receipts for outcome counts")
+    parser.add_argument("--cohort-pairs", type=Path, nargs="+",
+                        help="Restrict input hashes to the intersection of these reference pair files")
     args = parser.parse_args()
     rows = read_pairs(args.pairs)
+    if args.cohort_pairs:
+        cohorts = [{row["input_sha256"] for row in read_pairs([path])} for path in args.cohort_pairs]
+        cohort = set.intersection(*cohorts)
+        rows = [row for row in rows if row["input_sha256"] in cohort]
     if args.common_inputs:
         rows = shared_input_pairs(rows)
     outcomes = read_outcomes(args.receipts, rows) if args.receipts else None
@@ -126,7 +132,7 @@ def draw_comparison(rows, output, outcomes=None):
     plt.rcParams.update({"font.family": "DejaVu Sans", "font.size": 8,
                          "pdf.fonttype": 42, "svg.fonttype": "none"})
     figure, axes = plt.subplots(1, 3 if outcomes else 2,
-                                figsize=(7.15, 1.8 + 0.50 * len(groups)),
+                                figsize=(7.15, 1.8 + 0.42 * len(groups)),
                                 gridspec_kw={"width_ratios": [1, 1, 0.85]} if outcomes else None)
     labels = []
     for position, group in enumerate(groups):
@@ -143,8 +149,8 @@ def draw_comparison(rows, output, outcomes=None):
             host_label = {"LAPTOP-H86KBIH3": "Lenovo", "LV-ANB-001P-BS": "HP"}.get(group[0], group[0])
             label = f"{host_label} · {label}"
         labels.append(label)
-        draw_time_summary(axes[0], position - 0.09, original, marker, color, 7)
-        draw_time_summary(axes[0], position + 0.09, cleaned, "o", "#0072B2", -10)
+        draw_time_summary(axes[0], position - 0.09, original, marker, color, 5)
+        draw_time_summary(axes[0], position + 0.09, cleaned, "o", "#0072B2", -7)
         jitter = np.linspace(-0.17, 0.17, len(ratios))
         np.random.default_rng(20261110).shuffle(jitter)
         if group[1] == "Inquire":
@@ -175,7 +181,7 @@ def draw_comparison(rows, output, outcomes=None):
         axes[0].scatter([], [], color=color, marker=marker, label=name)
     axes[0].scatter([], [], color="#0072B2", marker="o", label="Sheet Shrink")
     figure.legend(*axes[0].get_legend_handles_labels(), frameon=False, loc="upper left",
-                  bbox_to_anchor=(0.20, 0.93), ncol=len(tool_names) + 1, fontsize=7)
+                  bbox_to_anchor=(0.10, 0.93), ncol=3, fontsize=7)
     figure.text(0.02, 0.025, "Absolute times show workbook medians and quartiles. Ratio dots represent paired workbooks.\n"
                 "Black diamonds/lines: median/IQR. Inquire dots: filled NVMe, hollow USB, x unrecorded; Sheet Shrink on NVMe.\n"
                 "One primary comparator attempt. Sheet Shrink: Lenovo 9 repetitions; HP 7–11. Visual validation separate.", fontsize=6.8)

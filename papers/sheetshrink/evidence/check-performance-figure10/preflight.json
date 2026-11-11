@@ -1,0 +1,223 @@
+{
+  "verified_originals": 110,
+  "cohort_source": "SHA-256 intersection of the two paired CSV files",
+  "excel_version": "16.0.20527.20150",
+  "excel_sha256": "0e4dcf0e9d66fb198e13c610fe3b4bcaa3ce0e771afe1489ffd154b9d72adf35",
+  "runner": "C:\\Users\\saue1\\SheetShrink-CP-Queue-20261110\\excel-check-performance.exe",
+  "runner_sha256": "f93a07dea1d987200724a0a023fa5e36884c8769dced4b19bf5dba8b7efc0fab",
+  "prior_check_performance": {
+    "inspected_check_performance_receipts": 102,
+    "same_input_candidates": []
+  },
+  "sheetshrink_baselines": 110,
+  "sheetshrink_evidence": "C:\\Repos\\excel-shrink-paper\\papers\\sheetshrink\\evidence",
+  "sheetshrink_environment": {
+    "machine": {
+      "host_id": "LAPTOP-H86KBIH3",
+      "cpu": "AMD Ryzen 5 4500U with Radeon Graphics",
+      "physical_cores": 6,
+      "logical_processors": 6,
+      "os": "Microsoft Windows 11 Home",
+      "os_version": "10.0.26200",
+      "os_build": "26200",
+      "manufacturer": "LENOVO",
+      "model": "81YQ",
+      "storage": {
+        "Model": "SAMSUNG MZALQ512HALU-000L2",
+        "Size": 512105932800
+      },
+      "power_scheme": "GUID des Energieschemas: 8d264fcd-0aa9-49ac-b4e8-62aab04be7b9  (Energy Star)",
+      "captured_utc": "2026-11-10T16:55:09.7022981Z",
+      "os_visible_ram_bytes": 7909199872,
+      "installed_ram_bytes": 8589934592.0,
+      "memory_modules": [
+        {
+          "Capacity": 4294967296,
+          "Speed": 3200,
+          "ConfiguredClockSpeed": 3200
+        },
+        {
+          "Capacity": 4294967296,
+          "Speed": 3200,
+          "ConfiguredClockSpeed": 3200
+        }
+      ]
+    },
+    "storage": {
+      "FriendlyName": "SAMSUNG MZALQ512HALU-000L2",
+      "MediaType": "SSD",
+      "BusType": "NVMe",
+      "Size": 512110190592
+    },
+    "office-and-power": {
+      "excel_version": "16.0.20527.20150",
+      "battery": {
+        "BatteryStatus": 2,
+        "EstimatedChargeRemaining": 100
+      }
+    },
+    "build": {
+      "revision": "765c4802722d15fa6ce55281cde9880a50c73452",
+      "branch": "codex/datagov-validation-watch",
+      "build_command": "cargo build --release --locked -p sheetshrink",
+      "binary_sha256": "67837e2ed823a925a8321339a25a5875ab8ca280d0b6f3d2215cfb62b16cada4",
+      "cargo_lock_sha256": "2a6feb67bc1c775c717a1b7334894af0f8a8e448365503e618ef2d57fcb5fd90"
+    },
+    "python": {
+      "version": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+      "platform": "Windows-11-10.0.26200-SP0"
+    },
+    "protocol": {
+      "schema_version": 1,
+      "selection_sha256": "d36a38847b94da059b79f716f87248a71d9debe8c50b78cb9914c8c329f8e23a",
+      "binary_sha256": "67837e2ed823a925a8321339a25a5875ab8ca280d0b6f3d2215cfb62b16cada4",
+      "binary": "C:\\Users\\saue1\\ssh-transfer\\Top49-Missing-Variants-20261110\\sheetshrink-top49-repeated\\bin\\sheetshrink.exe",
+      "metrics_helper_sha256": "cfd743742def55e083e1407c95ddf7f050e398da3ca2d7fd937839f86920926e",
+      "warmup_rounds": 1,
+      "measured_rounds": 9,
+      "order": "independently shuffled rounds with seed 20261110 + round",
+      "cache": "warm filesystem cache, no cache eviction",
+      "wall_scope": "fresh CLI process creation through exit, output hashing excluded",
+      "parallelism": "one workbook, one Rayon worker, one writer",
+      "cleanup_policy": "default",
+      "timeout_seconds": 600,
+      "memory_sampling_seconds": 0.01,
+      "host_id": "LAPTOP-H86KBIH3"
+    },
+    "execution_script_sha256": "7c39829a47272f3f874b2afd2cc72d64470c70ffb8615d041f3c3c5c5b65ece4",
+    "metrics_helper_sha256": "cfd743742def55e083e1407c95ddf7f050e398da3ca2d7fd937839f86920926e",
+    "counts": {
+      "inputs": 147,
+      "warmup_invocations": 147,
+      "measured_invocations": 1323,
+      "successful_invocations": 1470,
+      "nxpowerlite_paired_workbooks": 133,
+      "xlstyles_paired_workbooks": 122,
+      "joint_plot_workbooks": 110
+    }
+  },
+  "reserve_mib": 512,
+  "timeout_seconds": 600,
+  "current_load": [
+    {
+      "Name": "Memory Compression",
+      "Id": 3436,
+      "CPU": null,
+      "WorkingSet64": 726814720
+    },
+    {
+      "Name": "MsMpEng",
+      "Id": 4944,
+      "CPU": null,
+      "WorkingSet64": 276475904
+    },
+    {
+      "Name": "ChatGPT",
+      "Id": 15352,
+      "CPU": 2341.421875,
+      "WorkingSet64": 273076224
+    },
+    {
+      "Name": "ChatGPT",
+      "Id": 10080,
+      "CPU": 300.40625,
+      "WorkingSet64": 242565120
+    },
+    {
+      "Name": "explorer",
+      "Id": 2936,
+      "CPU": 61.28125,
+      "WorkingSet64": 202579968
+    },
+    {
+      "Name": "codex",
+      "Id": 14388,
+      "CPU": 162.640625,
+      "WorkingSet64": 170201088
+    },
+    {
+      "Name": "Taskmgr",
+      "Id": 20008,
+      "CPU": 1097.59375,
+      "WorkingSet64": 150249472
+    },
+    {
+      "Name": "WhatsApp.Root",
+      "Id": 11032,
+      "CPU": 19.5,
+      "WorkingSet64": 133496832
+    },
+    {
+      "Name": "MicrosoftSecurityApp",
+      "Id": 17652,
+      "CPU": 17.6875,
+      "WorkingSet64": 119799808
+    },
+    {
+      "Name": "ChatGPT",
+      "Id": 12760,
+      "CPU": 28.46875,
+      "WorkingSet64": 118611968
+    },
+    {
+      "Name": "copilotapphost",
+      "Id": 18552,
+      "CPU": 2.875,
+      "WorkingSet64": 98107392
+    },
+    {
+      "Name": "ChatGPT",
+      "Id": 13020,
+      "CPU": 1062.75,
+      "WorkingSet64": 98029568
+    },
+    {
+      "Name": "chrome",
+      "Id": 20196,
+      "CPU": 30.15625,
+      "WorkingSet64": 89337856
+    },
+    {
+      "Name": "pwsh",
+      "Id": 12188,
+      "CPU": 0.578125,
+      "WorkingSet64": 87154688
+    },
+    {
+      "Name": "ChatGPT",
+      "Id": 10656,
+      "CPU": 8.671875,
+      "WorkingSet64": 84348928
+    }
+  ],
+  "host_configuration": {
+    "cpu": {
+      "Name": "AMD Ryzen 5 4500U with Radeon Graphics         ",
+      "NumberOfCores": 6,
+      "NumberOfLogicalProcessors": 6
+    },
+    "ram_bytes": 8589934592.0,
+    "host": "LAPTOP-H86KBIH3",
+    "windows": {
+      "Caption": "Microsoft Windows 11 Home",
+      "Version": "10.0.26200",
+      "BuildNumber": "26200"
+    },
+    "storage": [
+      {
+        "FriendlyName": "SAMSUNG MZALQ512HALU-000L2",
+        "MediaType": "SSD",
+        "BusType": "NVMe",
+        "Size": 512110190592
+      }
+    ],
+    "system_volume": {
+      "DriveLetter": "C",
+      "Size": 510770802688,
+      "SizeRemaining": 87028658176,
+      "FileSystem": "NTFS"
+    },
+    "power_scheme": "GUID des Energieschemas: 8d264fcd-0aa9-49ac-b4e8-62aab04be7b9  (Energy Star)"
+  },
+  "options": "Dedicated private desktop; one fresh Excel per original; manual calculation; macros, events, alerts, AutoRecover and link updates disabled; workbook Optimize All when offered; saved controls and final XLSX."
+}

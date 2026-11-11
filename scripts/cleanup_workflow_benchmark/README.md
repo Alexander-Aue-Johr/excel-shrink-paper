@@ -97,3 +97,9 @@ The Inquire lane uses the frozen shared 110-input cohort and retains its own
 host, repetition counts, workflow endpoints and historical storage conditions.
 Partial attempts have a separate status category. Storage markers distinguish
 NVMe, USB and incompletely recorded historical roots.
+
+For Check Performance, run `export_check_performance.py`. Add
+`top49-check-performance-pairs.csv` and `top49-check-performance-receipts.json.gz`
+to the respective plot inputs. Use `--cohort-pairs` with the original NXPowerLite
+and XLStylesTool pair CSVs instead of `--common-inputs` to freeze the original
+110-input cohort and retain each tool's available successful subset.

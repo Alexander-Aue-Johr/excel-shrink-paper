@@ -1,0 +1,18 @@
+{
+  "sqlite_integrity": "ok",
+  "primaries": 110,
+  "primary_status": {
+    "successful": 102,
+    "failed": 7,
+    "partial": 1
+  },
+  "originals_rehashed": 110,
+  "original_mismatches": [],
+  "outputs_rechecked": 103,
+  "output_mismatches": [],
+  "complete_owned_excel_cpu_records": 102,
+  "successful_median_actual_sample_interval_seconds": 0.25090335540334857,
+  "diagnostic_status": "successful",
+  "diagnostic_output_rechecked": true,
+  "diagnostic_matches_primary_partial_output_sha256": false
+}

@@ -54,6 +54,26 @@ each plotted corpus group. The larger individual receipt sets remain available
 in the artifact. Table~\ref{tab:top49-resources} retains the full 133-input
 NXPowerLite resource lane.
 
+Check Performance uses Excel 16.0.20527.20150 on the Lenovo host, with one
+owned private-desktop Excel worker per input. Among the same 110 originals,
+102 primary workflows completed (86 confirmed Optimize All actions and sixteen
+no-optimization-needed outcomes), one was partial and seven failed, including
+one timeout. Complete outcomes comprise 21 Destatis, 36 Enron and 45 Data.gov
+inputs. The partial attempt saved an output before a progress-record replacement
+failed; its successful diagnostic retry remains separate from primary statistics.
+All original hashes matched before and after processing.
+
+Check Performance wall time covers native-wrapper startup through exit,
+including control saves, optimization, artifact creation and shutdown. Input
+staging and independent hashing are excluded. Optimization and its associated
+saves share one phase; their individual times are unavailable. Excel-only CPU
+was retained through exit for all complete primaries, with working set and
+private bytes sampled at a median mean interval of 251 ms. All 990 reused Lenovo
+Sheet Shrink measurements list a concurrent Check Performance runner process;
+these snapshots do not establish whether it was active. The median descriptive
+workflow ratios are 20.19, 22.75 and 4.84 for Destatis, Enron and Data.gov.
+Background-load uncertainty and different endpoints qualify these ratios.
+
 The Inquire lane uses an HP EliteBook 645 G11 with an AMD Ryzen 5 PRO 7535U
 (six physical cores, twelve logical processors), 32 GiB installed RAM,
 a 512 GB SOLIDIGM NVMe SSD and Windows 11 Enterprise build 26200.9711.
@@ -86,7 +106,7 @@ scheme and background workload. No comparator Excel process ran concurrently
 with these timed Sheet Shrink trials.
 
 \paragraph{Timing and resources}
-Each included Lenovo GUI observation has one primary timing measurement per input. Its operational cost
+Each NXPowerLite and XLStylesTool observation has one primary timing measurement per input. Its operational cost
 limits replication, and its timing variability therefore remains unestimated.
 Diagnostic retries remain separate attempts. Elapsed time covers automated GUI
 orchestration through output confirmation and initial package verification.
@@ -127,14 +147,15 @@ their own readiness endpoints, as in the separate historical opening experiment.
 \centering
 \includegraphics[width=\textwidth]{figures/paired-cleanup-workflows.pdf}
 \caption{Observed cleanup workflows paired with same-host Sheet Shrink trials.
-Lenovo groups use the shared 110-input NXPowerLite/XLStylesTool cohort; HP groups
-show the 90 complete Inquire pairs from that cohort. Left, absolute times with
+NXPowerLite and XLStylesTool use the shared 110-input cohort. Check Performance
+and Inquire show its 102 and 90 complete primary pairs, respectively. Left, absolute times with
 across-workbook quartiles. Middle, workbook-level workflow ratios, with black
 median/IQR marks. Inquire points distinguish historical local NVMe (filled),
 USB SSD (hollow) and incompletely recorded storage (cross); all HP Sheet Shrink
 trials used NVMe. Different storage, workflow boundaries, builds and worker
 counts qualify these descriptive ratios. Right, selection outcomes include all
-49 inputs per corpus for Lenovo tools and 21/41/48 for HP Inquire, including
+49 inputs per corpus for NXPowerLite/XLStylesTool and 21/41/48 for Check
+Performance and Inquire, including
 partial attempts. Other eligible inputs lack a paired-tool counterpart.
 Incomplete receipts do not imply conversion failure. Timing eligibility does
 not establish native visual equivalence.}

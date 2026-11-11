@@ -1,0 +1,29 @@
+{
+  "cpu": {
+    "Name": "AMD Ryzen 5 4500U with Radeon Graphics         ",
+    "NumberOfCores": 6,
+    "NumberOfLogicalProcessors": 6
+  },
+  "ram_bytes": 8589934592.0,
+  "host": "LAPTOP-H86KBIH3",
+  "windows": {
+    "Caption": "Microsoft Windows 11 Home",
+    "Version": "10.0.26200",
+    "BuildNumber": "26200"
+  },
+  "storage": [
+    {
+      "FriendlyName": "SAMSUNG MZALQ512HALU-000L2",
+      "MediaType": "SSD",
+      "BusType": "NVMe",
+      "Size": 512110190592
+    }
+  ],
+  "system_volume": {
+    "DriveLetter": "C",
+    "Size": 510770802688,
+    "SizeRemaining": 87028658176,
+    "FileSystem": "NTFS"
+  },
+  "power_scheme": "GUID des Energieschemas: 8d264fcd-0aa9-49ac-b4e8-62aab04be7b9  (Energy Star)"
+}
