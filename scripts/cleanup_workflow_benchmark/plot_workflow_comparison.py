@@ -21,6 +21,8 @@ def main():
                         help="Complete per-tool selection receipts for outcome counts")
     parser.add_argument("--cohort-pairs", type=Path, nargs="+",
                         help="Restrict input hashes to the intersection of these reference pair files")
+    parser.add_argument("--single-column", action="store_true",
+                        help="Group tools by corpus in two compact timing panels")
     args = parser.parse_args()
     rows = read_pairs(args.pairs)
     if args.cohort_pairs:
@@ -30,7 +32,10 @@ def main():
     if args.common_inputs:
         rows = shared_input_pairs(rows)
     outcomes = read_outcomes(args.receipts, rows) if args.receipts else None
-    draw_comparison(rows, args.output, outcomes)
+    if args.single_column:
+        draw_single_column(rows, args.output)
+    else:
+        draw_comparison(rows, args.output, outcomes)
 
 
 def read_pairs(paths):
@@ -203,6 +208,72 @@ def draw_time_summary(axis, position, values, marker, color, label_offset):
     axis.scatter(middle, position, color=color, marker=marker, s=24, zorder=3)
     axis.annotate(f"{middle:.2g} s", (middle, position), xytext=(4, label_offset),
                   textcoords="offset points", fontsize=7, color=color)
+
+
+def draw_single_column(rows, output):
+    tools = ["NXPowerLite", "XLStylesTool", "Check Performance", "Inquire"]
+    styles = dict(zip(tools, zip(["s", "^", "v", "D"],
+                                ["#D55E00", "#009E73", "#E69F00", "#CC79A7"])))
+    plt.rcParams.update({"font.family": "DejaVu Sans", "font.size": 7,
+                         "pdf.fonttype": 42, "svg.fonttype": "none"})
+    figure, axes = plt.subplots(1, 2, figsize=(3.5, 4.35))
+    positions, labels = [], []
+    for corpus_index, (corpus, title) in enumerate(
+            (("destatis", "Destatis"), ("enron", "Enron"), ("datagov", "Data.gov"))):
+        heading = corpus_index * 5
+        axes[0].text(-1.05, heading, title, transform=axes[0].get_yaxis_transform(),
+                     fontweight="bold", fontsize=7, va="center", clip_on=False)
+        for tool_index, tool in enumerate(tools):
+            selected = [r for r in rows if r["corpus"] == corpus and r["comparator"] == tool]
+            if not selected:
+                continue
+            position = heading + tool_index + 1
+            positions.append(position)
+            labels.append(f"{tool} ({len(selected)})")
+            marker, color = styles[tool]
+            times = np.array([r["comparator_seconds"] for r in selected])
+            baseline = np.array([r["sheetshrink_seconds"] for r in selected])
+            for values, offset, symbol, ink in ((times, -0.13, marker, color),
+                                                 (baseline, 0.13, "o", "#0072B2")):
+                q1, median, q3 = np.percentile(values, [25, 50, 75])
+                axes[0].plot([q1, q3], [position + offset] * 2, color=ink, linewidth=1)
+                axes[0].scatter(median, position + offset, s=15, marker=symbol, color=ink)
+            ratios = times / baseline
+            jitter = np.linspace(-0.2, 0.2, len(selected))
+            np.random.default_rng(20261110).shuffle(jitter)
+            for i, row in enumerate(selected):
+                storage = row.get("historical_storage", "")
+                unknown = storage == "legacy_storage_not_fully_recorded"
+                axes[1].scatter(ratios[i], position + jitter[i], s=9,
+                                marker="x" if unknown else marker,
+                                facecolors="none" if storage == "D_USB_root" else color,
+                                linewidths=0.5, alpha=0.55,
+                                **({} if unknown else {"edgecolors": color}))
+            q1, median, q3 = np.percentile(ratios, [25, 50, 75])
+            axes[1].plot([q1, q3], [position] * 2, color="black", linewidth=1.5)
+            axes[1].scatter(median, position, s=12, marker="D", color="black")
+    for axis in axes:
+        axis.set_xscale("log")
+        axis.set_ylim(15, -0.6)
+        axis.grid(axis="x", which="major", color="#dddddd", linewidth=0.5)
+        axis.set_axisbelow(True)
+        axis.tick_params(axis="both", labelsize=6.5)
+        axis.tick_params(axis="y", length=0)
+        for side in ("left", "right", "top"):
+            axis.spines[side].set_visible(False)
+    axes[0].set_yticks(positions, labels)
+    axes[1].set_yticks(positions, [""] * len(positions))
+    axes[0].set_xlabel("Workflow time (s)", fontsize=7)
+    axes[1].set_xlabel("Tool / Sheet Shrink", fontsize=7)
+    axes[1].axvline(1, color="#999999", linestyle="--", linewidth=0.7)
+    axes[0].scatter([], [], marker="o", color="#0072B2", s=15, label="Sheet Shrink")
+    figure.legend(*axes[0].get_legend_handles_labels(), loc="upper right",
+                  bbox_to_anchor=(1, 1), ncol=2, frameon=False, fontsize=6.5)
+    figure.subplots_adjust(left=0.34, right=0.99, top=0.91, bottom=0.10, wspace=0.28)
+    output.parent.mkdir(parents=True, exist_ok=True)
+    figure.savefig(output)
+    figure.savefig(output.with_suffix(".png"), dpi=250)
+    plt.close(figure)
 
 
 def format_axes(axes, labels):

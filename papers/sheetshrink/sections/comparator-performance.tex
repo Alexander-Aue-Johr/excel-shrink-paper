@@ -141,21 +141,16 @@ their own readiness endpoints, as in the separate historical opening experiment.
 
 \input{evidence/top49-performance-results}
 
-\begin{figure*}[t]
+\begin{figure}[t]
 \centering
-\includegraphics[width=\textwidth]{figures/paired-cleanup-workflows.pdf}
-\caption{Observed cleanup workflows paired with same-host Sheet Shrink trials.
-NXPowerLite and XLStylesTool use the shared 110-input cohort. Check Performance
-and Inquire show its 102 and 90 complete primary pairs, respectively. Left, absolute times with
-across-workbook quartiles. Middle, workbook-level workflow ratios, with black
-median/IQR marks. Inquire points distinguish historical local NVMe (filled),
-USB SSD (hollow) and incompletely recorded storage (cross); all HP Sheet Shrink
-trials used NVMe. Different storage, workflow boundaries, builds and worker
-counts qualify these descriptive ratios. Right, selection outcomes include all
-49 inputs per corpus for NXPowerLite/XLStylesTool and 21/41/48 for Check
-Performance and Inquire, including
-partial attempts. Other eligible inputs lack a paired-tool counterpart.
-Incomplete receipts do not imply conversion failure. Timing eligibility does
-not establish native visual equivalence.}
+\includegraphics[width=\columnwidth]{figures/paired-cleanup-workflows.pdf}
+\caption{Cleanup workflows grouped by corpus; parentheses give complete pair
+counts. Inquire uses the HP host; the other comparators use the Lenovo host,
+each paired with its same-host Sheet Shrink baseline. Left, median and IQR of
+absolute times. Right, workbook ratios with black median/IQR marks.
+Inquire points mark NVMe (filled), USB SSD (hollow) and unknown storage (cross);
+all paired Sheet Shrink trials use NVMe. Storage, worker counts and workflow
+endpoints differ as described in the setup. Failures and partial outcomes are
+reported in the text.}
 \label{fig:paired-cleanup-workflows}
-\end{figure*}
+\end{figure}

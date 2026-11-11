@@ -103,3 +103,8 @@ For Check Performance, run `export_check_performance.py`. Add
 to the respective plot inputs. Use `--cohort-pairs` with the original NXPowerLite
 and XLStylesTool pair CSVs instead of `--common-inputs` to freeze the original
 110-input cohort and retain each tool's available successful subset.
+
+The manuscript uses `--single-column` for a corpus-grouped two-panel figure.
+It retains the complete-pair counts in row labels and historical Inquire
+storage markers. Selection outcome totals remain in the manuscript setup and
+receipt inventories. Omit the flag to reproduce the wider outcome-panel view.
