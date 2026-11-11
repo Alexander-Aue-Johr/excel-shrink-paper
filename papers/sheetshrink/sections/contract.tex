@@ -13,11 +13,10 @@ The contract permits layout changes in empty trailing rows or columns. Changes
 that move or alter relevant content remain subject to validation.
 
 \subsection{Information available before native loading}
-The cleanup decision uses stored values, formulas, styles, references and layout
-attributes. Native effective row heights and candidate before/after images are
-available only in the separate validation workflow. Stored custom heights can
-be retained directly. For automatically sized rows, a font-bearing blank can
-still require a representative even when its payload is empty.
+Cleanup uses stored values, formulas, styles, references and layout attributes.
+Native row heights and before/after images are available only in the separate
+validation workflow. Explicit custom heights can be retained directly. For
+automatic heights, an empty cell's font can require a retained representative.
 
 An Excel-hosted alternative could measure a row, remove candidates and write the
 measured height as an explicit custom height. SpreadsheetML provides a
