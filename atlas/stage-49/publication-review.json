@@ -4,7 +4,7 @@
     "Review workbook names, cell values, formulas, screenshots, and source-corpus distribution terms.",
     "Scientific reports and integrity manifests are preserved without automatic redaction."
   ],
-  "metadata_finding_count": 408,
+  "metadata_finding_count": 410,
   "metadata_findings": [
     {
       "category": "sensitive_metadata_field",
@@ -788,6 +788,11 @@
     },
     {
       "category": "sensitive_metadata_field",
+      "file": "atlas-data/647773b04b28c410468f9c76a1828265fe531f064573e52827a6dc80eb36b0ac.json.gz",
+      "pointer": "/validation_signature/environment_key"
+    },
+    {
+      "category": "sensitive_metadata_field",
       "file": "atlas-data/64a5a1b96b273ed073cdec19889e185459c1707257d78125add4923063e4a3e0.json.gz",
       "pointer": "/validation_signature/environment_key"
     },
@@ -1458,6 +1463,11 @@
     },
     {
       "category": "sensitive_metadata_field",
+      "file": "atlas-data/b75a1b466d429ac430891396ae42c0d7fd75d0de46e7f2c32e965f6278bc5681.json.gz",
+      "pointer": "/validation_signature/environment_key"
+    },
+    {
+      "category": "sensitive_metadata_field",
       "file": "atlas-data/b893015f6b6ed167cadf7b9868dcb2a449104e23e8b683a57e65af4b31c94351.json.gz",
       "pointer": "/validation_signature/environment_key"
     },
@@ -2048,8 +2058,8 @@
     }
   ],
   "metadata_findings_truncated": false,
-  "scanned_embedded_reports": 408,
-  "scanned_json_files": 818,
+  "scanned_embedded_reports": 410,
+  "scanned_json_files": 822,
   "status": "publication_review_required",
   "version": 1
 }

@@ -511,6 +511,15 @@
           "source_value_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
         }
       ],
+      "observation": "647773b04b28c410468f9c76a1828265fe531f064573e52827a6dc80eb36b0ac"
+    },
+    {
+      "metadata_omissions": [
+        {
+          "pointer": "/errors",
+          "source_value_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        }
+      ],
       "observation": "cd7711fe786eeb64e96d81d324e4c5bfb735cf444e958447a86e8e08fcccfdc9"
     },
     {
@@ -1124,6 +1133,15 @@
         }
       ],
       "observation": "f6cb79385b5b958936f0bb7973e950609bfa462737e37a4b2d8fe1e7c06c61f6"
+    },
+    {
+      "metadata_omissions": [
+        {
+          "pointer": "/errors",
+          "source_value_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        }
+      ],
+      "observation": "b75a1b466d429ac430891396ae42c0d7fd75d0de46e7f2c32e965f6278bc5681"
     },
     {
       "metadata_omissions": [
@@ -7927,6 +7945,84 @@
       "source_report_sha256": "16cf7826c46890cd938f348adc54e95080e47400f221c8dd078bf5dc7beaf448"
     },
     {
+      "detail": "atlas-data/647773b04b28c410468f9c76a1828265fe531f064573e52827a6dc80eb36b0ac.json.gz",
+      "metadata_omissions": [
+        {
+          "pointer": "/report/excel_pids",
+          "source_value_sha256": "55712058e4c5189e7aa77df66f2951f2c71e095632ea593aa732e54895f81eed"
+        },
+        {
+          "pointer": "/report/portable_report/source_report",
+          "source_value_sha256": "451a884b2f650e04f633bf7eeb85ec438ca310eeca276f3ffca40a7a677cb192"
+        },
+        {
+          "pointer": "/report/transitions/0/after_file",
+          "source_value_sha256": "a171ec0b018ced495c96896eaa70fde73feb361351499b7f083faee9107fa55f"
+        },
+        {
+          "pointer": "/report/transitions/0/before_file",
+          "source_value_sha256": "61738c1abe6a6f8456739506830393ae38fe02da7fe6bc81d00f386a6a2a578b"
+        },
+        {
+          "pointer": "/report/transitions/0/changes_file",
+          "source_value_sha256": "2293c3d07240c5ed0759e5039f373748513a67efe24a2deddf9ad32f6011af7f"
+        },
+        {
+          "pointer": "/report/transitions/1/after_file",
+          "source_value_sha256": "4db3c3225dcd13e64ad902eee6f7671ab9f75a4ff8ee7bba79206f13a2faf899"
+        },
+        {
+          "pointer": "/report/transitions/1/before_file",
+          "source_value_sha256": "61738c1abe6a6f8456739506830393ae38fe02da7fe6bc81d00f386a6a2a578b"
+        },
+        {
+          "pointer": "/report/transitions/1/changes_file",
+          "source_value_sha256": "379750244170c4dacb536c32568a32a5d6a84e4adbfc744665ff238393dd6ca8"
+        },
+        {
+          "pointer": "/report/transitions/2/after_file",
+          "source_value_sha256": "738c25f367cfe6af90a9a40f5538fffcf5ea85f384f9a736c6200147cdb89f2b"
+        },
+        {
+          "pointer": "/report/transitions/2/before_file",
+          "source_value_sha256": "4db3c3225dcd13e64ad902eee6f7671ab9f75a4ff8ee7bba79206f13a2faf899"
+        },
+        {
+          "pointer": "/report/transitions/2/changes_file",
+          "source_value_sha256": "9f32b89f2288d6240907ce00109b3b11b197d362e273c12e320ea00cc1128efb"
+        },
+        {
+          "pointer": "/report/transitions/3/after_file",
+          "source_value_sha256": "ba328ac453cdc682821d96b9cb62453abb2174493461700e46fec99fadfd8cca"
+        },
+        {
+          "pointer": "/report/transitions/3/before_file",
+          "source_value_sha256": "a171ec0b018ced495c96896eaa70fde73feb361351499b7f083faee9107fa55f"
+        },
+        {
+          "pointer": "/report/transitions/3/changes_file",
+          "source_value_sha256": "b5fd2f3274c9b7e2d6a7092930edd33c50ee6ab514da0ae0d955cde3978bd681"
+        },
+        {
+          "pointer": "/report/transitions/4/after_file",
+          "source_value_sha256": "c7fa5a98645c4c68be348d72ec9bd1019b3dab00ce5c57fdfa8aea2b012dfd22"
+        },
+        {
+          "pointer": "/report/transitions/4/before_file",
+          "source_value_sha256": "738c25f367cfe6af90a9a40f5538fffcf5ea85f384f9a736c6200147cdb89f2b"
+        },
+        {
+          "pointer": "/report/transitions/4/changes_file",
+          "source_value_sha256": "e384f2541daf3d9989693744ef7fa89c64c275aba4ef85d3e750d1ac71a3cd00"
+        },
+        {
+          "pointer": "/validation_signature/environment_key",
+          "source_value_sha256": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126"
+        }
+      ],
+      "source_report_sha256": "8fff332b8dc4cab4b8c326e8a0eac4eb29e9ca93605f46b18e59fcfbdfc1ef09"
+    },
+    {
       "detail": "atlas-data/cd7711fe786eeb64e96d81d324e4c5bfb735cf444e958447a86e8e08fcccfdc9.json.gz",
       "metadata_omissions": [
         {
@@ -13143,6 +13239,84 @@
         }
       ],
       "source_report_sha256": "e253d9c56f4cf05903ac0eb4afc9418581ae21c0871ab7c797b5bdb36b6bd381"
+    },
+    {
+      "detail": "atlas-data/b75a1b466d429ac430891396ae42c0d7fd75d0de46e7f2c32e965f6278bc5681.json.gz",
+      "metadata_omissions": [
+        {
+          "pointer": "/report/excel_pids",
+          "source_value_sha256": "7c23d8e9e8f10172d2f7876b04b5818893d4d7b58028e603aec15a8b7f36c5e0"
+        },
+        {
+          "pointer": "/report/portable_report/source_report",
+          "source_value_sha256": "451a884b2f650e04f633bf7eeb85ec438ca310eeca276f3ffca40a7a677cb192"
+        },
+        {
+          "pointer": "/report/transitions/0/after_file",
+          "source_value_sha256": "1c3c35d06ec8048b2ec4c9afe05d5f02889be14b362bebce0ca5bcee95da6044"
+        },
+        {
+          "pointer": "/report/transitions/0/before_file",
+          "source_value_sha256": "f6583dc8e18641ec11a50410855369831e182554f44d73b331760cd9696092eb"
+        },
+        {
+          "pointer": "/report/transitions/0/changes_file",
+          "source_value_sha256": "27b6f82fd71e1d5c310d7513bbf7804da40ece6f5c8f74937da3a2112874b621"
+        },
+        {
+          "pointer": "/report/transitions/1/after_file",
+          "source_value_sha256": "5fc66103f5a86af0b9e8c8d4b44f227fa493b9148a3d4f86f10e6f465e779dfb"
+        },
+        {
+          "pointer": "/report/transitions/1/before_file",
+          "source_value_sha256": "f6583dc8e18641ec11a50410855369831e182554f44d73b331760cd9696092eb"
+        },
+        {
+          "pointer": "/report/transitions/1/changes_file",
+          "source_value_sha256": "781f70321e2f4f00597fe83b1a4053e5c8170b4232dc531f77e3f3327f185365"
+        },
+        {
+          "pointer": "/report/transitions/2/after_file",
+          "source_value_sha256": "02f3d059e10c6c9f43ca4da49f9efa5adbdc66ec793360cb115a96af69a816fa"
+        },
+        {
+          "pointer": "/report/transitions/2/before_file",
+          "source_value_sha256": "5fc66103f5a86af0b9e8c8d4b44f227fa493b9148a3d4f86f10e6f465e779dfb"
+        },
+        {
+          "pointer": "/report/transitions/2/changes_file",
+          "source_value_sha256": "0f769c141acb8270f5df4a0f84b2d277c299985f4c39df2cd07f9dc6b1805bfa"
+        },
+        {
+          "pointer": "/report/transitions/3/after_file",
+          "source_value_sha256": "58d32d7f2c7c69ca131065fa550c921fdcb0236216b8bc576fb005388231ecc2"
+        },
+        {
+          "pointer": "/report/transitions/3/before_file",
+          "source_value_sha256": "1c3c35d06ec8048b2ec4c9afe05d5f02889be14b362bebce0ca5bcee95da6044"
+        },
+        {
+          "pointer": "/report/transitions/3/changes_file",
+          "source_value_sha256": "eab4b8c04b56569f0573b3591ad966e2177b772e8bceb6755e153846a25be9e7"
+        },
+        {
+          "pointer": "/report/transitions/4/after_file",
+          "source_value_sha256": "e4df36dafba047d3480a930f171aa1cf14c335b4b05fce0b0860bf331e76530c"
+        },
+        {
+          "pointer": "/report/transitions/4/before_file",
+          "source_value_sha256": "02f3d059e10c6c9f43ca4da49f9efa5adbdc66ec793360cb115a96af69a816fa"
+        },
+        {
+          "pointer": "/report/transitions/4/changes_file",
+          "source_value_sha256": "51c72ebd9c9d6a700be68a7942752d88bc4e4155a4e9cffc96004a346bcf41be"
+        },
+        {
+          "pointer": "/validation_signature/environment_key",
+          "source_value_sha256": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126"
+        }
+      ],
+      "source_report_sha256": "b41381ace4517d4d72f62f8058655d30e1d00d206434810ebbb1cf3db4fa23d0"
     },
     {
       "detail": "atlas-data/4c4b201bbfaee94c837aeb325f8684d31ede8240564b9f94d8cbd19220d11c33.json.gz",
