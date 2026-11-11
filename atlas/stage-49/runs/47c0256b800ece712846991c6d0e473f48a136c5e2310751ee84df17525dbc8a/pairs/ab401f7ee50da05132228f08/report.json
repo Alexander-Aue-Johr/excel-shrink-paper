@@ -1,0 +1,1061 @@
+{
+  "candidate_count": 10,
+  "capture_counts": {
+    "OR": 10,
+    "OR:charts": 2,
+    "SDR": 10,
+    "SDR:charts": 2
+  },
+  "capture_partition": "visible-geometry-v2",
+  "capture_policy": "targeted-content-grid-v12",
+  "chart_capture_mode": "deterministic",
+  "chart_dependencies": [
+    {
+      "decisions": [
+        {
+          "chart": {
+            "index": 0,
+            "kind": "embedded",
+            "name": "Chart 1",
+            "sheet": "Results"
+          },
+          "reason": "Unsupported chart package dependency: xl/chartsheets/_rels/sheet1.xml.rels",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": null,
+            "kind": "chart_sheet",
+            "name": "Chart1",
+            "sheet": "Chart1"
+          },
+          "reason": "Unsupported chart package dependency: xl/chartsheets/_rels/sheet1.xml.rels",
+          "references": 0,
+          "unchanged": false
+        }
+      ],
+      "left": "OR",
+      "mode": "deterministic",
+      "right": "SDR"
+    }
+  ],
+  "check_performance": "not_requested",
+  "check_performance_cache": null,
+  "check_performance_evidence": null,
+  "comparisons": [
+    {
+      "charts": [
+        {
+          "chart": "Chart1",
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "chart_sheet",
+          "left_geometry": {
+            "height": 442.5,
+            "page_chart_size": 1,
+            "visibility": -1,
+            "width": 724.5
+          },
+          "left_image": null,
+          "left_image_receipt": {
+            "encoded_bytes": 42284,
+            "pixels": [
+              966,
+              590
+            ],
+            "reason": "verified-equal-image-discarded",
+            "sha256": "fde63d102fc6c8aac004c4281dd9c58b4eac915ad9dbec5b3577064beff8102e"
+          },
+          "left_image_retained": false,
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 442.5,
+            "page_chart_size": 1,
+            "visibility": -1,
+            "width": 724.5
+          },
+          "right_image": null,
+          "right_image_receipt": {
+            "encoded_bytes": 42284,
+            "pixels": [
+              966,
+              590
+            ],
+            "reason": "verified-equal-image-discarded",
+            "sha256": "fde63d102fc6c8aac004c4281dd9c58b4eac915ad9dbec5b3577064beff8102e"
+          },
+          "right_image_retained": false,
+          "right_rendering": "captured",
+          "sheet": "Chart1"
+        },
+        {
+          "chart": "Chart 1",
+          "chart_index": 0,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 205.5,
+            "left": 359.25,
+            "top": 67.5,
+            "width": 369
+          },
+          "left_image": null,
+          "left_image_receipt": {
+            "encoded_bytes": 16912,
+            "pixels": [
+              493,
+              275
+            ],
+            "reason": "verified-equal-image-discarded",
+            "sha256": "68d2d5e1e4095f0c727a8e477fde4abc5a1d7fbe95c957cc5c296da5643bee07"
+          },
+          "left_image_retained": false,
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 205.5,
+            "left": 359.25,
+            "top": 67.5,
+            "width": 369
+          },
+          "right_image": null,
+          "right_image_receipt": {
+            "encoded_bytes": 16912,
+            "pixels": [
+              493,
+              275
+            ],
+            "reason": "verified-equal-image-discarded",
+            "sha256": "68d2d5e1e4095f0c727a8e477fde4abc5a1d7fbe95c957cc5c296da5643bee07"
+          },
+          "right_image_retained": false,
+          "right_rendering": "captured",
+          "sheet": "Results"
+        }
+      ],
+      "findings": [
+        {
+          "blank_margin_ignored": false,
+          "capture_extent_ignored": false,
+          "cell": "A1:AJ292",
+          "geometry_differs": false,
+          "left_geometry": {
+            "comparison_core": {
+              "height": 3317.25,
+              "left": 0.0,
+              "top": 0.0,
+              "width": 2052.0
+            },
+            "height": 3317.25,
+            "left": 0.0,
+            "top": 0.0,
+            "width": 2052.0
+          },
+          "left_image_receipt": {
+            "encoded_bytes": 574368,
+            "pixels": [
+              2737,
+              4424
+            ],
+            "reason": "verified-equal-image-discarded",
+            "sha256": "8399dc879f59b713214d7b03003d7ea931927c0c23f01a95a958987f5b56dad8"
+          },
+          "left_image_retained": false,
+          "left_png": null,
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "comparison_core": {
+              "height": 3317.25,
+              "left": 0.0,
+              "top": 0.0,
+              "width": 2052.0
+            },
+            "height": 3317.25,
+            "left": 0.0,
+            "top": 0.0,
+            "width": 2052.0
+          },
+          "right_image_receipt": {
+            "encoded_bytes": 574368,
+            "pixels": [
+              2737,
+              4424
+            ],
+            "reason": "verified-equal-image-discarded",
+            "sha256": "8399dc879f59b713214d7b03003d7ea931927c0c23f01a95a958987f5b56dad8"
+          },
+          "right_image_retained": false,
+          "right_png": null,
+          "right_rendering": "captured",
+          "sheet": "Results"
+        },
+        {
+          "blank_margin_ignored": false,
+          "capture_extent_ignored": false,
+          "cell": "AK1:BU292",
+          "geometry_differs": false,
+          "left_geometry": {
+            "comparison_core": {
+              "height": 3317.25,
+              "left": 2052.0,
+              "top": 0.0,
+              "width": 2109.0
+            },
+            "height": 3317.25,
+            "left": 2052.0,
+            "top": 0.0,
+            "width": 2109.0
+          },
+          "left_image_receipt": {
+            "encoded_bytes": 175496,
+            "pixels": [
+              2813,
+              4424
+            ],
+            "reason": "verified-equal-image-discarded",
+            "sha256": "847edf0e2dbd1b229d8a6209e6553d562fc3ed844e34e517791c45905803ac95"
+          },
+          "left_image_retained": false,
+          "left_png": null,
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "comparison_core": {
+              "height": 3317.25,
+              "left": 2052.0,
+              "top": 0.0,
+              "width": 2109.0
+            },
+            "height": 3317.25,
+            "left": 2052.0,
+            "top": 0.0,
+            "width": 2109.0
+          },
+          "right_image_receipt": {
+            "encoded_bytes": 175496,
+            "pixels": [
+              2813,
+              4424
+            ],
+            "reason": "verified-equal-image-discarded",
+            "sha256": "847edf0e2dbd1b229d8a6209e6553d562fc3ed844e34e517791c45905803ac95"
+          },
+          "right_image_retained": false,
+          "right_png": null,
+          "right_rendering": "captured",
+          "sheet": "Results"
+        },
+        {
+          "blank_margin_ignored": false,
+          "capture_extent_ignored": false,
+          "cell": "BV1:DF292",
+          "geometry_differs": false,
+          "left_geometry": {
+            "comparison_core": {
+              "height": 3317.25,
+              "left": 4161.0,
+              "top": 0.0,
+              "width": 2109.0
+            },
+            "height": 3317.25,
+            "left": 4161.0,
+            "top": 0.0,
+            "width": 2109.0
+          },
+          "left_image_receipt": {
+            "encoded_bytes": 182260,
+            "pixels": [
+              2813,
+              4424
+            ],
+            "reason": "verified-equal-image-discarded",
+            "sha256": "5d067e6bc038f3ded841a70ab3bc350940b054364991d35a9deab200c13662ed"
+          },
+          "left_image_retained": false,
+          "left_png": null,
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "comparison_core": {
+              "height": 3317.25,
+              "left": 4161.0,
+              "top": 0.0,
+              "width": 2109.0
+            },
+            "height": 3317.25,
+            "left": 4161.0,
+            "top": 0.0,
+            "width": 2109.0
+          },
+          "right_image_receipt": {
+            "encoded_bytes": 182260,
+            "pixels": [
+              2813,
+              4424
+            ],
+            "reason": "verified-equal-image-discarded",
+            "sha256": "5d067e6bc038f3ded841a70ab3bc350940b054364991d35a9deab200c13662ed"
+          },
+          "right_image_retained": false,
+          "right_png": null,
+          "right_rendering": "captured",
+          "sheet": "Results"
+        },
+        {
+          "blank_margin_ignored": false,
+          "capture_extent_ignored": false,
+          "cell": "DG1:EP292",
+          "geometry_differs": false,
+          "left_geometry": {
+            "comparison_core": {
+              "height": 3317.25,
+              "left": 6270.0,
+              "top": 0.0,
+              "width": 2286.0
+            },
+            "height": 3317.25,
+            "left": 6270.0,
+            "top": 0.0,
+            "width": 2286.0
+          },
+          "left_image_receipt": {
+            "encoded_bytes": 194875,
+            "pixels": [
+              3049,
+              4424
+            ],
+            "reason": "verified-equal-image-discarded",
+            "sha256": "1c2a763c21b1de1db6a8ff0bb0e588e312dea245ad97c2884f7c1a59d75aef0a"
+          },
+          "left_image_retained": false,
+          "left_png": null,
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "comparison_core": {
+              "height": 3317.25,
+              "left": 6270.0,
+              "top": 0.0,
+              "width": 2286.0
+            },
+            "height": 3317.25,
+            "left": 6270.0,
+            "top": 0.0,
+            "width": 2286.0
+          },
+          "right_image_receipt": {
+            "encoded_bytes": 194875,
+            "pixels": [
+              3049,
+              4424
+            ],
+            "reason": "verified-equal-image-discarded",
+            "sha256": "1c2a763c21b1de1db6a8ff0bb0e588e312dea245ad97c2884f7c1a59d75aef0a"
+          },
+          "right_image_retained": false,
+          "right_png": null,
+          "right_rendering": "captured",
+          "sheet": "Results"
+        },
+        {
+          "blank_margin_ignored": false,
+          "capture_extent_ignored": false,
+          "cell": "EQ147:GA292",
+          "geometry_differs": false,
+          "left_geometry": {
+            "comparison_core": {
+              "height": 1642.5,
+              "left": 8556.0,
+              "top": 1674.75,
+              "width": 2469.75
+            },
+            "height": 1642.5,
+            "left": 8556.0,
+            "top": 1674.75,
+            "width": 2469.75
+          },
+          "left_image_receipt": {
+            "encoded_bytes": 99777,
+            "pixels": [
+              3294,
+              2191
+            ],
+            "reason": "verified-equal-image-discarded",
+            "sha256": "d6983f92e4b1e8ed305e16b4f5691d188a5d174c2bb5cb460435bdff313c9d2f"
+          },
+          "left_image_retained": false,
+          "left_png": null,
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "comparison_core": {
+              "height": 1642.5,
+              "left": 8556.0,
+              "top": 1674.75,
+              "width": 2469.75
+            },
+            "height": 1642.5,
+            "left": 8556.0,
+            "top": 1674.75,
+            "width": 2469.75
+          },
+          "right_image_receipt": {
+            "encoded_bytes": 99777,
+            "pixels": [
+              3294,
+              2191
+            ],
+            "reason": "verified-equal-image-discarded",
+            "sha256": "d6983f92e4b1e8ed305e16b4f5691d188a5d174c2bb5cb460435bdff313c9d2f"
+          },
+          "right_image_retained": false,
+          "right_png": null,
+          "right_rendering": "captured",
+          "sheet": "Results"
+        },
+        {
+          "blank_margin_ignored": false,
+          "capture_extent_ignored": false,
+          "cell": "EQ1:GA146",
+          "geometry_differs": false,
+          "left_geometry": {
+            "comparison_core": {
+              "height": 1674.75,
+              "left": 8556.0,
+              "top": 0.0,
+              "width": 2469.75
+            },
+            "height": 1674.75,
+            "left": 8556.0,
+            "top": 0.0,
+            "width": 2469.75
+          },
+          "left_image_receipt": {
+            "encoded_bytes": 106138,
+            "pixels": [
+              3294,
+              2234
+            ],
+            "reason": "verified-equal-image-discarded",
+            "sha256": "df660f20e252fbebfaeadcb7353765d988e8ebed29e6ecc29288d87c7a488b17"
+          },
+          "left_image_retained": false,
+          "left_png": null,
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "comparison_core": {
+              "height": 1674.75,
+              "left": 8556.0,
+              "top": 0.0,
+              "width": 2469.75
+            },
+            "height": 1674.75,
+            "left": 8556.0,
+            "top": 0.0,
+            "width": 2469.75
+          },
+          "right_image_receipt": {
+            "encoded_bytes": 106138,
+            "pixels": [
+              3294,
+              2234
+            ],
+            "reason": "verified-equal-image-discarded",
+            "sha256": "df660f20e252fbebfaeadcb7353765d988e8ebed29e6ecc29288d87c7a488b17"
+          },
+          "right_image_retained": false,
+          "right_png": null,
+          "right_rendering": "captured",
+          "sheet": "Results"
+        },
+        {
+          "blank_margin_ignored": false,
+          "capture_extent_ignored": false,
+          "cell": "GB147:HL292",
+          "geometry_differs": false,
+          "left_geometry": {
+            "comparison_core": {
+              "height": 1642.5,
+              "left": 11025.75,
+              "top": 1674.75,
+              "width": 2469.75
+            },
+            "height": 1642.5,
+            "left": 11025.75,
+            "top": 1674.75,
+            "width": 2469.75
+          },
+          "left_image_receipt": {
+            "encoded_bytes": 99777,
+            "pixels": [
+              3294,
+              2191
+            ],
+            "reason": "verified-equal-image-discarded",
+            "sha256": "d6983f92e4b1e8ed305e16b4f5691d188a5d174c2bb5cb460435bdff313c9d2f"
+          },
+          "left_image_retained": false,
+          "left_png": null,
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "comparison_core": {
+              "height": 1642.5,
+              "left": 11025.75,
+              "top": 1674.75,
+              "width": 2469.75
+            },
+            "height": 1642.5,
+            "left": 11025.75,
+            "top": 1674.75,
+            "width": 2469.75
+          },
+          "right_image_receipt": {
+            "encoded_bytes": 99777,
+            "pixels": [
+              3294,
+              2191
+            ],
+            "reason": "verified-equal-image-discarded",
+            "sha256": "d6983f92e4b1e8ed305e16b4f5691d188a5d174c2bb5cb460435bdff313c9d2f"
+          },
+          "right_image_retained": false,
+          "right_png": null,
+          "right_rendering": "captured",
+          "sheet": "Results"
+        },
+        {
+          "blank_margin_ignored": false,
+          "capture_extent_ignored": false,
+          "cell": "GB1:HL146",
+          "geometry_differs": false,
+          "left_geometry": {
+            "comparison_core": {
+              "height": 1674.75,
+              "left": 11025.75,
+              "top": 0.0,
+              "width": 2469.75
+            },
+            "height": 1674.75,
+            "left": 11025.75,
+            "top": 0.0,
+            "width": 2469.75
+          },
+          "left_image_receipt": {
+            "encoded_bytes": 106279,
+            "pixels": [
+              3294,
+              2234
+            ],
+            "reason": "verified-equal-image-discarded",
+            "sha256": "12e70a64b5429743988fcbbebe52fb19c4d0527a1f192ef2d1e117be5e67a885"
+          },
+          "left_image_retained": false,
+          "left_png": null,
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "comparison_core": {
+              "height": 1674.75,
+              "left": 11025.75,
+              "top": 0.0,
+              "width": 2469.75
+            },
+            "height": 1674.75,
+            "left": 11025.75,
+            "top": 0.0,
+            "width": 2469.75
+          },
+          "right_image_receipt": {
+            "encoded_bytes": 106279,
+            "pixels": [
+              3294,
+              2234
+            ],
+            "reason": "verified-equal-image-discarded",
+            "sha256": "12e70a64b5429743988fcbbebe52fb19c4d0527a1f192ef2d1e117be5e67a885"
+          },
+          "right_image_retained": false,
+          "right_png": null,
+          "right_rendering": "captured",
+          "sheet": "Results"
+        },
+        {
+          "blank_margin_ignored": false,
+          "capture_extent_ignored": false,
+          "cell": "HM147:IW292",
+          "geometry_differs": false,
+          "left_geometry": {
+            "comparison_core": {
+              "height": 1642.5,
+              "left": 13495.5,
+              "top": 1674.75,
+              "width": 2403.0
+            },
+            "height": 1642.5,
+            "left": 13495.5,
+            "top": 1674.75,
+            "width": 2469.75
+          },
+          "left_image_receipt": {
+            "encoded_bytes": 99777,
+            "pixels": [
+              3294,
+              2191
+            ],
+            "reason": "verified-equal-image-discarded",
+            "sha256": "d6983f92e4b1e8ed305e16b4f5691d188a5d174c2bb5cb460435bdff313c9d2f"
+          },
+          "left_image_retained": false,
+          "left_png": null,
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "comparison_core": {
+              "height": 1642.5,
+              "left": 13495.5,
+              "top": 1674.75,
+              "width": 2403.0
+            },
+            "height": 1642.5,
+            "left": 13495.5,
+            "top": 1674.75,
+            "width": 2469.75
+          },
+          "right_image_receipt": {
+            "encoded_bytes": 99777,
+            "pixels": [
+              3294,
+              2191
+            ],
+            "reason": "verified-equal-image-discarded",
+            "sha256": "d6983f92e4b1e8ed305e16b4f5691d188a5d174c2bb5cb460435bdff313c9d2f"
+          },
+          "right_image_retained": false,
+          "right_png": null,
+          "right_rendering": "captured",
+          "sheet": "Results"
+        },
+        {
+          "blank_margin_ignored": false,
+          "capture_extent_ignored": false,
+          "cell": "HM1:IW146",
+          "geometry_differs": false,
+          "left_geometry": {
+            "comparison_core": {
+              "height": 1674.75,
+              "left": 13495.5,
+              "top": 0.0,
+              "width": 2403.0
+            },
+            "height": 1674.75,
+            "left": 13495.5,
+            "top": 0.0,
+            "width": 2469.75
+          },
+          "left_image_receipt": {
+            "encoded_bytes": 106560,
+            "pixels": [
+              3294,
+              2234
+            ],
+            "reason": "verified-equal-image-discarded",
+            "sha256": "c1a7ae603473cff89b559819f3e24e42b623350a652991310284b7a018211727"
+          },
+          "left_image_retained": false,
+          "left_png": null,
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "comparison_core": {
+              "height": 1674.75,
+              "left": 13495.5,
+              "top": 0.0,
+              "width": 2403.0
+            },
+            "height": 1674.75,
+            "left": 13495.5,
+            "top": 0.0,
+            "width": 2469.75
+          },
+          "right_image_receipt": {
+            "encoded_bytes": 106560,
+            "pixels": [
+              3294,
+              2234
+            ],
+            "reason": "verified-equal-image-discarded",
+            "sha256": "c1a7ae603473cff89b559819f3e24e42b623350a652991310284b7a018211727"
+          },
+          "right_image_retained": false,
+          "right_png": null,
+          "right_rendering": "captured",
+          "sheet": "Results"
+        }
+      ],
+      "label": "both rebuilt Default",
+      "left": "OR",
+      "right": "SDR",
+      "selected_region_count": 10
+    }
+  ],
+  "conditional_formatting": [
+    {
+      "decisions": [],
+      "left": "OR",
+      "right": "SDR"
+    }
+  ],
+  "content_coverage": [
+    {
+      "background_tail_sampling": false,
+      "cf_blank_tail_excluded": false,
+      "clipped_to_content": 502,
+      "content_envelope_with_one_cell_margin": {
+        "bottom": 292,
+        "left": 1,
+        "right": 257,
+        "top": 1
+      },
+      "reason": "outside-content-envelope",
+      "requested_candidates": 72965,
+      "selected_capture_regions": 10,
+      "selected_grid_tiles": 51,
+      "sheet": "Results",
+      "skipped_outside_content": 253
+    }
+  ],
+  "control_artifacts_cache": null,
+  "evidence_retention": {
+    "comparison_resolution": "original",
+    "discarded_encoded_bytes": 3609006,
+    "discarded_equal_images": 24,
+    "equal_neighbors_retained": false,
+    "files": [],
+    "meaning": "Equal-image receipts retain hashes, dimensions and verdicts. Images needed by differences stay full resolution. Byte counts are logical file lengths, not released disk clusters.",
+    "retain_equal_images": false
+  },
+  "excel_pids": null,
+  "execution_strategy": "paired-inplace-rebuild-v1",
+  "findings": [],
+  "formula_diagnostics": {
+    "note": "Optional dependency explanations; no visual verdict or coverage was changed.",
+    "omitted_regions": 0,
+    "regions": [],
+    "version": 1
+  },
+  "height_checks": [
+    {
+      "checked_spans": [
+        [
+          2,
+          292
+        ]
+      ],
+      "complete": true,
+      "differences": [],
+      "left": "OR",
+      "right": "SDR",
+      "sheet": "Results",
+      "unchanged_fixed_rows": 0
+    }
+  ],
+  "image_comparison_statistics": {
+    "comparisons": 12,
+    "decoded_images": 10,
+    "encoded_bytes_read": 3609006,
+    "encoded_images_reused": 14,
+    "files_read": 24
+  },
+  "input_identity": {
+    "status": "different"
+  },
+  "limitations": [
+    "Gridlines are disabled consistently. Policy v10 compares only common pixels when measured capture/content origins match and content cores are contained. capture_extent_ignored records omitted right/bottom extent and retains both raw images and geometries. Changed overlapping pixels remain differences. Shifted origins, missing measurements and charts retain conservative verdicts. blank_margin_ignored records the stronger exact white-margin proof.",
+    "Row-height checks cover rows above and within the unpadded union of content envelopes, including potentially visible fill/border/conditional-formatting extents. Policy v12 excludes context rows below the union content boundary from both height dependencies and cell capture rectangles; upper and side context remain. Charts retain independent full-chart observations.",
+    "Strategy paired-inplace-rebuild-v1 compares rebuilt Original against rebuilt Default and optional rebuilt Check Performance. Each reuses its existing Excel process. Pre-rebuild captures are omitted for throughput; XML save/optimization/rebuild controls are retained. Volatility and exclusive causal attribution require follow-up.",
+    "Cell capture regions are intersected with the union of content-bearing cells and potentially visible fill/border/conditional-formatting extents across raw, saved and rebuilt inputs, plus one row above and one column on either side. Exterior regions outside that envelope are intentionally skipped, not visually confirmed identical; content_coverage records selection counts and bounds. Chart exports are independent of this policy.",
+    "Capture partition visible-geometry-v2 merges adjacent internal grid tiles without changing their union. It measures every live state and splits only for image budgets (30,000 pixels per edge, 32 million pixels total), estimating conservatively at two pixels per point plus a rounding margin. Actual exports are checked too. Zero-area ranges retain geometry and explicit non-rendering observations without images or pixel equality claims. Later states can repartition and backfill earlier retained workbooks.",
+    "CF decisions concern rule contributions within the recorded union of comparison extents. Literal cellIs exclusions require identical cell-XML fingerprints and visual context. Formula inputs remain captures; unknown or changed rules retain region captures. This is not a proof of whole-workbook visual equality.",
+    "Chart mode deterministic excludes only embedded charts with complete unchanged package, XML/cache, source-cell/style/layout/CF and live-geometry dependencies. Exclusions are not pixel comparisons. Unknown references, external or unsupported parts, ambiguous names and chart sheets retain full-chart exports. Mode conservative exports every chart. Other drawings and all worksheet geometry effects are not exhaustively discovered.",
+    "Charts with measured zero width or height retain geometry and an explicit zero-area-chart observation without a pixel verdict. A transition between visible and zero-area states is a rendering/geometry difference.",
+    "Disposable targeted copies are staged with calcMode=manual, fullCalcOnLoad=0, forceFullCalc=0 and calcOnSave=0 before Excel opens them. Cached formula values are retained until each resident workbook is explicitly rebuilt. Excel may still autonomously refresh content; observed save/rebuild transitions remain audited. Original inputs and prepared bundles are unchanged. This suppresses unintended open/save recalculation and changes the opening baseline relative to capture policy v4.",
+    "Opening/saving and the in-place SD rebuild are retained as separate XML controls. Exact content/context matches identify overlaps conservatively; absence of a match does not establish exclusive causality.",
+    "Worksheet cells are streamed into temporary fixed-size fingerprints without worksheet-byte or cell-count limits. Exterior empty-cell changes are counted before candidate allocation. Layout metadata and retained change evidence still require memory.",
+    "When content coverage marks background_tail_sampling, supported borderless solid-fill bands with known sheet-wide gridline settings are represented through their finite transitions and tail samples. Pixels beyond that envelope are not captured; this is not exhaustive whole-grid pixel coverage."
+  ],
+  "native_drawing_bounds": [],
+  "phases": [
+    "initial XML compared",
+    "Original and Default opened",
+    "Excel save effects inspected",
+    "Original and variants rebuilt in their existing processes"
+  ],
+  "portable_report": {
+    "diagnostics": {},
+    "different_regions": 0,
+    "failure": null,
+    "note": "Pixel diagnostics describe retained captures. They do not change the scientific comparison verdict or extend its coverage.",
+    "source_report": null,
+    "version": 1
+  },
+  "public_presentation": {
+    "meaning": "Derived presentation. Native evidence remains unchanged.",
+    "metadata_omissions": [
+      {
+        "pointer": "/report/excel_pids",
+        "source_value_sha256": "d27bac5e70c46d50d9870ed1fe099e7d0cd444d811c96acd09b2d335725b350b"
+      },
+      {
+        "pointer": "/report/portable_report/source_report",
+        "source_value_sha256": "451a884b2f650e04f633bf7eeb85ec438ca310eeca276f3ffca40a7a677cb192"
+      },
+      {
+        "pointer": "/report/transitions/0/after_file",
+        "source_value_sha256": "911ba976045d47ca13ec318ea4aadf79bf5f66db0fe97220423c2b3294219fa0"
+      },
+      {
+        "pointer": "/report/transitions/0/before_file",
+        "source_value_sha256": "66cde4223f246d85a9526c9e86213f2b224dda803d9e2306df14bc9b1d07dc46"
+      },
+      {
+        "pointer": "/report/transitions/0/changes_file",
+        "source_value_sha256": "0c3829e6b063cd3332826ac77552031509457a9ca63c42280b0b03a69b84268e"
+      },
+      {
+        "pointer": "/report/transitions/1/after_file",
+        "source_value_sha256": "20c953006d5547ace2344e447804f75ff3e00519ad64265ec565aa80c221b8bb"
+      },
+      {
+        "pointer": "/report/transitions/1/before_file",
+        "source_value_sha256": "66cde4223f246d85a9526c9e86213f2b224dda803d9e2306df14bc9b1d07dc46"
+      },
+      {
+        "pointer": "/report/transitions/1/changes_file",
+        "source_value_sha256": "c96333617c87b140c2a3fa6eabe9666bf5054116c9870296c8720db70f817d25"
+      },
+      {
+        "pointer": "/report/transitions/2/after_file",
+        "source_value_sha256": "0271895488ef00c86f8c743adf01c2fb0ac6e432c5605dc264ae3bbd3978ef3d"
+      },
+      {
+        "pointer": "/report/transitions/2/before_file",
+        "source_value_sha256": "20c953006d5547ace2344e447804f75ff3e00519ad64265ec565aa80c221b8bb"
+      },
+      {
+        "pointer": "/report/transitions/2/changes_file",
+        "source_value_sha256": "6793a35082c50f8bc15168b9928acbd84ed30f669a055e2f5facc47c51dea35b"
+      },
+      {
+        "pointer": "/report/transitions/3/after_file",
+        "source_value_sha256": "45bfe5f25681d7063d04e025c1fd204925c6ef7762c8948336f0a53b0b1b5a65"
+      },
+      {
+        "pointer": "/report/transitions/3/before_file",
+        "source_value_sha256": "911ba976045d47ca13ec318ea4aadf79bf5f66db0fe97220423c2b3294219fa0"
+      },
+      {
+        "pointer": "/report/transitions/3/changes_file",
+        "source_value_sha256": "20e1393096c4cf4e78cac04e8909fd3260886d3b9cd3aadf331120f4207e2255"
+      },
+      {
+        "pointer": "/report/transitions/4/after_file",
+        "source_value_sha256": "b44f7100459c27667632ed21eb4ccca9f4707b36b41fe770e2e4d58b2dd09de0"
+      },
+      {
+        "pointer": "/report/transitions/4/before_file",
+        "source_value_sha256": "0271895488ef00c86f8c743adf01c2fb0ac6e432c5605dc264ae3bbd3978ef3d"
+      },
+      {
+        "pointer": "/report/transitions/4/changes_file",
+        "source_value_sha256": "680a3085855287007c63200ca169c22fcf6788eb8eca0e3f238f5c5eca5a8e59"
+      },
+      {
+        "pointer": "/validation_signature/environment_key",
+        "source_value_sha256": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126"
+      }
+    ],
+    "schema": 1,
+    "source_report_sha256": "fa7625416e7df814a38e48e44532cb065902faa188328e32c161100c4147271b"
+  },
+  "rebuild_checks": {},
+  "state_decisions": {
+    "CP": {
+      "status": "disabled"
+    },
+    "CPR": {
+      "status": "disabled"
+    },
+    "O": {
+      "method": "open-save",
+      "status": "observed"
+    },
+    "OR": {
+      "method": "inplace-rebuild",
+      "status": "observed"
+    },
+    "SD": {
+      "method": "open-save",
+      "status": "observed"
+    },
+    "SDR": {
+      "method": "inplace-rebuild",
+      "status": "observed"
+    }
+  },
+  "status": "completed_with_limitations",
+  "timings_ms": {
+    "capture_selection_and_transport": 3827,
+    "image_comparisons": 422
+  },
+  "transitions": [
+    {
+      "after_file": null,
+      "before_file": null,
+      "change_count": 256,
+      "changes_file": null,
+      "label": "original opening/saving control",
+      "skipped_outside_content_cell_changes": {},
+      "timings_ms": {
+        "attribution": 0,
+        "differences": 75,
+        "read_snapshots": 4,
+        "total": 87,
+        "write_evidence": 1
+      }
+    },
+    {
+      "after_file": null,
+      "before_file": null,
+      "change_count": 77673,
+      "changes_file": null,
+      "label": "default input versus original input",
+      "skipped_outside_content_cell_changes": {
+        "Results": 1190618
+      },
+      "timings_ms": {
+        "attribution": 35,
+        "differences": 170,
+        "read_snapshots": 2,
+        "total": 271,
+        "write_evidence": 51
+      }
+    },
+    {
+      "after_file": null,
+      "before_file": null,
+      "change_count": 256,
+      "changes_file": null,
+      "label": "default opening/saving control",
+      "skipped_outside_content_cell_changes": {},
+      "timings_ms": {
+        "attribution": 0,
+        "differences": 0,
+        "read_snapshots": 0,
+        "total": 9,
+        "write_evidence": 1
+      }
+    },
+    {
+      "after_file": null,
+      "before_file": null,
+      "change_count": 0,
+      "changes_file": null,
+      "label": "O in-place rebuild and save",
+      "skipped_outside_content_cell_changes": {},
+      "timings_ms": {
+        "attribution": 0,
+        "differences": 3,
+        "read_snapshots": 940,
+        "total": 951,
+        "write_evidence": 2
+      }
+    },
+    {
+      "after_file": null,
+      "before_file": null,
+      "change_count": 0,
+      "changes_file": null,
+      "label": "SD in-place rebuild and save",
+      "skipped_outside_content_cell_changes": {},
+      "timings_ms": {
+        "attribution": 0,
+        "differences": 0,
+        "read_snapshots": 7,
+        "total": 20,
+        "write_evidence": 2
+      }
+    }
+  ],
+  "workbook_bytes": {
+    "OR-rebuilt.xlsx": 3356268,
+    "SDR-rebuilt.xlsx": 46205,
+    "default.before-save.xlsx": 44601,
+    "default.xlsx": 46216,
+    "input_default": 44601,
+    "input_original": 3356642,
+    "original.before-save.xlsx": 3356642,
+    "original.xlsx": 3356279
+  },
+  "workbook_inventory": {
+    "complete": true,
+    "original_sha256": "183e88f48062ca29e8a63f9190230ea48e44305e9c0e927669ce50614f6f66e6",
+    "sheets": [
+      {
+        "id": "4",
+        "name": "Chart1",
+        "order": 0,
+        "state": "visible"
+      },
+      {
+        "id": "2",
+        "name": "Results",
+        "order": 1,
+        "state": "visible"
+      },
+      {
+        "id": "3",
+        "name": "Module1",
+        "order": 2,
+        "state": "veryHidden"
+      }
+    ]
+  },
+  "xml_snapshot_statistics": {
+    "elapsed_ms": 2722,
+    "parsed_versions": 6,
+    "reads": 20,
+    "reused_versions": 14
+  }
+}

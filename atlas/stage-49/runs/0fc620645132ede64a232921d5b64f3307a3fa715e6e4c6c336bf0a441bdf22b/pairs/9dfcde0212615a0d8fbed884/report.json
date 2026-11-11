@@ -1,0 +1,1702 @@
+{
+  "candidate_count": 11,
+  "capture_counts": {
+    "OR": 11,
+    "OR:charts": 0,
+    "SDR": 11,
+    "SDR:charts": 0
+  },
+  "capture_partition": "visible-geometry-v2",
+  "capture_policy": "targeted-content-grid-v13",
+  "chart_capture_mode": "deterministic",
+  "chart_dependencies": [
+    {
+      "decisions": [],
+      "left": "OR",
+      "mode": "deterministic",
+      "right": "SDR"
+    }
+  ],
+  "check_performance": "not_requested",
+  "check_performance_cache": null,
+  "check_performance_evidence": null,
+  "comparisons": [
+    {
+      "charts": [],
+      "findings": [
+        {
+          "blank_margin_ignored": false,
+          "capture_extent_ignored": false,
+          "cell": "A1204:AF1444",
+          "geometry_differs": false,
+          "left_geometry": {
+            "comparison_core": {
+              "height": 3615.0,
+              "left": 0.0,
+              "top": 18045.0,
+              "width": 1855.5
+            },
+            "height": 3615.0,
+            "left": 0.0,
+            "top": 18045.0,
+            "width": 1855.5
+          },
+          "left_image_receipt": {
+            "encoded_bytes": 1349649,
+            "pixels": [
+              2475,
+              4821
+            ],
+            "reason": "verified-equal-image-discarded",
+            "sha256": "6031fe6d710322cb72e30d0654c89daf781089933c2e0149074aee1c881cea45"
+          },
+          "left_image_retained": false,
+          "left_png": null,
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "comparison_core": {
+              "height": 3615.0,
+              "left": 0.0,
+              "top": 18045.0,
+              "width": 1855.5
+            },
+            "height": 3615.0,
+            "left": 0.0,
+            "top": 18045.0,
+            "width": 1855.5
+          },
+          "right_image_receipt": {
+            "encoded_bytes": 1349649,
+            "pixels": [
+              2475,
+              4821
+            ],
+            "reason": "verified-equal-image-discarded",
+            "sha256": "6031fe6d710322cb72e30d0654c89daf781089933c2e0149074aee1c881cea45"
+          },
+          "right_image_retained": false,
+          "right_png": null,
+          "right_rendering": "captured",
+          "sheet": "Data"
+        },
+        {
+          "blank_margin_ignored": false,
+          "capture_extent_ignored": false,
+          "cell": "A1:AF240",
+          "geometry_differs": false,
+          "left_geometry": {
+            "comparison_core": {
+              "height": 3600.0,
+              "left": 0.0,
+              "top": 0.0,
+              "width": 1855.5
+            },
+            "height": 3600.0,
+            "left": 0.0,
+            "top": 0.0,
+            "width": 1855.5
+          },
+          "left_image_receipt": {
+            "encoded_bytes": 1326271,
+            "pixels": [
+              2475,
+              4801
+            ],
+            "reason": "verified-equal-image-discarded",
+            "sha256": "e501cd7245cbcfb013086ceb927d4ece5cacd108f783e319a927de11f30ba44f"
+          },
+          "left_image_retained": false,
+          "left_png": null,
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "comparison_core": {
+              "height": 3600.0,
+              "left": 0.0,
+              "top": 0.0,
+              "width": 1855.5
+            },
+            "height": 3600.0,
+            "left": 0.0,
+            "top": 0.0,
+            "width": 1855.5
+          },
+          "right_image_receipt": {
+            "encoded_bytes": 1326271,
+            "pixels": [
+              2475,
+              4801
+            ],
+            "reason": "verified-equal-image-discarded",
+            "sha256": "e501cd7245cbcfb013086ceb927d4ece5cacd108f783e319a927de11f30ba44f"
+          },
+          "right_image_retained": false,
+          "right_png": null,
+          "right_rendering": "captured",
+          "sheet": "Data"
+        },
+        {
+          "blank_margin_ignored": false,
+          "capture_extent_ignored": false,
+          "cell": "A241:AF481",
+          "geometry_differs": false,
+          "left_geometry": {
+            "comparison_core": {
+              "height": 3615.0,
+              "left": 0.0,
+              "top": 3600.0,
+              "width": 1855.5
+            },
+            "height": 3615.0,
+            "left": 0.0,
+            "top": 3600.0,
+            "width": 1855.5
+          },
+          "left_image_receipt": {
+            "encoded_bytes": 1397024,
+            "pixels": [
+              2475,
+              4821
+            ],
+            "reason": "verified-equal-image-discarded",
+            "sha256": "1427a57ba88aabe8684060f1aa349b770f41f5b8ec159c09fce53f8f8c7b51b7"
+          },
+          "left_image_retained": false,
+          "left_png": null,
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "comparison_core": {
+              "height": 3615.0,
+              "left": 0.0,
+              "top": 3600.0,
+              "width": 1855.5
+            },
+            "height": 3615.0,
+            "left": 0.0,
+            "top": 3600.0,
+            "width": 1855.5
+          },
+          "right_image_receipt": {
+            "encoded_bytes": 1397024,
+            "pixels": [
+              2475,
+              4821
+            ],
+            "reason": "verified-equal-image-discarded",
+            "sha256": "1427a57ba88aabe8684060f1aa349b770f41f5b8ec159c09fce53f8f8c7b51b7"
+          },
+          "right_image_retained": false,
+          "right_png": null,
+          "right_rendering": "captured",
+          "sheet": "Data"
+        },
+        {
+          "blank_margin_ignored": false,
+          "capture_extent_ignored": false,
+          "cell": "A482:AF722",
+          "geometry_differs": false,
+          "left_geometry": {
+            "comparison_core": {
+              "height": 3615.0,
+              "left": 0.0,
+              "top": 7215.0,
+              "width": 1855.5
+            },
+            "height": 3615.0,
+            "left": 0.0,
+            "top": 7215.0,
+            "width": 1855.5
+          },
+          "left_image_receipt": {
+            "encoded_bytes": 1390920,
+            "pixels": [
+              2475,
+              4821
+            ],
+            "reason": "verified-equal-image-discarded",
+            "sha256": "6aa727ac683c4e31dadb15d77f6288207248e3debbe86e64e9344ec1055a3446"
+          },
+          "left_image_retained": false,
+          "left_png": null,
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "comparison_core": {
+              "height": 3615.0,
+              "left": 0.0,
+              "top": 7215.0,
+              "width": 1855.5
+            },
+            "height": 3615.0,
+            "left": 0.0,
+            "top": 7215.0,
+            "width": 1855.5
+          },
+          "right_image_receipt": {
+            "encoded_bytes": 1390920,
+            "pixels": [
+              2475,
+              4821
+            ],
+            "reason": "verified-equal-image-discarded",
+            "sha256": "6aa727ac683c4e31dadb15d77f6288207248e3debbe86e64e9344ec1055a3446"
+          },
+          "right_image_retained": false,
+          "right_png": null,
+          "right_rendering": "captured",
+          "sheet": "Data"
+        },
+        {
+          "blank_margin_ignored": false,
+          "capture_extent_ignored": false,
+          "cell": "A723:AF962",
+          "geometry_differs": false,
+          "left_geometry": {
+            "comparison_core": {
+              "height": 3600.0,
+              "left": 0.0,
+              "top": 10830.0,
+              "width": 1855.5
+            },
+            "height": 3600.0,
+            "left": 0.0,
+            "top": 10830.0,
+            "width": 1855.5
+          },
+          "left_image_receipt": {
+            "encoded_bytes": 1357352,
+            "pixels": [
+              2475,
+              4801
+            ],
+            "reason": "verified-equal-image-discarded",
+            "sha256": "2a259e8b1e5736ab01e879536725b15e5fc1aef200be89299398d7b953a111a9"
+          },
+          "left_image_retained": false,
+          "left_png": null,
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "comparison_core": {
+              "height": 3600.0,
+              "left": 0.0,
+              "top": 10830.0,
+              "width": 1855.5
+            },
+            "height": 3600.0,
+            "left": 0.0,
+            "top": 10830.0,
+            "width": 1855.5
+          },
+          "right_image_receipt": {
+            "encoded_bytes": 1357352,
+            "pixels": [
+              2475,
+              4801
+            ],
+            "reason": "verified-equal-image-discarded",
+            "sha256": "2a259e8b1e5736ab01e879536725b15e5fc1aef200be89299398d7b953a111a9"
+          },
+          "right_image_retained": false,
+          "right_png": null,
+          "right_rendering": "captured",
+          "sheet": "Data"
+        },
+        {
+          "blank_margin_ignored": false,
+          "capture_extent_ignored": false,
+          "cell": "A963:AF1203",
+          "geometry_differs": false,
+          "left_geometry": {
+            "comparison_core": {
+              "height": 3615.0,
+              "left": 0.0,
+              "top": 14430.0,
+              "width": 1855.5
+            },
+            "height": 3615.0,
+            "left": 0.0,
+            "top": 14430.0,
+            "width": 1855.5
+          },
+          "left_image_receipt": {
+            "encoded_bytes": 1373702,
+            "pixels": [
+              2475,
+              4821
+            ],
+            "reason": "verified-equal-image-discarded",
+            "sha256": "0bdb03695b82eb8ea494c215218f29f4487f492c090c7fc0f85954342e76698a"
+          },
+          "left_image_retained": false,
+          "left_png": null,
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "comparison_core": {
+              "height": 3615.0,
+              "left": 0.0,
+              "top": 14430.0,
+              "width": 1855.5
+            },
+            "height": 3615.0,
+            "left": 0.0,
+            "top": 14430.0,
+            "width": 1855.5
+          },
+          "right_image_receipt": {
+            "encoded_bytes": 1373702,
+            "pixels": [
+              2475,
+              4821
+            ],
+            "reason": "verified-equal-image-discarded",
+            "sha256": "0bdb03695b82eb8ea494c215218f29f4487f492c090c7fc0f85954342e76698a"
+          },
+          "right_image_retained": false,
+          "right_png": null,
+          "right_rendering": "captured",
+          "sheet": "Data"
+        },
+        {
+          "blank_margin_ignored": false,
+          "capture_extent_ignored": false,
+          "cell": "MO1:ND481",
+          "geometry_differs": false,
+          "left_geometry": {
+            "comparison_core": {
+              "height": 7215.0,
+              "left": 16735.5,
+              "top": 0.0,
+              "width": 744.0
+            },
+            "height": 7215.0,
+            "left": 16735.5,
+            "top": 0.0,
+            "width": 744.0
+          },
+          "left_image_receipt": {
+            "encoded_bytes": 1238926,
+            "pixels": [
+              993,
+              9621
+            ],
+            "reason": "verified-equal-image-discarded",
+            "sha256": "fc7c45ba39e663164598b1974e557a327851f6865ef18fa4ca657d959656d057"
+          },
+          "left_image_retained": false,
+          "left_png": null,
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "comparison_core": {
+              "height": 7215.0,
+              "left": 16735.5,
+              "top": 0.0,
+              "width": 744.0
+            },
+            "height": 7215.0,
+            "left": 16735.5,
+            "top": 0.0,
+            "width": 744.0
+          },
+          "right_image_receipt": {
+            "encoded_bytes": 1238926,
+            "pixels": [
+              993,
+              9621
+            ],
+            "reason": "verified-equal-image-discarded",
+            "sha256": "fc7c45ba39e663164598b1974e557a327851f6865ef18fa4ca657d959656d057"
+          },
+          "right_image_retained": false,
+          "right_png": null,
+          "right_rendering": "captured",
+          "sheet": "Data"
+        },
+        {
+          "blank_margin_ignored": false,
+          "capture_extent_ignored": false,
+          "cell": "MO482:ND962",
+          "geometry_differs": false,
+          "left_geometry": {
+            "comparison_core": {
+              "height": 7215.0,
+              "left": 16735.5,
+              "top": 7215.0,
+              "width": 744.0
+            },
+            "height": 7215.0,
+            "left": 16735.5,
+            "top": 7215.0,
+            "width": 744.0
+          },
+          "left_image_receipt": {
+            "encoded_bytes": 1224505,
+            "pixels": [
+              993,
+              9621
+            ],
+            "reason": "verified-equal-image-discarded",
+            "sha256": "7a985c2fb57d85728010f7c59d65b47764d42f82cfc56de94acce8c69a8e5c31"
+          },
+          "left_image_retained": false,
+          "left_png": null,
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "comparison_core": {
+              "height": 7215.0,
+              "left": 16735.5,
+              "top": 7215.0,
+              "width": 744.0
+            },
+            "height": 7215.0,
+            "left": 16735.5,
+            "top": 7215.0,
+            "width": 744.0
+          },
+          "right_image_receipt": {
+            "encoded_bytes": 1224505,
+            "pixels": [
+              993,
+              9621
+            ],
+            "reason": "verified-equal-image-discarded",
+            "sha256": "7a985c2fb57d85728010f7c59d65b47764d42f82cfc56de94acce8c69a8e5c31"
+          },
+          "right_image_retained": false,
+          "right_png": null,
+          "right_rendering": "captured",
+          "sheet": "Data"
+        },
+        {
+          "blank_margin_ignored": false,
+          "capture_extent_ignored": false,
+          "cell": "MO963:ND1444",
+          "geometry_differs": false,
+          "left_geometry": {
+            "comparison_core": {
+              "height": 7230.0,
+              "left": 16735.5,
+              "top": 14430.0,
+              "width": 744.0
+            },
+            "height": 7230.0,
+            "left": 16735.5,
+            "top": 14430.0,
+            "width": 744.0
+          },
+          "left_image_receipt": {
+            "encoded_bytes": 1245829,
+            "pixels": [
+              993,
+              9641
+            ],
+            "reason": "verified-equal-image-discarded",
+            "sha256": "5446c7b50ab6afcd775529390dc3a4b17996348b229666eeacfcb23a7685bb5d"
+          },
+          "left_image_retained": false,
+          "left_png": null,
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "comparison_core": {
+              "height": 7230.0,
+              "left": 16735.5,
+              "top": 14430.0,
+              "width": 744.0
+            },
+            "height": 7230.0,
+            "left": 16735.5,
+            "top": 14430.0,
+            "width": 744.0
+          },
+          "right_image_receipt": {
+            "encoded_bytes": 1245829,
+            "pixels": [
+              993,
+              9641
+            ],
+            "reason": "verified-equal-image-discarded",
+            "sha256": "5446c7b50ab6afcd775529390dc3a4b17996348b229666eeacfcb23a7685bb5d"
+          },
+          "right_image_retained": false,
+          "right_png": null,
+          "right_rendering": "captured",
+          "sheet": "Data"
+        },
+        {
+          "blank_margin_ignored": false,
+          "capture_extent_ignored": false,
+          "cell": "A1:K20",
+          "geometry_differs": false,
+          "left_geometry": {
+            "comparison_core": {
+              "height": 299.4375,
+              "left": 0.0,
+              "top": 0.0,
+              "width": 480.0
+            },
+            "height": 299.4375,
+            "left": 0.0,
+            "top": 0.0,
+            "width": 528.0
+          },
+          "left_image_receipt": {
+            "encoded_bytes": 25197,
+            "pixels": [
+              705,
+              400
+            ],
+            "reason": "verified-equal-image-discarded",
+            "sha256": "d4e95890679ea9e45d3f7cbe5926bcc0dea29a5a80e6eb5f920066f252ac2ac2"
+          },
+          "left_image_retained": false,
+          "left_png": null,
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "comparison_core": {
+              "height": 299.4375,
+              "left": 0.0,
+              "top": 0.0,
+              "width": 480.0
+            },
+            "height": 299.4375,
+            "left": 0.0,
+            "top": 0.0,
+            "width": 528.0
+          },
+          "right_image_receipt": {
+            "encoded_bytes": 25197,
+            "pixels": [
+              705,
+              400
+            ],
+            "reason": "verified-equal-image-discarded",
+            "sha256": "d4e95890679ea9e45d3f7cbe5926bcc0dea29a5a80e6eb5f920066f252ac2ac2"
+          },
+          "right_image_retained": false,
+          "right_png": null,
+          "right_rendering": "captured",
+          "sheet": "Notes"
+        },
+        {
+          "blank_margin_ignored": false,
+          "capture_extent_ignored": false,
+          "cell": "A2433:J2503",
+          "geometry_differs": false,
+          "left_geometry": {
+            "comparison_core": {
+              "height": 1065.0,
+              "left": 0.0,
+              "top": 36009.75,
+              "width": 937.5
+            },
+            "height": 1065.0,
+            "left": 0.0,
+            "top": 36009.75,
+            "width": 995.25
+          },
+          "left_image_receipt": {
+            "encoded_bytes": 27656,
+            "pixels": [
+              1328,
+              1421
+            ],
+            "reason": "verified-equal-image-discarded",
+            "sha256": "bca0e72f08004f1b030bef04b5a2371d7f4ee8f2270aeb9b244018c58fde74d7"
+          },
+          "left_image_retained": false,
+          "left_png": null,
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "comparison_core": {
+              "height": 1065.0,
+              "left": 0.0,
+              "top": 36009.75,
+              "width": 937.5
+            },
+            "height": 1065.0,
+            "left": 0.0,
+            "top": 36009.75,
+            "width": 995.25
+          },
+          "right_image_receipt": {
+            "encoded_bytes": 27656,
+            "pixels": [
+              1328,
+              1421
+            ],
+            "reason": "verified-equal-image-discarded",
+            "sha256": "bca0e72f08004f1b030bef04b5a2371d7f4ee8f2270aeb9b244018c58fde74d7"
+          },
+          "right_image_retained": false,
+          "right_png": null,
+          "right_rendering": "captured",
+          "sheet": "Profile Summary Page"
+        }
+      ],
+      "label": "both rebuilt Default",
+      "left": "OR",
+      "right": "SDR",
+      "selected_region_count": 11
+    }
+  ],
+  "conditional_formatting": [
+    {
+      "decisions": [],
+      "left": "OR",
+      "right": "SDR"
+    }
+  ],
+  "content_coverage": [
+    {
+      "background_tail_sampling": false,
+      "cf_blank_tail_excluded": false,
+      "clipped_to_content": 0,
+      "content_envelope_with_one_cell_margin": {
+        "bottom": 1444,
+        "left": 1,
+        "right": 369,
+        "top": 1
+      },
+      "reason": "outside-content-envelope",
+      "requested_candidates": 1000,
+      "selected_capture_regions": 9,
+      "selected_grid_tiles": 36,
+      "sheet": "Data",
+      "skipped_outside_content": 0
+    },
+    {
+      "background_tail_sampling": false,
+      "cf_blank_tail_excluded": false,
+      "clipped_to_content": 35,
+      "content_envelope_with_one_cell_margin": {
+        "bottom": 20,
+        "left": 1,
+        "right": 11,
+        "top": 1
+      },
+      "reason": "outside-content-envelope",
+      "requested_candidates": 71,
+      "selected_capture_regions": 1,
+      "selected_grid_tiles": 1,
+      "sheet": "Notes",
+      "skipped_outside_content": 6
+    },
+    {
+      "background_tail_sampling": false,
+      "cf_blank_tail_excluded": false,
+      "clipped_to_content": 1,
+      "content_envelope_with_one_cell_margin": {
+        "bottom": 2503,
+        "left": 1,
+        "right": 10,
+        "top": 1
+      },
+      "reason": "outside-content-envelope",
+      "requested_candidates": 2,
+      "selected_capture_regions": 1,
+      "selected_grid_tiles": 1,
+      "sheet": "Profile Summary Page",
+      "skipped_outside_content": 1
+    }
+  ],
+  "control_artifacts_cache": null,
+  "evidence_retention": {
+    "comparison_resolution": "original",
+    "discarded_encoded_bytes": 23914062,
+    "discarded_equal_images": 22,
+    "equal_neighbors_retained": false,
+    "files": [],
+    "meaning": "Equal-image receipts retain hashes, dimensions and verdicts. Images needed by differences stay full resolution. Byte counts are logical file lengths, not released disk clusters.",
+    "retain_equal_images": false
+  },
+  "excel_pids": null,
+  "execution_strategy": "paired-inplace-rebuild-v1",
+  "findings": [],
+  "formula_diagnostics": {
+    "note": "Optional dependency explanations; no visual verdict or coverage was changed.",
+    "omitted_regions": 0,
+    "regions": [],
+    "version": 1
+  },
+  "height_checks": [
+    {
+      "checked_spans": [
+        [
+          2,
+          2
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          15,
+          15
+        ],
+        [
+          21,
+          21
+        ],
+        [
+          25,
+          25
+        ],
+        [
+          30,
+          30
+        ],
+        [
+          32,
+          32
+        ],
+        [
+          35,
+          35
+        ],
+        [
+          47,
+          48
+        ],
+        [
+          57,
+          57
+        ],
+        [
+          59,
+          62
+        ],
+        [
+          69,
+          69
+        ],
+        [
+          81,
+          82
+        ],
+        [
+          86,
+          87
+        ],
+        [
+          97,
+          99
+        ],
+        [
+          109,
+          109
+        ],
+        [
+          111,
+          111
+        ],
+        [
+          121,
+          121
+        ],
+        [
+          146,
+          146
+        ],
+        [
+          149,
+          150
+        ],
+        [
+          159,
+          159
+        ],
+        [
+          167,
+          167
+        ],
+        [
+          171,
+          171
+        ],
+        [
+          176,
+          176
+        ],
+        [
+          183,
+          183
+        ],
+        [
+          191,
+          191
+        ],
+        [
+          193,
+          193
+        ],
+        [
+          200,
+          200
+        ],
+        [
+          204,
+          204
+        ],
+        [
+          211,
+          211
+        ],
+        [
+          220,
+          220
+        ],
+        [
+          228,
+          228
+        ],
+        [
+          245,
+          245
+        ],
+        [
+          263,
+          263
+        ],
+        [
+          266,
+          266
+        ],
+        [
+          275,
+          275
+        ],
+        [
+          281,
+          282
+        ],
+        [
+          302,
+          302
+        ],
+        [
+          307,
+          307
+        ],
+        [
+          319,
+          319
+        ],
+        [
+          330,
+          330
+        ],
+        [
+          354,
+          354
+        ],
+        [
+          357,
+          357
+        ],
+        [
+          365,
+          365
+        ],
+        [
+          371,
+          371
+        ],
+        [
+          384,
+          384
+        ],
+        [
+          387,
+          387
+        ],
+        [
+          390,
+          393
+        ],
+        [
+          412,
+          412
+        ],
+        [
+          439,
+          440
+        ],
+        [
+          460,
+          460
+        ],
+        [
+          465,
+          466
+        ],
+        [
+          470,
+          470
+        ],
+        [
+          472,
+          472
+        ],
+        [
+          475,
+          475
+        ],
+        [
+          486,
+          486
+        ],
+        [
+          499,
+          499
+        ],
+        [
+          510,
+          510
+        ],
+        [
+          518,
+          519
+        ],
+        [
+          523,
+          523
+        ],
+        [
+          526,
+          526
+        ],
+        [
+          529,
+          529
+        ],
+        [
+          534,
+          534
+        ],
+        [
+          541,
+          541
+        ],
+        [
+          546,
+          547
+        ],
+        [
+          554,
+          558
+        ],
+        [
+          560,
+          560
+        ],
+        [
+          568,
+          569
+        ],
+        [
+          586,
+          586
+        ],
+        [
+          589,
+          589
+        ],
+        [
+          592,
+          592
+        ],
+        [
+          603,
+          603
+        ],
+        [
+          607,
+          608
+        ],
+        [
+          610,
+          611
+        ],
+        [
+          623,
+          623
+        ],
+        [
+          631,
+          632
+        ],
+        [
+          634,
+          634
+        ],
+        [
+          636,
+          637
+        ],
+        [
+          641,
+          642
+        ],
+        [
+          647,
+          647
+        ],
+        [
+          652,
+          652
+        ],
+        [
+          657,
+          657
+        ],
+        [
+          662,
+          662
+        ],
+        [
+          673,
+          675
+        ],
+        [
+          683,
+          683
+        ],
+        [
+          686,
+          687
+        ],
+        [
+          691,
+          691
+        ],
+        [
+          718,
+          718
+        ],
+        [
+          727,
+          727
+        ],
+        [
+          731,
+          735
+        ],
+        [
+          738,
+          738
+        ],
+        [
+          742,
+          743
+        ],
+        [
+          747,
+          748
+        ],
+        [
+          750,
+          750
+        ],
+        [
+          755,
+          755
+        ],
+        [
+          781,
+          781
+        ],
+        [
+          783,
+          783
+        ],
+        [
+          797,
+          797
+        ],
+        [
+          808,
+          808
+        ],
+        [
+          813,
+          814
+        ],
+        [
+          818,
+          819
+        ],
+        [
+          821,
+          821
+        ],
+        [
+          825,
+          825
+        ],
+        [
+          832,
+          832
+        ],
+        [
+          860,
+          860
+        ],
+        [
+          862,
+          862
+        ],
+        [
+          871,
+          871
+        ],
+        [
+          888,
+          888
+        ],
+        [
+          895,
+          895
+        ],
+        [
+          897,
+          897
+        ],
+        [
+          905,
+          906
+        ],
+        [
+          913,
+          913
+        ],
+        [
+          917,
+          917
+        ],
+        [
+          919,
+          919
+        ],
+        [
+          923,
+          923
+        ],
+        [
+          934,
+          935
+        ],
+        [
+          995,
+          996
+        ],
+        [
+          1001,
+          1001
+        ],
+        [
+          1003,
+          1003
+        ],
+        [
+          1022,
+          1023
+        ],
+        [
+          1037,
+          1037
+        ],
+        [
+          1045,
+          1045
+        ],
+        [
+          1047,
+          1047
+        ],
+        [
+          1063,
+          1063
+        ],
+        [
+          1068,
+          1070
+        ],
+        [
+          1072,
+          1072
+        ],
+        [
+          1074,
+          1074
+        ],
+        [
+          1078,
+          1078
+        ],
+        [
+          1095,
+          1095
+        ],
+        [
+          1114,
+          1116
+        ],
+        [
+          1143,
+          1143
+        ],
+        [
+          1145,
+          1145
+        ],
+        [
+          1157,
+          1159
+        ],
+        [
+          1162,
+          1162
+        ],
+        [
+          1184,
+          1184
+        ],
+        [
+          1188,
+          1188
+        ],
+        [
+          1191,
+          1192
+        ],
+        [
+          1194,
+          1194
+        ],
+        [
+          1212,
+          1212
+        ],
+        [
+          1218,
+          1218
+        ],
+        [
+          1221,
+          1221
+        ],
+        [
+          1227,
+          1228
+        ],
+        [
+          1242,
+          1242
+        ],
+        [
+          1250,
+          1250
+        ],
+        [
+          1259,
+          1259
+        ],
+        [
+          1269,
+          1270
+        ],
+        [
+          1274,
+          1275
+        ],
+        [
+          1286,
+          1286
+        ],
+        [
+          1292,
+          1292
+        ],
+        [
+          1296,
+          1297
+        ],
+        [
+          1314,
+          1314
+        ],
+        [
+          1355,
+          1355
+        ],
+        [
+          1359,
+          1359
+        ],
+        [
+          1404,
+          1406
+        ],
+        [
+          1421,
+          1421
+        ],
+        [
+          1429,
+          1429
+        ],
+        [
+          1433,
+          1433
+        ]
+      ],
+      "complete": true,
+      "differences": [],
+      "left": "OR",
+      "right": "SDR",
+      "sheet": "Data",
+      "unchanged_fixed_rows": 0
+    },
+    {
+      "checked_spans": [
+        [
+          2,
+          7
+        ],
+        [
+          9,
+          20
+        ]
+      ],
+      "complete": true,
+      "differences": [],
+      "left": "OR",
+      "right": "SDR",
+      "sheet": "Notes",
+      "unchanged_fixed_rows": 1
+    },
+    {
+      "checked_spans": [
+        [
+          1,
+          258
+        ]
+      ],
+      "complete": true,
+      "differences": [],
+      "left": "OR",
+      "right": "SDR",
+      "sheet": "Pivot Selection Page",
+      "unchanged_fixed_rows": 0
+    }
+  ],
+  "image_comparison_statistics": {
+    "comparisons": 11,
+    "decoded_images": 11,
+    "encoded_bytes_read": 23914062,
+    "encoded_images_reused": 11,
+    "files_read": 22
+  },
+  "input_identity": {
+    "status": "different"
+  },
+  "limitations": [
+    "Gridlines are disabled consistently. Policy v10 compares only common pixels when measured capture/content origins match and content cores are contained. capture_extent_ignored records omitted right/bottom extent and retains both raw images and geometries. Changed overlapping pixels remain differences. Shifted origins, missing measurements and charts retain conservative verdicts. blank_margin_ignored records the stronger exact white-margin proof.",
+    "Row-height checks cover rows above and within the unpadded union of content envelopes, including potentially visible fill/border/conditional-formatting extents. Policy v12 excludes context rows below the union content boundary from both height dependencies and cell capture rectangles; upper and side context remain. Charts retain independent full-chart observations.",
+    "Strategy paired-inplace-rebuild-v1 compares rebuilt Original against rebuilt Default and optional rebuilt Check Performance. Each reuses its existing Excel process. Pre-rebuild captures are omitted for throughput; XML save/optimization/rebuild controls are retained. Volatility and exclusive causal attribution require follow-up.",
+    "Cell capture regions are intersected with the union of content-bearing cells and potentially visible fill/border/conditional-formatting extents in the compared rebuilt states, plus one row above and one column on either side. Opening/save XML controls retain separate provenance. Exterior regions outside that envelope are intentionally skipped, not visually confirmed identical; content_coverage records selection counts and bounds. Chart exports are independent of this policy.",
+    "Capture partition visible-geometry-v2 merges adjacent internal grid tiles without changing their union. It measures every live state and splits only for image budgets (30,000 pixels per edge, 32 million pixels total), estimating conservatively at two pixels per point plus a rounding margin. Actual exports are checked too. Zero-area ranges retain geometry and explicit non-rendering observations without images or pixel equality claims. Later states can repartition and backfill earlier retained workbooks.",
+    "CF decisions concern rule contributions within the recorded union of comparison extents. Literal cellIs exclusions require identical cell-XML fingerprints and visual context. Formula inputs remain captures; unknown or changed rules retain region captures. This is not a proof of whole-workbook visual equality.",
+    "Chart mode deterministic excludes only embedded charts with complete unchanged package, XML/cache, source-cell/style/layout/CF and live-geometry dependencies. Exclusions are not pixel comparisons. Unknown references, external or unsupported parts, ambiguous names and chart sheets retain full-chart exports. Mode conservative exports every chart. Other drawings and all worksheet geometry effects are not exhaustively discovered.",
+    "Charts with measured zero width or height retain geometry and an explicit zero-area-chart observation without a pixel verdict. A transition between visible and zero-area states is a rendering/geometry difference.",
+    "Disposable targeted copies are staged with calcMode=manual, fullCalcOnLoad=0, forceFullCalc=0 and calcOnSave=0 before Excel opens them. Cached formula values are retained until each resident workbook is explicitly rebuilt. Excel may still autonomously refresh content; observed save/rebuild transitions remain audited. Original inputs and prepared bundles are unchanged. This suppresses unintended open/save recalculation and changes the opening baseline relative to capture policy v4.",
+    "Opening/saving and the in-place SD rebuild are retained as separate XML controls. Exact content/context matches identify overlaps conservatively; absence of a match does not establish exclusive causality.",
+    "Worksheet cells are streamed into temporary fixed-size fingerprints without worksheet-byte or cell-count limits. Exterior empty-cell changes are counted before candidate allocation. Layout metadata and retained change evidence still require memory.",
+    "When content coverage marks background_tail_sampling, supported borderless solid-fill bands with known sheet-wide gridline settings are represented through their finite transitions and tail samples. Pixels beyond that envelope are not captured; this is not exhaustive whole-grid pixel coverage."
+  ],
+  "native_drawing_bounds": [],
+  "phases": [
+    "initial XML compared",
+    "Original and Default opened",
+    "Excel save effects inspected",
+    "Original and variants rebuilt in their existing processes"
+  ],
+  "portable_report": {
+    "diagnostics": {},
+    "different_regions": 0,
+    "failure": null,
+    "note": "Pixel diagnostics describe retained captures. They do not change the scientific comparison verdict or extend its coverage.",
+    "source_report": null,
+    "version": 1
+  },
+  "public_presentation": {
+    "meaning": "Derived presentation. Native evidence remains unchanged.",
+    "metadata_omissions": [
+      {
+        "pointer": "/report/excel_pids",
+        "source_value_sha256": "77434dab43b5ff99aa6fe23bbb1831e829f0fdce06559fd7173a5c108deb96e8"
+      },
+      {
+        "pointer": "/report/portable_report/source_report",
+        "source_value_sha256": "451a884b2f650e04f633bf7eeb85ec438ca310eeca276f3ffca40a7a677cb192"
+      },
+      {
+        "pointer": "/report/transitions/0/after_file",
+        "source_value_sha256": "1859c6e5a5e2d0903e542f8bdcdad2e77107441248fe4fde64e15d7f8f3fce6d"
+      },
+      {
+        "pointer": "/report/transitions/0/before_file",
+        "source_value_sha256": "07e907ab03be75ecfebb9eedd5934cef87af3c6172aa317af25745a2f2a15dae"
+      },
+      {
+        "pointer": "/report/transitions/0/changes_file",
+        "source_value_sha256": "befa51920f270047deed41b0e68382abe5299cb5167a4cf0b0a8d91dc231a3f3"
+      },
+      {
+        "pointer": "/report/transitions/1/after_file",
+        "source_value_sha256": "1226ac5589943f5c00b4d94ebf09522b5be677af7accd321426cdb75b9af01ae"
+      },
+      {
+        "pointer": "/report/transitions/1/before_file",
+        "source_value_sha256": "07e907ab03be75ecfebb9eedd5934cef87af3c6172aa317af25745a2f2a15dae"
+      },
+      {
+        "pointer": "/report/transitions/1/changes_file",
+        "source_value_sha256": "a1fbd7bbd332e011e556be583a4d2192094c3846efd6b1b2b4554fdfc7cfe93a"
+      },
+      {
+        "pointer": "/report/transitions/2/after_file",
+        "source_value_sha256": "59b3ca75f49768d462fd2444b719a93a903deefe57e92aef9ffe18bc4caf09bc"
+      },
+      {
+        "pointer": "/report/transitions/2/before_file",
+        "source_value_sha256": "1226ac5589943f5c00b4d94ebf09522b5be677af7accd321426cdb75b9af01ae"
+      },
+      {
+        "pointer": "/report/transitions/2/changes_file",
+        "source_value_sha256": "349ab2cbf4790497487d75348eef5230342408c7238d737363c6bc2103f64218"
+      },
+      {
+        "pointer": "/report/transitions/3/after_file",
+        "source_value_sha256": "14132b421e45478dc989a448434603533616c63015cd20a795e9b2e346347369"
+      },
+      {
+        "pointer": "/report/transitions/3/before_file",
+        "source_value_sha256": "1859c6e5a5e2d0903e542f8bdcdad2e77107441248fe4fde64e15d7f8f3fce6d"
+      },
+      {
+        "pointer": "/report/transitions/3/changes_file",
+        "source_value_sha256": "c92fb8badb2c8ca857a6d1e1845d98bba61cfff5b04d26a470eb25c17ea352b7"
+      },
+      {
+        "pointer": "/report/transitions/4/after_file",
+        "source_value_sha256": "a3823b3c39abac8ea0eca5b46a9940ece33d7a063aa8074cc9b2780177abb6ce"
+      },
+      {
+        "pointer": "/report/transitions/4/before_file",
+        "source_value_sha256": "59b3ca75f49768d462fd2444b719a93a903deefe57e92aef9ffe18bc4caf09bc"
+      },
+      {
+        "pointer": "/report/transitions/4/changes_file",
+        "source_value_sha256": "5d4072f6e46cffcaaa49a2b19c0eeb0f7cf4858e4e8631051ba29aae5238d686"
+      },
+      {
+        "pointer": "/validation_signature/environment_key",
+        "source_value_sha256": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126"
+      }
+    ],
+    "schema": 1,
+    "source_report_sha256": "607f35527d719bb9c5bdd0e46ebd1db938ab1d25616a24da5b1f7f9b91c60448"
+  },
+  "rebuild_checks": {},
+  "state_decisions": {
+    "CP": {
+      "status": "disabled"
+    },
+    "CPR": {
+      "status": "disabled"
+    },
+    "O": {
+      "method": "open-save",
+      "status": "observed"
+    },
+    "OR": {
+      "method": "inplace-rebuild",
+      "status": "observed"
+    },
+    "SD": {
+      "method": "open-save",
+      "status": "observed"
+    },
+    "SDR": {
+      "method": "inplace-rebuild",
+      "status": "observed"
+    }
+  },
+  "status": "completed_with_limitations",
+  "timings_ms": {
+    "capture_selection_and_transport": 6040,
+    "image_comparisons": 717
+  },
+  "transitions": [
+    {
+      "after_file": null,
+      "before_file": null,
+      "change_count": 1543387,
+      "changes_file": null,
+      "label": "original opening/saving control",
+      "skipped_outside_content_cell_changes": {
+        "Notes": 59728,
+        "Profile Summary Page": 1044999
+      },
+      "timings_ms": {
+        "attribution": 2398,
+        "differences": 1937,
+        "read_snapshots": 12,
+        "total": 5238,
+        "write_evidence": 881
+      }
+    },
+    {
+      "after_file": null,
+      "before_file": null,
+      "change_count": 1246700,
+      "changes_file": null,
+      "label": "default input versus original input",
+      "skipped_outside_content_cell_changes": {
+        "Notes": 346208,
+        "Profile Summary Page": 1045128
+      },
+      "timings_ms": {
+        "attribution": 974,
+        "differences": 1111,
+        "read_snapshots": 8,
+        "total": 2551,
+        "write_evidence": 449
+      }
+    },
+    {
+      "after_file": null,
+      "before_file": null,
+      "change_count": 297763,
+      "changes_file": null,
+      "label": "default opening/saving control",
+      "skipped_outside_content_cell_changes": {
+        "Notes": 3
+      },
+      "timings_ms": {
+        "attribution": 306,
+        "differences": 379,
+        "read_snapshots": 4,
+        "total": 1054,
+        "write_evidence": 358
+      }
+    },
+    {
+      "after_file": null,
+      "before_file": null,
+      "change_count": 0,
+      "changes_file": null,
+      "label": "O in-place rebuild and save",
+      "skipped_outside_content_cell_changes": {},
+      "timings_ms": {
+        "attribution": 0,
+        "differences": 689,
+        "read_snapshots": 2718,
+        "total": 3418,
+        "write_evidence": 3
+      }
+    },
+    {
+      "after_file": null,
+      "before_file": null,
+      "change_count": 0,
+      "changes_file": null,
+      "label": "SD in-place rebuild and save",
+      "skipped_outside_content_cell_changes": {},
+      "timings_ms": {
+        "attribution": 0,
+        "differences": 2,
+        "read_snapshots": 306,
+        "total": 317,
+        "write_evidence": 2
+      }
+    }
+  ],
+  "workbook_bytes": {
+    "OR-rebuilt.xlsx": 9506374,
+    "SDR-rebuilt.xlsx": 3179275,
+    "default.before-save.xlsx": 3046598,
+    "default.xlsx": 3179246,
+    "input_default": 3046598,
+    "input_original": 10513575,
+    "original.before-save.xlsx": 10513575,
+    "original.xlsx": 9506346
+  },
+  "workbook_inventory": {
+    "complete": true,
+    "original_sha256": "c0ce9ac6c40d710734807841067488a1ba0e9091fb6dd672f7546b78d4bb6a88",
+    "sheets": [
+      {
+        "id": "2",
+        "name": "Profile Summary Page",
+        "order": 0,
+        "state": "visible"
+      },
+      {
+        "id": "4",
+        "name": "Pivot Selection Page",
+        "order": 1,
+        "state": "visible"
+      },
+      {
+        "id": "1",
+        "name": "Data",
+        "order": 2,
+        "state": "visible"
+      },
+      {
+        "id": "5",
+        "name": "Notes",
+        "order": 3,
+        "state": "visible"
+      }
+    ]
+  },
+  "xml_snapshot_statistics": {
+    "elapsed_ms": 9226,
+    "parsed_versions": 6,
+    "reads": 20,
+    "reused_versions": 14
+  }
+}

@@ -1,0 +1,1436 @@
+{
+  "candidate_count": 9,
+  "capture_counts": {
+    "OR": 9,
+    "OR:charts": 0,
+    "SDR": 9,
+    "SDR:charts": 0
+  },
+  "capture_partition": "visible-geometry-v2",
+  "capture_policy": "targeted-content-grid-v14",
+  "capture_receipts": [
+    {
+      "at": 1794329764440,
+      "geometry": {
+        "comparison_core": {
+          "height": 1164.75,
+          "left": 0.0,
+          "top": 0.0,
+          "width": 1314.0
+        },
+        "height": 1164.75,
+        "left": 0.0,
+        "top": 0.0,
+        "width": 1314.0
+      },
+      "id": "1340895e-962d-495a-b774-9160f47b9813",
+      "image": "evidence/f633005ce65bff3d7330d786e7e53549b3124b6df90e90d5fa425dedc598451a.png",
+      "lane": "OR",
+      "range": "A1:P85",
+      "sheet": "23141-04"
+    },
+    {
+      "at": 1794329764782,
+      "geometry": {
+        "comparison_core": {
+          "height": 1164.75,
+          "left": 0.0,
+          "top": 0.0,
+          "width": 1310.25
+        },
+        "height": 1164.75,
+        "left": 0.0,
+        "top": 0.0,
+        "width": 1310.25
+      },
+      "id": "47213aed-36b0-413a-874f-be27639e9f56",
+      "image": "evidence/7ad12ff188b8e41682d4a4fe0e3f15b2bfc61244cbd25cd55c0694872c309bc3.png",
+      "lane": "OR",
+      "range": "A1:P85",
+      "sheet": "23141-05"
+    },
+    {
+      "at": 1794329765093,
+      "geometry": {
+        "comparison_core": {
+          "height": 1164.75,
+          "left": 0.0,
+          "top": 0.0,
+          "width": 1325.25
+        },
+        "height": 1164.75,
+        "left": 0.0,
+        "top": 0.0,
+        "width": 1325.25
+      },
+      "id": "2aa95d68-45af-4cb5-8a8b-e78877170451",
+      "image": "evidence/8b4cf7f676e6588313a3ef792ec40394293f0bef7c0fa8c5d2e7956fa400bc34.png",
+      "lane": "OR",
+      "range": "A1:P85",
+      "sheet": "23141-06"
+    },
+    {
+      "at": 1794329765227,
+      "geometry": {
+        "comparison_core": {
+          "height": 476.625,
+          "left": 0.0,
+          "top": 0.0,
+          "width": 746.25
+        },
+        "height": 476.625,
+        "left": 0.0,
+        "top": 0.0,
+        "width": 806.25
+      },
+      "id": "471b2e0e-836b-4996-924a-ffa3e5b71cee",
+      "image": "evidence/b84d75d1e61d04756e1daf29d34a76e1cf1f0f16f4c1aeac5368624bb9693b23.png",
+      "lane": "OR",
+      "range": "A1:C27",
+      "sheet": "Erläuterung zu CSV-Tabellen"
+    },
+    {
+      "at": 1794329765437,
+      "geometry": {
+        "comparison_core": {
+          "height": 1913.25,
+          "left": 0.0,
+          "top": 0.0,
+          "width": 1262.25
+        },
+        "height": 1913.25,
+        "left": 0.0,
+        "top": 0.0,
+        "width": 1262.25
+      },
+      "id": "54a236ab-ccff-4e3a-991c-d1ddc354b33e",
+      "image": "evidence/2dc5051f1d04dd21e17764b96ab85ce3de351f391c144d4695de5e29e2c96bf4.png",
+      "lane": "OR",
+      "range": "A1:P128",
+      "sheet": "GENESIS-Online"
+    },
+    {
+      "at": 1794329765583,
+      "geometry": {
+        "comparison_core": {
+          "height": 386.25,
+          "left": 0.0,
+          "top": 0.0,
+          "width": 199.5
+        },
+        "height": 386.25,
+        "left": 0.0,
+        "top": 0.0,
+        "width": 259.5
+      },
+      "id": "ba0a0e51-3f1f-497f-aab1-8c166df5298a",
+      "image": "evidence/385b5f476c53ae5b73ad7929b7f03b2a018dae4d551abaaf36241c2e380b596c.png",
+      "lane": "OR",
+      "range": "A1:D26",
+      "sheet": "Impressum"
+    },
+    {
+      "at": 1794329766358,
+      "geometry": {
+        "comparison_core": {
+          "height": 4100.0625,
+          "left": 0.0,
+          "top": 0.0,
+          "width": 499.5
+        },
+        "height": 4100.0625,
+        "left": 0.0,
+        "top": 0.0,
+        "width": 559.5
+      },
+      "id": "27b391b1-bad5-4d7b-a3c6-2bd10571ef4e",
+      "image": "evidence/239568a440526ce66cdff76ef08d25aa2019e2d9e1c3450b7f53492c2080c554.png",
+      "lane": "OR",
+      "range": "A1:C136",
+      "sheet": "Informationen zur Statistik"
+    },
+    {
+      "at": 1794329766849,
+      "geometry": {
+        "comparison_core": {
+          "height": 406.6875,
+          "left": 0.0,
+          "top": 0.0,
+          "width": 599.25
+        },
+        "height": 406.6875,
+        "left": 0.0,
+        "top": 0.0,
+        "width": 659.25
+      },
+      "id": "b3542b40-db47-4760-9592-dd30b5202b39",
+      "image": "evidence/115604c951a35144b936f5dbcd0a95d337e233c791a3d6739801944f47c08f61.png",
+      "lane": "OR",
+      "range": "A1:C30",
+      "sheet": "Inhaltsübersicht"
+    },
+    {
+      "at": 1794329766977,
+      "geometry": {
+        "comparison_core": {
+          "height": 293.25,
+          "left": 0.0,
+          "top": 383520.0,
+          "width": 1552.5
+        },
+        "height": 293.25,
+        "left": 0.0,
+        "top": 383520.0,
+        "width": 1613.25
+      },
+      "id": "6c8fdab3-7607-400b-ad07-789186eaf8cc",
+      "image": "evidence/7dd00b64bcdf97c9a838418cb444fd27cad384ebba77592256ce332bb874ccf0.png",
+      "lane": "OR",
+      "range": "A30081:J30103",
+      "sheet": "csv-23141-09"
+    },
+    {
+      "at": 1794329764440,
+      "geometry": {
+        "comparison_core": {
+          "height": 1164.75,
+          "left": 0.0,
+          "top": 0.0,
+          "width": 1314.0
+        },
+        "height": 1164.75,
+        "left": 0.0,
+        "top": 0.0,
+        "width": 1314.0
+      },
+      "id": "e2d53a7d-892e-47e8-8f0c-e2e0ea100aa7",
+      "image": "evidence/f633005ce65bff3d7330d786e7e53549b3124b6df90e90d5fa425dedc598451a.png",
+      "lane": "SDR",
+      "range": "A1:P85",
+      "sheet": "23141-04"
+    },
+    {
+      "at": 1794329764782,
+      "geometry": {
+        "comparison_core": {
+          "height": 1164.75,
+          "left": 0.0,
+          "top": 0.0,
+          "width": 1310.25
+        },
+        "height": 1164.75,
+        "left": 0.0,
+        "top": 0.0,
+        "width": 1310.25
+      },
+      "id": "efa215cf-9529-4087-a7ab-6e65727a00e0",
+      "image": "evidence/7ad12ff188b8e41682d4a4fe0e3f15b2bfc61244cbd25cd55c0694872c309bc3.png",
+      "lane": "SDR",
+      "range": "A1:P85",
+      "sheet": "23141-05"
+    },
+    {
+      "at": 1794329765093,
+      "geometry": {
+        "comparison_core": {
+          "height": 1164.75,
+          "left": 0.0,
+          "top": 0.0,
+          "width": 1325.25
+        },
+        "height": 1164.75,
+        "left": 0.0,
+        "top": 0.0,
+        "width": 1325.25
+      },
+      "id": "a8f3758f-1fe4-4b3d-ac80-18620d775a88",
+      "image": "evidence/8b4cf7f676e6588313a3ef792ec40394293f0bef7c0fa8c5d2e7956fa400bc34.png",
+      "lane": "SDR",
+      "range": "A1:P85",
+      "sheet": "23141-06"
+    },
+    {
+      "at": 1794329765227,
+      "geometry": {
+        "comparison_core": {
+          "height": 476.625,
+          "left": 0.0,
+          "top": 0.0,
+          "width": 746.25
+        },
+        "height": 476.625,
+        "left": 0.0,
+        "top": 0.0,
+        "width": 806.25
+      },
+      "id": "b94793d3-efb8-4f10-b75d-8804207e3868",
+      "image": "evidence/b84d75d1e61d04756e1daf29d34a76e1cf1f0f16f4c1aeac5368624bb9693b23.png",
+      "lane": "SDR",
+      "range": "A1:C27",
+      "sheet": "Erläuterung zu CSV-Tabellen"
+    },
+    {
+      "at": 1794329765437,
+      "geometry": {
+        "comparison_core": {
+          "height": 1913.25,
+          "left": 0.0,
+          "top": 0.0,
+          "width": 1262.25
+        },
+        "height": 1913.25,
+        "left": 0.0,
+        "top": 0.0,
+        "width": 1262.25
+      },
+      "id": "adc78ba5-cf5c-4b92-83ac-71063b2956c0",
+      "image": "evidence/2dc5051f1d04dd21e17764b96ab85ce3de351f391c144d4695de5e29e2c96bf4.png",
+      "lane": "SDR",
+      "range": "A1:P128",
+      "sheet": "GENESIS-Online"
+    },
+    {
+      "at": 1794329765583,
+      "geometry": {
+        "comparison_core": {
+          "height": 386.25,
+          "left": 0.0,
+          "top": 0.0,
+          "width": 199.5
+        },
+        "height": 386.25,
+        "left": 0.0,
+        "top": 0.0,
+        "width": 259.5
+      },
+      "id": "44f644e1-5710-444c-9608-2990c9bf0753",
+      "image": "evidence/385b5f476c53ae5b73ad7929b7f03b2a018dae4d551abaaf36241c2e380b596c.png",
+      "lane": "SDR",
+      "range": "A1:D26",
+      "sheet": "Impressum"
+    },
+    {
+      "at": 1794329766358,
+      "geometry": {
+        "comparison_core": {
+          "height": 4100.0625,
+          "left": 0.0,
+          "top": 0.0,
+          "width": 499.5
+        },
+        "height": 4100.0625,
+        "left": 0.0,
+        "top": 0.0,
+        "width": 559.5
+      },
+      "id": "da1b70ca-4a6d-4d4a-bd7e-ebe9f06c65e2",
+      "image": "evidence/239568a440526ce66cdff76ef08d25aa2019e2d9e1c3450b7f53492c2080c554.png",
+      "lane": "SDR",
+      "range": "A1:C136",
+      "sheet": "Informationen zur Statistik"
+    },
+    {
+      "at": 1794329766849,
+      "geometry": {
+        "comparison_core": {
+          "height": 406.6875,
+          "left": 0.0,
+          "top": 0.0,
+          "width": 599.25
+        },
+        "height": 406.6875,
+        "left": 0.0,
+        "top": 0.0,
+        "width": 659.25
+      },
+      "id": "f5fd844f-49d1-4fe7-83bc-ef37dbe2abd2",
+      "image": "evidence/115604c951a35144b936f5dbcd0a95d337e233c791a3d6739801944f47c08f61.png",
+      "lane": "SDR",
+      "range": "A1:C30",
+      "sheet": "Inhaltsübersicht"
+    },
+    {
+      "at": 1794329766977,
+      "geometry": {
+        "comparison_core": {
+          "height": 293.25,
+          "left": 0.0,
+          "top": 383520.0,
+          "width": 1552.5
+        },
+        "height": 293.25,
+        "left": 0.0,
+        "top": 383520.0,
+        "width": 1613.25
+      },
+      "id": "aaac75bc-ade2-4cad-894c-75d4435717dd",
+      "image": "evidence/7dd00b64bcdf97c9a838418cb444fd27cad384ebba77592256ce332bb874ccf0.png",
+      "lane": "SDR",
+      "range": "A30081:J30103",
+      "sheet": "csv-23141-09"
+    }
+  ],
+  "chart_capture_mode": "deterministic",
+  "chart_dependencies": [
+    {
+      "decisions": [],
+      "left": "OR",
+      "mode": "deterministic",
+      "right": "SDR"
+    }
+  ],
+  "check_performance": "not_requested",
+  "check_performance_cache": null,
+  "check_performance_evidence": null,
+  "comparisons": [
+    {
+      "charts": [],
+      "findings": [
+        {
+          "blank_margin_ignored": false,
+          "capture_extent_ignored": false,
+          "cell": "A1:P85",
+          "geometry_differs": false,
+          "left_geometry": {
+            "comparison_core": {
+              "height": 1164.75,
+              "left": 0.0,
+              "top": 0.0,
+              "width": 1314.0
+            },
+            "height": 1164.75,
+            "left": 0.0,
+            "top": 0.0,
+            "width": 1314.0
+          },
+          "left_png": "evidence/f633005ce65bff3d7330d786e7e53549b3124b6df90e90d5fa425dedc598451a.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "comparison_core": {
+              "height": 1164.75,
+              "left": 0.0,
+              "top": 0.0,
+              "width": 1314.0
+            },
+            "height": 1164.75,
+            "left": 0.0,
+            "top": 0.0,
+            "width": 1314.0
+          },
+          "right_png": "evidence/f633005ce65bff3d7330d786e7e53549b3124b6df90e90d5fa425dedc598451a.png",
+          "right_rendering": "captured",
+          "sheet": "23141-04"
+        },
+        {
+          "blank_margin_ignored": false,
+          "capture_extent_ignored": false,
+          "cell": "A1:P85",
+          "geometry_differs": false,
+          "left_geometry": {
+            "comparison_core": {
+              "height": 1164.75,
+              "left": 0.0,
+              "top": 0.0,
+              "width": 1310.25
+            },
+            "height": 1164.75,
+            "left": 0.0,
+            "top": 0.0,
+            "width": 1310.25
+          },
+          "left_png": "evidence/7ad12ff188b8e41682d4a4fe0e3f15b2bfc61244cbd25cd55c0694872c309bc3.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "comparison_core": {
+              "height": 1164.75,
+              "left": 0.0,
+              "top": 0.0,
+              "width": 1310.25
+            },
+            "height": 1164.75,
+            "left": 0.0,
+            "top": 0.0,
+            "width": 1310.25
+          },
+          "right_png": "evidence/7ad12ff188b8e41682d4a4fe0e3f15b2bfc61244cbd25cd55c0694872c309bc3.png",
+          "right_rendering": "captured",
+          "sheet": "23141-05"
+        },
+        {
+          "blank_margin_ignored": false,
+          "capture_extent_ignored": false,
+          "cell": "A1:P85",
+          "geometry_differs": false,
+          "left_geometry": {
+            "comparison_core": {
+              "height": 1164.75,
+              "left": 0.0,
+              "top": 0.0,
+              "width": 1325.25
+            },
+            "height": 1164.75,
+            "left": 0.0,
+            "top": 0.0,
+            "width": 1325.25
+          },
+          "left_png": "evidence/8b4cf7f676e6588313a3ef792ec40394293f0bef7c0fa8c5d2e7956fa400bc34.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "comparison_core": {
+              "height": 1164.75,
+              "left": 0.0,
+              "top": 0.0,
+              "width": 1325.25
+            },
+            "height": 1164.75,
+            "left": 0.0,
+            "top": 0.0,
+            "width": 1325.25
+          },
+          "right_png": "evidence/8b4cf7f676e6588313a3ef792ec40394293f0bef7c0fa8c5d2e7956fa400bc34.png",
+          "right_rendering": "captured",
+          "sheet": "23141-06"
+        },
+        {
+          "blank_margin_ignored": false,
+          "capture_extent_ignored": false,
+          "cell": "A1:C27",
+          "geometry_differs": false,
+          "left_geometry": {
+            "comparison_core": {
+              "height": 476.625,
+              "left": 0.0,
+              "top": 0.0,
+              "width": 746.25
+            },
+            "height": 476.625,
+            "left": 0.0,
+            "top": 0.0,
+            "width": 806.25
+          },
+          "left_png": "evidence/b84d75d1e61d04756e1daf29d34a76e1cf1f0f16f4c1aeac5368624bb9693b23.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "comparison_core": {
+              "height": 476.625,
+              "left": 0.0,
+              "top": 0.0,
+              "width": 746.25
+            },
+            "height": 476.625,
+            "left": 0.0,
+            "top": 0.0,
+            "width": 806.25
+          },
+          "right_png": "evidence/b84d75d1e61d04756e1daf29d34a76e1cf1f0f16f4c1aeac5368624bb9693b23.png",
+          "right_rendering": "captured",
+          "sheet": "Erläuterung zu CSV-Tabellen"
+        },
+        {
+          "blank_margin_ignored": false,
+          "capture_extent_ignored": false,
+          "cell": "A1:P128",
+          "geometry_differs": false,
+          "left_geometry": {
+            "comparison_core": {
+              "height": 1913.25,
+              "left": 0.0,
+              "top": 0.0,
+              "width": 1262.25
+            },
+            "height": 1913.25,
+            "left": 0.0,
+            "top": 0.0,
+            "width": 1262.25
+          },
+          "left_png": "evidence/2dc5051f1d04dd21e17764b96ab85ce3de351f391c144d4695de5e29e2c96bf4.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "comparison_core": {
+              "height": 1913.25,
+              "left": 0.0,
+              "top": 0.0,
+              "width": 1262.25
+            },
+            "height": 1913.25,
+            "left": 0.0,
+            "top": 0.0,
+            "width": 1262.25
+          },
+          "right_png": "evidence/2dc5051f1d04dd21e17764b96ab85ce3de351f391c144d4695de5e29e2c96bf4.png",
+          "right_rendering": "captured",
+          "sheet": "GENESIS-Online"
+        },
+        {
+          "blank_margin_ignored": false,
+          "capture_extent_ignored": false,
+          "cell": "A1:D26",
+          "geometry_differs": false,
+          "left_geometry": {
+            "comparison_core": {
+              "height": 386.25,
+              "left": 0.0,
+              "top": 0.0,
+              "width": 199.5
+            },
+            "height": 386.25,
+            "left": 0.0,
+            "top": 0.0,
+            "width": 259.5
+          },
+          "left_png": "evidence/385b5f476c53ae5b73ad7929b7f03b2a018dae4d551abaaf36241c2e380b596c.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "comparison_core": {
+              "height": 386.25,
+              "left": 0.0,
+              "top": 0.0,
+              "width": 199.5
+            },
+            "height": 386.25,
+            "left": 0.0,
+            "top": 0.0,
+            "width": 259.5
+          },
+          "right_png": "evidence/385b5f476c53ae5b73ad7929b7f03b2a018dae4d551abaaf36241c2e380b596c.png",
+          "right_rendering": "captured",
+          "sheet": "Impressum"
+        },
+        {
+          "blank_margin_ignored": false,
+          "capture_extent_ignored": false,
+          "cell": "A1:C136",
+          "geometry_differs": false,
+          "left_geometry": {
+            "comparison_core": {
+              "height": 4100.0625,
+              "left": 0.0,
+              "top": 0.0,
+              "width": 499.5
+            },
+            "height": 4100.0625,
+            "left": 0.0,
+            "top": 0.0,
+            "width": 559.5
+          },
+          "left_png": "evidence/239568a440526ce66cdff76ef08d25aa2019e2d9e1c3450b7f53492c2080c554.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "comparison_core": {
+              "height": 4100.0625,
+              "left": 0.0,
+              "top": 0.0,
+              "width": 499.5
+            },
+            "height": 4100.0625,
+            "left": 0.0,
+            "top": 0.0,
+            "width": 559.5
+          },
+          "right_png": "evidence/239568a440526ce66cdff76ef08d25aa2019e2d9e1c3450b7f53492c2080c554.png",
+          "right_rendering": "captured",
+          "sheet": "Informationen zur Statistik"
+        },
+        {
+          "blank_margin_ignored": false,
+          "capture_extent_ignored": false,
+          "cell": "A1:C30",
+          "geometry_differs": false,
+          "left_geometry": {
+            "comparison_core": {
+              "height": 406.6875,
+              "left": 0.0,
+              "top": 0.0,
+              "width": 599.25
+            },
+            "height": 406.6875,
+            "left": 0.0,
+            "top": 0.0,
+            "width": 659.25
+          },
+          "left_png": "evidence/115604c951a35144b936f5dbcd0a95d337e233c791a3d6739801944f47c08f61.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "comparison_core": {
+              "height": 406.6875,
+              "left": 0.0,
+              "top": 0.0,
+              "width": 599.25
+            },
+            "height": 406.6875,
+            "left": 0.0,
+            "top": 0.0,
+            "width": 659.25
+          },
+          "right_png": "evidence/115604c951a35144b936f5dbcd0a95d337e233c791a3d6739801944f47c08f61.png",
+          "right_rendering": "captured",
+          "sheet": "Inhaltsübersicht"
+        },
+        {
+          "blank_margin_ignored": false,
+          "capture_extent_ignored": false,
+          "cell": "A30081:J30103",
+          "geometry_differs": false,
+          "left_geometry": {
+            "comparison_core": {
+              "height": 293.25,
+              "left": 0.0,
+              "top": 383520.0,
+              "width": 1552.5
+            },
+            "height": 293.25,
+            "left": 0.0,
+            "top": 383520.0,
+            "width": 1613.25
+          },
+          "left_png": "evidence/7dd00b64bcdf97c9a838418cb444fd27cad384ebba77592256ce332bb874ccf0.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "comparison_core": {
+              "height": 293.25,
+              "left": 0.0,
+              "top": 383520.0,
+              "width": 1552.5
+            },
+            "height": 293.25,
+            "left": 0.0,
+            "top": 383520.0,
+            "width": 1613.25
+          },
+          "right_png": "evidence/7dd00b64bcdf97c9a838418cb444fd27cad384ebba77592256ce332bb874ccf0.png",
+          "right_rendering": "captured",
+          "sheet": "csv-23141-09"
+        }
+      ],
+      "label": "both rebuilt Default",
+      "left": "OR",
+      "right": "SDR",
+      "selected_region_count": 9
+    }
+  ],
+  "conditional_formatting": [
+    {
+      "decisions": [],
+      "left": "OR",
+      "right": "SDR"
+    }
+  ],
+  "content_coverage": [
+    {
+      "background_tail_sampling": false,
+      "cf_blank_tail_excluded": false,
+      "clipped_to_content": 1,
+      "content_envelope_with_one_cell_margin": {
+        "bottom": 85,
+        "left": 1,
+        "right": 20,
+        "top": 1
+      },
+      "reason": "outside-content-envelope",
+      "requested_candidates": 1,
+      "selected_capture_regions": 1,
+      "selected_grid_tiles": 1,
+      "sheet": "23141-04",
+      "skipped_outside_content": 0
+    },
+    {
+      "background_tail_sampling": false,
+      "cf_blank_tail_excluded": false,
+      "clipped_to_content": 1,
+      "content_envelope_with_one_cell_margin": {
+        "bottom": 85,
+        "left": 1,
+        "right": 20,
+        "top": 1
+      },
+      "reason": "outside-content-envelope",
+      "requested_candidates": 1,
+      "selected_capture_regions": 1,
+      "selected_grid_tiles": 1,
+      "sheet": "23141-05",
+      "skipped_outside_content": 0
+    },
+    {
+      "background_tail_sampling": false,
+      "cf_blank_tail_excluded": false,
+      "clipped_to_content": 1,
+      "content_envelope_with_one_cell_margin": {
+        "bottom": 85,
+        "left": 1,
+        "right": 20,
+        "top": 1
+      },
+      "reason": "outside-content-envelope",
+      "requested_candidates": 1,
+      "selected_capture_regions": 1,
+      "selected_grid_tiles": 1,
+      "sheet": "23141-06",
+      "skipped_outside_content": 0
+    },
+    {
+      "background_tail_sampling": false,
+      "cf_blank_tail_excluded": false,
+      "clipped_to_content": 3,
+      "content_envelope_with_one_cell_margin": {
+        "bottom": 27,
+        "left": 1,
+        "right": 3,
+        "top": 1
+      },
+      "reason": "outside-content-envelope",
+      "requested_candidates": 4,
+      "selected_capture_regions": 1,
+      "selected_grid_tiles": 1,
+      "sheet": "Erläuterung zu CSV-Tabellen",
+      "skipped_outside_content": 0
+    },
+    {
+      "background_tail_sampling": false,
+      "cf_blank_tail_excluded": false,
+      "clipped_to_content": 0,
+      "content_envelope_with_one_cell_margin": {
+        "bottom": 1048576,
+        "left": 1,
+        "right": 16384,
+        "top": 1
+      },
+      "reason": "outside-content-envelope",
+      "requested_candidates": 1,
+      "selected_capture_regions": 1,
+      "selected_grid_tiles": 1,
+      "sheet": "GENESIS-Online",
+      "skipped_outside_content": 0
+    },
+    {
+      "background_tail_sampling": false,
+      "cf_blank_tail_excluded": false,
+      "clipped_to_content": 12,
+      "content_envelope_with_one_cell_margin": {
+        "bottom": 26,
+        "left": 1,
+        "right": 4,
+        "top": 1
+      },
+      "reason": "outside-content-envelope",
+      "requested_candidates": 18,
+      "selected_capture_regions": 1,
+      "selected_grid_tiles": 1,
+      "sheet": "Impressum",
+      "skipped_outside_content": 0
+    },
+    {
+      "background_tail_sampling": false,
+      "cf_blank_tail_excluded": false,
+      "clipped_to_content": 1,
+      "content_envelope_with_one_cell_margin": {
+        "bottom": 136,
+        "left": 1,
+        "right": 3,
+        "top": 1
+      },
+      "reason": "outside-content-envelope",
+      "requested_candidates": 11,
+      "selected_capture_regions": 1,
+      "selected_grid_tiles": 2,
+      "sheet": "Informationen zur Statistik",
+      "skipped_outside_content": 2
+    },
+    {
+      "background_tail_sampling": false,
+      "cf_blank_tail_excluded": false,
+      "clipped_to_content": 2,
+      "content_envelope_with_one_cell_margin": {
+        "bottom": 30,
+        "left": 1,
+        "right": 3,
+        "top": 1
+      },
+      "reason": "outside-content-envelope",
+      "requested_candidates": 5,
+      "selected_capture_regions": 1,
+      "selected_grid_tiles": 1,
+      "sheet": "Inhaltsübersicht",
+      "skipped_outside_content": 1
+    },
+    {
+      "background_tail_sampling": false,
+      "cf_blank_tail_excluded": false,
+      "clipped_to_content": 2,
+      "content_envelope_with_one_cell_margin": {
+        "bottom": 30103,
+        "left": 1,
+        "right": 10,
+        "top": 1
+      },
+      "reason": "outside-content-envelope",
+      "requested_candidates": 4,
+      "selected_capture_regions": 1,
+      "selected_grid_tiles": 1,
+      "sheet": "csv-23141-09",
+      "skipped_outside_content": 2
+    }
+  ],
+  "control_artifacts_cache": null,
+  "equal_image_encoding": {
+    "compression": "best",
+    "filter": "adaptive",
+    "format": "PNG",
+    "pixel_preservation": "decoded RGBA equality checked before accepting a smaller encoding",
+    "scope": "verified equal images only; shared differing or unverified references preserve original bytes"
+  },
+  "excel_pids": null,
+  "execution_strategy": "paired-inplace-rebuild-v1",
+  "findings": [],
+  "formula_diagnostics": {
+    "note": "Optional dependency explanations; no visual verdict or coverage was changed.",
+    "omitted_regions": 0,
+    "regions": [],
+    "version": 1
+  },
+  "height_checks": [
+    {
+      "checked_spans": [],
+      "complete": true,
+      "differences": [],
+      "left": "OR",
+      "right": "SDR",
+      "sheet": "Erläuterung zu CSV-Tabellen",
+      "unchanged_fixed_rows": 2
+    },
+    {
+      "checked_spans": [],
+      "complete": true,
+      "differences": [],
+      "left": "OR",
+      "right": "SDR",
+      "sheet": "GENESIS-Online",
+      "unchanged_fixed_rows": 1
+    },
+    {
+      "checked_spans": [
+        [
+          8,
+          8
+        ],
+        [
+          10,
+          12
+        ]
+      ],
+      "complete": true,
+      "differences": [],
+      "left": "OR",
+      "right": "SDR",
+      "sheet": "Impressum",
+      "unchanged_fixed_rows": 3
+    },
+    {
+      "checked_spans": [
+        [
+          3,
+          3
+        ],
+        [
+          12,
+          12
+        ],
+        [
+          59,
+          59
+        ]
+      ],
+      "complete": true,
+      "differences": [],
+      "left": "OR",
+      "right": "SDR",
+      "sheet": "Informationen zur Statistik",
+      "unchanged_fixed_rows": 5
+    },
+    {
+      "checked_spans": [],
+      "complete": true,
+      "differences": [],
+      "left": "OR",
+      "right": "SDR",
+      "sheet": "Inhaltsübersicht",
+      "unchanged_fixed_rows": 1
+    },
+    {
+      "checked_spans": [
+        [
+          3,
+          155
+        ]
+      ],
+      "complete": true,
+      "differences": [],
+      "left": "OR",
+      "right": "SDR",
+      "sheet": "csv-23141_01 ",
+      "unchanged_fixed_rows": 0
+    }
+  ],
+  "image_comparison_statistics": {
+    "comparisons": 9,
+    "decoded_images": 9,
+    "encoded_bytes_read": 3885564,
+    "encoded_images_reused": 9,
+    "files_read": 18
+  },
+  "input_identity": {
+    "status": "different"
+  },
+  "limitations": [
+    "Gridlines are disabled consistently. Policy v10 compares only common pixels when measured capture/content origins match and content cores are contained. capture_extent_ignored records omitted right/bottom extent and retains both raw images and geometries. Changed overlapping pixels remain differences. Shifted origins, missing measurements and charts retain conservative verdicts. blank_margin_ignored records the stronger exact white-margin proof.",
+    "Row-height checks cover rows above and within the unpadded union of content envelopes, including potentially visible fill/border/conditional-formatting extents. Policy v12 excludes context rows below the union content boundary from both height dependencies and cell capture rectangles; upper and side context remain. Charts retain independent full-chart observations.",
+    "Strategy paired-inplace-rebuild-v1 compares rebuilt Original against rebuilt Default and optional rebuilt Check Performance. Each reuses its existing Excel process. Pre-rebuild captures are omitted for throughput; XML save/optimization/rebuild controls are retained. Volatility and exclusive causal attribution require follow-up.",
+    "Cell capture regions are intersected with the union of content-bearing cells and potentially visible fill/border/conditional-formatting extents in the compared rebuilt states, plus one row above and one column on either side. Opening/save XML controls retain separate provenance. Exterior regions outside that envelope are intentionally skipped, not visually confirmed identical; content_coverage records selection counts and bounds. Chart exports are independent of this policy.",
+    "Capture partition visible-geometry-v2 merges adjacent internal grid tiles without changing their union. It measures every live state and splits only for image budgets (30,000 pixels per edge, 32 million pixels total), estimating conservatively at two pixels per point plus a rounding margin. Actual exports are checked too. Zero-area ranges retain geometry and explicit non-rendering observations without images or pixel equality claims. Later states can repartition and backfill earlier retained workbooks.",
+    "CF decisions concern rule contributions within the recorded union of comparison extents. Literal cellIs exclusions require identical cell-XML fingerprints and visual context. Formula inputs remain captures; unknown or changed rules retain region captures. This is not a proof of whole-workbook visual equality.",
+    "Chart mode deterministic excludes only embedded charts with complete unchanged package, XML/cache, source-cell/style/layout/CF and live-geometry dependencies. Exclusions are not pixel comparisons. Unknown references, external or unsupported parts, ambiguous names and chart sheets retain full-chart exports. Mode conservative exports every chart. Other drawings and all worksheet geometry effects are not exhaustively discovered.",
+    "Charts with measured zero width or height retain geometry and an explicit zero-area-chart observation without a pixel verdict. A transition between visible and zero-area states is a rendering/geometry difference.",
+    "Disposable targeted copies are staged with calcMode=manual, fullCalcOnLoad=0, forceFullCalc=0 and calcOnSave=0 before Excel opens them. Cached formula values are retained until each resident workbook is explicitly rebuilt. Excel may still autonomously refresh content; observed save/rebuild transitions remain audited. Original inputs and prepared bundles are unchanged. This suppresses unintended open/save recalculation and changes the opening baseline relative to capture policy v4.",
+    "Opening/saving and the in-place SD rebuild are retained as separate XML controls. Exact content/context matches identify overlaps conservatively; absence of a match does not establish exclusive causality.",
+    "Worksheet cells are streamed into temporary fixed-size fingerprints without worksheet-byte or cell-count limits. Exterior empty-cell changes are counted before candidate allocation. Layout metadata and retained change evidence still require memory.",
+    "When content coverage marks background_tail_sampling, supported borderless solid-fill bands with known sheet-wide gridline settings are represented through their finite transitions and tail samples. Pixels beyond that envelope are not captured; this is not exhaustive whole-grid pixel coverage."
+  ],
+  "native_drawing_bounds": [],
+  "phases": [
+    "initial XML compared",
+    "Original and Default opened",
+    "Excel save effects inspected",
+    "Original and variants rebuilt in their existing processes"
+  ],
+  "portable_report": {
+    "diagnostics": {},
+    "different_regions": 0,
+    "failure": null,
+    "note": "Pixel diagnostics describe retained captures. They do not change the scientific comparison verdict or extend its coverage.",
+    "source_report": null,
+    "version": 1
+  },
+  "public_presentation": {
+    "meaning": "Derived presentation. Native evidence remains unchanged.",
+    "metadata_omissions": [
+      {
+        "pointer": "/report/excel_pids",
+        "source_value_sha256": "98907d734f822bbf96951ec1754da961a887066daf8cb52cbb7c5cf0acf6b065"
+      },
+      {
+        "pointer": "/report/portable_report/source_report",
+        "source_value_sha256": "451a884b2f650e04f633bf7eeb85ec438ca310eeca276f3ffca40a7a677cb192"
+      },
+      {
+        "pointer": "/report/transitions/0/after_file",
+        "source_value_sha256": "6d15359a7415dce4d7450fc3beed4f4b5887aab7b9cef1c8505462da50890c0a"
+      },
+      {
+        "pointer": "/report/transitions/0/before_file",
+        "source_value_sha256": "d5ace782e3a1b6920197257f71956b5175f5fbad1f20be8d954dd73a83ca1d76"
+      },
+      {
+        "pointer": "/report/transitions/0/changes_file",
+        "source_value_sha256": "c5039b8ad49f626d968ba39f60da30d5cff87bc3eded0307d194fce8479a9be7"
+      },
+      {
+        "pointer": "/report/transitions/1/after_file",
+        "source_value_sha256": "7c7420a4b8589307b35258a8c37aed7de0b937d9d8c5e96454eec280ca5ac806"
+      },
+      {
+        "pointer": "/report/transitions/1/before_file",
+        "source_value_sha256": "d5ace782e3a1b6920197257f71956b5175f5fbad1f20be8d954dd73a83ca1d76"
+      },
+      {
+        "pointer": "/report/transitions/1/changes_file",
+        "source_value_sha256": "7cb6be11a24e64d64daf9e42b0a7c6ab64758bda8de79cc9f4b4392ae9c6f3da"
+      },
+      {
+        "pointer": "/report/transitions/2/after_file",
+        "source_value_sha256": "949891e298422082a8f4c3e64d4b4d591b345f3bb485a19604eb3ab9046761da"
+      },
+      {
+        "pointer": "/report/transitions/2/before_file",
+        "source_value_sha256": "7c7420a4b8589307b35258a8c37aed7de0b937d9d8c5e96454eec280ca5ac806"
+      },
+      {
+        "pointer": "/report/transitions/2/changes_file",
+        "source_value_sha256": "db01221f32a756395f130bfd0b3b9a070771da79a671a69e35564346e3bd29e2"
+      },
+      {
+        "pointer": "/report/transitions/3/after_file",
+        "source_value_sha256": "d8f1bd73db9f0e5b597169e215a4d3a43e7657b2eaed89d364beaf4653a8c98d"
+      },
+      {
+        "pointer": "/report/transitions/3/before_file",
+        "source_value_sha256": "6d15359a7415dce4d7450fc3beed4f4b5887aab7b9cef1c8505462da50890c0a"
+      },
+      {
+        "pointer": "/report/transitions/3/changes_file",
+        "source_value_sha256": "7ec609a3b58c6f5c3126d0088fc55045662b920dc77aaa1cb6e9dd2be469b226"
+      },
+      {
+        "pointer": "/report/transitions/4/after_file",
+        "source_value_sha256": "f3c6904d02e1f130cd067150d4f46f69ddcbc19c4a26553524160cd9ddaf47cd"
+      },
+      {
+        "pointer": "/report/transitions/4/before_file",
+        "source_value_sha256": "949891e298422082a8f4c3e64d4b4d591b345f3bb485a19604eb3ab9046761da"
+      },
+      {
+        "pointer": "/report/transitions/4/changes_file",
+        "source_value_sha256": "01340c95959a644fc7346776cce3385a63b0e9f5bb030e63c150c40c0469e227"
+      },
+      {
+        "pointer": "/validation_signature/environment_key",
+        "source_value_sha256": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126"
+      }
+    ],
+    "schema": 1,
+    "source_report_sha256": "975fc836ed6e92b156820235388efc0bea00e52fcc16a1d97fdde9357d18a7a4"
+  },
+  "rebuild_checks": {},
+  "state_decisions": {
+    "CP": {
+      "status": "disabled"
+    },
+    "CPR": {
+      "status": "disabled"
+    },
+    "O": {
+      "method": "open-save",
+      "status": "observed"
+    },
+    "OR": {
+      "method": "inplace-rebuild",
+      "status": "observed"
+    },
+    "SD": {
+      "method": "open-save",
+      "status": "observed"
+    },
+    "SDR": {
+      "method": "inplace-rebuild",
+      "status": "observed"
+    }
+  },
+  "status": "completed_with_limitations",
+  "timings_ms": {
+    "capture_selection_and_transport": 3400,
+    "image_comparisons": 140
+  },
+  "transitions": [
+    {
+      "after_file": null,
+      "before_file": null,
+      "change_count": 1224036,
+      "changes_file": null,
+      "label": "original opening/saving control",
+      "skipped_outside_content_cell_changes": {
+        "23141-01": 208625,
+        "23141-02": 225209,
+        "23141-03": 225209,
+        "23141-04": 175158,
+        "23141-05": 175158,
+        "23141-06": 175158,
+        "23141-07": 180516,
+        "23141-08": 182688,
+        "23141-09": 181440,
+        "Erläuterung zu CSV-Tabellen": 32704,
+        "Impressum": 42,
+        "Informationen zur Statistik": 78,
+        "Inhaltsübersicht": 10,
+        "csv-23141-09": 6,
+        "csv-23141_01 ": 156
+      },
+      "timings_ms": {
+        "attribution": 2104,
+        "differences": 1856,
+        "read_snapshots": 12,
+        "total": 5389,
+        "write_evidence": 1410
+      }
+    },
+    {
+      "after_file": null,
+      "before_file": null,
+      "change_count": 87685,
+      "changes_file": null,
+      "label": "default input versus original input",
+      "skipped_outside_content_cell_changes": {
+        "23141-01": 208625,
+        "23141-02": 208625,
+        "23141-03": 208625,
+        "23141-04": 158574,
+        "23141-05": 158574,
+        "23141-06": 158574,
+        "23141-07": 164160,
+        "23141-08": 166104,
+        "23141-09": 164856,
+        "Erläuterung zu CSV-Tabellen": 32697,
+        "Impressum": 15,
+        "Informationen zur Statistik": 74,
+        "Inhaltsübersicht": 10,
+        "csv-23141-09": 6,
+        "csv-23141_01 ": 153
+      },
+      "timings_ms": {
+        "attribution": 90,
+        "differences": 350,
+        "read_snapshots": 13,
+        "total": 493,
+        "write_evidence": 30
+      }
+    },
+    {
+      "after_file": null,
+      "before_file": null,
+      "change_count": 1136349,
+      "changes_file": null,
+      "label": "default opening/saving control",
+      "skipped_outside_content_cell_changes": {
+        "23141-02": 16584,
+        "23141-03": 16584,
+        "23141-04": 16584,
+        "23141-05": 16584,
+        "23141-06": 16584,
+        "23141-07": 16356,
+        "23141-08": 16584,
+        "23141-09": 16584,
+        "Erläuterung zu CSV-Tabellen": 12,
+        "Impressum": 27,
+        "Informationen zur Statistik": 4,
+        "csv-23141_01 ": 3
+      },
+      "timings_ms": {
+        "attribution": 1094,
+        "differences": 1732,
+        "read_snapshots": 10,
+        "total": 4193,
+        "write_evidence": 1350
+      }
+    },
+    {
+      "after_file": null,
+      "before_file": null,
+      "change_count": 0,
+      "changes_file": null,
+      "label": "O in-place rebuild and save",
+      "skipped_outside_content_cell_changes": {},
+      "timings_ms": {
+        "attribution": 0,
+        "differences": 0,
+        "read_snapshots": 1729,
+        "total": 1741,
+        "write_evidence": 2
+      }
+    },
+    {
+      "after_file": null,
+      "before_file": null,
+      "change_count": 0,
+      "changes_file": null,
+      "label": "SD in-place rebuild and save",
+      "skipped_outside_content_cell_changes": {},
+      "timings_ms": {
+        "attribution": 0,
+        "differences": 1,
+        "read_snapshots": 2085,
+        "total": 2094,
+        "write_evidence": 2
+      }
+    }
+  ],
+  "workbook_bytes": {
+    "OR-rebuilt.xlsx": 5282990,
+    "SDR-rebuilt.xlsx": 5172430,
+    "default.before-save.xlsx": 4929803,
+    "default.xlsx": 5172442,
+    "input_default": 4929803,
+    "input_original": 7925008,
+    "original.before-save.xlsx": 7925008,
+    "original.xlsx": 5283003
+  },
+  "workbook_inventory": {
+    "complete": true,
+    "original_sha256": "e83556549c2371964ee8e48e16896f0794e55775ce60aa7ca590e830dcb7a6e8",
+    "sheets": [
+      {
+        "id": "12",
+        "name": "Titel",
+        "order": 0,
+        "state": "visible"
+      },
+      {
+        "id": "13",
+        "name": "Inhaltsübersicht",
+        "order": 1,
+        "state": "visible"
+      },
+      {
+        "id": "14",
+        "name": "GENESIS-Online",
+        "order": 2,
+        "state": "visible"
+      },
+      {
+        "id": "15",
+        "name": "Impressum",
+        "order": 3,
+        "state": "visible"
+      },
+      {
+        "id": "16",
+        "name": "Informationen zur Statistik",
+        "order": 4,
+        "state": "visible"
+      },
+      {
+        "id": "157",
+        "name": "23141-01",
+        "order": 5,
+        "state": "visible"
+      },
+      {
+        "id": "156",
+        "name": "23141-02",
+        "order": 6,
+        "state": "visible"
+      },
+      {
+        "id": "158",
+        "name": "23141-03",
+        "order": 7,
+        "state": "visible"
+      },
+      {
+        "id": "162",
+        "name": "23141-04",
+        "order": 8,
+        "state": "visible"
+      },
+      {
+        "id": "163",
+        "name": "23141-05",
+        "order": 9,
+        "state": "visible"
+      },
+      {
+        "id": "164",
+        "name": "23141-06",
+        "order": 10,
+        "state": "visible"
+      },
+      {
+        "id": "165",
+        "name": "23141-07",
+        "order": 11,
+        "state": "visible"
+      },
+      {
+        "id": "167",
+        "name": "23141-08",
+        "order": 12,
+        "state": "visible"
+      },
+      {
+        "id": "166",
+        "name": "23141-09",
+        "order": 13,
+        "state": "visible"
+      },
+      {
+        "id": "23",
+        "name": "Erläuterung zu CSV-Tabellen",
+        "order": 14,
+        "state": "visible"
+      },
+      {
+        "id": "152",
+        "name": "csv-23141_01 ",
+        "order": 15,
+        "state": "visible"
+      },
+      {
+        "id": "168",
+        "name": "csv-23141-02",
+        "order": 16,
+        "state": "visible"
+      },
+      {
+        "id": "169",
+        "name": "csv-23141-03",
+        "order": 17,
+        "state": "visible"
+      },
+      {
+        "id": "170",
+        "name": "csv-23141-04",
+        "order": 18,
+        "state": "visible"
+      },
+      {
+        "id": "171",
+        "name": "csv-23141-05",
+        "order": 19,
+        "state": "visible"
+      },
+      {
+        "id": "172",
+        "name": "csv-23141-06",
+        "order": 20,
+        "state": "visible"
+      },
+      {
+        "id": "173",
+        "name": "csv-23141-07",
+        "order": 21,
+        "state": "visible"
+      },
+      {
+        "id": "174",
+        "name": "csv-23141-08",
+        "order": 22,
+        "state": "visible"
+      },
+      {
+        "id": "175",
+        "name": "csv-23141-09",
+        "order": 23,
+        "state": "visible"
+      }
+    ]
+  },
+  "xml_snapshot_statistics": {
+    "elapsed_ms": 12526,
+    "parsed_versions": 6,
+    "reads": 20,
+    "reused_versions": 14
+  }
+}

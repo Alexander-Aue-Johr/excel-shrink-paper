@@ -1,1 +1,5 @@
+* whitespace=cr-at-eol
 /replays/** -text
+/atlas/** -text
+/publication-shards.json -text
+/atlas/**/vendor/** -whitespace

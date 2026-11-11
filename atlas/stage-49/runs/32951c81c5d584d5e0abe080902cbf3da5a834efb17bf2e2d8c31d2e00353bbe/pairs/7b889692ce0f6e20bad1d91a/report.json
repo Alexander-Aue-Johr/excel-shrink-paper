@@ -1,0 +1,527 @@
+{
+  "candidate_count": 0,
+  "capture_counts": {
+    "OR:charts": 2,
+    "SDR:charts": 2
+  },
+  "capture_partition": "visible-geometry-v2",
+  "capture_policy": "targeted-content-grid-v15",
+  "capture_receipts": [
+    {
+      "at": 1794342385809,
+      "geometry": {
+        "height": 269.25,
+        "left": 5.25,
+        "top": 221.25,
+        "width": 444.75
+      },
+      "id": "63bd74c6-528b-4a26-9bdc-f8b299b8fbac",
+      "image": "evidence/20ce27aa9414b407524800df882de5fbae2fa96024ac851ec875c054accba1c5.png",
+      "lane": "OR",
+      "range": "Chart: Diagramm 3",
+      "sheet": "Run Query"
+    },
+    {
+      "at": 1794342385903,
+      "geometry": {
+        "height": 269.25,
+        "left": 459.75,
+        "top": 221.25,
+        "width": 442.5
+      },
+      "id": "fa24c686-3076-4423-949c-dd14d7428e20",
+      "image": "evidence/79c987dbf665fb8340b6e8cd4a88b1b51fd2a5ddb23929cabc82d39e036a0639.png",
+      "lane": "OR",
+      "range": "Chart: Diagramm 4",
+      "sheet": "Run Query"
+    },
+    {
+      "at": 1794342386009,
+      "geometry": {
+        "height": 269.25,
+        "left": 5.25,
+        "top": 221.25,
+        "width": 444.75
+      },
+      "id": "34f1ae54-4459-46ca-8e2a-d1351294467b",
+      "image": "evidence/20ce27aa9414b407524800df882de5fbae2fa96024ac851ec875c054accba1c5.png",
+      "lane": "SDR",
+      "range": "Chart: Diagramm 3",
+      "sheet": "Run Query"
+    },
+    {
+      "at": 1794342386108,
+      "geometry": {
+        "height": 269.25,
+        "left": 459.75,
+        "top": 221.25,
+        "width": 442.5
+      },
+      "id": "bbceb2ed-1704-4713-b1a1-aeda189008f1",
+      "image": "evidence/79c987dbf665fb8340b6e8cd4a88b1b51fd2a5ddb23929cabc82d39e036a0639.png",
+      "lane": "SDR",
+      "range": "Chart: Diagramm 4",
+      "sheet": "Run Query"
+    }
+  ],
+  "chart_capture_mode": "deterministic",
+  "chart_dependencies": [
+    {
+      "decisions": [
+        {
+          "chart": {
+            "index": 0,
+            "kind": "embedded",
+            "name": "Diagramm 3",
+            "sheet": "Run Query"
+          },
+          "reason": "Unsupported chart package dependency: xl/comments1.xml",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 1,
+            "kind": "embedded",
+            "name": "Diagramm 4",
+            "sheet": "Run Query"
+          },
+          "reason": "Unsupported chart package dependency: xl/comments1.xml",
+          "references": 0,
+          "unchanged": false
+        }
+      ],
+      "left": "OR",
+      "mode": "deterministic",
+      "right": "SDR"
+    }
+  ],
+  "check_performance": "not_requested",
+  "check_performance_cache": null,
+  "check_performance_evidence": null,
+  "comparisons": [
+    {
+      "charts": [
+        {
+          "chart": "Diagramm 3",
+          "chart_index": 0,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 269.25,
+            "left": 5.25,
+            "top": 221.25,
+            "width": 444.75
+          },
+          "left_image": "evidence/20ce27aa9414b407524800df882de5fbae2fa96024ac851ec875c054accba1c5.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 269.25,
+            "left": 5.25,
+            "top": 221.25,
+            "width": 444.75
+          },
+          "right_image": "evidence/20ce27aa9414b407524800df882de5fbae2fa96024ac851ec875c054accba1c5.png",
+          "right_rendering": "captured",
+          "sheet": "Run Query"
+        },
+        {
+          "chart": "Diagramm 4",
+          "chart_index": 1,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 269.25,
+            "left": 459.75,
+            "top": 221.25,
+            "width": 442.5
+          },
+          "left_image": "evidence/79c987dbf665fb8340b6e8cd4a88b1b51fd2a5ddb23929cabc82d39e036a0639.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 269.25,
+            "left": 459.75,
+            "top": 221.25,
+            "width": 442.5
+          },
+          "right_image": "evidence/79c987dbf665fb8340b6e8cd4a88b1b51fd2a5ddb23929cabc82d39e036a0639.png",
+          "right_rendering": "captured",
+          "sheet": "Run Query"
+        }
+      ],
+      "findings": [],
+      "label": "both rebuilt Default",
+      "left": "OR",
+      "right": "SDR",
+      "selected_region_count": 0
+    }
+  ],
+  "conditional_formatting": [
+    {
+      "decisions": [],
+      "left": "OR",
+      "right": "SDR"
+    }
+  ],
+  "content_coverage": [],
+  "control_artifacts_cache": null,
+  "equal_image_encoding": {
+    "compression": "best",
+    "filter": "adaptive",
+    "format": "PNG",
+    "pixel_preservation": "decoded RGBA equality checked before accepting a smaller encoding",
+    "scope": "verified equal images only; shared differing or unverified references preserve original bytes"
+  },
+  "excel_pids": null,
+  "execution_strategy": "paired-inplace-rebuild-v1",
+  "findings": [],
+  "formula_diagnostics": {
+    "note": "Optional dependency explanations; no visual verdict or coverage was changed.",
+    "omitted_regions": 0,
+    "regions": [],
+    "version": 1
+  },
+  "height_checks": [],
+  "image_comparison_statistics": {
+    "comparisons": 2,
+    "decoded_images": 2,
+    "encoded_bytes_read": 86514,
+    "encoded_images_reused": 2,
+    "files_read": 4
+  },
+  "input_identity": {
+    "status": "different"
+  },
+  "limitations": [
+    "Gridlines are disabled consistently. Policy v10 compares only common pixels when measured capture/content origins match and content cores are contained. capture_extent_ignored records omitted right/bottom extent and retains both raw images and geometries. Changed overlapping pixels remain differences. Shifted origins, missing measurements and charts retain conservative verdicts. blank_margin_ignored records the stronger exact white-margin proof.",
+    "Row-height checks cover rows above and within the unpadded union of content envelopes, including potentially visible fill/border/conditional-formatting extents. Policy v12 excludes context rows below the union content boundary from both height dependencies and cell capture rectangles; upper and side context remain. Charts retain independent full-chart observations.",
+    "Strategy paired-inplace-rebuild-v1 compares rebuilt Original against rebuilt Default and optional rebuilt Check Performance. Each reuses its existing Excel process. Pre-rebuild captures are omitted for throughput; XML save/optimization/rebuild controls are retained. Volatility and exclusive causal attribution require follow-up.",
+    "Cell capture regions are intersected with the union of content-bearing cells and potentially visible fill/border/conditional-formatting extents in the compared rebuilt states, plus one row above and one column on either side. Opening/save XML controls retain separate provenance. Exterior regions outside that envelope are intentionally skipped, not visually confirmed identical; content_coverage records selection counts and bounds. Chart exports are independent of this policy.",
+    "Capture partition visible-geometry-v2 merges adjacent internal grid tiles without changing their union. It measures every live state and splits only for image budgets (30,000 pixels per edge, 32 million pixels total), estimating conservatively at two pixels per point plus a rounding margin. Actual exports are checked too. Zero-area ranges retain geometry and explicit non-rendering observations without images or pixel equality claims. Later states can repartition and backfill earlier retained workbooks.",
+    "CF decisions concern rule contributions within the recorded union of comparison extents. Literal cellIs exclusions require identical cell-XML fingerprints and visual context. Formula inputs remain captures; unknown or changed rules retain region captures. This is not a proof of whole-workbook visual equality.",
+    "Chart mode deterministic excludes only embedded charts with complete unchanged package, XML/cache, source-cell/style/layout/CF and live-geometry dependencies. Exclusions are not pixel comparisons. Unknown references, external or unsupported parts, ambiguous names and chart sheets retain full-chart exports. Mode conservative exports every chart. Other drawings and all worksheet geometry effects are not exhaustively discovered.",
+    "Charts with measured zero width or height retain geometry and an explicit zero-area-chart observation without a pixel verdict. A transition between visible and zero-area states is a rendering/geometry difference.",
+    "Disposable targeted copies are staged with calcMode=manual, fullCalcOnLoad=0, forceFullCalc=0 and calcOnSave=0 before Excel opens them. Cached formula values are retained until each resident workbook is explicitly rebuilt. Excel may still autonomously refresh content; observed save/rebuild transitions remain audited. Original inputs and prepared bundles are unchanged. This suppresses unintended open/save recalculation and changes the opening baseline relative to capture policy v4.",
+    "Opening/saving and the in-place SD rebuild are retained as separate XML controls. Exact content/context matches identify overlaps conservatively; absence of a match does not establish exclusive causality.",
+    "Worksheet cells are streamed into temporary fixed-size fingerprints without worksheet-byte or cell-count limits. Exterior empty-cell changes are counted before candidate allocation. Layout metadata and retained change evidence still require memory.",
+    "When content coverage marks background_tail_sampling, supported borderless solid-fill bands with known sheet-wide gridline settings are represented through their finite transitions and tail samples. Pixels beyond that envelope are not captured; this is not exhaustive whole-grid pixel coverage."
+  ],
+  "native_drawing_bounds": [
+    {
+      "lane": "O",
+      "qualified": false,
+      "reason": "Unsupported line namespace",
+      "sheet": "Run Query",
+      "stage": "xml_line_qualification",
+      "workbook_sha256": "3b47688b39e3fd87cc6c24ab8d137df755699393fcb492701aa0a640097fb21c"
+    },
+    {
+      "lane": "SD",
+      "qualified": false,
+      "reason": "Unsupported line namespace",
+      "sheet": "Run Query",
+      "stage": "xml_line_qualification",
+      "workbook_sha256": "37397c1a893764d672d23200a4126b90490f5d5cb21b6cea5bdf477ba838ffdb"
+    },
+    {
+      "lane": "OR",
+      "qualified": false,
+      "reason": "Unsupported line namespace",
+      "sheet": "Run Query",
+      "stage": "xml_line_qualification",
+      "workbook_sha256": "06c855db8b47832bdd93dc9688c92134a57dcc30e48bcd7b007251e5a9f6cb39"
+    },
+    {
+      "lane": "SDR",
+      "qualified": false,
+      "reason": "Unsupported line namespace",
+      "sheet": "Run Query",
+      "stage": "xml_line_qualification",
+      "workbook_sha256": "edea0252117db4ff02a97158831fbdfa41558c7191b5730ce41fdae05c63fb32"
+    }
+  ],
+  "phases": [
+    "initial XML compared",
+    "Original and Default opened",
+    "Excel save effects inspected",
+    "Original and variants rebuilt in their existing processes"
+  ],
+  "portable_report": {
+    "diagnostics": {},
+    "different_regions": 0,
+    "failure": null,
+    "note": "Pixel diagnostics describe retained captures. They do not change the scientific comparison verdict or extend its coverage.",
+    "source_report": null,
+    "version": 1
+  },
+  "public_presentation": {
+    "meaning": "Derived presentation. Native evidence remains unchanged.",
+    "metadata_omissions": [
+      {
+        "pointer": "/report/excel_pids",
+        "source_value_sha256": "9d761714dd8e8990d5cc64136b441f139d0c23ed8e8321b2d71a4047e077c355"
+      },
+      {
+        "pointer": "/report/portable_report/source_report",
+        "source_value_sha256": "451a884b2f650e04f633bf7eeb85ec438ca310eeca276f3ffca40a7a677cb192"
+      },
+      {
+        "pointer": "/report/transitions/0/after_file",
+        "source_value_sha256": "719677c4a50d8bfcbed1185e9cfdb300dbe7261ba378052f13500b85e5492120"
+      },
+      {
+        "pointer": "/report/transitions/0/before_file",
+        "source_value_sha256": "b58c6bffdb605996361fdb1dfcca84c36d8db9b67e37ce0110f09b41aef7b2aa"
+      },
+      {
+        "pointer": "/report/transitions/0/changes_file",
+        "source_value_sha256": "5d1069b0ac4ea3858f850ee5478f8b51b6c2e4d26a2af0865b88c144d891ff05"
+      },
+      {
+        "pointer": "/report/transitions/1/after_file",
+        "source_value_sha256": "9e5db345b3fccf5297ea89b1913b09f34e3b3ea78a52c6ee736fc6509d33999a"
+      },
+      {
+        "pointer": "/report/transitions/1/before_file",
+        "source_value_sha256": "b58c6bffdb605996361fdb1dfcca84c36d8db9b67e37ce0110f09b41aef7b2aa"
+      },
+      {
+        "pointer": "/report/transitions/1/changes_file",
+        "source_value_sha256": "e547b19e694c27363227489871175b135432de0bba8a26ac4d85eba7ba043ab9"
+      },
+      {
+        "pointer": "/report/transitions/2/after_file",
+        "source_value_sha256": "5db5cca5f262447d087ca9ed840c8cb931bf5eb85a3d66769ffa4d30fe372b64"
+      },
+      {
+        "pointer": "/report/transitions/2/before_file",
+        "source_value_sha256": "9e5db345b3fccf5297ea89b1913b09f34e3b3ea78a52c6ee736fc6509d33999a"
+      },
+      {
+        "pointer": "/report/transitions/2/changes_file",
+        "source_value_sha256": "a7e4a5f3228e75239ac8e617b08dc92c81851d8dab9cb6158edef7dad0397217"
+      },
+      {
+        "pointer": "/report/transitions/3/after_file",
+        "source_value_sha256": "db603c8832ca9d9c10ab259ec59f73c51e7ba62ab0e11366d394a61b257f7aa7"
+      },
+      {
+        "pointer": "/report/transitions/3/before_file",
+        "source_value_sha256": "719677c4a50d8bfcbed1185e9cfdb300dbe7261ba378052f13500b85e5492120"
+      },
+      {
+        "pointer": "/report/transitions/3/changes_file",
+        "source_value_sha256": "67c122bb1d624e42cce789af6668bc12f1e13559ac05b35e9f05e8f86b753b71"
+      },
+      {
+        "pointer": "/report/transitions/4/after_file",
+        "source_value_sha256": "1c4ab0443b5a6db5d01724eb54ca0f9ed72b3f4b29bea13ea93a29c98d2c092f"
+      },
+      {
+        "pointer": "/report/transitions/4/before_file",
+        "source_value_sha256": "5db5cca5f262447d087ca9ed840c8cb931bf5eb85a3d66769ffa4d30fe372b64"
+      },
+      {
+        "pointer": "/report/transitions/4/changes_file",
+        "source_value_sha256": "fb22fc9635cc25e92b309156b10e531207588a34bc15f01e4894e9d6c7801b8f"
+      },
+      {
+        "pointer": "/validation_signature/environment_key",
+        "source_value_sha256": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126"
+      }
+    ],
+    "schema": 1,
+    "source_report_sha256": "e5749356f7879c8c65097569784e38b34404891379459302993924d046ef5619"
+  },
+  "rebuild_checks": {},
+  "state_decisions": {
+    "CP": {
+      "status": "disabled"
+    },
+    "CPR": {
+      "status": "disabled"
+    },
+    "O": {
+      "method": "open-save",
+      "status": "observed"
+    },
+    "OR": {
+      "method": "inplace-rebuild",
+      "status": "observed"
+    },
+    "SD": {
+      "method": "open-save",
+      "status": "observed"
+    },
+    "SDR": {
+      "method": "inplace-rebuild",
+      "status": "observed"
+    }
+  },
+  "status": "completed_with_limitations",
+  "timings_ms": {
+    "capture_selection_and_transport": 28,
+    "image_comparisons": 11
+  },
+  "transitions": [
+    {
+      "after_file": null,
+      "before_file": null,
+      "change_count": 1364,
+      "changes_file": null,
+      "label": "original opening/saving control",
+      "skipped_outside_content_cell_changes": {
+        "Results": 4129
+      },
+      "timings_ms": {
+        "attribution": 1,
+        "differences": 103,
+        "read_snapshots": 4,
+        "total": 117,
+        "write_evidence": 3
+      }
+    },
+    {
+      "after_file": null,
+      "before_file": null,
+      "change_count": 19934,
+      "changes_file": null,
+      "label": "default input versus original input",
+      "skipped_outside_content_cell_changes": {
+        "Codes": 94,
+        "Results": 1311432,
+        "expiry": 1
+      },
+      "timings_ms": {
+        "attribution": 13,
+        "differences": 193,
+        "read_snapshots": 4,
+        "total": 532,
+        "write_evidence": 262
+      }
+    },
+    {
+      "after_file": null,
+      "before_file": null,
+      "change_count": 19940,
+      "changes_file": null,
+      "label": "default opening/saving control",
+      "skipped_outside_content_cell_changes": {
+        "Codes": 94,
+        "Results": 1311432,
+        "expiry": 1
+      },
+      "timings_ms": {
+        "attribution": 12,
+        "differences": 194,
+        "read_snapshots": 4,
+        "total": 934,
+        "write_evidence": 274
+      }
+    },
+    {
+      "after_file": null,
+      "before_file": null,
+      "change_count": 314,
+      "changes_file": null,
+      "label": "O in-place rebuild and save",
+      "skipped_outside_content_cell_changes": {},
+      "timings_ms": {
+        "attribution": 0,
+        "differences": 104,
+        "read_snapshots": 1058,
+        "total": 1169,
+        "write_evidence": 1
+      }
+    },
+    {
+      "after_file": null,
+      "before_file": null,
+      "change_count": 314,
+      "changes_file": null,
+      "label": "SD in-place rebuild and save",
+      "skipped_outside_content_cell_changes": {},
+      "timings_ms": {
+        "attribution": 0,
+        "differences": 106,
+        "read_snapshots": 1091,
+        "total": 1435,
+        "write_evidence": 13
+      }
+    }
+  ],
+  "workbook_bytes": {
+    "OR-rebuilt.xlsx": 3766573,
+    "SDR-rebuilt.xlsx": 3766468,
+    "default.before-save.xlsx": 3767486,
+    "default.xlsx": 3766548,
+    "input_default": 3767486,
+    "input_original": 3767895,
+    "original.before-save.xlsx": 3767895,
+    "original.xlsx": 3766640
+  },
+  "workbook_inventory": {
+    "complete": true,
+    "original_sha256": "025d2f43723df45fc7a19d921a47733a6c934444c87b658909ffcacf9bbf16f3",
+    "sheets": [
+      {
+        "id": "1",
+        "name": "Run Query",
+        "order": 0,
+        "state": "visible"
+      },
+      {
+        "id": "2",
+        "name": "Results",
+        "order": 1,
+        "state": "visible"
+      },
+      {
+        "id": "7",
+        "name": "Indicies",
+        "order": 2,
+        "state": "visible"
+      },
+      {
+        "id": "6",
+        "name": "expiry",
+        "order": 3,
+        "state": "visible"
+      },
+      {
+        "id": "4",
+        "name": "Codes",
+        "order": 4,
+        "state": "visible"
+      },
+      {
+        "id": "5",
+        "name": "Tables",
+        "order": 5,
+        "state": "visible"
+      },
+      {
+        "id": "3",
+        "name": "Module1",
+        "order": 6,
+        "state": "veryHidden"
+      }
+    ]
+  },
+  "xml_snapshot_statistics": {
+    "elapsed_ms": 6401,
+    "parsed_versions": 6,
+    "reads": 20,
+    "reused_versions": 14
+  }
+}

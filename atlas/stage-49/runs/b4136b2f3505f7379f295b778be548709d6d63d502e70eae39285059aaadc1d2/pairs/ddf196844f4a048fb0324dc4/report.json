@@ -1,0 +1,327 @@
+{
+  "candidate_count": 0,
+  "capture_counts": {
+    "OR:charts": 0,
+    "SDR:charts": 0
+  },
+  "capture_partition": "visible-geometry-v2",
+  "capture_policy": "targeted-content-grid-v15",
+  "capture_receipts": [],
+  "chart_capture_mode": "deterministic",
+  "chart_dependencies": [
+    {
+      "decisions": [],
+      "left": "OR",
+      "mode": "deterministic",
+      "right": "SDR"
+    }
+  ],
+  "check_performance": "not_requested",
+  "check_performance_cache": null,
+  "check_performance_evidence": null,
+  "comparisons": [
+    {
+      "charts": [],
+      "findings": [],
+      "label": "both rebuilt Default",
+      "left": "OR",
+      "right": "SDR",
+      "selected_region_count": 0
+    }
+  ],
+  "conditional_formatting": [
+    {
+      "decisions": [],
+      "left": "OR",
+      "right": "SDR"
+    }
+  ],
+  "content_coverage": [],
+  "control_artifacts_cache": null,
+  "equal_image_encoding": {
+    "compression": "best",
+    "filter": "adaptive",
+    "format": "PNG",
+    "pixel_preservation": "decoded RGBA equality checked before accepting a smaller encoding",
+    "scope": "verified equal images only; shared differing or unverified references preserve original bytes"
+  },
+  "excel_pids": null,
+  "execution_strategy": "paired-inplace-rebuild-v1",
+  "findings": [],
+  "formula_diagnostics": {
+    "note": "Optional dependency explanations; no visual verdict or coverage was changed.",
+    "omitted_regions": 0,
+    "regions": [],
+    "version": 1
+  },
+  "height_checks": [],
+  "image_comparison_statistics": {
+    "comparisons": 0,
+    "decoded_images": 0,
+    "encoded_bytes_read": 0,
+    "encoded_images_reused": 0,
+    "files_read": 0
+  },
+  "input_identity": {
+    "status": "different"
+  },
+  "limitations": [
+    "Gridlines are disabled consistently. Policy v10 compares only common pixels when measured capture/content origins match and content cores are contained. capture_extent_ignored records omitted right/bottom extent and retains both raw images and geometries. Changed overlapping pixels remain differences. Shifted origins, missing measurements and charts retain conservative verdicts. blank_margin_ignored records the stronger exact white-margin proof.",
+    "Row-height checks cover rows above and within the unpadded union of content envelopes, including potentially visible fill/border/conditional-formatting extents. Policy v12 excludes context rows below the union content boundary from both height dependencies and cell capture rectangles; upper and side context remain. Charts retain independent full-chart observations.",
+    "Strategy paired-inplace-rebuild-v1 compares rebuilt Original against rebuilt Default and optional rebuilt Check Performance. Each reuses its existing Excel process. Pre-rebuild captures are omitted for throughput; XML save/optimization/rebuild controls are retained. Volatility and exclusive causal attribution require follow-up.",
+    "Cell capture regions are intersected with the union of content-bearing cells and potentially visible fill/border/conditional-formatting extents in the compared rebuilt states, plus one row above and one column on either side. Opening/save XML controls retain separate provenance. Exterior regions outside that envelope are intentionally skipped, not visually confirmed identical; content_coverage records selection counts and bounds. Chart exports are independent of this policy.",
+    "Capture partition visible-geometry-v2 merges adjacent internal grid tiles without changing their union. It measures every live state and splits only for image budgets (30,000 pixels per edge, 32 million pixels total), estimating conservatively at two pixels per point plus a rounding margin. Actual exports are checked too. Zero-area ranges retain geometry and explicit non-rendering observations without images or pixel equality claims. Later states can repartition and backfill earlier retained workbooks.",
+    "CF decisions concern rule contributions within the recorded union of comparison extents. Literal cellIs exclusions require identical cell-XML fingerprints and visual context. Formula inputs remain captures; unknown or changed rules retain region captures. This is not a proof of whole-workbook visual equality.",
+    "Chart mode deterministic excludes only embedded charts with complete unchanged package, XML/cache, source-cell/style/layout/CF and live-geometry dependencies. Exclusions are not pixel comparisons. Unknown references, external or unsupported parts, ambiguous names and chart sheets retain full-chart exports. Mode conservative exports every chart. Other drawings and all worksheet geometry effects are not exhaustively discovered.",
+    "Charts with measured zero width or height retain geometry and an explicit zero-area-chart observation without a pixel verdict. A transition between visible and zero-area states is a rendering/geometry difference.",
+    "Disposable targeted copies are staged with calcMode=manual, fullCalcOnLoad=0, forceFullCalc=0 and calcOnSave=0 before Excel opens them. Cached formula values are retained until each resident workbook is explicitly rebuilt. Excel may still autonomously refresh content; observed save/rebuild transitions remain audited. Original inputs and prepared bundles are unchanged. This suppresses unintended open/save recalculation and changes the opening baseline relative to capture policy v4.",
+    "Opening/saving and the in-place SD rebuild are retained as separate XML controls. Exact content/context matches identify overlaps conservatively; absence of a match does not establish exclusive causality.",
+    "Worksheet cells are streamed into temporary fixed-size fingerprints without worksheet-byte or cell-count limits. Exterior empty-cell changes are counted before candidate allocation. Layout metadata and retained change evidence still require memory.",
+    "When content coverage marks background_tail_sampling, supported borderless solid-fill bands with known sheet-wide gridline settings are represented through their finite transitions and tail samples. Pixels beyond that envelope are not captured; this is not exhaustive whole-grid pixel coverage."
+  ],
+  "native_drawing_bounds": [],
+  "phases": [
+    "initial XML compared",
+    "Original and Default opened",
+    "Excel save effects inspected",
+    "Original and variants rebuilt in their existing processes"
+  ],
+  "portable_report": {
+    "diagnostics": {},
+    "different_regions": 0,
+    "failure": null,
+    "note": "Pixel diagnostics describe retained captures. They do not change the scientific comparison verdict or extend its coverage.",
+    "source_report": null,
+    "version": 1
+  },
+  "public_presentation": {
+    "meaning": "Derived presentation. Native evidence remains unchanged.",
+    "metadata_omissions": [
+      {
+        "pointer": "/report/excel_pids",
+        "source_value_sha256": "bb9c1c1a8a016adc92a07aeebb813c42e2f09f132c460bf759efd8814ebf5aaf"
+      },
+      {
+        "pointer": "/report/portable_report/source_report",
+        "source_value_sha256": "451a884b2f650e04f633bf7eeb85ec438ca310eeca276f3ffca40a7a677cb192"
+      },
+      {
+        "pointer": "/report/transitions/0/after_file",
+        "source_value_sha256": "ab5b1760a515d87b33b0d9cd60d21176712998cad4822d4efcdcb5a405474d64"
+      },
+      {
+        "pointer": "/report/transitions/0/before_file",
+        "source_value_sha256": "1d824bbf7882371585d2744f56faa978d8cc5726203003d53e42e382a6ef0a51"
+      },
+      {
+        "pointer": "/report/transitions/0/changes_file",
+        "source_value_sha256": "8b9d725dbf8a8f16b448d77325f0d6c0a67c0c33d5b3ddd986c47377a53ce7d8"
+      },
+      {
+        "pointer": "/report/transitions/1/after_file",
+        "source_value_sha256": "439e8e2f1502711e8b3a473d6a12f93eddb0f058e69100584cde842dcfed59a7"
+      },
+      {
+        "pointer": "/report/transitions/1/before_file",
+        "source_value_sha256": "1d824bbf7882371585d2744f56faa978d8cc5726203003d53e42e382a6ef0a51"
+      },
+      {
+        "pointer": "/report/transitions/1/changes_file",
+        "source_value_sha256": "6d0ab2a704f123556e94ff95e94c1770c5c26bb0259ccade7655e0f25ac4d581"
+      },
+      {
+        "pointer": "/report/transitions/2/after_file",
+        "source_value_sha256": "87472525dd327bd0e348ec0eb44c37c3d16f407d8b0feb2b2d719d9edc232858"
+      },
+      {
+        "pointer": "/report/transitions/2/before_file",
+        "source_value_sha256": "439e8e2f1502711e8b3a473d6a12f93eddb0f058e69100584cde842dcfed59a7"
+      },
+      {
+        "pointer": "/report/transitions/2/changes_file",
+        "source_value_sha256": "bc1af56a7e445eaf99e364e27bf02c4be0c0406834888f5b57e802ce1a946e90"
+      },
+      {
+        "pointer": "/report/transitions/3/after_file",
+        "source_value_sha256": "59055f382e39560dcf3ee50df29bfd355f6d2e8967be0b1b22dae2b613150df3"
+      },
+      {
+        "pointer": "/report/transitions/3/before_file",
+        "source_value_sha256": "ab5b1760a515d87b33b0d9cd60d21176712998cad4822d4efcdcb5a405474d64"
+      },
+      {
+        "pointer": "/report/transitions/3/changes_file",
+        "source_value_sha256": "fcdddb2348eda91bf712d82e64a4f598fa2084351d2116a6773b4e638b4ba5ab"
+      },
+      {
+        "pointer": "/report/transitions/4/after_file",
+        "source_value_sha256": "6dd22e7e9aae723bdbb5154ea3861ce2e1d53491eac0a791a34ef6ce9289a8ab"
+      },
+      {
+        "pointer": "/report/transitions/4/before_file",
+        "source_value_sha256": "87472525dd327bd0e348ec0eb44c37c3d16f407d8b0feb2b2d719d9edc232858"
+      },
+      {
+        "pointer": "/report/transitions/4/changes_file",
+        "source_value_sha256": "5a1f8a3aedabb750266ff3404a390c5e583f8fae24308dc0d2219d01d9d91fe7"
+      },
+      {
+        "pointer": "/validation_signature/environment_key",
+        "source_value_sha256": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126"
+      }
+    ],
+    "schema": 1,
+    "source_report_sha256": "9827cd4bcddab07b81b9c4765a0693648d4718d77155b11233985e62a54a3632"
+  },
+  "rebuild_checks": {},
+  "state_decisions": {
+    "CP": {
+      "status": "disabled"
+    },
+    "CPR": {
+      "status": "disabled"
+    },
+    "O": {
+      "method": "open-save",
+      "status": "observed"
+    },
+    "OR": {
+      "method": "inplace-rebuild",
+      "status": "observed"
+    },
+    "SD": {
+      "method": "open-save",
+      "status": "observed"
+    },
+    "SDR": {
+      "method": "inplace-rebuild",
+      "status": "observed"
+    }
+  },
+  "status": "completed_with_limitations",
+  "timings_ms": {
+    "capture_selection_and_transport": 39,
+    "image_comparisons": 75
+  },
+  "transitions": [
+    {
+      "after_file": null,
+      "before_file": null,
+      "change_count": 4,
+      "changes_file": null,
+      "label": "original opening/saving control",
+      "skipped_outside_content_cell_changes": {},
+      "timings_ms": {
+        "attribution": 0,
+        "differences": 92,
+        "read_snapshots": 4,
+        "total": 703,
+        "write_evidence": 334
+      }
+    },
+    {
+      "after_file": null,
+      "before_file": null,
+      "change_count": 69645,
+      "changes_file": null,
+      "label": "default input versus original input",
+      "skipped_outside_content_cell_changes": {
+        "Sheet1": 1089687
+      },
+      "timings_ms": {
+        "attribution": 61,
+        "differences": 239,
+        "read_snapshots": 4,
+        "total": 2242,
+        "write_evidence": 51
+      }
+    },
+    {
+      "after_file": null,
+      "before_file": null,
+      "change_count": 69648,
+      "changes_file": null,
+      "label": "default opening/saving control",
+      "skipped_outside_content_cell_changes": {
+        "Sheet1": 1089687
+      },
+      "timings_ms": {
+        "attribution": 72,
+        "differences": 332,
+        "read_snapshots": 4,
+        "total": 467,
+        "write_evidence": 49
+      }
+    },
+    {
+      "after_file": null,
+      "before_file": null,
+      "change_count": 0,
+      "changes_file": null,
+      "label": "O in-place rebuild and save",
+      "skipped_outside_content_cell_changes": {},
+      "timings_ms": {
+        "attribution": 0,
+        "differences": 305,
+        "read_snapshots": 1719,
+        "total": 2100,
+        "write_evidence": 7
+      }
+    },
+    {
+      "after_file": null,
+      "before_file": null,
+      "change_count": 0,
+      "changes_file": null,
+      "label": "SD in-place rebuild and save",
+      "skipped_outside_content_cell_changes": {},
+      "timings_ms": {
+        "attribution": 0,
+        "differences": 192,
+        "read_snapshots": 3017,
+        "total": 3613,
+        "write_evidence": 279
+      }
+    }
+  ],
+  "workbook_bytes": {
+    "OR-rebuilt.xlsx": 3353787,
+    "SDR-rebuilt.xlsx": 3353786,
+    "default.before-save.xlsx": 3353945,
+    "default.xlsx": 3353795,
+    "input_default": 3353945,
+    "input_original": 3353985,
+    "original.before-save.xlsx": 3353985,
+    "original.xlsx": 3353796
+  },
+  "workbook_inventory": {
+    "complete": true,
+    "original_sha256": "d1387f657a14079dc06d625a4605c858997f0f687bb3767bde49f90497c547c4",
+    "sheets": [
+      {
+        "id": "1",
+        "name": "Sheet1",
+        "order": 0,
+        "state": "visible"
+      },
+      {
+        "id": "2",
+        "name": "Sheet2",
+        "order": 1,
+        "state": "visible"
+      },
+      {
+        "id": "3",
+        "name": "Sheet3",
+        "order": 2,
+        "state": "visible"
+      }
+    ]
+  },
+  "xml_snapshot_statistics": {
+    "elapsed_ms": 10652,
+    "parsed_versions": 6,
+    "reads": 20,
+    "reused_versions": 14
+  }
+}

@@ -1,0 +1,827 @@
+{
+  "candidate_count": 0,
+  "capture_counts": {
+    "OR:charts": 0,
+    "SDR:charts": 0
+  },
+  "capture_partition": "visible-geometry-v2",
+  "capture_policy": "targeted-content-grid-v15",
+  "capture_receipts": [],
+  "chart_capture_mode": "deterministic",
+  "chart_dependencies": [
+    {
+      "decisions": [],
+      "left": "OR",
+      "mode": "deterministic",
+      "right": "SDR"
+    }
+  ],
+  "check_performance": "not_requested",
+  "check_performance_cache": null,
+  "check_performance_evidence": null,
+  "comparisons": [
+    {
+      "charts": [],
+      "findings": [],
+      "label": "both rebuilt Default",
+      "left": "OR",
+      "right": "SDR",
+      "selected_region_count": 0
+    }
+  ],
+  "conditional_formatting": [
+    {
+      "decisions": [],
+      "left": "OR",
+      "right": "SDR"
+    }
+  ],
+  "content_coverage": [],
+  "control_artifacts_cache": null,
+  "equal_image_encoding": {
+    "compression": "best",
+    "filter": "adaptive",
+    "format": "PNG",
+    "pixel_preservation": "decoded RGBA equality checked before accepting a smaller encoding",
+    "scope": "verified equal images only; shared differing or unverified references preserve original bytes"
+  },
+  "excel_pids": null,
+  "execution_strategy": "paired-inplace-rebuild-v1",
+  "findings": [],
+  "formula_diagnostics": {
+    "note": "Optional dependency explanations; no visual verdict or coverage was changed.",
+    "omitted_regions": 0,
+    "regions": [],
+    "version": 1
+  },
+  "height_checks": [],
+  "image_comparison_statistics": {
+    "comparisons": 0,
+    "decoded_images": 0,
+    "encoded_bytes_read": 0,
+    "encoded_images_reused": 0,
+    "files_read": 0
+  },
+  "input_identity": {
+    "status": "different"
+  },
+  "limitations": [
+    "Gridlines are disabled consistently. Policy v10 compares only common pixels when measured capture/content origins match and content cores are contained. capture_extent_ignored records omitted right/bottom extent and retains both raw images and geometries. Changed overlapping pixels remain differences. Shifted origins, missing measurements and charts retain conservative verdicts. blank_margin_ignored records the stronger exact white-margin proof.",
+    "Row-height checks cover rows above and within the unpadded union of content envelopes, including potentially visible fill/border/conditional-formatting extents. Policy v12 excludes context rows below the union content boundary from both height dependencies and cell capture rectangles; upper and side context remain. Charts retain independent full-chart observations.",
+    "Strategy paired-inplace-rebuild-v1 compares rebuilt Original against rebuilt Default and optional rebuilt Check Performance. Each reuses its existing Excel process. Pre-rebuild captures are omitted for throughput; XML save/optimization/rebuild controls are retained. Volatility and exclusive causal attribution require follow-up.",
+    "Cell capture regions are intersected with the union of content-bearing cells and potentially visible fill/border/conditional-formatting extents in the compared rebuilt states, plus one row above and one column on either side. Opening/save XML controls retain separate provenance. Exterior regions outside that envelope are intentionally skipped, not visually confirmed identical; content_coverage records selection counts and bounds. Chart exports are independent of this policy.",
+    "Capture partition visible-geometry-v2 merges adjacent internal grid tiles without changing their union. It measures every live state and splits only for image budgets (30,000 pixels per edge, 32 million pixels total), estimating conservatively at two pixels per point plus a rounding margin. Actual exports are checked too. Zero-area ranges retain geometry and explicit non-rendering observations without images or pixel equality claims. Later states can repartition and backfill earlier retained workbooks.",
+    "CF decisions concern rule contributions within the recorded union of comparison extents. Literal cellIs exclusions require identical cell-XML fingerprints and visual context. Formula inputs remain captures; unknown or changed rules retain region captures. This is not a proof of whole-workbook visual equality.",
+    "Chart mode deterministic excludes only embedded charts with complete unchanged package, XML/cache, source-cell/style/layout/CF and live-geometry dependencies. Exclusions are not pixel comparisons. Unknown references, external or unsupported parts, ambiguous names and chart sheets retain full-chart exports. Mode conservative exports every chart. Other drawings and all worksheet geometry effects are not exhaustively discovered.",
+    "Charts with measured zero width or height retain geometry and an explicit zero-area-chart observation without a pixel verdict. A transition between visible and zero-area states is a rendering/geometry difference.",
+    "Disposable targeted copies are staged with calcMode=manual, fullCalcOnLoad=0, forceFullCalc=0 and calcOnSave=0 before Excel opens them. Cached formula values are retained until each resident workbook is explicitly rebuilt. Excel may still autonomously refresh content; observed save/rebuild transitions remain audited. Original inputs and prepared bundles are unchanged. This suppresses unintended open/save recalculation and changes the opening baseline relative to capture policy v4.",
+    "Opening/saving and the in-place SD rebuild are retained as separate XML controls. Exact content/context matches identify overlaps conservatively; absence of a match does not establish exclusive causality.",
+    "Worksheet cells are streamed into temporary fixed-size fingerprints without worksheet-byte or cell-count limits. Exterior empty-cell changes are counted before candidate allocation. Layout metadata and retained change evidence still require memory.",
+    "When content coverage marks background_tail_sampling, supported borderless solid-fill bands with known sheet-wide gridline settings are represented through their finite transitions and tail samples. Pixels beyond that envelope are not captured; this is not exhaustive whole-grid pixel coverage."
+  ],
+  "native_drawing_bounds": [],
+  "phases": [
+    "initial XML compared",
+    "Original and Default opened",
+    "Excel save effects inspected",
+    "Original and variants rebuilt in their existing processes"
+  ],
+  "portable_report": {
+    "diagnostics": {},
+    "different_regions": 0,
+    "failure": null,
+    "note": "Pixel diagnostics describe retained captures. They do not change the scientific comparison verdict or extend its coverage.",
+    "source_report": null,
+    "version": 1
+  },
+  "public_presentation": {
+    "meaning": "Derived presentation. Native evidence remains unchanged.",
+    "metadata_omissions": [
+      {
+        "pointer": "/report/excel_pids",
+        "source_value_sha256": "01308494e3999d5711b509539d4aff11282a494a40a798443b8dbf04e02e91c0"
+      },
+      {
+        "pointer": "/report/portable_report/source_report",
+        "source_value_sha256": "451a884b2f650e04f633bf7eeb85ec438ca310eeca276f3ffca40a7a677cb192"
+      },
+      {
+        "pointer": "/report/transitions/0/after_file",
+        "source_value_sha256": "616f563a444df3760cdc89f632930d231bf5d5d723a8a60198c6199baaac8e7c"
+      },
+      {
+        "pointer": "/report/transitions/0/before_file",
+        "source_value_sha256": "8be1671811bdba8747c0fcdab07ffc83b7269c93c537bb84ec0c318fb7ed01cf"
+      },
+      {
+        "pointer": "/report/transitions/0/changes_file",
+        "source_value_sha256": "04303d912d282267c70beed29742d96905809f30996e4d76f44e48f4363862af"
+      },
+      {
+        "pointer": "/report/transitions/1/after_file",
+        "source_value_sha256": "d6f8202772f9baf681c5ff320bf9f1c640664e8ae9223232128cd70d73b3b4d4"
+      },
+      {
+        "pointer": "/report/transitions/1/before_file",
+        "source_value_sha256": "8be1671811bdba8747c0fcdab07ffc83b7269c93c537bb84ec0c318fb7ed01cf"
+      },
+      {
+        "pointer": "/report/transitions/1/changes_file",
+        "source_value_sha256": "068c8f4968d74663176e683befbfb75afc8d414cc2572f8434e02edd38b67550"
+      },
+      {
+        "pointer": "/report/transitions/2/after_file",
+        "source_value_sha256": "e2bad00f7e46596aa490243b724367fc5134597b3dc714e499321c392ca5bbf8"
+      },
+      {
+        "pointer": "/report/transitions/2/before_file",
+        "source_value_sha256": "d6f8202772f9baf681c5ff320bf9f1c640664e8ae9223232128cd70d73b3b4d4"
+      },
+      {
+        "pointer": "/report/transitions/2/changes_file",
+        "source_value_sha256": "630aa043b13d1270b87fc3982b8f4eb2b168a6e85df78de3076f2707b51b31d4"
+      },
+      {
+        "pointer": "/report/transitions/3/after_file",
+        "source_value_sha256": "babefdc94f75f60419292569944b6a65ff2993dda4694d887d14550053a0901b"
+      },
+      {
+        "pointer": "/report/transitions/3/before_file",
+        "source_value_sha256": "616f563a444df3760cdc89f632930d231bf5d5d723a8a60198c6199baaac8e7c"
+      },
+      {
+        "pointer": "/report/transitions/3/changes_file",
+        "source_value_sha256": "b633652d8a13f98166d81f294e0bac8608e8a816e2615b619f52601ac12c3215"
+      },
+      {
+        "pointer": "/report/transitions/4/after_file",
+        "source_value_sha256": "70dacfde90a0b457bf910f7b49d1fc3db4f6d29ee1f0529978149e8770f4d93b"
+      },
+      {
+        "pointer": "/report/transitions/4/before_file",
+        "source_value_sha256": "e2bad00f7e46596aa490243b724367fc5134597b3dc714e499321c392ca5bbf8"
+      },
+      {
+        "pointer": "/report/transitions/4/changes_file",
+        "source_value_sha256": "079a0a2009bd1a758852711c2c894925ee81d8c2ab3db00565e084f9d84d0747"
+      },
+      {
+        "pointer": "/validation_signature/environment_key",
+        "source_value_sha256": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126"
+      }
+    ],
+    "schema": 1,
+    "source_report_sha256": "3bc59f58b1fee74080c5c444b1d7ff82c60ff36a858ea336f0ad51a8e15665eb"
+  },
+  "rebuild_checks": {},
+  "state_decisions": {
+    "CP": {
+      "status": "disabled"
+    },
+    "CPR": {
+      "status": "disabled"
+    },
+    "O": {
+      "method": "open-save",
+      "status": "observed"
+    },
+    "OR": {
+      "method": "inplace-rebuild",
+      "status": "observed"
+    },
+    "SD": {
+      "method": "open-save",
+      "status": "observed"
+    },
+    "SDR": {
+      "method": "inplace-rebuild",
+      "status": "observed"
+    }
+  },
+  "status": "completed_with_limitations",
+  "timings_ms": {
+    "capture_selection_and_transport": 86,
+    "image_comparisons": 11
+  },
+  "transitions": [
+    {
+      "after_file": null,
+      "before_file": null,
+      "change_count": 401020,
+      "changes_file": null,
+      "label": "original opening/saving control",
+      "skipped_outside_content_cell_changes": {
+        "Modellrechnung GR AG": 12784,
+        "Modellrechnung GR AQ": 420,
+        "Modellrechnung GR EJ": 68001,
+        "Modellrechnung L0 AG": 12784,
+        "Modellrechnung L0 AQ": 420,
+        "Modellrechnung L0 EJ": 68001,
+        "Modellrechnung W0 AG": 12784,
+        "Modellrechnung W0 AQ": 420,
+        "Modellrechnung W0 EJ": 68001,
+        "Variante 1-W1 AG": 12784,
+        "Variante 1-W1 AQ": 420,
+        "Variante 1-W1 EJ": 68001,
+        "Variante 1-W2 AG": 12784,
+        "Variante 1-W2 AQ": 420,
+        "Variante 1-W2 EJ": 68001,
+        "Variante 2-W1 AG": 12784,
+        "Variante 2-W1 AQ": 420,
+        "Variante 2-W1 EJ": 68001,
+        "Variante 2-W2 AG": 12784,
+        "Variante 2-W2 AQ": 420,
+        "Variante 2-W2 EJ": 68001,
+        "Variante 3-W1 AG": 12784,
+        "Variante 3-W1 AQ": 420,
+        "Variante 3-W1 EJ": 68001,
+        "Variante 3-W2 AG": 12784,
+        "Variante 3-W2 AQ": 420,
+        "Variante 3-W2 EJ": 68001,
+        "Variante 4-W1 AG": 12784,
+        "Variante 4-W1 AQ": 420,
+        "Variante 4-W1 EJ": 68001,
+        "Variante 4-W2 AG": 12784,
+        "Variante 4-W2 AQ": 420,
+        "Variante 4-W2 EJ": 68001,
+        "Variante 5-W1 AG": 12784,
+        "Variante 5-W1 AQ": 420,
+        "Variante 5-W1 EJ": 68001,
+        "Variante 5-W2 AG": 12784,
+        "Variante 5-W2 AQ": 420,
+        "Variante 5-W2 EJ": 68001,
+        "Variante 6-W1 AG": 12784,
+        "Variante 6-W1 AQ": 420,
+        "Variante 6-W1 EJ": 68001,
+        "Variante 6-W2 AG": 12784,
+        "Variante 6-W2 AQ": 420,
+        "Variante 6-W2 EJ": 68001
+      },
+      "timings_ms": {
+        "attribution": 1114,
+        "differences": 1303,
+        "read_snapshots": 7,
+        "total": 3201,
+        "write_evidence": 769
+      }
+    },
+    {
+      "after_file": null,
+      "before_file": null,
+      "change_count": 400847,
+      "changes_file": null,
+      "label": "default input versus original input",
+      "skipped_outside_content_cell_changes": {
+        "Modellrechnung GR AG": 12784,
+        "Modellrechnung GR AQ": 420,
+        "Modellrechnung GR EJ": 68001,
+        "Modellrechnung L0 AG": 12784,
+        "Modellrechnung L0 AQ": 420,
+        "Modellrechnung L0 EJ": 68001,
+        "Modellrechnung W0 AG": 12784,
+        "Modellrechnung W0 AQ": 420,
+        "Modellrechnung W0 EJ": 68001,
+        "Variante 1-W1 AG": 12784,
+        "Variante 1-W1 AQ": 420,
+        "Variante 1-W1 EJ": 68001,
+        "Variante 1-W2 AG": 12784,
+        "Variante 1-W2 AQ": 420,
+        "Variante 1-W2 EJ": 68001,
+        "Variante 2-W1 AG": 12784,
+        "Variante 2-W1 AQ": 420,
+        "Variante 2-W1 EJ": 68001,
+        "Variante 2-W2 AG": 12784,
+        "Variante 2-W2 AQ": 420,
+        "Variante 2-W2 EJ": 68001,
+        "Variante 3-W1 AG": 12784,
+        "Variante 3-W1 AQ": 420,
+        "Variante 3-W1 EJ": 68001,
+        "Variante 3-W2 AG": 12784,
+        "Variante 3-W2 AQ": 420,
+        "Variante 3-W2 EJ": 68001,
+        "Variante 4-W1 AG": 12784,
+        "Variante 4-W1 AQ": 420,
+        "Variante 4-W1 EJ": 68001,
+        "Variante 4-W2 AG": 12784,
+        "Variante 4-W2 AQ": 420,
+        "Variante 4-W2 EJ": 68001,
+        "Variante 5-W1 AG": 12784,
+        "Variante 5-W1 AQ": 420,
+        "Variante 5-W1 EJ": 68001,
+        "Variante 5-W2 AG": 12784,
+        "Variante 5-W2 AQ": 420,
+        "Variante 5-W2 EJ": 68001,
+        "Variante 6-W1 AG": 12784,
+        "Variante 6-W1 AQ": 420,
+        "Variante 6-W1 EJ": 68001,
+        "Variante 6-W2 AG": 12784,
+        "Variante 6-W2 AQ": 420,
+        "Variante 6-W2 EJ": 68001
+      },
+      "timings_ms": {
+        "attribution": 600,
+        "differences": 1718,
+        "read_snapshots": 7,
+        "total": 3000,
+        "write_evidence": 666
+      }
+    },
+    {
+      "after_file": null,
+      "before_file": null,
+      "change_count": 401020,
+      "changes_file": null,
+      "label": "default opening/saving control",
+      "skipped_outside_content_cell_changes": {
+        "Modellrechnung GR AG": 12784,
+        "Modellrechnung GR AQ": 420,
+        "Modellrechnung GR EJ": 68001,
+        "Modellrechnung L0 AG": 12784,
+        "Modellrechnung L0 AQ": 420,
+        "Modellrechnung L0 EJ": 68001,
+        "Modellrechnung W0 AG": 12784,
+        "Modellrechnung W0 AQ": 420,
+        "Modellrechnung W0 EJ": 68001,
+        "Variante 1-W1 AG": 12784,
+        "Variante 1-W1 AQ": 420,
+        "Variante 1-W1 EJ": 68001,
+        "Variante 1-W2 AG": 12784,
+        "Variante 1-W2 AQ": 420,
+        "Variante 1-W2 EJ": 68001,
+        "Variante 2-W1 AG": 12784,
+        "Variante 2-W1 AQ": 420,
+        "Variante 2-W1 EJ": 68001,
+        "Variante 2-W2 AG": 12784,
+        "Variante 2-W2 AQ": 420,
+        "Variante 2-W2 EJ": 68001,
+        "Variante 3-W1 AG": 12784,
+        "Variante 3-W1 AQ": 420,
+        "Variante 3-W1 EJ": 68001,
+        "Variante 3-W2 AG": 12784,
+        "Variante 3-W2 AQ": 420,
+        "Variante 3-W2 EJ": 68001,
+        "Variante 4-W1 AG": 12784,
+        "Variante 4-W1 AQ": 420,
+        "Variante 4-W1 EJ": 68001,
+        "Variante 4-W2 AG": 12784,
+        "Variante 4-W2 AQ": 420,
+        "Variante 4-W2 EJ": 68001,
+        "Variante 5-W1 AG": 12784,
+        "Variante 5-W1 AQ": 420,
+        "Variante 5-W1 EJ": 68001,
+        "Variante 5-W2 AG": 12784,
+        "Variante 5-W2 AQ": 420,
+        "Variante 5-W2 EJ": 68001,
+        "Variante 6-W1 AG": 12784,
+        "Variante 6-W1 AQ": 420,
+        "Variante 6-W1 EJ": 68001,
+        "Variante 6-W2 AG": 12784,
+        "Variante 6-W2 AQ": 420,
+        "Variante 6-W2 EJ": 68001
+      },
+      "timings_ms": {
+        "attribution": 488,
+        "differences": 1036,
+        "read_snapshots": 7,
+        "total": 2310,
+        "write_evidence": 770
+      }
+    },
+    {
+      "after_file": null,
+      "before_file": null,
+      "change_count": 0,
+      "changes_file": null,
+      "label": "O in-place rebuild and save",
+      "skipped_outside_content_cell_changes": {},
+      "timings_ms": {
+        "attribution": 0,
+        "differences": 6,
+        "read_snapshots": 2738,
+        "total": 3434,
+        "write_evidence": 216
+      }
+    },
+    {
+      "after_file": null,
+      "before_file": null,
+      "change_count": 0,
+      "changes_file": null,
+      "label": "SD in-place rebuild and save",
+      "skipped_outside_content_cell_changes": {},
+      "timings_ms": {
+        "attribution": 0,
+        "differences": 7,
+        "read_snapshots": 2835,
+        "total": 2851,
+        "write_evidence": 2
+      }
+    }
+  ],
+  "workbook_bytes": {
+    "OR-rebuilt.xlsx": 5523298,
+    "SDR-rebuilt.xlsx": 5523298,
+    "default.before-save.xlsx": 5507764,
+    "default.xlsx": 5523309,
+    "input_default": 5507764,
+    "input_original": 5510686,
+    "original.before-save.xlsx": 5510686,
+    "original.xlsx": 5523307
+  },
+  "workbook_inventory": {
+    "complete": true,
+    "original_sha256": "0fc52b8331f181af5ceb86254debd2e63045ac012f5b22caacfc20b804ce048f",
+    "sheets": [
+      {
+        "id": "73",
+        "name": "Deckblatt",
+        "order": 0,
+        "state": "visible"
+      },
+      {
+        "id": "68",
+        "name": "Inhalt",
+        "order": 1,
+        "state": "visible"
+      },
+      {
+        "id": "69",
+        "name": "Übersicht Annahmen",
+        "order": 2,
+        "state": "visible"
+      },
+      {
+        "id": "70",
+        "name": "Liste der Varianten",
+        "order": 3,
+        "state": "visible"
+      },
+      {
+        "id": "7",
+        "name": "Variante 1-W1 AQ",
+        "order": 4,
+        "state": "visible"
+      },
+      {
+        "id": "19",
+        "name": "Variante 1-W1 AG",
+        "order": 5,
+        "state": "visible"
+      },
+      {
+        "id": "31",
+        "name": "Variante 1-W1 EJ",
+        "order": 6,
+        "state": "visible"
+      },
+      {
+        "id": "43",
+        "name": "Variante 1-W1 NBB",
+        "order": 7,
+        "state": "visible"
+      },
+      {
+        "id": "8",
+        "name": "Variante 1-W2 AQ",
+        "order": 8,
+        "state": "visible"
+      },
+      {
+        "id": "20",
+        "name": "Variante 1-W2 AG",
+        "order": 9,
+        "state": "visible"
+      },
+      {
+        "id": "32",
+        "name": "Variante 1-W2 EJ",
+        "order": 10,
+        "state": "visible"
+      },
+      {
+        "id": "44",
+        "name": "Variante 1-W2 NBB",
+        "order": 11,
+        "state": "visible"
+      },
+      {
+        "id": "9",
+        "name": "Variante 2-W1 AQ",
+        "order": 12,
+        "state": "visible"
+      },
+      {
+        "id": "21",
+        "name": "Variante 2-W1 AG",
+        "order": 13,
+        "state": "visible"
+      },
+      {
+        "id": "33",
+        "name": "Variante 2-W1 EJ",
+        "order": 14,
+        "state": "visible"
+      },
+      {
+        "id": "45",
+        "name": "Variante 2-W1 NBB",
+        "order": 15,
+        "state": "visible"
+      },
+      {
+        "id": "10",
+        "name": "Variante 2-W2 AQ",
+        "order": 16,
+        "state": "visible"
+      },
+      {
+        "id": "22",
+        "name": "Variante 2-W2 AG",
+        "order": 17,
+        "state": "visible"
+      },
+      {
+        "id": "34",
+        "name": "Variante 2-W2 EJ",
+        "order": 18,
+        "state": "visible"
+      },
+      {
+        "id": "46",
+        "name": "Variante 2-W2 NBB",
+        "order": 19,
+        "state": "visible"
+      },
+      {
+        "id": "11",
+        "name": "Variante 3-W1 AQ",
+        "order": 20,
+        "state": "visible"
+      },
+      {
+        "id": "23",
+        "name": "Variante 3-W1 AG",
+        "order": 21,
+        "state": "visible"
+      },
+      {
+        "id": "35",
+        "name": "Variante 3-W1 EJ",
+        "order": 22,
+        "state": "visible"
+      },
+      {
+        "id": "47",
+        "name": "Variante 3-W1 NBB",
+        "order": 23,
+        "state": "visible"
+      },
+      {
+        "id": "12",
+        "name": "Variante 3-W2 AQ",
+        "order": 24,
+        "state": "visible"
+      },
+      {
+        "id": "24",
+        "name": "Variante 3-W2 AG",
+        "order": 25,
+        "state": "visible"
+      },
+      {
+        "id": "36",
+        "name": "Variante 3-W2 EJ",
+        "order": 26,
+        "state": "visible"
+      },
+      {
+        "id": "48",
+        "name": "Variante 3-W2 NBB",
+        "order": 27,
+        "state": "visible"
+      },
+      {
+        "id": "13",
+        "name": "Variante 4-W1 AQ",
+        "order": 28,
+        "state": "visible"
+      },
+      {
+        "id": "25",
+        "name": "Variante 4-W1 AG",
+        "order": 29,
+        "state": "visible"
+      },
+      {
+        "id": "37",
+        "name": "Variante 4-W1 EJ",
+        "order": 30,
+        "state": "visible"
+      },
+      {
+        "id": "49",
+        "name": "Variante 4-W1 NBB",
+        "order": 31,
+        "state": "visible"
+      },
+      {
+        "id": "14",
+        "name": "Variante 4-W2 AQ",
+        "order": 32,
+        "state": "visible"
+      },
+      {
+        "id": "26",
+        "name": "Variante 4-W2 AG",
+        "order": 33,
+        "state": "visible"
+      },
+      {
+        "id": "38",
+        "name": "Variante 4-W2 EJ",
+        "order": 34,
+        "state": "visible"
+      },
+      {
+        "id": "50",
+        "name": "Variante 4-W2 NBB",
+        "order": 35,
+        "state": "visible"
+      },
+      {
+        "id": "15",
+        "name": "Variante 5-W1 AQ",
+        "order": 36,
+        "state": "visible"
+      },
+      {
+        "id": "27",
+        "name": "Variante 5-W1 AG",
+        "order": 37,
+        "state": "visible"
+      },
+      {
+        "id": "39",
+        "name": "Variante 5-W1 EJ",
+        "order": 38,
+        "state": "visible"
+      },
+      {
+        "id": "51",
+        "name": "Variante 5-W1 NBB",
+        "order": 39,
+        "state": "visible"
+      },
+      {
+        "id": "16",
+        "name": "Variante 5-W2 AQ",
+        "order": 40,
+        "state": "visible"
+      },
+      {
+        "id": "28",
+        "name": "Variante 5-W2 AG",
+        "order": 41,
+        "state": "visible"
+      },
+      {
+        "id": "40",
+        "name": "Variante 5-W2 EJ",
+        "order": 42,
+        "state": "visible"
+      },
+      {
+        "id": "52",
+        "name": "Variante 5-W2 NBB",
+        "order": 43,
+        "state": "visible"
+      },
+      {
+        "id": "17",
+        "name": "Variante 6-W1 AQ",
+        "order": 44,
+        "state": "visible"
+      },
+      {
+        "id": "29",
+        "name": "Variante 6-W1 AG",
+        "order": 45,
+        "state": "visible"
+      },
+      {
+        "id": "41",
+        "name": "Variante 6-W1 EJ",
+        "order": 46,
+        "state": "visible"
+      },
+      {
+        "id": "53",
+        "name": "Variante 6-W1 NBB",
+        "order": 47,
+        "state": "visible"
+      },
+      {
+        "id": "18",
+        "name": "Variante 6-W2 AQ",
+        "order": 48,
+        "state": "visible"
+      },
+      {
+        "id": "30",
+        "name": "Variante 6-W2 AG",
+        "order": 49,
+        "state": "visible"
+      },
+      {
+        "id": "42",
+        "name": "Variante 6-W2 EJ",
+        "order": 50,
+        "state": "visible"
+      },
+      {
+        "id": "54",
+        "name": "Variante 6-W2 NBB",
+        "order": 51,
+        "state": "visible"
+      },
+      {
+        "id": "63",
+        "name": "Modellrechnung L0 AQ",
+        "order": 52,
+        "state": "visible"
+      },
+      {
+        "id": "64",
+        "name": "Modellrechnung L0 AG",
+        "order": 53,
+        "state": "visible"
+      },
+      {
+        "id": "65",
+        "name": "Modellrechnung L0 EJ",
+        "order": 54,
+        "state": "visible"
+      },
+      {
+        "id": "66",
+        "name": "Modellrechnung L0 NBB",
+        "order": 55,
+        "state": "visible"
+      },
+      {
+        "id": "59",
+        "name": "Modellrechnung W0 AQ",
+        "order": 56,
+        "state": "visible"
+      },
+      {
+        "id": "60",
+        "name": "Modellrechnung W0 AG",
+        "order": 57,
+        "state": "visible"
+      },
+      {
+        "id": "61",
+        "name": "Modellrechnung W0 EJ",
+        "order": 58,
+        "state": "visible"
+      },
+      {
+        "id": "62",
+        "name": "Modellrechnung W0 NBB",
+        "order": 59,
+        "state": "visible"
+      },
+      {
+        "id": "55",
+        "name": "Modellrechnung GR AQ",
+        "order": 60,
+        "state": "visible"
+      },
+      {
+        "id": "56",
+        "name": "Modellrechnung GR AG",
+        "order": 61,
+        "state": "visible"
+      },
+      {
+        "id": "57",
+        "name": "Modellrechnung GR EJ",
+        "order": 62,
+        "state": "visible"
+      },
+      {
+        "id": "58",
+        "name": "Modellrechnung GR NBB",
+        "order": 63,
+        "state": "visible"
+      }
+    ]
+  },
+  "xml_snapshot_statistics": {
+    "elapsed_ms": 16734,
+    "parsed_versions": 6,
+    "reads": 20,
+    "reused_versions": 14
+  }
+}

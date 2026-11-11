@@ -1,0 +1,943 @@
+{
+  "candidate_count": 0,
+  "capture_counts": {
+    "OR:charts": 0,
+    "SDR:charts": 0
+  },
+  "capture_partition": "visible-geometry-v2",
+  "capture_policy": "targeted-content-grid-v15",
+  "capture_receipts": [],
+  "chart_capture_mode": "deterministic",
+  "chart_dependencies": [
+    {
+      "decisions": [],
+      "left": "OR",
+      "mode": "deterministic",
+      "right": "SDR"
+    }
+  ],
+  "check_performance": "not_requested",
+  "check_performance_cache": null,
+  "check_performance_evidence": null,
+  "comparisons": [
+    {
+      "charts": [],
+      "findings": [],
+      "label": "both rebuilt Default",
+      "left": "OR",
+      "right": "SDR",
+      "selected_region_count": 0
+    }
+  ],
+  "conditional_formatting": [
+    {
+      "decisions": [],
+      "left": "OR",
+      "right": "SDR"
+    }
+  ],
+  "content_coverage": [],
+  "control_artifacts_cache": null,
+  "equal_image_encoding": {
+    "compression": "best",
+    "filter": "adaptive",
+    "format": "PNG",
+    "pixel_preservation": "decoded RGBA equality checked before accepting a smaller encoding",
+    "scope": "verified equal images only; shared differing or unverified references preserve original bytes"
+  },
+  "excel_pids": null,
+  "execution_strategy": "paired-inplace-rebuild-v1",
+  "findings": [],
+  "formula_diagnostics": {
+    "note": "Optional dependency explanations; no visual verdict or coverage was changed.",
+    "omitted_regions": 0,
+    "regions": [],
+    "version": 1
+  },
+  "height_checks": [],
+  "image_comparison_statistics": {
+    "comparisons": 0,
+    "decoded_images": 0,
+    "encoded_bytes_read": 0,
+    "encoded_images_reused": 0,
+    "files_read": 0
+  },
+  "input_identity": {
+    "status": "different"
+  },
+  "limitations": [
+    "Gridlines are disabled consistently. Policy v10 compares only common pixels when measured capture/content origins match and content cores are contained. capture_extent_ignored records omitted right/bottom extent and retains both raw images and geometries. Changed overlapping pixels remain differences. Shifted origins, missing measurements and charts retain conservative verdicts. blank_margin_ignored records the stronger exact white-margin proof.",
+    "Row-height checks cover rows above and within the unpadded union of content envelopes, including potentially visible fill/border/conditional-formatting extents. Policy v12 excludes context rows below the union content boundary from both height dependencies and cell capture rectangles; upper and side context remain. Charts retain independent full-chart observations.",
+    "Strategy paired-inplace-rebuild-v1 compares rebuilt Original against rebuilt Default and optional rebuilt Check Performance. Each reuses its existing Excel process. Pre-rebuild captures are omitted for throughput; XML save/optimization/rebuild controls are retained. Volatility and exclusive causal attribution require follow-up.",
+    "Cell capture regions are intersected with the union of content-bearing cells and potentially visible fill/border/conditional-formatting extents in the compared rebuilt states, plus one row above and one column on either side. Opening/save XML controls retain separate provenance. Exterior regions outside that envelope are intentionally skipped, not visually confirmed identical; content_coverage records selection counts and bounds. Chart exports are independent of this policy.",
+    "Capture partition visible-geometry-v2 merges adjacent internal grid tiles without changing their union. It measures every live state and splits only for image budgets (30,000 pixels per edge, 32 million pixels total), estimating conservatively at two pixels per point plus a rounding margin. Actual exports are checked too. Zero-area ranges retain geometry and explicit non-rendering observations without images or pixel equality claims. Later states can repartition and backfill earlier retained workbooks.",
+    "CF decisions concern rule contributions within the recorded union of comparison extents. Literal cellIs exclusions require identical cell-XML fingerprints and visual context. Formula inputs remain captures; unknown or changed rules retain region captures. This is not a proof of whole-workbook visual equality.",
+    "Chart mode deterministic excludes only embedded charts with complete unchanged package, XML/cache, source-cell/style/layout/CF and live-geometry dependencies. Exclusions are not pixel comparisons. Unknown references, external or unsupported parts, ambiguous names and chart sheets retain full-chart exports. Mode conservative exports every chart. Other drawings and all worksheet geometry effects are not exhaustively discovered.",
+    "Charts with measured zero width or height retain geometry and an explicit zero-area-chart observation without a pixel verdict. A transition between visible and zero-area states is a rendering/geometry difference.",
+    "Disposable targeted copies are staged with calcMode=manual, fullCalcOnLoad=0, forceFullCalc=0 and calcOnSave=0 before Excel opens them. Cached formula values are retained until each resident workbook is explicitly rebuilt. Excel may still autonomously refresh content; observed save/rebuild transitions remain audited. Original inputs and prepared bundles are unchanged. This suppresses unintended open/save recalculation and changes the opening baseline relative to capture policy v4.",
+    "Opening/saving and the in-place SD rebuild are retained as separate XML controls. Exact content/context matches identify overlaps conservatively; absence of a match does not establish exclusive causality.",
+    "Worksheet cells are streamed into temporary fixed-size fingerprints without worksheet-byte or cell-count limits. Exterior empty-cell changes are counted before candidate allocation. Layout metadata and retained change evidence still require memory.",
+    "When content coverage marks background_tail_sampling, supported borderless solid-fill bands with known sheet-wide gridline settings are represented through their finite transitions and tail samples. Pixels beyond that envelope are not captured; this is not exhaustive whole-grid pixel coverage."
+  ],
+  "native_drawing_bounds": [
+    {
+      "lane": "O",
+      "qualified": false,
+      "reason": "Unsupported line namespace",
+      "sheet": "Titel",
+      "stage": "xml_line_qualification",
+      "workbook_sha256": "f34f5da3637046301c7ca318aa4e6b02c8959d4f8cbdac73bc006d5c55868f34"
+    },
+    {
+      "lane": "O",
+      "qualified": false,
+      "reason": "Unsupported line namespace",
+      "sheet": "GENESIS-Online",
+      "stage": "xml_line_qualification",
+      "workbook_sha256": "f34f5da3637046301c7ca318aa4e6b02c8959d4f8cbdac73bc006d5c55868f34"
+    },
+    {
+      "lane": "SD",
+      "qualified": false,
+      "reason": "Unsupported line namespace",
+      "sheet": "Titel",
+      "stage": "xml_line_qualification",
+      "workbook_sha256": "fe002b7cc071e5d5d35668725d88a9b95fc9e76c2c06aa382fe4fb778abe5064"
+    },
+    {
+      "lane": "SD",
+      "qualified": false,
+      "reason": "Unsupported line namespace",
+      "sheet": "GENESIS-Online",
+      "stage": "xml_line_qualification",
+      "workbook_sha256": "fe002b7cc071e5d5d35668725d88a9b95fc9e76c2c06aa382fe4fb778abe5064"
+    },
+    {
+      "lane": "OR",
+      "qualified": false,
+      "reason": "Unsupported line namespace",
+      "sheet": "Titel",
+      "stage": "xml_line_qualification",
+      "workbook_sha256": "091336f39e99164c6618f7ef86a8550c7463d9e5de293c95360c61e3ba624b7e"
+    },
+    {
+      "lane": "OR",
+      "qualified": false,
+      "reason": "Unsupported line namespace",
+      "sheet": "GENESIS-Online",
+      "stage": "xml_line_qualification",
+      "workbook_sha256": "091336f39e99164c6618f7ef86a8550c7463d9e5de293c95360c61e3ba624b7e"
+    },
+    {
+      "lane": "SDR",
+      "qualified": false,
+      "reason": "Unsupported line namespace",
+      "sheet": "Titel",
+      "stage": "xml_line_qualification",
+      "workbook_sha256": "825f2586309efabe4c70ae44ee9c28e919fe20dfca7bf83717d5ffb49b4df604"
+    },
+    {
+      "lane": "SDR",
+      "qualified": false,
+      "reason": "Unsupported line namespace",
+      "sheet": "GENESIS-Online",
+      "stage": "xml_line_qualification",
+      "workbook_sha256": "825f2586309efabe4c70ae44ee9c28e919fe20dfca7bf83717d5ffb49b4df604"
+    }
+  ],
+  "phases": [
+    "initial XML compared",
+    "Original and Default opened",
+    "Excel save effects inspected",
+    "Original and variants rebuilt in their existing processes"
+  ],
+  "portable_report": {
+    "diagnostics": {},
+    "different_regions": 0,
+    "failure": null,
+    "note": "Pixel diagnostics describe retained captures. They do not change the scientific comparison verdict or extend its coverage.",
+    "source_report": null,
+    "version": 1
+  },
+  "public_presentation": {
+    "meaning": "Derived presentation. Native evidence remains unchanged.",
+    "metadata_omissions": [
+      {
+        "pointer": "/report/excel_pids",
+        "source_value_sha256": "a571e3bc1fa3f48e31ae2e280fb0cfa084ba25b774cd9913b97cc355c0a867b1"
+      },
+      {
+        "pointer": "/report/portable_report/source_report",
+        "source_value_sha256": "451a884b2f650e04f633bf7eeb85ec438ca310eeca276f3ffca40a7a677cb192"
+      },
+      {
+        "pointer": "/report/transitions/0/after_file",
+        "source_value_sha256": "9a1c966e881a03a4a554ca1c5f8c90445c9de012d52b8e47df5a818ed991005d"
+      },
+      {
+        "pointer": "/report/transitions/0/before_file",
+        "source_value_sha256": "f82774c7533c47be5f6387e1d5dead6bd9afbd47cec472753bf9b224fe16ef9a"
+      },
+      {
+        "pointer": "/report/transitions/0/changes_file",
+        "source_value_sha256": "524e845f5260b477a1050ee7b43dcefe93ea840422c01d0509d5c8344a0757f2"
+      },
+      {
+        "pointer": "/report/transitions/1/after_file",
+        "source_value_sha256": "12e9ce07f2d1f35d8879ca243fb092cb6a7eb15102025aa87b0aee367da8f604"
+      },
+      {
+        "pointer": "/report/transitions/1/before_file",
+        "source_value_sha256": "f82774c7533c47be5f6387e1d5dead6bd9afbd47cec472753bf9b224fe16ef9a"
+      },
+      {
+        "pointer": "/report/transitions/1/changes_file",
+        "source_value_sha256": "e5f12116ad67bc823488aa6ce4e2535b39ac187416d8103270c273f8ba7629c7"
+      },
+      {
+        "pointer": "/report/transitions/2/after_file",
+        "source_value_sha256": "7707d7eb53f4c9e144b52d1071d442271c2061a90c98620170f55a1152f1d023"
+      },
+      {
+        "pointer": "/report/transitions/2/before_file",
+        "source_value_sha256": "12e9ce07f2d1f35d8879ca243fb092cb6a7eb15102025aa87b0aee367da8f604"
+      },
+      {
+        "pointer": "/report/transitions/2/changes_file",
+        "source_value_sha256": "6ab79038fd06901a6ab2ec854b1552b7709269bb6e0d5fd842902045b7980a34"
+      },
+      {
+        "pointer": "/report/transitions/3/after_file",
+        "source_value_sha256": "fbece151203efa2d5ccadeb3ccb2c88568e24594778e448c0abf917db9c7d5ed"
+      },
+      {
+        "pointer": "/report/transitions/3/before_file",
+        "source_value_sha256": "9a1c966e881a03a4a554ca1c5f8c90445c9de012d52b8e47df5a818ed991005d"
+      },
+      {
+        "pointer": "/report/transitions/3/changes_file",
+        "source_value_sha256": "d2240109cfaa30952a25166c2690008bc707e2f7a62670bdad216f2f9c5e77db"
+      },
+      {
+        "pointer": "/report/transitions/4/after_file",
+        "source_value_sha256": "b44837f87041d51d20c2d7baf65f90444d808122b856d020f195a9cdc434445b"
+      },
+      {
+        "pointer": "/report/transitions/4/before_file",
+        "source_value_sha256": "7707d7eb53f4c9e144b52d1071d442271c2061a90c98620170f55a1152f1d023"
+      },
+      {
+        "pointer": "/report/transitions/4/changes_file",
+        "source_value_sha256": "7e7ebc12b560ab87bd15129aa086f2f2e6c4baae7b4539b9b5dc337899015ff2"
+      },
+      {
+        "pointer": "/validation_signature/environment_key",
+        "source_value_sha256": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126"
+      }
+    ],
+    "schema": 1,
+    "source_report_sha256": "bb0d40dd0def8e30ba53ee43d365b3177f57e06d52103923d0f9cc8b0c688dcf"
+  },
+  "rebuild_checks": {},
+  "state_decisions": {
+    "CP": {
+      "status": "disabled"
+    },
+    "CPR": {
+      "status": "disabled"
+    },
+    "O": {
+      "method": "open-save",
+      "status": "observed"
+    },
+    "OR": {
+      "method": "inplace-rebuild",
+      "status": "observed"
+    },
+    "SD": {
+      "method": "open-save",
+      "status": "observed"
+    },
+    "SDR": {
+      "method": "inplace-rebuild",
+      "status": "observed"
+    }
+  },
+  "status": "completed_with_limitations",
+  "timings_ms": {
+    "capture_selection_and_transport": 794,
+    "image_comparisons": 8
+  },
+  "transitions": [
+    {
+      "after_file": null,
+      "before_file": null,
+      "change_count": 1263526,
+      "changes_file": null,
+      "label": "original opening/saving control",
+      "skipped_outside_content_cell_changes": {
+        "Erläuterung zu CSV-Tabellen": 736722,
+        "Impressum": 15
+      },
+      "timings_ms": {
+        "attribution": 2899,
+        "differences": 2686,
+        "read_snapshots": 9,
+        "total": 7581,
+        "write_evidence": 1978
+      }
+    },
+    {
+      "after_file": null,
+      "before_file": null,
+      "change_count": 1143505,
+      "changes_file": null,
+      "label": "default input versus original input",
+      "skipped_outside_content_cell_changes": {
+        "Erläuterung zu CSV-Tabellen": 736722,
+        "Impressum": 15
+      },
+      "timings_ms": {
+        "attribution": 1527,
+        "differences": 2870,
+        "read_snapshots": 11,
+        "total": 7132,
+        "write_evidence": 2715
+      }
+    },
+    {
+      "after_file": null,
+      "before_file": null,
+      "change_count": 1263526,
+      "changes_file": null,
+      "label": "default opening/saving control",
+      "skipped_outside_content_cell_changes": {
+        "Erläuterung zu CSV-Tabellen": 736722,
+        "Impressum": 15
+      },
+      "timings_ms": {
+        "attribution": 1723,
+        "differences": 2682,
+        "read_snapshots": 8,
+        "total": 6856,
+        "write_evidence": 2434
+      }
+    },
+    {
+      "after_file": null,
+      "before_file": null,
+      "change_count": 0,
+      "changes_file": null,
+      "label": "O in-place rebuild and save",
+      "skipped_outside_content_cell_changes": {},
+      "timings_ms": {
+        "attribution": 0,
+        "differences": 0,
+        "read_snapshots": 2456,
+        "total": 2467,
+        "write_evidence": 2
+      }
+    },
+    {
+      "after_file": null,
+      "before_file": null,
+      "change_count": 0,
+      "changes_file": null,
+      "label": "SD in-place rebuild and save",
+      "skipped_outside_content_cell_changes": {},
+      "timings_ms": {
+        "attribution": 0,
+        "differences": 0,
+        "read_snapshots": 3413,
+        "total": 3661,
+        "write_evidence": 2
+      }
+    }
+  ],
+  "workbook_bytes": {
+    "OR-rebuilt.xlsx": 5070898,
+    "SDR-rebuilt.xlsx": 5065913,
+    "default.before-save.xlsx": 7016494,
+    "default.xlsx": 5065894,
+    "input_default": 7016494,
+    "input_original": 7020049,
+    "original.before-save.xlsx": 7020049,
+    "original.xlsx": 5070884
+  },
+  "workbook_inventory": {
+    "complete": true,
+    "original_sha256": "a84b9e66f133b6a66c1dd1310c3686e6ac8a9204c29979a7edea190f69836d7e",
+    "sheets": [
+      {
+        "id": "94",
+        "name": "Titel",
+        "order": 0,
+        "state": "visible"
+      },
+      {
+        "id": "93",
+        "name": "Inhaltsübersicht",
+        "order": 1,
+        "state": "visible"
+      },
+      {
+        "id": "92",
+        "name": "GENESIS-Online",
+        "order": 2,
+        "state": "visible"
+      },
+      {
+        "id": "91",
+        "name": "Impressum",
+        "order": 3,
+        "state": "visible"
+      },
+      {
+        "id": "90",
+        "name": "Informationen zur Statistik",
+        "order": 4,
+        "state": "visible"
+      },
+      {
+        "id": "1",
+        "name": "12211-01",
+        "order": 5,
+        "state": "visible"
+      },
+      {
+        "id": "2",
+        "name": "12211-02",
+        "order": 6,
+        "state": "visible"
+      },
+      {
+        "id": "3",
+        "name": "12211-03",
+        "order": 7,
+        "state": "visible"
+      },
+      {
+        "id": "4",
+        "name": "12211-04",
+        "order": 8,
+        "state": "visible"
+      },
+      {
+        "id": "5",
+        "name": "12211-05",
+        "order": 9,
+        "state": "visible"
+      },
+      {
+        "id": "96",
+        "name": "12211-06",
+        "order": 10,
+        "state": "visible"
+      },
+      {
+        "id": "97",
+        "name": "12211-07",
+        "order": 11,
+        "state": "visible"
+      },
+      {
+        "id": "98",
+        "name": "12211-08",
+        "order": 12,
+        "state": "visible"
+      },
+      {
+        "id": "9",
+        "name": "12211-09",
+        "order": 13,
+        "state": "visible"
+      },
+      {
+        "id": "10",
+        "name": "12211-10",
+        "order": 14,
+        "state": "visible"
+      },
+      {
+        "id": "11",
+        "name": "12211-11",
+        "order": 15,
+        "state": "visible"
+      },
+      {
+        "id": "12",
+        "name": "12211-12",
+        "order": 16,
+        "state": "visible"
+      },
+      {
+        "id": "13",
+        "name": "12211-13",
+        "order": 17,
+        "state": "visible"
+      },
+      {
+        "id": "14",
+        "name": "12211-14",
+        "order": 18,
+        "state": "visible"
+      },
+      {
+        "id": "15",
+        "name": "12211-15",
+        "order": 19,
+        "state": "visible"
+      },
+      {
+        "id": "16",
+        "name": "12211-16",
+        "order": 20,
+        "state": "visible"
+      },
+      {
+        "id": "17",
+        "name": "12211-17",
+        "order": 21,
+        "state": "visible"
+      },
+      {
+        "id": "18",
+        "name": "12211-18",
+        "order": 22,
+        "state": "visible"
+      },
+      {
+        "id": "19",
+        "name": "12211-19",
+        "order": 23,
+        "state": "visible"
+      },
+      {
+        "id": "20",
+        "name": "12211-20",
+        "order": 24,
+        "state": "visible"
+      },
+      {
+        "id": "102",
+        "name": "12211-21",
+        "order": 25,
+        "state": "visible"
+      },
+      {
+        "id": "103",
+        "name": "12211-22",
+        "order": 26,
+        "state": "visible"
+      },
+      {
+        "id": "104",
+        "name": "12211-23",
+        "order": 27,
+        "state": "visible"
+      },
+      {
+        "id": "24",
+        "name": "12211-24",
+        "order": 28,
+        "state": "visible"
+      },
+      {
+        "id": "25",
+        "name": "12211-25",
+        "order": 29,
+        "state": "visible"
+      },
+      {
+        "id": "26",
+        "name": "12211-26",
+        "order": 30,
+        "state": "visible"
+      },
+      {
+        "id": "27",
+        "name": "12211-27",
+        "order": 31,
+        "state": "visible"
+      },
+      {
+        "id": "28",
+        "name": "12211-28",
+        "order": 32,
+        "state": "visible"
+      },
+      {
+        "id": "29",
+        "name": "12211-29",
+        "order": 33,
+        "state": "visible"
+      },
+      {
+        "id": "30",
+        "name": "12211-30",
+        "order": 34,
+        "state": "visible"
+      },
+      {
+        "id": "31",
+        "name": "12211-31",
+        "order": 35,
+        "state": "visible"
+      },
+      {
+        "id": "32",
+        "name": "12211-32",
+        "order": 36,
+        "state": "visible"
+      },
+      {
+        "id": "33",
+        "name": "12211-33",
+        "order": 37,
+        "state": "visible"
+      },
+      {
+        "id": "34",
+        "name": "12211-34",
+        "order": 38,
+        "state": "visible"
+      },
+      {
+        "id": "35",
+        "name": "12211-35",
+        "order": 39,
+        "state": "visible"
+      },
+      {
+        "id": "36",
+        "name": "12211-36",
+        "order": 40,
+        "state": "visible"
+      },
+      {
+        "id": "37",
+        "name": "12211-37",
+        "order": 41,
+        "state": "visible"
+      },
+      {
+        "id": "38",
+        "name": "12211-38",
+        "order": 42,
+        "state": "visible"
+      },
+      {
+        "id": "39",
+        "name": "12211-39",
+        "order": 43,
+        "state": "visible"
+      },
+      {
+        "id": "40",
+        "name": "12211-40",
+        "order": 44,
+        "state": "visible"
+      },
+      {
+        "id": "41",
+        "name": "12211-41",
+        "order": 45,
+        "state": "visible"
+      },
+      {
+        "id": "42",
+        "name": "12211-42",
+        "order": 46,
+        "state": "visible"
+      },
+      {
+        "id": "43",
+        "name": "12211-43",
+        "order": 47,
+        "state": "visible"
+      },
+      {
+        "id": "44",
+        "name": "12211-44",
+        "order": 48,
+        "state": "visible"
+      },
+      {
+        "id": "89",
+        "name": "Erläuterung zu CSV-Tabellen",
+        "order": 49,
+        "state": "visible"
+      },
+      {
+        "id": "45",
+        "name": "csv-12211-01",
+        "order": 50,
+        "state": "visible"
+      },
+      {
+        "id": "46",
+        "name": "csv-12211-02",
+        "order": 51,
+        "state": "visible"
+      },
+      {
+        "id": "47",
+        "name": "csv-12211-03",
+        "order": 52,
+        "state": "visible"
+      },
+      {
+        "id": "48",
+        "name": "csv-12211-04",
+        "order": 53,
+        "state": "visible"
+      },
+      {
+        "id": "49",
+        "name": "csv-12211-05",
+        "order": 54,
+        "state": "visible"
+      },
+      {
+        "id": "99",
+        "name": "csv-12211-06",
+        "order": 55,
+        "state": "visible"
+      },
+      {
+        "id": "100",
+        "name": "csv-12211-07",
+        "order": 56,
+        "state": "visible"
+      },
+      {
+        "id": "101",
+        "name": "csv-12211-08",
+        "order": 57,
+        "state": "visible"
+      },
+      {
+        "id": "53",
+        "name": "csv-12211-09",
+        "order": 58,
+        "state": "visible"
+      },
+      {
+        "id": "54",
+        "name": "csv-12211-10",
+        "order": 59,
+        "state": "visible"
+      },
+      {
+        "id": "55",
+        "name": "csv-12211-11",
+        "order": 60,
+        "state": "visible"
+      },
+      {
+        "id": "56",
+        "name": "csv-12211-12",
+        "order": 61,
+        "state": "visible"
+      },
+      {
+        "id": "57",
+        "name": "csv-12211-13",
+        "order": 62,
+        "state": "visible"
+      },
+      {
+        "id": "58",
+        "name": "csv-12211-14",
+        "order": 63,
+        "state": "visible"
+      },
+      {
+        "id": "59",
+        "name": "csv-12211-15",
+        "order": 64,
+        "state": "visible"
+      },
+      {
+        "id": "60",
+        "name": "csv-12211-16",
+        "order": 65,
+        "state": "visible"
+      },
+      {
+        "id": "61",
+        "name": "csv-12211-17",
+        "order": 66,
+        "state": "visible"
+      },
+      {
+        "id": "62",
+        "name": "csv-12211-18",
+        "order": 67,
+        "state": "visible"
+      },
+      {
+        "id": "63",
+        "name": "csv-12211-19",
+        "order": 68,
+        "state": "visible"
+      },
+      {
+        "id": "64",
+        "name": "csv-12211-20",
+        "order": 69,
+        "state": "visible"
+      },
+      {
+        "id": "105",
+        "name": "csv-12211-21",
+        "order": 70,
+        "state": "visible"
+      },
+      {
+        "id": "106",
+        "name": "csv-12211-22",
+        "order": 71,
+        "state": "visible"
+      },
+      {
+        "id": "107",
+        "name": "csv-12211-23",
+        "order": 72,
+        "state": "visible"
+      },
+      {
+        "id": "68",
+        "name": "csv-12211-24",
+        "order": 73,
+        "state": "visible"
+      },
+      {
+        "id": "69",
+        "name": "csv-12211-25",
+        "order": 74,
+        "state": "visible"
+      },
+      {
+        "id": "70",
+        "name": "csv-12211-26",
+        "order": 75,
+        "state": "visible"
+      },
+      {
+        "id": "71",
+        "name": "csv-12211-27",
+        "order": 76,
+        "state": "visible"
+      },
+      {
+        "id": "72",
+        "name": "csv-12211-28",
+        "order": 77,
+        "state": "visible"
+      },
+      {
+        "id": "73",
+        "name": "csv-12211-29",
+        "order": 78,
+        "state": "visible"
+      },
+      {
+        "id": "74",
+        "name": "csv-12211-30",
+        "order": 79,
+        "state": "visible"
+      },
+      {
+        "id": "75",
+        "name": "csv-12211-31",
+        "order": 80,
+        "state": "visible"
+      },
+      {
+        "id": "76",
+        "name": "csv-12211-32",
+        "order": 81,
+        "state": "visible"
+      },
+      {
+        "id": "77",
+        "name": "csv-12211-33",
+        "order": 82,
+        "state": "visible"
+      },
+      {
+        "id": "78",
+        "name": "csv-12211-34",
+        "order": 83,
+        "state": "visible"
+      },
+      {
+        "id": "79",
+        "name": "csv-12211-35",
+        "order": 84,
+        "state": "visible"
+      },
+      {
+        "id": "80",
+        "name": "csv-12211-36",
+        "order": 85,
+        "state": "visible"
+      },
+      {
+        "id": "81",
+        "name": "csv-12211-37",
+        "order": 86,
+        "state": "visible"
+      },
+      {
+        "id": "82",
+        "name": "csv-12211-38",
+        "order": 87,
+        "state": "visible"
+      },
+      {
+        "id": "83",
+        "name": "csv-12211-39",
+        "order": 88,
+        "state": "visible"
+      },
+      {
+        "id": "84",
+        "name": "csv-12211-40",
+        "order": 89,
+        "state": "visible"
+      },
+      {
+        "id": "85",
+        "name": "csv-12211-41",
+        "order": 90,
+        "state": "visible"
+      },
+      {
+        "id": "86",
+        "name": "csv-12211-42",
+        "order": 91,
+        "state": "visible"
+      },
+      {
+        "id": "87",
+        "name": "csv-12211-43",
+        "order": 92,
+        "state": "visible"
+      },
+      {
+        "id": "88",
+        "name": "csv-12211-44",
+        "order": 93,
+        "state": "visible"
+      }
+    ]
+  },
+  "xml_snapshot_statistics": {
+    "elapsed_ms": 20639,
+    "parsed_versions": 6,
+    "reads": 20,
+    "reused_versions": 14
+  }
+}
