@@ -6,6 +6,8 @@ Reviewed on 11 November 2026 against source revision
 paths declared by the host modules. This review covers the resident capture
 protocol, classic paired capture, targeted native-operation transport,
 coordinator lifetime and the Control Room observation/control interface.
+The companion [visualization review](visualization-references.md) maps this
+protocol to evaluated and award-recognized visual representations.
 
 ## Actors and ownership
 
