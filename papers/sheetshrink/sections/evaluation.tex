@@ -7,27 +7,15 @@ and observed native presentation under the stated validation scope.
 The evaluation treats Data.gov, Destatis and Enron as distinct populations.
 Archive checksums, member names and duplicate occurrences identify each selected
 corpus version. Legacy XLS conversion is reported separately from XLSX cleanup.
-A historical Enron development selection contains 20,872 inputs, with 20,503
-prepared artifacts and 369 unsuccessful preparation outcomes at its recorded
-preparation checkpoint. Its selected visual scope contains 16,799 workbooks.
-These counts describe that development selection and do not establish completed
-visual coverage. The replacement EDRM Enron v2 XML handover contains 34,065 distinct
-content-addressed candidates totaling 8.470 decimal GB of uncompressed payload.
-The imported selection unit is a distinct candidate SHA-256. Candidate transport
-was checked against the supplied manifests, and the import retained the original
-candidate bytes. This externally generated extraction includes legacy Excel and
-other OLE candidates. Native format recognition, successful XLSX conversion and
-visual eligibility remain separate evaluation stages. Candidate count therefore
-describes the imported input frame, with workbook outcomes to be reported after
-processing. The upstream extraction provenance and local import identities are
-retained alongside the experiment.
+The EDRM Enron v2 XML extraction supplies 34,065 distinct SHA-256-addressed
+candidates, including legacy Excel and other OLE objects. This input frame is
+separate from the prepared Enron XLSX population evaluated below. Extraction
+provenance, manifests and import checks accompany the experiment.
 
-The current native visual stress cohort selects the 49 whole workbooks with the
-largest absolute compressed-file byte reduction in each corpus, totaling 147
-original identities. All processor baselines use those same identities. Earlier
-development observations outside this reduced cohort remain retained history.
-Availability of an optimized variant and completion of its visual comparison
-are reported separately.
+The native visual stress cohort selects the 49 whole workbooks with the largest
+absolute compressed-file byte reduction in each corpus, totaling 147 original
+identities. All processor baselines use those same identities. Preparation,
+cleanup and visual-comparison outcomes are counted separately.
 
 \begin{table}[t]
 \caption{Frozen XLSX source inventories. Sizes are decimal GB of listed workbook files and do not measure completed native coverage.}
@@ -43,16 +31,12 @@ Destatis & 1,182 & 2.364 \\
 \end{tabular}
 \end{table}
 
-The two frozen XLSX inventories in Table~\ref{tab:source-inventories} come from
-the versioned source profiles. Each listed archive member has an individual
-SHA-256 identity. Their source-frame sizes are separate from the eligible,
-completed and independently referenced subsets.
-
-A dated evaluation cutoff will report compared workbooks, differences, failures,
-unsupported representations and unfinished work. Repeated attempts have their own
-counts. An unchanged package can bypass visual work under an exact input-identity
-check, but a failed capture cannot contribute an equality observation. The full
-recursive Enron XML-derived corpus is a separately identified population.
+Table~\ref{tab:source-inventories} reports the frozen Data.gov and Destatis
+XLSX source inventories; each archive member has a SHA-256 identity. Reported
+outcomes distinguish completed comparisons, differences, failures, unsupported
+representations and unfinished work, with retries counted separately. Exact
+package identity can bypass visual comparison; failed captures provide no
+equality observation.
 
 \subsection{Cleanup screening outcomes}
 Fresh release-build runs produced 1,182 Destatis, 8,623 Data.gov, and 30,301

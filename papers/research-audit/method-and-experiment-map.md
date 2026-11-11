@@ -93,3 +93,14 @@ speedup. The separate more-than-48-hour attempt awaits its report and setup.
 The historical figure is an editorial preview outside the manuscript pending
 provenance reconciliation. This keeps the current evaluation tables tied to
 identified producers and inputs.
+
+## Enron input-frame provenance
+
+The EDRM Enron v2 XML import contains 34,065 distinct SHA-256-addressed
+candidates totaling 8.470 decimal GB of uncompressed payload. Transport was
+checked against the supplied manifests and candidate bytes were retained
+unchanged. The extraction includes legacy Excel and other OLE candidates.
+Recognition, XLSX conversion, cleanup and native visual eligibility are separate
+stages. This import frame is distinct from the 30,301 prepared Enron XLSX
+outputs in the completed cleanup screening. Input identities and preparation
+receipts remain the basis for reconciling those populations.
