@@ -1,0 +1,12 @@
+
+running 8 tests
+test regression::streaming_xml::tests::absolute_offsets_preserve_raw_nodes_across_every_chunk_boundary ... ok
+test regression::streaming_xml::tests::byte_views_and_streaming_tags_agree_at_every_chunk_size ... ok
+test regression::streaming_xml::tests::cdata_survives_all_chunk_boundaries_and_preserves_cell_text ... ok
+test regression::streaming_xml::tests::comment_and_processing_instruction_delimiters_survive_all_splits ... ok
+test regression::streaming_xml::tests::long_text_and_comments_do_not_grow_the_token_buffer ... ok
+test regression::streaming_xml::tests::malformed_or_unsupported_xml_never_finishes_successfully ... ok
+test regression::streaming_xml::tests::sibling_names_reuse_stack_storage ... ok
+test regression::streaming_xml::tests::tag_and_hierarchy_limits_fail_explicitly_instead_of_allocating_without_bound ... ok
+
+test result: ok. 8 passed; 0 failed; 0 ignored; 0 measured; 1063 filtered out; finished in 0.01s

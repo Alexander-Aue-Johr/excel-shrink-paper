@@ -1,0 +1,375 @@
+{
+  "cases": [
+    {
+      "name": "synthetic-10000-identical",
+      "before": "F:\\corpora\\cell-stream-figure5-20261111-verified\\inputs\\synthetic-10000-before.xml",
+      "after": "F:\\corpora\\cell-stream-figure5-20261111-verified\\inputs\\synthetic-10000-before.xml",
+      "cells_before": 10000,
+      "expected": {
+        "added": 0,
+        "removed": 0,
+        "changed": 0
+      },
+      "collect": false
+    },
+    {
+      "name": "synthetic-10000-sparse",
+      "before": "F:\\corpora\\cell-stream-figure5-20261111-verified\\inputs\\synthetic-10000-before.xml",
+      "after": "F:\\corpora\\cell-stream-figure5-20261111-verified\\inputs\\synthetic-10000-sparse.xml",
+      "cells_before": 10000,
+      "expected": {
+        "added": 0,
+        "removed": 0,
+        "changed": 1
+      },
+      "collect": false
+    },
+    {
+      "name": "synthetic-10000-dense",
+      "before": "F:\\corpora\\cell-stream-figure5-20261111-verified\\inputs\\synthetic-10000-before.xml",
+      "after": "F:\\corpora\\cell-stream-figure5-20261111-verified\\inputs\\synthetic-10000-dense.xml",
+      "cells_before": 10000,
+      "expected": {
+        "added": 0,
+        "removed": 0,
+        "changed": 10000
+      },
+      "collect": false
+    },
+    {
+      "name": "synthetic-10000-dense-collected",
+      "before": "F:\\corpora\\cell-stream-figure5-20261111-verified\\inputs\\synthetic-10000-before.xml",
+      "after": "F:\\corpora\\cell-stream-figure5-20261111-verified\\inputs\\synthetic-10000-dense.xml",
+      "cells_before": 10000,
+      "expected": {
+        "added": 0,
+        "removed": 0,
+        "changed": 10000
+      },
+      "collect": true
+    },
+    {
+      "name": "synthetic-10000-empty",
+      "before": "F:\\corpora\\cell-stream-figure5-20261111-verified\\inputs\\synthetic-10000-before.xml",
+      "after": "F:\\corpora\\cell-stream-figure5-20261111-verified\\inputs\\synthetic-10000-empty.xml",
+      "cells_before": 10000,
+      "expected": {
+        "added": 0,
+        "removed": 10000,
+        "changed": 0
+      },
+      "collect": false
+    },
+    {
+      "name": "synthetic-100000-identical",
+      "before": "F:\\corpora\\cell-stream-figure5-20261111-verified\\inputs\\synthetic-100000-before.xml",
+      "after": "F:\\corpora\\cell-stream-figure5-20261111-verified\\inputs\\synthetic-100000-before.xml",
+      "cells_before": 100000,
+      "expected": {
+        "added": 0,
+        "removed": 0,
+        "changed": 0
+      },
+      "collect": false
+    },
+    {
+      "name": "synthetic-100000-sparse",
+      "before": "F:\\corpora\\cell-stream-figure5-20261111-verified\\inputs\\synthetic-100000-before.xml",
+      "after": "F:\\corpora\\cell-stream-figure5-20261111-verified\\inputs\\synthetic-100000-sparse.xml",
+      "cells_before": 100000,
+      "expected": {
+        "added": 0,
+        "removed": 0,
+        "changed": 1
+      },
+      "collect": false
+    },
+    {
+      "name": "synthetic-100000-dense",
+      "before": "F:\\corpora\\cell-stream-figure5-20261111-verified\\inputs\\synthetic-100000-before.xml",
+      "after": "F:\\corpora\\cell-stream-figure5-20261111-verified\\inputs\\synthetic-100000-dense.xml",
+      "cells_before": 100000,
+      "expected": {
+        "added": 0,
+        "removed": 0,
+        "changed": 100000
+      },
+      "collect": false
+    },
+    {
+      "name": "synthetic-100000-dense-collected",
+      "before": "F:\\corpora\\cell-stream-figure5-20261111-verified\\inputs\\synthetic-100000-before.xml",
+      "after": "F:\\corpora\\cell-stream-figure5-20261111-verified\\inputs\\synthetic-100000-dense.xml",
+      "cells_before": 100000,
+      "expected": {
+        "added": 0,
+        "removed": 0,
+        "changed": 100000
+      },
+      "collect": true
+    },
+    {
+      "name": "synthetic-100000-empty",
+      "before": "F:\\corpora\\cell-stream-figure5-20261111-verified\\inputs\\synthetic-100000-before.xml",
+      "after": "F:\\corpora\\cell-stream-figure5-20261111-verified\\inputs\\synthetic-100000-empty.xml",
+      "cells_before": 100000,
+      "expected": {
+        "added": 0,
+        "removed": 100000,
+        "changed": 0
+      },
+      "collect": false
+    },
+    {
+      "name": "synthetic-1000000-identical",
+      "before": "F:\\corpora\\cell-stream-figure5-20261111-verified\\inputs\\synthetic-1000000-before.xml",
+      "after": "F:\\corpora\\cell-stream-figure5-20261111-verified\\inputs\\synthetic-1000000-before.xml",
+      "cells_before": 1000000,
+      "expected": {
+        "added": 0,
+        "removed": 0,
+        "changed": 0
+      },
+      "collect": false
+    },
+    {
+      "name": "synthetic-1000000-sparse",
+      "before": "F:\\corpora\\cell-stream-figure5-20261111-verified\\inputs\\synthetic-1000000-before.xml",
+      "after": "F:\\corpora\\cell-stream-figure5-20261111-verified\\inputs\\synthetic-1000000-sparse.xml",
+      "cells_before": 1000000,
+      "expected": {
+        "added": 0,
+        "removed": 0,
+        "changed": 1
+      },
+      "collect": false
+    },
+    {
+      "name": "synthetic-1000000-dense",
+      "before": "F:\\corpora\\cell-stream-figure5-20261111-verified\\inputs\\synthetic-1000000-before.xml",
+      "after": "F:\\corpora\\cell-stream-figure5-20261111-verified\\inputs\\synthetic-1000000-dense.xml",
+      "cells_before": 1000000,
+      "expected": {
+        "added": 0,
+        "removed": 0,
+        "changed": 1000000
+      },
+      "collect": false
+    },
+    {
+      "name": "synthetic-1000000-dense-collected",
+      "before": "F:\\corpora\\cell-stream-figure5-20261111-verified\\inputs\\synthetic-1000000-before.xml",
+      "after": "F:\\corpora\\cell-stream-figure5-20261111-verified\\inputs\\synthetic-1000000-dense.xml",
+      "cells_before": 1000000,
+      "expected": {
+        "added": 0,
+        "removed": 0,
+        "changed": 1000000
+      },
+      "collect": true
+    },
+    {
+      "name": "synthetic-1000000-empty",
+      "before": "F:\\corpora\\cell-stream-figure5-20261111-verified\\inputs\\synthetic-1000000-before.xml",
+      "after": "F:\\corpora\\cell-stream-figure5-20261111-verified\\inputs\\synthetic-1000000-empty.xml",
+      "cells_before": 1000000,
+      "expected": {
+        "added": 0,
+        "removed": 1000000,
+        "changed": 0
+      },
+      "collect": false
+    },
+    {
+      "name": "enron-b2d0dfef6a1c-identical",
+      "before": "F:\\corpora\\cell-stream-figure5-20261111-verified\\inputs\\enron-b2d0dfef6a1ce21cf3896241052a4a28ffdad659b6bbb6b1ea44f47e4d589c86.xml",
+      "after": "F:\\corpora\\cell-stream-figure5-20261111-verified\\inputs\\enron-b2d0dfef6a1ce21cf3896241052a4a28ffdad659b6bbb6b1ea44f47e4d589c86.xml",
+      "styles": "F:\\corpora\\cell-stream-figure5-20261111-verified\\inputs\\enron-b2d0dfef6a1ce21cf3896241052a4a28ffdad659b6bbb6b1ea44f47e4d589c86-styles.xml",
+      "cells_before": 6486777,
+      "collect": false,
+      "provenance": {
+        "workbook": "F:\\corpora\\SheetShrink-Top144-Workbooks-20261110\\enron\\originals\\b2d0dfef6a1ce21cf3896241052a4a28ffdad659b6bbb6b1ea44f47e4d589c86.xlsx",
+        "sheet": "xl/worksheets/sheet2.xml",
+        "sheet_crc32": 375410850,
+        "sheet_xml_bytes": 151223327,
+        "workbook_sha256": "7298df9a6a76d0b69599c21d1653287adc863a5c7dbb9b5eaca275ea23ffada0"
+      },
+      "oracle": {
+        "cells": 6486777,
+        "cell_value_digest": "e119f1ce498576b66c3003cfd302c315e50dd2f0e2a85b2ec8e5a04908ac674c"
+      },
+      "mutation": {
+        "byte_offset": 3376,
+        "before": "6",
+        "after": "7"
+      },
+      "expected": {
+        "added": 0,
+        "removed": 0,
+        "changed": 0
+      }
+    },
+    {
+      "name": "enron-b2d0dfef6a1c-one-change",
+      "before": "F:\\corpora\\cell-stream-figure5-20261111-verified\\inputs\\enron-b2d0dfef6a1ce21cf3896241052a4a28ffdad659b6bbb6b1ea44f47e4d589c86.xml",
+      "after": "F:\\corpora\\cell-stream-figure5-20261111-verified\\inputs\\enron-b2d0dfef6a1ce21cf3896241052a4a28ffdad659b6bbb6b1ea44f47e4d589c86-one-change.xml",
+      "styles": "F:\\corpora\\cell-stream-figure5-20261111-verified\\inputs\\enron-b2d0dfef6a1ce21cf3896241052a4a28ffdad659b6bbb6b1ea44f47e4d589c86-styles.xml",
+      "cells_before": 6486777,
+      "collect": false,
+      "provenance": {
+        "workbook": "F:\\corpora\\SheetShrink-Top144-Workbooks-20261110\\enron\\originals\\b2d0dfef6a1ce21cf3896241052a4a28ffdad659b6bbb6b1ea44f47e4d589c86.xlsx",
+        "sheet": "xl/worksheets/sheet2.xml",
+        "sheet_crc32": 375410850,
+        "sheet_xml_bytes": 151223327,
+        "workbook_sha256": "7298df9a6a76d0b69599c21d1653287adc863a5c7dbb9b5eaca275ea23ffada0"
+      },
+      "oracle": {
+        "cells": 6486777,
+        "cell_value_digest": "e119f1ce498576b66c3003cfd302c315e50dd2f0e2a85b2ec8e5a04908ac674c"
+      },
+      "mutation": {
+        "byte_offset": 3376,
+        "before": "6",
+        "after": "7"
+      },
+      "expected": {
+        "added": 0,
+        "removed": 0,
+        "changed": 1
+      }
+    },
+    {
+      "name": "enron-70a7994fc2a6-identical",
+      "before": "F:\\corpora\\cell-stream-figure5-20261111-verified\\inputs\\enron-70a7994fc2a6ce011743a2868e81832bcf58c0e05c42b9d907cb6cc012e00921.xml",
+      "after": "F:\\corpora\\cell-stream-figure5-20261111-verified\\inputs\\enron-70a7994fc2a6ce011743a2868e81832bcf58c0e05c42b9d907cb6cc012e00921.xml",
+      "styles": "F:\\corpora\\cell-stream-figure5-20261111-verified\\inputs\\enron-70a7994fc2a6ce011743a2868e81832bcf58c0e05c42b9d907cb6cc012e00921-styles.xml",
+      "cells_before": 3060845,
+      "collect": false,
+      "provenance": {
+        "workbook": "F:\\corpora\\SheetShrink-Top144-Workbooks-20261110\\enron\\originals\\70a7994fc2a6ce011743a2868e81832bcf58c0e05c42b9d907cb6cc012e00921.xlsx",
+        "sheet": "xl/worksheets/sheet6.xml",
+        "sheet_crc32": 2112798541,
+        "sheet_xml_bytes": 75434641,
+        "workbook_sha256": "e3fbe2b44f676f28d881bcd81cae604a5c872e7647f6ee4bd1610f2d74df6884"
+      },
+      "oracle": {
+        "cells": 3060845,
+        "cell_value_digest": "74e999c379fdcbd8ce2529d0a89a06623ed8b25da857abf9d4f4174f0d70ea41"
+      },
+      "mutation": {
+        "byte_offset": 5784,
+        "before": "3",
+        "after": "4"
+      },
+      "expected": {
+        "added": 0,
+        "removed": 0,
+        "changed": 0
+      }
+    },
+    {
+      "name": "enron-70a7994fc2a6-one-change",
+      "before": "F:\\corpora\\cell-stream-figure5-20261111-verified\\inputs\\enron-70a7994fc2a6ce011743a2868e81832bcf58c0e05c42b9d907cb6cc012e00921.xml",
+      "after": "F:\\corpora\\cell-stream-figure5-20261111-verified\\inputs\\enron-70a7994fc2a6ce011743a2868e81832bcf58c0e05c42b9d907cb6cc012e00921-one-change.xml",
+      "styles": "F:\\corpora\\cell-stream-figure5-20261111-verified\\inputs\\enron-70a7994fc2a6ce011743a2868e81832bcf58c0e05c42b9d907cb6cc012e00921-styles.xml",
+      "cells_before": 3060845,
+      "collect": false,
+      "provenance": {
+        "workbook": "F:\\corpora\\SheetShrink-Top144-Workbooks-20261110\\enron\\originals\\70a7994fc2a6ce011743a2868e81832bcf58c0e05c42b9d907cb6cc012e00921.xlsx",
+        "sheet": "xl/worksheets/sheet6.xml",
+        "sheet_crc32": 2112798541,
+        "sheet_xml_bytes": 75434641,
+        "workbook_sha256": "e3fbe2b44f676f28d881bcd81cae604a5c872e7647f6ee4bd1610f2d74df6884"
+      },
+      "oracle": {
+        "cells": 3060845,
+        "cell_value_digest": "74e999c379fdcbd8ce2529d0a89a06623ed8b25da857abf9d4f4174f0d70ea41"
+      },
+      "mutation": {
+        "byte_offset": 5784,
+        "before": "3",
+        "after": "4"
+      },
+      "expected": {
+        "added": 0,
+        "removed": 0,
+        "changed": 1
+      }
+    },
+    {
+      "name": "enron-ef58bd71ed25-identical",
+      "before": "F:\\corpora\\cell-stream-figure5-20261111-verified\\inputs\\enron-ef58bd71ed25f5fba28fdd2d5cddba39f8ee39961bf1030f983f3d9b3b00690b.xml",
+      "after": "F:\\corpora\\cell-stream-figure5-20261111-verified\\inputs\\enron-ef58bd71ed25f5fba28fdd2d5cddba39f8ee39961bf1030f983f3d9b3b00690b.xml",
+      "styles": "F:\\corpora\\cell-stream-figure5-20261111-verified\\inputs\\enron-ef58bd71ed25f5fba28fdd2d5cddba39f8ee39961bf1030f983f3d9b3b00690b-styles.xml",
+      "cells_before": 3060845,
+      "collect": false,
+      "provenance": {
+        "workbook": "F:\\corpora\\SheetShrink-Top144-Workbooks-20261110\\enron\\originals\\ef58bd71ed25f5fba28fdd2d5cddba39f8ee39961bf1030f983f3d9b3b00690b.xlsx",
+        "sheet": "xl/worksheets/sheet6.xml",
+        "sheet_crc32": 1524714067,
+        "sheet_xml_bytes": 75432159,
+        "workbook_sha256": "ec45600e13323a9d705744f25d4f6d8785c0f05b0273052af915a4ef4b8ce15d"
+      },
+      "oracle": {
+        "cells": 3060845,
+        "cell_value_digest": "ae5540583e6ddb4fba5470433135aa901eb61af09af449bb709acc32fbfd7d66"
+      },
+      "mutation": {
+        "byte_offset": 5784,
+        "before": "3",
+        "after": "4"
+      },
+      "expected": {
+        "added": 0,
+        "removed": 0,
+        "changed": 0
+      }
+    },
+    {
+      "name": "enron-ef58bd71ed25-one-change",
+      "before": "F:\\corpora\\cell-stream-figure5-20261111-verified\\inputs\\enron-ef58bd71ed25f5fba28fdd2d5cddba39f8ee39961bf1030f983f3d9b3b00690b.xml",
+      "after": "F:\\corpora\\cell-stream-figure5-20261111-verified\\inputs\\enron-ef58bd71ed25f5fba28fdd2d5cddba39f8ee39961bf1030f983f3d9b3b00690b-one-change.xml",
+      "styles": "F:\\corpora\\cell-stream-figure5-20261111-verified\\inputs\\enron-ef58bd71ed25f5fba28fdd2d5cddba39f8ee39961bf1030f983f3d9b3b00690b-styles.xml",
+      "cells_before": 3060845,
+      "collect": false,
+      "provenance": {
+        "workbook": "F:\\corpora\\SheetShrink-Top144-Workbooks-20261110\\enron\\originals\\ef58bd71ed25f5fba28fdd2d5cddba39f8ee39961bf1030f983f3d9b3b00690b.xlsx",
+        "sheet": "xl/worksheets/sheet6.xml",
+        "sheet_crc32": 1524714067,
+        "sheet_xml_bytes": 75432159,
+        "workbook_sha256": "ec45600e13323a9d705744f25d4f6d8785c0f05b0273052af915a4ef4b8ce15d"
+      },
+      "oracle": {
+        "cells": 3060845,
+        "cell_value_digest": "ae5540583e6ddb4fba5470433135aa901eb61af09af449bb709acc32fbfd7d66"
+      },
+      "mutation": {
+        "byte_offset": 5784,
+        "before": "3",
+        "after": "4"
+      },
+      "expected": {
+        "added": 0,
+        "removed": 0,
+        "changed": 1
+      }
+    }
+  ],
+  "repeats": 3,
+  "cache_policy": "normal filesystem caching; inputs generated before measurement",
+  "platform": "Windows-10-10.0.19045-SP0",
+  "processor": "Intel64 Family 6 Model 158 Stepping 10, GenuineIntel",
+  "logical_cpus": 12,
+  "rustc": "rustc 1.99.1 (58cf8f9c3 2026-10-13)\nbinary: rustc\ncommit-hash: 58cf8f9c35b355199727627d07ae34a4e2846d67\ncommit-date: 2026-10-13\nhost: x86_64-pc-windows-msvc\nrelease: 1.99.1\nLLVM version: 23.1.1\n",
+  "revision": "35cfd00b6ac650d1f2199db01a925ce04336646a",
+  "binary_sha256": "1dd664b24e2ad0001bf4d51cdd328beff2618b814d16f450ea3b2017797da03e",
+  "rustflags": "",
+  "source_diff_sha256": "20c38a0e05c8e52e74ffe4ee3d817f57147598dc78d8729f2061e0b771225679",
+  "source_files_sha256": {
+    "excel-shrink-cli\\src\\regression\\targeted_comparison\\cell_stream.rs": "7b3364dfd10addbbb13e1e24fd5a3ea4b2a2954f2ea9dd2f45d2d6d7f164a7cf",
+    "excel-shrink-cli\\src\\regression\\targeted_comparison\\cell_stream\\verification.rs": "ba184e552d7960dcabce0e0dbee05913cc403f1b0cd5d67dc3a9e3936b6d9a88",
+    "excel-shrink-cli\\src\\regression\\streaming_xml.rs": "e0373a719190ffcbfc1a4615941095694b101afe8fbb7b318b1172cba5e8fe06",
+    "Cargo.lock": "2a6feb67bc1c775c717a1b7334894af0f8a8e448365503e618ef2d57fcb5fd90"
+  },
+  "processor_details": "{\"Name\":\"Intel(R) Core(TM) i7-8700 CPU @ 3.20GHz\",\"NumberOfLogicalProcessors\":12}"
+}

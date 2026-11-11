@@ -1,0 +1,233 @@
+[
+  {
+    "case": "synthetic-10000-identical",
+    "cells_before": 10000,
+    "before_ms": 8.741999999999999,
+    "after_ms": 11.1349,
+    "merge_ms": 0.0026,
+    "scratch_bytes": 800000,
+    "retained_capacity_bytes": 0,
+    "peak_working_set_bytes": 4714496,
+    "peak_private_commit_bytes": 1212416
+  },
+  {
+    "case": "synthetic-10000-sparse",
+    "cells_before": 10000,
+    "before_ms": 7.919600000000001,
+    "after_ms": 10.7143,
+    "merge_ms": 6.2096,
+    "scratch_bytes": 800000,
+    "retained_capacity_bytes": 0,
+    "peak_working_set_bytes": 4718592,
+    "peak_private_commit_bytes": 1208320
+  },
+  {
+    "case": "synthetic-10000-dense",
+    "cells_before": 10000,
+    "before_ms": 9.952300000000001,
+    "after_ms": 11.1722,
+    "merge_ms": 7.0078,
+    "scratch_bytes": 800000,
+    "retained_capacity_bytes": 0,
+    "peak_working_set_bytes": 4722688,
+    "peak_private_commit_bytes": 1212416
+  },
+  {
+    "case": "synthetic-10000-dense-collected",
+    "cells_before": 10000,
+    "before_ms": 9.6079,
+    "after_ms": 10.6602,
+    "merge_ms": 7.0453,
+    "scratch_bytes": 800000,
+    "retained_capacity_bytes": 1441792,
+    "peak_working_set_bytes": 6922240,
+    "peak_private_commit_bytes": 3969024
+  },
+  {
+    "case": "synthetic-10000-empty",
+    "cells_before": 10000,
+    "before_ms": 11.083499999999999,
+    "after_ms": 0.25539999999999996,
+    "merge_ms": 4.925599999999999,
+    "scratch_bytes": 400000,
+    "retained_capacity_bytes": 0,
+    "peak_working_set_bytes": 4718592,
+    "peak_private_commit_bytes": 1212416
+  },
+  {
+    "case": "synthetic-100000-identical",
+    "cells_before": 100000,
+    "before_ms": 104.3905,
+    "after_ms": 100.1262,
+    "merge_ms": 0.0029000000000000002,
+    "scratch_bytes": 8000000,
+    "retained_capacity_bytes": 0,
+    "peak_working_set_bytes": 4706304,
+    "peak_private_commit_bytes": 1196032
+  },
+  {
+    "case": "synthetic-100000-sparse",
+    "cells_before": 100000,
+    "before_ms": 101.2466,
+    "after_ms": 106.1305,
+    "merge_ms": 11.6379,
+    "scratch_bytes": 8000000,
+    "retained_capacity_bytes": 0,
+    "peak_working_set_bytes": 4718592,
+    "peak_private_commit_bytes": 1204224
+  },
+  {
+    "case": "synthetic-100000-dense",
+    "cells_before": 100000,
+    "before_ms": 95.61999999999999,
+    "after_ms": 107.0413,
+    "merge_ms": 11.6647,
+    "scratch_bytes": 8000000,
+    "retained_capacity_bytes": 0,
+    "peak_working_set_bytes": 4722688,
+    "peak_private_commit_bytes": 1208320
+  },
+  {
+    "case": "synthetic-100000-dense-collected",
+    "cells_before": 100000,
+    "before_ms": 101.0191,
+    "after_ms": 106.143,
+    "merge_ms": 17.5392,
+    "scratch_bytes": 8000000,
+    "retained_capacity_bytes": 11534336,
+    "peak_working_set_bytes": 17555456,
+    "peak_private_commit_bytes": 19886080
+  },
+  {
+    "case": "synthetic-100000-empty",
+    "cells_before": 100000,
+    "before_ms": 98.7319,
+    "after_ms": 0.4623,
+    "merge_ms": 8.521799999999999,
+    "scratch_bytes": 4000000,
+    "retained_capacity_bytes": 0,
+    "peak_working_set_bytes": 4722688,
+    "peak_private_commit_bytes": 1204224
+  },
+  {
+    "case": "synthetic-1000000-identical",
+    "cells_before": 1000000,
+    "before_ms": 1021.0456999999999,
+    "after_ms": 1040.0545000000002,
+    "merge_ms": 0.003,
+    "scratch_bytes": 80000000,
+    "retained_capacity_bytes": 0,
+    "peak_working_set_bytes": 4706304,
+    "peak_private_commit_bytes": 1204224
+  },
+  {
+    "case": "synthetic-1000000-sparse",
+    "cells_before": 1000000,
+    "before_ms": 1041.9115000000002,
+    "after_ms": 1035.4703,
+    "merge_ms": 68.3141,
+    "scratch_bytes": 80000000,
+    "retained_capacity_bytes": 0,
+    "peak_working_set_bytes": 4726784,
+    "peak_private_commit_bytes": 1212416
+  },
+  {
+    "case": "synthetic-1000000-dense",
+    "cells_before": 1000000,
+    "before_ms": 1025.4327999999998,
+    "after_ms": 1055.1979000000001,
+    "merge_ms": 70.1999,
+    "scratch_bytes": 80000000,
+    "retained_capacity_bytes": 0,
+    "peak_working_set_bytes": 4739072,
+    "peak_private_commit_bytes": 1228800
+  },
+  {
+    "case": "synthetic-1000000-dense-collected",
+    "cells_before": 1000000,
+    "before_ms": 1049.9279,
+    "after_ms": 1004.6075000000001,
+    "merge_ms": 113.03349999999999,
+    "scratch_bytes": 80000000,
+    "retained_capacity_bytes": 92274688,
+    "peak_working_set_bytes": 98332672,
+    "peak_private_commit_bytes": 141209600
+  },
+  {
+    "case": "synthetic-1000000-empty",
+    "cells_before": 1000000,
+    "before_ms": 1053.3712,
+    "after_ms": 2.3608000000000002,
+    "merge_ms": 30.774900000000002,
+    "scratch_bytes": 40000000,
+    "retained_capacity_bytes": 0,
+    "peak_working_set_bytes": 4722688,
+    "peak_private_commit_bytes": 1208320
+  },
+  {
+    "case": "enron-b2d0dfef6a1c-identical",
+    "cells_before": 6486777,
+    "before_ms": 7633.3498,
+    "after_ms": 7728.8994999999995,
+    "merge_ms": 0.0044,
+    "scratch_bytes": 518942160,
+    "retained_capacity_bytes": 0,
+    "peak_working_set_bytes": 4952064,
+    "peak_private_commit_bytes": 1241088
+  },
+  {
+    "case": "enron-b2d0dfef6a1c-one-change",
+    "cells_before": 6486777,
+    "before_ms": 7664.2309,
+    "after_ms": 7668.0611,
+    "merge_ms": 418.9757,
+    "scratch_bytes": 518942160,
+    "retained_capacity_bytes": 0,
+    "peak_working_set_bytes": 4972544,
+    "peak_private_commit_bytes": 1314816
+  },
+  {
+    "case": "enron-70a7994fc2a6-identical",
+    "cells_before": 3060845,
+    "before_ms": 3585.4447,
+    "after_ms": 3605.5866,
+    "merge_ms": 0.0029000000000000002,
+    "scratch_bytes": 244867600,
+    "retained_capacity_bytes": 0,
+    "peak_working_set_bytes": 5099520,
+    "peak_private_commit_bytes": 1380352
+  },
+  {
+    "case": "enron-70a7994fc2a6-one-change",
+    "cells_before": 3060845,
+    "before_ms": 3498.8424999999997,
+    "after_ms": 3548.0499,
+    "merge_ms": 196.1756,
+    "scratch_bytes": 244867600,
+    "retained_capacity_bytes": 0,
+    "peak_working_set_bytes": 5124096,
+    "peak_private_commit_bytes": 1392640
+  },
+  {
+    "case": "enron-ef58bd71ed25-identical",
+    "cells_before": 3060845,
+    "before_ms": 3570.5678000000003,
+    "after_ms": 3572.8702000000003,
+    "merge_ms": 0.0033,
+    "scratch_bytes": 244867600,
+    "retained_capacity_bytes": 0,
+    "peak_working_set_bytes": 5099520,
+    "peak_private_commit_bytes": 1380352
+  },
+  {
+    "case": "enron-ef58bd71ed25-one-change",
+    "cells_before": 3060845,
+    "before_ms": 3620.4054,
+    "after_ms": 3595.8022,
+    "merge_ms": 206.7985,
+    "scratch_bytes": 244867600,
+    "retained_capacity_bytes": 0,
+    "peak_working_set_bytes": 5132288,
+    "peak_private_commit_bytes": 1404928
+  }
+]

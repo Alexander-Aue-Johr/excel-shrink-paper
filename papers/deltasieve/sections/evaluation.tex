@@ -164,6 +164,33 @@ and save. Repeated pairs measure variation. Timeouts remain censored. Corpus
 projections require geometry-calibrated strata and hidden-region/object-extent
 assumptions. Production queues cannot isolate tuning effects.
 
+\subsection{Streaming cell-comparison cost}
+The Figure~\ref{fig:cell-record} implementation passed 6,561 ordered comparisons
+against an independent coordinate/value oracle. Twenty-seven focused tests
+covered cell streams, XML scanning and style identities. A preliminary release-build
+experiment used three fresh processes per case, with normal filesystem caching.
+For two inputs of one million cells each, changing every value and consuming
+changes immediately produced a peak process working set of 4.52\,MiB.
+Retaining all emitted change records increased this to 93.78\,MiB,
+giving a 95.2\% reduction for immediate consumption. These are the largest
+process peaks across the three trials. The comparison isolates result retention;
+the full pipeline retains additional change metadata.
+
+Both modes wrote 80\,MB of scratch records and took approximately 2.1 seconds
+to build the two streams. Median merge times were 70.2\,ms with immediate
+consumption and 113.0\,ms with retention. Across three Enron worksheets with
+3.06--6.49 million cells, single-value mutations each yielded exactly one changed
+cell. The largest pair required 15.33 seconds to build its streams, 419\,ms to
+merge them and 519\,MB of scratch space, with a 4.74\,MiB peak working set.
+ZIP decompression and input preparation precede these timers. Filesystem-cache
+memory is outside the process counters. These observations characterize the
+streaming component and its result-storage trade-off.
+
+\textcolor{red}{Repeat this preliminary experiment on the AMD Ryzen 7 7800X3D
+configuration with 16 logical processors, Windows 11 and approximately
+95.1\,GiB OS-reported physical memory, to consolidate the final evaluation on
+fewer measurement-host configurations.}
+
 \subsection{Opening, batching and independent Excel pairs}
 A bounded opening experiment used four copies of a synthetic workbook with eight
 million-row, three-column sheets on one Windows host. Two reversed-order rounds

@@ -1,0 +1,16 @@
+
+running 12 tests
+test regression::targeted_comparison::style_identity::tests::background_proof_accepts_only_plain_solid_fills ... ok
+test regression::targeted_comparison::style_identity::tests::base_format_indices_resolve_to_properties_and_unused_templates_can_disappear ... ok
+test regression::targeted_comparison::style_identity::tests::changed_used_base_and_implicit_default_are_not_hidden ... ok
+test regression::targeted_comparison::style_identity::tests::component_reindexing_preserves_properties_but_not_actual_changes ... ok
+test regression::targeted_comparison::style_identity::tests::duplicate_entries_do_not_change_format_meaning ... ok
+test regression::targeted_comparison::style_identity::tests::implicit_component_zero_and_unknown_extension_links_remain_guarded ... ok
+test regression::targeted_comparison::style_identity::tests::named_style_revision_ids_require_the_actual_revision_namespace ... ok
+test regression::targeted_comparison::style_identity::tests::paired_empty_number_formats_preserve_identity ... ok
+test regression::targeted_comparison::style_identity::tests::removed_unused_cell_format_does_not_change_constant_rule_context ... ok
+test regression::targeted_comparison::style_identity::tests::reordered_formats_keep_identity_but_changed_definitions_do_not ... ok
+test regression::targeted_comparison::style_identity::tests::shared_style_dependencies_cannot_be_hidden_by_matching_xf_bytes ... ok
+test regression::targeted_comparison::style_identity::tests::unknown_style_table_children_keep_the_raw_fallback ... ok
+
+test result: ok. 12 passed; 0 failed; 0 ignored; 0 measured; 1059 filtered out; finished in 0.00s
