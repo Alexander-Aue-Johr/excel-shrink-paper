@@ -52,7 +52,7 @@ longer lookalike names such as \texttt{<value>}~\cite{attributedvaluefix}.
 A separate defined-name regression ensures that a self-closing element cannot
 consume the following paired element during replacement~\cite{definednamefix}.
 
-Terminal-state checks are equally important. The worksheet stream must reach its
+The worksheet stream must reach its
 closing state before output publication. An incomplete parse raises an error,
 removes partial output and preserves any existing destination. Integration
 fixtures exercise this failure after another worksheet has already been
@@ -178,7 +178,7 @@ Package metadata has separate predicates. Calculation-chain cleanup resolves
 removed cells by sheet identity and preserves unresolved mappings. The cleaner
 does not evaluate formulas or manufacture replacement caches. Built-in alias
 cleanup currently matches name and local scope without proving equality of the
-two formula bodies. This is a specific limitation of that policy.
+two formula bodies.
 
 \subsection{Parallel work and output ownership}
 Figures~\ref{fig:hierarchical-scheduling} and~\ref{fig:schedule-execution}
@@ -216,5 +216,4 @@ The method retains existing style and shared-string indices rather than globally
 renumbering their tables. This avoids unrelated rewrites and permits copy-through
 of unaffected members. It also leaves reductions requiring native save or global
 table compaction outside the cleanup subject. Work events retain the relation
-between workbook, worksheet and chunk jobs for diagnosis and replay. The UI is
-an observation tool, not evidence that unobserved regions are unchanged.
+between workbook, worksheet and chunk jobs for diagnosis and replay.

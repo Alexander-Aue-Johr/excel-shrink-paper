@@ -30,19 +30,11 @@ measured height as an explicit custom height. SpreadsheetML provides a
 derives its compact preservation decisions from package context.
 
 \subsection{Removal decisions and compact preservation}
-A record can be eligible for removal only after accounting for its required
-contribution. An empty cell may still influence automatic row height through its
-font. A whitespace-only value may stop text from extending from an adjacent cell.
-Referenced hidden content can influence displayed values and charts. These cases
-require different reasoning from a test for an absent payload.
-
 The preservation strategy retains a small representative when that representative
 can preserve a required effect. Row-font sentinels and guarded promotion of an
 existing style into a row format are examples. Their applicability depends on
 inherited formatting, gaps, merges, protection, and the available style records.
-An unresolved case retains the required source representation. The objective is
-to remove eligible bloat throughout the package while keeping the preservation
-footprint small.
+An unresolved case retains the required source representation.
 
 The production policy admits separately guarded hidden constant tails and retains
 ordinary nonempty hidden tables, including unreferenced values. Tail admission
@@ -66,6 +58,4 @@ receives an explicit unsuccessful outcome.
 Targeted visual equality is an observation over the selected regions. We evaluate
 the selection mechanism separately with native reference captures and mutations.
 Unequal pixels are retained for investigation. Repeated rendering controls,
-volatile dependencies, and capture geometry help classify their cause. The
-results section must report the completed coverage and unresolved findings at
-its fixed evaluation cutoff.
+volatile dependencies, and capture geometry help classify their cause.
