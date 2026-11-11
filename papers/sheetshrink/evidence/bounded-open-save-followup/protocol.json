@@ -1,0 +1,94 @@
+{
+  "kind": "bounded-library-open-save-followup",
+  "started_utc": "2026-11-11T06:45:54Z",
+  "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "logical_processors": 16,
+  "total_physical_bytes": 102066212864,
+  "sheetshrink_workers": 16,
+  "sheetshrink_sha256": "67837e2ed823a925a8321339a25a5875ab8ca280d0b6f3d2215cfb62b16cada4",
+  "job_commit_limits_mib": [
+    4096,
+    24576
+  ],
+  "system_ram_and_commit_reserve_mib": 8192,
+  "timeout_seconds_per_trial": 900,
+  "repetitions": 3,
+  "combinations": [
+    [
+      "wanderungen",
+      "pandas"
+    ],
+    [
+      "wanderungen",
+      "pandas-csv"
+    ],
+    [
+      "wanderungen",
+      "r-readxl"
+    ],
+    [
+      "finance",
+      "openpyxl"
+    ],
+    [
+      "qt-rr",
+      "openpyxl"
+    ]
+  ],
+  "order": "Fixed case/library order, Original then fresh SheetShrink pipeline within each repetition",
+  "timing_context": "Native DeltaSieve comparisons, paired memchr builds/cleanup trials and read-only evidence analysis ran concurrently; filesystem caches retained",
+  "scripts": {
+    "scripts\\memory_job.py": "6da8d29a6cea93af21dc1cae5f122b083d0f3c36184b661658b6258467549535",
+    "scripts\\pipeline.py": "347369bc1b19e5d07822659584331284c5d87ab3798bae9dceb072fc05b5bba3",
+    "scripts\\plot_results.py": "fdd5515d4fa0f67572bfbdf8298a50026cddb4bc195224508d3afe0ad890e1d3",
+    "scripts\\run_bounded.py": "9cf71eb8d6405cc5b531c470bd7dd35796dec2d65048d1ac9ee1417533dceec0",
+    "scripts\\test_reserves.py": "43b89bf53252eda47768a70194c593c5fc38ba76a21c7ceacf495630a981143a",
+    "scripts\\worker.py": "6779cb400550c2b83445c243d36e4642778471af37d6a686b0b4af4500d6c7ea"
+  },
+  "source_identities": {
+    "wanderungen": "bedf8677328fb15ffd967d03ebdf860ae4b1d0942d38091b4b4bef90e574f712",
+    "finance": "b4a3dd77023756e06c3b7c9b04a55a8d3fbf4334f8803f44460a8dc8cd4dc603",
+    "qt-rr": "84eb838fbc4627fb2ca1dd8461e8a05493a0b31ade8e27c66b437a22d932a577"
+  },
+  "cpu": "AMD Ryzen 7 7800X3D",
+  "libraries": {
+    "psutil": "7.2.2",
+    "openpyxl": "3.1.5",
+    "pandas": "3.0.1",
+    "R": "4.6.2",
+    "readxl": "1.6.0",
+    "writexl": "2.0.1"
+  },
+  "reported_sheetshrink_producer_revision": "765c480",
+  "endpoint": "Process creation through exit for direct library round trip or fresh cleanup plus the same library round trip",
+  "source_scope": "Three developer-selected stress workbooks and five case/library combinations",
+  "trial_projection_sha256": "9657551e13ffe87c2a3dbcad37a9ee8dc0dbcf01eb5931664af23d4d466fe1a0",
+  "status_counts": [
+    {
+      "tool": "Original",
+      "status": "completed",
+      "count": 9
+    },
+    {
+      "tool": "Original",
+      "status": "memory_limit",
+      "count": 21
+    },
+    {
+      "tool": "SheetShrink",
+      "status": "completed",
+      "count": 30
+    }
+  ],
+  "source_snapshot_sha256": {
+    "memory_job.py": "6da8d29a6cea93af21dc1cae5f122b083d0f3c36184b661658b6258467549535",
+    "owned_process.py": "a62de7a2da840f68e998c7a772dd61aa702931873ea21f7d33c685d729a0db30",
+    "pipeline.py": "347369bc1b19e5d07822659584331284c5d87ab3798bae9dceb072fc05b5bba3",
+    "plot_results.py": "fdd5515d4fa0f67572bfbdf8298a50026cddb4bc195224508d3afe0ad890e1d3",
+    "run_bounded.py": "9cf71eb8d6405cc5b531c470bd7dd35796dec2d65048d1ac9ee1417533dceec0",
+    "test_reserves.py": "43b89bf53252eda47768a70194c593c5fc38ba76a21c7ceacf495630a981143a",
+    "worker.py": "6779cb400550c2b83445c243d36e4642778471af37d6a686b0b4af4500d6c7ea",
+    "worker.R": "b9a28bcdba90721b46e19c61fe924e16895c7cf3fc154654c1a193a3631469b0"
+  }
+}

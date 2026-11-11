@@ -40,7 +40,8 @@ times from other workflows are excluded from these end-to-end columns.
 CPU medians, trial statuses and elapsed ranges are retained in the JSON.
 The underlying receipts preserve individual phase values and all repetitions.
 An M@time value means time until a memory-limit stop. P marks pending evidence.
-The further Enron and high-memory-host lanes remain pending.
+The further Enron lane remains pending. The larger-memory-host follow-up is
+recorded separately in `../bounded-open-save-followup` and its manuscript table.
 
 Color is redundant with numbers and textual status. Pale blue accompanies
 positive size reduction or a faster matched SheetShrink total. Pale orange

@@ -1,0 +1,389 @@
+{
+  "created_utc": "2026-11-11T08:07:08.355380+00:00",
+  "scientific_trials_observed": 60,
+  "planned_trials": 60,
+  "endpoint": "Original library open/save or fresh SheetShrink plus library open/save",
+  "timing_scope": "Successful endpoints only; failure termination times remain separately recorded",
+  "groups": [
+    {
+      "case": "finance",
+      "library": "openpyxl",
+      "variant": "Original",
+      "limit_bytes": 4294967296,
+      "observed_repetitions": 3,
+      "statuses": {
+        "memory_limit": 3
+      },
+      "successful_wall_seconds": null,
+      "termination_wall_seconds": [
+        53.452233799995156,
+        52.456924199999776,
+        51.53988499999832
+      ],
+      "peak_job_committed_bytes": 4295860224,
+      "minimum_system_free_ram_bytes": 67409145856,
+      "minimum_system_commit_headroom_bytes": 50010816512
+    },
+    {
+      "case": "finance",
+      "library": "openpyxl",
+      "variant": "Original",
+      "limit_bytes": 25769803776,
+      "observed_repetitions": 3,
+      "statuses": {
+        "completed": 3
+      },
+      "successful_wall_seconds": {
+        "median": 255.5389326000004,
+        "minimum": 254.53000389999943,
+        "maximum": 255.84601129999646
+      },
+      "termination_wall_seconds": [],
+      "peak_job_committed_bytes": 8668217344,
+      "minimum_system_free_ram_bytes": 61881442304,
+      "minimum_system_commit_headroom_bytes": 44059648000
+    },
+    {
+      "case": "finance",
+      "library": "openpyxl",
+      "variant": "SheetShrink",
+      "limit_bytes": 4294967296,
+      "observed_repetitions": 3,
+      "statuses": {
+        "completed": 3
+      },
+      "successful_wall_seconds": {
+        "median": 15.64039860000048,
+        "minimum": 15.41146049999952,
+        "maximum": 15.940752599999541
+      },
+      "termination_wall_seconds": [],
+      "peak_job_committed_bytes": 2804854784,
+      "minimum_system_free_ram_bytes": 69429960704,
+      "minimum_system_commit_headroom_bytes": 51668602880
+    },
+    {
+      "case": "finance",
+      "library": "openpyxl",
+      "variant": "SheetShrink",
+      "limit_bytes": 25769803776,
+      "observed_repetitions": 3,
+      "statuses": {
+        "completed": 3
+      },
+      "successful_wall_seconds": {
+        "median": 15.526274700001522,
+        "minimum": 15.276559699996142,
+        "maximum": 16.411616999997932
+      },
+      "termination_wall_seconds": [],
+      "peak_job_committed_bytes": 2816729088,
+      "minimum_system_free_ram_bytes": 68515905536,
+      "minimum_system_commit_headroom_bytes": 50656227328
+    },
+    {
+      "case": "qt-rr",
+      "library": "openpyxl",
+      "variant": "Original",
+      "limit_bytes": 4294967296,
+      "observed_repetitions": 3,
+      "statuses": {
+        "memory_limit": 3
+      },
+      "successful_wall_seconds": null,
+      "termination_wall_seconds": [
+        50.0495665999988,
+        50.80348790000426,
+        51.26845989999856
+      ],
+      "peak_job_committed_bytes": 4346388480,
+      "minimum_system_free_ram_bytes": 67601084416,
+      "minimum_system_commit_headroom_bytes": 50471976960
+    },
+    {
+      "case": "qt-rr",
+      "library": "openpyxl",
+      "variant": "Original",
+      "limit_bytes": 25769803776,
+      "observed_repetitions": 3,
+      "statuses": {
+        "completed": 3
+      },
+      "successful_wall_seconds": {
+        "median": 279.63824469999963,
+        "minimum": 277.63731030000054,
+        "maximum": 281.1935929999963
+      },
+      "termination_wall_seconds": [],
+      "peak_job_committed_bytes": 13488435200,
+      "minimum_system_free_ram_bytes": 56807141376,
+      "minimum_system_commit_headroom_bytes": 39086555136
+    },
+    {
+      "case": "qt-rr",
+      "library": "openpyxl",
+      "variant": "SheetShrink",
+      "limit_bytes": 4294967296,
+      "observed_repetitions": 3,
+      "statuses": {
+        "completed": 3
+      },
+      "successful_wall_seconds": {
+        "median": 11.896732200002589,
+        "minimum": 11.85577639999974,
+        "maximum": 12.332324900002277
+      },
+      "termination_wall_seconds": [],
+      "peak_job_committed_bytes": 3926708224,
+      "minimum_system_free_ram_bytes": 68874940416,
+      "minimum_system_commit_headroom_bytes": 50900922368
+    },
+    {
+      "case": "qt-rr",
+      "library": "openpyxl",
+      "variant": "SheetShrink",
+      "limit_bytes": 25769803776,
+      "observed_repetitions": 3,
+      "statuses": {
+        "completed": 3
+      },
+      "successful_wall_seconds": {
+        "median": 11.519318400001794,
+        "minimum": 11.363778300001286,
+        "maximum": 12.186636600003112
+      },
+      "termination_wall_seconds": [],
+      "peak_job_committed_bytes": 3928023040,
+      "minimum_system_free_ram_bytes": 67304648704,
+      "minimum_system_commit_headroom_bytes": 48700616704
+    },
+    {
+      "case": "wanderungen",
+      "library": "pandas",
+      "variant": "Original",
+      "limit_bytes": 4294967296,
+      "observed_repetitions": 3,
+      "statuses": {
+        "memory_limit": 3
+      },
+      "successful_wall_seconds": null,
+      "termination_wall_seconds": [
+        14.92908670000179,
+        14.481883300002664,
+        14.918209900002694
+      ],
+      "peak_job_committed_bytes": 4295069696,
+      "minimum_system_free_ram_bytes": 67981635584,
+      "minimum_system_commit_headroom_bytes": 50617810944
+    },
+    {
+      "case": "wanderungen",
+      "library": "pandas",
+      "variant": "Original",
+      "limit_bytes": 25769803776,
+      "observed_repetitions": 3,
+      "statuses": {
+        "memory_limit": 3
+      },
+      "successful_wall_seconds": null,
+      "termination_wall_seconds": [
+        77.58586600000126,
+        75.47557339999912,
+        88.97045770000113
+      ],
+      "peak_job_committed_bytes": 25770262528,
+      "minimum_system_free_ram_bytes": 45751078912,
+      "minimum_system_commit_headroom_bytes": 28552192000
+    },
+    {
+      "case": "wanderungen",
+      "library": "pandas",
+      "variant": "SheetShrink",
+      "limit_bytes": 4294967296,
+      "observed_repetitions": 3,
+      "statuses": {
+        "completed": 3
+      },
+      "successful_wall_seconds": {
+        "median": 24.525859699999273,
+        "minimum": 24.383565700001782,
+        "maximum": 24.68381650000083
+      },
+      "termination_wall_seconds": [],
+      "peak_job_committed_bytes": 1367183360,
+      "minimum_system_free_ram_bytes": 70475722752,
+      "minimum_system_commit_headroom_bytes": 53193379840
+    },
+    {
+      "case": "wanderungen",
+      "library": "pandas",
+      "variant": "SheetShrink",
+      "limit_bytes": 25769803776,
+      "observed_repetitions": 3,
+      "statuses": {
+        "completed": 3
+      },
+      "successful_wall_seconds": {
+        "median": 24.728511000001163,
+        "minimum": 24.60013269999763,
+        "maximum": 29.241019899993262
+      },
+      "termination_wall_seconds": [],
+      "peak_job_committed_bytes": 1367240704,
+      "minimum_system_free_ram_bytes": 70033739776,
+      "minimum_system_commit_headroom_bytes": 52804755456
+    },
+    {
+      "case": "wanderungen",
+      "library": "pandas-csv",
+      "variant": "Original",
+      "limit_bytes": 4294967296,
+      "observed_repetitions": 3,
+      "statuses": {
+        "memory_limit": 3
+      },
+      "successful_wall_seconds": null,
+      "termination_wall_seconds": [
+        15.173616000000038,
+        14.952639900002396,
+        14.933793600001081
+      ],
+      "peak_job_committed_bytes": 4295045120,
+      "minimum_system_free_ram_bytes": 67394899968,
+      "minimum_system_commit_headroom_bytes": 50075766784
+    },
+    {
+      "case": "wanderungen",
+      "library": "pandas-csv",
+      "variant": "Original",
+      "limit_bytes": 25769803776,
+      "observed_repetitions": 3,
+      "statuses": {
+        "memory_limit": 3
+      },
+      "successful_wall_seconds": null,
+      "termination_wall_seconds": [
+        91.10122650000267,
+        82.50360589999764,
+        75.14559790000203
+      ],
+      "peak_job_committed_bytes": 25770160128,
+      "minimum_system_free_ram_bytes": 45267742720,
+      "minimum_system_commit_headroom_bytes": 27606343680
+    },
+    {
+      "case": "wanderungen",
+      "library": "pandas-csv",
+      "variant": "SheetShrink",
+      "limit_bytes": 4294967296,
+      "observed_repetitions": 3,
+      "statuses": {
+        "completed": 3
+      },
+      "successful_wall_seconds": {
+        "median": 7.47009529999923,
+        "minimum": 7.411799199995585,
+        "maximum": 7.502408699998341
+      },
+      "termination_wall_seconds": [],
+      "peak_job_committed_bytes": 694063104,
+      "minimum_system_free_ram_bytes": 71146749952,
+      "minimum_system_commit_headroom_bytes": 53884592128
+    },
+    {
+      "case": "wanderungen",
+      "library": "pandas-csv",
+      "variant": "SheetShrink",
+      "limit_bytes": 25769803776,
+      "observed_repetitions": 3,
+      "statuses": {
+        "completed": 3
+      },
+      "successful_wall_seconds": {
+        "median": 8.291215999997803,
+        "minimum": 7.656551200001559,
+        "maximum": 8.711689199997636
+      },
+      "termination_wall_seconds": [],
+      "peak_job_committed_bytes": 694685696,
+      "minimum_system_free_ram_bytes": 70288093184,
+      "minimum_system_commit_headroom_bytes": 52431314944
+    },
+    {
+      "case": "wanderungen",
+      "library": "r-readxl",
+      "variant": "Original",
+      "limit_bytes": 4294967296,
+      "observed_repetitions": 3,
+      "statuses": {
+        "memory_limit": 3
+      },
+      "successful_wall_seconds": null,
+      "termination_wall_seconds": [
+        6.106152200001816,
+        5.616277400004037,
+        5.8108960000026855
+      ],
+      "peak_job_committed_bytes": 4295274496,
+      "minimum_system_free_ram_bytes": 67100106752,
+      "minimum_system_commit_headroom_bytes": 50271744000
+    },
+    {
+      "case": "wanderungen",
+      "library": "r-readxl",
+      "variant": "Original",
+      "limit_bytes": 25769803776,
+      "observed_repetitions": 3,
+      "statuses": {
+        "completed": 3
+      },
+      "successful_wall_seconds": {
+        "median": 392.1491160000005,
+        "minimum": 363.9150010000012,
+        "maximum": 415.9167830000006
+      },
+      "termination_wall_seconds": [],
+      "peak_job_committed_bytes": 9343295488,
+      "minimum_system_free_ram_bytes": 59304480768,
+      "minimum_system_commit_headroom_bytes": 42054004736
+    },
+    {
+      "case": "wanderungen",
+      "library": "r-readxl",
+      "variant": "SheetShrink",
+      "limit_bytes": 4294967296,
+      "observed_repetitions": 3,
+      "statuses": {
+        "completed": 3
+      },
+      "successful_wall_seconds": {
+        "median": 115.1548072000005,
+        "minimum": 115.09214649999922,
+        "maximum": 115.16294150000613
+      },
+      "termination_wall_seconds": [],
+      "peak_job_committed_bytes": 549998592,
+      "minimum_system_free_ram_bytes": 67291611136,
+      "minimum_system_commit_headroom_bytes": 50500341760
+    },
+    {
+      "case": "wanderungen",
+      "library": "r-readxl",
+      "variant": "SheetShrink",
+      "limit_bytes": 25769803776,
+      "observed_repetitions": 3,
+      "statuses": {
+        "completed": 3
+      },
+      "successful_wall_seconds": {
+        "median": 131.9529190999965,
+        "minimum": 115.87058500000421,
+        "maximum": 132.51180129999557
+      },
+      "termination_wall_seconds": [],
+      "peak_job_committed_bytes": 548118528,
+      "minimum_system_free_ram_bytes": 68056006656,
+      "minimum_system_commit_headroom_bytes": 50727698432
+    }
+  ]
+}

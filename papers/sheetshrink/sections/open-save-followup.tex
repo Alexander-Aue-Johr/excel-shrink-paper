@@ -1,0 +1,60 @@
+\subsection{Larger-memory-host follow-up}
+The five workbook/library combinations that reached the laptop's 4\,GiB
+commit ceiling were repeated on an AMD Ryzen 7 7800X3D host with sixteen
+logical processors and 102,066,212,864 OS-reported physical bytes. Each
+combination has three Original and three fresh Sheet Shrink pipeline attempts
+at both 4\,GiB and 24\,GiB aggregate process-tree commit limits, totaling sixty
+attempts. The same frozen Sheet Shrink binary uses sixteen Rayon and sixteen
+writer workers with one active workbook. The controller maintains an 8\,GiB
+reserve for physical RAM and commit headroom, with a 900-second per-trial
+timeout. Python 3.12.14, openpyxl 3.1.5, pandas 3.0.1, R 4.6.2, readxl 1.6.0
+and writexl 2.0.1 identify the tested software lane~\cite{openmemoryfollowup}.
+
+At 4\,GiB, all fifteen Original attempts reached the memory limit, while
+all fifteen fresh-cleanup pipelines completed. At 24\,GiB, the nine Original
+attempts for Migration/readxl, Finance/openpyxl and QT/RR/openpyxl completed.
+Migration's two pandas endpoints reached the memory limit in all six attempts.
+All fifteen fresh-cleanup pipelines completed at that limit. Table~\ref{tab:open-save-followup}
+retains these censored endpoints alongside successful medians. A memory-stop
+termination time receives no completed-runtime ratio.
+
+\begin{table*}[t]
+\caption{Selected-case follow-up under a 24\,GiB job-commit limit. Elapsed time
+covers process creation through exit, including fresh cleanup in the pipeline.
+Times are medians of three attempts. Commit peaks are maxima over the three
+attempts. M denotes three memory-limit stops. The raw receipts retain ranges,
+phase samples, working sets and CPU counters.}
+\label{tab:open-save-followup}
+\centering
+\setlength{\tabcolsep}{5pt}
+\begin{tabular}{lrrrrr}
+\hline
+Workbook / endpoint & Original (s) & Cleanup + endpoint (s) & Ratio & Original peak (GiB) & Pipeline peak (GiB) \\
+\hline
+Migration / pandas to XLSX & M & 24.729 & -- & 24.00 & 1.27 \\
+Migration / pandas to CSV & M & 8.291 & -- & 24.00 & 0.65 \\
+Migration / readxl + writexl & 392.149 & 131.953 & 2.97 & 8.70 & 0.51 \\
+Finance / openpyxl & 255.539 & 15.526 & 16.46 & 8.07 & 2.62 \\
+QT/RR / openpyxl & 279.638 & 11.519 & 24.28 & 12.56 & 3.66 \\
+\hline
+\end{tabular}
+\end{table*}
+
+The larger limit distinguishes memory censoring from completed processing cost
+for these selected cases. Native visual comparisons, the paired byte-search
+experiment and read-only evidence analysis ran concurrently. Filesystem caches
+were retained. The measured ratios are descriptive paired results under that
+context. This host lane retains its own configuration and observations alongside
+the earlier six-worker laptop study. Across all sixty trials, sampled physical
+RAM and commit headroom remained above the declared system reserve.
+
+After the timing series, separately regenerated controls for all three inputs
+matched every uncompressed member name, length and SHA-256 of the retained
+native candidate identities. These representative controls contain 138, 225
+and 24 members for Migration, Finance and QT/RR. Migration's native observation
+uses a documented normalized baseline, and QT/RR's retained selected plan has
+zero captures. The full per-trial member inventories were not retained for the
+timed fresh outputs, whose archive hashes remain in the receipts. These
+qualifications delimit the native/resource association. A second cleanup was
+measured after each completed fresh pipeline, outside the timed endpoint.
+Its recorded ZIP identity flags do not establish general cleanup idempotence.
