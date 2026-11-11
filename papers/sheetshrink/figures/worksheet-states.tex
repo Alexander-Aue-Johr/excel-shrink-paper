@@ -27,15 +27,10 @@
 \draw[state edge] (data.south west) to[out=-145,in=-35,looseness=2.3]
   node[state label,below] {emit complete rows} (data.south east);
 
-\node[state note,text width=7.5cm,anchor=north west] at (0,-3.65)
-  {Read boundaries retain state and unfinished input.};
-\node[state error,text width=7.1cm,anchor=north west,minimum height=.6cm]
-  at (.05,-4.15) {\textbf{Error return from unfinished states}\\
-    Incomplete root/end, I/O failure or unsupported XML};
 \end{tikzpicture}
-\caption{The six worksheet-stream states. Child readers return to the same
-worksheet dispatcher. Row-aligned progress retains a partial row across reads.
-The lower box summarizes error outcomes. Reaching the end state permits
-reconstruction, with workbook publication subject to its own completion checks.}
+\caption{Worksheet-stream states. Child readers return to the dispatcher;
+read boundaries preserve state and partial input. Reconstruction requires a
+completed worksheet; incomplete input, I/O failures and unsupported XML return
+an error.}
 \label{fig:worksheet-states}
 \end{figure}
