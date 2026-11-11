@@ -151,14 +151,13 @@ explicit structural policy. A deliberate constant full-width matrix can meet
 the same heuristic, so repetition alone does not establish user intent.
 
 \subsection{Workbook dependencies and deferred rewriting}
-Reference-sensitive candidates remain pending until workbook-level analysis has
-seen supported formulas, names, chart and object formulas, and pivot dependencies.
-A formula on a later worksheet can otherwise refer to content already removed.
-References resolve through workbook relationships and sheet scope. Shared-formula
-followers move relative axes while retaining absolute axes. The implementation
-protects enclosing source rectangles without expanding each follower cell.
-Dynamic addressing, unresolved scope and unsupported expressions prevent the
-required deletion argument~\cite{sheetshrinkcurrentcontract}.
+SheetShrink postpones reference-sensitive deletions until it has checked supported
+formulas, names, charts, objects and pivot dependencies across the workbook.
+This includes references from later worksheets. Workbook relationships and sheet
+scope identify reference targets. Shared-formula followers shift relative axes
+and preserve absolute axes. The implementation protects enclosing referenced
+ranges without enumerating each shared-formula follower's references. Dynamic
+or unresolved references and unsupported expressions block deletion~\cite{sheetshrinkcurrentcontract}.
 
 A known reference intersecting an admitted hidden span protects the entire span.
 Only admitted candidates reach rewriting. Removing a payload need not remove its
