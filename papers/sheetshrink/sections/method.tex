@@ -35,12 +35,10 @@ at the worksheet end.
 \input{figures/worksheet-states}
 
 \subsection{Parser correctness and regression controls}
-Byte-oriented scanning transfers XML recognition and state-transition obligations
-to the implementation. Mature SAX and DOM libraries provide extensively exercised
-syntax handling, while application-specific scanners require explicit checks for
-element boundaries, quoted attributes, empty elements and incomplete input.
-Memory-safe execution still permits a scanner to misclassify content and emit an
-incorrect workbook.
+The byte scanner must recognize XML structure and track parser state. It must
+check element boundaries, quoted attributes, empty elements and incomplete input.
+Established SAX and DOM parsers provide extensively tested syntax handling.
+Memory-safe code can still misclassify content and produce an incorrect workbook.
 
 Our development history supplies a concrete example. A Data.gov workbook used
 \texttt{<v xml:space="preserve">} for visible string values. A scanner recognizing

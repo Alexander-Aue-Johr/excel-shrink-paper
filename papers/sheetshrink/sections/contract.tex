@@ -49,7 +49,8 @@ For XLS sources, conversion precedes the XLSX cleanup subject and has its own
 failure accounting. A file requiring repair or inaccessible protected content
 receives an explicit unsuccessful outcome.
 
-Targeted visual equality is an observation over the selected regions. We evaluate
-the selection mechanism separately with native reference captures and mutations.
-Unequal pixels are retained for investigation. Repeated rendering controls,
-volatile dependencies, and capture geometry help classify their cause.
+Matching images establish equality within the captured regions. We evaluated
+region selection using independent native reference captures and deliberately
+modified test workbooks~\cite{layoutcontrols,indirectcontrols}. We retain pixel
+differences and investigate their causes through repeated rendering, volatile
+dependencies and capture geometry.
