@@ -12,12 +12,23 @@
 \definecolor{casegood}{HTML}{E5F0F7}
 \definecolor{caseadverse}{HTML}{FBE8DA}
 \definecolor{casemissing}{HTML}{EEEEEE}
+\definecolor{casebarblue}{HTML}{0072B2}
+\definecolor{casebarorange}{HTML}{D55E00}
+\newcommand{\CasePairBars}[5][3.05]{%
+  \begin{tikzpicture}[baseline=(value.base)]
+    \path[use as bounding box] (0,-0.13) rectangle (#1,0.15);
+    \fill[black!30] (0,0.025) rectangle (#3,0.075);
+    \fill[#5] (0,-0.075) rectangle (#4,-0.025);
+    \node[anchor=east,inner sep=0pt,font=\footnotesize] (value) at (#1,0) {#2};
+  \end{tikzpicture}%
+}
+
 \title{Sheet Shrink: Efficient Spreadsheet Cleanup}
 \author{
 \IEEEauthorblockN{Alexander Aue-Johr}
 \IEEEauthorblockA{
 \textit{Institute of Rural Studies} \\
-\textit{ThÃƒÆ’Ã‚Â¼nen-Institute} \\
+\textit{ThÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¼nen-Institute} \\
 Braunschweig, Germany \\
 \textit{Harz University of Applied Sciences} \\
 Doctoral Candidate, Germany \\
