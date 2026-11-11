@@ -118,15 +118,28 @@ explicit outcomes. Report both completed-reference detection and the fraction
 of all selected cases with usable reference evidence.
 
 \subsection{Mutation strata and statistical scope}
-Two A1 formula-error mutations changed 366 and 358 reference pixels.
-Selected A1:D3 masks exactly matched the independent A1:N30 change masks
-after native rebuild. Broader unresolved-dependency strata remain
-open~\cite{errorcontrols}.
+Table~\ref{tab:mutation-masks} summarizes six designed controls with exact
+reference-mask coverage. INDIRECT used the unsupported-rule fallback.
+dependency resolution and broader unresolved-dependency strata remain open.
 
-Literal and cell-indirected INDIRECT conditional-format controls each changed
-5,070 reference pixels. The unsupported-rule fallback selected A1:AA3 and
-matched both complete change masks. Neither case establishes INDIRECT
-dependency resolution~\cite{indirectcontrols}.
+\begin{table}[t]
+\centering
+\caption{Designed mutations after native rebuild. Pixels count changed RGBA
+locations in independently fixed references. Every selected mask exactly
+matched its reference mask at their common A1 origin. These controls do not
+estimate population recall~\cite{layoutcontrols,indirectcontrols,errorcontrols}.}
+\label{tab:mutation-masks}
+\begin{tabular}{lrrl}
+\hline
+Mutation & Pairs & Reference pixels & Selected area \\
+\hline
+Wrapping & 1 & 1,775 & A1:D3 \\
+Merge A1:D1 & 1 & 3,873 & A1:D3 \\
+INDIRECT conditional fill & 2 & 5,070 each & A1:AA3 \\
+Formula errors & 2 & 366 / 358 & A1:D3 \\
+\hline
+\end{tabular}
+\end{table}
 
 Both states are rebuilt and saved. NOW, RAND, INDIRECT and OFFSET require
 reference-policy controls~\cite{excelrecalculation}. Raw pixels and calculation
@@ -140,7 +153,7 @@ inclusion probabilities, with development cases reported separately.
 \subsection{Matched cost accounting}
 
 Cost accounting separates phases, images, pixels, retained bytes, elapsed time
-and coverage unions; overlapping captures count as repeated work. Matched trials
+and coverage unions. Overlapping captures count as repeated work. Matched trials
 control preparation, environment, image budgets and reuse through open, rebuild
 and save. Repeated pairs measure variation. Timeouts remain censored. Corpus
 projections require geometry-calibrated strata and hidden-region/object-extent
@@ -292,12 +305,9 @@ were pixel-identical within both pairs. The style permutation selected zero
 regions. The shared-string permutation retained one equal image pair at
 \texttt{A1:D4}, exposing unnecessary capture work under the tested policy v15.
 
-Two further controls changed wrapping alignment and merged \texttt{A1:D1}.
-Independent \texttt{A1:N30} references changed 1,775 and 3,873 RGBA pixels.
-The selected \texttt{A1:D3} masks matched both complete reference change masks
-at their common origin. The merge includes populated cells and exercises native
-merge behavior. These two designed controls establish bounded pixel coverage,
-without estimating population recall~\cite{layoutcontrols}.
+The wrapping and merge controls in Table~\ref{tab:mutation-masks} use independent
+\texttt{A1:N30} references. Merged A1:D1 includes populated cells and exercises
+native merge behavior~\cite{layoutcontrols}.
 
 Two additional comparator pairs contained 107 and 215 worksheets. The observed
 xlCompare times were 53.748 and 21.711 seconds. DiffEngineX required 131.692 and
@@ -484,11 +494,8 @@ Shared-profile cleanup reproduced a peer taskpane restart, while isolated-profil
 controls passed. A watchdog corrected to count verified geometry responses
 completed 741 equal image pairs. Earlier failed receipts remain retained.
 
-The current evidence consists of bounded controls, selected stress cases and
-partial campaigns. It does not establish population-wide recall, corpus-wide
-visual equivalence or a matched end-to-end speedup. Independent seeded reference
-samples, the completed visible-mutation matrix and common-endpoint cost trials
-remain the empirical obligations. Complete, different, unsupported, failed and
-unfinished outcomes retain distinct denominators. Supplementary manifests and
-source-linked reports retain exact input names, revisions, settings and repeated
-attempts without making their chronology part of the method.
+Bounded controls, stress cases and partial campaigns do not establish population
+recall, corpus-wide equivalence or matched end-to-end speedup. Broader independent
+references, mutation coverage and common-endpoint cost trials remain open.
+Manifests retain identities, revisions, settings and repeated attempts, with
+distinct complete, different, unsupported, failed and unfinished denominators.
