@@ -88,6 +88,13 @@ formats are coalesced into contiguous runs, with unchanged rows splitting the
 runs. This reduces candidate objects while preserving the union of requested
 regions.
 
+For bounded, valid, pairwise disjoint merge lists, comparison canonicalizes the
+rectangle order. Reordering identical rectangles therefore creates no layout
+candidate. Valid row \texttt{thickTop}/\texttt{thickBot} hints instead trigger
+native effective-height checks, including on fixed-height rows. A measured
+height change retains downstream coverage. Unsupported merge structures or
+invalid hints retain conservative fallback.
+
 Conditional-format selection resolves the supported rule formula, application
 area and referenced inputs. A changed precedent selects the affected application
 region even when its own appearance is unchanged. Local rules, area-wide inputs

@@ -358,12 +358,9 @@ previews and visible ink need distinct treatment. They do not establish coverage
 for arbitrary OLE formats.
 
 \subsection{What the measurements establish}
-Package bytes, candidate counts, native rectangles, rendered pixels and compared
-pixels are different units. A reduction in intermediate candidates can lower
-planner memory without changing the native image count. Adaptive partitioning
-can reduce images over hidden rows while preserving the same selected cell
-union. Hash-first transport can reduce transmitted PNG bytes without avoiding
-Excel's image generation. The experiment ledger records these stages separately.
+The ledger separates package bytes, candidates, native rectangles, rendered
+pixels and compared pixels. Candidate coalescing, adaptive partitioning and
+hash-first transport affect different stages and retain separate denominators.
 
 Similarly, process memory is not a single interchangeable counter. Native Excel,
 WebView2, the local host and the analysis process can hold different buffers.
@@ -448,6 +445,27 @@ hashes~\cite{adagefixedreference}. This localized result supplies no
 recall estimate.
 
 \subsection{Geometry and finite background coverage}
+\paragraph{Merge order and effective row height}
+In Data.gov's \texttt{CyanoPhyto\_qPCR\_dataset\_87a55675e15a.xlsx}, the
+Original--Check Performance comparison selected the full grid
+\texttt{A1:XFD1048576} on \texttt{qPCR\_Data\_Second}. Its 17 merge rectangles
+were merely reordered, but a row border-height hint also changed. Canonicalizing
+the merges alone retained the fallback. Native height checking measured row
+341 changing from 16.5 to 15.75 points, yielding the logical layout interval
+\texttt{A341:XFD445}. Other cell, conditional-formatting and chart obligations
+remained selected. The revised workbook comparison completed 525 cell regions
+and 49 charts per state in 245.2 seconds, with differences retained for
+inspection~\cite{cyanophytofallback}.
+
+The earlier full-grid attempt did not complete. For an explicitly conditional
+cost projection, repeating an observed $32\times256$ tail tile over the full
+grid in both states gives $2(16384/32)(1048576/256)=4{,}194{,}304$ images.
+At the recovery's measured capture-selection-and-transport rate of 6.76 images/s,
+this uniform-tile, constant-throughput scenario takes approximately 7.2 days.
+Adaptive partitioning, image entropy, caching and concurrency can change that
+cost. The projection and the measured 245.2-second end-to-end recovery have
+different endpoints and supply no measured speedup ratio.
+
 \paragraph{Finite backgrounds with row borders}
 A designed fixed-default-height change previously produced an unbounded
 A1:XFD1048576 plan and stopped at the guard. Policy v17 completed 69 regions

@@ -209,6 +209,26 @@ would additionally need a matched parser baseline.
 
 ## Default-control verification
 
+## CyanoPhyto methodology case and space trade-off
+
+The method now records merge-order canonicalization and native row border-height
+checks. The geometry evaluation identifies the exact workbook and sheet, the
+245.218-second completed recovery, and a conditional 7.2-day full-grid projection.
+The aborted baseline supplies no measured speedup. The versioned experimental
+artifact records the inputs, image counts, assumptions and report checksum.
+
+To offset part of this addition, the opening paragraph of “What the measurements
+establish” was shortened while retaining separate measurement denominators.
+If further space is needed, shorten its repeated independent-reference discussion
+against the earlier reference-plan section, then move the illustrative projection
+equation into the cited artifact while retaining the assumptions and measured
+recovery in the paper. Keep coverage limitations and concrete reference results.
+QT/RR remains unfinished and the Low-Temperature recovery lacks a matched
+method-change baseline. Their ledgers do not yet support an additional paper
+speed comparison. The updated PDF still has 14 pages.
+
+## Default-control verification details
+
 The targeted-comparison entry point sets `skip_check_performance` from the explicit
 `check_performance` option. Its default leaves that internal branch disabled.
 The staged workflow rebuilds the original and supplied transformed input in their
