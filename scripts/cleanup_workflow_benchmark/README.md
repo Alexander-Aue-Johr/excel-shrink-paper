@@ -108,3 +108,8 @@ The manuscript uses `--single-column` for a corpus-grouped two-panel figure.
 It retains the complete-pair counts in row labels and historical Inquire
 storage markers. Selection outcome totals remain in the manuscript setup and
 receipt inventories. Omit the flag to reproduce the wider outcome-panel view.
+
+The compact view labels tools NXPL (NXPowerLite), XLST (XLStylesTool), CP
+(Check Performance) and INQ (Inquire). SheetShrink remains spelled out. Add
+`--a4-landscape` to `--single-column` to export the same observations on a
+297 by 210 mm page. Unknown-storage crosses are drawn above the point cloud.

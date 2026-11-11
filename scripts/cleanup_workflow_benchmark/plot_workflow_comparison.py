@@ -23,7 +23,11 @@ def main():
                         help="Restrict input hashes to the intersection of these reference pair files")
     parser.add_argument("--single-column", action="store_true",
                         help="Group tools by corpus in two compact timing panels")
+    parser.add_argument("--a4-landscape", action="store_true",
+                        help="Render the corpus-grouped chart on an A4 landscape page")
     args = parser.parse_args()
+    if args.a4_landscape and not args.single_column:
+        parser.error("--a4-landscape requires --single-column")
     rows = read_pairs(args.pairs)
     if args.cohort_pairs:
         cohorts = [{row["input_sha256"] for row in read_pairs([path])} for path in args.cohort_pairs]
@@ -33,7 +37,7 @@ def main():
         rows = shared_input_pairs(rows)
     outcomes = read_outcomes(args.receipts, rows) if args.receipts else None
     if args.single_column:
-        draw_single_column(rows, args.output)
+        draw_single_column(rows, args.output, args.a4_landscape)
     else:
         draw_comparison(rows, args.output, outcomes)
 
@@ -210,26 +214,32 @@ def draw_time_summary(axis, position, values, marker, color, label_offset):
                   textcoords="offset points", fontsize=7, color=color)
 
 
-def draw_single_column(rows, output):
+def draw_single_column(rows, output, a4_landscape=False):
+    """Draw matched times and ratios with compact tool labels and shared corpus headings."""
+    short_names = {"NXPowerLite": "NXPL", "XLStylesTool": "XLST",
+                   "Check Performance": "CP", "Inquire": "INQ"}
     tools = ["NXPowerLite", "XLStylesTool", "Check Performance", "Inquire"]
     styles = dict(zip(tools, zip(["s", "^", "v", "D"],
                                 ["#D55E00", "#009E73", "#E69F00", "#CC79A7"])))
     plt.rcParams.update({"font.family": "DejaVu Sans", "font.size": 7,
                          "pdf.fonttype": 42, "svg.fonttype": "none"})
-    figure, axes = plt.subplots(1, 2, figsize=(3.5, 4.35))
+    page_size = (297 / 25.4, 210 / 25.4) if a4_landscape else (3.5, 4.35)
+    label_size = 10 if a4_landscape else 6
+    heading_size = 12 if a4_landscape else 7
+    figure, axes = plt.subplots(1, 2, figsize=page_size)
     positions, labels = [], []
     for corpus_index, (corpus, title) in enumerate(
             (("destatis", "Destatis"), ("enron", "Enron"), ("datagov", "Data.gov"))):
         heading = corpus_index * 5
-        axes[0].text(-1.05, heading, title, transform=axes[0].get_yaxis_transform(),
-                     fontweight="bold", fontsize=7, va="center", clip_on=False)
+        axes[0].text(-0.48 if not a4_landscape else -0.24, heading, title, transform=axes[0].get_yaxis_transform(),
+                     fontweight="bold", fontsize=heading_size, va="center", clip_on=False)
         for tool_index, tool in enumerate(tools):
             selected = [r for r in rows if r["corpus"] == corpus and r["comparator"] == tool]
             if not selected:
                 continue
             position = heading + tool_index + 1
             positions.append(position)
-            labels.append(f"{tool} ({len(selected)})")
+            labels.append(f"{short_names[tool]} ({len(selected)})")
             marker, color = styles[tool]
             times = np.array([r["comparator_seconds"] for r in selected])
             baseline = np.array([r["sheetshrink_seconds"] for r in selected])
@@ -244,10 +254,11 @@ def draw_single_column(rows, output):
             for i, row in enumerate(selected):
                 storage = row.get("historical_storage", "")
                 unknown = storage == "legacy_storage_not_fully_recorded"
-                axes[1].scatter(ratios[i], position + jitter[i], s=9,
+                axes[1].scatter(ratios[i], position + jitter[i], s=22 if unknown else 9,
                                 marker="x" if unknown else marker,
                                 facecolors="none" if storage == "D_USB_root" else color,
-                                linewidths=0.5, alpha=0.55,
+                                linewidths=1.1 if unknown else 0.5,
+                                alpha=1 if unknown else 0.55, zorder=6 if unknown else 2,
                                 **({} if unknown else {"edgecolors": color}))
             q1, median, q3 = np.percentile(ratios, [25, 50, 75])
             axes[1].plot([q1, q3], [position] * 2, color="black", linewidth=1.5)
@@ -257,19 +268,25 @@ def draw_single_column(rows, output):
         axis.set_ylim(15, -0.6)
         axis.grid(axis="x", which="major", color="#dddddd", linewidth=0.5)
         axis.set_axisbelow(True)
-        axis.tick_params(axis="both", labelsize=6.5)
+        axis.tick_params(axis="both", labelsize=label_size)
         axis.tick_params(axis="y", length=0)
         for side in ("left", "right", "top"):
             axis.spines[side].set_visible(False)
     axes[0].set_yticks(positions, labels)
     axes[1].set_yticks(positions, [""] * len(positions))
-    axes[0].set_xlabel("Workflow time (s)", fontsize=7)
-    axes[1].set_xlabel("Tool / SheetShrink", fontsize=7)
+    axes[0].set_xlabel("Workflow time (s)", fontsize=label_size + 0.5)
+    axes[1].set_xlabel("Tool / SheetShrink", fontsize=label_size + 0.5)
     axes[1].axvline(1, color="#999999", linestyle="--", linewidth=0.7)
     axes[0].scatter([], [], marker="o", color="#0072B2", s=15, label="SheetShrink")
     figure.legend(*axes[0].get_legend_handles_labels(), loc="upper right",
-                  bbox_to_anchor=(1, 1), ncol=2, frameon=False, fontsize=6.5)
-    figure.subplots_adjust(left=0.34, right=0.99, top=0.91, bottom=0.10, wspace=0.28)
+                  bbox_to_anchor=(1, 1), ncol=2, frameon=False, fontsize=label_size)
+    # Reserve only the compact labels; corpus headings share their left edge.
+    figure.subplots_adjust(left=0.12 if a4_landscape else 0.23,
+                           right=0.99, top=0.91, bottom=0.14, wspace=0.28)
+    if a4_landscape:
+        figure.text(0.12, 0.025,
+                    "NXPL: NXPowerLite   XLST: XLStylesTool   CP: Check Performance   INQ: Inquire",
+                    fontsize=9)
     output.parent.mkdir(parents=True, exist_ok=True)
     figure.savefig(output)
     figure.savefig(output.with_suffix(".png"), dpi=250)
