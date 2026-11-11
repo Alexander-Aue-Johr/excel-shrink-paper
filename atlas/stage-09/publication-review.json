@@ -1,0 +1,595 @@
+{
+  "limitations": [
+    "This inventory does not certify anonymity or publication rights.",
+    "Review workbook names, cell values, formulas, screenshots, and source-corpus distribution terms.",
+    "Scientific reports and integrity manifests are preserved without automatic redaction."
+  ],
+  "metadata_finding_count": 116,
+  "metadata_findings": [
+    {
+      "category": "sensitive_metadata_field",
+      "file": "atlas-data/007767c7a9e937e5108153cf213a696431a9e28fdb87356b353b7e56c2f11308.json.gz",
+      "pointer": "/validation_signature/environment_key"
+    },
+    {
+      "category": "sensitive_metadata_field",
+      "file": "atlas-data/017932dcf25db38b784b2b14ae0517102b3dedbf296a63f66a6c76121d084558.json.gz",
+      "pointer": "/validation_signature/environment_key"
+    },
+    {
+      "category": "sensitive_metadata_field",
+      "file": "atlas-data/033ee92c6b66217bb579516e800905c6970d0289a064cd729479016831f8dbd6.json.gz",
+      "pointer": "/validation_signature/environment_key"
+    },
+    {
+      "category": "sensitive_metadata_field",
+      "file": "atlas-data/0a9b951eb8ef011d10a0b10de96f1cf22fee9717b8301b2a3d9c78a739c2fcc4.json.gz",
+      "pointer": "/validation_signature/environment_key"
+    },
+    {
+      "category": "sensitive_metadata_field",
+      "file": "atlas-data/0dbe78e2098d6fb7400eab6a48bd322c09662de886ab12ff39e725b0622cfd54.json.gz",
+      "pointer": "/validation_signature/environment_key"
+    },
+    {
+      "category": "sensitive_metadata_field",
+      "file": "atlas-data/10e49aea04a57b752fe32b769fe2c362412e42ad7a2a2097f3264a32476347b7.json.gz",
+      "pointer": "/validation_signature/environment_key"
+    },
+    {
+      "category": "sensitive_metadata_field",
+      "file": "atlas-data/10e4faaa6347dd03aca8af3d21fa73d331629967506ecbdfd90e4cda8d57a087.json.gz",
+      "pointer": "/validation_signature/environment_key"
+    },
+    {
+      "category": "sensitive_metadata_field",
+      "file": "atlas-data/1101ce46c7d56135afea55b5ebc0005848123283e30b057c48d4980deb90331d.json.gz",
+      "pointer": "/validation_signature/environment_key"
+    },
+    {
+      "category": "sensitive_metadata_field",
+      "file": "atlas-data/1262c3c3fe520fdf41a9361cbe46b804e7ba340102d65411b908feec9016a4b3.json.gz",
+      "pointer": "/validation_signature/environment_key"
+    },
+    {
+      "category": "sensitive_metadata_field",
+      "file": "atlas-data/189f329df6645c8f953796b031893ca6d10e9a5bb5dc00768f77346a309af816.json.gz",
+      "pointer": "/validation_signature/environment_key"
+    },
+    {
+      "category": "sensitive_metadata_field",
+      "file": "atlas-data/18afecd4167a8e7081285d6d7ee48aee5b41f7bf872921724c66d8ed4ec449ce.json.gz",
+      "pointer": "/validation_signature/environment_key"
+    },
+    {
+      "category": "sensitive_metadata_field",
+      "file": "atlas-data/1e3b88b92e9486d5bee21afe747a80255da57e17a797f2bd08da4784bff96163.json.gz",
+      "pointer": "/validation_signature/environment_key"
+    },
+    {
+      "category": "sensitive_metadata_field",
+      "file": "atlas-data/229a54c791e86cf32a9f49b1f54e320c352849ecb3047dd6afb2f8e8f2706690.json.gz",
+      "pointer": "/validation_signature/environment_key"
+    },
+    {
+      "category": "sensitive_metadata_field",
+      "file": "atlas-data/23092e8c32be03c42a41f67d7f9448c83eeb9b55897e9569e194c76064d25f70.json.gz",
+      "pointer": "/validation_signature/environment_key"
+    },
+    {
+      "category": "sensitive_metadata_field",
+      "file": "atlas-data/233115a47c7736378e7e09e6f054a8e43067941dcb4659bfa88a1c2c4a089b09.json.gz",
+      "pointer": "/validation_signature/environment_key"
+    },
+    {
+      "category": "sensitive_metadata_field",
+      "file": "atlas-data/2362ff3c84e47368252d06aef76c7649f80484a5632b420b4c9693c5b7219445.json.gz",
+      "pointer": "/validation_signature/environment_key"
+    },
+    {
+      "category": "sensitive_metadata_field",
+      "file": "atlas-data/24367d495437278d93a432a67fb06fb10a24f6c45d1b1d1b9d5aac334859df3a.json.gz",
+      "pointer": "/validation_signature/environment_key"
+    },
+    {
+      "category": "sensitive_metadata_field",
+      "file": "atlas-data/273d782c647b6e1940220f0d038030550eb23fa8dbbb3beea8ad75f3f5af673d.json.gz",
+      "pointer": "/validation_signature/environment_key"
+    },
+    {
+      "category": "sensitive_metadata_field",
+      "file": "atlas-data/2a38ac4674b09696ad4ffa96ada321ea5d849dd5944d66bb220ba426500b2b39.json.gz",
+      "pointer": "/validation_signature/environment_key"
+    },
+    {
+      "category": "sensitive_metadata_field",
+      "file": "atlas-data/2b10576690a4b5d05738e5457ab9ad8555a4eae2e306da5114bc5f615b72eedd.json.gz",
+      "pointer": "/validation_signature/environment_key"
+    },
+    {
+      "category": "sensitive_metadata_field",
+      "file": "atlas-data/2d3d31795b130df07aade65e3be5a350ec55b94262c83a3e0ed3d5034a3f4e5e.json.gz",
+      "pointer": "/validation_signature/environment_key"
+    },
+    {
+      "category": "sensitive_metadata_field",
+      "file": "atlas-data/2dd285558e12dbc0009176c5f99ae46572e41d35ad4ec11c1033ff65d39e21c1.json.gz",
+      "pointer": "/validation_signature/environment_key"
+    },
+    {
+      "category": "sensitive_metadata_field",
+      "file": "atlas-data/2dd768a94147a0bd9eda0f03898795db76be21973ebfbaa805e33a3efe351ad9.json.gz",
+      "pointer": "/validation_signature/environment_key"
+    },
+    {
+      "category": "sensitive_metadata_field",
+      "file": "atlas-data/32301799500a380796661d518c6f7ff5bd43edb203594813336f479d6de4fce6.json.gz",
+      "pointer": "/validation_signature/environment_key"
+    },
+    {
+      "category": "sensitive_metadata_field",
+      "file": "atlas-data/342da743a7a1b1bae26efceaedb1e5d9ef00090988c586bbcc27bceda5bb6d32.json.gz",
+      "pointer": "/validation_signature/environment_key"
+    },
+    {
+      "category": "sensitive_metadata_field",
+      "file": "atlas-data/3a080db5b9c41a85cc5d9dba3ba5dd324c9323ff637d83a089b3a1966e2cdd9d.json.gz",
+      "pointer": "/validation_signature/environment_key"
+    },
+    {
+      "category": "sensitive_metadata_field",
+      "file": "atlas-data/3cc6d33bd9e34a3378ab286d1cf140e336f1cd325bae61e661ce55c7e4916666.json.gz",
+      "pointer": "/validation_signature/environment_key"
+    },
+    {
+      "category": "sensitive_metadata_field",
+      "file": "atlas-data/408f962747a344bf5981e3b2c30fb319aca790985e18d81b452c14a171f7bf73.json.gz",
+      "pointer": "/validation_signature/environment_key"
+    },
+    {
+      "category": "sensitive_metadata_field",
+      "file": "atlas-data/40e9835b293384be5cd15c2bb47b8ea24316a5fb6902b9a64a9fe82d01b98b87.json.gz",
+      "pointer": "/validation_signature/environment_key"
+    },
+    {
+      "category": "sensitive_metadata_field",
+      "file": "atlas-data/468114365e3da170a753fef16da4984a622bb5651e66cc1ac6f6f543623cc8c6.json.gz",
+      "pointer": "/validation_signature/environment_key"
+    },
+    {
+      "category": "sensitive_metadata_field",
+      "file": "atlas-data/48777ad2a8e02887e8bea15f2a43827f642c80e228846cfb2da0cd806284a7b4.json.gz",
+      "pointer": "/validation_signature/environment_key"
+    },
+    {
+      "category": "sensitive_metadata_field",
+      "file": "atlas-data/48f61daa8a8a71ababf7167e1fd48e3f6eff07f35b2b911a7396ec0207a65b60.json.gz",
+      "pointer": "/validation_signature/environment_key"
+    },
+    {
+      "category": "sensitive_metadata_field",
+      "file": "atlas-data/4b13d9de34441d1b035b273b44da8c07577dace5e632ec4e5c534a0dcf24db49.json.gz",
+      "pointer": "/validation_signature/environment_key"
+    },
+    {
+      "category": "sensitive_metadata_field",
+      "file": "atlas-data/4cdd42c62545076c296a581b47563e63123ee59c49c0e469a5bf05632c522416.json.gz",
+      "pointer": "/validation_signature/environment_key"
+    },
+    {
+      "category": "sensitive_metadata_field",
+      "file": "atlas-data/4d857adcfdebb36dc4b8acf4078ce256978dcd135a503ba748d61f0e2d9db37a.json.gz",
+      "pointer": "/validation_signature/environment_key"
+    },
+    {
+      "category": "sensitive_metadata_field",
+      "file": "atlas-data/521c8ba43801a9481f9c39bbebe29b5d5e6050d5ee3e6b3d3c3acd50aa75aa96.json.gz",
+      "pointer": "/validation_signature/environment_key"
+    },
+    {
+      "category": "sensitive_metadata_field",
+      "file": "atlas-data/541dc170d8c35a651c751ad65df9f2aa8a3ae7a55c646f7e37336f1f0141f927.json.gz",
+      "pointer": "/validation_signature/environment_key"
+    },
+    {
+      "category": "sensitive_metadata_field",
+      "file": "atlas-data/56cb19a4c2520f5a55175cc5705ad9963c2fab837613d10dbf88f412c447ac0b.json.gz",
+      "pointer": "/validation_signature/environment_key"
+    },
+    {
+      "category": "sensitive_metadata_field",
+      "file": "atlas-data/595a104f79d6fa3e7bfb595c26255259dc7227adbc4c62616cdd01ac1628baeb.json.gz",
+      "pointer": "/validation_signature/environment_key"
+    },
+    {
+      "category": "sensitive_metadata_field",
+      "file": "atlas-data/5c589663b23c5bdd7e475c3fc471494739f6b637b028d87c2ca0dbec8f6c2192.json.gz",
+      "pointer": "/validation_signature/environment_key"
+    },
+    {
+      "category": "sensitive_metadata_field",
+      "file": "atlas-data/5cb4065e695468403ec916a5c0f7b2bcb9f49fa23edc69de4883864987e303b4.json.gz",
+      "pointer": "/validation_signature/environment_key"
+    },
+    {
+      "category": "sensitive_metadata_field",
+      "file": "atlas-data/5ed1d74957972509ef0b1d16d8b2327cb198a7df1d0ad14630a212886d752e3b.json.gz",
+      "pointer": "/validation_signature/environment_key"
+    },
+    {
+      "category": "sensitive_metadata_field",
+      "file": "atlas-data/605fd6eb781b0d52cd7a387e8ea4677b5788fe2f1f98d8889e8bac18aec13b53.json.gz",
+      "pointer": "/validation_signature/environment_key"
+    },
+    {
+      "category": "sensitive_metadata_field",
+      "file": "atlas-data/6144fb7763ce05febf70060935044023ec0e0fc16e31623d8b06ca5009f29084.json.gz",
+      "pointer": "/validation_signature/environment_key"
+    },
+    {
+      "category": "sensitive_metadata_field",
+      "file": "atlas-data/664e4f57df82d3959c21254c2bb232b4e12e1f027d2052f0b74f7c6bd61fc6dc.json.gz",
+      "pointer": "/validation_signature/environment_key"
+    },
+    {
+      "category": "sensitive_metadata_field",
+      "file": "atlas-data/68c7ad40eca1674b165c85d9d12d126b5cb9da91c86f6f45d1a2b15685c19edc.json.gz",
+      "pointer": "/validation_signature/environment_key"
+    },
+    {
+      "category": "sensitive_metadata_field",
+      "file": "atlas-data/6964915b6025b7fb8dba587f29f741871a36d0a419ba438e89bbe5d4028f8c8d.json.gz",
+      "pointer": "/validation_signature/environment_key"
+    },
+    {
+      "category": "sensitive_metadata_field",
+      "file": "atlas-data/69f6fd89ce0415bf6671cb9d648500389ab78f7fbe2f6a13233fe2f970c0b51c.json.gz",
+      "pointer": "/validation_signature/environment_key"
+    },
+    {
+      "category": "sensitive_metadata_field",
+      "file": "atlas-data/6ae516bb28401c444822aaab048a61825ef5903b4d7525b60406cfe8e085d643.json.gz",
+      "pointer": "/validation_signature/environment_key"
+    },
+    {
+      "category": "sensitive_metadata_field",
+      "file": "atlas-data/6b47dda0a37091cc10ff4f381602908d1234676a49fe8da751d7fb1b53dccfaa.json.gz",
+      "pointer": "/validation_signature/environment_key"
+    },
+    {
+      "category": "sensitive_metadata_field",
+      "file": "atlas-data/735b4cb0cd88eb7b1b28e05a9e1399ddf6f29c2581a6e3c6fd0492909c81be0d.json.gz",
+      "pointer": "/validation_signature/environment_key"
+    },
+    {
+      "category": "sensitive_metadata_field",
+      "file": "atlas-data/7633d1c06dd291ed262a7f116da6ef7fcc32354fd2f5d8662891832c98540cd0.json.gz",
+      "pointer": "/validation_signature/environment_key"
+    },
+    {
+      "category": "sensitive_metadata_field",
+      "file": "atlas-data/76dce2ed6f0f434bc031a4501f25b015949c4a09bca6b334af81847b48eca6cf.json.gz",
+      "pointer": "/validation_signature/environment_key"
+    },
+    {
+      "category": "sensitive_metadata_field",
+      "file": "atlas-data/778cbddc5ec1b1d88abc474939091a5942092d5800233958959cb2208cc80ad9.json.gz",
+      "pointer": "/validation_signature/environment_key"
+    },
+    {
+      "category": "sensitive_metadata_field",
+      "file": "atlas-data/77a4fa9f55827ac802e827b35a055d9589077d7cecc248899aee7a160a413feb.json.gz",
+      "pointer": "/validation_signature/environment_key"
+    },
+    {
+      "category": "sensitive_metadata_field",
+      "file": "atlas-data/7c6541cd2244e4fc522e53095380874f27254e177da2f32aa4e706cae6fde808.json.gz",
+      "pointer": "/validation_signature/environment_key"
+    },
+    {
+      "category": "sensitive_metadata_field",
+      "file": "atlas-data/7d87919bdd1a33df755827c317f9832a32131e279e3c87080f6d2e99e2ef4b75.json.gz",
+      "pointer": "/validation_signature/environment_key"
+    },
+    {
+      "category": "sensitive_metadata_field",
+      "file": "atlas-data/7e39505b231eeb963aac908f6661744631167786505379f154112383dbd8fe93.json.gz",
+      "pointer": "/validation_signature/environment_key"
+    },
+    {
+      "category": "sensitive_metadata_field",
+      "file": "atlas-data/7e467f97582028e8dfc331d2bb7485c012842c1c544f25840463066459a0dbfe.json.gz",
+      "pointer": "/validation_signature/environment_key"
+    },
+    {
+      "category": "sensitive_metadata_field",
+      "file": "atlas-data/80f0e73a4c280443c5f18bb58b080ff549b6634a42ca3844a1f250edcb5e883f.json.gz",
+      "pointer": "/validation_signature/environment_key"
+    },
+    {
+      "category": "sensitive_metadata_field",
+      "file": "atlas-data/81129970ee3e9edee996aa11b381eff9ee811d4c9155f855361bc30f4f148a9d.json.gz",
+      "pointer": "/validation_signature/environment_key"
+    },
+    {
+      "category": "sensitive_metadata_field",
+      "file": "atlas-data/815188310b78c02a6e10ea3ab999a4773056dbbea06686b911729d5d196a7d21.json.gz",
+      "pointer": "/validation_signature/environment_key"
+    },
+    {
+      "category": "sensitive_metadata_field",
+      "file": "atlas-data/81f7b1062cc894baf974e173e732360e97f8328fa0e0e8a7a2529a065f14c514.json.gz",
+      "pointer": "/validation_signature/environment_key"
+    },
+    {
+      "category": "sensitive_metadata_field",
+      "file": "atlas-data/83f35cce3d09fa0da51c72ecc6d6284bf9753ed7a6c35d046f253b3a3ee7c4a7.json.gz",
+      "pointer": "/validation_signature/environment_key"
+    },
+    {
+      "category": "sensitive_metadata_field",
+      "file": "atlas-data/8649b287c1bf7f56a241b63bf9a26353aa207720bec52f0dab246bf4feb1d3ed.json.gz",
+      "pointer": "/validation_signature/environment_key"
+    },
+    {
+      "category": "sensitive_metadata_field",
+      "file": "atlas-data/8892e28b45765671538a0eb285c4cfd9651c259376d4df676ca40d256b42b4f8.json.gz",
+      "pointer": "/validation_signature/environment_key"
+    },
+    {
+      "category": "sensitive_metadata_field",
+      "file": "atlas-data/8915480a4b87d8fcecc18f93cf944ea55572e5652f15bf87b04ee4e4f0cd7941.json.gz",
+      "pointer": "/validation_signature/environment_key"
+    },
+    {
+      "category": "sensitive_metadata_field",
+      "file": "atlas-data/89b63deb34bab478c09a243ef66381989d62a13ef20778b9ea31326fbb31185c.json.gz",
+      "pointer": "/validation_signature/environment_key"
+    },
+    {
+      "category": "sensitive_metadata_field",
+      "file": "atlas-data/89e8c3f8119f1ad901407762f2d18ab16885125e9f467eaad9c20d79a6e5239f.json.gz",
+      "pointer": "/validation_signature/environment_key"
+    },
+    {
+      "category": "sensitive_metadata_field",
+      "file": "atlas-data/8e20e9fa21343b834ad0e9d679122d15c51391efd616d69f36f551970fe13c0b.json.gz",
+      "pointer": "/validation_signature/environment_key"
+    },
+    {
+      "category": "sensitive_metadata_field",
+      "file": "atlas-data/970ab03f90a7a8b662433f18566f23f9c8a21507d1324fca1c47ca5402a89bce.json.gz",
+      "pointer": "/validation_signature/environment_key"
+    },
+    {
+      "category": "sensitive_metadata_field",
+      "file": "atlas-data/9cbf422e1a4c52e50a4550f1ac9657d5b70afef78c820b73e0b9075ad0387bad.json.gz",
+      "pointer": "/validation_signature/environment_key"
+    },
+    {
+      "category": "sensitive_metadata_field",
+      "file": "atlas-data/9cdaa17eb1e68a9233476f343936089ce261fa0fc51d684bcf82a451dedb4d31.json.gz",
+      "pointer": "/validation_signature/environment_key"
+    },
+    {
+      "category": "sensitive_metadata_field",
+      "file": "atlas-data/9d6bd38ed44faaadf7e596bbe697ceec87ea0a5a9e66886a6dae92ea35c14d94.json.gz",
+      "pointer": "/validation_signature/environment_key"
+    },
+    {
+      "category": "sensitive_metadata_field",
+      "file": "atlas-data/9e05003eac306cbe338428e85602265460d6fbe6f32c5245e6e97d2221fe2e0f.json.gz",
+      "pointer": "/validation_signature/environment_key"
+    },
+    {
+      "category": "sensitive_metadata_field",
+      "file": "atlas-data/9ee99e2adeaf581b94e030eb940ecd732336f3ccf582c9d379b79b41524c693d.json.gz",
+      "pointer": "/validation_signature/environment_key"
+    },
+    {
+      "category": "sensitive_metadata_field",
+      "file": "atlas-data/a2c1116e51fd53ab563c4399f05643e2659478f9e128180632992c4734d29303.json.gz",
+      "pointer": "/validation_signature/environment_key"
+    },
+    {
+      "category": "sensitive_metadata_field",
+      "file": "atlas-data/a355d7dbe97c4990c2420a05e0e58a86145fd29d9059a0175f84f9696dac7c7a.json.gz",
+      "pointer": "/validation_signature/environment_key"
+    },
+    {
+      "category": "sensitive_metadata_field",
+      "file": "atlas-data/a50fae509f977d8bf7ad5a3dc0e5908aa22ca72bdf8c63614ba1ac48886754d6.json.gz",
+      "pointer": "/validation_signature/environment_key"
+    },
+    {
+      "category": "sensitive_metadata_field",
+      "file": "atlas-data/a5d1078427d0b8e78ea9806e3e40d0fc8551eed783109ad54952b80c78d3542a.json.gz",
+      "pointer": "/validation_signature/environment_key"
+    },
+    {
+      "category": "sensitive_metadata_field",
+      "file": "atlas-data/a705a4b979a3db2eed548799a6f78b56817b2db0a4fa5fef6204d7b8db54fd6f.json.gz",
+      "pointer": "/validation_signature/environment_key"
+    },
+    {
+      "category": "sensitive_metadata_field",
+      "file": "atlas-data/ad93e1df8bd5b74fa71683a0c1f02f86f382d3ba98f9f76718e5f7aab3e8916b.json.gz",
+      "pointer": "/validation_signature/environment_key"
+    },
+    {
+      "category": "sensitive_metadata_field",
+      "file": "atlas-data/ae2fc2f571ac15e436dba13dbe256fadb681b5d4c18592362fad9627a9c8a475.json.gz",
+      "pointer": "/validation_signature/environment_key"
+    },
+    {
+      "category": "sensitive_metadata_field",
+      "file": "atlas-data/ae6c591c3856121fa29f2cd7236664a25470b5995d826a47b636bf97ef91494a.json.gz",
+      "pointer": "/validation_signature/environment_key"
+    },
+    {
+      "category": "sensitive_metadata_field",
+      "file": "atlas-data/ae76028df703fb26382cb4e2314ac60a69dd4b3bc03232980ae1cef6f24c516e.json.gz",
+      "pointer": "/validation_signature/environment_key"
+    },
+    {
+      "category": "sensitive_metadata_field",
+      "file": "atlas-data/b0de82a2accda87a3f3fa0c12e15a389decd4c741bad7898b42c4355aa22d3cb.json.gz",
+      "pointer": "/validation_signature/environment_key"
+    },
+    {
+      "category": "sensitive_metadata_field",
+      "file": "atlas-data/b2c8b9ebcd309fe9c40af5d4cdae0774c2358cd22090ad32c1357d36183ad69e.json.gz",
+      "pointer": "/validation_signature/environment_key"
+    },
+    {
+      "category": "sensitive_metadata_field",
+      "file": "atlas-data/b356eef85ce40c8e5b6fa94700be68b94d64540b5afbe6e70f6a86582e862a82.json.gz",
+      "pointer": "/validation_signature/environment_key"
+    },
+    {
+      "category": "sensitive_metadata_field",
+      "file": "atlas-data/b5528245e7b17b505310b622242429816ed7836763873f6e4f94b1017e1dc989.json.gz",
+      "pointer": "/validation_signature/environment_key"
+    },
+    {
+      "category": "sensitive_metadata_field",
+      "file": "atlas-data/b801d096437ade946a14f8438c71372cb46d18f851dcc5562132e16fe1fbe975.json.gz",
+      "pointer": "/validation_signature/environment_key"
+    },
+    {
+      "category": "sensitive_metadata_field",
+      "file": "atlas-data/b89b623718a89866b5a79d2b78a29a64d2a2a4cd8335570e53191dc70aacee36.json.gz",
+      "pointer": "/validation_signature/environment_key"
+    },
+    {
+      "category": "sensitive_metadata_field",
+      "file": "atlas-data/ba4b09fc4d3fa0efcb7256a48634555db97fe732c83bc3bb3b824074302cb201.json.gz",
+      "pointer": "/validation_signature/environment_key"
+    },
+    {
+      "category": "sensitive_metadata_field",
+      "file": "atlas-data/bc77f2c3b521d264a922a2da72b3e8dcf9405bfe9c120e956bdb8a96ac439ee7.json.gz",
+      "pointer": "/validation_signature/environment_key"
+    },
+    {
+      "category": "sensitive_metadata_field",
+      "file": "atlas-data/c0628072c4bbf449432314290660c1473e20f551cfee192d0c64a698ba98c934.json.gz",
+      "pointer": "/validation_signature/environment_key"
+    },
+    {
+      "category": "sensitive_metadata_field",
+      "file": "atlas-data/c2416c816b67fc54ee1aae34b3705df546d22c78dc35fc1332b3b91a9dafa9ec.json.gz",
+      "pointer": "/validation_signature/environment_key"
+    },
+    {
+      "category": "sensitive_metadata_field",
+      "file": "atlas-data/c3563604ebea37ac76b645e744d9954d8bd80454599575771e9721a2ae879eef.json.gz",
+      "pointer": "/validation_signature/environment_key"
+    },
+    {
+      "category": "sensitive_metadata_field",
+      "file": "atlas-data/c3fdbbaa2f626cb40351e8f85839a62ef1d7ad3f1270a904e6a4eae1babc1a9b.json.gz",
+      "pointer": "/validation_signature/environment_key"
+    },
+    {
+      "category": "sensitive_metadata_field",
+      "file": "atlas-data/c866ae225e9e5132a5f5a4d547d0f9193093337c2e6f1e42d22003d9c0cbb000.json.gz",
+      "pointer": "/validation_signature/environment_key"
+    },
+    {
+      "category": "sensitive_metadata_field",
+      "file": "atlas-data/cd8e32dc4dd056d2b109368555db2b2bab1eec91e9626bdca31949f29587e049.json.gz",
+      "pointer": "/validation_signature/environment_key"
+    },
+    {
+      "category": "sensitive_metadata_field",
+      "file": "atlas-data/d6445a6683cceed6c3a8f3b89b910e8f636f81e99a8d03031084aa6b49b60e44.json.gz",
+      "pointer": "/validation_signature/environment_key"
+    },
+    {
+      "category": "sensitive_metadata_field",
+      "file": "atlas-data/d71266835cf149bdb72603a34809c91dfe5f66fd0689ceb9297ed0b20524de25.json.gz",
+      "pointer": "/validation_signature/environment_key"
+    },
+    {
+      "category": "sensitive_metadata_field",
+      "file": "atlas-data/e25e35b6e1abf04cd296119a6afd562bcc0e39d6c86d3724b577f38cf39780fa.json.gz",
+      "pointer": "/validation_signature/environment_key"
+    },
+    {
+      "category": "sensitive_metadata_field",
+      "file": "atlas-data/e2f1e03fe59bafee8e87ddd2d2ed0612db3800a4c693fa8aad607c10df8d5479.json.gz",
+      "pointer": "/validation_signature/environment_key"
+    },
+    {
+      "category": "sensitive_metadata_field",
+      "file": "atlas-data/e38498a274c3839e011b789e4290413cfd4fca6d9fb90cfef71a8188fa459ba6.json.gz",
+      "pointer": "/validation_signature/environment_key"
+    },
+    {
+      "category": "sensitive_metadata_field",
+      "file": "atlas-data/e45fba4366ce27878a3062b6a95766599d08b1a455ab76035d583adfdec75e30.json.gz",
+      "pointer": "/validation_signature/environment_key"
+    },
+    {
+      "category": "sensitive_metadata_field",
+      "file": "atlas-data/efa4c59207ca00b2e9e2c02f611cd0b92efac927e125c53da5f4c6e13cd6e334.json.gz",
+      "pointer": "/validation_signature/environment_key"
+    },
+    {
+      "category": "sensitive_metadata_field",
+      "file": "atlas-data/f27dcb139c7a393e643f9810b14bcdd17f3bdd69b8fc9e63ba33733b94401882.json.gz",
+      "pointer": "/validation_signature/environment_key"
+    },
+    {
+      "category": "sensitive_metadata_field",
+      "file": "atlas-data/f3ed515bebe86e71ebed41833210aa10ffac912a05ae1db820a278e97250e15b.json.gz",
+      "pointer": "/validation_signature/environment_key"
+    },
+    {
+      "category": "sensitive_metadata_field",
+      "file": "atlas-data/f41f72a352e38cf2899bed87ae62a1c062d4f7abbfc16a08aa05b0393bd85c03.json.gz",
+      "pointer": "/validation_signature/environment_key"
+    },
+    {
+      "category": "sensitive_metadata_field",
+      "file": "atlas-data/f4e4ed773ea5663a5cdf7985a7a274426132ee2b9513af98a11cd5b686cfaaa8.json.gz",
+      "pointer": "/validation_signature/environment_key"
+    },
+    {
+      "category": "sensitive_metadata_field",
+      "file": "atlas-data/f6940904ce9fe42f944dc9919ddb5e07bd98c5f465b2148dda845a5acdd17c68.json.gz",
+      "pointer": "/validation_signature/environment_key"
+    },
+    {
+      "category": "sensitive_metadata_field",
+      "file": "atlas-data/f9f97a80a5038798c309555c9fb1f031694d0ef058afc2dd0c4ae921d1c6ec5e.json.gz",
+      "pointer": "/validation_signature/environment_key"
+    },
+    {
+      "category": "sensitive_metadata_field",
+      "file": "atlas-data/fcd1bfb0b8c95905810ff3a381f141813a5c4780c26f798bae1f2ed860b92e8f.json.gz",
+      "pointer": "/validation_signature/environment_key"
+    },
+    {
+      "category": "sensitive_metadata_field",
+      "file": "atlas-data/fecf4531226dbc54a45fce40f323b50df03d6d3ac0143bb46ac45d845ee86a6d.json.gz",
+      "pointer": "/validation_signature/environment_key"
+    },
+    {
+      "category": "sensitive_metadata_field",
+      "file": "atlas-data/ff2f1fc60f40484d2d814d8f1281f7988e522ce682e26dd3f5dda059f39a3d55.json.gz",
+      "pointer": "/validation_signature/environment_key"
+    },
+    {
+      "category": "sensitive_metadata_field",
+      "file": "atlas-data/ffa379e0c25116a101e7332efcab236d2805a2b5deac6f019b23c0d25a419be7.json.gz",
+      "pointer": "/validation_signature/environment_key"
+    }
+  ],
+  "metadata_findings_truncated": false,
+  "scanned_embedded_reports": 125,
+  "scanned_json_files": 252,
+  "status": "publication_review_required",
+  "version": 1
+}

@@ -1,0 +1,367 @@
+{
+  "capture_policy": "explicit-reference-plan-v1",
+  "comparisons": [
+    {
+      "charts": [],
+      "findings": [
+        {
+          "cell": "A1:M22",
+          "geometry_differs": false,
+          "left_geometry": {
+            "height": 348.9375,
+            "left": 0.0,
+            "top": 0.0,
+            "width": 1025.25
+          },
+          "left_png": "evidence/3e74e370b24b45b26fe622129e07526eff0af174ca36e451f6cae219a866dad2.png",
+          "pixels_compared": true,
+          "pixels_differ": true,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 348.9375,
+            "left": 0.0,
+            "top": 0.0,
+            "width": 1025.25
+          },
+          "right_png": "evidence/97f1f71b6c2abbb614c7e00a621ecc3ee16c323eb62a9ffb07a9565f619798c8.png",
+          "sheet": "readme"
+        }
+      ],
+      "label": "Explicit reference after native rebuild",
+      "left": "OR",
+      "right": "SDR",
+      "selected_region_count": 1
+    }
+  ],
+  "equal_image_encoding": {
+    "compression": "unchanged",
+    "format": "source encoding",
+    "pixel_preservation": "original encoded bytes retained",
+    "scope": "explicit preservation requested by source report"
+  },
+  "limitations": [
+    "Post-hoc matched readme!A1:M22 heading band; no recall estimate.",
+    "Supplied reference areas do not establish whole-sheet coverage or selector recall."
+  ],
+  "portable_report": {
+    "diagnostics": {
+      "0:findings:0": {
+        "metrics": {
+          "changed_pixels": 16182,
+          "hotspot_count": 10,
+          "hotspots": [
+            {
+              "delta_sum": 131776,
+              "height": 29,
+              "pixels": 1856,
+              "unpaired": false,
+              "width": 64,
+              "x": 768,
+              "y": 20
+            },
+            {
+              "delta_sum": 131776,
+              "height": 29,
+              "pixels": 1856,
+              "unpaired": false,
+              "width": 64,
+              "x": 832,
+              "y": 20
+            },
+            {
+              "delta_sum": 131776,
+              "height": 29,
+              "pixels": 1856,
+              "unpaired": false,
+              "width": 64,
+              "x": 896,
+              "y": 20
+            },
+            {
+              "delta_sum": 131776,
+              "height": 29,
+              "pixels": 1856,
+              "unpaired": false,
+              "width": 64,
+              "x": 960,
+              "y": 20
+            },
+            {
+              "delta_sum": 131776,
+              "height": 29,
+              "pixels": 1856,
+              "unpaired": false,
+              "width": 64,
+              "x": 1024,
+              "y": 20
+            },
+            {
+              "delta_sum": 131776,
+              "height": 29,
+              "pixels": 1856,
+              "unpaired": false,
+              "width": 64,
+              "x": 1088,
+              "y": 20
+            },
+            {
+              "delta_sum": 131776,
+              "height": 29,
+              "pixels": 1856,
+              "unpaired": false,
+              "width": 64,
+              "x": 1152,
+              "y": 20
+            },
+            {
+              "delta_sum": 131776,
+              "height": 29,
+              "pixels": 1856,
+              "unpaired": false,
+              "width": 64,
+              "x": 1216,
+              "y": 20
+            },
+            {
+              "delta_sum": 53534,
+              "height": 29,
+              "pixels": 754,
+              "unpaired": false,
+              "width": 26,
+              "x": 1280,
+              "y": 20
+            },
+            {
+              "delta_sum": 41180,
+              "height": 29,
+              "pixels": 580,
+              "unpaired": false,
+              "width": 20,
+              "x": 748,
+              "y": 20
+            }
+          ],
+          "left_height": 466,
+          "left_width": 1368,
+          "max_channel_delta": 41,
+          "overlap_height": 466,
+          "overlap_width": 1368,
+          "overlay_url": "evidence/7021c3d577ce266299458cbf4b26c38802e3636060b0c75c49ce1c63bf9446d0.png",
+          "right_height": 466,
+          "right_width": 1368,
+          "total_channel_delta": 1148922,
+          "unmatched_nonwhite_pixels": 0,
+          "unmatched_pixels": 0,
+          "unmeasured_regions": 0
+        }
+      }
+    },
+    "different_regions": 1,
+    "failure": null,
+    "note": "Pixel diagnostics describe retained captures. They do not change the scientific comparison verdict or extend its coverage.",
+    "source_report": null,
+    "version": 1
+  },
+  "preserve_image_encoding": true,
+  "public_presentation": {
+    "meaning": "Derived presentation. Native evidence remains unchanged.",
+    "metadata_omissions": [
+      {
+        "pointer": "/report/portable_report/source_report",
+        "source_value_sha256": "451a884b2f650e04f633bf7eeb85ec438ca310eeca276f3ffca40a7a677cb192"
+      }
+    ],
+    "schema": 1,
+    "source_report_sha256": "9fd9772cbba437f2d9213b5c822869fb783f815eb99f696a1dbcac7b8537108c"
+  },
+  "reference_provenance": {
+    "source_receipt_json": "{\n  \"default_rebuilt_sha256\": \"928257487cfbbff8a9023745c99eee2ab02a4fa49b9d631901a5a985fd68ef44\",\n  \"default_sha256\": \"c66f80cb1b1bb1e3619626a505a5c00a68c54fa18a864a847f899a07abc45a11\",\n  \"elapsed_seconds\": 55.6962546,\n  \"error\": null,\n  \"finished_at\": \"2026-11-10T23:18:43.123985900+00:00\",\n  \"limitations\": [\n    \"Coverage is exactly the supplied areas; the command does not establish their completeness.\",\n    \"Both workbooks are rebuilt and saved in the native renderer before reference captures.\",\n    \"Oversized images and failed commands remain failed reference cases.\"\n  ],\n  \"original_rebuilt_sha256\": \"9679e99db1404c97cc019649457773d1c7d5da2eafc7044d0b434cbf76e4eaee\",\n  \"original_sha256\": \"b3432e99f632ba72533a03c2e77910ff3867f5034b2cbb8f36e1b753ea99f521\",\n  \"plan\": [\n    {\n      \"range\": \"A1:M22\",\n      \"sheet\": \"readme\"\n    }\n  ],\n  \"plan_sha256\": \"0a2d3250d6af86914e300c7677ea6401fd4be28efcc17236eb8aca34d1c3c182\",\n  \"producer_sha256\": \"c301379cc9fcf6315acc3e07f74cd0f969723249ac11c24191514e0a6bdc364c\",\n  \"regions\": [\n    {\n      \"default_geometry\": {\n        \"height\": 348.9375,\n        \"left\": 0.0,\n        \"top\": 0.0,\n        \"width\": 1025.25\n      },\n      \"default_rendered\": true,\n      \"geometry_differs\": false,\n      \"image_dimensions\": [\n        [\n          1368,\n          466\n        ],\n        [\n          1368,\n          466\n        ]\n      ],\n      \"images\": [\n        {\n          \"bytes\": 30378,\n          \"file\": \"reference-0-O.png\",\n          \"sha256\": \"3e74e370b24b45b26fe622129e07526eff0af174ca36e451f6cae219a866dad2\"\n        },\n        {\n          \"bytes\": 30378,\n          \"file\": \"reference-0-SD.png\",\n          \"sha256\": \"97f1f71b6c2abbb614c7e00a621ecc3ee16c323eb62a9ffb07a9565f619798c8\"\n        }\n      ],\n      \"original_geometry\": {\n        \"height\": 348.9375,\n        \"left\": 0.0,\n        \"top\": 0.0,\n        \"width\": 1025.25\n      },\n      \"original_rendered\": true,\n      \"pixels_compared\": true,\n      \"pixels_differ\": true,\n      \"range\": \"A1:M22\",\n      \"rendering_differs\": false,\n      \"sheet\": \"readme\"\n    }\n  ],\n  \"selection\": \"explicit_independent_reference_plan\",\n  \"started_at\": \"2026-11-10T23:17:47.432064900+00:00\",\n  \"status\": \"completed\",\n  \"verify_objects\": false,\n  \"version\": 1\n}",
+    "source_receipt_sha256": "aa35502171bbb587961210242d1c674311a46537346503d909af2c2b4a032614"
+  },
+  "selection": {
+    "kind": "explicit_reference_import",
+    "recall_evidence": false,
+    "scope_note": "Post-hoc matched readme!A1:M22 heading band; no recall estimate."
+  },
+  "status": "completed_with_limitations",
+  "workbook_inventory": {
+    "complete": true,
+    "original_sha256": "b3432e99f632ba72533a03c2e77910ff3867f5034b2cbb8f36e1b753ea99f521",
+    "sheets": [
+      {
+        "id": "21",
+        "name": "Sheet1",
+        "order": 0,
+        "state": "hidden"
+      },
+      {
+        "id": "47",
+        "name": "readme",
+        "order": 1,
+        "state": "visible"
+      },
+      {
+        "id": "20",
+        "name": "definitions",
+        "order": 2,
+        "state": "visible"
+      },
+      {
+        "id": "1",
+        "name": "macro",
+        "order": 3,
+        "state": "visible"
+      },
+      {
+        "id": "22",
+        "name": "output",
+        "order": 4,
+        "state": "visible"
+      },
+      {
+        "id": "5",
+        "name": "price",
+        "order": 5,
+        "state": "visible"
+      },
+      {
+        "id": "28",
+        "name": "cons",
+        "order": 6,
+        "state": "visible"
+      },
+      {
+        "id": "24",
+        "name": "trade",
+        "order": 7,
+        "state": "visible"
+      },
+      {
+        "id": "3",
+        "name": "enprod_btu",
+        "order": 8,
+        "state": "visible"
+      },
+      {
+        "id": "4",
+        "name": "ele_btu",
+        "order": 9,
+        "state": "visible"
+      },
+      {
+        "id": "43",
+        "name": "elesource",
+        "order": 10,
+        "state": "visible"
+      },
+      {
+        "id": "2",
+        "name": "en_btu",
+        "order": 11,
+        "state": "visible"
+      },
+      {
+        "id": "11",
+        "name": "tran_vmt",
+        "order": 12,
+        "state": "visible"
+      },
+      {
+        "id": "27",
+        "name": "tran_vmtV",
+        "order": 13,
+        "state": "visible"
+      },
+      {
+        "id": "12",
+        "name": "tran_valu",
+        "order": 14,
+        "state": "visible"
+      },
+      {
+        "id": "13",
+        "name": "tran_prod_pmt",
+        "order": 15,
+        "state": "visible"
+      },
+      {
+        "id": "14",
+        "name": "tran_prod_tmt",
+        "order": 16,
+        "state": "visible"
+      },
+      {
+        "id": "15",
+        "name": "tran_enbtu",
+        "order": 17,
+        "state": "visible"
+      },
+      {
+        "id": "16",
+        "name": "tran_emis",
+        "order": 18,
+        "state": "visible"
+      },
+      {
+        "id": "17",
+        "name": "tran_mpge",
+        "order": 19,
+        "state": "visible"
+      },
+      {
+        "id": "48",
+        "name": "tran_surratio",
+        "order": 20,
+        "state": "visible"
+      },
+      {
+        "id": "31",
+        "name": "prices_fuel",
+        "order": 21,
+        "state": "visible"
+      },
+      {
+        "id": "33",
+        "name": "OEVshr_btu",
+        "order": 22,
+        "state": "visible"
+      },
+      {
+        "id": "7",
+        "name": "carbemis",
+        "order": 23,
+        "state": "visible"
+      },
+      {
+        "id": "50",
+        "name": "carbemis2",
+        "order": 24,
+        "state": "visible"
+      },
+      {
+        "id": "42",
+        "name": "ghgt",
+        "order": 25,
+        "state": "visible"
+      },
+      {
+        "id": "40",
+        "name": "co2tot_ff",
+        "order": 26,
+        "state": "visible"
+      },
+      {
+        "id": "41",
+        "name": "co2t_ff",
+        "order": 27,
+        "state": "visible"
+      },
+      {
+        "id": "39",
+        "name": "co2elet",
+        "order": 28,
+        "state": "visible"
+      }
+    ]
+  }
+}

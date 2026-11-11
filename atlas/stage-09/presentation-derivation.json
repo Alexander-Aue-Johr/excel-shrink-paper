@@ -1,0 +1,23 @@
+{
+  "schema": 1,
+  "kind": "atlas-presentation-derivation",
+  "source_commit": "133a3db2",
+  "source_catalog_sha256": "033f9b8522abb583c3bb4989bacda5f66c7956773efe5f1357bc564e336384a3",
+  "catalog_sha256": "bf9e11db872ea53b42856f24e65b486902b3570df60902c7da3eb48ca44e9ec8",
+  "unchanged_detail_payloads": 125,
+  "changes": [
+    "Light/dark UI presentation",
+    "Per-sheet planning summaries derived from retained detail reports",
+    "Scoped outcome symbols and conditional-formatting decision badges"
+  ],
+  "publication_authorized_by_user": true,
+  "metadata_check": {
+    "known_private_hostnames_or_user_paths_found": 0,
+    "environment_key_fields": "Retained as previously sanitized by public export"
+  },
+  "limitations": [
+    "Frozen first-stage evidence with incomplete observations",
+    "Causal attribution is unclassified unless reviewed separately",
+    "The static site contains native captures from the selected public corpora"
+  ]
+}

@@ -1,0 +1,3934 @@
+{
+  "candidate_count": 11,
+  "capture_counts": {
+    "OR": 11,
+    "OR:charts": 5,
+    "SDR": 11,
+    "SDR:charts": 5
+  },
+  "capture_partition": "visible-geometry-v2",
+  "capture_policy": "targeted-content-grid-v15",
+  "capture_receipts": [
+    {
+      "at": 1794339876059,
+      "geometry": {
+        "height": 109.5,
+        "left": 1302.75,
+        "top": 390.75,
+        "width": 213
+      },
+      "id": "39447690-3624-4635-a467-99be02752b72",
+      "image": "evidence/cc65cdffd373af6ac82106860fe321cdb135d05790b76097f08cc0bbb24b1ac9.png",
+      "lane": "OR",
+      "range": "Chart: Diagramm 3",
+      "sheet": "Skew3"
+    },
+    {
+      "at": 1794339876151,
+      "geometry": {
+        "height": 95.25,
+        "left": 1302.75,
+        "top": 264,
+        "width": 214.5
+      },
+      "id": "7653a0ba-f590-438e-918d-8c898b7b7bad",
+      "image": "evidence/e3fa5768c21235ddb6544724523db9ebb4e006dcadcea8670087ae313ba00940.png",
+      "lane": "OR",
+      "range": "Chart: Diagramm 4",
+      "sheet": "Skew3"
+    },
+    {
+      "at": 1794339876250,
+      "geometry": {
+        "height": 237,
+        "left": 849.75,
+        "top": 262.5,
+        "width": 362.25
+      },
+      "id": "513a9932-ffc4-48f4-b16d-8d7c769bf0aa",
+      "image": "evidence/a67e41104396b6f75143e8886fdf13f445c14e91fd42526bc03ae0b6aa8d63a8.png",
+      "lane": "OR",
+      "range": "Chart: Diagramm 5",
+      "sheet": "Skew3"
+    },
+    {
+      "at": 1794339876431,
+      "geometry": {
+        "height": 325.5,
+        "left": 0,
+        "top": 0,
+        "width": 686.25
+      },
+      "id": "633f1344-4c02-4b11-b886-c778aef7f880",
+      "image": "evidence/f883e3c090d5583cd5e082482468dcfee83899bb6376ed20e6a2f411cc6c5130.png",
+      "lane": "OR",
+      "range": "Chart: Diagramm 1",
+      "sheet": "Sheet1"
+    },
+    {
+      "at": 1794339876542,
+      "geometry": {
+        "height": 360.75,
+        "left": 967.5,
+        "top": 252.75,
+        "width": 462
+      },
+      "id": "43bfacce-bd30-4f91-96a0-61c1b6138956",
+      "image": "evidence/16e2bcc9c83a26b8467a06c57001bfc96febba2adc770fedf52f0612221119d6.png",
+      "lane": "OR",
+      "range": "Chart: Diagramm 1",
+      "sheet": "Front"
+    },
+    {
+      "at": 1794339877879,
+      "geometry": {
+        "comparison_core": {
+          "height": 3038.25,
+          "left": 0.0,
+          "top": 0.0,
+          "width": 1828.5
+        },
+        "height": 3038.25,
+        "left": 0.0,
+        "top": 0.0,
+        "width": 1876.5
+      },
+      "id": "e19262b3-e5c7-44db-a4e6-9e2eeb9ab9db",
+      "image": "evidence/f1f58ae282015938e158cdb7e4b1dec7893e6443387c1ba168e25a112d82424f.png",
+      "lane": "OR",
+      "range": "A1:AM231",
+      "sheet": "Front"
+    },
+    {
+      "at": 1794339878444,
+      "geometry": {
+        "comparison_core": {
+          "height": 2959.5,
+          "left": 0.0,
+          "top": 3038.25,
+          "width": 1828.5
+        },
+        "height": 2959.5,
+        "left": 0.0,
+        "top": 3038.25,
+        "width": 1876.5
+      },
+      "id": "6480512f-2fc0-44b3-9f59-70e1370ee1c8",
+      "image": "evidence/9a4eb6e716870bf4f2aab4bf5c214cba5257f9877aba32a9bad62118d96ed512.png",
+      "lane": "OR",
+      "range": "A232:AM463",
+      "sheet": "Front"
+    },
+    {
+      "at": 1794339878724,
+      "geometry": {
+        "comparison_core": {
+          "height": 7828.5,
+          "left": 0.0,
+          "top": 15975.75,
+          "width": 725.25
+        },
+        "height": 7828.5,
+        "left": 0.0,
+        "top": 15975.75,
+        "width": 725.25
+      },
+      "id": "75c107a9-fe20-4bc0-b192-c9ce73b16b06",
+      "image": "evidence/922a963eaf4dd4a51fc9c0d6abd63fd2f90e11e700620f5d5cc155692e40aaed.png",
+      "lane": "OR",
+      "range": "A1254:P1867",
+      "sheet": "Opt"
+    },
+    {
+      "at": 1794339879080,
+      "geometry": {
+        "comparison_core": {
+          "height": 7828.5,
+          "left": 0.0,
+          "top": 23804.25,
+          "width": 725.25
+        },
+        "height": 7828.5,
+        "left": 0.0,
+        "top": 23804.25,
+        "width": 725.25
+      },
+      "id": "faff925e-84cf-4f1c-b2ff-17f9f783983a",
+      "image": "evidence/922a963eaf4dd4a51fc9c0d6abd63fd2f90e11e700620f5d5cc155692e40aaed.png",
+      "lane": "OR",
+      "range": "A1868:P2481",
+      "sheet": "Opt"
+    },
+    {
+      "at": 1794339879531,
+      "geometry": {
+        "comparison_core": {
+          "height": 1632.0,
+          "left": 0.0,
+          "top": 3264.0,
+          "width": 1720.5
+        },
+        "height": 1632.0,
+        "left": 0.0,
+        "top": 3264.0,
+        "width": 1768.5
+      },
+      "id": "d4f92edf-89bd-4128-a0c1-e75ded4e0be4",
+      "image": "evidence/ddc41b9fcbc650253edaac69f68db045d4bc6a4f828084b59e0e548c6c53d869.png",
+      "lane": "OR",
+      "range": "A257:AL384",
+      "sheet": "Opt"
+    },
+    {
+      "at": 1794339879531,
+      "geometry": {
+        "comparison_core": {
+          "height": 3264.0,
+          "left": 0.0,
+          "top": 4896.0,
+          "width": 1480.5
+        },
+        "height": 3264.0,
+        "left": 0.0,
+        "top": 4896.0,
+        "width": 1480.5
+      },
+      "id": "56c71aa2-1513-4077-af76-5e188798855c",
+      "image": "evidence/74ba307683f7f8ff94fe3df78009ec1d8b18fa8a200c9e06aa0bce9a0ece6fb4.png",
+      "lane": "OR",
+      "range": "A385:AF640",
+      "sheet": "Opt"
+    },
+    {
+      "at": 1794339879849,
+      "geometry": {
+        "comparison_core": {
+          "height": 7815.75,
+          "left": 0.0,
+          "top": 8160.0,
+          "width": 725.25
+        },
+        "height": 7815.75,
+        "left": 0.0,
+        "top": 8160.0,
+        "width": 725.25
+      },
+      "id": "6a8a4ea3-276b-4b3f-8605-ecdf57432575",
+      "image": "evidence/5c11cac6617c2d865d74233cba267cadfaad7bfe085370263d0d2a83dc143676.png",
+      "lane": "OR",
+      "range": "A641:P1253",
+      "sheet": "Opt"
+    },
+    {
+      "at": 1794339879849,
+      "geometry": {
+        "comparison_core": {
+          "height": 3264.0,
+          "left": 1480.5,
+          "top": 0.0,
+          "width": 240.0
+        },
+        "height": 3264.0,
+        "left": 1480.5,
+        "top": 0.0,
+        "width": 288.0
+      },
+      "id": "ede8f432-a6c8-472b-9057-0a7f22bf1e6a",
+      "image": "evidence/5708158d4488465945906afef24ab03a1958508867eb50cdbeb1f35702074cc8.png",
+      "lane": "OR",
+      "range": "AG1:AL256",
+      "sheet": "Opt"
+    },
+    {
+      "at": 1794339880017,
+      "geometry": {
+        "comparison_core": {
+          "height": 1572.75,
+          "left": 0.0,
+          "top": 0.0,
+          "width": 1219.5
+        },
+        "height": 1572.75,
+        "left": 0.0,
+        "top": 0.0,
+        "width": 1267.5
+      },
+      "id": "6b6134e1-e297-49fa-bbca-30c2e02d822d",
+      "image": "evidence/6aa74778955b1409e2a8f941b2ddfa8273800729d377fc956b851e4a136afecc.png",
+      "lane": "OR",
+      "range": "A1:AG123",
+      "sheet": "Skew3"
+    },
+    {
+      "at": 1794339880103,
+      "geometry": {
+        "comparison_core": {
+          "height": 387.75,
+          "left": 0.0,
+          "top": 0.0,
+          "width": 438.0
+        },
+        "height": 387.75,
+        "left": 0.0,
+        "top": 0.0,
+        "width": 486.0
+      },
+      "id": "750125ae-5c19-46e0-adcb-afaa872253f6",
+      "image": "evidence/a1e601a85e7f41e19a7843bfdabf482c52ba747366df1fd213f236fb46c43fb5.png",
+      "lane": "OR",
+      "range": "A1:J30",
+      "sheet": "Swaption"
+    },
+    {
+      "at": 1794339880188,
+      "geometry": {
+        "comparison_core": {
+          "height": 153.0,
+          "left": 0.0,
+          "top": 25.5,
+          "width": 118.5
+        },
+        "height": 165.75,
+        "left": 0.0,
+        "top": 12.75,
+        "width": 143.25
+      },
+      "id": "2d5bcafa-4f0d-410f-ab77-cdcbdd23f371",
+      "image": "evidence/c2547fa87726ff82b6a13011048c0849beb563d2934053f42ff7110b566ddf90.png",
+      "lane": "OR",
+      "range": "A2:C14",
+      "sheet": "phone"
+    },
+    {
+      "at": 1794339876658,
+      "geometry": {
+        "height": 109.5,
+        "left": 1302.75,
+        "top": 390.75,
+        "width": 213
+      },
+      "id": "62a6bc82-de81-4785-bde3-74a66623239d",
+      "image": "evidence/0877abff02069b3bff943e0f059cd19fee7237c27f8434e66bc4abdd7f3fcf59.png",
+      "lane": "SDR",
+      "range": "Chart: Diagramm 3",
+      "sheet": "Skew3"
+    },
+    {
+      "at": 1794339876752,
+      "geometry": {
+        "height": 95.25,
+        "left": 1302.75,
+        "top": 264,
+        "width": 214.5
+      },
+      "id": "23c67489-aa6b-4db1-b2b1-753d6d92d4d5",
+      "image": "evidence/e3fa5768c21235ddb6544724523db9ebb4e006dcadcea8670087ae313ba00940.png",
+      "lane": "SDR",
+      "range": "Chart: Diagramm 4",
+      "sheet": "Skew3"
+    },
+    {
+      "at": 1794339876861,
+      "geometry": {
+        "height": 237,
+        "left": 849.75,
+        "top": 262.5,
+        "width": 362.25
+      },
+      "id": "29346479-85a9-4e7c-b1d7-4bb25eae5faf",
+      "image": "evidence/a67e41104396b6f75143e8886fdf13f445c14e91fd42526bc03ae0b6aa8d63a8.png",
+      "lane": "SDR",
+      "range": "Chart: Diagramm 5",
+      "sheet": "Skew3"
+    },
+    {
+      "at": 1794339877054,
+      "geometry": {
+        "height": 325.5,
+        "left": 0,
+        "top": 0,
+        "width": 686.25
+      },
+      "id": "ecc8bbc0-dfb0-44c3-a8ff-1d171aee8a79",
+      "image": "evidence/23d7dbcacdfee12fb9af657ea5a573c6b989534838a28498cd74857a275c2f2f.png",
+      "lane": "SDR",
+      "range": "Chart: Diagramm 1",
+      "sheet": "Sheet1"
+    },
+    {
+      "at": 1794339877170,
+      "geometry": {
+        "height": 360.75,
+        "left": 967.5,
+        "top": 258,
+        "width": 462
+      },
+      "id": "3ffee1b2-c480-40b5-8cf9-a07be2eee27c",
+      "image": "evidence/1c01622053521df447775a0e9dd919049a36cead9f8c4dd12da6eabc789d2834.png",
+      "lane": "SDR",
+      "range": "Chart: Diagramm 1",
+      "sheet": "Front"
+    },
+    {
+      "at": 1794339877879,
+      "geometry": {
+        "comparison_core": {
+          "height": 3043.5,
+          "left": 0.0,
+          "top": 0.0,
+          "width": 1828.5
+        },
+        "height": 3043.5,
+        "left": 0.0,
+        "top": 0.0,
+        "width": 1876.5
+      },
+      "id": "5b45d3c5-5505-411f-bac3-2df9b78878a8",
+      "image": "evidence/9b851c756c6df0fa280df1f4841fc5f4dbcc279d0cf617dbbc515913527abea6.png",
+      "lane": "SDR",
+      "range": "A1:AM231",
+      "sheet": "Front"
+    },
+    {
+      "at": 1794339878444,
+      "geometry": {
+        "comparison_core": {
+          "height": 2959.5,
+          "left": 0.0,
+          "top": 3043.5,
+          "width": 1828.5
+        },
+        "height": 2959.5,
+        "left": 0.0,
+        "top": 3043.5,
+        "width": 1876.5
+      },
+      "id": "5c2c2f9c-e9a5-4f16-a57a-bbdf991b4ab1",
+      "image": "evidence/e0ceba7dcbae6f167c32325306d85457879b7f990504231689cb75cec338bd15.png",
+      "lane": "SDR",
+      "range": "A232:AM463",
+      "sheet": "Front"
+    },
+    {
+      "at": 1794339878724,
+      "geometry": {
+        "comparison_core": {
+          "height": 7828.5,
+          "left": 0.0,
+          "top": 15975.75,
+          "width": 725.25
+        },
+        "height": 7828.5,
+        "left": 0.0,
+        "top": 15975.75,
+        "width": 725.25
+      },
+      "id": "7cc02f46-e77a-4a37-9f01-b9d4b029bbad",
+      "image": "evidence/922a963eaf4dd4a51fc9c0d6abd63fd2f90e11e700620f5d5cc155692e40aaed.png",
+      "lane": "SDR",
+      "range": "A1254:P1867",
+      "sheet": "Opt"
+    },
+    {
+      "at": 1794339879080,
+      "geometry": {
+        "comparison_core": {
+          "height": 7828.5,
+          "left": 0.0,
+          "top": 23804.25,
+          "width": 725.25
+        },
+        "height": 7828.5,
+        "left": 0.0,
+        "top": 23804.25,
+        "width": 725.25
+      },
+      "id": "d807a96d-ed8c-4e0c-ae5b-6a65a32bfac8",
+      "image": "evidence/922a963eaf4dd4a51fc9c0d6abd63fd2f90e11e700620f5d5cc155692e40aaed.png",
+      "lane": "SDR",
+      "range": "A1868:P2481",
+      "sheet": "Opt"
+    },
+    {
+      "at": 1794339879531,
+      "geometry": {
+        "comparison_core": {
+          "height": 1632.0,
+          "left": 0.0,
+          "top": 3264.0,
+          "width": 1720.5
+        },
+        "height": 1632.0,
+        "left": 0.0,
+        "top": 3264.0,
+        "width": 1768.5
+      },
+      "id": "bd269482-3ba2-4138-b48a-3cbbb5fa3c2b",
+      "image": "evidence/ddc41b9fcbc650253edaac69f68db045d4bc6a4f828084b59e0e548c6c53d869.png",
+      "lane": "SDR",
+      "range": "A257:AL384",
+      "sheet": "Opt"
+    },
+    {
+      "at": 1794339879531,
+      "geometry": {
+        "comparison_core": {
+          "height": 3264.0,
+          "left": 0.0,
+          "top": 4896.0,
+          "width": 1480.5
+        },
+        "height": 3264.0,
+        "left": 0.0,
+        "top": 4896.0,
+        "width": 1480.5
+      },
+      "id": "7b40086b-d75c-4fd3-912d-d59ecb107eda",
+      "image": "evidence/74ba307683f7f8ff94fe3df78009ec1d8b18fa8a200c9e06aa0bce9a0ece6fb4.png",
+      "lane": "SDR",
+      "range": "A385:AF640",
+      "sheet": "Opt"
+    },
+    {
+      "at": 1794339879849,
+      "geometry": {
+        "comparison_core": {
+          "height": 7815.75,
+          "left": 0.0,
+          "top": 8160.0,
+          "width": 725.25
+        },
+        "height": 7815.75,
+        "left": 0.0,
+        "top": 8160.0,
+        "width": 725.25
+      },
+      "id": "3797e9d0-f97b-4355-9877-0811ef4fa129",
+      "image": "evidence/5c11cac6617c2d865d74233cba267cadfaad7bfe085370263d0d2a83dc143676.png",
+      "lane": "SDR",
+      "range": "A641:P1253",
+      "sheet": "Opt"
+    },
+    {
+      "at": 1794339879849,
+      "geometry": {
+        "comparison_core": {
+          "height": 3264.0,
+          "left": 1480.5,
+          "top": 0.0,
+          "width": 240.0
+        },
+        "height": 3264.0,
+        "left": 1480.5,
+        "top": 0.0,
+        "width": 288.0
+      },
+      "id": "4b8aaa32-fdea-4471-b028-331c5655a256",
+      "image": "evidence/5708158d4488465945906afef24ab03a1958508867eb50cdbeb1f35702074cc8.png",
+      "lane": "SDR",
+      "range": "AG1:AL256",
+      "sheet": "Opt"
+    },
+    {
+      "at": 1794339880017,
+      "geometry": {
+        "comparison_core": {
+          "height": 1572.0,
+          "left": 0.0,
+          "top": 0.0,
+          "width": 1219.5
+        },
+        "height": 1572.0,
+        "left": 0.0,
+        "top": 0.0,
+        "width": 1267.5
+      },
+      "id": "36cea66d-755f-4a0f-8e57-2da90f8d27e3",
+      "image": "evidence/d38ac41805b8a3718a72b72130f0ee52ed372080110cd7480711e446617f2864.png",
+      "lane": "SDR",
+      "range": "A1:AG123",
+      "sheet": "Skew3"
+    },
+    {
+      "at": 1794339880103,
+      "geometry": {
+        "comparison_core": {
+          "height": 387.75,
+          "left": 0.0,
+          "top": 0.0,
+          "width": 438.0
+        },
+        "height": 387.75,
+        "left": 0.0,
+        "top": 0.0,
+        "width": 486.0
+      },
+      "id": "00bdfd4d-b992-48b9-b004-8d4655e252a5",
+      "image": "evidence/a1e601a85e7f41e19a7843bfdabf482c52ba747366df1fd213f236fb46c43fb5.png",
+      "lane": "SDR",
+      "range": "A1:J30",
+      "sheet": "Swaption"
+    },
+    {
+      "at": 1794339880188,
+      "geometry": {
+        "comparison_core": {
+          "height": 153.0,
+          "left": 0.0,
+          "top": 25.5,
+          "width": 118.5
+        },
+        "height": 165.75,
+        "left": 0.0,
+        "top": 12.75,
+        "width": 143.25
+      },
+      "id": "ee95dcc9-4d93-4c6e-a6f4-18a9ab08b8cb",
+      "image": "evidence/c2547fa87726ff82b6a13011048c0849beb563d2934053f42ff7110b566ddf90.png",
+      "lane": "SDR",
+      "range": "A2:C14",
+      "sheet": "phone"
+    }
+  ],
+  "chart_capture_mode": "deterministic",
+  "chart_dependencies": [
+    {
+      "decisions": [
+        {
+          "chart": {
+            "index": 0,
+            "kind": "embedded",
+            "name": "Diagramm 3",
+            "sheet": "Skew3"
+          },
+          "reason": "Unsupported chart package dependency: xl/ctrlProps/ctrlProp1.xml",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 1,
+            "kind": "embedded",
+            "name": "Diagramm 4",
+            "sheet": "Skew3"
+          },
+          "reason": "Unsupported chart package dependency: xl/ctrlProps/ctrlProp1.xml",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 2,
+            "kind": "embedded",
+            "name": "Diagramm 5",
+            "sheet": "Skew3"
+          },
+          "reason": "Unsupported chart package dependency: xl/ctrlProps/ctrlProp1.xml",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 0,
+            "kind": "embedded",
+            "name": "Diagramm 1",
+            "sheet": "Sheet1"
+          },
+          "reason": "Unsupported chart package dependency: xl/ctrlProps/ctrlProp1.xml",
+          "references": 0,
+          "unchanged": false
+        },
+        {
+          "chart": {
+            "index": 0,
+            "kind": "embedded",
+            "name": "Diagramm 1",
+            "sheet": "Front"
+          },
+          "reason": "Unsupported chart package dependency: xl/ctrlProps/ctrlProp1.xml",
+          "references": 0,
+          "unchanged": false
+        }
+      ],
+      "left": "OR",
+      "mode": "deterministic",
+      "right": "SDR"
+    }
+  ],
+  "check_performance": "not_requested",
+  "check_performance_cache": null,
+  "check_performance_evidence": null,
+  "comparisons": [
+    {
+      "charts": [
+        {
+          "chart": "Diagramm 1",
+          "chart_index": 0,
+          "dependencies_unchanged": false,
+          "geometry_differs": true,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 360.75,
+            "left": 967.5,
+            "top": 252.75,
+            "width": 462
+          },
+          "left_image": "evidence/16e2bcc9c83a26b8467a06c57001bfc96febba2adc770fedf52f0612221119d6.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": true,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 360.75,
+            "left": 967.5,
+            "top": 258,
+            "width": 462
+          },
+          "right_image": "evidence/1c01622053521df447775a0e9dd919049a36cead9f8c4dd12da6eabc789d2834.png",
+          "right_rendering": "captured",
+          "sheet": "Front"
+        },
+        {
+          "chart": "Diagramm 1",
+          "chart_index": 0,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 325.5,
+            "left": 0,
+            "top": 0,
+            "width": 686.25
+          },
+          "left_image": "evidence/f883e3c090d5583cd5e082482468dcfee83899bb6376ed20e6a2f411cc6c5130.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": true,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 325.5,
+            "left": 0,
+            "top": 0,
+            "width": 686.25
+          },
+          "right_image": "evidence/23d7dbcacdfee12fb9af657ea5a573c6b989534838a28498cd74857a275c2f2f.png",
+          "right_rendering": "captured",
+          "sheet": "Sheet1"
+        },
+        {
+          "chart": "Diagramm 3",
+          "chart_index": 0,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 109.5,
+            "left": 1302.75,
+            "top": 390.75,
+            "width": 213
+          },
+          "left_image": "evidence/cc65cdffd373af6ac82106860fe321cdb135d05790b76097f08cc0bbb24b1ac9.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": true,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 109.5,
+            "left": 1302.75,
+            "top": 390.75,
+            "width": 213
+          },
+          "right_image": "evidence/0877abff02069b3bff943e0f059cd19fee7237c27f8434e66bc4abdd7f3fcf59.png",
+          "right_rendering": "captured",
+          "sheet": "Skew3"
+        },
+        {
+          "chart": "Diagramm 4",
+          "chart_index": 1,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 95.25,
+            "left": 1302.75,
+            "top": 264,
+            "width": 214.5
+          },
+          "left_image": "evidence/e3fa5768c21235ddb6544724523db9ebb4e006dcadcea8670087ae313ba00940.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 95.25,
+            "left": 1302.75,
+            "top": 264,
+            "width": 214.5
+          },
+          "right_image": "evidence/e3fa5768c21235ddb6544724523db9ebb4e006dcadcea8670087ae313ba00940.png",
+          "right_rendering": "captured",
+          "sheet": "Skew3"
+        },
+        {
+          "chart": "Diagramm 5",
+          "chart_index": 2,
+          "dependencies_unchanged": false,
+          "geometry_differs": false,
+          "kind": "embedded",
+          "left_geometry": {
+            "height": 237,
+            "left": 849.75,
+            "top": 262.5,
+            "width": 362.25
+          },
+          "left_image": "evidence/a67e41104396b6f75143e8886fdf13f445c14e91fd42526bc03ae0b6aa8d63a8.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "presence_differs": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 237,
+            "left": 849.75,
+            "top": 262.5,
+            "width": 362.25
+          },
+          "right_image": "evidence/a67e41104396b6f75143e8886fdf13f445c14e91fd42526bc03ae0b6aa8d63a8.png",
+          "right_rendering": "captured",
+          "sheet": "Skew3"
+        }
+      ],
+      "findings": [
+        {
+          "blank_margin_ignored": false,
+          "capture_extent_ignored": true,
+          "cell": "A1:AM231",
+          "geometry_differs": false,
+          "left_geometry": {
+            "comparison_core": {
+              "height": 3038.25,
+              "left": 0.0,
+              "top": 0.0,
+              "width": 1828.5
+            },
+            "height": 3038.25,
+            "left": 0.0,
+            "top": 0.0,
+            "width": 1876.5
+          },
+          "left_png": "evidence/f1f58ae282015938e158cdb7e4b1dec7893e6443387c1ba168e25a112d82424f.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": true,
+          "rendering_differs": false,
+          "right_geometry": {
+            "comparison_core": {
+              "height": 3043.5,
+              "left": 0.0,
+              "top": 0.0,
+              "width": 1828.5
+            },
+            "height": 3043.5,
+            "left": 0.0,
+            "top": 0.0,
+            "width": 1876.5
+          },
+          "right_png": "evidence/9b851c756c6df0fa280df1f4841fc5f4dbcc279d0cf617dbbc515913527abea6.png",
+          "right_rendering": "captured",
+          "sheet": "Front"
+        },
+        {
+          "blank_margin_ignored": false,
+          "capture_extent_ignored": false,
+          "cell": "A232:AM463",
+          "geometry_differs": true,
+          "left_geometry": {
+            "comparison_core": {
+              "height": 2959.5,
+              "left": 0.0,
+              "top": 3038.25,
+              "width": 1828.5
+            },
+            "height": 2959.5,
+            "left": 0.0,
+            "top": 3038.25,
+            "width": 1876.5
+          },
+          "left_png": "evidence/9a4eb6e716870bf4f2aab4bf5c214cba5257f9877aba32a9bad62118d96ed512.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": true,
+          "rendering_differs": false,
+          "right_geometry": {
+            "comparison_core": {
+              "height": 2959.5,
+              "left": 0.0,
+              "top": 3043.5,
+              "width": 1828.5
+            },
+            "height": 2959.5,
+            "left": 0.0,
+            "top": 3043.5,
+            "width": 1876.5
+          },
+          "right_png": "evidence/e0ceba7dcbae6f167c32325306d85457879b7f990504231689cb75cec338bd15.png",
+          "right_rendering": "captured",
+          "sheet": "Front"
+        },
+        {
+          "blank_margin_ignored": false,
+          "capture_extent_ignored": false,
+          "cell": "A1254:P1867",
+          "geometry_differs": false,
+          "left_geometry": {
+            "comparison_core": {
+              "height": 7828.5,
+              "left": 0.0,
+              "top": 15975.75,
+              "width": 725.25
+            },
+            "height": 7828.5,
+            "left": 0.0,
+            "top": 15975.75,
+            "width": 725.25
+          },
+          "left_png": "evidence/922a963eaf4dd4a51fc9c0d6abd63fd2f90e11e700620f5d5cc155692e40aaed.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "comparison_core": {
+              "height": 7828.5,
+              "left": 0.0,
+              "top": 15975.75,
+              "width": 725.25
+            },
+            "height": 7828.5,
+            "left": 0.0,
+            "top": 15975.75,
+            "width": 725.25
+          },
+          "right_png": "evidence/922a963eaf4dd4a51fc9c0d6abd63fd2f90e11e700620f5d5cc155692e40aaed.png",
+          "right_rendering": "captured",
+          "sheet": "Opt"
+        },
+        {
+          "blank_margin_ignored": false,
+          "capture_extent_ignored": false,
+          "cell": "A1868:P2481",
+          "geometry_differs": false,
+          "left_geometry": {
+            "comparison_core": {
+              "height": 7828.5,
+              "left": 0.0,
+              "top": 23804.25,
+              "width": 725.25
+            },
+            "height": 7828.5,
+            "left": 0.0,
+            "top": 23804.25,
+            "width": 725.25
+          },
+          "left_png": "evidence/922a963eaf4dd4a51fc9c0d6abd63fd2f90e11e700620f5d5cc155692e40aaed.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "comparison_core": {
+              "height": 7828.5,
+              "left": 0.0,
+              "top": 23804.25,
+              "width": 725.25
+            },
+            "height": 7828.5,
+            "left": 0.0,
+            "top": 23804.25,
+            "width": 725.25
+          },
+          "right_png": "evidence/922a963eaf4dd4a51fc9c0d6abd63fd2f90e11e700620f5d5cc155692e40aaed.png",
+          "right_rendering": "captured",
+          "sheet": "Opt"
+        },
+        {
+          "blank_margin_ignored": false,
+          "capture_extent_ignored": false,
+          "cell": "A257:AL384",
+          "geometry_differs": false,
+          "left_geometry": {
+            "comparison_core": {
+              "height": 1632.0,
+              "left": 0.0,
+              "top": 3264.0,
+              "width": 1720.5
+            },
+            "height": 1632.0,
+            "left": 0.0,
+            "top": 3264.0,
+            "width": 1768.5
+          },
+          "left_png": "evidence/ddc41b9fcbc650253edaac69f68db045d4bc6a4f828084b59e0e548c6c53d869.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "comparison_core": {
+              "height": 1632.0,
+              "left": 0.0,
+              "top": 3264.0,
+              "width": 1720.5
+            },
+            "height": 1632.0,
+            "left": 0.0,
+            "top": 3264.0,
+            "width": 1768.5
+          },
+          "right_png": "evidence/ddc41b9fcbc650253edaac69f68db045d4bc6a4f828084b59e0e548c6c53d869.png",
+          "right_rendering": "captured",
+          "sheet": "Opt"
+        },
+        {
+          "blank_margin_ignored": false,
+          "capture_extent_ignored": false,
+          "cell": "A385:AF640",
+          "geometry_differs": false,
+          "left_geometry": {
+            "comparison_core": {
+              "height": 3264.0,
+              "left": 0.0,
+              "top": 4896.0,
+              "width": 1480.5
+            },
+            "height": 3264.0,
+            "left": 0.0,
+            "top": 4896.0,
+            "width": 1480.5
+          },
+          "left_png": "evidence/74ba307683f7f8ff94fe3df78009ec1d8b18fa8a200c9e06aa0bce9a0ece6fb4.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "comparison_core": {
+              "height": 3264.0,
+              "left": 0.0,
+              "top": 4896.0,
+              "width": 1480.5
+            },
+            "height": 3264.0,
+            "left": 0.0,
+            "top": 4896.0,
+            "width": 1480.5
+          },
+          "right_png": "evidence/74ba307683f7f8ff94fe3df78009ec1d8b18fa8a200c9e06aa0bce9a0ece6fb4.png",
+          "right_rendering": "captured",
+          "sheet": "Opt"
+        },
+        {
+          "blank_margin_ignored": false,
+          "capture_extent_ignored": false,
+          "cell": "A641:P1253",
+          "geometry_differs": false,
+          "left_geometry": {
+            "comparison_core": {
+              "height": 7815.75,
+              "left": 0.0,
+              "top": 8160.0,
+              "width": 725.25
+            },
+            "height": 7815.75,
+            "left": 0.0,
+            "top": 8160.0,
+            "width": 725.25
+          },
+          "left_png": "evidence/5c11cac6617c2d865d74233cba267cadfaad7bfe085370263d0d2a83dc143676.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "comparison_core": {
+              "height": 7815.75,
+              "left": 0.0,
+              "top": 8160.0,
+              "width": 725.25
+            },
+            "height": 7815.75,
+            "left": 0.0,
+            "top": 8160.0,
+            "width": 725.25
+          },
+          "right_png": "evidence/5c11cac6617c2d865d74233cba267cadfaad7bfe085370263d0d2a83dc143676.png",
+          "right_rendering": "captured",
+          "sheet": "Opt"
+        },
+        {
+          "blank_margin_ignored": false,
+          "capture_extent_ignored": false,
+          "cell": "AG1:AL256",
+          "geometry_differs": false,
+          "left_geometry": {
+            "comparison_core": {
+              "height": 3264.0,
+              "left": 1480.5,
+              "top": 0.0,
+              "width": 240.0
+            },
+            "height": 3264.0,
+            "left": 1480.5,
+            "top": 0.0,
+            "width": 288.0
+          },
+          "left_png": "evidence/5708158d4488465945906afef24ab03a1958508867eb50cdbeb1f35702074cc8.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "comparison_core": {
+              "height": 3264.0,
+              "left": 1480.5,
+              "top": 0.0,
+              "width": 240.0
+            },
+            "height": 3264.0,
+            "left": 1480.5,
+            "top": 0.0,
+            "width": 288.0
+          },
+          "right_png": "evidence/5708158d4488465945906afef24ab03a1958508867eb50cdbeb1f35702074cc8.png",
+          "right_rendering": "captured",
+          "sheet": "Opt"
+        },
+        {
+          "blank_margin_ignored": false,
+          "capture_extent_ignored": true,
+          "cell": "A1:AG123",
+          "geometry_differs": false,
+          "left_geometry": {
+            "comparison_core": {
+              "height": 1572.75,
+              "left": 0.0,
+              "top": 0.0,
+              "width": 1219.5
+            },
+            "height": 1572.75,
+            "left": 0.0,
+            "top": 0.0,
+            "width": 1267.5
+          },
+          "left_png": "evidence/6aa74778955b1409e2a8f941b2ddfa8273800729d377fc956b851e4a136afecc.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": true,
+          "rendering_differs": false,
+          "right_geometry": {
+            "comparison_core": {
+              "height": 1572.0,
+              "left": 0.0,
+              "top": 0.0,
+              "width": 1219.5
+            },
+            "height": 1572.0,
+            "left": 0.0,
+            "top": 0.0,
+            "width": 1267.5
+          },
+          "right_png": "evidence/d38ac41805b8a3718a72b72130f0ee52ed372080110cd7480711e446617f2864.png",
+          "right_rendering": "captured",
+          "sheet": "Skew3"
+        },
+        {
+          "blank_margin_ignored": false,
+          "capture_extent_ignored": false,
+          "cell": "A1:J30",
+          "geometry_differs": false,
+          "left_geometry": {
+            "comparison_core": {
+              "height": 387.75,
+              "left": 0.0,
+              "top": 0.0,
+              "width": 438.0
+            },
+            "height": 387.75,
+            "left": 0.0,
+            "top": 0.0,
+            "width": 486.0
+          },
+          "left_png": "evidence/a1e601a85e7f41e19a7843bfdabf482c52ba747366df1fd213f236fb46c43fb5.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "comparison_core": {
+              "height": 387.75,
+              "left": 0.0,
+              "top": 0.0,
+              "width": 438.0
+            },
+            "height": 387.75,
+            "left": 0.0,
+            "top": 0.0,
+            "width": 486.0
+          },
+          "right_png": "evidence/a1e601a85e7f41e19a7843bfdabf482c52ba747366df1fd213f236fb46c43fb5.png",
+          "right_rendering": "captured",
+          "sheet": "Swaption"
+        },
+        {
+          "blank_margin_ignored": false,
+          "capture_extent_ignored": false,
+          "cell": "A2:C14",
+          "geometry_differs": false,
+          "left_geometry": {
+            "comparison_core": {
+              "height": 153.0,
+              "left": 0.0,
+              "top": 25.5,
+              "width": 118.5
+            },
+            "height": 165.75,
+            "left": 0.0,
+            "top": 12.75,
+            "width": 143.25
+          },
+          "left_png": "evidence/c2547fa87726ff82b6a13011048c0849beb563d2934053f42ff7110b566ddf90.png",
+          "left_rendering": "captured",
+          "pixels_compared": true,
+          "pixels_differ": false,
+          "rendering_differs": false,
+          "right_geometry": {
+            "comparison_core": {
+              "height": 153.0,
+              "left": 0.0,
+              "top": 25.5,
+              "width": 118.5
+            },
+            "height": 165.75,
+            "left": 0.0,
+            "top": 12.75,
+            "width": 143.25
+          },
+          "right_png": "evidence/c2547fa87726ff82b6a13011048c0849beb563d2934053f42ff7110b566ddf90.png",
+          "right_rendering": "captured",
+          "sheet": "phone"
+        }
+      ],
+      "label": "both rebuilt Default",
+      "left": "OR",
+      "right": "SDR",
+      "selected_region_count": 11
+    }
+  ],
+  "conditional_formatting": [
+    {
+      "decisions": [
+        {
+          "block_index": 0,
+          "catalogue_side": "both",
+          "changed_inputs": 0,
+          "comparison_extent": {
+            "bottom": 463,
+            "left": 1,
+            "right": 38,
+            "top": 1
+          },
+          "formula_input_observations": 0,
+          "layout_rows": 0,
+          "outcome": "capture",
+          "reason": "worksheet-layout-context-changed",
+          "referenced_formula_observations": 0,
+          "referenced_input_changes": 0,
+          "sheet": "Front",
+          "sqref": "D5"
+        },
+        {
+          "block_index": 1,
+          "catalogue_side": "both",
+          "changed_inputs": 0,
+          "comparison_extent": {
+            "bottom": 463,
+            "left": 1,
+            "right": 38,
+            "top": 1
+          },
+          "formula_input_observations": 0,
+          "layout_rows": 0,
+          "outcome": "capture",
+          "reason": "worksheet-layout-context-changed",
+          "referenced_formula_observations": 0,
+          "referenced_input_changes": 0,
+          "sheet": "Front",
+          "sqref": "E11"
+        },
+        {
+          "block_index": 2,
+          "catalogue_side": "both",
+          "changed_inputs": 0,
+          "comparison_extent": {
+            "bottom": 463,
+            "left": 1,
+            "right": 38,
+            "top": 1
+          },
+          "formula_input_observations": 0,
+          "layout_rows": 0,
+          "outcome": "capture",
+          "reason": "worksheet-layout-context-changed",
+          "referenced_formula_observations": 0,
+          "referenced_input_changes": 0,
+          "sheet": "Front",
+          "sqref": "E12"
+        }
+      ],
+      "left": "OR",
+      "right": "SDR"
+    }
+  ],
+  "content_coverage": [
+    {
+      "background_tail_sampling": false,
+      "cf_blank_tail_excluded": false,
+      "clipped_to_content": 38,
+      "content_envelope_with_one_cell_margin": {
+        "bottom": 463,
+        "left": 1,
+        "right": 39,
+        "top": 1
+      },
+      "reason": "outside-content-envelope",
+      "requested_candidates": 11524,
+      "selected_capture_regions": 2,
+      "selected_grid_tiles": 12,
+      "sheet": "Front",
+      "skipped_outside_content": 0
+    },
+    {
+      "background_tail_sampling": true,
+      "cf_blank_tail_excluded": false,
+      "clipped_to_content": 0,
+      "content_envelope_with_one_cell_margin": {
+        "bottom": 2481,
+        "left": 1,
+        "right": 38,
+        "top": 1
+      },
+      "reason": "outside-content-envelope",
+      "requested_candidates": 3440,
+      "selected_capture_regions": 6,
+      "selected_grid_tiles": 24,
+      "sheet": "Opt",
+      "skipped_outside_content": 0
+    },
+    {
+      "background_tail_sampling": false,
+      "cf_blank_tail_excluded": false,
+      "clipped_to_content": 8,
+      "content_envelope_with_one_cell_margin": {
+        "bottom": 123,
+        "left": 1,
+        "right": 33,
+        "top": 1
+      },
+      "reason": "outside-content-envelope",
+      "requested_candidates": 503,
+      "selected_capture_regions": 1,
+      "selected_grid_tiles": 3,
+      "sheet": "Skew3",
+      "skipped_outside_content": 0
+    },
+    {
+      "background_tail_sampling": false,
+      "cf_blank_tail_excluded": false,
+      "clipped_to_content": 1,
+      "content_envelope_with_one_cell_margin": {
+        "bottom": 30,
+        "left": 1,
+        "right": 10,
+        "top": 1
+      },
+      "reason": "outside-content-envelope",
+      "requested_candidates": 5,
+      "selected_capture_regions": 1,
+      "selected_grid_tiles": 1,
+      "sheet": "Swaption",
+      "skipped_outside_content": 1
+    },
+    {
+      "background_tail_sampling": false,
+      "cf_blank_tail_excluded": false,
+      "clipped_to_content": 10,
+      "content_envelope_with_one_cell_margin": {
+        "bottom": 14,
+        "left": 1,
+        "right": 3,
+        "top": 2
+      },
+      "reason": "outside-content-envelope",
+      "requested_candidates": 11,
+      "selected_capture_regions": 1,
+      "selected_grid_tiles": 1,
+      "sheet": "phone",
+      "skipped_outside_content": 1
+    }
+  ],
+  "control_artifacts_cache": null,
+  "equal_image_encoding": {
+    "compression": "best",
+    "filter": "adaptive",
+    "format": "PNG",
+    "pixel_preservation": "decoded RGBA equality checked before accepting a smaller encoding",
+    "scope": "verified equal images only; shared differing or unverified references preserve original bytes"
+  },
+  "excel_pids": null,
+  "execution_strategy": "paired-inplace-rebuild-v1",
+  "findings": [],
+  "formula_diagnostics": {
+    "note": "Optional dependency explanations; no visual verdict or coverage was changed.",
+    "omitted_regions": 0,
+    "regions": [
+      {
+        "diagnosis": {
+          "all_changed_values_have_volatile_dependency": false,
+          "changed_value_cells": 0,
+          "coverage_complete": true,
+          "environment_paths": 0,
+          "evidence": "saved_compared_states",
+          "examined_cells": 0,
+          "examples": [],
+          "exclusive_cause_proven": false,
+          "note": "A formula dependency is not proof that all visual differences have this cause.",
+          "range": "A1:AM231",
+          "sheet": "Front",
+          "version": 1,
+          "volatile_paths": 0
+        },
+        "finding_index": 0,
+        "kind": "findings",
+        "pair_index": 0
+      },
+      {
+        "diagnosis": {
+          "all_changed_values_have_volatile_dependency": false,
+          "changed_value_cells": 0,
+          "coverage_complete": true,
+          "environment_paths": 0,
+          "evidence": "saved_compared_states",
+          "examined_cells": 0,
+          "examples": [],
+          "exclusive_cause_proven": false,
+          "note": "A formula dependency is not proof that all visual differences have this cause.",
+          "range": "A232:AM463",
+          "sheet": "Front",
+          "version": 1,
+          "volatile_paths": 0
+        },
+        "finding_index": 1,
+        "kind": "findings",
+        "pair_index": 0
+      },
+      {
+        "diagnosis": {
+          "all_changed_values_have_volatile_dependency": false,
+          "changed_value_cells": 0,
+          "coverage_complete": true,
+          "environment_paths": 0,
+          "evidence": "saved_compared_states",
+          "examined_cells": 0,
+          "examples": [],
+          "exclusive_cause_proven": false,
+          "note": "A formula dependency is not proof that all visual differences have this cause.",
+          "range": "A1:AG123",
+          "sheet": "Skew3",
+          "version": 1,
+          "volatile_paths": 0
+        },
+        "finding_index": 8,
+        "kind": "findings",
+        "pair_index": 0
+      }
+    ],
+    "version": 1
+  },
+  "height_checks": [
+    {
+      "checked_spans": [
+        [
+          1,
+          463
+        ]
+      ],
+      "complete": true,
+      "differences": [
+        {
+          "after": 12.75,
+          "before": 7.5,
+          "end_row": 1,
+          "start_row": 1
+        }
+      ],
+      "left": "OR",
+      "right": "SDR",
+      "sheet": "Front",
+      "unchanged_fixed_rows": 0
+    },
+    {
+      "checked_spans": [
+        [
+          11,
+          304
+        ],
+        [
+          370,
+          2480
+        ]
+      ],
+      "complete": true,
+      "differences": [],
+      "left": "OR",
+      "right": "SDR",
+      "sheet": "Opt",
+      "unchanged_fixed_rows": 0
+    },
+    {
+      "checked_spans": [
+        [
+          1,
+          10
+        ],
+        [
+          12,
+          32
+        ],
+        [
+          49,
+          82
+        ]
+      ],
+      "complete": true,
+      "differences": [
+        {
+          "after": 12.75,
+          "before": 13.5,
+          "end_row": 82,
+          "start_row": 82
+        }
+      ],
+      "left": "OR",
+      "right": "SDR",
+      "sheet": "Skew3",
+      "unchanged_fixed_rows": 1
+    },
+    {
+      "checked_spans": [
+        [
+          17,
+          17
+        ]
+      ],
+      "complete": true,
+      "differences": [],
+      "left": "OR",
+      "right": "SDR",
+      "sheet": "Swaption",
+      "unchanged_fixed_rows": 0
+    },
+    {
+      "checked_spans": [
+        [
+          1,
+          1
+        ],
+        [
+          3,
+          12
+        ]
+      ],
+      "complete": true,
+      "differences": [],
+      "left": "OR",
+      "right": "SDR",
+      "sheet": "phone",
+      "unchanged_fixed_rows": 0
+    }
+  ],
+  "image_comparison_statistics": {
+    "comparisons": 20,
+    "decoded_images": 25,
+    "encoded_bytes_read": 7086480,
+    "encoded_images_reused": 11,
+    "files_read": 36
+  },
+  "input_identity": {
+    "status": "different"
+  },
+  "limitations": [
+    "Gridlines are disabled consistently. Policy v10 compares only common pixels when measured capture/content origins match and content cores are contained. capture_extent_ignored records omitted right/bottom extent and retains both raw images and geometries. Changed overlapping pixels remain differences. Shifted origins, missing measurements and charts retain conservative verdicts. blank_margin_ignored records the stronger exact white-margin proof.",
+    "Row-height checks cover rows above and within the unpadded union of content envelopes, including potentially visible fill/border/conditional-formatting extents. Policy v12 excludes context rows below the union content boundary from both height dependencies and cell capture rectangles; upper and side context remain. Charts retain independent full-chart observations.",
+    "Strategy paired-inplace-rebuild-v1 compares rebuilt Original against rebuilt Default and optional rebuilt Check Performance. Each reuses its existing Excel process. Pre-rebuild captures are omitted for throughput; XML save/optimization/rebuild controls are retained. Volatility and exclusive causal attribution require follow-up.",
+    "Cell capture regions are intersected with the union of content-bearing cells and potentially visible fill/border/conditional-formatting extents in the compared rebuilt states, plus one row above and one column on either side. Opening/save XML controls retain separate provenance. Exterior regions outside that envelope are intentionally skipped, not visually confirmed identical; content_coverage records selection counts and bounds. Chart exports are independent of this policy.",
+    "Capture partition visible-geometry-v2 merges adjacent internal grid tiles without changing their union. It measures every live state and splits only for image budgets (30,000 pixels per edge, 32 million pixels total), estimating conservatively at two pixels per point plus a rounding margin. Actual exports are checked too. Zero-area ranges retain geometry and explicit non-rendering observations without images or pixel equality claims. Later states can repartition and backfill earlier retained workbooks.",
+    "CF decisions concern rule contributions within the recorded union of comparison extents. Literal cellIs exclusions require identical cell-XML fingerprints and visual context. Formula inputs remain captures; unknown or changed rules retain region captures. This is not a proof of whole-workbook visual equality.",
+    "Chart mode deterministic excludes only embedded charts with complete unchanged package, XML/cache, source-cell/style/layout/CF and live-geometry dependencies. Exclusions are not pixel comparisons. Unknown references, external or unsupported parts, ambiguous names and chart sheets retain full-chart exports. Mode conservative exports every chart. Other drawings and all worksheet geometry effects are not exhaustively discovered.",
+    "Charts with measured zero width or height retain geometry and an explicit zero-area-chart observation without a pixel verdict. A transition between visible and zero-area states is a rendering/geometry difference.",
+    "Disposable targeted copies are staged with calcMode=manual, fullCalcOnLoad=0, forceFullCalc=0 and calcOnSave=0 before Excel opens them. Cached formula values are retained until each resident workbook is explicitly rebuilt. Excel may still autonomously refresh content; observed save/rebuild transitions remain audited. Original inputs and prepared bundles are unchanged. This suppresses unintended open/save recalculation and changes the opening baseline relative to capture policy v4.",
+    "Opening/saving and the in-place SD rebuild are retained as separate XML controls. Exact content/context matches identify overlaps conservatively; absence of a match does not establish exclusive causality.",
+    "Worksheet cells are streamed into temporary fixed-size fingerprints without worksheet-byte or cell-count limits. Exterior empty-cell changes are counted before candidate allocation. Layout metadata and retained change evidence still require memory.",
+    "When content coverage marks background_tail_sampling, supported borderless solid-fill bands with known sheet-wide gridline settings are represented through their finite transitions and tail samples. Pixels beyond that envelope are not captured; this is not exhaustive whole-grid pixel coverage."
+  ],
+  "native_drawing_bounds": [],
+  "phases": [
+    "initial XML compared",
+    "Original and Default opened",
+    "Excel save effects inspected",
+    "Original and variants rebuilt in their existing processes"
+  ],
+  "portable_report": {
+    "diagnostics": {
+      "0:charts:0": {
+        "metrics": {
+          "changed_pixels": 11701,
+          "hotspot_count": 47,
+          "hotspots": [
+            {
+              "delta_sum": 210136,
+              "height": 45,
+              "pixels": 364,
+              "unpaired": false,
+              "width": 64,
+              "x": 320,
+              "y": 4
+            },
+            {
+              "delta_sum": 170511,
+              "height": 26,
+              "pixels": 521,
+              "unpaired": false,
+              "width": 63,
+              "x": 128,
+              "y": 448
+            },
+            {
+              "delta_sum": 167550,
+              "height": 26,
+              "pixels": 495,
+              "unpaired": false,
+              "width": 64,
+              "x": 320,
+              "y": 448
+            },
+            {
+              "delta_sum": 163755,
+              "height": 26,
+              "pixels": 492,
+              "unpaired": false,
+              "width": 63,
+              "x": 65,
+              "y": 448
+            },
+            {
+              "delta_sum": 144696,
+              "height": 26,
+              "pixels": 425,
+              "unpaired": false,
+              "width": 48,
+              "x": 261,
+              "y": 448
+            },
+            {
+              "delta_sum": 144273,
+              "height": 26,
+              "pixels": 426,
+              "unpaired": false,
+              "width": 48,
+              "x": 202,
+              "y": 448
+            },
+            {
+              "delta_sum": 112786,
+              "height": 19,
+              "pixels": 446,
+              "unpaired": false,
+              "width": 64,
+              "x": 320,
+              "y": 429
+            },
+            {
+              "delta_sum": 111483,
+              "height": 19,
+              "pixels": 443,
+              "unpaired": false,
+              "width": 64,
+              "x": 64,
+              "y": 429
+            },
+            {
+              "delta_sum": 109983,
+              "height": 19,
+              "pixels": 439,
+              "unpaired": false,
+              "width": 64,
+              "x": 128,
+              "y": 429
+            },
+            {
+              "delta_sum": 108080,
+              "height": 45,
+              "pixels": 219,
+              "unpaired": false,
+              "width": 64,
+              "x": 256,
+              "y": 4
+            },
+            {
+              "delta_sum": 101388,
+              "height": 19,
+              "pixels": 412,
+              "unpaired": false,
+              "width": 64,
+              "x": 256,
+              "y": 429
+            },
+            {
+              "delta_sum": 100629,
+              "height": 19,
+              "pixels": 415,
+              "unpaired": false,
+              "width": 64,
+              "x": 192,
+              "y": 429
+            },
+            {
+              "delta_sum": 81639,
+              "height": 19,
+              "pixels": 293,
+              "unpaired": false,
+              "width": 64,
+              "x": 384,
+              "y": 429
+            },
+            {
+              "delta_sum": 75626,
+              "height": 63,
+              "pixels": 269,
+              "unpaired": false,
+              "width": 46,
+              "x": 7,
+              "y": 321
+            },
+            {
+              "delta_sum": 73560,
+              "height": 11,
+              "pixels": 195,
+              "unpaired": false,
+              "width": 57,
+              "x": 7,
+              "y": 10
+            },
+            {
+              "delta_sum": 73416,
+              "height": 26,
+              "pixels": 213,
+              "unpaired": false,
+              "width": 23,
+              "x": 384,
+              "y": 448
+            },
+            {
+              "delta_sum": 66750,
+              "height": 43,
+              "pixels": 414,
+              "unpaired": false,
+              "width": 61,
+              "x": 131,
+              "y": 192
+            },
+            {
+              "delta_sum": 65341,
+              "height": 63,
+              "pixels": 255,
+              "unpaired": false,
+              "width": 46,
+              "x": 7,
+              "y": 193
+            },
+            {
+              "delta_sum": 65025,
+              "height": 62,
+              "pixels": 156,
+              "unpaired": false,
+              "width": 26,
+              "x": 583,
+              "y": 130
+            },
+            {
+              "delta_sum": 64381,
+              "height": 60,
+              "pixels": 261,
+              "unpaired": false,
+              "width": 49,
+              "x": 7,
+              "y": 68
+            },
+            {
+              "delta_sum": 60702,
+              "height": 38,
+              "pixels": 391,
+              "unpaired": false,
+              "width": 57,
+              "x": 453,
+              "y": 90
+            },
+            {
+              "delta_sum": 58794,
+              "height": 5,
+              "pixels": 195,
+              "unpaired": false,
+              "width": 64,
+              "x": 512,
+              "y": 430
+            },
+            {
+              "delta_sum": 58224,
+              "height": 5,
+              "pixels": 200,
+              "unpaired": false,
+              "width": 64,
+              "x": 448,
+              "y": 430
+            },
+            {
+              "delta_sum": 57958,
+              "height": 63,
+              "pixels": 246,
+              "unpaired": false,
+              "width": 46,
+              "x": 7,
+              "y": 129
+            },
+            {
+              "delta_sum": 53151,
+              "height": 33,
+              "pixels": 316,
+              "unpaired": false,
+              "width": 61,
+              "x": 384,
+              "y": 128
+            },
+            {
+              "delta_sum": 51436,
+              "height": 43,
+              "pixels": 335,
+              "unpaired": false,
+              "width": 61,
+              "x": 67,
+              "y": 213
+            },
+            {
+              "delta_sum": 51194,
+              "height": 41,
+              "pixels": 341,
+              "unpaired": false,
+              "width": 64,
+              "x": 256,
+              "y": 151
+            },
+            {
+              "delta_sum": 49913,
+              "height": 55,
+              "pixels": 248,
+              "unpaired": false,
+              "width": 57,
+              "x": 7,
+              "y": 384
+            },
+            {
+              "delta_sum": 49410,
+              "height": 11,
+              "pixels": 130,
+              "unpaired": false,
+              "width": 26,
+              "x": 583,
+              "y": 70
+            },
+            {
+              "delta_sum": 45228,
+              "height": 11,
+              "pixels": 121,
+              "unpaired": false,
+              "width": 33,
+              "x": 576,
+              "y": 10
+            },
+            {
+              "delta_sum": 40674,
+              "height": 2,
+              "pixels": 127,
+              "unpaired": false,
+              "width": 64,
+              "x": 512,
+              "y": 14
+            },
+            {
+              "delta_sum": 36672,
+              "height": 2,
+              "pixels": 128,
+              "unpaired": false,
+              "width": 64,
+              "x": 64,
+              "y": 14
+            },
+            {
+              "delta_sum": 36672,
+              "height": 2,
+              "pixels": 128,
+              "unpaired": false,
+              "width": 64,
+              "x": 128,
+              "y": 14
+            },
+            {
+              "delta_sum": 36672,
+              "height": 2,
+              "pixels": 128,
+              "unpaired": false,
+              "width": 64,
+              "x": 192,
+              "y": 14
+            },
+            {
+              "delta_sum": 36672,
+              "height": 2,
+              "pixels": 128,
+              "unpaired": false,
+              "width": 64,
+              "x": 384,
+              "y": 14
+            },
+            {
+              "delta_sum": 36672,
+              "height": 2,
+              "pixels": 128,
+              "unpaired": false,
+              "width": 64,
+              "x": 448,
+              "y": 14
+            },
+            {
+              "delta_sum": 34291,
+              "height": 36,
+              "pixels": 205,
+              "unpaired": false,
+              "width": 64,
+              "x": 320,
+              "y": 144
+            },
+            {
+              "delta_sum": 33485,
+              "height": 29,
+              "pixels": 207,
+              "unpaired": false,
+              "width": 64,
+              "x": 192,
+              "y": 192
+            },
+            {
+              "delta_sum": 32191,
+              "height": 32,
+              "pixels": 193,
+              "unpaired": false,
+              "width": 35,
+              "x": 521,
+              "y": 76
+            },
+            {
+              "delta_sum": 29325,
+              "height": 9,
+              "pixels": 89,
+              "unpaired": false,
+              "width": 26,
+              "x": 583,
+              "y": 192
+            },
+            {
+              "delta_sum": 24486,
+              "height": 15,
+              "pixels": 157,
+              "unpaired": false,
+              "width": 54,
+              "x": 392,
+              "y": 113
+            },
+            {
+              "delta_sum": 20917,
+              "height": 21,
+              "pixels": 134,
+              "unpaired": false,
+              "width": 52,
+              "x": 199,
+              "y": 171
+            },
+            {
+              "delta_sum": 20484,
+              "height": 63,
+              "pixels": 205,
+              "unpaired": false,
+              "width": 18,
+              "x": 46,
+              "y": 257
+            },
+            {
+              "delta_sum": 9126,
+              "height": 10,
+              "pixels": 43,
+              "unpaired": false,
+              "width": 22,
+              "x": 256,
+              "y": 192
+            },
+            {
+              "delta_sum": 2547,
+              "height": 11,
+              "pixels": 16,
+              "unpaired": false,
+              "width": 8,
+              "x": 64,
+              "y": 256
+            },
+            {
+              "delta_sum": 1754,
+              "height": 2,
+              "pixels": 7,
+              "unpaired": false,
+              "width": 5,
+              "x": 179,
+              "y": 190
+            },
+            {
+              "delta_sum": 762,
+              "height": 2,
+              "pixels": 2,
+              "unpaired": false,
+              "width": 1,
+              "x": 576,
+              "y": 433
+            }
+          ],
+          "left_height": 482,
+          "left_width": 615,
+          "max_channel_delta": 255,
+          "overlap_height": 482,
+          "overlap_width": 615,
+          "overlay_url": "evidence/b92073d297881b53f3273e32e964955d308a7c405a538d1c9f3a920a57d3504d.png",
+          "right_height": 482,
+          "right_width": 615,
+          "total_channel_delta": 3180420,
+          "unmatched_nonwhite_pixels": 0,
+          "unmatched_pixels": 0,
+          "unmeasured_regions": 0
+        }
+      },
+      "0:charts:1": {
+        "metrics": {
+          "changed_pixels": 18,
+          "hotspot_count": 5,
+          "hotspots": [
+            {
+              "delta_sum": 624,
+              "height": 4,
+              "pixels": 6,
+              "unpaired": false,
+              "width": 10,
+              "x": 3,
+              "y": 12
+            },
+            {
+              "delta_sum": 312,
+              "height": 4,
+              "pixels": 3,
+              "unpaired": false,
+              "width": 1,
+              "x": 3,
+              "y": 73
+            },
+            {
+              "delta_sum": 312,
+              "height": 4,
+              "pixels": 3,
+              "unpaired": false,
+              "width": 1,
+              "x": 12,
+              "y": 134
+            },
+            {
+              "delta_sum": 312,
+              "height": 4,
+              "pixels": 3,
+              "unpaired": false,
+              "width": 1,
+              "x": 12,
+              "y": 257
+            },
+            {
+              "delta_sum": 312,
+              "height": 4,
+              "pixels": 3,
+              "unpaired": false,
+              "width": 1,
+              "x": 12,
+              "y": 380
+            }
+          ],
+          "left_height": 435,
+          "left_width": 916,
+          "max_channel_delta": 35,
+          "overlap_height": 435,
+          "overlap_width": 916,
+          "overlay_url": "evidence/beba3eaf1189039444c9e29f3a943f2419dafbfbffaf9e9b4ba916e3b2467369.png",
+          "right_height": 435,
+          "right_width": 916,
+          "total_channel_delta": 1872,
+          "unmatched_nonwhite_pixels": 0,
+          "unmatched_pixels": 0,
+          "unmeasured_regions": 0
+        }
+      },
+      "0:charts:2": {
+        "metrics": {
+          "changed_pixels": 2,
+          "hotspot_count": 2,
+          "hotspots": [
+            {
+              "delta_sum": 84,
+              "height": 1,
+              "pixels": 1,
+              "unpaired": false,
+              "width": 1,
+              "x": 30,
+              "y": 59
+            },
+            {
+              "delta_sum": 84,
+              "height": 1,
+              "pixels": 1,
+              "unpaired": false,
+              "width": 1,
+              "x": 30,
+              "y": 107
+            }
+          ],
+          "left_height": 150,
+          "left_width": 285,
+          "max_channel_delta": 28,
+          "overlap_height": 150,
+          "overlap_width": 285,
+          "overlay_url": "evidence/4432ee30a9ac2e1623294bb4b026bd04295a1511c926c8126d4ec5a32c6ebf2a.png",
+          "right_height": 150,
+          "right_width": 285,
+          "total_channel_delta": 168,
+          "unmatched_nonwhite_pixels": 0,
+          "unmatched_pixels": 0,
+          "unmeasured_regions": 0
+        }
+      },
+      "0:findings:0": {
+        "metrics": {
+          "changed_pixels": 6102124,
+          "hotspot_count": 2168,
+          "hotspots": [
+            {
+              "delta_sum": 2609152,
+              "height": 64,
+              "pixels": 4096,
+              "unpaired": false,
+              "width": 64,
+              "x": 64,
+              "y": 1792
+            },
+            {
+              "delta_sum": 2609152,
+              "height": 64,
+              "pixels": 4096,
+              "unpaired": false,
+              "width": 64,
+              "x": 64,
+              "y": 1856
+            },
+            {
+              "delta_sum": 2609152,
+              "height": 64,
+              "pixels": 4096,
+              "unpaired": false,
+              "width": 64,
+              "x": 64,
+              "y": 1920
+            },
+            {
+              "delta_sum": 2609152,
+              "height": 64,
+              "pixels": 4096,
+              "unpaired": false,
+              "width": 64,
+              "x": 64,
+              "y": 1984
+            },
+            {
+              "delta_sum": 2609152,
+              "height": 64,
+              "pixels": 4096,
+              "unpaired": false,
+              "width": 64,
+              "x": 64,
+              "y": 2048
+            },
+            {
+              "delta_sum": 2609152,
+              "height": 64,
+              "pixels": 4096,
+              "unpaired": false,
+              "width": 64,
+              "x": 64,
+              "y": 2112
+            },
+            {
+              "delta_sum": 2609152,
+              "height": 64,
+              "pixels": 4096,
+              "unpaired": false,
+              "width": 64,
+              "x": 64,
+              "y": 2176
+            },
+            {
+              "delta_sum": 2609152,
+              "height": 64,
+              "pixels": 4096,
+              "unpaired": false,
+              "width": 64,
+              "x": 64,
+              "y": 2240
+            },
+            {
+              "delta_sum": 2609152,
+              "height": 64,
+              "pixels": 4096,
+              "unpaired": false,
+              "width": 64,
+              "x": 64,
+              "y": 2304
+            },
+            {
+              "delta_sum": 2609152,
+              "height": 64,
+              "pixels": 4096,
+              "unpaired": false,
+              "width": 64,
+              "x": 64,
+              "y": 2368
+            },
+            {
+              "delta_sum": 2609152,
+              "height": 64,
+              "pixels": 4096,
+              "unpaired": false,
+              "width": 64,
+              "x": 64,
+              "y": 2432
+            },
+            {
+              "delta_sum": 2609152,
+              "height": 64,
+              "pixels": 4096,
+              "unpaired": false,
+              "width": 64,
+              "x": 64,
+              "y": 2496
+            },
+            {
+              "delta_sum": 2609152,
+              "height": 64,
+              "pixels": 4096,
+              "unpaired": false,
+              "width": 64,
+              "x": 64,
+              "y": 2560
+            },
+            {
+              "delta_sum": 2609152,
+              "height": 64,
+              "pixels": 4096,
+              "unpaired": false,
+              "width": 64,
+              "x": 64,
+              "y": 2624
+            },
+            {
+              "delta_sum": 2609152,
+              "height": 64,
+              "pixels": 4096,
+              "unpaired": false,
+              "width": 64,
+              "x": 64,
+              "y": 2688
+            },
+            {
+              "delta_sum": 2609152,
+              "height": 64,
+              "pixels": 4096,
+              "unpaired": false,
+              "width": 64,
+              "x": 64,
+              "y": 2752
+            },
+            {
+              "delta_sum": 2609152,
+              "height": 64,
+              "pixels": 4096,
+              "unpaired": false,
+              "width": 64,
+              "x": 64,
+              "y": 2816
+            },
+            {
+              "delta_sum": 2609152,
+              "height": 64,
+              "pixels": 4096,
+              "unpaired": false,
+              "width": 64,
+              "x": 64,
+              "y": 2880
+            },
+            {
+              "delta_sum": 2609152,
+              "height": 64,
+              "pixels": 4096,
+              "unpaired": false,
+              "width": 64,
+              "x": 64,
+              "y": 2944
+            },
+            {
+              "delta_sum": 2609152,
+              "height": 64,
+              "pixels": 4096,
+              "unpaired": false,
+              "width": 64,
+              "x": 64,
+              "y": 3008
+            },
+            {
+              "delta_sum": 2609152,
+              "height": 64,
+              "pixels": 4096,
+              "unpaired": false,
+              "width": 64,
+              "x": 64,
+              "y": 3072
+            },
+            {
+              "delta_sum": 2609152,
+              "height": 64,
+              "pixels": 4096,
+              "unpaired": false,
+              "width": 64,
+              "x": 64,
+              "y": 3136
+            },
+            {
+              "delta_sum": 2609152,
+              "height": 64,
+              "pixels": 4096,
+              "unpaired": false,
+              "width": 64,
+              "x": 64,
+              "y": 3200
+            },
+            {
+              "delta_sum": 2609152,
+              "height": 64,
+              "pixels": 4096,
+              "unpaired": false,
+              "width": 64,
+              "x": 64,
+              "y": 3264
+            },
+            {
+              "delta_sum": 2609152,
+              "height": 64,
+              "pixels": 4096,
+              "unpaired": false,
+              "width": 64,
+              "x": 64,
+              "y": 3328
+            },
+            {
+              "delta_sum": 2609152,
+              "height": 64,
+              "pixels": 4096,
+              "unpaired": false,
+              "width": 64,
+              "x": 64,
+              "y": 3392
+            },
+            {
+              "delta_sum": 2609152,
+              "height": 64,
+              "pixels": 4096,
+              "unpaired": false,
+              "width": 64,
+              "x": 64,
+              "y": 3456
+            },
+            {
+              "delta_sum": 2609152,
+              "height": 64,
+              "pixels": 4096,
+              "unpaired": false,
+              "width": 64,
+              "x": 64,
+              "y": 3520
+            },
+            {
+              "delta_sum": 2609152,
+              "height": 64,
+              "pixels": 4096,
+              "unpaired": false,
+              "width": 64,
+              "x": 64,
+              "y": 3584
+            },
+            {
+              "delta_sum": 2609152,
+              "height": 64,
+              "pixels": 4096,
+              "unpaired": false,
+              "width": 64,
+              "x": 64,
+              "y": 3648
+            },
+            {
+              "delta_sum": 2609152,
+              "height": 64,
+              "pixels": 4096,
+              "unpaired": false,
+              "width": 64,
+              "x": 64,
+              "y": 3712
+            },
+            {
+              "delta_sum": 2609152,
+              "height": 64,
+              "pixels": 4096,
+              "unpaired": false,
+              "width": 64,
+              "x": 64,
+              "y": 3776
+            },
+            {
+              "delta_sum": 2609152,
+              "height": 64,
+              "pixels": 4096,
+              "unpaired": false,
+              "width": 64,
+              "x": 64,
+              "y": 3840
+            },
+            {
+              "delta_sum": 2609152,
+              "height": 64,
+              "pixels": 4096,
+              "unpaired": false,
+              "width": 64,
+              "x": 64,
+              "y": 3904
+            },
+            {
+              "delta_sum": 2609152,
+              "height": 64,
+              "pixels": 4096,
+              "unpaired": false,
+              "width": 64,
+              "x": 64,
+              "y": 3968
+            },
+            {
+              "delta_sum": 2609152,
+              "height": 64,
+              "pixels": 4096,
+              "unpaired": false,
+              "width": 64,
+              "x": 128,
+              "y": 1792
+            },
+            {
+              "delta_sum": 2609152,
+              "height": 64,
+              "pixels": 4096,
+              "unpaired": false,
+              "width": 64,
+              "x": 128,
+              "y": 1856
+            },
+            {
+              "delta_sum": 2609152,
+              "height": 64,
+              "pixels": 4096,
+              "unpaired": false,
+              "width": 64,
+              "x": 128,
+              "y": 1920
+            },
+            {
+              "delta_sum": 2609152,
+              "height": 64,
+              "pixels": 4096,
+              "unpaired": false,
+              "width": 64,
+              "x": 128,
+              "y": 1984
+            },
+            {
+              "delta_sum": 2609152,
+              "height": 64,
+              "pixels": 4096,
+              "unpaired": false,
+              "width": 64,
+              "x": 128,
+              "y": 2048
+            },
+            {
+              "delta_sum": 2609152,
+              "height": 64,
+              "pixels": 4096,
+              "unpaired": false,
+              "width": 64,
+              "x": 128,
+              "y": 2112
+            },
+            {
+              "delta_sum": 2609152,
+              "height": 64,
+              "pixels": 4096,
+              "unpaired": false,
+              "width": 64,
+              "x": 128,
+              "y": 2176
+            },
+            {
+              "delta_sum": 2609152,
+              "height": 64,
+              "pixels": 4096,
+              "unpaired": false,
+              "width": 64,
+              "x": 128,
+              "y": 2240
+            },
+            {
+              "delta_sum": 2609152,
+              "height": 64,
+              "pixels": 4096,
+              "unpaired": false,
+              "width": 64,
+              "x": 128,
+              "y": 2304
+            },
+            {
+              "delta_sum": 2609152,
+              "height": 64,
+              "pixels": 4096,
+              "unpaired": false,
+              "width": 64,
+              "x": 128,
+              "y": 2368
+            },
+            {
+              "delta_sum": 2609152,
+              "height": 64,
+              "pixels": 4096,
+              "unpaired": false,
+              "width": 64,
+              "x": 128,
+              "y": 2432
+            },
+            {
+              "delta_sum": 2609152,
+              "height": 64,
+              "pixels": 4096,
+              "unpaired": false,
+              "width": 64,
+              "x": 128,
+              "y": 2496
+            },
+            {
+              "delta_sum": 2609152,
+              "height": 64,
+              "pixels": 4096,
+              "unpaired": false,
+              "width": 64,
+              "x": 128,
+              "y": 2560
+            },
+            {
+              "delta_sum": 2609152,
+              "height": 64,
+              "pixels": 4096,
+              "unpaired": false,
+              "width": 64,
+              "x": 128,
+              "y": 2624
+            },
+            {
+              "delta_sum": 2609152,
+              "height": 64,
+              "pixels": 4096,
+              "unpaired": false,
+              "width": 64,
+              "x": 128,
+              "y": 2688
+            },
+            {
+              "delta_sum": 2609152,
+              "height": 64,
+              "pixels": 4096,
+              "unpaired": false,
+              "width": 64,
+              "x": 128,
+              "y": 2752
+            },
+            {
+              "delta_sum": 2609152,
+              "height": 64,
+              "pixels": 4096,
+              "unpaired": false,
+              "width": 64,
+              "x": 128,
+              "y": 2816
+            },
+            {
+              "delta_sum": 2609152,
+              "height": 64,
+              "pixels": 4096,
+              "unpaired": false,
+              "width": 64,
+              "x": 128,
+              "y": 2880
+            },
+            {
+              "delta_sum": 2609152,
+              "height": 64,
+              "pixels": 4096,
+              "unpaired": false,
+              "width": 64,
+              "x": 128,
+              "y": 2944
+            },
+            {
+              "delta_sum": 2609152,
+              "height": 64,
+              "pixels": 4096,
+              "unpaired": false,
+              "width": 64,
+              "x": 128,
+              "y": 3008
+            },
+            {
+              "delta_sum": 2609152,
+              "height": 64,
+              "pixels": 4096,
+              "unpaired": false,
+              "width": 64,
+              "x": 128,
+              "y": 3072
+            },
+            {
+              "delta_sum": 2609152,
+              "height": 64,
+              "pixels": 4096,
+              "unpaired": false,
+              "width": 64,
+              "x": 128,
+              "y": 3136
+            },
+            {
+              "delta_sum": 2609152,
+              "height": 64,
+              "pixels": 4096,
+              "unpaired": false,
+              "width": 64,
+              "x": 128,
+              "y": 3200
+            },
+            {
+              "delta_sum": 2609152,
+              "height": 64,
+              "pixels": 4096,
+              "unpaired": false,
+              "width": 64,
+              "x": 128,
+              "y": 3264
+            },
+            {
+              "delta_sum": 2609152,
+              "height": 64,
+              "pixels": 4096,
+              "unpaired": false,
+              "width": 64,
+              "x": 128,
+              "y": 3328
+            },
+            {
+              "delta_sum": 2609152,
+              "height": 64,
+              "pixels": 4096,
+              "unpaired": false,
+              "width": 64,
+              "x": 128,
+              "y": 3392
+            },
+            {
+              "delta_sum": 2609152,
+              "height": 64,
+              "pixels": 4096,
+              "unpaired": false,
+              "width": 64,
+              "x": 128,
+              "y": 3456
+            },
+            {
+              "delta_sum": 2609152,
+              "height": 64,
+              "pixels": 4096,
+              "unpaired": false,
+              "width": 64,
+              "x": 128,
+              "y": 3520
+            },
+            {
+              "delta_sum": 2609152,
+              "height": 64,
+              "pixels": 4096,
+              "unpaired": false,
+              "width": 64,
+              "x": 128,
+              "y": 3584
+            }
+          ],
+          "left_height": 4052,
+          "left_width": 2503,
+          "max_channel_delta": 255,
+          "overlap_height": 4052,
+          "overlap_width": 2503,
+          "overlay_url": "evidence/89c4878bc727727a0410ae3dd8ff569cc1a35747e7394d6152b464401e1c2351.png",
+          "right_height": 4059,
+          "right_width": 2503,
+          "total_channel_delta": 3532476828,
+          "unmatched_nonwhite_pixels": 5024,
+          "unmatched_pixels": 17521,
+          "unmeasured_regions": 0
+        }
+      },
+      "0:findings:1": {
+        "metrics": {
+          "changed_pixels": 7042352,
+          "hotspot_count": 1840,
+          "hotspots": [
+            {
+              "delta_sum": 2609152,
+              "height": 64,
+              "pixels": 4096,
+              "unpaired": false,
+              "width": 64,
+              "x": 64,
+              "y": 64
+            },
+            {
+              "delta_sum": 2609152,
+              "height": 64,
+              "pixels": 4096,
+              "unpaired": false,
+              "width": 64,
+              "x": 64,
+              "y": 128
+            },
+            {
+              "delta_sum": 2609152,
+              "height": 64,
+              "pixels": 4096,
+              "unpaired": false,
+              "width": 64,
+              "x": 64,
+              "y": 192
+            },
+            {
+              "delta_sum": 2609152,
+              "height": 64,
+              "pixels": 4096,
+              "unpaired": false,
+              "width": 64,
+              "x": 64,
+              "y": 256
+            },
+            {
+              "delta_sum": 2609152,
+              "height": 64,
+              "pixels": 4096,
+              "unpaired": false,
+              "width": 64,
+              "x": 64,
+              "y": 320
+            },
+            {
+              "delta_sum": 2609152,
+              "height": 64,
+              "pixels": 4096,
+              "unpaired": false,
+              "width": 64,
+              "x": 64,
+              "y": 384
+            },
+            {
+              "delta_sum": 2609152,
+              "height": 64,
+              "pixels": 4096,
+              "unpaired": false,
+              "width": 64,
+              "x": 64,
+              "y": 448
+            },
+            {
+              "delta_sum": 2609152,
+              "height": 64,
+              "pixels": 4096,
+              "unpaired": false,
+              "width": 64,
+              "x": 64,
+              "y": 512
+            },
+            {
+              "delta_sum": 2609152,
+              "height": 64,
+              "pixels": 4096,
+              "unpaired": false,
+              "width": 64,
+              "x": 64,
+              "y": 576
+            },
+            {
+              "delta_sum": 2609152,
+              "height": 64,
+              "pixels": 4096,
+              "unpaired": false,
+              "width": 64,
+              "x": 64,
+              "y": 640
+            },
+            {
+              "delta_sum": 2609152,
+              "height": 64,
+              "pixels": 4096,
+              "unpaired": false,
+              "width": 64,
+              "x": 64,
+              "y": 704
+            },
+            {
+              "delta_sum": 2609152,
+              "height": 64,
+              "pixels": 4096,
+              "unpaired": false,
+              "width": 64,
+              "x": 64,
+              "y": 768
+            },
+            {
+              "delta_sum": 2609152,
+              "height": 64,
+              "pixels": 4096,
+              "unpaired": false,
+              "width": 64,
+              "x": 64,
+              "y": 832
+            },
+            {
+              "delta_sum": 2609152,
+              "height": 64,
+              "pixels": 4096,
+              "unpaired": false,
+              "width": 64,
+              "x": 64,
+              "y": 896
+            },
+            {
+              "delta_sum": 2609152,
+              "height": 64,
+              "pixels": 4096,
+              "unpaired": false,
+              "width": 64,
+              "x": 64,
+              "y": 960
+            },
+            {
+              "delta_sum": 2609152,
+              "height": 64,
+              "pixels": 4096,
+              "unpaired": false,
+              "width": 64,
+              "x": 64,
+              "y": 1024
+            },
+            {
+              "delta_sum": 2609152,
+              "height": 64,
+              "pixels": 4096,
+              "unpaired": false,
+              "width": 64,
+              "x": 64,
+              "y": 1088
+            },
+            {
+              "delta_sum": 2609152,
+              "height": 64,
+              "pixels": 4096,
+              "unpaired": false,
+              "width": 64,
+              "x": 64,
+              "y": 1152
+            },
+            {
+              "delta_sum": 2609152,
+              "height": 64,
+              "pixels": 4096,
+              "unpaired": false,
+              "width": 64,
+              "x": 64,
+              "y": 1536
+            },
+            {
+              "delta_sum": 2609152,
+              "height": 64,
+              "pixels": 4096,
+              "unpaired": false,
+              "width": 64,
+              "x": 64,
+              "y": 1600
+            },
+            {
+              "delta_sum": 2609152,
+              "height": 64,
+              "pixels": 4096,
+              "unpaired": false,
+              "width": 64,
+              "x": 64,
+              "y": 1664
+            },
+            {
+              "delta_sum": 2609152,
+              "height": 64,
+              "pixels": 4096,
+              "unpaired": false,
+              "width": 64,
+              "x": 64,
+              "y": 1728
+            },
+            {
+              "delta_sum": 2609152,
+              "height": 64,
+              "pixels": 4096,
+              "unpaired": false,
+              "width": 64,
+              "x": 64,
+              "y": 1792
+            },
+            {
+              "delta_sum": 2609152,
+              "height": 64,
+              "pixels": 4096,
+              "unpaired": false,
+              "width": 64,
+              "x": 64,
+              "y": 1856
+            },
+            {
+              "delta_sum": 2609152,
+              "height": 64,
+              "pixels": 4096,
+              "unpaired": false,
+              "width": 64,
+              "x": 64,
+              "y": 1920
+            },
+            {
+              "delta_sum": 2609152,
+              "height": 64,
+              "pixels": 4096,
+              "unpaired": false,
+              "width": 64,
+              "x": 64,
+              "y": 1984
+            },
+            {
+              "delta_sum": 2609152,
+              "height": 64,
+              "pixels": 4096,
+              "unpaired": false,
+              "width": 64,
+              "x": 64,
+              "y": 2048
+            },
+            {
+              "delta_sum": 2609152,
+              "height": 64,
+              "pixels": 4096,
+              "unpaired": false,
+              "width": 64,
+              "x": 64,
+              "y": 2112
+            },
+            {
+              "delta_sum": 2609152,
+              "height": 64,
+              "pixels": 4096,
+              "unpaired": false,
+              "width": 64,
+              "x": 64,
+              "y": 2176
+            },
+            {
+              "delta_sum": 2609152,
+              "height": 64,
+              "pixels": 4096,
+              "unpaired": false,
+              "width": 64,
+              "x": 64,
+              "y": 2240
+            },
+            {
+              "delta_sum": 2609152,
+              "height": 64,
+              "pixels": 4096,
+              "unpaired": false,
+              "width": 64,
+              "x": 64,
+              "y": 2304
+            },
+            {
+              "delta_sum": 2609152,
+              "height": 64,
+              "pixels": 4096,
+              "unpaired": false,
+              "width": 64,
+              "x": 64,
+              "y": 2368
+            },
+            {
+              "delta_sum": 2609152,
+              "height": 64,
+              "pixels": 4096,
+              "unpaired": false,
+              "width": 64,
+              "x": 64,
+              "y": 2432
+            },
+            {
+              "delta_sum": 2609152,
+              "height": 64,
+              "pixels": 4096,
+              "unpaired": false,
+              "width": 64,
+              "x": 64,
+              "y": 2496
+            },
+            {
+              "delta_sum": 2609152,
+              "height": 64,
+              "pixels": 4096,
+              "unpaired": false,
+              "width": 64,
+              "x": 64,
+              "y": 2560
+            },
+            {
+              "delta_sum": 2609152,
+              "height": 64,
+              "pixels": 4096,
+              "unpaired": false,
+              "width": 64,
+              "x": 64,
+              "y": 2624
+            },
+            {
+              "delta_sum": 2609152,
+              "height": 64,
+              "pixels": 4096,
+              "unpaired": false,
+              "width": 64,
+              "x": 64,
+              "y": 2688
+            },
+            {
+              "delta_sum": 2609152,
+              "height": 64,
+              "pixels": 4096,
+              "unpaired": false,
+              "width": 64,
+              "x": 64,
+              "y": 2752
+            },
+            {
+              "delta_sum": 2609152,
+              "height": 64,
+              "pixels": 4096,
+              "unpaired": false,
+              "width": 64,
+              "x": 64,
+              "y": 2816
+            },
+            {
+              "delta_sum": 2609152,
+              "height": 64,
+              "pixels": 4096,
+              "unpaired": false,
+              "width": 64,
+              "x": 64,
+              "y": 2880
+            },
+            {
+              "delta_sum": 2609152,
+              "height": 64,
+              "pixels": 4096,
+              "unpaired": false,
+              "width": 64,
+              "x": 64,
+              "y": 2944
+            },
+            {
+              "delta_sum": 2609152,
+              "height": 64,
+              "pixels": 4096,
+              "unpaired": false,
+              "width": 64,
+              "x": 64,
+              "y": 3008
+            },
+            {
+              "delta_sum": 2609152,
+              "height": 64,
+              "pixels": 4096,
+              "unpaired": false,
+              "width": 64,
+              "x": 64,
+              "y": 3072
+            },
+            {
+              "delta_sum": 2609152,
+              "height": 64,
+              "pixels": 4096,
+              "unpaired": false,
+              "width": 64,
+              "x": 64,
+              "y": 3136
+            },
+            {
+              "delta_sum": 2609152,
+              "height": 64,
+              "pixels": 4096,
+              "unpaired": false,
+              "width": 64,
+              "x": 64,
+              "y": 3200
+            },
+            {
+              "delta_sum": 2609152,
+              "height": 64,
+              "pixels": 4096,
+              "unpaired": false,
+              "width": 64,
+              "x": 64,
+              "y": 3264
+            },
+            {
+              "delta_sum": 2609152,
+              "height": 64,
+              "pixels": 4096,
+              "unpaired": false,
+              "width": 64,
+              "x": 64,
+              "y": 3328
+            },
+            {
+              "delta_sum": 2609152,
+              "height": 64,
+              "pixels": 4096,
+              "unpaired": false,
+              "width": 64,
+              "x": 64,
+              "y": 3392
+            },
+            {
+              "delta_sum": 2609152,
+              "height": 64,
+              "pixels": 4096,
+              "unpaired": false,
+              "width": 64,
+              "x": 64,
+              "y": 3456
+            },
+            {
+              "delta_sum": 2609152,
+              "height": 64,
+              "pixels": 4096,
+              "unpaired": false,
+              "width": 64,
+              "x": 64,
+              "y": 3520
+            },
+            {
+              "delta_sum": 2609152,
+              "height": 64,
+              "pixels": 4096,
+              "unpaired": false,
+              "width": 64,
+              "x": 64,
+              "y": 3584
+            },
+            {
+              "delta_sum": 2609152,
+              "height": 64,
+              "pixels": 4096,
+              "unpaired": false,
+              "width": 64,
+              "x": 64,
+              "y": 3648
+            },
+            {
+              "delta_sum": 2609152,
+              "height": 64,
+              "pixels": 4096,
+              "unpaired": false,
+              "width": 64,
+              "x": 64,
+              "y": 3712
+            },
+            {
+              "delta_sum": 2609152,
+              "height": 64,
+              "pixels": 4096,
+              "unpaired": false,
+              "width": 64,
+              "x": 64,
+              "y": 3776
+            },
+            {
+              "delta_sum": 2609152,
+              "height": 64,
+              "pixels": 4096,
+              "unpaired": false,
+              "width": 64,
+              "x": 64,
+              "y": 3840
+            },
+            {
+              "delta_sum": 2609152,
+              "height": 64,
+              "pixels": 4096,
+              "unpaired": false,
+              "width": 64,
+              "x": 128,
+              "y": 64
+            },
+            {
+              "delta_sum": 2609152,
+              "height": 64,
+              "pixels": 4096,
+              "unpaired": false,
+              "width": 64,
+              "x": 128,
+              "y": 128
+            },
+            {
+              "delta_sum": 2609152,
+              "height": 64,
+              "pixels": 4096,
+              "unpaired": false,
+              "width": 64,
+              "x": 128,
+              "y": 192
+            },
+            {
+              "delta_sum": 2609152,
+              "height": 64,
+              "pixels": 4096,
+              "unpaired": false,
+              "width": 64,
+              "x": 128,
+              "y": 256
+            },
+            {
+              "delta_sum": 2609152,
+              "height": 64,
+              "pixels": 4096,
+              "unpaired": false,
+              "width": 64,
+              "x": 128,
+              "y": 320
+            },
+            {
+              "delta_sum": 2609152,
+              "height": 64,
+              "pixels": 4096,
+              "unpaired": false,
+              "width": 64,
+              "x": 128,
+              "y": 384
+            },
+            {
+              "delta_sum": 2609152,
+              "height": 64,
+              "pixels": 4096,
+              "unpaired": false,
+              "width": 64,
+              "x": 128,
+              "y": 448
+            },
+            {
+              "delta_sum": 2609152,
+              "height": 64,
+              "pixels": 4096,
+              "unpaired": false,
+              "width": 64,
+              "x": 128,
+              "y": 512
+            },
+            {
+              "delta_sum": 2609152,
+              "height": 64,
+              "pixels": 4096,
+              "unpaired": false,
+              "width": 64,
+              "x": 128,
+              "y": 576
+            }
+          ],
+          "left_height": 3947,
+          "left_width": 2503,
+          "max_channel_delta": 255,
+          "overlap_height": 3947,
+          "overlap_width": 2503,
+          "overlay_url": "evidence/b75c95a625ae6c5067d8fbaa30a4b2515d53e01a610c6665c8db845f16c80157.png",
+          "right_height": 3947,
+          "right_width": 2503,
+          "total_channel_delta": 4485937169,
+          "unmatched_nonwhite_pixels": 0,
+          "unmatched_pixels": 0,
+          "unmeasured_regions": 0
+        }
+      },
+      "0:findings:8": {
+        "metrics": {
+          "changed_pixels": 4730,
+          "hotspot_count": 35,
+          "hotspots": [
+            {
+              "delta_sum": 129218,
+              "height": 63,
+              "pixels": 226,
+              "unpaired": false,
+              "width": 64,
+              "x": 128,
+              "y": 1984
+            },
+            {
+              "delta_sum": 112312,
+              "height": 62,
+              "pixels": 312,
+              "unpaired": false,
+              "width": 10,
+              "x": 118,
+              "y": 1793
+            },
+            {
+              "delta_sum": 100557,
+              "height": 59,
+              "pixels": 267,
+              "unpaired": false,
+              "width": 10,
+              "x": 118,
+              "y": 1728
+            },
+            {
+              "delta_sum": 97920,
+              "height": 3,
+              "pixels": 128,
+              "unpaired": false,
+              "width": 64,
+              "x": 192,
+              "y": 1397
+            },
+            {
+              "delta_sum": 97920,
+              "height": 3,
+              "pixels": 128,
+              "unpaired": false,
+              "width": 64,
+              "x": 192,
+              "y": 2044
+            },
+            {
+              "delta_sum": 97920,
+              "height": 3,
+              "pixels": 128,
+              "unpaired": false,
+              "width": 64,
+              "x": 256,
+              "y": 1397
+            },
+            {
+              "delta_sum": 97920,
+              "height": 3,
+              "pixels": 128,
+              "unpaired": false,
+              "width": 64,
+              "x": 256,
+              "y": 2044
+            },
+            {
+              "delta_sum": 97920,
+              "height": 3,
+              "pixels": 128,
+              "unpaired": false,
+              "width": 64,
+              "x": 320,
+              "y": 1397
+            },
+            {
+              "delta_sum": 97920,
+              "height": 3,
+              "pixels": 128,
+              "unpaired": false,
+              "width": 64,
+              "x": 320,
+              "y": 2044
+            },
+            {
+              "delta_sum": 97920,
+              "height": 3,
+              "pixels": 128,
+              "unpaired": false,
+              "width": 64,
+              "x": 384,
+              "y": 1397
+            },
+            {
+              "delta_sum": 97920,
+              "height": 3,
+              "pixels": 128,
+              "unpaired": false,
+              "width": 64,
+              "x": 384,
+              "y": 2044
+            },
+            {
+              "delta_sum": 95861,
+              "height": 53,
+              "pixels": 193,
+              "unpaired": false,
+              "width": 30,
+              "x": 1,
+              "y": 1419
+            },
+            {
+              "delta_sum": 95747,
+              "height": 58,
+              "pixels": 277,
+              "unpaired": false,
+              "width": 10,
+              "x": 118,
+              "y": 1861
+            },
+            {
+              "delta_sum": 93940,
+              "height": 64,
+              "pixels": 263,
+              "unpaired": false,
+              "width": 10,
+              "x": 118,
+              "y": 1920
+            },
+            {
+              "delta_sum": 91217,
+              "height": 58,
+              "pixels": 275,
+              "unpaired": false,
+              "width": 10,
+              "x": 118,
+              "y": 1984
+            },
+            {
+              "delta_sum": 90801,
+              "height": 9,
+              "pixels": 124,
+              "unpaired": false,
+              "width": 64,
+              "x": 128,
+              "y": 1397
+            },
+            {
+              "delta_sum": 49851,
+              "height": 43,
+              "pixels": 145,
+              "unpaired": false,
+              "width": 8,
+              "x": 10,
+              "y": 1472
+            },
+            {
+              "delta_sum": 47575,
+              "height": 64,
+              "pixels": 160,
+              "unpaired": false,
+              "width": 10,
+              "x": 118,
+              "y": 1664
+            },
+            {
+              "delta_sum": 44148,
+              "height": 58,
+              "pixels": 149,
+              "unpaired": false,
+              "width": 9,
+              "x": 119,
+              "y": 1606
+            },
+            {
+              "delta_sum": 40478,
+              "height": 58,
+              "pixels": 110,
+              "unpaired": false,
+              "width": 4,
+              "x": 128,
+              "y": 1474
+            },
+            {
+              "delta_sum": 38754,
+              "height": 62,
+              "pixels": 104,
+              "unpaired": false,
+              "width": 4,
+              "x": 128,
+              "y": 1793
+            },
+            {
+              "delta_sum": 38680,
+              "height": 63,
+              "pixels": 110,
+              "unpaired": false,
+              "width": 4,
+              "x": 128,
+              "y": 1665
+            },
+            {
+              "delta_sum": 38401,
+              "height": 58,
+              "pixels": 102,
+              "unpaired": false,
+              "width": 4,
+              "x": 128,
+              "y": 1606
+            },
+            {
+              "delta_sum": 38258,
+              "height": 62,
+              "pixels": 128,
+              "unpaired": false,
+              "width": 9,
+              "x": 119,
+              "y": 1538
+            },
+            {
+              "delta_sum": 36355,
+              "height": 60,
+              "pixels": 98,
+              "unpaired": false,
+              "width": 4,
+              "x": 128,
+              "y": 1412
+            },
+            {
+              "delta_sum": 36355,
+              "height": 60,
+              "pixels": 98,
+              "unpaired": false,
+              "width": 4,
+              "x": 128,
+              "y": 1922
+            },
+            {
+              "delta_sum": 34626,
+              "height": 62,
+              "pixels": 99,
+              "unpaired": false,
+              "width": 4,
+              "x": 128,
+              "y": 1538
+            },
+            {
+              "delta_sum": 32817,
+              "height": 55,
+              "pixels": 97,
+              "unpaired": false,
+              "width": 4,
+              "x": 128,
+              "y": 1861
+            },
+            {
+              "delta_sum": 32059,
+              "height": 59,
+              "pixels": 93,
+              "unpaired": false,
+              "width": 4,
+              "x": 128,
+              "y": 1728
+            },
+            {
+              "delta_sum": 25311,
+              "height": 60,
+              "pixels": 93,
+              "unpaired": false,
+              "width": 3,
+              "x": 125,
+              "y": 1472
+            },
+            {
+              "delta_sum": 23718,
+              "height": 60,
+              "pixels": 67,
+              "unpaired": false,
+              "width": 50,
+              "x": 78,
+              "y": 1412
+            },
+            {
+              "delta_sum": 19890,
+              "height": 3,
+              "pixels": 26,
+              "unpaired": false,
+              "width": 14,
+              "x": 448,
+              "y": 1397
+            },
+            {
+              "delta_sum": 19890,
+              "height": 3,
+              "pixels": 26,
+              "unpaired": false,
+              "width": 14,
+              "x": 448,
+              "y": 2044
+            },
+            {
+              "delta_sum": 12870,
+              "height": 11,
+              "pixels": 42,
+              "unpaired": false,
+              "width": 7,
+              "x": 75,
+              "y": 2083
+            },
+            {
+              "delta_sum": 6497,
+              "height": 5,
+              "pixels": 22,
+              "unpaired": false,
+              "width": 52,
+              "x": 76,
+              "y": 1402
+            }
+          ],
+          "left_height": 2098,
+          "left_width": 1691,
+          "max_channel_delta": 255,
+          "overlap_height": 2097,
+          "overlap_width": 1691,
+          "overlay_url": "evidence/94c91e5d27c1148d8b95008cd095b524d086c9431e47d4694005623ce3db40bb.png",
+          "right_height": 2097,
+          "right_width": 1691,
+          "total_channel_delta": 2209546,
+          "unmatched_nonwhite_pixels": 0,
+          "unmatched_pixels": 1691,
+          "unmeasured_regions": 0
+        }
+      }
+    },
+    "different_regions": 6,
+    "failure": null,
+    "note": "Pixel diagnostics describe retained captures. They do not change the scientific comparison verdict or extend its coverage.",
+    "source_report": null,
+    "version": 1
+  },
+  "public_presentation": {
+    "meaning": "Derived presentation. Native evidence remains unchanged.",
+    "metadata_omissions": [
+      {
+        "pointer": "/report/excel_pids",
+        "source_value_sha256": "d4e46d31e8aa22deb170d26d66c8e225cf7997649749d81f4357fcd7c9bbabb7"
+      },
+      {
+        "pointer": "/report/portable_report/source_report",
+        "source_value_sha256": "451a884b2f650e04f633bf7eeb85ec438ca310eeca276f3ffca40a7a677cb192"
+      },
+      {
+        "pointer": "/report/transitions/0/after_file",
+        "source_value_sha256": "444222a3e08d8f142dfc9515e68b70dc87d38d2661cb4389b2b0384e5286795e"
+      },
+      {
+        "pointer": "/report/transitions/0/before_file",
+        "source_value_sha256": "45e23c97acbcfa630898e6a5e0684b6a41d6f036dbfe401613e6b8fffd1d7e05"
+      },
+      {
+        "pointer": "/report/transitions/0/changes_file",
+        "source_value_sha256": "73a66d86fb479684c4d240aa453a771c8029bf659a33e7f244d5d3616cb8c543"
+      },
+      {
+        "pointer": "/report/transitions/1/after_file",
+        "source_value_sha256": "784e71a27c8c36f5ef0f80e612a5fdabcdc6eb58de29da5e57058e66119edf1e"
+      },
+      {
+        "pointer": "/report/transitions/1/before_file",
+        "source_value_sha256": "45e23c97acbcfa630898e6a5e0684b6a41d6f036dbfe401613e6b8fffd1d7e05"
+      },
+      {
+        "pointer": "/report/transitions/1/changes_file",
+        "source_value_sha256": "f3d8c2141b17d0b7501afe08a782124b2d066f61241c817163ba7dea449ee91a"
+      },
+      {
+        "pointer": "/report/transitions/2/after_file",
+        "source_value_sha256": "de35fb03980c06774f07f0057440c79109c1192c82309846cf5502b55036b71e"
+      },
+      {
+        "pointer": "/report/transitions/2/before_file",
+        "source_value_sha256": "784e71a27c8c36f5ef0f80e612a5fdabcdc6eb58de29da5e57058e66119edf1e"
+      },
+      {
+        "pointer": "/report/transitions/2/changes_file",
+        "source_value_sha256": "147a73f55d403beed701e6f399a541a449112e512fd89c2db9efacf54f15b1a0"
+      },
+      {
+        "pointer": "/report/transitions/3/after_file",
+        "source_value_sha256": "4b87f99ae53d696d60060a14bda0856ac09e2eb25cc9d64c63ea387f9e334dc8"
+      },
+      {
+        "pointer": "/report/transitions/3/before_file",
+        "source_value_sha256": "444222a3e08d8f142dfc9515e68b70dc87d38d2661cb4389b2b0384e5286795e"
+      },
+      {
+        "pointer": "/report/transitions/3/changes_file",
+        "source_value_sha256": "452dfe206565debf71212deedbd36732007aa67c7309fdc6b23d4e91f26fb73f"
+      },
+      {
+        "pointer": "/report/transitions/4/after_file",
+        "source_value_sha256": "ad289c1bbf5f92025dc1c3c5811c46b8d3a6559b1a5960f37ef3556edc19a1f3"
+      },
+      {
+        "pointer": "/report/transitions/4/before_file",
+        "source_value_sha256": "de35fb03980c06774f07f0057440c79109c1192c82309846cf5502b55036b71e"
+      },
+      {
+        "pointer": "/report/transitions/4/changes_file",
+        "source_value_sha256": "724366b747abe807a215c642e50ccb587668a290eeacf8a6ecfc7163f2f5b486"
+      },
+      {
+        "pointer": "/validation_signature/environment_key",
+        "source_value_sha256": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126"
+      }
+    ],
+    "schema": 1,
+    "source_report_sha256": "861c63073972c549f84c5065dd1a51c0e2424ca6e3036a6a45ba850142a6e658"
+  },
+  "rebuild_checks": {},
+  "state_decisions": {
+    "CP": {
+      "status": "disabled"
+    },
+    "CPR": {
+      "status": "disabled"
+    },
+    "O": {
+      "method": "open-save",
+      "status": "observed"
+    },
+    "OR": {
+      "method": "inplace-rebuild",
+      "status": "observed"
+    },
+    "SD": {
+      "method": "open-save",
+      "status": "observed"
+    },
+    "SDR": {
+      "method": "inplace-rebuild",
+      "status": "observed"
+    }
+  },
+  "status": "completed_with_limitations",
+  "timings_ms": {
+    "capture_selection_and_transport": 3071,
+    "image_comparisons": 578
+  },
+  "transitions": [
+    {
+      "after_file": null,
+      "before_file": null,
+      "change_count": 35968,
+      "changes_file": null,
+      "label": "original opening/saving control",
+      "skipped_outside_content_cell_changes": {
+        "Skew3": 1,
+        "Swap": 2969240
+      },
+      "timings_ms": {
+        "attribution": 58,
+        "differences": 364,
+        "read_snapshots": 10,
+        "total": 528,
+        "write_evidence": 39
+      }
+    },
+    {
+      "after_file": null,
+      "before_file": null,
+      "change_count": 48339,
+      "changes_file": null,
+      "label": "default input versus original input",
+      "skipped_outside_content_cell_changes": {
+        "Skew3": 1,
+        "Swap": 3034392,
+        "Swaption": 1490,
+        "phone": 45
+      },
+      "timings_ms": {
+        "attribution": 32,
+        "differences": 289,
+        "read_snapshots": 5,
+        "total": 381,
+        "write_evidence": 49
+      }
+    },
+    {
+      "after_file": null,
+      "before_file": null,
+      "change_count": 643,
+      "changes_file": null,
+      "label": "default opening/saving control",
+      "skipped_outside_content_cell_changes": {},
+      "timings_ms": {
+        "attribution": 0,
+        "differences": 3,
+        "read_snapshots": 0,
+        "total": 12,
+        "write_evidence": 2
+      }
+    },
+    {
+      "after_file": null,
+      "before_file": null,
+      "change_count": 42,
+      "changes_file": null,
+      "label": "O in-place rebuild and save",
+      "skipped_outside_content_cell_changes": {},
+      "timings_ms": {
+        "attribution": 0,
+        "differences": 158,
+        "read_snapshots": 2020,
+        "total": 2185,
+        "write_evidence": 1
+      }
+    },
+    {
+      "after_file": null,
+      "before_file": null,
+      "change_count": 42,
+      "changes_file": null,
+      "label": "SD in-place rebuild and save",
+      "skipped_outside_content_cell_changes": {},
+      "timings_ms": {
+        "attribution": 0,
+        "differences": 5,
+        "read_snapshots": 64,
+        "total": 76,
+        "write_evidence": 1
+      }
+    }
+  ],
+  "workbook_bytes": {
+    "OR-rebuilt.xlsx": 8797518,
+    "SDR-rebuilt.xlsx": 424917,
+    "default.before-save.xlsx": 424949,
+    "default.xlsx": 424795,
+    "input_default": 424949,
+    "input_original": 9030913,
+    "original.before-save.xlsx": 9030913,
+    "original.xlsx": 8795569
+  },
+  "workbook_inventory": {
+    "complete": true,
+    "original_sha256": "e3fbe2b44f676f28d881bcd81cae604a5c872e7647f6ee4bd1610f2d74df6884",
+    "sheets": [
+      {
+        "id": "1",
+        "name": "Swaption",
+        "order": 0,
+        "state": "visible"
+      },
+      {
+        "id": "4",
+        "name": "phone",
+        "order": 1,
+        "state": "visible"
+      },
+      {
+        "id": "152",
+        "name": "Skew3",
+        "order": 2,
+        "state": "visible"
+      },
+      {
+        "id": "3132",
+        "name": "Opt",
+        "order": 3,
+        "state": "visible"
+      },
+      {
+        "id": "16",
+        "name": "Sheet1",
+        "order": 4,
+        "state": "visible"
+      },
+      {
+        "id": "83",
+        "name": "Swap",
+        "order": 5,
+        "state": "visible"
+      },
+      {
+        "id": "50108",
+        "name": "Front",
+        "order": 6,
+        "state": "visible"
+      }
+    ]
+  },
+  "xml_snapshot_statistics": {
+    "elapsed_ms": 6622,
+    "parsed_versions": 6,
+    "reads": 20,
+    "reused_versions": 14
+  }
+}

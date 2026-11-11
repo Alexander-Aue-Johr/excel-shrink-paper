@@ -1,0 +1,289 @@
+{
+  "capture_policy": "explicit-reference-plan-v1",
+  "comparisons": [
+    {
+      "charts": [],
+      "findings": [
+        {
+          "cell": "A1:I157",
+          "geometry_differs": true,
+          "left_geometry": {
+            "height": 2008.5,
+            "left": 0.0,
+            "top": 0.0,
+            "width": 643.5
+          },
+          "left_png": "evidence/827f0c61f9af7ed4ecc821d8bae02e1346c45f76249164009288100054eeaa2d.png",
+          "pixels_compared": true,
+          "pixels_differ": true,
+          "rendering_differs": false,
+          "right_geometry": {
+            "height": 2007.75,
+            "left": 0.0,
+            "top": 0.0,
+            "width": 624.75
+          },
+          "right_png": "evidence/d1aa9f2c3a0a6cd2b35cdcd275997b9bf51caa1213936d9af024b68f978bee94.png",
+          "sheet": "Tables"
+        }
+      ],
+      "label": "Explicit reference after native rebuild",
+      "left": "OR",
+      "right": "SDR",
+      "selected_region_count": 1
+    }
+  ],
+  "equal_image_encoding": {
+    "compression": "unchanged",
+    "format": "source encoding",
+    "pixel_preservation": "original encoded bytes retained",
+    "scope": "explicit preservation requested by source report"
+  },
+  "limitations": [
+    "Posthoc Tables A1:I157 control selected after observing a Check Performance finding. This is not a blinded recall sample or whole-sheet validation.",
+    "Supplied reference areas do not establish whole-sheet coverage or selector recall."
+  ],
+  "portable_report": {
+    "diagnostics": {
+      "0:findings:0": {
+        "metrics": {
+          "changed_pixels": 490,
+          "hotspot_count": 16,
+          "hotspots": [
+            {
+              "delta_sum": 55080,
+              "height": 17,
+              "pixels": 72,
+              "unpaired": false,
+              "width": 40,
+              "x": 88,
+              "y": 2661
+            },
+            {
+              "delta_sum": 48960,
+              "height": 1,
+              "pixels": 64,
+              "unpaired": false,
+              "width": 64,
+              "x": 128,
+              "y": 2677
+            },
+            {
+              "delta_sum": 48960,
+              "height": 1,
+              "pixels": 64,
+              "unpaired": false,
+              "width": 64,
+              "x": 192,
+              "y": 2677
+            },
+            {
+              "delta_sum": 48960,
+              "height": 1,
+              "pixels": 64,
+              "unpaired": false,
+              "width": 64,
+              "x": 256,
+              "y": 2677
+            },
+            {
+              "delta_sum": 48960,
+              "height": 1,
+              "pixels": 64,
+              "unpaired": false,
+              "width": 64,
+              "x": 320,
+              "y": 2677
+            },
+            {
+              "delta_sum": 48960,
+              "height": 1,
+              "pixels": 64,
+              "unpaired": false,
+              "width": 64,
+              "x": 384,
+              "y": 2677
+            },
+            {
+              "delta_sum": 48960,
+              "height": 1,
+              "pixels": 64,
+              "unpaired": false,
+              "width": 64,
+              "x": 448,
+              "y": 2677
+            },
+            {
+              "delta_sum": 26010,
+              "height": 17,
+              "pixels": 34,
+              "unpaired": false,
+              "width": 2,
+              "x": 512,
+              "y": 2661
+            },
+            {
+              "delta_sum": 0,
+              "height": 1,
+              "pixels": 64,
+              "unpaired": true,
+              "width": 64,
+              "x": 128,
+              "y": 2678
+            },
+            {
+              "delta_sum": 0,
+              "height": 1,
+              "pixels": 64,
+              "unpaired": true,
+              "width": 64,
+              "x": 192,
+              "y": 2678
+            },
+            {
+              "delta_sum": 0,
+              "height": 1,
+              "pixels": 64,
+              "unpaired": true,
+              "width": 64,
+              "x": 256,
+              "y": 2678
+            },
+            {
+              "delta_sum": 0,
+              "height": 1,
+              "pixels": 64,
+              "unpaired": true,
+              "width": 64,
+              "x": 320,
+              "y": 2678
+            },
+            {
+              "delta_sum": 0,
+              "height": 1,
+              "pixels": 64,
+              "unpaired": true,
+              "width": 64,
+              "x": 384,
+              "y": 2678
+            },
+            {
+              "delta_sum": 0,
+              "height": 1,
+              "pixels": 64,
+              "unpaired": true,
+              "width": 64,
+              "x": 448,
+              "y": 2678
+            },
+            {
+              "delta_sum": 0,
+              "height": 1,
+              "pixels": 40,
+              "unpaired": true,
+              "width": 40,
+              "x": 88,
+              "y": 2678
+            },
+            {
+              "delta_sum": 0,
+              "height": 1,
+              "pixels": 2,
+              "unpaired": true,
+              "width": 2,
+              "x": 512,
+              "y": 2678
+            }
+          ],
+          "left_height": 2679,
+          "left_width": 859,
+          "max_channel_delta": 255,
+          "overlap_height": 2678,
+          "overlap_width": 834,
+          "overlay_url": "evidence/5364d215aec50aac022f5fe7032036ba44ee9858b542fbf5991672da02638fb3.png",
+          "right_height": 2678,
+          "right_width": 834,
+          "total_channel_delta": 374850,
+          "unmatched_nonwhite_pixels": 426,
+          "unmatched_pixels": 67809,
+          "unmeasured_regions": 0
+        }
+      }
+    },
+    "different_regions": 1,
+    "failure": null,
+    "note": "Pixel diagnostics describe retained captures. They do not change the scientific comparison verdict or extend its coverage.",
+    "source_report": null,
+    "version": 1
+  },
+  "preserve_image_encoding": true,
+  "public_presentation": {
+    "meaning": "Derived presentation. Native evidence remains unchanged.",
+    "metadata_omissions": [
+      {
+        "pointer": "/report/portable_report/source_report",
+        "source_value_sha256": "451a884b2f650e04f633bf7eeb85ec438ca310eeca276f3ffca40a7a677cb192"
+      }
+    ],
+    "schema": 1,
+    "source_report_sha256": "b1bc0fce9e41c23074860b6fa08910c8f14ff1165e6d427aa3f1487f2547c5db"
+  },
+  "reference_provenance": {
+    "source_receipt_json": "{\n  \"default_rebuilt_sha256\": \"00d5a10d82b3ad6993011415ed88221d4e648650e3fbc8ebf7c6543a67ff340f\",\n  \"default_sha256\": \"e5d1dfe0e320353be8428fbac686681cd3fc5c928e30e48be856a560bc5d4322\",\n  \"elapsed_seconds\": 17.7323191,\n  \"error\": null,\n  \"finished_at\": \"2026-11-10T20:00:28.632323300+00:00\",\n  \"limitations\": [\n    \"Coverage is exactly the supplied areas; the command does not establish their completeness.\",\n    \"Both workbooks are rebuilt and saved in the native renderer before reference captures.\",\n    \"Oversized images and failed commands remain failed reference cases.\"\n  ],\n  \"original_rebuilt_sha256\": \"3ffab9796cc280db54bb44916b7644341d508c238f03030e41d73ad03521a330\",\n  \"original_sha256\": \"025d2f43723df45fc7a19d921a47733a6c934444c87b658909ffcacf9bbf16f3\",\n  \"plan\": [\n    {\n      \"range\": \"A1:I157\",\n      \"sheet\": \"Tables\"\n    }\n  ],\n  \"plan_sha256\": \"d169eae86faae5b3acdcb7d7e3d9ffe0d1737c8746b72490d34124f371bb939f\",\n  \"producer_sha256\": \"c301379cc9fcf6315acc3e07f74cd0f969723249ac11c24191514e0a6bdc364c\",\n  \"regions\": [\n    {\n      \"default_geometry\": {\n        \"height\": 2007.75,\n        \"left\": 0.0,\n        \"top\": 0.0,\n        \"width\": 624.75\n      },\n      \"default_rendered\": true,\n      \"geometry_differs\": true,\n      \"image_dimensions\": [\n        [\n          859,\n          2679\n        ],\n        [\n          834,\n          2678\n        ]\n      ],\n      \"images\": [\n        {\n          \"bytes\": 170853,\n          \"file\": \"reference-0-O.png\",\n          \"sha256\": \"827f0c61f9af7ed4ecc821d8bae02e1346c45f76249164009288100054eeaa2d\"\n        },\n        {\n          \"bytes\": 169934,\n          \"file\": \"reference-0-SD.png\",\n          \"sha256\": \"d1aa9f2c3a0a6cd2b35cdcd275997b9bf51caa1213936d9af024b68f978bee94\"\n        }\n      ],\n      \"original_geometry\": {\n        \"height\": 2008.5,\n        \"left\": 0.0,\n        \"top\": 0.0,\n        \"width\": 643.5\n      },\n      \"original_rendered\": true,\n      \"pixels_compared\": true,\n      \"pixels_differ\": true,\n      \"range\": \"A1:I157\",\n      \"rendering_differs\": false,\n      \"sheet\": \"Tables\"\n    }\n  ],\n  \"selection\": \"explicit_independent_reference_plan\",\n  \"started_at\": \"2026-11-10T20:00:10.899995600+00:00\",\n  \"status\": \"completed\",\n  \"verify_objects\": false,\n  \"version\": 1\n}",
+    "source_receipt_sha256": "484c7c61537dc7fd3104377bbf8b974b8fbfea4984858d3fc3553a7f73305648"
+  },
+  "selection": {
+    "kind": "explicit_reference_import",
+    "recall_evidence": false,
+    "scope_note": "Posthoc Tables A1:I157 control selected after observing a Check Performance finding. This is not a blinded recall sample or whole-sheet validation."
+  },
+  "status": "completed_with_limitations",
+  "workbook_inventory": {
+    "complete": true,
+    "original_sha256": "025d2f43723df45fc7a19d921a47733a6c934444c87b658909ffcacf9bbf16f3",
+    "sheets": [
+      {
+        "id": "1",
+        "name": "Run Query",
+        "order": 0,
+        "state": "visible"
+      },
+      {
+        "id": "2",
+        "name": "Results",
+        "order": 1,
+        "state": "visible"
+      },
+      {
+        "id": "7",
+        "name": "Indicies",
+        "order": 2,
+        "state": "visible"
+      },
+      {
+        "id": "6",
+        "name": "expiry",
+        "order": 3,
+        "state": "visible"
+      },
+      {
+        "id": "4",
+        "name": "Codes",
+        "order": 4,
+        "state": "visible"
+      },
+      {
+        "id": "5",
+        "name": "Tables",
+        "order": 5,
+        "state": "visible"
+      },
+      {
+        "id": "3",
+        "name": "Module1",
+        "order": 6,
+        "state": "veryHidden"
+      }
+    ]
+  }
+}
