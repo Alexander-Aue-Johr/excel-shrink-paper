@@ -4,6 +4,7 @@
   actor/.style={rounded corners=2pt,draw=stateSlate!45,fill=stateSlate!4,
     minimum height=.48cm,text width=2.3cm,inner sep=3pt,
     font=\scriptsize,align=center},
+  participant/.style={actor,text width=3cm,minimum height=.8cm},
   msg/.style={-{Stealth[length=3.2pt]},draw=stateSlate!85,line width=.65pt},
   ack/.style={msg,dashed,draw=stateSlate!55},
   payload/.style={msg,draw=stateTeal,line width=1.2pt},
@@ -16,33 +17,39 @@
     font=\scriptsize},
   heading/.style={font=\small\bfseries,anchor=west}]
 \path[use as bounding box] (-.05,.65) rectangle (17.1,-12.25);
+% One pitch keeps participant centers and equal-width headers evenly spaced.
+\def\originalX{1.7}
+\def\actorPitch{4.5}
+\pgfmathsetmacro{\hostX}{\originalX+\actorPitch}
+\pgfmathsetmacro{\coordinatorX}{\hostX+\actorPitch}
+\pgfmathsetmacro{\variantX}{\coordinatorX+\actorPitch}
 \node[heading] at (0,.35) {A\quad Default image transport and retained evidence};
-\node[actor,draw=stateBlue,fill=stateBlue!7] (original) at (1.4,-.35)
-  {Original add-in};
-\node[actor] (host) at (5.65,-.35) {Resident host};
-\node[actor] (coordinator) at (10.25,-.35) {Coordinator};
-\node[actor,draw=stateTeal,fill=stateTeal!7] (variant) at (15.4,-.35)
-  {Variant add-in};
-\foreach \xx in {1.4,5.65,10.25,15.4} {
-  \draw[stateSlate!25,dashed,line width=.45pt] (\xx,-.65) -- (\xx,-4.85);
+\node[participant,draw=stateBlue,fill=stateBlue!7] (original) at (\originalX,-.25)
+  {Original Excel Session\\{\fontsize{6.5}{7.2}\selectfont Capture Add-in}};
+\node[participant] (host) at (\hostX,-.25) {Capture Service};
+\node[participant] (coordinator) at (\coordinatorX,-.25) {Comparison Coordinator};
+\node[participant,draw=stateTeal,fill=stateTeal!7] (variant) at (\variantX,-.25)
+  {Transformed Excel Session\\{\fontsize{6.5}{7.2}\selectfont Capture Add-in}};
+\foreach \xx in {\originalX,\hostX,\coordinatorX,\variantX} {
+  \draw[stateSlate!25,dashed,line width=.45pt] (\xx,-.7) -- (\xx,-4.85);
 }
-\draw[msg] (10.25,-1.03) -- node[label,above=2pt]
-  {Publish capture command} (5.65,-1.03);
-\draw[msg] (5.65,-1.62) -- node[label,above=2pt] {Dispatch command} (1.4,-1.62);
-\draw[msg] (5.65,-1.62) -- node[label,above=2pt] {Dispatch the matching round} (15.4,-1.62);
-\foreach \xx/\col in {1.4/stateBlue,15.4/stateTeal} {
+\draw[msg] (\coordinatorX,-1.03) -- node[label,above=2pt]
+  {Publish capture command} (\hostX,-1.03);
+\draw[msg] (\hostX,-1.62) -- node[label,above=2pt] {Dispatch command} (\originalX,-1.62);
+\draw[msg] (\hostX,-1.62) -- node[label,above=2pt] {Dispatch the matching round} (\variantX,-1.62);
+\foreach \xx/\col in {\originalX/stateBlue,\variantX/stateTeal} {
   \fill[\col] (\xx,-1.62) circle (1.7pt);
   \fill[\col] (\xx,-2.28) circle (1.7pt);
 }
-\draw[payload] (1.4,-2.28) -- node[label,above=2pt] {Finalized PNG bytes} (5.65,-2.28);
-\draw[payload] (15.4,-2.28) -- node[label,above=2pt] {Finalized PNG bytes} (5.65,-2.28);
-\draw[ack] (5.65,-2.8) -- node[label,above=1pt] {Image receipt} (1.4,-2.8);
-\draw[ack] (5.65,-2.8) -- node[label,above=1pt] {Image receipt} (15.4,-2.8);
-\draw[msg] (1.4,-3.38) -- node[label,above=2pt] {Result with image receipts} (5.65,-3.38);
-\draw[msg] (15.4,-3.38) -- node[label,above=2pt] {Result with image receipts} (5.65,-3.38);
-\draw[ack] (5.65,-3.95) -- node[label,above=1pt] {Result committed / ACK} (1.4,-3.95);
-\draw[ack] (5.65,-3.95) -- node[label,above=1pt] {Result committed / ACK} (15.4,-3.95);
-\draw[msg] (5.65,-4.52) -- node[label,above=2pt] {Durable results + image paths} (10.25,-4.52);
+\draw[payload] (\originalX,-2.28) -- node[label,above=2pt] {Finalized PNG bytes} (\hostX,-2.28);
+\draw[payload] (\variantX,-2.28) -- node[label,above=2pt] {Finalized PNG bytes} (\hostX,-2.28);
+\draw[ack] (\hostX,-2.8) -- node[label,above=1pt] {Image receipt} (\originalX,-2.8);
+\draw[ack] (\hostX,-2.8) -- node[label,above=1pt] {Image receipt} (\variantX,-2.8);
+\draw[msg] (\originalX,-3.38) -- node[label,above=2pt] {Result with image receipts} (\hostX,-3.38);
+\draw[msg] (\variantX,-3.38) -- node[label,above=2pt] {Result with image receipts} (\hostX,-3.38);
+\draw[ack] (\hostX,-3.95) -- node[label,above=1pt] {Result committed / ACK} (\originalX,-3.95);
+\draw[ack] (\hostX,-3.95) -- node[label,above=1pt] {Result committed / ACK} (\variantX,-3.95);
+\draw[msg] (\hostX,-4.52) -- node[label,above=2pt] {Durable results + image paths} (\coordinatorX,-4.52);
 \node[tinylabel,text width=4.8cm] at (13.45,-4.52)
   {Match identities and geometry.\\Compare exact host pixels.};
 \draw[stateTeal!35,rounded corners=3pt,line width=.6pt]
@@ -59,10 +66,10 @@
 \node[tinylabel,anchor=west] at (.3,-6.72)
   {ACK loss replays the same serialized result and command ID.};
 \foreach \yy in {-1.03,-1.62,-2.28,-2.8,-3.38,-3.95,-4.52} {
-  \fill[stateSlate!80] (5.65,\yy) circle (1.3pt);
+  \fill[stateSlate!80] (\hostX,\yy) circle (1.3pt);
 }
 \foreach \yy in {-1.03,-4.52} {
-  \fill[stateSlate!80] (10.25,\yy) circle (1.3pt);
+  \fill[stateSlate!80] (\coordinatorX,\yy) circle (1.3pt);
 }
 
 \draw[stateSlate!20,line width=.5pt] (0,-7.05) -- (17,-7.05);
@@ -106,7 +113,7 @@
 \draw[stateSlate!25,rounded corners=2pt,line width=.5pt]
   (10.2,-7.84) rectangle (12.7,-9.17);
 \node[tinylabel,anchor=east] at (10.05,-8.15) {Original};
-\node[tinylabel,anchor=east] at (10.05,-8.85) {Variant};
+\node[tinylabel,anchor=east] at (10.05,-8.85) {Transformed};
 \foreach \xx/\name in {10.6/{$i$},11.45/{$i+1$},12.3/{$i+2$}} {
   \node[tile] at (\xx,-8.15) {\name};
 }
@@ -137,9 +144,10 @@
 \node[tinylabel,anchor=north] at (13.45,-11.77) {Illustrative capture / comparison progress};
 \end{tikzpicture}
 \caption{DeltaSieve communication and supervision, illustrated schematically.
-(A) The default image transport uploads finalized PNGs and returns image
-receipts before acknowledging completed commands. The host exposes durable
-results to the coordinator. Equal captures remain inspectable in the report.
+(A) Each Excel session holds a comparison workbook and its capture add-in.
+The default image transport uploads finalized PNGs and returns image
+receipts before acknowledging completed commands. The capture service exposes
+durable results to the comparison coordinator. Equal captures remain inspectable in the report.
 Packaging accepts a smaller lossless PNG encoding only after decoded RGBA
 equality is verified. Differing or unverified image references preserve their
 source encoding. Startup is abstracted.
