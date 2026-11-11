@@ -78,18 +78,12 @@ These measurements describe the selected capture scope.
 \input{sections/evaluation}
 % Flush evaluation tables before related work and the bibliography.
 \clearpage
-\ifdefined\withoutreferences
-\else
 \section{Related Work}
 \input{sections/related}
-\fi
 \section{Discussion and Limitations}
 \input{sections/discussion}
 \label{sec:main-text-end}
 \input{sections/ai-assistance}
-\ifdefined\withoutreferences
-\else
 \bibliographystyle{IEEEtran}
 \bibliography{references}
-\fi
 \end{document}
