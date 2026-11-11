@@ -15,7 +15,7 @@ so removing them requires a stated admission policy and dependency checks in
 addition to empty-format cleanup. Section~\ref{sec:wanderungen} describes the
 case and the values that the conservative policy deliberately retains.
 
-For an XLSX input, SheetShrink makes these decisions from the stored package
+For an XLSX input, Sheet Shrink makes these decisions from the stored package
 before loading the workbook in Excel. Its cleanup stage has no native rendering
 or calculated row-height observations. An Excel-hosted method can inspect the
 loaded layout and evaluate candidate edits against native observations. Our
@@ -32,7 +32,7 @@ under a stated contract. File size alone is an inadequate measure of success.
 A smaller file that changes an important row height has failed that obligation.
 
 Figure~\ref{fig:cleanup-overview} summarizes guarded reductions across cells,
-rows, columns and workbook metadata. SheetShrink reuses existing style indices
+rows, columns and workbook metadata. Sheet Shrink reuses existing style indices
 and compact witnesses to preserve required effects. Native saving can additionally
 compact style and shared-string tables.
 

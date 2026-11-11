@@ -11,7 +11,7 @@ attention to cleanup and its transparency. Current product behavior requires
 version-specific evidence. These documented policies motivate comparing both
 reduction and preservation outcomes under explicit contracts.
 
-Package-level cleanup also predates SheetShrink. XLStylesTool's developer
+Package-level cleanup also predates Sheet Shrink. XLStylesTool's developer
 describes an Open-XML-based cleaner for excessive and corrupted styles that
 operates independently of Excel's object model~\cite{xlstylestool}.
 NXPowerLite Desktop 10 lists excess XLSX cell-format cleanup among its
@@ -20,7 +20,7 @@ cells as a source of large worksheet parts~\cite{nxengine}. These are relevant
 comparison subjects. Their available descriptions do not establish the
 guarded removal rules, compact row-font witnesses or native preservation
 outcomes examined here. Those properties require version-specific evidence.
-SheetShrink's positioning therefore includes its effect-aware rules, retained
+Sheet Shrink's positioning therefore includes its effect-aware rules, retained
 representatives and measured costs alongside its execution before native loading.
 Its removal decisions use persisted OOXML properties and workbook context.
 The cleanup phase has no native rendering observations or measured automatic
@@ -36,7 +36,7 @@ benchmark Excel, LibreOffice Calc and Google Sheets on spreadsheet computations
 and examine indexing, data layout, incremental evaluation and shared
 computation~\cite{rahman2020benchmarking}. These studies motivate performance
 work on spreadsheets. Their workloads assess system responsiveness and
-computation, while SheetShrink measures removable persisted representation and
+computation, while Sheet Shrink measures removable persisted representation and
 the cost of preparing workbooks for subsequent use.
 
 DataSpread's storage engine integrates spreadsheet presentation with database
@@ -46,7 +46,7 @@ updates~\cite{bendre2019antifreeze}. Hillview distributes exploration of large
 datasets and uses compact visualization sketches~\cite{budiu2019hillview}.
 TACO exploits regular formula-reference patterns to compact dependency graphs
 and query them directly~\cite{tang2023taco}. These systems optimize storage,
-computation or exploration within a processing system. SheetShrink transforms
+computation or exploration within a processing system. Sheet Shrink transforms
 an existing XLSX package into another editable workbook under a stated
 preservation contract. These optimization layers can be used together.
 
@@ -54,7 +54,7 @@ preservation contract. These optimization layers can be used together.
 SheetReader studies specialized spreadsheet ingestion and the coupling of
 parsing, decompression and parallel execution~\cite{sheetreader}. It motivates
 evaluating loading cost and memory. Its output consists of data representations
-for an analytical consumer. SheetShrink produces an editable workbook whose
+for an analytical consumer. Sheet Shrink produces an editable workbook whose
 required layout and dependencies must survive package rewriting. A blank cell
 that a tabular reader can omit may still influence inherited formatting or
 automatic layout in Excel. Our evaluation therefore measures cleanup together
@@ -64,17 +64,17 @@ reader's processing strategy and the representation supplied to it.
 
 SIMD-aware parsing provides a methodological connection to simdjson.
 Langdale and Lemire use SIMD operations for high-throughput JSON
-parsing~\cite{simdjson}. SheetShrink applies SIMD-assisted library searches to
+parsing~\cite{simdjson}. Sheet Shrink applies SIMD-assisted library searches to
 XML byte buffers, combined with application-specific state machines and
 preservation rules. The shared principle is accelerating byte classification
 and search while retaining the format's recognition obligations. The concrete
-search implementation in SheetShrink is supplied by \texttt{memchr}, whose
+search implementation in Sheet Shrink is supplied by \texttt{memchr}, whose
 runtime dispatch and reusable searchers are described in our method~\cite{memchr281}.
 
 \subsection{Spreadsheet refactoring and validation}
 Hermans et al. detect formula smells and suggest refactorings to improve
 spreadsheet maintainability~\cite{formulasmells}. Their work connects structural
-changes to behavioral obligations. SheetShrink's removal rules additionally
+changes to behavioral obligations. Sheet Shrink's removal rules additionally
 account for formatting inheritance and native layout effects of stored cells.
 
 Spreadsheet slicing integrates dependency reasoning with testing and

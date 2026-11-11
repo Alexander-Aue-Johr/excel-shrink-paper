@@ -107,21 +107,21 @@ def write_resource_table(summaries, output):
                     f"{row['sheetshrink_cpu_seconds']:.2f} & {row['comparator_cpu_seconds']:.2f} & "
                     f"{row['sheetshrink_peak_working_set_mib']:.0f} & {row['comparator_sampled_working_set_mib']:.0f} "
                     + r"\\")
-    text = r"""\begin{table}[t]
+    text = r"""\begin{table*}[t]
 \caption{Median resource observations across paired workbooks on the laptop.
-SS denotes SheetShrink, NX denotes NXPowerLite. CPU is process time in seconds.
-WS is working set in MiB, using OS peak counters for SS and sampled peaks for NX.}
+CPU is process time in seconds.
+WS is working set in MiB, using OS peak counters for Sheet Shrink and sampled peaks for NXPowerLite.}
 \label{tab:top49-resources}
 \centering
 \setlength{\tabcolsep}{3pt}
 \begin{tabular}{lrrrrr}
 \hline
-Corpus & Pairs & CPU SS & CPU NX & WS SS & WS NX \\
+Corpus & Pairs & CPU Sheet Shrink & CPU NXPowerLite & WS Sheet Shrink & WS NXPowerLite \\
 \hline
 """ + "\n".join(rows) + r"""
 \hline
 \end{tabular}
-\end{table}
+\end{table*}
 """
     output.parent.mkdir(parents=True, exist_ok=True)
     output.write_text(text, encoding="utf-8")

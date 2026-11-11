@@ -1,17 +1,17 @@
-\begin{table}[t]
+\begin{table*}[t]
 \caption{Median resource observations across paired workbooks on the laptop.
-SS denotes SheetShrink, NX denotes NXPowerLite. CPU is process time in seconds.
-WS is working set in MiB, using OS peak counters for SS and sampled peaks for NX.}
+CPU is process time in seconds.
+WS is working set in MiB, using OS peak counters for Sheet Shrink and sampled peaks for NXPowerLite.}
 \label{tab:top49-resources}
 \centering
 \setlength{\tabcolsep}{3pt}
 \begin{tabular}{lrrrrr}
 \hline
-Corpus & Pairs & CPU SS & CPU NX & WS SS & WS NX \\
+Corpus & Pairs & CPU Sheet Shrink & CPU NXPowerLite & WS Sheet Shrink & WS NXPowerLite \\
 \hline
 Destatis & 44 & 1.24 & 5.45 & 54 & 248 \\
 Enron & 41 & 0.70 & 4.19 & 51 & 306 \\
 Data.gov & 48 & 6.73 & 10.49 & 415 & 146 \\
 \hline
 \end{tabular}
-\end{table}
+\end{table*}

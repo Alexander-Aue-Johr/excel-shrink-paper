@@ -4,11 +4,11 @@ coverage within the available experimental budget. Native opening, cleanup and
 saving can dominate the cost of large spreadsheet collections. Each observation
 therefore retains its host, source identity, configuration and measurement
 boundary. Raw times remain associated with that host. Cross-tool ratios pair the
-same original workbook with a SheetShrink measurement on the same host.
+same original workbook with a Sheet Shrink measurement on the same host.
 Host-specific ratios retain differences in workload, tool policy and session
 conditions. Each host and tool remains a separate plotted group.
 The frozen selection contains the 49 workbooks with the largest absolute
-compressed XLSX byte savings under the earlier SheetShrink screening in each
+compressed XLSX byte savings under the earlier Sheet Shrink screening in each
 of Destatis, Enron and Data.gov. The timing and preservation outcomes of this
 extreme-case panel apply to its selected inputs.
 
@@ -49,7 +49,7 @@ The other 25 Top49 inputs lack that complete timing evidence and remain outside
 the timing figure. All 122 included outputs preserve the audited media and object
 parts byte-for-byte. The joint figure uses the intersection of 110 original
 workbooks, comprising 21 Destatis, 41 Enron and 48 Data.gov inputs. Both tools
-therefore use the same original files and repeated SheetShrink baselines within
+therefore use the same original files and repeated Sheet Shrink baselines within
 each plotted corpus group. The larger individual receipt sets remain available
 in the artifact. Table~\ref{tab:top49-resources} retains the full 133-input
 NXPowerLite resource lane.
@@ -64,7 +64,7 @@ Working-set and private-byte peaks use a nominal 250 ms sampling interval. The e
 application is reused, with one conversion worker and a 512 MiB RAM and commit
 reserve. The exact profile and per-attempt evidence accompany the results.
 
-The paired SheetShrink experiment uses an optimized release build from revision
+The paired Sheet Shrink experiment uses an optimized release build from revision
 \texttt{765c480}, one active workbook, one Rayon worker and one writer, with the
 default cleanup policy. One complete warm-up round precedes nine measured rounds
 over the same 147 source identities. Each round independently shuffles workbook
@@ -80,7 +80,7 @@ Across inputs, the median relative within-input interquartile range,
 $(Q_3-Q_1)/\widetilde{t}$, was 0.84\% over the nine measured repetitions.
 
 Figure~\ref{fig:paired-cleanup-workflows} retains raw times and workbook-level
-same-host ratios. Each denominator is the median of nine SheetShrink trials,
+same-host ratios. Each denominator is the median of nine Sheet Shrink trials,
 and each numerator is the primary comparator observation. Across-workbook quartiles
 describe heterogeneity in this deliberately selected stress panel. They are
 distinct from uncertainty over repeated trials~\cite{scientificbenchmarking}.
@@ -95,11 +95,11 @@ their own readiness endpoints, as in the separate historical opening experiment.
 \centering
 \includegraphics[width=\textwidth]{figures/paired-cleanup-workflows.pdf}
 \caption{Same-host NXPowerLite and XLStylesTool cleanup workflow observations
-on the same 110 originals, paired with SheetShrink. Corpus labels give the
+on the same 110 originals, paired with Sheet Shrink. Corpus labels give the
 shared input counts for each tool.
 Left, absolute times summarized across paired workbooks. Right, workbook-level
-comparator time divided by the median SheetShrink time, on a logarithmic scale.
-A ratio above one indicates a shorter observed SheetShrink workflow. Interval
+comparator time divided by the median Sheet Shrink time, on a logarithmic scale.
+A ratio above one indicates a shorter observed Sheet Shrink workflow. Interval
 marks show the interquartile range across workbooks. Failures and changed
 protected payloads remain in the outcome accounting.}
 \label{fig:paired-cleanup-workflows}

@@ -117,8 +117,8 @@ styles, geometry, conditional dependencies and objects. Mutations that Excel
 normalizes away are reported separately.
 
 \subsection{Performance and comparison subjects}
-We compared direct open--save trials with fresh six-worker SheetShrink cleanup
-followed by the same library. Across three stress workbooks, all 48 SheetShrink
+We compared direct open--save trials with fresh six-worker Sheet Shrink cleanup
+followed by the same library. Across three stress workbooks, all 48 Sheet Shrink
 trials completed under a 4\,GiB commit limit, compared with 33 original trials.
 Median elapsed time improved in ten of eleven fully completed pairs. Migration
 with openpyxl took 111.3\,s directly and 9.7\,s including cleanup. The accompanying
@@ -173,7 +173,7 @@ parser transitions and value positions before interpreting ingestion timings.
 A separate stress panel selects six Destatis workbooks from a 100-file
 historical-reduction screening, including the Migration workbook's hidden zero
 tail. Each cleaner receives a separate hash-verified original copy.
-SheetShrink uses revision \texttt{a7eef1a}. The comparison subjects are
+Sheet Shrink uses revision \texttt{a7eef1a}. The comparison subjects are
 NXPowerLite Desktop 11.0.1 with its Balanced profile, native Excel Check
 Performance in Excel 16.0.20527.20150, and XLStylesTool UWP 3.0.1.0 with optional
 style normalization, name unhiding and wholesale external-name removal disabled.
@@ -183,14 +183,14 @@ The artifact records full member names, input/output hashes and exact settings.
 This historical Balanced lane permits image changes. Its observations remain
 separate from the subsequent preservation-oriented Top49 profile.
 
-\begin{table}[t]
-\caption{Selected Destatis stress panel. Original size is decimal MB. Other columns give package reduction (\%). SS denotes SheetShrink, NX denotes NXPowerLite, CP denotes Check Performance, and XL denotes XLStylesTool.}
+\begin{table*}[t]
+\caption{Selected Destatis stress panel. Original size is decimal MB. Other columns give package reduction (\%).}
 \label{tab:cleanup-stress-panel}
 \centering
 \setlength{\tabcolsep}{3pt}
 \begin{tabular}{lrrrrr}
 \hline
-Workbook & Original & SS & NX & CP & XL \\
+Workbook & Original & Sheet Shrink & NXPowerLite & Check Performance & XLStylesTool \\
 \hline
 Finance & 89.37 & 94.85 & 97.09 & 96.85 & 0.01 \\
 Traffic & 37.21 & 92.99 & 65.83 & 94.04 & 0.02 \\
@@ -200,11 +200,11 @@ Doctors & 15.24 & 78.22 & 79.52 & 82.00 & 0.02 \\
 Time use & 3.84 & 81.38 & 83.14 & 81.66 & 0.32 \\
 \hline
 \end{tabular}
-\end{table}
+\end{table*}
 
 The Migration workbook contains 343,833 numeric zero constants in hidden
 columns of worksheet \texttt{Tabelle 3.4}. NXPowerLite, Check Performance and
-XLStylesTool retain all of them. SheetShrink removes these constants under its
+XLStylesTool retain all of them. Sheet Shrink removes these constants under its
 unreferenced-hidden-content policy, reducing that worksheet from 361,086 to
 787 stored cells while retaining the hidden-column interval. This package
 observation distinguishes the cleanup footprints even when package reduction
@@ -217,14 +217,14 @@ measures row 36 at 12 points instead of the original 15 points. An independent
 \texttt{A1:AC41} repeat retains identical original images across fresh sessions.
 Original against original has zero differing pixels. NXPowerLite and Check
 Performance differ in 47,383 and 34,762 pixels, respectively, inside the common
-image rectangle. SheetShrink has zero differing common pixels and a one-pixel
+image rectangle. Sheet Shrink has zero differing common pixels and a one-pixel
 white bottom-extent difference. This diagnostic was selected after observing
 the initial finding.
 
 For Migration, a separate original-derived reference plan covers 48 rectangles
 over the visible value/formula envelopes of its 36 worksheets. NXPowerLite and
 Check Performance change overlapping pixels in two and one rectangles,
-respectively. SheetShrink and XLStylesTool preserve common pixels in all 48,
+respectively. Sheet Shrink and XLStylesTool preserve common pixels in all 48,
 with white extent differences accounted for separately. The repeated original
 image identities agree across all four subjects. Formatting-only exterior
 tails, overflow beyond supplied rectangles and outlying object effects remain
@@ -278,7 +278,7 @@ incapability. Interactive recovery costs remain separate from automated timings.
 \subsection{Validation cost of redundant background definitions}
 The Destatis workbook
 \texttt{anbau-}\allowbreak\texttt{gartenbaugewaechse-}\allowbreak\texttt{2030224169005.xlsx} contains repeated column-width
-records over a uniform full-width background. Rebuilt original and SheetShrink
+records over a uniform full-width background. Rebuilt original and Sheet Shrink
 outputs contain 128,912 and 2,197 column definitions, respectively. A corrected
 DeltaSieve background-envelope guard reduced the native selection from 16,101
 to 165 regions. All 165 image pairs were identical in the fresh comparison.
@@ -318,17 +318,17 @@ Historical findings remain retained with their original planning policy.
 
 \subsection{Historical Inquire workflow observations}
 A separate 46-input subset fills missing historical Inquire observations from the
-same stress selection. All 46 repeated SheetShrink process measurements completed.
+same stress selection. All 46 repeated Sheet Shrink process measurements completed.
 The retained Inquire outcomes comprise 24 complete, three partial, 18 failed and
 one unsupported attempt. Its complete workflows include startup, opening, cleanup,
-saving and termination. They are compared descriptively with repeated SheetShrink
+saving and termination. They are compared descriptively with repeated Sheet Shrink
 process times and have different endpoints and repetition counts. Their median
 ratio is 13.38 over the 24 complete pairs. Partial and failed attempts receive no
 ratio. These measurements cannot isolate algorithm execution cost.
 
 \subsection{Targeted visual outcomes on the Top49 selection}
 A version-matched audit of the 49 workbooks with the largest absolute
-SheetShrink reductions in each corpus retained 42 Destatis, 46 Data.gov,
+Sheet Shrink reductions in each corpus retained 42 Destatis, 46 Data.gov,
 and 46 Enron comparisons against the selected originals. Separately
 documented normalized baselines supplied five further Destatis and two
 further Enron observations. The remaining two, three, and one slots,
