@@ -194,13 +194,11 @@ assembled output grows. Workbook contexts, the output buffer and deferred
 candidates remain additional memory consumers. Thread count, active-workbook
 count and writer count are separate experimental parameters.
 
-Changed worksheet members are precompressed in parallel and handed to a workbook
-writer. The writer owns ZIP mutation and publishes a completed partial output
-only after processing succeeds. Unaffected members can reuse compressed bytes.
-If all entries are original, the source workbook is copied byte for byte.
-A fast unchanged-entry classification can use CRC32 and uncompressed length.
-That shortcut is collision-prone, and exact byte verification is available.
-Preservation and timing experiments must record which identity policy was used.
+Workers compress changed worksheet members in parallel. One writer updates each
+workbook's ZIP archive and publishes the completed temporary file after successful
+processing. Unchanged members can reuse their compressed bytes. If every member
+is unchanged, SheetShrink copies the original file byte for byte. A fast identity
+check uses CRC32 and uncompressed size.
 
 The method retains existing style and shared-string indices rather than globally
 renumbering their tables. This avoids unrelated rewrites and permits copy-through
