@@ -26,19 +26,19 @@ ORCID 0009-0001-8683-3630}
 \setlength{\multicolsep}{0pt}
 \begin{multicols}{2}
 \begin{abstract}
-Native visual validation of spreadsheet transformations is expensive when every
-worksheet must be rendered. DeltaSieve selects potentially affected regions
-using differences in cell values, effective style properties, layout, and
-dependencies of conditional formatting and charts. Unknown dependencies retain
-explicit capture fallbacks. Paired native rebuilds and retained transformation
-controls distinguish comparison evidence from changes introduced by Excel itself.
-The system records selected coverage, exact pixel observations, process
-measurements, and reusable evidence. The comparison study is organized around
-49 workbooks from Data.gov, Destatis, and Enron and five transformations.
-Reports retain explicit capture scopes, baseline identities, and coverage limits.
-Independent native controls illustrate both a removed heading
-fill and an inherited border extending beyond populated cells. These results
-do not estimate corpus-wide detection recall.
+Checking whether a spreadsheet transformation changes its appearance can
+require rendering large worksheets in Excel. DeltaSieve uses differences in
+worksheet XML to select regions for native image comparison. It resolves cell
+values, inherited formatting, row and column geometry, and dependencies of
+conditional formatting and charts. Unresolved dependencies trigger broader
+captures. The selected regions are rendered in Excel and compared pixel by
+pixel. Separate opening, saving, and rebuilding controls record changes
+introduced by Excel during preparation. The comparison study is organized
+around 49 workbooks from Data.gov, Destatis, and Enron and five transformations
+produced by SheetShrink, NXPowerLite, XLStylesTool, Check Performance, and
+Inquire. Controlled examples show how removing a cell fill or an inherited
+border changes the rendered worksheet. Reports connect findings to worksheet
+coordinates, paired images, capture geometry, and execution measurements.
 \end{abstract}
 \end{multicols}
 \end{minipage}}
