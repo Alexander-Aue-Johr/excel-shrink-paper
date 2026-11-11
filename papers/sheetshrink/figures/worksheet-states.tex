@@ -1,0 +1,41 @@
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}[x=1cm,y=1cm]
+\node[state node] (seek) at (1,0) {Find root\\\texttt{worksheet}};
+\node[state node] (scan) at (3.85,0) {Scan children};
+\node[state final] (end) at (6.8,0) {End found};
+\node[state node] (cols) at (1,-2.1) {Read columns\\\texttt{cols}};
+\node[state work] (data) at (3.85,-2.1) {Read cells\\\texttt{sheetData}};
+\node[state node] (merges) at (6.8,-2.1) {Read merges\\\texttt{mergeCells}};
+\fill[stateSlate] (-.25,0) circle (1.5pt);
+\draw[state edge] (-.25,0) -- (seek.west);
+\draw[state edge] (seek) -- node[state label,above=8pt] {root found} (scan);
+\draw[state edge] (scan) -- node[state label,above=8pt] {\texttt{</worksheet>}} (end);
+
+\draw[state edge] (scan.south west) to[bend right=12]
+  node[state label,above left,pos=.56] {open} (cols.north east);
+\draw[state edge] (cols.north east) to[bend right=12]
+  node[state label,below right,pos=.45] {close} (scan.south west);
+\draw[state edge] (scan.south) to[out=-115,in=115]
+  node[state label,left,pos=.5] {open} (data.north);
+\draw[state edge] (data.north) to[out=65,in=-65]
+  node[state label,right,pos=.5] {close} (scan.south);
+\draw[state edge] (scan.south east) to[bend left=12]
+  node[state label,above right,pos=.56] {open} (merges.north west);
+\draw[state edge] (merges.north west) to[bend left=12]
+  node[state label,below left,pos=.45] {close} (scan.south east);
+\draw[state edge] (data.south west) to[out=-145,in=-35,looseness=2.3]
+  node[state label,below] {emit complete rows} (data.south east);
+
+\node[state note,text width=7.5cm,anchor=north west] at (0,-3.65)
+  {Read boundaries retain state and unfinished input.};
+\node[state error,text width=7.1cm,anchor=north west,minimum height=.6cm]
+  at (.05,-4.15) {\textbf{Error return from unfinished states}\\
+    Incomplete root/end, I/O failure or unsupported XML};
+\end{tikzpicture}
+\caption{The six worksheet-stream states. Child readers return to the same
+worksheet dispatcher. Row-aligned progress retains a partial row across reads.
+The lower box summarizes error outcomes. Reaching the end state permits
+reconstruction, with workbook publication subject to its own completion checks.}
+\label{fig:worksheet-states}
+\end{figure}

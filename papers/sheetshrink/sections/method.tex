@@ -26,6 +26,13 @@ memory. The supported input domain is normal unprefixed Transitional
 SpreadsheetML. Unsupported namespaces, encodings and ambiguous core structures
 follow explicit preservation or exclusion paths~\cite{sheetshrinkcontract}.
 
+Figure~\ref{fig:worksheet-states} makes the worksheet preprocessor's control
+states explicit. The dispatcher separates column, cell and merge contexts.
+Read boundaries preserve partial state, and complete row prefixes can progress
+without consuming an unfinished row. Reconstruction follows successful arrival
+at the worksheet end.
+\input{figures/worksheet-states}
+
 \subsection{Parser correctness and regression controls}
 Byte-oriented scanning transfers XML recognition and state-transition obligations
 to the implementation. Mature SAX and DOM libraries provide extensively exercised

@@ -85,6 +85,13 @@ untyped record can supply the same blank input to a conditional rule. The full
 visual fingerprint and the rule-input fingerprint therefore have different
 responsibilities.
 
+The token reader and the worksheet consumer have separate state.
+Figure~\ref{fig:xml-reader-states} shows the lexical reader. Its quote and delimiter-prefix memory survive reads,
+while an open-element stack checks hierarchy. Final acceptance requires a
+completed root and a balanced stack, preventing a truncated stream from
+contributing a successful partial observation.
+\input{figures/xml-reader-states}
+
 \subsection{Dependency-aware candidate selection}
 Direct value, formula, style and layout changes create candidates. Effects
 propagate beyond their edited coordinates. A row-height change can move later
@@ -266,6 +273,14 @@ a narrower causal mechanism. None of these operations increases pixel tolerance
 or automatically clears an unrelated finding.
 
 \subsection{Execution, omission and evidence reuse}
+
+Figure~\ref{fig:run-states} shows the permitted run-state transitions. Preparing
+can proceed directly to pairing when transformed inputs are supplied. Active
+phases can fail, with already durable pair records retained for accounting.
+Completion follows report publication. The finalized report still records
+individual failures, limitations and observed differences.
+\input{figures/run-states}
+
 Each comparison group owns its Excel processes, private desktop and WebView
 profile. Office calls are serial within a workbook. Independent groups can
 progress concurrently under memory admission. Cleanup distinguishes requested

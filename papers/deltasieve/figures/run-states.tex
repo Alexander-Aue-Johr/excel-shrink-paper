@@ -1,0 +1,38 @@
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}[x=.95cm,y=1cm]
+\draw[rounded corners=5pt,draw=stateBlue!25,fill=stateBlue!2,line width=.5pt]
+  (1.82,-2.86) rectangle (8.25,.92);
+\node[state note,anchor=north west] at (1.95,.84) {Active phases};
+\node[state node,draw=stateSlate!55,fill=black!3] (idle) at (.65,0) {Idle};
+\node[state node] (prepare) at (2.85,0) {Preparing};
+\node[state work] (process) at (5.05,0) {Processing};
+\node[state node] (pair) at (7.25,0) {Pairing};
+\node[state work] (validate) at (7.25,-2.15) {Validating};
+\node[state node] (publish) at (5.05,-2.15) {Publishing};
+\node[state final] (complete) at (.65,-2.15) {Completed};
+\node[state error] (failed) at (2.85,-3.85) {Failed};
+\fill[stateSlate] (-.55,0) circle (1.5pt);
+\draw[state edge] (-.55,0) -- (idle.west);
+\draw[state edge] (idle) -- (prepare);
+\draw[state edge] (prepare) -- (process);
+\draw[state edge] (process) -- (pair);
+\draw[state edge] (pair) -- node[state label,right] {pairs ready} (validate);
+\draw[state edge] (validate) -- (publish);
+\draw[state edge,draw=stateTeal] (publish) --
+  node[state label,above] {report finalized} (complete);
+\draw[state edge] (prepare.south) to[out=-55,in=-125]
+  node[state label,below,pos=.5] {supplied candidates} (pair.south);
+\draw[state edge] (process.north west) to[out=140,in=40,looseness=2.8]
+  node[state label,above] {permitted re-entry} (process.north east);
+\draw[state failure] (4.6,-2.86) --
+  node[state label,above left] {phase failure} (failed.north east);
+\node[state note,anchor=west,text width=3.4cm] at (4.2,-3.85)
+  {Durable pair outcomes survive\\a run-level failure.};
+\end{tikzpicture}
+\caption{Allowed run-state transitions. Supplied candidates bypass processing.
+Every shaded active phase can enter Failed. Completed follows publication and
+can include failed or limited pair outcomes. The Processing self-edge is
+permitted by the transition table.}
+\label{fig:run-states}
+\end{figure}

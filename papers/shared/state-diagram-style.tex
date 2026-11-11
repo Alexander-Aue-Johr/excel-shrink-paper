@@ -1,0 +1,21 @@
+% Shared visual language for the implementation-derived state diagrams.
+\definecolor{stateBlue}{HTML}{355D8A}
+\definecolor{stateTeal}{HTML}{147A78}
+\definecolor{stateRose}{HTML}{AA4057}
+\definecolor{stateSlate}{HTML}{465467}
+\tikzset{
+  state node/.style={rounded corners=3pt, draw=stateBlue!75,
+    fill=stateBlue!6, line width=.65pt, minimum height=.78cm,
+    text width=1.55cm, inner sep=3pt, align=center,
+    font=\scriptsize, text=black!90},
+  state work/.style={state node, draw=stateTeal!85, fill=stateTeal!10},
+  state final/.style={state node, draw=stateTeal, fill=stateTeal!8,
+    double=white, double distance=1pt},
+  state error/.style={state node, draw=stateRose, fill=stateRose!7},
+  state edge/.style={-{Stealth[length=3.5pt,width=3.2pt]},
+    draw=stateSlate!85, line width=.65pt, rounded corners=4pt},
+  state failure/.style={state edge, draw=stateRose, dashed},
+  state label/.style={font=\fontsize{6.5}{7.3}\selectfont,
+    fill=white, inner sep=1.5pt, text=stateSlate, align=center},
+  state note/.style={font=\scriptsize, text=stateSlate, align=left}
+}

@@ -1,0 +1,1237 @@
+{
+  "revision": "1b9ee98e3409c3584ffd12a661d0c19f8a5f0788",
+  "scope": "Census of Rust enums in core/src, cli/src and crates; targeted review of significant field-based parser and connection protocols. Vendor code, UI view state and historical external tool experiments are outside the machine inventory.",
+  "enums": [
+    {
+      "file": "crates/corpus-runner/src/telemetry.rs",
+      "line": 15,
+      "enum": "Operation",
+      "variants": [
+        "XlsxConvert",
+        "CheckPerformance",
+        "SheetShrink"
+      ],
+      "role": "command, event, policy or result classification",
+      "source_sha256": "af7cdba649015cdd031d6d567293e3a0d8708782c84892ca6ad6af2a15cdb61c"
+    },
+    {
+      "file": "crates/excel-automation/src/pool/performance.rs",
+      "line": 13,
+      "enum": "Mode",
+      "variants": [
+        "CheckPerformance",
+        "Conversion"
+      ],
+      "role": "command, event, policy or result classification",
+      "source_sha256": "08e61e2d4d4ec856460c76d4be1f08c2bdc32c85784b2f580cf32bb40e658bf1"
+    },
+    {
+      "file": "excel-shrink-cli/src/batch_report.rs",
+      "line": 7,
+      "enum": "Status",
+      "variants": [
+        "Processed",
+        "Preserved",
+        "Skipped",
+        "Failed"
+      ],
+      "role": "command, event, policy or result classification",
+      "source_sha256": "17b4b86d52d728e26c1a2ede688b3b88e97848e6f16a356d3db6b7e14042f027"
+    },
+    {
+      "file": "excel-shrink-cli/src/capture_host/mod.rs",
+      "line": 175,
+      "enum": "Durability",
+      "variants": [
+        "Buffered",
+        "Disk"
+      ],
+      "role": "command, event, policy or result classification",
+      "source_sha256": "5f665c2d8caff8674b91d210d26e1f113d37407f0b0165fa8d5b1f9c8fd84dde"
+    },
+    {
+      "file": "excel-shrink-cli/src/capture_host/paired.rs",
+      "line": 17,
+      "enum": "Side",
+      "variants": [
+        "Original",
+        "Shrunk"
+      ],
+      "role": "command, event, policy or result classification",
+      "source_sha256": "09d5cb29e207fdf04484c3d790d9d9ff7f4c5f8084181c6ca744930a0fab3ed7"
+    },
+    {
+      "file": "excel-shrink-cli/src/capture_host/resident_events.rs",
+      "line": 109,
+      "enum": "Participant",
+      "variants": [
+        "Coordinator",
+        "Worker"
+      ],
+      "role": "command, event, policy or result classification",
+      "source_sha256": "c50a2d4c765d63e2fee1ce0d548ad55f00ca0eba375ea8f98bbbe1101e7f9e45"
+    },
+    {
+      "file": "excel-shrink-cli/src/main.rs",
+      "line": 258,
+      "enum": "LogLevel",
+      "variants": [
+        "Error",
+        "Warn",
+        "Info",
+        "Debug",
+        "Trace"
+      ],
+      "role": "command, event, policy or result classification",
+      "source_sha256": "7c46fa2af128ba93fd378e659538b55e5957ff0ae1ab46ff2b66014bf17394ea"
+    },
+    {
+      "file": "excel-shrink-cli/src/main.rs",
+      "line": 267,
+      "enum": "InactiveProtectionCellPolicyArg",
+      "variants": [
+        "Remove",
+        "KeepInDataRange",
+        "KeepAll"
+      ],
+      "role": "command, event, policy or result classification",
+      "source_sha256": "7c46fa2af128ba93fd378e659538b55e5957ff0ae1ab46ff2b66014bf17394ea"
+    },
+    {
+      "file": "excel-shrink-cli/src/metadata_store/migration.rs",
+      "line": 19,
+      "enum": "Command",
+      "variants": [
+        "Import",
+        "Verify",
+        "Export",
+        "Read"
+      ],
+      "role": "command, event, policy or result classification",
+      "source_sha256": "24fb637f669efd91d42f38fd836eeffc0ec70c89bd356af224d7318a01717f73"
+    },
+    {
+      "file": "excel-shrink-cli/src/pipeline.rs",
+      "line": 47,
+      "enum": "WriteJob",
+      "variants": [
+        "Abort",
+        "CopyOriginal",
+        "CopyPrecompressed"
+      ],
+      "role": "command, event, policy or result classification",
+      "source_sha256": "f6d5ca7663314f50091b0b385d9952b6f055eefe22b59abb4fca3805584e42fa"
+    },
+    {
+      "file": "excel-shrink-cli/src/pipeline.rs",
+      "line": 445,
+      "enum": "ArchiveEntryKind",
+      "variants": [
+        "Sheet",
+        "Workbook",
+        "WorkbookRelationships",
+        "CalculationChain",
+        "CopyOriginal"
+      ],
+      "role": "command, event, policy or result classification",
+      "source_sha256": "f6d5ca7663314f50091b0b385d9952b6f055eefe22b59abb4fca3805584e42fa"
+    },
+    {
+      "file": "excel-shrink-cli/src/pipeline.rs",
+      "line": 452,
+      "enum": "ArchiveEntryPlan",
+      "variants": [
+        "Continue",
+        "Abort"
+      ],
+      "role": "command, event, policy or result classification",
+      "source_sha256": "f6d5ca7663314f50091b0b385d9952b6f055eefe22b59abb4fca3805584e42fa"
+    },
+    {
+      "file": "excel-shrink-cli/src/profiling.rs",
+      "line": 20,
+      "enum": "Message",
+      "variants": [
+        "Event",
+        "Finish"
+      ],
+      "role": "command, event, policy or result classification",
+      "source_sha256": "fc20e86ed86d579a3201734fcadd78e10e96e4701296d3132ee12b0ddb3d0694"
+    },
+    {
+      "file": "excel-shrink-cli/src/regression.rs",
+      "line": 90,
+      "enum": "RegressionCommand",
+      "variants": [
+        "PerformancePrepare",
+        "Smoke",
+        "Corpus",
+        "Archive",
+        "Study",
+        "TargetedCompare",
+        "ReferenceCompare",
+        "InspectCandidates",
+        "CaptureSheet",
+        "CfInventory",
+        "ChartInventory",
+        "PrefixInventory",
+        "PrefixNormalize",
+        "PrefixInspect",
+        "ArchiveWorker"
+      ],
+      "role": "command, event, policy or result classification",
+      "source_sha256": "7e680dfeb319dd3b2d718ea778cb2ea6d1924ba8754484c11c8b193d4cc2d5fa"
+    },
+    {
+      "file": "excel-shrink-cli/src/regression/archive/mod.rs",
+      "line": 51,
+      "enum": "JobMode",
+      "variants": [
+        "Legacy",
+        "Prepare",
+        "Compare",
+        "Diagnose"
+      ],
+      "role": "command, event, policy or result classification",
+      "source_sha256": "e45f7708ae4e12b085c35ee135d1ba3b71d1a7cf3add479cb34d272f47765410"
+    },
+    {
+      "file": "excel-shrink-cli/src/regression/archive/study/preparation.rs",
+      "line": 15,
+      "enum": "Event",
+      "variants": [
+        "Checkpoint",
+        "Finished"
+      ],
+      "role": "command, event, policy or result classification",
+      "source_sha256": "be404e00d764be6004a640ab1d0a2add228b998487a92ab2745cbf53c8c60e18"
+    },
+    {
+      "file": "excel-shrink-cli/src/regression/archive/study/preparation_slots.rs",
+      "line": 7,
+      "enum": "Stage",
+      "variants": [
+        "Conversion",
+        "Shrink"
+      ],
+      "role": "command, event, policy or result classification",
+      "source_sha256": "e581e78a07b10fa1d65a3c5b2023a48b2d30f22fa59e7c4db584b7ce3abfcdaa"
+    },
+    {
+      "file": "excel-shrink-cli/src/regression/archive/study/provenance.rs",
+      "line": 9,
+      "enum": "Stage",
+      "variants": [
+        "Preparation",
+        "Comparison",
+        "WhitespaceDiagnosis"
+      ],
+      "role": "command, event, policy or result classification",
+      "source_sha256": "060bfb90672dc2e1d613c637cdecd87fd0673b1d579f0885444f6e32a9f3c9c3"
+    },
+    {
+      "file": "excel-shrink-cli/src/regression/archive/study/scheduler.rs",
+      "line": 144,
+      "enum": "Event",
+      "variants": [
+        "Checkpoint",
+        "Finished"
+      ],
+      "role": "command, event, policy or result classification",
+      "source_sha256": "b1abdbc62f8b875f3e86bcde433f808fa76f22338030f3cfe44dcb2b2a48ed29"
+    },
+    {
+      "file": "excel-shrink-cli/src/regression/archive/study/scheduler/live.rs",
+      "line": 126,
+      "enum": "Admission",
+      "variants": [
+        "Wait",
+        "Add",
+        "Drain"
+      ],
+      "role": "command, event, policy or result classification",
+      "source_sha256": "0ecccea108d6158c72978637f211fd82845bdb3f1b1bc6b7265a28d928c54082"
+    },
+    {
+      "file": "excel-shrink-cli/src/regression/archive/study/selection.rs",
+      "line": 8,
+      "enum": "ProcessingOrder",
+      "variants": [
+        "Priority",
+        "SizeAsc",
+        "SizeDesc"
+      ],
+      "role": "command, event, policy or result classification",
+      "source_sha256": "1c2e26c82fa64d920340730a4c53210a2e40103e5ffadff64de49296a6bf48c4"
+    },
+    {
+      "file": "excel-shrink-cli/src/regression/cf_inventory/scan.rs",
+      "line": 42,
+      "enum": "TextTarget",
+      "variants": [
+        "Formula",
+        "ApplicationRange",
+        "ExtensionId"
+      ],
+      "role": "command, event, policy or result classification",
+      "source_sha256": "52f40327147fe7512de13ab6860d27387ec259be0f9e784f262b5e8737bacd18"
+    },
+    {
+      "file": "excel-shrink-cli/src/regression/formula_trace/syntax.rs",
+      "line": 36,
+      "enum": "Dependency",
+      "variants": [
+        "Cell",
+        "Range"
+      ],
+      "role": "command, event, policy or result classification",
+      "source_sha256": "2762c1606d5c5327856d936398d567be8a26c866491ec4e2343dd0a89f05bd11"
+    },
+    {
+      "file": "excel-shrink-cli/src/regression/office_capture/resident_capture_live.rs",
+      "line": 1190,
+      "enum": "CaptureEvent",
+      "variants": [
+        "Receipt",
+        "Response"
+      ],
+      "role": "command, event, policy or result classification",
+      "source_sha256": "99456682e1e6d107309b38191a736a5a668da30daa632b58811eda3a523c3a4a"
+    },
+    {
+      "file": "excel-shrink-cli/src/regression/office_capture/resident_image_processing.rs",
+      "line": 17,
+      "enum": "Event",
+      "variants": [
+        "Decoded",
+        "Compared",
+        "Failed"
+      ],
+      "role": "command, event, policy or result classification",
+      "source_sha256": "72b46c889363e68f686be62622eb7aa751dc03c76598efa5ad664cd57d97fd90"
+    },
+    {
+      "file": "excel-shrink-cli/src/regression/office_capture/resident_image_processing.rs",
+      "line": 56,
+      "enum": "Command",
+      "variants": [
+        "Begin",
+        "Upload",
+        "Summary"
+      ],
+      "role": "command, event, policy or result classification",
+      "source_sha256": "72b46c889363e68f686be62622eb7aa751dc03c76598efa5ad664cd57d97fd90"
+    },
+    {
+      "file": "excel-shrink-cli/src/regression/office_plan/streaming_sheet.rs",
+      "line": 12,
+      "enum": "Section",
+      "variants": [
+        "Other",
+        "Columns",
+        "SheetData",
+        "MergeCells"
+      ],
+      "role": "transition machine",
+      "source_sha256": "661a7ec717bdffb9aee1d28206bad87360df5c74d934a5befc05b1246d240381"
+    },
+    {
+      "file": "excel-shrink-cli/src/regression/office_plan/visual_xml.rs",
+      "line": 6,
+      "enum": "Kind",
+      "variants": [
+        "Start",
+        "Empty",
+        "End"
+      ],
+      "role": "command, event, policy or result classification",
+      "source_sha256": "1fa0c79c1b51bc9c344d93e6b71653e61a965ea3587afee2140419d388c24f58"
+    },
+    {
+      "file": "excel-shrink-cli/src/regression/streaming_xml.rs",
+      "line": 13,
+      "enum": "Event",
+      "variants": [
+        "Tag",
+        "Text",
+        "Cdata"
+      ],
+      "role": "command, event, policy or result classification",
+      "source_sha256": "e0373a719190ffcbfc1a4615941095694b101afe8fbb7b318b1172cba5e8fe06"
+    },
+    {
+      "file": "excel-shrink-cli/src/regression/streaming_xml.rs",
+      "line": 22,
+      "enum": "State",
+      "variants": [
+        "Text",
+        "Open",
+        "Tag",
+        "Comment",
+        "ProcessingInstruction",
+        "Cdata"
+      ],
+      "role": "transition machine",
+      "source_sha256": "e0373a719190ffcbfc1a4615941095694b101afe8fbb7b318b1172cba5e8fe06"
+    },
+    {
+      "file": "excel-shrink-cli/src/regression/targeted_comparison/chart_dependencies.rs",
+      "line": 27,
+      "enum": "Mode",
+      "variants": [
+        "Conservative",
+        "Deterministic"
+      ],
+      "role": "command, event, policy or result classification",
+      "source_sha256": "47a40925043c101c6c81f437095f31b6a2e8a7e00c44ed62cfc7384b5be212e3"
+    },
+    {
+      "file": "excel-shrink-cli/src/regression/targeted_comparison/charts.rs",
+      "line": 28,
+      "enum": "ChartKind",
+      "variants": [
+        "Embedded",
+        "ChartSheet"
+      ],
+      "role": "command, event, policy or result classification",
+      "source_sha256": "9f7b454e3a9ab6fdc8c799ff2acb9a67e859084f5d9a605203fc7cb37a58b9bc"
+    },
+    {
+      "file": "excel-shrink-cli/src/regression/targeted_comparison/charts.rs",
+      "line": 54,
+      "enum": "ChartImage",
+      "variants": [
+        "Rendered",
+        "ZeroArea",
+        "UnchangedDependencies"
+      ],
+      "role": "command, event, policy or result classification",
+      "source_sha256": "9f7b454e3a9ab6fdc8c799ff2acb9a67e859084f5d9a605203fc7cb37a58b9bc"
+    },
+    {
+      "file": "excel-shrink-cli/src/regression/targeted_comparison/conditional_formatting/mod.rs",
+      "line": 84,
+      "enum": "Proof",
+      "variants": [
+        "LocalInputs",
+        "WholeAreaInputs",
+        "ReferencedInputs",
+        "CombinedInputs",
+        "MissingDummyTargets",
+        "InputIndependent",
+        "Fallback"
+      ],
+      "role": "command, event, policy or result classification",
+      "source_sha256": "d96f87dc79e0e3b6f00a1c7c2d487c47fe3481b43c8643725d44b8906f562687"
+    },
+    {
+      "file": "excel-shrink-cli/src/regression/targeted_comparison/execution_plan.rs",
+      "line": 16,
+      "enum": "InputIdentity",
+      "variants": [
+        "NotChecked",
+        "Different",
+        "Identical"
+      ],
+      "role": "command, event, policy or result classification",
+      "source_sha256": "9adfbbca77de3ff871bbd9274e804dafd0c85722717bd3011b5abe8f0e30ab7c"
+    },
+    {
+      "file": "excel-shrink-cli/src/regression/targeted_comparison/execution_plan.rs",
+      "line": 67,
+      "enum": "StateDecision",
+      "variants": [
+        "Observed",
+        "SkippedIdenticalInput",
+        "SkippedNoRebuild",
+        "Disabled"
+      ],
+      "role": "command, event, policy or result classification",
+      "source_sha256": "9adfbbca77de3ff871bbd9274e804dafd0c85722717bd3011b5abe8f0e30ab7c"
+    },
+    {
+      "file": "excel-shrink-cli/src/regression/targeted_comparison/ole_metadata/correspondence.rs",
+      "line": 19,
+      "enum": "Observation",
+      "variants": [
+        "Matched",
+        "Unresolved"
+      ],
+      "role": "command, event, policy or result classification",
+      "source_sha256": "561826ffc6d345bdc266021c0c740ae0d2b6cd4ca1680f641cf846e7ded61039"
+    },
+    {
+      "file": "excel-shrink-cli/src/regression/targeted_comparison/ole_metadata/vml_geometry.rs",
+      "line": 9,
+      "enum": "Observation",
+      "variants": [
+        "Absent",
+        "ParsedPoints",
+        "Unsupported"
+      ],
+      "role": "command, event, policy or result classification",
+      "source_sha256": "80921032d1ffd129f2e65ede75338767932ba8f2eed38325aa51fbda5624b9ae"
+    },
+    {
+      "file": "excel-shrink-cli/src/regression/targeted_comparison/ole_metadata/vml_picture.rs",
+      "line": 25,
+      "enum": "Observation",
+      "variants": [
+        "NotApplicable",
+        "RecognizedTemplate",
+        "Unsupported"
+      ],
+      "role": "command, event, policy or result classification",
+      "source_sha256": "d886c4603598afe09d4b44af8d1f378c022afc47f4611bacffa05c1712f3a9d8"
+    },
+    {
+      "file": "excel-shrink-cli/src/regression/targeted_comparison/telemetry.rs",
+      "line": 22,
+      "enum": "Phase",
+      "variants": [
+        "Discover",
+        "Open",
+        "Save",
+        "InspectSave",
+        "Optimize",
+        "InspectOptimization",
+        "MeasureHeights",
+        "CaptureBefore",
+        "Recalculate",
+        "CaptureAfter",
+        "Compare",
+        "Close"
+      ],
+      "role": "operation phase labels",
+      "source_sha256": "64afb9bc6a22f678ec788418e38fee23b637bc65683175324d4b2a0fb58598e2"
+    },
+    {
+      "file": "excel-shrink-cli/src/regression/targeted_comparison/telemetry.rs",
+      "line": 73,
+      "enum": "LaneId",
+      "variants": [
+        "O",
+        "SD",
+        "CP",
+        "OR",
+        "SDR",
+        "CPR"
+      ],
+      "role": "command, event, policy or result classification",
+      "source_sha256": "64afb9bc6a22f678ec788418e38fee23b637bc65683175324d4b2a0fb58598e2"
+    },
+    {
+      "file": "excel-shrink-cli/src/regression/targeted_comparison/telemetry.rs",
+      "line": 97,
+      "enum": "Lifecycle",
+      "variants": [
+        "NotStarted",
+        "Opening",
+        "Open",
+        "Closing",
+        "Closed",
+        "Failed",
+        "Unavailable",
+        "Skipped"
+      ],
+      "role": "native-lane lifecycle vocabulary",
+      "source_sha256": "64afb9bc6a22f678ec788418e38fee23b637bc65683175324d4b2a0fb58598e2"
+    },
+    {
+      "file": "excel-shrink-cli/src/regression/targeted_comparison/telemetry.rs",
+      "line": 110,
+      "enum": "StepStatus",
+      "variants": [
+        "Pending",
+        "Running",
+        "Done",
+        "Skipped",
+        "Failed",
+        "Unavailable"
+      ],
+      "role": "operation lifecycle vocabulary",
+      "source_sha256": "64afb9bc6a22f678ec788418e38fee23b637bc65683175324d4b2a0fb58598e2"
+    },
+    {
+      "file": "excel-shrink-cli/src/regression/value_views.rs",
+      "line": 146,
+      "enum": "ValueKind",
+      "variants": [
+        "Empty",
+        "Number",
+        "Boolean",
+        "Error",
+        "Date",
+        "Text"
+      ],
+      "role": "command, event, policy or result classification",
+      "source_sha256": "b8ba487a5e97a73fb7c68929c34c54cc47b386a2e05fd501415a92acda176882"
+    },
+    {
+      "file": "excel-shrink-cli/src/regression/value_views.rs",
+      "line": 195,
+      "enum": "Source",
+      "variants": [
+        "Reference",
+        "Coordinate"
+      ],
+      "role": "command, event, policy or result classification",
+      "source_sha256": "b8ba487a5e97a73fb7c68929c34c54cc47b386a2e05fd501415a92acda176882"
+    },
+    {
+      "file": "excel-shrink-cli/src/regression/visual_cache_support.rs",
+      "line": 149,
+      "enum": "ExcelProgressLineKind",
+      "variants": [
+        "RecalcStarted",
+        "RecalcFinished",
+        "Normal"
+      ],
+      "role": "command, event, policy or result classification",
+      "source_sha256": "44cade45c14b8da48167c82c8f9e21f291f5b4a1cfd6b32e41c916da2d014fa9"
+    },
+    {
+      "file": "excel-shrink-cli/src/regression/xlsx_value_compare.rs",
+      "line": 33,
+      "enum": "CellDifferenceKind",
+      "variants": [
+        "Changed",
+        "MissingRight",
+        "ExtraRight"
+      ],
+      "role": "command, event, policy or result classification",
+      "source_sha256": "6e7997cd0316d98868990391d4bc963430cfc5646a2b25b598dfaf0be3b27d6b"
+    },
+    {
+      "file": "excel-shrink-cli/src/regression/xlsx_value_compare_legacy.rs",
+      "line": 73,
+      "enum": "CellDifferenceKind",
+      "variants": [
+        "Changed",
+        "MissingRight",
+        "ExtraRight"
+      ],
+      "role": "command, event, policy or result classification",
+      "source_sha256": "25a3afce0f8f95daa1a2bf7e5d7ec722cccf987901dbd5499aaac499e0f03c66"
+    },
+    {
+      "file": "excel-shrink-cli/src/regression/xlsx_value_compare_legacy.rs",
+      "line": 114,
+      "enum": "CellValue",
+      "variants": [
+        "Empty",
+        "Raw",
+        "SharedString",
+        "InlineString"
+      ],
+      "role": "command, event, policy or result classification",
+      "source_sha256": "25a3afce0f8f95daa1a2bf7e5d7ec722cccf987901dbd5499aaac499e0f03c66"
+    },
+    {
+      "file": "excel-shrink-cli/src/regression/xml_views.rs",
+      "line": 7,
+      "enum": "Kind",
+      "variants": [
+        "Start",
+        "Empty",
+        "End"
+      ],
+      "role": "command, event, policy or result classification",
+      "source_sha256": "873bfe75ac58d27de0abd08183945e3d27d2990e110cbd3cd35aa1a0ef6404d0"
+    },
+    {
+      "file": "excel-shrink-cli/src/validation.rs",
+      "line": 37,
+      "enum": "Command",
+      "variants": [
+        "Run",
+        "Study",
+        "Compare",
+        "Observatory",
+        "Open",
+        "Atlas",
+        "Serve",
+        "Export",
+        "CorpusList",
+        "CorpusImportEnron",
+        "CorpusPrepare",
+        "CorpusInspect",
+        "Merge",
+        "PreparationExport",
+        "PreparationVerify",
+        "PreparationImport",
+        "PreparationPreview",
+        "Template",
+        "ComparePair"
+      ],
+      "role": "command, event, policy or result classification",
+      "source_sha256": "9c69fd9146ed4df52d6b7a77982749ab62c7c273349c4e8ecb414532792db17d"
+    },
+    {
+      "file": "excel-shrink-cli/src/validation.rs",
+      "line": 268,
+      "enum": "Output",
+      "variants": [
+        "Temporary",
+        "Directory",
+        "Archive"
+      ],
+      "role": "command, event, policy or result classification",
+      "source_sha256": "9c69fd9146ed4df52d6b7a77982749ab62c7c273349c4e8ecb414532792db17d"
+    },
+    {
+      "file": "excel-shrink-cli/src/validation/run.rs",
+      "line": 28,
+      "enum": "RunState",
+      "variants": [
+        "Idle",
+        "Preparing",
+        "Processing",
+        "Pairing",
+        "Validating",
+        "Publishing",
+        "Completed",
+        "Failed"
+      ],
+      "role": "transition machine",
+      "source_sha256": "ae242d68b08d18412a75076244a47782f64dcc240dfb11d83f8ec3fbb3a9dafb"
+    },
+    {
+      "file": "excel-shrink-cli/src/validation_preparation/package/preview.rs",
+      "line": 6,
+      "enum": "Status",
+      "variants": [
+        "Complete",
+        "Missing",
+        "Unsuccessful",
+        "BaselineMismatch",
+        "SourceMismatch",
+        "LocalBaselineUnavailable",
+        "LocalBaselineChanged",
+        "AmbiguousGeneration"
+      ],
+      "role": "command, event, policy or result classification",
+      "source_sha256": "957c2b42c35058ab215b3826a06d1e309ae1cb595e444f2495d0312589b00e43"
+    },
+    {
+      "file": "excel-shrink-cli/src/validation_process.rs",
+      "line": 21,
+      "enum": "InputKind",
+      "variants": [
+        "File",
+        "Directory",
+        "Archive"
+      ],
+      "role": "command, event, policy or result classification",
+      "source_sha256": "23a3fbe04563fbfc3620ef632324ceaf4f53a2dcd281a49822fb647cf3416003"
+    },
+    {
+      "file": "excel-shrink-cli/src/validation_process.rs",
+      "line": 29,
+      "enum": "OutputKind",
+      "variants": [
+        "File",
+        "Directory",
+        "Archive"
+      ],
+      "role": "command, event, policy or result classification",
+      "source_sha256": "23a3fbe04563fbfc3620ef632324ceaf4f53a2dcd281a49822fb647cf3416003"
+    },
+    {
+      "file": "excel-shrink-cli/src/validation_process.rs",
+      "line": 68,
+      "enum": "ProcessStatus",
+      "variants": [
+        "Pending",
+        "Running",
+        "Succeeded",
+        "Incomplete",
+        "Failed",
+        "TimedOut",
+        "Skipped"
+      ],
+      "role": "process outcome lifecycle",
+      "source_sha256": "23a3fbe04563fbfc3620ef632324ceaf4f53a2dcd281a49822fb647cf3416003"
+    },
+    {
+      "file": "excel-shrink-cli/src/validation_process.rs",
+      "line": 138,
+      "enum": "StageState",
+      "variants": [
+        "Preparing",
+        "Running",
+        "Completed",
+        "Incomplete",
+        "Failed"
+      ],
+      "role": "stage outcome lifecycle",
+      "source_sha256": "23a3fbe04563fbfc3620ef632324ceaf4f53a2dcd281a49822fb647cf3416003"
+    },
+    {
+      "file": "excel-shrink-cli/src/validation_process/invocation.rs",
+      "line": 133,
+      "enum": "Started",
+      "variants": [
+        "Running",
+        "Finished"
+      ],
+      "role": "command, event, policy or result classification",
+      "source_sha256": "98a57f18655ec770dde26209cb3daedcb1c998f4ef5b6002f89dd0d9da9b9067"
+    },
+    {
+      "file": "excel-shrink-cli/src/validation_room.rs",
+      "line": 253,
+      "enum": "PickerKind",
+      "variants": [
+        "Folder",
+        "File",
+        "Program"
+      ],
+      "role": "command, event, policy or result classification",
+      "source_sha256": "8e37962613a610074a45995fd0ba9fd214b8e378ea7cdc41d9d85be4d9329b89"
+    },
+    {
+      "file": "excel-shrink-cli/src/validation_room/application.rs",
+      "line": 6,
+      "enum": "Application",
+      "variants": [
+        "DeltaSieve",
+        "SheetShrink"
+      ],
+      "role": "command, event, policy or result classification",
+      "source_sha256": "0ff10f2af4ba8cb00ad2a6c2fe5a02743c613a0f4ab79e765633dc9af6c0312e"
+    },
+    {
+      "file": "excel-shrink-cli/src/validation_room/corpus_job.rs",
+      "line": 8,
+      "enum": "Operation",
+      "variants": [
+        "Inspect",
+        "Prepare"
+      ],
+      "role": "command, event, policy or result classification",
+      "source_sha256": "8ddcccb742a691c078ac1f8d154f172e53c24fb1b5386a57629149a4d50d2793"
+    },
+    {
+      "file": "excel-shrink-cli/src/visual_profile.rs",
+      "line": 291,
+      "enum": "VisualProfile",
+      "variants": [
+        "Default",
+        "RemoveBasicTextlessRepresentatives",
+        "RemoveAllTextlessRepresentatives",
+        "RemoveUnreferencedWhitespaceCells",
+        "KeepUnreferencedHiddenContentCells",
+        "KeepInactiveProtectionCellsInDataRange",
+        "KeepAllInactiveProtectionCells",
+        "MaximumCleaning",
+        "TooAggressiveCleaning",
+        "Custom"
+      ],
+      "role": "command, event, policy or result classification",
+      "source_sha256": "1ddf05d5cbbdf8b016f20bf1a5152e51318ea486ee45d226605f57b3f997d14a"
+    },
+    {
+      "file": "excel-shrink-core/src/cleaning_trace.rs",
+      "line": 5,
+      "enum": "CellDecision",
+      "variants": [
+        "Removed",
+        "Kept"
+      ],
+      "role": "command, event, policy or result classification",
+      "source_sha256": "dba8091575aae289bf2fc41313b8fbb1fdd6200d529111f079c959ef41208057"
+    },
+    {
+      "file": "excel-shrink-core/src/error.rs",
+      "line": 4,
+      "enum": "ShrinkError",
+      "variants": [
+        "Interrupted",
+        "Io",
+        "Zip",
+        "Regex",
+        "InvalidRootNode",
+        "UnexpectedEof",
+        "UnsupportedCData",
+        "UnsupportedNamespace",
+        "MissingAttribute"
+      ],
+      "role": "command, event, policy or result classification",
+      "source_sha256": "6133518fbf27194ff4c93ba391edf51cc0dcf4d4065a724e1d4378aacf0a2c9d"
+    },
+    {
+      "file": "excel-shrink-core/src/models.rs",
+      "line": 86,
+      "enum": "CleanupCause",
+      "variants": [
+        "PreprocessEmptySelfClosingCells",
+        "EmptyCellsWithoutContent",
+        "EmptyHiddenCells",
+        "UnreferencedWhitespaceCells",
+        "UnreferencedHiddenContentCells",
+        "TrailingLayoutOnlyRows",
+        "EmptyRowAttributeCleanup",
+        "SheetDataRangeTailPruning",
+        "ExtraneousColumnRangeMerge",
+        "WorkbookDefinedNameCleanup"
+      ],
+      "role": "command, event, policy or result classification",
+      "source_sha256": "eedec6e0d91b847ed37b5136cd1a25d399c96121833e667bab532e0ae123dc9f"
+    },
+    {
+      "file": "excel-shrink-core/src/models.rs",
+      "line": 175,
+      "enum": "InactiveProtectionCellPolicy",
+      "variants": [
+        "Remove",
+        "KeepInDataRange",
+        "KeepAll"
+      ],
+      "role": "command, event, policy or result classification",
+      "source_sha256": "eedec6e0d91b847ed37b5136cd1a25d399c96121833e667bab532e0ae123dc9f"
+    },
+    {
+      "file": "excel-shrink-core/src/models.rs",
+      "line": 794,
+      "enum": "SheetStreamingState",
+      "variants": [
+        "SeekWorksheetNode",
+        "InWorksheetNode",
+        "InColsNode",
+        "InSheetDataNode",
+        "InMergeCellsNode",
+        "FoundWorksheetEnd"
+      ],
+      "role": "transition machine",
+      "source_sha256": "eedec6e0d91b847ed37b5136cd1a25d399c96121833e667bab532e0ae123dc9f"
+    },
+    {
+      "file": "excel-shrink-core/src/reference_scanner.rs",
+      "line": 20,
+      "enum": "ScanResult",
+      "variants": [
+        "Safe",
+        "Unsafe"
+      ],
+      "role": "command, event, policy or result classification",
+      "source_sha256": "389f94a305bc3b868071617d1d17a91f676aac98ed0f902164dc055c4a571f1a"
+    },
+    {
+      "file": "excel-shrink-core/src/reference_scanner.rs",
+      "line": 530,
+      "enum": "ParsedReferenceToken",
+      "variants": [
+        "Single",
+        "Range"
+      ],
+      "role": "command, event, policy or result classification",
+      "source_sha256": "389f94a305bc3b868071617d1d17a91f676aac98ed0f902164dc055c4a571f1a"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/cols.rs",
+      "line": 479,
+      "enum": "ColumnFillKey",
+      "variants": [
+        "Default",
+        "Fill"
+      ],
+      "role": "command, event, policy or result classification",
+      "source_sha256": "e240275ec94076fd37f3fc212cdd4d6b04af7f0ac5dd091323e90bd4fa2b0774"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/output.rs",
+      "line": 1121,
+      "enum": "ScannedCellTag",
+      "variants": [
+        "Anchoring",
+        "SelfClosing"
+      ],
+      "role": "command, event, policy or result classification",
+      "source_sha256": "31a7655cedb427d09519d8f1bd96526ecb1e5f4084bc99da679f93507a620390"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/rows.rs",
+      "line": 25,
+      "enum": "CellStage",
+      "variants": [
+        "Find",
+        "ParseBlock",
+        "ParseAttributesAndContent",
+        "SelectRepresentative",
+        "ApplyPolicy",
+        "RecordRepresentative",
+        "AppendOutput"
+      ],
+      "role": "profiling labels",
+      "source_sha256": "6981c06640b8193b4bed7851be0087509af92922cec467e1d0881c1643317ced"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/sheet_data.rs",
+      "line": 250,
+      "enum": "ScannedCellTag",
+      "variants": [
+        "NonCellMatch",
+        "PreservedTag",
+        "EmptySelfClosing"
+      ],
+      "role": "command, event, policy or result classification",
+      "source_sha256": "6542dfdbad512188dd4370983e4fb7e558f7f503859c0d7da26dba4fa41cb15a"
+    },
+    {
+      "file": "excel-shrink-core/src/sheet/worksheet.rs",
+      "line": 12,
+      "enum": "WorksheetTag",
+      "variants": [
+        "Cols",
+        "SheetData",
+        "MergeCells",
+        "WorksheetEnd"
+      ],
+      "role": "command, event, policy or result classification",
+      "source_sha256": "5cac35f17593a89bd1c3787c3ad3ac079d22b6202e36e93f705ad807856ff9fa"
+    },
+    {
+      "file": "excel-shrink-core/src/work_events.rs",
+      "line": 15,
+      "enum": "TaskKind",
+      "variants": [
+        "SheetInitial",
+        "SheetFinalize",
+        "Chunk"
+      ],
+      "role": "command, event, policy or result classification",
+      "source_sha256": "117713f621d47eec7aa221928b265c2458c70cc2d470237a2339660b12a138cc"
+    },
+    {
+      "file": "excel-shrink-core/src/xml.rs",
+      "line": 5,
+      "enum": "WhereToSlice",
+      "variants": [
+        "BeforeTag",
+        "AfterTag"
+      ],
+      "role": "command, event, policy or result classification",
+      "source_sha256": "9d3cdf220ab2c94b236f2ec9eb23c8ce634cb12df9b8088e8397c508c5ca7feb"
+    },
+    {
+      "file": "excel-shrink-core/src/xml/namespaces/header.rs",
+      "line": 38,
+      "enum": "State",
+      "variants": [
+        "Prolog",
+        "Comment",
+        "ProcessingInstruction",
+        "Root"
+      ],
+      "role": "transition machine",
+      "source_sha256": "ab0c4079314c421efc15f462377f13688f281e75fb8b2a579875e6908a2da54e"
+    }
+  ],
+  "diagram_transitions": {
+    "worksheet": {
+      "source": "excel-shrink-core/src/sheet/streaming.rs",
+      "dispatcher": "process_current_state",
+      "tag_mapping": "excel-shrink-core/src/sheet/worksheet.rs::streaming_state_for_tag",
+      "edges": [
+        [
+          "SeekWorksheetNode",
+          "InWorksheetNode",
+          "worksheet opening found"
+        ],
+        [
+          "InWorksheetNode",
+          "InColsNode",
+          "cols opening"
+        ],
+        [
+          "InColsNode",
+          "InWorksheetNode",
+          "cols closing"
+        ],
+        [
+          "InWorksheetNode",
+          "InSheetDataNode",
+          "sheetData opening"
+        ],
+        [
+          "InSheetDataNode",
+          "InWorksheetNode",
+          "sheetData closing"
+        ],
+        [
+          "InWorksheetNode",
+          "InMergeCellsNode",
+          "mergeCells opening"
+        ],
+        [
+          "InMergeCellsNode",
+          "InWorksheetNode",
+          "mergeCells closing"
+        ],
+        [
+          "InWorksheetNode",
+          "FoundWorksheetEnd",
+          "worksheet closing"
+        ]
+      ],
+      "notes": [
+        "Buffer continuation retains the current state.",
+        "Read/namespace/CDATA errors return Result::Err. These are outcomes, not additional enum variants.",
+        "Accepted preprocessing still precedes workbook reconstruction and publication."
+      ],
+      "figure_labels": {
+        "SeekWorksheetNode": "Find root",
+        "InWorksheetNode": "Scan children",
+        "InColsNode": "Read columns",
+        "InSheetDataNode": "Read cells",
+        "InMergeCellsNode": "Read merges",
+        "FoundWorksheetEnd": "End found"
+      }
+    },
+    "validation_run": {
+      "source": "excel-shrink-cli/src/validation/run.rs::RunState::permits",
+      "edges": [
+        [
+          "Idle",
+          "Preparing"
+        ],
+        [
+          "Preparing",
+          "Processing"
+        ],
+        [
+          "Preparing",
+          "Pairing"
+        ],
+        [
+          "Processing",
+          "Processing"
+        ],
+        [
+          "Processing",
+          "Pairing"
+        ],
+        [
+          "Pairing",
+          "Validating"
+        ],
+        [
+          "Validating",
+          "Publishing"
+        ],
+        [
+          "Publishing",
+          "Completed"
+        ],
+        [
+          "Preparing",
+          "Failed"
+        ],
+        [
+          "Processing",
+          "Failed"
+        ],
+        [
+          "Pairing",
+          "Failed"
+        ],
+        [
+          "Validating",
+          "Failed"
+        ],
+        [
+          "Publishing",
+          "Failed"
+        ]
+      ],
+      "notes": [
+        "Processing self-transition is permitted by the table. The orchestration does not emit a transition per processor step.",
+        "Preparing to Pairing is taken when source_b supplies candidates.",
+        "Completed describes finalized run accounting, which may include failed or limited pair outcomes."
+      ]
+    },
+    "xml_token_reader": {
+      "source": "excel-shrink-cli/src/regression/streaming_xml.rs::Scanner",
+      "edges": [
+        [
+          "Text",
+          "Open",
+          "less-than byte"
+        ],
+        [
+          "Open",
+          "Tag",
+          "ordinary element"
+        ],
+        [
+          "Open",
+          "Comment",
+          "comment opening"
+        ],
+        [
+          "Open",
+          "ProcessingInstruction",
+          "processing-instruction opening"
+        ],
+        [
+          "Open",
+          "Cdata",
+          "CDATA opening"
+        ],
+        [
+          "Tag",
+          "Text",
+          "unquoted greater-than and valid tag"
+        ],
+        [
+          "Comment",
+          "Text",
+          "comment delimiter complete"
+        ],
+        [
+          "ProcessingInstruction",
+          "Text",
+          "instruction delimiter complete"
+        ],
+        [
+          "Cdata",
+          "Text",
+          "CDATA delimiter complete"
+        ]
+      ],
+      "notes": [
+        "Quote tracking is nested state within Tag.",
+        "Partial delimiters retain their matched-prefix count across feed calls.",
+        "finish requires Text, depth zero and exactly one root.",
+        "Malformed input and budget violations return errors."
+      ]
+    }
+  },
+  "field_based_protocols": [
+    {
+      "file": "excel-shrink-core/src/sheet/hidden_content.rs",
+      "owner": "HiddenTail",
+      "kind": "row-local admission state held in fields",
+      "review": "start/last/value/rejected reset at a visible cell, reject gaps or inconsistent integers, and admit only qualifying XFD suffixes at finish. Reference filtering follows admission."
+    },
+    {
+      "file": "excel-shrink-core/src/xml/namespaces.rs",
+      "owner": "NamespaceGuard",
+      "kind": "declaration recognition with boundary and quote state",
+      "review": "Partial namespace declarations survive chunk boundaries. Header screening and normal stream checks have distinct responsibilities."
+    },
+    {
+      "file": "excel-shrink-cli/office-capture/web/resident-connection.js",
+      "owner": "createJobConnection and postResult",
+      "kind": "connection/retry protocol held in fields",
+      "review": "Reconnect deadline, authenticated readiness, one pending request and acknowledged results. Terminal protocol/auth failures reject pending work."
+    },
+    {
+      "file": "excel-shrink-cli/src/regression/archive/work_state.rs",
+      "owner": "Monitor",
+      "kind": "observational state projection",
+      "review": "Tracks current work and wait causes. Monitoring events do not constitute a transition-enforced run machine."
+    }
+  ]
+}

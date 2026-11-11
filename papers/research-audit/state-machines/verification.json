@@ -1,0 +1,95 @@
+{
+  "source_revision": "1b9ee98e3409c3584ffd12a661d0c19f8a5f0788",
+  "rust_enum_declarations": 78,
+  "direct_transition_machines": {
+    "Section": 4,
+    "excel-shrink-cli/src/regression/streaming_xml.rs": 6,
+    "RunState": 8,
+    "SheetStreamingState": 6,
+    "excel-shrink-core/src/xml/namespaces/header.rs": 4
+  },
+  "diagram_contracts": {
+    "worksheet": {
+      "enum_states": 6,
+      "state_changing_edges": 8
+    },
+    "validation_run": {
+      "enum_states": 8,
+      "permitted_edges": 13
+    },
+    "xml_reader": {
+      "enum_states": 6,
+      "state_changing_edges": 9
+    }
+  },
+  "focused_tests": [
+    {
+      "command": "cargo test -p excel-shrink-core --lib sheet::streaming::cdata_tests",
+      "summary": "test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 297 filtered out; finished in 0.00s\r",
+      "log_sha256": "54df50d66d35efca663b00a7bb9581004c9debb982ba2a8d8974d7f132e3dd8b"
+    },
+    {
+      "command": "cargo test -p excel-shrink-cli --lib pipeline::regression_tests::streaming_sheet_parser_rejects_unsupported_namespaces_and_missing_end",
+      "summary": "test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 1047 filtered out; finished in 0.01s\r",
+      "log_sha256": "e6a07110b31c10094561047bdf92bdf32e8c0b59e1a73985e8fd570dd0c74bc4"
+    },
+    {
+      "command": "cargo test -p excel-shrink-cli --lib pipeline::regression_tests::incomplete_sheet_aborts_the_workbook_without_replacing_existing_output",
+      "summary": "test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 1047 filtered out; finished in 0.05s\r",
+      "log_sha256": "5700b38ab58a337ec64e9f0395a7956e25102ddde83fbd564f26b4c81a988b6c"
+    },
+    {
+      "command": "cargo test -p excel-shrink-cli --lib streaming_xml::tests",
+      "summary": "test result: ok. 8 passed; 0 failed; 0 ignored; 0 measured; 1040 filtered out; finished in 0.09s\r",
+      "log_sha256": "ed3d5fcf9f265423a12ccf2a5dd45ee023d566437390327fbd135fe362ebacff"
+    },
+    {
+      "command": "cargo test -p excel-shrink-cli --lib validation::run::tests",
+      "summary": "test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 1044 filtered out; finished in 14.70s\r",
+      "log_sha256": "3dfc9553e04575fb7f6c84d39590b0d0008267d9165ca2b6da479620b9cd7630"
+    }
+  ],
+  "visual_review": {
+    "research_pdf_figures": [
+      "HOLA Fig. 1",
+      "Interface Automata Fig. 1",
+      "JGAA statechart layout Figs. 8 and 9",
+      "InterState Fig. 1",
+      "Vega-Lite Figs. 2 and 3",
+      "Animated Vega-Lite Fig. 1"
+    ],
+    "manuscript_figures": [
+      "SheetShrink worksheet state graph",
+      "DeltaSieve token-reader state graph",
+      "DeltaSieve run-state graph"
+    ],
+    "format": "Native TikZ vectors in both manuscript fonts",
+    "layout_corrections": [
+      "Shortened overlapping child-reader edge labels",
+      "Separated row-emission loop and continuation note",
+      "Moved active-phase label clear of Preparing node"
+    ]
+  },
+  "pdf_outputs": [
+    {
+      "file": "papers/sheetshrink/main.pdf",
+      "pages": 14,
+      "sha256": "c9edfe06b241df37d0b8a209773acfa20b6130c24e6231a9ae844c388ad11deb"
+    },
+    {
+      "file": "papers/sheetshrink/main-no-references.pdf",
+      "pages": 13,
+      "sha256": "99317aea256f030346181d83f0f29a19439dc5c9197eec5960df3646cfb83d23"
+    },
+    {
+      "file": "papers/deltasieve/main.pdf",
+      "pages": 14,
+      "sha256": "5234e1290146213c5f106d6ccffb5439af8b459cc60923e4332490c5fd2a369a"
+    },
+    {
+      "file": "papers/deltasieve/main-no-references.pdf",
+      "pages": 13,
+      "sha256": "c64119749be05dad2ffa15a703b825d16c1eb368f2ff751dca605b6fe9788f69"
+    }
+  ]
+}
