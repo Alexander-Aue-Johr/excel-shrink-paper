@@ -29,11 +29,10 @@ measured height as an explicit custom height. SpreadsheetML provides a
 \emph{customHeight} attribute for that policy~\cite{customheight}.
 
 \subsection{Removal decisions and compact preservation}
-The preservation strategy retains a small representative when that representative
-can preserve a required effect. Row-font sentinels and guarded promotion of an
-existing style into a row format are examples. Their applicability depends on
-inherited formatting, gaps, merges, protection, and the available style records.
-An unresolved case retains the required source representation.
+SheetShrink retains a representative record when it preserves a required effect.
+Examples include row-font sentinels and reuse of an existing cell style as a row
+format. The checks account for inherited formatting, gaps, merges, protection
+and available styles. Unresolved cases retain the required original records.
 
 The production policy admits separately guarded hidden constant tails and retains
 ordinary nonempty hidden tables, including unreferenced values. Tail admission
