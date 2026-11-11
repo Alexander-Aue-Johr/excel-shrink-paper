@@ -1,0 +1,152 @@
+\begin{figure*}[t]
+\centering
+\begin{tikzpicture}[x=1cm,y=1cm,
+  actor/.style={rounded corners=2pt,draw=stateSlate!45,fill=stateSlate!4,
+    minimum height=.48cm,text width=2.3cm,inner sep=3pt,
+    font=\scriptsize,align=center},
+  msg/.style={-{Stealth[length=3.2pt]},draw=stateSlate!85,line width=.65pt},
+  ack/.style={msg,dashed,draw=stateSlate!55},
+  payload/.style={msg,draw=stateTeal,line width=1.2pt},
+  label/.style={font=\scriptsize,text=stateSlate,fill=white,
+    inner sep=1.5pt,align=center},
+  tinylabel/.style={font=\fontsize{6.5}{7.2}\selectfont,
+    text=stateSlate,align=center},
+  tile/.style={draw=stateBlue!75,fill=stateBlue!12,
+    minimum width=.6cm,minimum height=.42cm,inner sep=1pt,
+    font=\scriptsize},
+  heading/.style={font=\small\bfseries,anchor=west}]
+\path[use as bounding box] (-.05,.65) rectangle (17.1,-12.25);
+\node[heading] at (0,.35) {A\quad One capture round};
+\node[actor,draw=stateBlue,fill=stateBlue!7] (original) at (1.4,-.35)
+  {Original add-in};
+\node[actor] (host) at (5.65,-.35) {Resident host};
+\node[actor] (coordinator) at (10.25,-.35) {Rust coordinator};
+\node[actor,draw=stateTeal,fill=stateTeal!7] (variant) at (15.4,-.35)
+  {Variant add-in};
+\foreach \xx in {1.4,5.65,10.25,15.4} {
+  \draw[stateSlate!25,dashed,line width=.45pt] (\xx,-.65) -- (\xx,-6.55);
+}
+\draw[msg] (10.25,-1.03) -- node[label,above=2pt]
+  {Publish \texttt{capture\_hashes}} (5.65,-1.03);
+\draw[msg] (5.65,-1.62) -- node[label,above=2pt] {Dispatch command} (1.4,-1.62);
+\draw[msg] (5.65,-1.62) -- node[label,above=2pt] {Dispatch the matching round} (15.4,-1.62);
+\foreach \xx/\col in {1.4/stateBlue,15.4/stateTeal} {
+  \fill[\col] (\xx,-1.62) circle (1.7pt);
+  \fill[\col] (\xx,-2.28) circle (1.7pt);
+}
+\draw[msg] (1.4,-2.28) -- node[label,above=2pt] {PNG digest + geometry} (5.65,-2.28);
+\draw[msg] (15.4,-2.28) -- node[label,above=2pt] {PNG digest + geometry} (5.65,-2.28);
+\draw[ack] (5.65,-2.8) -- node[label,above=1pt] {Result committed / ACK} (1.4,-2.8);
+\draw[ack] (5.65,-2.8) -- node[label,above=1pt] {Result committed / ACK} (15.4,-2.8);
+\draw[msg] (5.65,-3.38) -- node[label,above=2pt] {Durable results} (10.25,-3.38);
+\node[draw=stateSlate!40,fill=stateSlate!4,rounded corners=2pt,
+  text width=3.65cm,inner sep=3pt,font=\scriptsize,align=center]
+  at (12.75,-3.52) {Match tile IDs\\dimensions and digests};
+\draw[stateSlate!50,line width=.5pt] (10.25,-3.38) -- (10.82,-3.38);
+
+\draw[stateTeal!35,rounded corners=3pt,line width=.6pt]
+  (.2,-3.98) rectangle (16.85,-6.36);
+\node[label,anchor=west,text=stateTeal] at (.4,-3.98)
+  {Optional retained-image exchange};
+\draw[msg] (10.25,-4.43) -- node[label,above=2pt]
+  {Publish \texttt{upload\_retained}} (5.65,-4.43);
+\draw[msg] (5.65,-4.98) -- node[label,above=2pt] {Request retained PNG} (1.4,-4.98);
+\draw[msg] (5.65,-4.98) -- node[label,above=2pt] {Request retained PNG} (15.4,-4.98);
+\draw[payload] (1.4,-5.53) -- node[label,above=2pt] {Finalized PNG bytes} (5.65,-5.53);
+\draw[payload] (15.4,-5.53) -- node[label,above=2pt] {Finalized PNG bytes} (5.65,-5.53);
+\draw[msg] (5.65,-6.08) -- node[label,above=2pt] {Validated image receipts} (10.25,-6.08);
+\node[tinylabel,text width=5.1cm] at (13.45,-6.05)
+  {Exact host pixel comparison\\and retained context};
+\node[tinylabel,anchor=west] at (.3,-6.72)
+  {ACK loss replays the same serialized result and command ID.};
+\foreach \yy in {-1.03,-1.62,-2.28,-2.8,-3.38,-4.43,-4.98,-5.53,-6.08} {
+  \fill[stateSlate!80] (5.65,\yy) circle (1.3pt);
+}
+\foreach \yy in {-1.03,-3.38,-4.43,-6.08} {
+  \fill[stateSlate!80] (10.25,\yy) circle (1.3pt);
+}
+
+\draw[stateSlate!20,line width=.5pt] (0,-7.05) -- (17,-7.05);
+\draw[stateSlate!15,line width=.5pt] (8.55,-7.35) -- (8.55,-12.05);
+\node[heading] at (0,-7.42) {B\quad Independent supervision signals};
+\node[heading] at (9,-7.42) {C\quad Bounded capture ownership};
+
+% Physical-time example. The last parent heartbeat is at 30 s.
+\foreach \yy/\name in {-8.15/{Add-in\\heartbeat},-9.05/{Verified\\progress},
+  -10.05/{Parent\\heartbeat},-10.95/{Native\\process}} {
+  \node[tinylabel,anchor=east,text width=1.35cm] at (1.5,\yy) {\name};
+  \draw[stateSlate!18,line width=.4pt] (1.8,\yy) -- (8.05,\yy);
+}
+\foreach \index in {0,...,18} {
+  \draw[stateBlue,line width=.85pt]
+    (1.8+\index*.32,-8.23) -- (1.8+\index*.32,-8.07);
+}
+\draw[stateTeal,line width=1.1pt]
+  (1.8,-9.25) -- (2.15,-9.25) -- (2.15,-9.13) --
+  (2.65,-9.13) -- (2.65,-9.0) -- (3.08,-9.0) -- (3.08,-8.84) -- (7.56,-8.84);
+\foreach \index in {0,...,6} {
+  \draw[stateSlate,line width=.85pt]
+    (1.8+\index*.32,-10.13) -- (1.8+\index*.32,-9.97);
+}
+\draw[stateSlate!60,line width=.6pt] (3.72,-9.63) -- (7.56,-9.63);
+\draw[stateSlate!60,line width=.6pt] (3.72,-9.55) -- (3.72,-9.71);
+\draw[stateSlate!60,line width=.6pt] (7.56,-9.55) -- (7.56,-9.71);
+\node[tinylabel,fill=white,inner sep=1pt] at (5.64,-9.63) {60 s without a parent heartbeat};
+\draw[stateBlue,line width=1.6pt] (1.8,-10.95) -- (7.56,-10.95);
+\draw[stateRose,dashed,line width=.7pt] (7.56,-7.93) -- (7.56,-11.24);
+\node[tinylabel,text=stateRose,anchor=south east,fill=white,inner sep=1pt]
+  at (7.5,-7.95) {Parent expiry};
+\draw[msg,draw=stateRose] (7.56,-10.95) -- (8,-10.95);
+\node[tinylabel,text=stateRose,anchor=north east] at (8.03,-11.12) {Cleanup requested};
+\foreach \xx/\time in {1.8/0,3.72/30,5.64/60,7.56/90} {
+  \node[tinylabel,anchor=north] at (\xx,-11.43) {\time};
+}
+\node[tinylabel,anchor=north] at (4.7,-11.79) {Illustrative elapsed time (s)};
+
+% Original leads its peer. Credits stay reserved through the comparison frontier.
+\draw[stateSlate!25,rounded corners=2pt,line width=.5pt]
+  (10.2,-7.84) rectangle (12.7,-9.17);
+\node[tinylabel,anchor=east] at (10.05,-8.15) {Original};
+\node[tinylabel,anchor=east] at (10.05,-8.85) {Variant};
+\foreach \xx/\name in {10.6/{$i$},11.45/{$i+1$},12.3/{$i+2$}} {
+  \node[tile] at (\xx,-8.15) {\name};
+}
+\node[tile,draw=stateTeal,fill=stateTeal!12] at (10.6,-8.85) {$i$};
+\foreach \xx in {11.45,12.3} {
+  \node[tile,draw=stateSlate!30,fill=white,dashed] at (\xx,-8.85) {};
+}
+\node[draw=stateSlate!55,fill=stateSlate!4,rounded corners=2pt,
+  text width=1.15cm,minimum height=.65cm,align=center,
+  font=\scriptsize] (compare) at (14.1,-8.5) {Compare\\tile $i$};
+\draw[msg] (12.75,-8.15) -- (compare.north west);
+\draw[msg] (12.75,-8.85) -- (compare.south west);
+\node[draw=stateTeal,fill=stateTeal!7,rounded corners=2pt,
+  text width=1.1cm,minimum height=.65cm,align=center,
+  font=\scriptsize] (release) at (16.25,-8.5) {Return\\credit $i$};
+\draw[msg] (compare) -- (release);
+\draw[ack,draw=stateTeal] (release.south) -- (16.25,-9.5) -- (11.45,-9.5) -- (11.45,-9.17);
+\node[label,text=stateTeal] at (13.4,-9.5) {Credit returns after comparison};
+\node[tinylabel,anchor=west] at (9.35,-10.03) {Original pending pixels};
+\draw[msg] (10.05,-11.6) -- (16.8,-11.6);
+\draw[msg] (10.05,-11.6) -- (10.05,-10.25);
+\draw[stateRose!65,dashed,line width=.6pt] (10.05,-10.4) -- (16.65,-10.4);
+\node[tinylabel,anchor=south east,text=stateRose] at (16.65,-10.37) {Pixel budget};
+\draw[stateBlue,line width=1.2pt]
+  (10.1,-11.57) -- (10.6,-11.57) -- (10.6,-11.28) --
+  (11.6,-11.28) -- (11.6,-10.99) -- (12.65,-10.99) --
+  (12.65,-10.7) -- (14.4,-10.7) -- (14.4,-11.28) -- (16.5,-11.28);
+\node[tinylabel,anchor=north] at (13.45,-11.77) {Illustrative capture / comparison progress};
+\end{tikzpicture}
+\caption{DeltaSieve communication and supervision, illustrated schematically.
+(A) Add-ins offer finalized PNG digests and geometry through the resident host.
+The coordinator requests retained bytes for exact comparison or context when
+required. Result commit and acknowledgment are distinct events. Startup and
+lower-level upload acknowledgments are abstracted.
+(B) An add-in can remain reachable while verified work stalls. The separate
+parent-runner heartbeat expiry can trigger owned cleanup. Process exit still
+requires confirmation. (C) A fast original client retains pending work while
+its peer catches up. Credits cover issued work through comparison. PNG buffers
+have additional byte limits and explicit upload/discard lifetimes.
+Times and occupancy traces are illustrative.}
+\label{fig:communication-panels}
+\end{figure*}

@@ -299,6 +299,10 @@ while a native call is pending, but do not extend a deadline by themselves.
 Durable commands and receipts reconcile reconnects. Repeated delivery cannot
 restart an already completed operation or silently duplicate a pending one.
 Failed attempts retain produced evidence and receive no equality verdict.
+Figure~\ref{fig:communication-panels} separates message exchange, supervision
+signals and bounded capture ownership. Transport acknowledgment, native progress
+and process lifetime have independent evidence and failure conditions.
+\input{figures/communication}
 
 Some observations can be omitted before native work. A direct byte comparison
 can establish that the original and transformed inputs are identical. ZIP

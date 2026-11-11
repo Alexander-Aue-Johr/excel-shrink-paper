@@ -13,6 +13,7 @@ FIGURES = (
     "papers/sheetshrink/figures/scheduling.tex",
     "papers/deltasieve/figures/artifact-lineage.tex",
     "papers/deltasieve/figures/capture-partition.tex",
+    "papers/deltasieve/figures/communication.tex",
 )
 
 
