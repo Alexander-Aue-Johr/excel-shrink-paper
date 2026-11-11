@@ -70,7 +70,12 @@ These namespace exclusions occurred only in Data.gov in the evaluated runs.
 These descriptive results include files that grew and use only processed
 input bytes as the denominator. Enron's denominator begins after
 preparation. Visual preservation is evaluated separately.
-
+Figure~\ref{fig:corpus-distributions} shows the workbook and worksheet
+distributions for these runs. Empty-cell cleanup and trailing layout rows
+account for prominent worksheet XML reductions. The contribution of column
+range merging is especially visible in Destatis. The worksheet panels exclude
+88 prepared Enron workbooks without worksheet XML observations. Workbook payload sizes use all uncompressed ZIP member sizes.
+\input{figures/corpus-distributions}
 A separate inventory of the 9,117 Data.gov inputs identified 493 workbooks
 with explicitly prefixed worksheet data elements. Experimental copies underwent
 namespace normalization followed by Default cleanup, with savings measured
@@ -96,6 +101,7 @@ Destatis automatic-height correction is examined below. Earlier Enron controls
 isolated deleted center-across-selection spans and fill masks by restoring only
 the affected original cell records. These findings motivate retained fixtures
 and native controls alongside the screening counts~\cite{enrondefaultcontrols}.
+
 \subsection{Sampling and reference controls}
 The random evaluation sample is selected from a frozen eligible frame with a
 recorded seed before inspecting visual findings. Strata use corpus identity,

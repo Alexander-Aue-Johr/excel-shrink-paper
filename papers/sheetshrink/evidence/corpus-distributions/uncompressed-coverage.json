@@ -1,0 +1,84 @@
+{
+  "common_percentile_limit": 85,
+  "visibility_threshold_percentage_points": 0.5,
+  "corpora": {
+    "destatis": {
+      "Workbook payload": {
+        "count": 1182,
+        "grew": 3,
+        "minimum_reduction_percent": -0.1432056905617764,
+        "tier_counts": {
+          "0": 1037,
+          "50": 111,
+          "80": 24,
+          "90": 4,
+          "95": 3
+        }
+      },
+      "Worksheet XML": {
+        "count": 32832,
+        "grew": 82,
+        "minimum_reduction_percent": -4.633688165309956,
+        "tier_counts": {
+          "0": 27535,
+          "50": 2421,
+          "80": 772,
+          "90": 674,
+          "95": 1348
+        }
+      }
+    },
+    "enron": {
+      "Workbook payload": {
+        "count": 30301,
+        "grew": 24,
+        "minimum_reduction_percent": -3.6994910327554313,
+        "tier_counts": {
+          "0": 28787,
+          "50": 968,
+          "80": 208,
+          "90": 129,
+          "95": 185
+        }
+      },
+      "Worksheet XML": {
+        "count": 120740,
+        "grew": 143,
+        "minimum_reduction_percent": -7.731921893998998,
+        "tier_counts": {
+          "0": 113643,
+          "50": 4470,
+          "80": 1324,
+          "90": 551,
+          "95": 609
+        }
+      }
+    },
+    "datagov": {
+      "Workbook payload": {
+        "count": 8623,
+        "grew": 5,
+        "minimum_reduction_percent": -0.17307509430373727,
+        "tier_counts": {
+          "0": 8415,
+          "50": 107,
+          "80": 38,
+          "90": 32,
+          "95": 26
+        }
+      },
+      "Worksheet XML": {
+        "count": 46340,
+        "grew": 39,
+        "minimum_reduction_percent": -2.8146474630518687,
+        "tier_counts": {
+          "0": 44906,
+          "50": 833,
+          "80": 183,
+          "90": 88,
+          "95": 291
+        }
+      }
+    }
+  }
+}

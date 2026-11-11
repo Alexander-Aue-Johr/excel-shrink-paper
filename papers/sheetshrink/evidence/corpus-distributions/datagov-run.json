@@ -1,0 +1,35 @@
+{
+  "schema": 1,
+  "corpus": "datagov",
+  "code_revision": "e7b91538",
+  "build_profile": "release",
+  "binary_sha256": "85dc6c215006bfe8cdecc3885e3d9646ab743473d2be12e6f30d3e409231e658",
+  "config": {
+    "inputs": [
+      "G:\\SheetShrink-Night-20261109\\artifacts\\datagov"
+    ],
+    "max_active_workbooks": 16,
+    "output": "I:\\deltasieve-work\\corpus-distributions-20261111\\datagov\\optimized",
+    "parallel_range_chunk_size": 16777216,
+    "recursive": false,
+    "reserve_mib": 8192,
+    "reuse_from": null,
+    "source_manifest": null,
+    "workers": 16
+  },
+  "summary": {
+    "total": 9117,
+    "processed": 8623,
+    "preserved": 0,
+    "skipped": 494,
+    "failed": 0
+  },
+  "ui_terminal_status": "failed",
+  "ui_error": "494 SheetShrink outputs were not published",
+  "cleanup_elapsed_ms": 1134471,
+  "replay": "replay.events.jsonl.gz",
+  "analysis": "analysis.csv.gz",
+  "workbook_statuses": "workbooks.csv",
+  "scope": "All supplied XLSX inputs, including unchanged outputs and failed/skipped statuses. Enron scope is the prepared XLSX population, excluding unavailable/unsupported raw candidates.",
+  "timing_scope": "Normal cleanup with statistics and detailed work telemetry enabled, alongside ongoing native validation jobs."
+}

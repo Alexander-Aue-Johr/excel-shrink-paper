@@ -1,0 +1,23 @@
+{
+  "destatis": {
+    "processed": 1182,
+    "other_statuses": 0,
+    "unchanged": 30,
+    "grew": 107,
+    "aggregate_compressed_reduction_percent": 15.481047106137835
+  },
+  "enron": {
+    "processed": 30301,
+    "other_statuses": 0,
+    "unchanged": 8415,
+    "grew": 321,
+    "aggregate_compressed_reduction_percent": 18.87418255291431
+  },
+  "datagov": {
+    "processed": 8623,
+    "other_statuses": 494,
+    "unchanged": 3522,
+    "grew": 346,
+    "aggregate_compressed_reduction_percent": 5.268047331408954
+  }
+}
