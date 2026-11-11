@@ -12,21 +12,29 @@ have different observation units.
 \subsection{Spreadsheet dependencies and testing}
 Spreadsheet slicing connects dependency analysis with integrated testing and
 fault localization~\cite{slicing}. DeltaSieve uses supported dependencies to
-select native observation regions. The two methods have different adequacy
-obligations. Formula-dependency coverage alone does not cover every visual effect.
+select native observation regions. Fisher et al. retain spreadsheet test cases
+and use change-impact analysis to support their reuse~\cite{fisher2002testreuse}.
+TACO compresses formula graphs using regularity in cell references and supports
+queries over the compressed representation~\cite{tang2023taco}. These precedents
+establish dependency analysis and compact representations in spreadsheet systems.
+DeltaSieve follows supported conditional-formatting and chart inputs to affected
+presentation regions. Its coverage obligations include inherited formatting,
+automatic row geometry and object bounds alongside formula dependencies.
 
 \subsection{Workbook comparison and native evidence}
 Spreadsheet Compare documents workbook comparison reports with formula and
 cell-format categories, including hidden sheets~\cite{spreadsheetcompare}.
-This is an important existing capability. DeltaSieve's comparison must examine
-native rendered effects, candidate selection and corpus execution explicitly,
-using common test inputs where the installed tools support them.
+Its documented comparison categories establish formatting-aware spreadsheet
+differencing. DeltaSieve evaluates native rendered effects and records the
+selected capture scope. The documentation describes change reports and a
+side-by-side grid, while pairwise native image validation of reported candidates
+requires evidence from the tested product and configuration.
 
 xlCompare documents command-line comparison and exported difference reports~\cite{xlcompare}.
 DiffEngineX documents whole-workbook and folder comparisons, report workbooks,
 and comparisons of formulas and constants. Its help explicitly excludes chart
-comparison~\cite{diffenginex}. These documented capabilities motivate a shared
-input pilot with exported reports. A report of edited cell inputs and an
+comparison~\cite{diffenginex}. xlCompare also documents configurable formatting comparisons~\cite{xlcompareHelp}.
+These capabilities support the shared-input pilot with exported reports. A report of edited cell inputs and an
 observation of their dependent rendered consequences answer different questions.
 The pilot must therefore record the tested options and report coverage instead
 of treating every comparator as an interchangeable visual oracle.
@@ -55,9 +63,35 @@ measuring selection overhead together with avoided work. DeltaSieve's
 spreadsheet dependency model and native image observations require their own
 coverage evaluation.
 
-ReDeCheck compares responsive web layout models and reports diagnostic
-screenshots~\cite{redecheck}. It samples viewport widths and refines layout
-transitions. DeltaSieve instead follows workbook-state changes and supported
-spreadsheet dependencies. Both settings motivate distinguishing a model-level
-warning, an observed visual effect and a confirmed defect. Their models and
-validation subjects require separate experimental oracles.
+ReDeCheck detects potential responsive web layout failures from structural
+models~\cite{redecheck}. VISER renders reported issues in a browser and manipulates
+element opacity to determine whether an effect is visible~\cite{althomali2019viser}.
+VERVE extends this approach to all five ReDeCheck failure classes and uses
+histogram-based image comparison~\cite{althomali2021verve}. Structural filtering
+followed by targeted visual verification is therefore an established method.
+DeltaSieve applies this principle to paired workbook states and spreadsheet
+presentation dependencies, including effective formatting, conditional rules,
+chart sources and native geometry. Its coverage evaluation must independently
+assess which affected regions the selector retains.
+
+\subsection{Visual document regression and benchmark scope}
+Huang's account of the Antenna House Regression Testing System (AHRTS) describes
+rasterizing baseline and new PDFs and comparing their page images pixel by
+pixel~\cite{huang2014ahrts}. Document and image checksums avoid work before
+more detailed comparison. This provides a document-processing precedent for
+staged visual regression testing and reuse. DeltaSieve selects regions within
+workbooks using spreadsheet dependencies and retains native geometry alongside
+pixel observations.
+
+The evaluated scope concerns XLSX transformations observed in Excel. VISER and
+VERVE consume web pages and DOM-based layout reports. Adapting their selectors
+would require a spreadsheet-specific dependency and geometry model. Applying
+AHRTS through PDF export would introduce print areas, pagination and scaling
+into the observation contract. These input and observation differences motivate
+methodological comparison with these systems. Direct runtime rankings would
+require a common task, preparation policy and capture scope. Within DeltaSieve's
+scope, independent native references and matched capture configurations assess
+selection coverage and rendering cost. Product comparisons are interpreted
+through their tested options and exported findings. The evidence supports claims
+about those executions, with broader product capabilities established separately
+through documentation.
