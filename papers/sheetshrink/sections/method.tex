@@ -1,12 +1,10 @@
 \subsection{Representation and analysis stages}
-Figure~\ref{fig:cleanup-algorithm} summarizes the cleanup pipeline. The input is
-an XLSX ZIP package. The output retains its workbook structure and cell
+The input is an XLSX ZIP package. The output retains its workbook structure and cell
 coordinates while removing records admitted by the preservation policy.
 Package metadata supplies style components, shared strings, relationships,
 merged regions and dependency sources. These contexts are prepared before
 cell-local decisions, so an index or an empty payload is never sufficient by
 itself to establish redundancy.
-\input{figures/cleanup-algorithm}
 
 Worksheet analysis consumes decompressed byte buffers without constructing an
 XML object for every cell. A state machine separates worksheet headers, column
@@ -183,10 +181,11 @@ cleanup currently matches name and local scope without proving equality of the
 two formula bodies. This is a specific limitation of that policy.
 
 \subsection{Parallel work and output ownership}
-Figure~\ref{fig:hierarchical-scheduling} relates the task hierarchy to a
-schematic execution across threads. Worksheet identity remains shared across
+Figures~\ref{fig:hierarchical-scheduling} and~\ref{fig:schedule-execution}
+show the task hierarchy and a schematic execution across threads. Worksheet identity remains shared across
 its chunks, while ordered assembly separates execution order from output order.
 \input{figures/scheduling}
+\input{figures/scheduling-execution}
 Workbook, worksheet and row-chunk work share the cleanup execution budget.
 A permit limits active workbooks and remains held through output finalization.
 Workers can process other workbooks while one long worksheet remains active.

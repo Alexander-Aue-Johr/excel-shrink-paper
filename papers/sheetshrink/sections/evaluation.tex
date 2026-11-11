@@ -18,22 +18,9 @@ absolute compressed-file byte reduction in each corpus, totaling 147 original
 identities. All processor baselines use those same identities. Preparation,
 cleanup and visual-comparison outcomes are counted separately.
 
-\begin{table}[t]
-\caption{Frozen XLSX source inventories. Sizes are decimal GB of listed workbook files and do not measure completed native coverage.}
-\label{tab:source-inventories}
-\centering
-\begin{tabular}{lrr}
-\hline
-Corpus & XLSX members & XLSX total (GB) \\
-\hline
-Data.gov & 9,117 & 25.273 \\
-Destatis & 1,182 & 2.364 \\
-\hline
-\end{tabular}
-\end{table}
-
-Table~\ref{tab:source-inventories} reports the frozen Data.gov and Destatis
-XLSX source inventories; each archive member has a SHA-256 identity. Reported
+The frozen XLSX inventories contain 9,117 Data.gov members totaling 25.273 GB
+and 1,182 Destatis members totaling 2.364 GB (compressed file bytes, decimal GB);
+each archive member has a SHA-256 identity. Reported
 outcomes distinguish completed comparisons, differences, failures, unsupported
 representations and unfinished work, with retries counted separately. Exact
 package identity can bypass visual comparison; failed captures provide no

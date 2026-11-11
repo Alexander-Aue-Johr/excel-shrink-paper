@@ -1,0 +1,45 @@
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}[x=1cm,y=1cm,
+  small/.style={font=\scriptsize,text=stateSlate,align=center},
+  edge/.style={-{Stealth[length=3pt]},draw=stateSlate!75,line width=.6pt}]
+\definecolor{scheduleAmber}{HTML}{AD762B}
+\path[use as bounding box] (0,.1) rectangle (8.3,-3.35);
+\foreach \yy/\name in {-.45/1,-1.25/2,-2.05/3} {
+  \draw[stateSlate!14,line width=.4pt] (1.2,\yy-.3) -- (8.1,\yy-.3);
+  \node[small,anchor=east] at (1.1,\yy) {Thread \name};
+}
+\foreach \xx in {1.3,2.6,3.9,5.2,6.5,7.8} {
+  \draw[stateSlate!10,line width=.35pt] (\xx,-.05) -- (\xx,-2.45);
+}
+\filldraw[fill=stateTeal!12,draw=stateTeal!65,rounded corners=1.5pt]
+  (1.3,-.69) rectangle (2.15,-.21);
+\node[small] at (1.725,-.45) {B init};
+\filldraw[fill=stateTeal!22,draw=stateTeal,rounded corners=1.5pt]
+  (2.25,-.69) rectangle (5.1,-.21);
+\node[small] at (3.675,-.45) {B\,1};
+\filldraw[fill=stateBlue!17,draw=stateBlue,rounded corners=1.5pt]
+  (1.3,-1.49) rectangle (2.6,-1.01);
+\node[small] at (1.95,-1.25) {A};
+\filldraw[fill=stateTeal!38,draw=stateTeal,line width=.9pt,rounded corners=1.5pt]
+  (2.7,-1.49) rectangle (5.8,-1.01);
+\node[small] at (4.25,-1.25) {B\,2};
+\filldraw[fill=scheduleAmber!19,draw=scheduleAmber,rounded corners=1.5pt]
+  (1.3,-2.29) rectangle (2.35,-1.81);
+\node[small] at (1.825,-2.05) {C};
+\filldraw[fill=stateTeal!22,draw=stateTeal,rounded corners=1.5pt]
+  (2.45,-2.29) rectangle (4.7,-1.81);
+\node[small] at (3.575,-2.05) {B\,3};
+\draw[stateTeal!65,dashed,line width=.6pt] (5.8,-2.45) -- (5.8,-.05);
+\filldraw[fill=stateTeal!12,draw=stateTeal!65,rounded corners=1.5pt]
+  (5.9,-.69) rectangle (7.5,-.21);
+\node[small] at (6.7,-.45) {B finalize};
+\node[small,anchor=north] at (5.8,-2.5) {All B chunks joined};
+\draw[edge] (1.3,-3.15) -- (8.1,-3.15);
+\node[small,fill=white,inner sep=2pt] at (4.7,-3.15) {Relative time};
+\end{tikzpicture}
+\caption{One possible execution of Figure~\ref{fig:hierarchical-scheduling}.
+Chunks from one sheet can run on different threads before ordered assembly.
+Bar lengths are schematic; individual steal events are not recorded.}
+\label{fig:schedule-execution}
+\end{figure}
