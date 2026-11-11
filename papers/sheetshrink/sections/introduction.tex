@@ -1,7 +1,6 @@
-Spreadsheet files are both data containers and executable visual documents. A
-user can store a compact table in a workbook whose worksheet parts contain large
-numbers of otherwise empty cells. Such records can increase the work required
-to decompress and interpret the package. Removing every empty-looking record is
+An XLSX workbook can contain a small table alongside many empty cell records
+and redundant row and column records. Decompressing and parsing these records
+adds work. Removing every empty-looking record is
 unsafe. An empty cell can preserve a border, override an inherited fill, or
 influence automatic row height through its font. A whitespace value can prevent
 text from extending into its neighbour. Cleanup therefore requires a model of
