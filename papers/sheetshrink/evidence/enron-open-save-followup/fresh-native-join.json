@@ -1,0 +1,27 @@
+{
+  "status": "completed",
+  "cases": [
+    {
+      "case": "enron",
+      "original_sha256": "7298df9a6a76d0b69599c21d1653287adc863a5c7dbb9b5eaca275ea23ffada0",
+      "exit_code": 0,
+      "reason": null,
+      "cleanup_seconds": 1.875,
+      "resources": {
+        "peak_job_committed_bytes": 923418624,
+        "peak_process_committed_bytes": 922157056,
+        "cpu_user_seconds": 8.375,
+        "cpu_kernel_seconds": 0.421875,
+        "active_processes": 0
+      },
+      "fresh_output_sha256": "977c308d84a68d65211f5650263d2b45e0cbfef6960a40cf5ebb73f9b91171dc",
+      "compressed_bytes": 384724,
+      "canonical_member_manifest_sha256": "c061e36be050b0266d0fb70853cdb79551897ad082d6c97dbb92724dc6afaf0b",
+      "member_count": 18,
+      "all_members_uncompressed_bytes": 2581673,
+      "baseline_scope": "raw_selected_original",
+      "all_members_equal_native_candidate": true
+    }
+  ],
+  "binary_sha256": "67837e2ed823a925a8321339a25a5875ab8ca280d0b6f3d2215cfb62b16cada4"
+}

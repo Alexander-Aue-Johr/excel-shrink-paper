@@ -1,0 +1,62 @@
+[
+  {
+    "tool": "Original",
+    "statuses": [
+      "memory_limit",
+      "memory_limit",
+      "memory_limit"
+    ],
+    "median_seconds": null,
+    "peak_job_committed_bytes": 4325974016
+  },
+  {
+    "tool": "SheetShrink",
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ],
+    "median_seconds": 3.02060860000347,
+    "peak_job_committed_bytes": 934711296
+  },
+  {
+    "tool": "CheckPerformance",
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ],
+    "median_seconds": 1.035690099997737,
+    "peak_job_committed_bytes": 561606656
+  },
+  {
+    "tool": "Inquire",
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ],
+    "median_seconds": 1.0539645999961067,
+    "peak_job_committed_bytes": 561532928
+  },
+  {
+    "tool": "NXPowerLite",
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ],
+    "median_seconds": 1.1008606999967014,
+    "peak_job_committed_bytes": 561537024
+  },
+  {
+    "tool": "XLStylesTool",
+    "statuses": [
+      "memory_limit",
+      "memory_limit",
+      "memory_limit"
+    ],
+    "median_seconds": null,
+    "peak_job_committed_bytes": 4325867520
+  }
+]

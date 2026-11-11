@@ -1,0 +1,38 @@
+{
+  "kind": "fourth-case-openpyxl-followup",
+  "started_utc": "2026-11-11T08:34:25Z",
+  "original_sha256": "7298df9a6a76d0b69599c21d1653287adc863a5c7dbb9b5eaca275ea23ffada0",
+  "sheetshrink_sha256": "67837e2ed823a925a8321339a25a5875ab8ca280d0b6f3d2215cfb62b16cada4",
+  "prepared_variant_sha256": {
+    "Original": "7298df9a6a76d0b69599c21d1653287adc863a5c7dbb9b5eaca275ea23ffada0",
+    "SheetShrink": "7ff4759dda003947b6633779d5c69e7c606805d8006d2a2490afd124aac86639",
+    "CheckPerformance": "51cc17fd24993dd0ada2ad458118c6f7aea75602efbfc5e0fbc1273d2ce96ce8",
+    "Inquire": "074375d704558c4e317eca6e2fe94e7fa8d080b328623ab399c1a0ba79866b94",
+    "NXPowerLite": "5ccf9a5d30a8fbb85da2d0ba6e5eb8559e0c54f34b4fa7b814e98d8773090512",
+    "XLStylesTool": "a4223e1064c9ebe2a45b5577764dd8e920d3d4e702d11d76983335a9033223a3"
+  },
+  "library": "openpyxl 3.1.5",
+  "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+  "repetitions": 3,
+  "planned_trials": 18,
+  "job_commit_limit_mib": 4096,
+  "system_ram_and_commit_reserve_mib": 8192,
+  "timeout_seconds": 300,
+  "sheetshrink_workers": 16,
+  "scope": "Prepared external outputs measure library processing only; SheetShrink measures fresh cleanup plus the same endpoint",
+  "order": "Original, fresh SheetShrink, prepared Check Performance, Inquire, NXPowerLite and XLStylesTool within each repetition",
+  "context": "Concurrent native DeltaSieve comparisons; filesystem caches retained",
+  "native_join": "Prepared external outputs use the exact stage-nine archive identities; fresh SheetShrink member identity requires a separate check",
+  "source_sha256": {
+    "memory_job.py": "6da8d29a6cea93af21dc1cae5f122b083d0f3c36184b661658b6258467549535",
+    "owned_process.py": "a62de7a2da840f68e998c7a772dd61aa702931873ea21f7d33c685d729a0db30",
+    "pipeline.py": "347369bc1b19e5d07822659584331284c5d87ab3798bae9dceb072fc05b5bba3",
+    "plot_results.py": "fdd5515d4fa0f67572bfbdf8298a50026cddb4bc195224508d3afe0ad890e1d3",
+    "run_bounded.py": "9cf71eb8d6405cc5b531c470bd7dd35796dec2d65048d1ac9ee1417533dceec0",
+    "test_reserves.py": "43b89bf53252eda47768a70194c593c5fc38ba76a21c7ceacf495630a981143a",
+    "worker.py": "6779cb400550c2b83445c243d36e4642778471af37d6a686b0b4af4500d6c7ea",
+    "worker.R": "b9a28bcdba90721b46e19c61fe924e16895c7cf3fc154654c1a193a3631469b0"
+  },
+  "trial_projection_sha256": "2a044550f5d0c126d470e46c919bec390e3b79a0598bd8939ff90627f440e821",
+  "source_snapshot_location": "../bounded-open-save-followup/measured-code"
+}
