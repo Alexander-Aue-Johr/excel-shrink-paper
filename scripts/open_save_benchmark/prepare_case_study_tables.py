@@ -62,41 +62,63 @@ def table_end(note):
     return [r"\hline", r"\end{tabular}", r"\par\smallskip", r"\begin{minipage}{0.98\textwidth}\footnotesize " + note + r"\end{minipage}", r"\end{table*}"]
 
 
-def transformation_table(cases, visuals):
-    lines = table_start("Opening/memory case-study inputs and native visual evidence. Sizes are decimal MB. Payload is the sum of all uncompressed ZIP-member sizes. Reduction columns compare each output with its original. Pending identifies unavailable evidence. Paired bars show original (gray) and output (blue/orange), with original = 100\\%.", "lrrrccc", label="tab:case-study-transformations")
-    lines.append(r"Variant & ZIP (reduction) & Payload (reduction) & Pixels $D/N$ & Sheets & Geom. & State \\")
+def native_evidence_cell(visual):
+    status = visual["status"]
+    if "N" in visual and visual["N"] > 0:
+        lines = [f"{visual['D']:,} / {visual['N']:,}",
+                 f"{visual['measured_regions']}/{visual['recorded_regions']} image pairs"]
+        if visual["different_dimensions_in_measured_regions"]:
+            lines.append(f"{visual['different_dimensions_in_measured_regions']} size differences")
+        if visual["baseline_scope"] == "documented_normalized_baseline":
+            lines.append("Normalized baseline")
+        return r"\begin{tabular}[c]{@{}l@{}}" + r"\\".join(lines) + r"\end{tabular}"
+    if "recorded_regions" in visual:
+        if visual["recorded_regions"] == 0:
+            return "No capture regions"
+        return f"No retained pairs (0/{visual['recorded_regions']})"
+    return {"memory_limit": "Memory limit", "failed": "Failed",
+            "running": "No completed report", "no_matched_report": "No matched report"}.get(
+                status, "No matched report")
+
+
+def transformation_table(cases, native_rows):
+    lines = table_start(
+        "Selected-case uncompressed payload reduction and retained native pixel evidence. "
+        "Payload is the sum of all ZIP-member sizes in decimal MB. "
+        "Image-pair counts state measured/recorded coverage.",
+        "lrl", label="tab:case-study-transformations")
+    lines[0] = r"\begin{table*}[t]"
+    lines.append(r"Variant & Payload MB (reduction) & Changed / compared pixels; coverage \\")
     for case in cases:
         if case["case_id"] == "finance":
             continue
         original = case["variants"]["Original"]
-        lines.extend([r"\hline", r"\multicolumn{7}{l}{\textbf{" + CASES[case["case_id"]] + r"}} \\"])
-        zip_scale = max(v["zip_bytes"] / original["zip_bytes"] for v in case["variants"].values())
-        payload_scale = max(v["uncompressed_bytes"] / original["uncompressed_bytes"] for v in case["variants"].values())
+        selected = [r for r in native_rows if r["case_id"] == case["case_id"]]
+        scale = max([1] + [r["uncompressed_bytes"] / original["uncompressed_bytes"] for r in selected])
+        lines.extend([r"\hline", r"\multicolumn{3}{l}{\textbf{" + CASES[case["case_id"]] + r"}} \\"])
         for tool in TOOLS:
-            size = case["variants"].get(tool)
-            if tool == "SheetShrink":
-                fresh = case.get("fresh_sheetshrink")
-                size = {"zip_bytes": fresh["zip_bytes"][0], "uncompressed_bytes": None} if fresh else None
-            visual = next((v for v in visuals if v["case_id"] == case["case_id"] and v["tool"] == tool), None)
-            compressed = size["zip_bytes"] if size else None
-            payload = size["uncompressed_bytes"] if size else None
             if tool == "Original":
-                pixels, sheets, geometry, state = "Ref.", "Ref.", "Ref.", "Ref."
-            elif visual and "different_pixel_observations" in visual:
-                pixels = cell(f"{visual['different_pixel_observations']:,} / Pending", "caseadverse")
-                sheets = f"{visual['changed_sheets']}/{visual['observed_sheets']}/{visual['total_sheets']}"
-                geometry = str(visual["geometry_findings"])
-                state = cell("L", "caseadverse")
+                payload = original["uncompressed_bytes"]
+                visual = "Reference"
+                name = NAMES[tool]
             else:
-                pixels, sheets, geometry = cell(None), cell(None), cell(None)
-                state = cell("M" if visual and visual["status"] == "memory_limit" else "F" if visual and visual["status"] == "failed" else "Pending", "casemissing")
-            compressed_label = cell(None) if compressed is None else f"{compressed / 1e6:.3f} ({100 * (1 - compressed / original['zip_bytes']):.2g}\\%)"
-            payload_label = cell(None) if payload is None else f"{payload / 1e6:.2f} ({100 * (1 - payload / original['uncompressed_bytes']):.2g}\\%)"
-            compressed_display = paired_bar(compressed_label, compressed, original["zip_bytes"], zip_scale)
-            payload_display = paired_bar(payload_label, payload, original["uncompressed_bytes"], payload_scale)
-            values = [NAMES[tool], compressed_display, payload_display, pixels, sheets, geometry, state]
-            lines.append(" & ".join(values) + r" \\")
-    note = r"Sheet Shrink outputs are freshly generated in each six-worker trial. Their compressed size is recorded consistently across repetitions, while their uncompressed payload and matched native visual evidence remain pending. NXPowerLite uses the cell-formatting-focused profile. XLStylesTool retains the tested settings. Ref. identifies the original baseline. L denotes completed targeted captures with coverage limitations, M a memory-limit stop, F a failed attempt and Pending unavailable evidence. Sheets gives changed/observed/total worksheets. Geometry counts flagged capture findings. Pixel counts aggregate retained diagnostic observations under policy v12 after paired native rebuild. The total comparable-pixel denominator N remains pending. Different capture scopes and unresolved attribution constrain comparisons. Gray bars denote the original. Blue denotes a value at or below the original, and orange a larger value. Orange cell backgrounds mark observed visual differences. Each pair has a common zero. Original = 100\%, with a shared linear scale within each workbook and size column. Absolute MB and reduction percentages accompany the bars."
+                row = next(r for r in selected if r["tool"] == tool)
+                payload = row["uncompressed_bytes"]
+                visual = native_evidence_cell(row["visual"])
+                name = NAMES[tool] + (r"\textsuperscript{*}" if row["representative_control"] else "")
+            reduction = 100 * (1 - payload / original["uncompressed_bytes"])
+            label = f"{payload / 1e6:.2f} ({reduction:.2g}\\%)"
+            display = paired_bar(label, payload, original["uncompressed_bytes"], scale, width=4.4)
+            lines.append(" & ".join([name, display, visual]) + r" \\")
+    note = (
+        r"\textsuperscript{*}Sheet Shrink uses separately regenerated controls whose uncompressed members match the native candidates; "
+        "full per-trial member inventories of the timed pipelines were not retained. "
+        "Wanderungen uses a normalized baseline. Counts compare exact RGBA values in common rectangles with matched origins; "
+        "overlapping captures can count pixels repeatedly. Image-size differences remain separate from common-area pixel counts. "
+        "Different plans and incomplete scopes preclude a cross-tool preservation ranking. "
+        "No capture regions or retained pairs provide no pixel-equality observation. "
+        "Gray bars show the original; blue/orange show payload at or below/above the original. "
+        "Input/output hashes, scope details and failures remain in the artifact.")
     lines.extend(table_end(note))
     return "\n".join(lines) + "\n"
 
@@ -176,11 +198,11 @@ def resource_tables(cases, records):
 
 def main():
     cases = json.loads((EVIDENCE / "sizes.json").read_text())
-    visuals = json.loads((EVIDENCE / "visual-summary.json").read_text())
+    native_rows = json.loads((EVIDENCE / "matched-native-summary.json").read_text())
     with gzip.open(PAPER / "evidence/bounded-open-save/trials.jsonl.gz", "rt") as stream:
         records = [json.loads(line) for line in stream]
     assert len(records) == 288
-    (EVIDENCE / "transformations.tex").write_text(transformation_table(cases, visuals))
+    (EVIDENCE / "transformations.tex").write_text(transformation_table(cases, native_rows))
     (EVIDENCE / "resources.tex").write_text(resource_tables(cases, records))
 
 
