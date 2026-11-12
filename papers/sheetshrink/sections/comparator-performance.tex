@@ -91,31 +91,26 @@ user and kernel time. Working-set and private-byte peaks are sampled at nominal
 250 ms intervals. Each tool reuses its running application with one conversion
 worker and a 512 MiB RAM and commit reserve.
 
-The Lenovo SheetShrink experiment uses an optimized release build from revision
-\texttt{765c480}, one active workbook, one Rayon worker and one writer, with the
-default cleanup policy. One complete warm-up round precedes nine measured rounds
-over the same 147 source identities. Each round independently shuffles workbook
-order with a recorded seed. Each file starts a fresh CLI process, and measured
-wall time ends at process exit. Output hashing is outside this timing boundary.
-Filesystem caches are left unflushed after warm-up. Direct-child CPU and OS peak-working-set counters
-are retained, with private usage sampled at a nominal 10 ms polling interval. These memory observations
-have different sampling semantics from the GUI lane and are reported separately.
-All 1,470 invocations completed successfully. Each input produced the same
-package hash across warm-up and measured repetitions, and all 147 final outputs
-preserved the original bytes of the audited media and object parts.
-Across inputs, the median relative within-input interquartile range,
-$(Q_3-Q_1)/\widetilde{t}$, was 0.84\% over the nine measured repetitions.
+On the Lenovo host, SheetShrink uses an optimized release build, Default cleanup,
+one active workbook, one Rayon worker and one writer. One warm-up round precedes
+nine measured rounds over the same 147 inputs. Each round shuffles input order
+with a recorded seed. Each file runs in a fresh CLI process, timed through exit,
+excluding output hashing. Filesystem caches remain warm. We record direct-child
+CPU time and OS peak working set, sampling private memory every nominal 10 ms.
+These memory measurements differ from the GUI tools and are reported separately.
+All 1,470 runs completed. Each input produced identical package hashes across
+repetitions. All 147 final outputs preserved audited media and object bytes. The
+median relative within-input interquartile range, $(Q_3-Q_1)/\widetilde{t}$, was
+0.84\% across nine measured repetitions.
 
-Figure~\ref{fig:paired-cleanup-workflows} retains raw times and workbook-level
-same-host ratios. Each denominator is the same-host SheetShrink median (nine Lenovo trials or
-seven to eleven HP trials),
-and each numerator is the primary comparator observation. Across-workbook quartiles
-describe heterogeneity in this deliberately selected stress panel. They are
-distinct from uncertainty over repeated trials~\cite{scientificbenchmarking}.
-The ratio includes the stated interface and confirmation costs, and the tools
-have different cleanup policies. It therefore measures the observed cleanup
-workflows. Opening-time improvements and cleanup-plus-opening costs require
-their own readiness endpoints, as in the separate historical opening experiment.
+Figure~\ref{fig:paired-cleanup-workflows} shows times and same-host tool/SheetShrink
+ratios for each workbook. Ratios divide the primary comparator time by the
+SheetShrink median from nine Lenovo trials or seven to eleven HP trials.
+Quartiles across workbooks describe differences within this selected stress set.
+They do not estimate repeated-trial uncertainty~\cite{scientificbenchmarking}.
+Ratios include interface and confirmation costs and compare tools with different
+cleanup policies. Opening time and cleanup-plus-opening time are measured
+separately in the opening experiment.
 
 \input{evidence/top49-performance-results}
 
