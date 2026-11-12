@@ -55,24 +55,22 @@ activity is unknown. Median workflow ratios are 20.19, 22.75 and 4.84 for Destat
 Enron and Data.gov. Background-load uncertainty and different timing boundaries
 limit interpretation.
 
-The Inquire lane uses an HP EliteBook 645 G11 with an AMD Ryzen 5 PRO 7535U
-(six physical cores, twelve logical processors), 32 GiB installed RAM,
-a 512 GB SOLIDIGM NVMe SSD and Windows 11 Enterprise build 26200.9711.
-Excel and Inquire file versions are 16.0.17932.21056 and 16.0.16626.20076.
-Of the same 110 originals, 90 have full primary Inquire successes, six partial
-outcomes and fourteen failures. Diagnostic retries remain separate. Full
-successes comprise 19 Destatis, 28 Enron and 43 Data.gov workbooks.
+Inquire runs on an HP EliteBook 645 G11 with a Ryzen 5 PRO 7535U (six cores,
+twelve logical processors), 32 GiB RAM, a 512 GB SOLIDIGM NVMe SSD and Windows 11
+Enterprise build 26200.9711. Excel and Inquire versions are 16.0.17932.21056 and
+16.0.16626.20076. Of the same 110 originals, 90 primary runs completed, six
+partially completed and fourteen failed. Diagnostic retries are counted
+separately. Completed runs comprise 19 Destatis, 28 Enron and 43 Data.gov workbooks.
 
-Inquire records single historical Excel workflow observations, including opening,
-cleanup with internal saving, explicit saving and shutdown; detailed boundaries
-remain in the per-case receipts. Partial and failed attempts receive no
-completed-runtime ratio. Historical hardware and version attribution partly
-uses execution-session provenance and later inventory rather than per-trial
-capture. Among the 90 complete pairs, 41 Inquire work directories were on local
-NVMe, 48 on a USB-connected Samsung 870 QVO SSD, and one has incomplete storage
-attribution. All paired SheetShrink trials used local NVMe. The source receipts retain these storage conditions. The median descriptive workflow
-ratios are 19.36, 15.18 and 12.04 for Destatis, Enron and Data.gov, respectively.
-Different endpoints and storage conditions constrain their interpretation.
+Each Inquire input has one historical timing covering opening, cleanup with
+internal saving, explicit saving and shutdown. Per-case records retain detailed
+timing boundaries. Partial and failed runs receive no runtime ratio. Hardware and
+version attribution partly relies on session records and later inventories. Of
+90 complete pairs, 41 Inquire work directories used local NVMe, 48 used a
+USB-connected Samsung 870 QVO SSD, and one has unknown storage. All paired
+SheetShrink trials used local NVMe. Median workflow ratios are 19.36, 15.18 and
+12.04 for Destatis, Enron and Data.gov. Different timing boundaries and storage
+conditions limit interpretation.
 
 The HP SheetShrink lane freezes revision \texttt{75e85035}, twelve Rayon and
 twelve writer workers, and one active workbook. One warm-up precedes seven
