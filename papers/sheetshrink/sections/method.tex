@@ -150,11 +150,11 @@ again after obsolete tail anchors are removed, allowing records kept solely for
 those anchors to disappear. Default preserves whitespace because it can control
 text overflow and row layout.
 
-Package metadata has separate predicates. Calculation-chain cleanup resolves
-removed cells by sheet identity and preserves unresolved mappings. The cleaner
-does not evaluate formulas or manufacture replacement caches. Built-in alias
-cleanup currently matches name and local scope without proving equality of the
-two formula bodies.
+Metadata cleanup follows separate rules. Calculation-chain cleanup identifies
+removed cells by worksheet and preserves entries whose targets cannot be resolved.
+SheetShrink does not evaluate formulas or generate cached results. Built-in alias
+cleanup matches names and local scope without checking whether their formulas are
+equivalent.
 
 \subsection{Parallel work and output ownership}
 Figures~\ref{fig:hierarchical-scheduling} and~\ref{fig:schedule-execution}
@@ -162,20 +162,19 @@ show the task hierarchy and a schematic execution across threads. Worksheet iden
 its chunks, while ordered assembly separates execution order from output order.
 \input{figures/scheduling}
 \input{figures/scheduling-execution}
-Workbook, worksheet and row-chunk work share the cleanup execution budget.
-A permit limits active workbooks and remains held through output finalization.
-Workers can process other workbooks while one long worksheet remains active.
-Large worksheets expose row-aligned chunks to Rayon, allowing idle workers to
-help without splitting a row's font, promotion or tail decisions.
-The chunk planner estimates byte-sized work, then adjusts boundaries to complete
-rows. Small ranges use the serial path. Each chunk receives isolated metrics,
-and results are assembled in source order.
+Workbook, worksheet and row-chunk tasks share one execution budget. Each active
+workbook holds a permit until its output is finalized. Workers can process other
+workbooks while a long worksheet runs. Large worksheets are split into row-aligned
+chunks for Rayon workers, keeping each row's font, promotion and tail decisions
+together. The planner estimates work in bytes and adjusts chunk boundaries to
+complete rows. Small ranges run serially. Each chunk has separate metrics, and
+results are assembled in source order.
 
-Ready chunks participate in admission decisions for new worksheets. A smaller
-sheet can yield admission while larger chunk work is pending. Batches retain only a bounded number of chunk results while the
-assembled output grows. Workbook contexts, the output buffer and deferred
-candidates remain additional memory consumers. Thread count, active-workbook
-count and writer count are separate experimental parameters.
+Worksheet admission accounts for ready chunks. Smaller worksheets may wait while
+larger chunk tasks are pending. Batches limit the number of retained chunk results,
+while the assembled output continues to grow. Workbook contexts, output buffers
+and deferred candidates also consume memory. Thread, active-workbook and writer
+counts are separate experimental parameters.
 
 Workers compress changed worksheet members in parallel. One writer updates each
 workbook's ZIP archive and publishes the completed temporary file after successful
