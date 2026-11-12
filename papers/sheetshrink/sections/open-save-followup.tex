@@ -18,21 +18,18 @@ no runtime ratio. For Migration/readxl and QT/RR/openpyxl, cleanup plus processi
 was 2.97 and 24.28 times faster, respectively, taking 131.953 versus 392.149 s and
 11.519 versus 279.638 s.
 
-The larger limit distinguishes memory censoring from completed processing cost
-for these selected cases. Native visual comparisons, a separate cleanup
-benchmark and read-only evidence analysis ran concurrently. Filesystem caches
-were retained. The measured ratios are descriptive paired results under that
-context. Across all 48 displayed trials, sampled physical
-RAM and commit headroom remained above the declared system reserve.
+The higher memory limit lets some previously memory-limited trials complete,
+allowing runtime comparisons. Native visual comparisons, another cleanup benchmark
+and read-only evidence analysis ran concurrently, with filesystem caches retained.
+The ratios describe paired results under these conditions. Sampled physical RAM
+and commit headroom stayed above the declared reserve throughout all 48 trials.
 
-After the timing series, separately regenerated controls for both displayed inputs
-matched every uncompressed member name, length and SHA-256 of the retained
-native candidate identities. Migration's native observation
-uses a documented normalized baseline, and QT/RR's retained selected plan has
-zero captures. The full per-trial member inventories were not retained for the
-timed fresh outputs, whose archive hashes remain in the receipts. A second cleanup was
-measured after each completed fresh pipeline, outside the timed endpoint.
-Its recorded ZIP identity flags do not establish general cleanup idempotence.
+After timing, regenerated controls for both inputs matched the native candidates'
+uncompressed member names, lengths and SHA-256 hashes. Migration uses a documented
+normalized baseline. QT/RR's selected capture plan contains no captures. Timed
+fresh outputs retain archive hashes, without full member inventories. Each
+completed fresh pipeline was followed by a second cleanup outside the timed
+interval. Its ZIP identity flags do not establish general cleanup idempotence.
 
 \subsection{Enron selected-case follow-up}
 \label{sec:enron-open-save-followup}
