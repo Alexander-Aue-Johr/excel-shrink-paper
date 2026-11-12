@@ -79,10 +79,10 @@ known visible changes to values, styles, geometry, conditional dependencies and
 objects. Changes normalized away by Excel are reported separately.
 
 \subsection{Performance and comparison subjects}
-We compared direct open--save trials with fresh six-worker SheetShrink cleanup
-followed by the same library. Across the two displayed laptop workbooks, all 33 SheetShrink
-trials completed under a 4\,GiB commit limit, compared with 21 original trials.
-Median elapsed time improved in all seven fully completed pairs. Migration
+We compared direct open--save with fresh six-worker SheetShrink cleanup followed
+by the same library's open--save. Across two laptop workbooks, all 33
+cleanup-assisted trials completed under a 4\,GiB commit limit, compared with 21
+direct trials. Median time improved in all seven fully completed pairs. Migration
 with openpyxl took 111.3\,s directly and 9.7\,s including cleanup.
 
 \input{sections/open-save-case-study}
