@@ -66,18 +66,17 @@ original cell records. These findings informed regression fixtures and native
 Excel controls that complement the screening results~\cite{enrondefaultcontrols}.
 
 \subsection{Sampling and reference controls}
-The random evaluation sample is selected from a frozen eligible frame with a
-recorded seed before inspecting visual findings. Strata use corpus identity,
-package size and structural features available before validation. Low-reduction
-and unchanged files remain represented. A separately labelled development stress
-set contains large and historically problematic workbooks.
+We select the random sample from a frozen eligible population using a recorded
+seed before inspecting visual results. Sampling strata reflect corpus, package
+size and structural features known before validation. Low-reduction and unchanged
+files remain included. A separately labelled development stress set contains large
+and historically problematic workbooks.
 
-Feasible sampled files receive full native reference captures over the relevant
-visual area using a capture plan independent of the candidate selector. A
-full-reference timeout remains in the denominator. It is not replaced silently
-by an easier workbook. Mutations with known visible effects cover cell values,
-styles, geometry, conditional dependencies and objects. Mutations that Excel
-normalizes away are reported separately.
+Where feasible, sampled files receive full native reference captures of the
+relevant visual area, independently of the candidate selector. Timeouts remain in
+the denominator, without substituting easier workbooks. Test mutations introduce
+known visible changes to values, styles, geometry, conditional dependencies and
+objects. Changes normalized away by Excel are reported separately.
 
 \subsection{Performance and comparison subjects}
 We compared direct open--save trials with fresh six-worker SheetShrink cleanup
