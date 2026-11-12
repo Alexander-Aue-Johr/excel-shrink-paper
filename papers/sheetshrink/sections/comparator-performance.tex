@@ -1,33 +1,22 @@
 \subsection{Distributed comparator measurements}
-The native comparison campaigns are distributed across Windows hosts to obtain
-coverage within the available experimental budget. Native opening, cleanup and
-saving can dominate the cost of large spreadsheet collections. Each observation
-therefore retains its host, source identity, configuration and measurement
-boundary. Raw times remain associated with that host. Cross-tool ratios pair the
-same original workbook with a SheetShrink measurement on the same host.
-Host-specific ratios retain differences in workload, tool policy and session
-conditions. Each host and tool remains a separate plotted group.
-The frozen selection contains the 49 workbooks with the largest absolute
-compressed XLSX byte savings under the earlier SheetShrink screening in each
-of Destatis, Enron and Data.gov. The timing and preservation outcomes of this
-extreme-case panel apply to its selected inputs.
+We distribute native tool comparisons across Windows hosts because opening,
+cleanup and saving are costly. Each result records its host, input identity,
+configuration and timing boundary. Cross-tool ratios compare the same original
+workbook with SheetShrink on the same host. Each host/tool combination is plotted
+separately. Workload, tool behavior and session conditions still affect these
+ratios. The frozen selection comprises the 49 workbooks with the largest absolute
+compressed-file savings in each corpus's earlier SheetShrink screening. Results
+apply to these selected cases.
 
-The present NXPowerLite lane uses a Lenovo 81YQ laptop with an AMD Ryzen 5 4500U
-(six physical cores and six logical processors), 8 GiB installed RAM
-(7.37 GiB OS-visible), a 512 GB Samsung MZALQ512HALU NVMe SSD and Windows 11 Home,
-build 26200.
-The recorded Windows power scheme is Energy Star. Other open Excel and validation
-processes are retained in the resource receipts.
+NXPowerLite runs on a Lenovo 81YQ with a Ryzen 5 4500U (six cores and six logical
+processors), 8 GiB installed RAM (7.37 GiB usable), a 512 GB Samsung MZALQ512HALU
+NVMe SSD and Windows 11 Home build 26200. The power scheme is Energy Star.
+Resource records include other open Excel and validation processes.
 
 \paragraph{Comparator configuration}
-NXPowerLite Desktop 11.0.1 x64 uses the custom profile
-\texttt{Cell formatting focused - Top49}. Excess cell-formatting cleanup is
-enabled. In the Excel profile, image resizing, JPEG conversion, cropped-area
-deletion, embedded-object flattening, PNG color-depth reduction and embedded
-chart-data removal are disabled. Lossy image modification conflicts with the
-objective of exact visible preservation and is deliberately excluded from the
-comparison policy.
-Verification of unchanged images requires the output-level audit.
+NXPowerLite Desktop 11.0.1 x64 uses a custom Excel profile with only excess
+cell-formatting cleanup enabled. All other cleanup options are disabled to
+preserve visible content. An output audit checks whether images remain unchanged.
 
 Consequently, every retained output is audited against the original bytes of
 media, drawings, charts and embedded objects. Of 147 attempted workbooks,
