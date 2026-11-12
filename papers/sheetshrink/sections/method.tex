@@ -182,7 +182,7 @@ processing. Unchanged members can reuse their compressed bytes. If every member
 is unchanged, SheetShrink copies the original file byte for byte. A fast identity
 check uses CRC32 and uncompressed size.
 
-The method retains existing style and shared-string indices rather than globally
-renumbering their tables. This avoids unrelated rewrites and permits copy-through
-of unaffected members. It also leaves reductions requiring native save or global
-table compaction outside the cleanup subject.
+SheetShrink preserves existing style and shared-string indices. This avoids
+rewriting unaffected ZIP members, whose compressed bytes can be copied directly.
+Further reduction through global table compaction or saving in Excel is outside
+the cleanup evaluated here.
