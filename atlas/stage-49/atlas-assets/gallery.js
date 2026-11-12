@@ -256,6 +256,7 @@ export class AtlasGallery {
       const layer = new THREE.Mesh(new THREE.PlaneGeometry(image.naturalWidth * scale, image.naturalHeight * scale),
         new THREE.MeshBasicMaterial({ map: texture, transparent: true, opacity: 0 }));
       layer.position.copy(entry.body.position); layer.position.y -= .035 * entry.scale; layer.position.z += .002;
+      layer.userData = { entry };
       entry.group.add(layer);
       entry.layer?.geometry.dispose(); entry.layer?.material.map.dispose(); entry.layer?.material.dispose();
       if (entry.layer) entry.group.remove(entry.layer);
