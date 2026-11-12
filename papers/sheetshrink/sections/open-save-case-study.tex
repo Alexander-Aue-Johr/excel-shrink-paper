@@ -8,19 +8,19 @@ Full per-trial member inventories are unavailable for timed fresh outputs.
 \noindent\textcolor{red}{\textbf{Visual validation incomplete.}
 Complete native visual comparisons remain pending for the case-study variants.}
 
-Figure~\ref{fig:case-study-resources} reports selected open--save endpoints
-through library opening-plus-saving time and library-process working-set peaks. The artifact separately retains pipeline working sets and job-commit
-peaks. Each plotted time is a median of completed attempts,
-with memory maxima over all three attempts. Stopped attempts retain their
-elapsed time and memory boundary. Cleanup time is excluded uniformly from the figure. Fresh SheetShrink outputs
-and prepared external-tool outputs are processed by the same library endpoint.
-Pipeline coordinators are excluded from the plotted process-memory peaks.
-Fresh cleanup-plus-processing totals remain separately available in the artifact. The common host is a Ryzen 5 4500U laptop
-with six logical processors, 8 GiB installed RAM and Windows 11. Each job has a
-4 GiB commit cap and a 900 s timeout, with the free-RAM reserve disabled.
-The SheetShrink executable is frozen at revision \texttt{765c480} and uses six
-Rayon and six writer workers. Native visual observations use the retained
-paired-rebuild protocol.
+Figure~\ref{fig:case-study-resources} reports library open--save time and peak
+working-set memory. Times are medians of completed attempts. Memory peaks are
+maxima across all three attempts. Stopped attempts retain their elapsed time and
+memory boundary. Cleanup time and coordinator memory are excluded. The same
+library processes fresh SheetShrink outputs and prepared external-tool outputs.
+The artifact also retains pipeline working sets, job-commit peaks and fresh
+cleanup-plus-processing totals.
+
+The host is a Ryzen 5 4500U laptop with six logical processors, 8 GiB RAM and
+Windows 11. Each job has a 4 GiB commit limit and 900 s timeout, without a free-RAM
+reserve. SheetShrink revision \texttt{765c480} uses six Rayon and six writer
+workers. Native visual comparisons independently rebuild both workbooks before
+capture.
 
 \input{figures/case-study-payload}
 \input{figures/case-study-resources}
