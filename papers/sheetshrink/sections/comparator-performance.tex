@@ -72,26 +72,24 @@ SheetShrink trials used local NVMe. Median workflow ratios are 19.36, 15.18 and
 12.04 for Destatis, Enron and Data.gov. Different timing boundaries and storage
 conditions limit interpretation.
 
-The HP SheetShrink lane freezes revision \texttt{75e85035}, twelve Rayon and
-twelve writer workers, and one active workbook. One warm-up precedes seven
-measured trials per input, extended to eleven when the relative interquartile
-range exceeds 10\%. All 110 inputs completed: 110 warm-ups and 806 measured
-trials, with identical uncompressed output contents across repetitions for each
-input. Trials used fresh native Windows processes, warm filesystem caches,
-seeded shuffled ordering and a 1,800 s timeout. Hashing and verification are
-outside process-start-to-exit timing. The host retained its institutional power
-scheme and background workload. No comparator Excel process ran concurrently
-with these timed SheetShrink trials.
+On the HP host, SheetShrink uses twelve Rayon and twelve writer workers with one
+active workbook. Each input receives one warm-up and seven measured trials,
+extended to eleven if the relative interquartile range exceeds 10\%. All 110
+inputs completed, totaling 110 warm-ups and 806 measured trials. Uncompressed
+output contents matched across repetitions. Trials use fresh Windows processes,
+warm filesystem caches, seeded shuffled ordering and a 1,800 s timeout. Timing
+spans process start to exit, excluding hashing and verification. The host retains
+its institutional power scheme and background workload. No comparator Excel
+process ran concurrently.
 
 \paragraph{Timing and resources}
-Each NXPowerLite and XLStylesTool observation has one primary timing measurement per input. Its operational cost
-limits replication, and its timing variability therefore remains unestimated.
-Diagnostic retries remain separate attempts. Elapsed time covers automated GUI
-orchestration through output confirmation and initial package verification.
-CPU measurements accumulate attributed process-tree user and kernel time.
-Working-set and private-byte peaks use a nominal 250 ms sampling interval. The existing warm
-application is reused, with one conversion worker and a 512 MiB RAM and commit
-reserve.
+NXPowerLite and XLStylesTool each have one primary timing per input. Their
+execution cost limits repetition, leaving timing variability unestimated.
+Diagnostic retries are counted separately. Timing includes GUI automation, output
+confirmation and initial package verification. CPU measurements sum process-tree
+user and kernel time. Working-set and private-byte peaks are sampled at nominal
+250 ms intervals. Each tool reuses its running application with one conversion
+worker and a 512 MiB RAM and commit reserve.
 
 The Lenovo SheetShrink experiment uses an optimized release build from revision
 \texttt{765c480}, one active workbook, one Rayon worker and one writer, with the
