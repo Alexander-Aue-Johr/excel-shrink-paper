@@ -37,25 +37,23 @@ The joint figure uses the 110 inputs shared by both tools, comprising 21 Destati
 Table~\ref{tab:top49-resources} reports NXPowerLite resources for all 133 audited
 outputs.
 
-Check Performance uses Excel 16.0.20527.20150 on the Lenovo host, with one
-owned private-desktop Excel worker per input. Among the same 110 originals,
-102 primary workflows completed (86 confirmed Optimize All actions and sixteen
-no-optimization-needed outcomes), one was partial and seven failed, including
-one timeout. Complete outcomes comprise 21 Destatis, 36 Enron and 45 Data.gov
-inputs. The partial attempt saved an output before a progress-record replacement
-failed; its successful diagnostic retry remains separate from primary statistics.
-All original hashes matched before and after processing.
+Check Performance uses Excel 16.0.20527.20150 on the Lenovo host, with a dedicated
+Excel worker on a private desktop for each input. Of the same 110 originals, 102
+primary runs completed, one partially completed and seven failed, including one
+timeout. Completed runs comprise 86 Optimize All actions and sixteen cases
+requiring no optimization, covering 21 Destatis, 36 Enron and 45 Data.gov inputs.
+The partial run saved its output before failing to update progress. Its successful
+retry is counted separately. All original hashes remained unchanged.
 
-Check Performance wall time covers native-wrapper startup through exit,
-including control saves, optimization, artifact creation and shutdown. Input
-staging and independent hashing are excluded. Optimization and its associated
-saves share one phase; their individual times are unavailable. Excel-only CPU
-was retained through exit for all complete primaries, with working set and
-private bytes sampled at a median mean interval of 251 ms. All 990 reused Lenovo
-SheetShrink measurements list a concurrent Check Performance runner process;
-these snapshots do not establish whether it was active. The median descriptive
-workflow ratios are 20.19, 22.75 and 4.84 for Destatis, Enron and Data.gov.
-Background-load uncertainty and different endpoints qualify these ratios.
+Check Performance timing spans wrapper startup to exit, including control saves,
+optimization, artifact creation and shutdown. Input staging and independent
+hashing are excluded. Optimization and saving were timed together. Complete
+primary runs retain Excel CPU time through exit. Working set and private bytes
+were sampled at a median mean interval of 251 ms. All 990 reused Lenovo
+SheetShrink measurements list a concurrent Check Performance runner, whose
+activity is unknown. Median workflow ratios are 20.19, 22.75 and 4.84 for Destatis,
+Enron and Data.gov. Background-load uncertainty and different timing boundaries
+limit interpretation.
 
 The Inquire lane uses an HP EliteBook 645 G11 with an AMD Ryzen 5 PRO 7535U
 (six physical cores, twelve logical processors), 32 GiB installed RAM,
