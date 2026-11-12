@@ -18,28 +18,24 @@ NXPowerLite Desktop 11.0.1 x64 uses a custom Excel profile with only excess
 cell-formatting cleanup enabled. All other cleanup options are disabled to
 preserve visible content. An output audit checks whether images remain unchanged.
 
-Consequently, every retained output is audited against the original bytes of
-media, drawings, charts and embedded objects. Of 147 attempted workbooks,
-129 produced reduced packages and ten explicitly remained unchanged. Eight
-Enron inputs reported an internal NXPowerLite error on both the primary attempt
-and a diagnostic repeat after restarting the application. Five outputs recompressed
-PNG images with identical decoded RGBA pixels and image dimensions. A sixth
-changed an embedded Word document. These six outputs are retained separately
-and excluded from the formatting-focused timing figure. The remaining 133
-outputs passed the protected-part audit. Native worksheet equivalence requires
+We compare media, drawings, charts and embedded objects byte-for-byte against the
+originals. Of 147 workbooks, 129 became smaller and ten remained unchanged. Eight
+Enron inputs failed with an internal NXPowerLite error, including after restarting
+and retrying. Five outputs recompressed PNGs without changing decoded RGBA pixels
+or dimensions. Another changed an embedded Word document. These six outputs are
+retained separately and excluded from the formatting-focused timing figure. The
+remaining 133 outputs passed the audit. Worksheet appearance still requires
 separate visual validation.
 
-XLStylesTool UWP 3.0.1.0 supplies an additional same-host comparison with forced
-style normalization, name unhiding and wholesale external-name removal disabled.
-The earlier conversion queue retains 122 hash-matched inputs with a confirmed
-primary conversion event and its complete per-attempt resource receipt.
-The other 25 Top49 inputs lack that complete timing evidence and remain outside
-the timing figure. All 122 included outputs preserve the audited media and object
-parts byte-for-byte. The joint figure uses the intersection of 110 original
-workbooks, comprising 21 Destatis, 41 Enron and 48 Data.gov inputs. Both tools
-therefore use the same original files and repeated SheetShrink baselines within
-each plotted corpus group. Table~\ref{tab:top49-resources} retains the full 133-input
-NXPowerLite resource lane.
+XLStylesTool UWP 3.0.1.0 runs on the same host, with forced style normalization,
+name unhiding and wholesale external-name removal disabled. We retain 122
+hash-matched inputs with confirmed primary conversions and complete timing and
+resource records. The other 25 inputs lack complete timing evidence and are
+excluded. All 122 outputs preserve audited media and object parts byte-for-byte.
+The joint figure uses the 110 inputs shared by both tools, comprising 21 Destatis,
+41 Enron and 48 Data.gov workbooks, with the same repeated SheetShrink baselines.
+Table~\ref{tab:top49-resources} reports NXPowerLite resources for all 133 audited
+outputs.
 
 Check Performance uses Excel 16.0.20527.20150 on the Lenovo host, with one
 owned private-desktop Excel worker per input. Among the same 110 originals,
