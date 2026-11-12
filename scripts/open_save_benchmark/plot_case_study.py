@@ -103,7 +103,7 @@ def draw_resources(resources):
               ("enron", "openpyxl", "Enron · openpyxl"),
               ("wanderungen", "excel", "Wanderungen · Excel"),
               ("qt-rr", "excel", "Data.gov QT/RR · Excel")]
-    figure, grid = plt.subplots(5, 1, figsize=(3.5, 5.0), sharex=True, sharey=True)
+    figure, grid = plt.subplots(5, 1, figsize=(3.5, 7.85), sharex=True, sharey=True)
     axes = grid.flatten()
     for axis, (case_id, library, title) in zip(axes, panels):
         stopped = []
@@ -146,9 +146,9 @@ def draw_resources(resources):
                for t in ["Original"] + TOOLS]
     figure.legend(handles=handles, loc="lower center", bbox_to_anchor=(0.55, 0),
                   ncol=3, frameon=False, fontsize=5.5, columnspacing=0.8, handletextpad=0.4)
-    figure.supxlabel("Peak library-process working set (GiB)", fontsize=6.5, y=0.09)
+    figure.supxlabel("Peak library-process working set (GiB)", fontsize=6.5, y=0.055)
     figure.supylabel("Library opening + saving time (s)", fontsize=7, x=0.02)
-    figure.subplots_adjust(left=0.18, right=0.98, bottom=0.18, top=0.96, hspace=0.45)
+    figure.subplots_adjust(left=0.18, right=0.98, bottom=0.11, top=0.97, hspace=0.35)
     save_figure(figure, "case-study-resources")
 
 

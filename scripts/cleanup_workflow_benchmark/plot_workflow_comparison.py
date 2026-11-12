@@ -216,7 +216,7 @@ def draw_single_column(rows, output, a4_landscape=False, two_column=False):
                                 ["#D55E00", "#009E73", "#E69F00", "#CC79A7"])))
     plt.rcParams.update({"font.family": "DejaVu Sans", "font.size": 7,
                          "pdf.fonttype": 42, "svg.fonttype": "none"})
-    page_size = (3.5, 10 / 2.54)
+    page_size = (3.5, 16 / 2.54)
     if two_column:
         page_size = (7.16, 3.6)
     if a4_landscape:
