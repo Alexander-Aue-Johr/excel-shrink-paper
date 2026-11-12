@@ -99,15 +99,14 @@ Figure~\ref{fig:row-style-promotion} illustrates the full-width
 case~\cite{rowpromotionfix}.
 \input{figures/xml-methods/row-style-promotion}
 
-The dominant empty-cell style occurs at least twice. Selection counts unsuitable
-styles too, then applies eligibility checks. Otherwise an eligible minority
-could incorrectly replace an unsuitable majority. Ties choose the smaller
-existing style index. Dense promotion requires at least 1,024 occurrences.
-A bounded-gap route admits at most 64 missing columns and restores required
-original formats only under its inheritance checks. Sparse promotion requires
-equivalent inheritance at every absent position and excludes merged sparse rows.
-Uniform-fill promotion additionally checks content-cell fills. Unknown metadata
-or style identities prevent promotion and retain the ordinary cleanup path.
+The most frequent empty-cell style must occur at least twice. SheetShrink counts
+all styles before checking eligibility, preventing an eligible minority from
+replacing an ineligible majority. Ties favor the smaller existing style index.
+Dense promotion requires at least 1,024 occurrences. The bounded-gap route allows
+up to 64 missing columns and restores required original formats after inheritance
+checks. Sparse promotion requires equivalent inheritance at every gap and excludes
+merged rows. Uniform-fill promotion also checks fills on content cells. Unknown
+metadata or style identities block promotion.
 
 Pruning removes formatting-only records beyond the last required content or
 layout anchor. Font-only blanks beyond this boundary have no later content to
@@ -127,14 +126,13 @@ band. Source cells contribute before style cleanup. The common zero path compare
 value bytes directly, while one admitted row span replaces per-cell entries in
 the later reference map. Temporary row-local candidates still exist.
 
-The motivating migration workbook contains 21 such zero tails in
-\texttt{Tabelle 3.4}: rows 11--30 and 32, from L through XFD. Each contains
-16,373 zeros, totaling 343,833. Source ZIP inspection confirms these counts and
-retains the source hash. The historical cleanup investigation records 376,573
-removed zeros across two worksheets, alongside 243 preserved nonzero values and
-a retained short 237-zero tail~\cite{hiddentailcase}. These are content removals under an
-explicit structural policy. A deliberate constant full-width matrix can meet
-the same heuristic, so repetition alone does not establish user intent.
+In Wanderungen, \texttt{Tabelle 3.4} contains 21 zero tails in rows 11--30 and 32,
+from L through XFD. Each contains 16,373 zeros, totaling 343,833. ZIP inspection
+confirms the counts and records the source hash. The cleanup investigation
+documented 376,573 removed zeros across two worksheets, 243 preserved nonzero
+values and a retained 237-zero tail~\cite{hiddentailcase}. This structural rule can
+also match a deliberate full-width constant matrix. Repetition alone cannot
+establish user intent.
 
 \subsection{Workbook dependencies and deferred rewriting}
 SheetShrink postpones reference-sensitive deletions until it has checked supported
@@ -145,13 +143,12 @@ and preserve absolute axes. The implementation protects enclosing referenced
 ranges without enumerating each shared-formula follower's references. Dynamic
 or unresolved references and unsupported expressions block deletion~\cite{sheetshrinkcurrentcontract}.
 
-A known reference intersecting an admitted hidden span protects the entire span.
-Only admitted candidates reach rewriting. Removing a payload need not remove its
-format if that format still masks an inherited effect. After deferred changes,
-affected rows lose their stale tail anchors and pass through cleanup again.
-Otherwise records retained solely because of the removed anchor would survive
-incorrectly. Whitespace removal is disabled in Default because whitespace can
-control text overflow and row layout.
+A reference overlapping a candidate hidden span protects the entire span.
+Rewriting removes only candidates that pass all checks. A removed value's format
+remains if needed to suppress inherited formatting. Affected rows are cleaned
+again after obsolete tail anchors are removed, allowing records kept solely for
+those anchors to disappear. Default preserves whitespace because it can control
+text overflow and row layout.
 
 Package metadata has separate predicates. Calculation-chain cleanup resolves
 removed cells by sheet identity and preserves unresolved mappings. The cleaner
