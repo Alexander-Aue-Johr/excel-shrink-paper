@@ -48,6 +48,9 @@ export function assetUrl(relative) {
   if (url.origin !== atlasRoot.origin || !url.pathname.startsWith(atlasRoot.pathname)) {
     throw new Error('Atlas asset escapes the report directory.');
   }
+  if (relative.startsWith('atlas-thumbnails/')) {
+    return globalThis.atlasPresentationImage?.(url.href, atlasRoot) ?? url.href;
+  }
   return url.href;
 }
 
@@ -144,7 +147,7 @@ export function loadImage(url) {
       image.onload = () => image.naturalWidth * image.naturalHeight <= 32_000_000
         ? resolve(image) : reject(new Error('Capture exceeds the 32 megapixel inspection limit.'));
       image.onerror = () => reject(new Error('Retained capture could not be loaded.'));
-      image.src = url;
+      image.src = globalThis.atlasPresentationImage?.(url, atlasRoot) ?? url;
     }).catch(error => { images.delete(url); throw error; });
     images.set(url, pending);
     if (images.size > 24) images.delete(images.keys().next().value);
