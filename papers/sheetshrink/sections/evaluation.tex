@@ -12,18 +12,17 @@ yielded 34,065 distinct SHA-256-addressed candidates, including legacy Excel fil
 and other OLE objects. The prepared Enron XLSX evaluation population is described
 below.
 
-The native visual stress cohort selects the 49 whole workbooks with the largest
-absolute compressed-file byte reduction in each corpus, totaling 147 original
-identities. All processor baselines use those same identities. Preparation,
-cleanup and visual-comparison outcomes are counted separately.
+For native visual stress tests, we select the 49 workbooks with the largest
+absolute compressed-file reduction from each corpus, totaling 147 original
+identities. Every processor baseline uses these identities. Preparation, cleanup
+and visual comparison have separate outcome counts.
 
-The frozen XLSX inventories contain 9,117 Data.gov members totaling 25.273 GB
-and 1,182 Destatis members totaling 2.364 GB (compressed file bytes, decimal GB);
-each archive member has a SHA-256 identity. Reported
-outcomes distinguish completed comparisons, differences, failures, unsupported
-representations and unfinished work, with retries counted separately. Exact
-package identity can bypass visual comparison; failed captures provide no
-equality observation.
+The frozen XLSX inventories contain 9,117 Data.gov members totaling 25.273 GB and
+1,182 Destatis members totaling 2.364 GB, measured as compressed file bytes in
+decimal GB. Each member has a SHA-256 identity. Outcomes distinguish completed
+comparisons, differences, failures, unsupported formats and unfinished work.
+Retries are counted separately. Identical packages can bypass visual comparison.
+Failed captures cannot establish equality.
 
 \subsection{Cleanup screening outcomes}
 Fresh release-build runs produced 1,182 Destatis, 8,623 Data.gov, and 30,301
@@ -61,11 +60,10 @@ cleanup, only two produced smaller compressed packages, by 6.415\% and 0.047\%
 relative to the normalized baseline. Cell-record removal in other outputs did
 not reduce package size~\cite{prefixeddataexperiment}.
 
-Corpus-driven development exposed both recognition and preservation defects.
-Earlier Enron controls
-isolated deleted center-across-selection spans and fill masks by restoring only
-the affected original cell records. These findings motivate retained fixtures
-and native controls alongside the screening counts~\cite{enrondefaultcontrols}.
+Corpus testing exposed parsing and preservation defects. Enron controls identified
+missing center-across-selection spans and fill masks by restoring the affected
+original cell records. These findings informed regression fixtures and native
+Excel controls that complement the screening results~\cite{enrondefaultcontrols}.
 
 \subsection{Sampling and reference controls}
 The random evaluation sample is selected from a frozen eligible frame with a
