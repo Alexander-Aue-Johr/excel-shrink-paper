@@ -92,24 +92,28 @@ with openpyxl took 111.3\,s directly and 9.7\,s including cleanup.
 
 \subsection{Native validation of preservation rules}
 \paragraph{Row-height preservation.}
-In the Traffic workbook, promoting repeated empty-cell formatting into a row style
-changed an automatically determined height from 12.75 to 9 points, shifting
-subsequent content and changing 3,408 pixels in an independently specified reference
-region. Requiring an explicit custom height before promotion restored byte-identical
-native captures~\cite{rowpromotionfix}.
+In the Traffic workbook, replacing repeated empty-cell styles with a row style
+reduced Excel's automatically calculated row height from 12.75 to 9 points. This
+shifted the content below the row and changed 3,408 pixels in a reference region
+specified independently of the capture selector. We therefore require an explicit
+custom row height before applying this transformation. With this requirement,
+the native captures were byte-identical~\cite{rowpromotionfix}.
 
 \paragraph{Font representatives.}
-Two Destatis cases validate complementary font-preservation conditions. In a
-higher-education workbook, removing 87 blank cells carrying explicit default-font and
-no-fill metadata changed 25,640 pixels despite equal capture geometry and a
-pixel-identical original-versus-original control. Retaining the required
-representatives restored equality in an independently specified reference region.
-Legacy print-name aliases were normalized for opening and recorded separately. In a
-cultural-finance workbook, a blank cell's non-default font affected automatic row
-height despite an omitted \texttt{applyFont} flag; a stored height without
-\texttt{customHeight} did not prevent the change from 15 to 12.75 points. Retaining
-the representative restored pixel and geometry equality in the independent control
-and all 350 regions selected by the targeted capture policy.
+Two Destatis workbooks show why blank cells may need to retain font information.
+In a higher-education workbook, deleting 87 blank cells with explicit default-font
+and no-fill settings changed 25,640 pixels. The capture geometry was unchanged,
+and comparing the original with itself produced identical pixels. Keeping the
+required font representatives restored equality in an independently specified
+reference region. Legacy print-name aliases were normalized to open the workbook,
+with this preparation recorded separately.
+
+In a cultural-finance workbook, a blank cell's non-default font affected automatic
+row height even without an \texttt{applyFont} flag. A stored height without
+\texttt{customHeight} still allowed Excel to change the height from 15 to 12.75
+points. Keeping the representative restored matching pixels and geometry in both
+the independent reference region and all 350 regions selected by the targeted
+capture policy.
 
 \paragraph{Background definitions.}
 In a Destatis horticulture workbook, SheetShrink reduced column definitions from
