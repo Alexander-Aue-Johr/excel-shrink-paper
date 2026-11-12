@@ -1,24 +1,22 @@
 \subsection{Larger-memory-host follow-up}
-The four displayed workbook/library combinations that reached the laptop's 4\,GiB
-commit ceiling were repeated on an AMD Ryzen 7 7800X3D host with sixteen
-logical processors and 102,066,212,864 OS-reported physical bytes. Each
-combination has three Original and three fresh SheetShrink pipeline attempts
-at both 4\,GiB and 24\,GiB aggregate process-tree commit limits, totaling 48 displayed
-attempts. The same frozen SheetShrink binary uses sixteen Rayon and sixteen
-writer workers with one active workbook. The controller maintains an 8\,GiB
-reserve for physical RAM and commit headroom, with a 900-second per-trial
-timeout. Python 3.12.14, openpyxl 3.1.5, pandas 3.0.1, R 4.6.2, readxl 1.6.0
-and writexl 2.0.1 identify the tested software lane~\cite{openmemoryfollowup}.
+We repeated the four workbook/library combinations that reached the laptop's
+4\,GiB commit limit on an AMD Ryzen 7 7800X3D with sixteen logical processors and
+95.1\,GiB of usable RAM. Each combination received three Original and three fresh
+SheetShrink trials at both 4\,GiB and 24\,GiB process-tree commit limits, totaling
+48 trials. The same SheetShrink binary uses sixteen Rayon and sixteen writer
+workers, with one active workbook. Trials reserve 8\,GiB of physical RAM and
+commit headroom and time out after 900 seconds. Software versions are Python
+3.12.14, openpyxl 3.1.5, pandas 3.0.1, R 4.6.2, readxl 1.6.0 and
+writexl 2.0.1~\cite{openmemoryfollowup}.
 
-At 4\,GiB, all twelve Original attempts reached the memory limit, while
-all twelve fresh-cleanup pipelines completed. At 24\,GiB, the six Original
-attempts for Migration/readxl and QT/RR/openpyxl completed.
-Migration's two pandas endpoints reached the memory limit in all six attempts.
-All twelve fresh-cleanup pipelines completed at that limit. The artifact
-retains all completed and memory-limited endpoints. A memory-stop
-termination time receives no completed-runtime ratio. The completed Migration/readxl
-and QT/RR/openpyxl pipelines were 2.97 and 24.28 times faster, respectively
-(392.149/131.953 s and 279.638/11.519 s for Original/fresh cleanup plus processing).
+At 4\,GiB, all twelve Original trials reached the memory limit, while all twelve
+fresh-cleanup pipelines completed. At 24\,GiB, all six Original trials for
+Migration/readxl and QT/RR/openpyxl completed, while Migration's six pandas trials
+reached the limit. All twelve fresh-cleanup pipelines completed. The artifact
+retains completed and memory-limited results. Trials stopped for memory receive
+no runtime ratio. For Migration/readxl and QT/RR/openpyxl, cleanup plus processing
+was 2.97 and 24.28 times faster, respectively, taking 131.953 versus 392.149 s and
+11.519 versus 279.638 s.
 
 The larger limit distinguishes memory censoring from completed processing cost
 for these selected cases. Native visual comparisons, a separate cleanup
