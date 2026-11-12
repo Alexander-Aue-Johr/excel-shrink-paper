@@ -130,6 +130,21 @@ These case studies validate specific preservation conditions within the recorded
 capture scopes; they do not establish exhaustive workbook or corpus-wide visual
 equivalence.
 
+\subsection{Cell-value verification after full recalculation}
+Across the prepared Enron, Destatis and Data.gov corpora, we checked the
+SheetShrink results for preservation of cell values after Excel's full
+calculation rebuild and subsequent saving. The recorded automated checks were
+complemented by author-run checks of the remaining files on another machine.
+The checks found no additional unexplained cell-value regression. Differences
+associated with volatile or environment-dependent formulas were examined
+separately. One Destatis workbook, Wanderungen, contained intentionally removed
+numeric zeros in hidden trailing regions; this is an explicit exception to
+strict value equality. Opening and rebuild failures remain recorded exceptions.
+These checks assess cell contents after recalculation. Native visual comparison
+was restricted to the smaller Top49 stress selection below because rendering
+and comparing all regions of the complete corpora was prohibitively expensive
+within the evaluation period.
+
 \subsection{Targeted visual outcomes on the Top49 selection}
 A version-matched audit of the 49 workbooks with the largest absolute
 SheetShrink reductions in each corpus retained 42 Destatis, 46 Data.gov,
